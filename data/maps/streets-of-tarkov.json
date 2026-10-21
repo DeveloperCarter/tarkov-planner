@@ -4,7 +4,7 @@
   "mapId": "5714dc692459777137212e12",
   "key": "streets-of-tarkov",
   "gameMode": "regular",
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 40,
   "players": "12-16",
@@ -600,6 +600,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -636,6 +637,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -672,6 +674,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Small Business - Part 1"
    ],
@@ -717,6 +720,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Delicious_Sausage",
    "type": "giveItem,visit",
@@ -784,6 +788,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Big_Game",
    "type": "shoot",
@@ -814,6 +819,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Crooked_Cop",
    "type": "giveItem,shoot",
@@ -855,6 +861,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Forest_Cleaning",
    "type": "shoot",
@@ -888,6 +895,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
    "type": "shoot",
@@ -953,6 +961,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Information_Source",
    "type": "extract",
@@ -981,6 +990,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Spotter"
    ],
@@ -1018,6 +1028,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Information Source"
    ],
@@ -1069,6 +1080,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Following the Bread Crumbs"
    ],
@@ -1154,6 +1166,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Make an Impression"
    ],
@@ -1263,6 +1276,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Corporate_Perks",
    "type": "extract,visit",
@@ -1318,6 +1332,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Shady Contractor"
    ],
@@ -1349,6 +1364,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooter_Born_in_Heaven",
    "type": "shoot",
@@ -1412,6 +1428,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Surveillance",
    "type": "findQuestItem,giveQuestItem",
@@ -1459,6 +1476,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Door",
    "type": "plantItem,visit",
@@ -1524,6 +1542,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Secret_to_Productivity",
    "type": "extract,visit",
@@ -1570,6 +1589,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Counteraction",
    "type": "giveItem,shoot",
@@ -1618,6 +1638,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Insomnia",
    "type": "shoot",
@@ -1649,6 +1670,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Peacekeeping_Mission",
    "type": "shoot",
@@ -1722,6 +1744,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Revision_-_Streets_of_Tarkov",
    "type": "mark",
@@ -1778,6 +1801,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Road_Closed",
    "type": "extract,visit",
@@ -1823,6 +1847,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Secret_Message",
    "type": "shoot",
@@ -1892,6 +1917,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Your_Car_Needs_a_Service",
    "type": "findQuestItem,giveQuestItem",
@@ -1948,6 +1974,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/District_Patrol",
    "type": "shoot",
@@ -2113,6 +2140,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Green_Corridor",
    "type": "extract,visit",
@@ -2158,6 +2186,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
    "type": "shoot",
@@ -2191,6 +2220,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Kings_of_the_Rooftops",
    "type": "shoot",
@@ -2223,6 +2253,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Properties_All_Around",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -2279,6 +2310,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/You've_Got_Mail",
    "type": "findQuestItem,giveQuestItem",
@@ -2316,6 +2348,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Ballet_Lover",
    "type": "extract,visit",
@@ -2362,6 +2395,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Hidden Layer"
    ],
@@ -2409,6 +2443,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Debtor",
    "type": "giveItem,visit",
@@ -2458,6 +2493,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/House_Arrest",
    "type": "giveItem,visit",
@@ -2517,6 +2553,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Pyramid_Scheme",
    "type": "mark,visit",
@@ -2645,6 +2682,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "The Higher They Fly"
    ],
@@ -2730,6 +2768,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Secret_Recipe",
    "type": "findQuestItem,giveQuestItem",
@@ -2779,6 +2818,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Paramedic",
    "type": "extract,findQuestItem,giveQuestItem",
@@ -2826,6 +2866,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Pets_Won't_Need_It",
    "type": "giveItem,visit",
@@ -2918,6 +2959,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Pets Won't Need It"
    ],
@@ -2974,6 +3016,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Butcher",
    "type": "plantQuestItem",
@@ -3003,6 +3046,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Urban_Medicine",
    "type": "findQuestItem,giveQuestItem,shoot,visit",
@@ -3062,6 +3106,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 5,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Population_Census",
    "type": "findQuestItem,giveQuestItem",
@@ -3099,6 +3144,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 6,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Glory_to_CPSU",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -3154,6 +3200,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 7,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Beyond_the_Red_Meat",
    "type": "findQuestItem,giveQuestItem",
@@ -3201,6 +3248,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Cease_Fire!",
    "type": "extract",
@@ -3229,6 +3277,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Unprotected but Dangerous"
    ],
@@ -3264,6 +3313,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Thrifty"
    ],
@@ -3300,6 +3350,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": false,
    "requires": [
     "Easy Money - Part 2 [PVP ZONE]"
    ],
@@ -3351,6 +3402,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": true,
    "requires": [
     "Create a Distraction - Part 1 [PVP ZONE]"
    ],
@@ -3389,6 +3441,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [
     "Broadcast - Part 1"
    ],
@@ -3427,6 +3480,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Watching_You",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -3483,6 +3537,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Audit",
    "type": "findQuestItem,giveQuestItem",
@@ -3520,6 +3575,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Dandies",
    "type": "plantItem,shoot",
@@ -3586,6 +3642,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [
     "Proper Comeback"
    ],
@@ -3625,6 +3682,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 15,
+   "onMap": true,
    "requires": [
     "Supply Plans"
    ],
@@ -3655,6 +3713,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": true,
    "requires": [
     "Broadcast - Part 2"
    ],
@@ -3693,6 +3752,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": true,
    "requires": [
     "Broadcast - Part 3"
    ],
@@ -3741,6 +3801,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": false,
    "requires": [
     "Broadcast - Part 4"
    ],
@@ -3799,6 +3860,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Cold Blooded"
    ],
@@ -3834,6 +3896,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": false,
    "requires": [
     "The Tarkov Shooter - Part 4"
    ],
@@ -3899,6 +3962,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": true,
    "requires": [
     "You've Got Mail"
    ],
@@ -3937,6 +4001,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
    "type": "plantItem",
@@ -4002,6 +4067,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_1)",
    "type": "giveItem,shoot",
@@ -4098,6 +4164,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 27,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Audiophile",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -4154,6 +4221,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 27,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Know_Your_Place!",
    "type": "extract,shoot",
@@ -4193,6 +4261,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 32,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
    "type": "extract,shoot",
@@ -4231,6 +4300,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 33,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Slaughterhouse",
    "type": "shoot",
@@ -4320,6 +4390,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 33,
+   "onMap": true,
    "requires": [
     "House Arrest"
    ],
@@ -4377,6 +4448,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 35,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_3)",
    "type": "extract,giveItem,shoot",
@@ -4500,6 +4572,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": true,
    "requires": [
     "The Punisher - Part 6"
    ],
@@ -4603,6 +4676,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": true,
    "requires": [
     "Gendarmerie - Mall Cop"
    ],
@@ -4692,6 +4766,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 4"
    ],
@@ -4870,6 +4945,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 5"
    ],
@@ -4939,6 +5015,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 37,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Beneath_The_Streets",
    "type": "extract,visit",
@@ -4973,6 +5050,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 40,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_4)",
    "type": "extract,giveItem,shoot",
@@ -5096,6 +5174,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 42,
+   "onMap": false,
    "requires": [
     "Special Offer"
    ],

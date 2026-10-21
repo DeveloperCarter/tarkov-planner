@@ -134,6 +134,31 @@ test("scope switching and JSON persistence preserve separate manual histories", 
   assert.deepEqual(S.derive(loaded, second).statuses, {});
 });
 
+test("a confirmed map list only governs quests located on that map", () => {
+  const s = S.empty(), k = scope(s);
+  S.ingest(s, [event("a", "started", 110), event("b", "started", 111)], meta);
+  S.confirmCurrent(s, k, ["a", "b"], [], 120, "Customs"); // an earlier list that covered every quest
+  const r = S.evaluate(s, k, tree, { map: "Customs", listed: new Set(["a"]) });
+  assert.equal(r.quests.a.current, false, "located quest left off the in-game list");
+  assert.equal(r.quests.b.current, true, "multi-map quest keeps its logged start");
+  assert.equal(S.evaluate(s, k, tree, { map: "Customs" }).quests.b.current, false, "without a located set, old behaviour");
+});
+
+test("onboarding from logs replays full history and says whether it reaches the character's start", () => {
+  const s = S.empty(), first = "657315ddab5a49b71f098853";
+  S.ingest(s, [event(first, "completed", 50), event("b", "started", 300)], meta);
+  S.ingest(s, [event("c", "started", 400)], { ...meta, profileId: other, session: "s2" });
+  const found = S.detectedProfiles(s, "regular").profiles;
+  assert.deepEqual(found.map(p => [p.profileId, p.fromStart]), [[other, false], [profile, true]]);
+  const k = S.scopeFromLogs(s, "regular", profile);
+  assert.equal(s.scopes[k].start, 50);
+  assert.match(s.scopes[k].evidence, /first quest/);
+  assert.equal(S.derive(s, k).statuses.b.status, "started");
+  assert.equal(S.derive(s, k).statuses.c, undefined, "another profile never leaks in");
+  assert.match(s.scopes[S.scopeFromLogs(s, "regular", other)].evidence, /logs start after/);
+  assert.throws(() => S.scopeFromLogs(s, "pve", profile), /no quest events/);
+});
+
 test("current membership corrections are specific to the map", () => {
   const s = S.empty(), k = scope(s);
   S.ingest(s, [event("a", "started", 110)], meta);

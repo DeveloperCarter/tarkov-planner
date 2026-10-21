@@ -32,6 +32,10 @@ DATASETS = ["tasks", "maps", "items", "traders", "barters", "crafts", "hideout"]
 TRANSLATED = ["tasks", "maps", "items", "traders", "hideout"]
 # Maps that share another map's layout and quests; skip them as separate outputs.
 SKIP_MAPS = {"night-factory", "ground-zero-21", "ground-zero-tutorial", "the-lab-dark"}
+VARIANT_OF = {"night-factory": "factory", "ground-zero-21": "ground-zero", "ground-zero-tutorial": "ground-zero",
+              "the-lab-dark": "the-lab"}
+# Quests seen in game logs that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
+PLACEHOLDERS = ROOT / "data" / "placeholder-quests.json"
 FRAME_W = 1000
 FRAME_MAX_H = 1400
 
@@ -153,6 +157,8 @@ class Normalizer:
         self.quest_items = raw["tasks"]["questItems"]
         self.tasks = raw["tasks"]["tasks"]
         self.maps = raw["maps"]["maps"]
+        ids = {m["normalizedName"]: m["id"] for m in self.maps.values()}
+        self.base_map = {m["id"]: ids.get(VARIANT_OF.get(m["normalizedName"]), m["id"]) for m in self.maps.values()}
         self.task_names = {tid: self.tr(t["name"]) for tid, t in self.tasks.items()}
         self.site_maps = {}
         for group in raw["siteMaps"]:
@@ -306,6 +312,9 @@ class Normalizer:
             "usecOnly": t.get("factionName") == "USEC",
             "bearOnly": t.get("factionName") == "BEAR",
             "minLevel": t.get("minPlayerLevel", 0),
+            # The task's own location, which the in-game map filter uses. Quests with objectives
+            # on several maps have none and never appear in a single map's in-game list.
+            "onMap": self.base_map.get(t.get("map"), t.get("map")) == map_id,
             "requires": [self.task_names.get(r["task"], r["task"]) for r in t.get("taskRequirements", [])],
             "wiki": t.get("wikiLink"),
             "type": ",".join(sorted({o["type"] for o in out_objs})),
@@ -462,6 +471,20 @@ CURRENCIES = {"5449016a4bdc2d6f028b456f": "RUB", "5696686a4bdc2da3298b456a": "US
 
 # ---------------------------------------------------------------- main
 
+def add_placeholders(tasks: dict, mode: str) -> None:
+    """Name quests from the logs that tarkov.dev doesn't have yet, so tracking can show them."""
+    if not PLACEHOLDERS.exists():
+        return
+    for p in json.loads(PLACEHOLDERS.read_text(encoding="utf-8"))["quests"]:
+        if mode not in p.get("modes", ["regular", "pve"]):
+            continue
+        if p["id"] in tasks:
+            print(f"  placeholder {p['id']} is now in tarkov.dev as {tasks[p['id']]['name']}; remove it", file=sys.stderr)
+            continue
+        tasks[p["id"]] = {"name": p.get("name") or f"New {p['trader']} quest (name pending)", "trader": p["trader"],
+                          "faction": "Any", "placeholder": True, "repeatable": p.get("kind") == "repeatable"}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--mode", default="regular", choices=["regular", "pve"])
@@ -502,6 +525,7 @@ def main() -> None:
     # Every task by BSG ID (the ID the game's logs use), including tasks with no map.
     tasks = {tid: {"name": norm.task_names[tid], "trader": norm.traders.get(t["trader"], t["trader"]),
                    "faction": t.get("factionName", "Any")} for tid, t in norm.tasks.items()}
+    add_placeholders(tasks, args.mode)
     (out.parent / "tasks-index.json").write_text(json.dumps(tasks, ensure_ascii=False), encoding="utf-8")
 
 

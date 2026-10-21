@@ -300,7 +300,7 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
         <div id="legacyReview"></div>
       </details>
       <details><summary>Confirm current quests on this map</summary>
-        <p class="map-note">Paste one quest name per line from your current in-game list. This replaces current membership on this map only. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
+        <p class="map-note">Paste one quest name per line from your current in-game list for this map. This replaces current membership for quests located on this map only; multi-map quests keep their logged status. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
         <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
         <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
         <span id="currentFeedback" role="status"></span>
@@ -317,6 +317,7 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
       </span>
     </div>
     <div class="qgrid" id="qgrid"></div>
+    <div id="otherQuests"></div>
     <p class="map-note" id="questEmpty" hidden>No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list. All lets you review and correct individual statuses.</p>
     <p class="map-note" id="unlockNote" hidden>Possible unlocks are estimates from incomplete progression data. They do not prove a quest is offered in game.</p>
     <p class="map-note">Your checkmarks are saved in this browser only.</p>
@@ -532,6 +533,11 @@ let questStatus = ProgressStore.derive(progressStore, scopeKey);
 const activeScope = () => progressStore.scopes[scopeKey];
 function saveStatus() { try { localStorage.setItem(ProgressStore.STORAGE_KEY, JSON.stringify(progressStore)); } catch (e) {} }
 const bsgId = q => q.bsgId || q.id;
+// Quests located on this map are what the in-game map filter lists. Multi-map quests have
+// objectives here too but no single location. Hand-built plans predate the field.
+const onMap = q => q.onMap !== false;
+const LISTED = new Set(DATA.quests.filter(onMap).map(bsgId));
+const ORDERED = [...DATA.quests.filter(onMap), ...DATA.quests.filter(q => !onMap(q))];
 const questName = id => DATA.taskNames?.[id] || DATA.quests.find(q => bsgId(q) === id)?.name || id;
 let questView = "current";
 let progressResult;
@@ -546,7 +552,7 @@ function renderFocus() {
   document.getElementById("focusList").innerHTML = currentQuests.map(q => {
     const f = RaidFocus.facts(q);
     return `<div class="focus-choice"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}"><b>${esc(q.name)}</b></label>
-      <p class="focus-facts">${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
+      <p class="focus-facts">${onMap(q) ? "" : "Multi-map quest<br>"}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
   }).join("") || `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
@@ -586,7 +592,6 @@ function refreshScope() {
   renderScope(); renderQuests(); renderEvents();
 }
 const fmtDay = ms => new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
-const toLocalInput = ms => new Date(ms - new Date(ms).getTimezoneOffset() * 60000).toISOString().slice(0, 19);
 function renderScope() {
   // Saved scopes first, then profiles found in the logs that have no log-backed scope yet.
   const saved = Object.entries(progressStore.scopes).filter(([, s]) => s.mode === PAGE_MODE);
@@ -598,12 +603,14 @@ function renderScope() {
     (saved.length ? `<optgroup label="Saved">${saved.map(([key, s]) =>
       `<option value="${esc(key)}" ${key === scopeKey ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)} · ${s.mode === "pve" ? "PvE" : "PvP"}</option>`).join("")}</optgroup>` : "") +
     (offers.length ? `<optgroup label="Found in your logs">${offers.map(p =>
-      `<option value="detect:${esc(p.profileId)}">Profile …${esc(p.profileId.slice(-6))} · ${p.events} quest events · ${fmtDay(p.first)} – ${fmtDay(p.last)}</option>`).join("")}</optgroup>` : "");
+      `<option value="detect:${esc(p.profileId)}">Profile …${esc(p.profileId.slice(-6))} · ${p.events} quest events · ${p.fromStart ? "from character start" : "from " + fmtDay(p.first)} – ${fmtDay(p.last)}</option>`).join("")}</optgroup>` : "");
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
   // A scope without a start date ignores the logs. Offer the logged range for its profile.
   const logged = scope && scope.start === null && found.profiles.find(p => p.profileId === scope.profile);
+  const replayed = scope && scope.start !== null && found.profiles.find(p => p.profileId === scope.profile && scope.start <= p.first && scope.end == null);
   document.getElementById("scopeFix").innerHTML = logged
     ? `<p class="map-note">This scope has no start date, so it ignores the ${logged.events} quest events in your logs.</p><button class="btn primary" type="button" id="scopeUseLogs">Include logged quests since ${esc(fmtDay(logged.first))}</button>`
+    : replayed ? `<p class="map-note">${replayed.fromStart ? "Your logs go back to this character's first quest, so Current quests replays its whole history." : `Your logs start ${esc(fmtDay(replayed.first))}, after this character's first quest. Quests accepted before then are missing; add them with Confirm current quests below.`}</p>`
     : (!scope && found.unusable ? `<p class="map-note">${found.unusable} logged events have no profile or game mode, or mix two profiles, so they stay in history only.</p>` : "");
   const evidence = scope ? `${scope.label} · ${scope.mode === "pve" ? "PvE" : "PvP"} · ${scope.profile} · ${scope.start === null ? "Wipe boundary unconfirmed; manual quests only" : "Events since " + new Date(scope.start).toLocaleString() + (scope.end === null ? "" : " until next confirmed wipe " + new Date(scope.end).toLocaleString())} · ${scope.evidence}` : "No scope selected. Older progress is preserved as history and is not current-wipe evidence.";
   setText("scopeEvidence", evidence);
@@ -622,17 +629,11 @@ function renderScope() {
 }
 document.getElementById("progressScope").addEventListener("change", e => {
   if (e.target.value.startsWith("detect:")) {
-    // Pre-fill the form from the logs; the player still confirms the start date.
-    const p = ProgressStore.detectedProfiles(progressStore, PAGE_MODE).profiles.find(x => x.profileId === e.target.value.slice(7));
-    e.target.value = scopeKey;
-    if (!p) return;
-    document.getElementById("scopeDetails").open = true;
-    document.getElementById("scopeProfile").value = p.profileId;
-    if (!document.getElementById("scopeLabel").value) document.getElementById("scopeLabel").value = "Current wipe";
-    document.getElementById("scopeStart").value = toLocalInput(p.first);
-    document.getElementById("scopeSource").value = "First quest event in my logs for this profile";
-    setText("scopeError", `Start is set to your first logged quest event (${fmtDay(p.first)}). If you wiped after that, change it to your wipe date, then choose Use this scope.`);
-    document.getElementById("scopeSubmit").focus();
+    // Choosing a profile found in the logs replays its whole log history. A later wipe or reset
+    // can still be set under Add a profile / wipe.
+    try { scopeKey = ProgressStore.scopeFromLogs(progressStore, PAGE_MODE, e.target.value.slice(7)); }
+    catch (err) { e.target.value = scopeKey; setText("scopeEvidence", err.message); return; }
+    saveStatus(); loadScopedPreferences(); refreshScope();
     return;
   }
   scopeKey = e.target.value; progressStore.active[PAGE_MODE] = scopeKey;
@@ -660,7 +661,8 @@ document.getElementById("confirmCurrent").addEventListener("click", () => {
   const tasks = DATA.quests.filter(q => !DATA.progression[bsgId(q)].faction || DATA.progression[bsgId(q)].faction === "Any" || DATA.progression[bsgId(q)].faction === P.faction);
   const result = ProgressStore.resolveNames(document.getElementById("currentNames").value, tasks);
   if (result.errors.length) { setText("currentFeedback", result.errors.join(" · ")); return; }
-  ProgressStore.confirmCurrent(progressStore, scopeKey, tasks.map(bsgId), result.ids, Date.now(), MAP);
+  // The in-game list only contains quests located here; multi-map quests keep their logged status.
+  ProgressStore.confirmCurrent(progressStore, scopeKey, [...new Set([...tasks.filter(onMap).map(bsgId), ...result.ids])], result.ids, Date.now(), MAP);
   saveStatus(); refreshScope(); setText("currentFeedback", `${result.ids.length} current quests confirmed for ${MAP}.`);
 });
 document.getElementById("legacyPreview").addEventListener("click", () => {
@@ -710,12 +712,14 @@ function lockReason(reason) {
 /* ---------- quests checklist ---------- */
 function objDone(o) { return o.count ? (state[o.id] || 0) >= o.count : !!state[o.id]; }
 function renderQuests() {
-  progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP });
-  currentQuests = DATA.quests.filter(q => progressResult.quests[bsgId(q)].current);
+  progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP, listed: LISTED });
+  currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
   visibleQuests = questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   let total = 0, done = 0, completedCount = 0, lockedCount = 0;
-  document.getElementById("qgrid").innerHTML = DATA.quests.map(q => {
+  const groups = visibleQuests.some(onMap) && visibleQuests.some(q => !onMap(q));
+  let multiHeaded = false;
+  document.getElementById("qgrid").innerHTML = (groups ? `<h3 style="grid-column:1/-1;margin:0">On ${esc(MAP)}</h3>` : "") + ORDERED.map(q => {
     const req = q.objectives.filter(o => !o.optional);
     const progress = progressResult.quests[bsgId(q)];
     const st = progress.status;
@@ -725,9 +729,10 @@ function renderQuests() {
     if (progress.locked && !progress.current) lockedCount++;
     if (!visibleQuests.includes(q)) return "";
     const src = (progress.current ? questStatus.statuses[bsgId(q)] : progressResult.statuses[bsgId(q)])?.source;
-    return `<article class="quest ${qDone ? "done" : ""}">
+    const head = !onMap(q) && !multiHeaded ? (multiHeaded = true, `<div style="grid-column:1/-1"><h3 style="margin:8px 0 4px">Multi-map quests</h3><p class="map-note">These have objectives on ${esc(MAP)} and other maps. The in-game ${esc(MAP)} filter doesn't list them.</p></div>`) : "";
+    return head + `<article class="quest ${qDone ? "done" : ""}">
       <div class="top"><h3>${esc(q.name)}</h3><span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span></div>
-      <div class="who"><span class="pill">${esc(q.trader)}</span>${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
+      <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
         ${q.needs.filter(n => n.kind === "key").map(n => `<span class="chip key">${esc(n.item)}</span>`).join("")}</div>
       ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
       ${st === "started" && !progress.current ? `<p class="map-note">Earlier start; excluded from your confirmed current list.</p>` : ""}
@@ -759,10 +764,22 @@ function renderQuests() {
   document.getElementById("questEmpty").hidden = visibleQuests.length > 0;
   setText("questEmpty", questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
   document.getElementById("unlockNote").hidden = questView !== "possible";
+  renderOtherQuests();
   renderRaids();
   setRoute(currentRoute);
   renderGear();
   renderSummary();
+}
+// Quests the logs can't place on a map: new quests tarkov.dev doesn't list yet, and BTR Driver
+// quests, which are accepted in raid and leave no start in the logs.
+function renderOtherQuests() {
+  const show = activeScope() && (questView === "current" || questView === "all");
+  const pending = Object.entries(DATA.placeholders || {}).filter(([id]) => questStatus.statuses[id]?.status === "started");
+  const btr = DATA.quests.some(q => q.trader === "BTR Driver");
+  document.getElementById("otherQuests").innerHTML = !show ? "" :
+    (pending.length ? `<h3 style="margin:18px 0 4px">Also active, not in tarkov.dev yet</h3><p class="map-note">Your logs show these quests started. tarkov.dev doesn't list them yet, so their names, objectives and maps are unknown, and they may not be on ${esc(MAP)}.</p><ul class="map-note">${pending.map(([id, trader]) =>
+      `<li>${esc(questName(id))} · ${esc(trader)} · accepted ${esc(fmtDay(questStatus.statuses[id].at))}</li>`).join("")}</ul>` : "") +
+    (btr ? `<p class="map-note">BTR Driver quests are accepted in raid and don't show up in the logs. If you've taken one, choose All and set it to Started.</p>` : "");
 }
 document.getElementById("qgrid").addEventListener("change", e => {
   if (e.target.dataset.focus) { changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus); return; }

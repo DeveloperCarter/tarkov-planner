@@ -12,6 +12,22 @@ import refresh_site as refresh
 
 
 class SitePipelineTests(unittest.TestCase):
+    def test_placeholders_name_unlisted_quests_and_never_override_tarkov_dev(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'placeholder-quests.json'
+            path.write_text(json.dumps({'quests': [
+                {'id': 'new', 'trader': 'Therapist', 'name': None, 'kind': 'quest'},
+                {'id': 'daily', 'trader': 'Various', 'name': 'Daily or weekly task', 'kind': 'repeatable'},
+                {'id': 'known', 'trader': 'Prapor', 'name': 'Stale name'},
+                {'id': 'pvp-only', 'trader': 'Ref', 'modes': ['regular']}]}))
+            tasks = {'known': {'name': 'Debut', 'trader': 'Prapor', 'faction': 'Any'}}
+            with patch.object(etl, 'PLACEHOLDERS', path):
+                etl.add_placeholders(tasks, 'pve')
+            self.assertEqual(tasks['known']['name'], 'Debut')
+            self.assertEqual(tasks['new']['name'], 'New Therapist quest (name pending)')
+            self.assertTrue(tasks['new']['placeholder'] and tasks['daily']['repeatable'])
+            self.assertNotIn('pvp-only', tasks)
+
     def test_partial_refresh_cannot_overwrite_last_complete_snapshot(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(etl, 'ROOT', Path(folder)):
             old = Path(folder) / 'snapshot' / 'regular' / '2020-01-01'

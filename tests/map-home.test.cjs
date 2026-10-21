@@ -27,6 +27,13 @@ test('home matches map evaluation including current corrections, inferred histor
   assert.deepEqual(H.summarize(data,store,'regular').map(m=>m.current),[0,1]);
   assert.equal(S.derive(store,key).statuses.b.status,'started','membership is not completion');
 });
+test('cards count located quests as current and multi-map quests separately, ignoring old map lists for the latter', () => {
+  const {store,create} = setup(), key = create('regular');
+  const split = {...data, modes:{regular:{progression:tree, maps:[{name:'Customs',ids:['a','b'],onMap:['a']}]}}};
+  S.setManual(store,key,'a','started',150); S.setManual(store,key,'b','started',150);
+  S.confirmCurrent(store,key,['a','b'],['a'],160,'Customs');
+  assert.deepEqual(H.summarize(split,store,'regular').map(m=>[m.current,m.multiMap]),[[1,1]]);
+});
 test('same IDs in PvP and PvE stay isolated, including wrongly assigned active keys', () => {
   const {store,create} = setup(), regular = create('regular'), pve = create('pve');
   S.ingest(store,[{questId:'a',status:'started',at:110,key:'pvp'}],{profileId:'a'.repeat(24),mode:'regular'});

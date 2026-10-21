@@ -13,10 +13,13 @@
     return group.maps.map(map => {
       const saved = Number(levels[key]);
       const level = Number.isInteger(saved) && saved >= 1 && saved <= 100 ? saved : data.player.level;
+      // Same split as the map page: quests located on this map, then quests spanning several maps.
+      const listed = new Set(map.onMap || map.ids);
       const result = Store.evaluate(store, key, group.progression,
-        { level, faction: data.player.faction, map: map.name });
-      const quests = map.ids.map(id => result.quests[id]).filter(Boolean);
-      return { ...map, current: quests.filter(q => q.current).length,
+        { level, faction: data.player.faction, map: map.name, listed });
+      const quests = map.ids.filter(id => result.quests[id]).map(id => ({ id, ...result.quests[id] }));
+      return { ...map, current: quests.filter(q => q.current && listed.has(q.id)).length,
+        multiMap: quests.filter(q => q.current && !listed.has(q.id)).length,
         possible: quests.filter(q => q.possible).length };
     });
   }

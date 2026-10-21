@@ -4,7 +4,7 @@
   "mapId": "69af492a4819ea4ba10a69c5",
   "key": "icebreaker",
   "gameMode": "regular",
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 50,
   "players": "1-3",
@@ -171,6 +171,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Stick_to_It",
    "type": "shoot",
@@ -205,6 +206,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -241,6 +243,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -277,6 +280,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/A_Wedge_Between_Us",
    "type": "findItem,giveItem,shoot",
@@ -331,6 +335,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
    "type": "shoot",
@@ -396,6 +401,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Oil Change"
    ],
@@ -436,6 +442,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Peaceful Atom"
    ],
@@ -503,6 +510,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
    "type": "shoot",
@@ -536,6 +544,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Oil_Change",
    "type": "findItem,giveItem",
@@ -581,6 +590,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Fresh_Stock",
    "type": "findItem,giveItem",
@@ -632,6 +642,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "War Never Changes"
    ],
@@ -666,6 +677,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/War_Never_Changes",
    "type": "findItem,giveItem",
@@ -711,6 +723,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Unprotected but Dangerous"
    ],
@@ -746,6 +759,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": false,
    "requires": [
     "Easy Money - Part 2 [PVP ZONE]"
    ],
@@ -797,6 +811,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_1)",
    "type": "giveItem,shoot",
@@ -893,6 +908,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 33,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Stray_Dogs",
    "type": "shoot",
@@ -923,6 +939,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 4"
    ],
@@ -1101,6 +1118,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 5"
    ],
@@ -1170,6 +1188,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 42,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
    "type": "giveItem,shoot",
@@ -1222,6 +1241,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 42,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
    "type": "giveItem,shoot",

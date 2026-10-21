@@ -111,6 +111,8 @@ def attach_task_ids(data: dict) -> None:
         return
     index = json.loads(index_path.read_text(encoding="utf-8"))
     data["taskNames"] = {tid: t["name"] for tid, t in index.items()}
+    # Quests from the logs that tarkov.dev doesn't list yet: no map, so the page lists them apart.
+    data["placeholders"] = {tid: t["trader"] for tid, t in index.items() if t.get("placeholder") and not t.get("repeatable")}
     side = data["meta"].get("player", {}).get("faction")
     by_name = {}
     for tid, t in index.items():
@@ -166,6 +168,7 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
             if source['meta']['gameMode'] != mode or source['meta']['snapshot'] != index['snapshot']:
                 raise ValueError(f'{mode}/{row["key"]}: snapshot or mode does not match the index')
             maps.append({"name": row['name'], "key": row['key'], "ids": [q.get('bsgId', q['id']) for q in source['quests']],
+                         "onMap": [q.get('bsgId', q['id']) for q in source['quests'] if q.get('onMap', True)],
                          "href": ('' if mode == 'regular' else 'pve/') + 'maps/' + row['key'] + '.html'})
         data['modes'][mode] = {"snapshot": index['snapshot'], "maps": maps,
                                "progression": json.loads((base / 'progression.json').read_text(encoding='utf-8'))}

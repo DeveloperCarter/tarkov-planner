@@ -4,7 +4,7 @@
   "mapId": "56f40101d2720b2a4d8b45d6",
   "key": "customs",
   "gameMode": "regular",
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 35,
   "players": "10-12",
@@ -612,6 +612,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Shipping Delay - Part 1"
    ],
@@ -666,6 +667,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Stick_to_It",
    "type": "shoot",
@@ -700,6 +702,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -753,6 +756,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Battery Change",
     "Discombobulate"
@@ -806,6 +810,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Small Business - Part 1"
    ],
@@ -851,6 +856,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/All_This_Filth...",
    "type": "shoot",
@@ -884,6 +890,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Work Smarter"
    ],
@@ -944,6 +951,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Angry_Watchman",
    "type": "shoot",
@@ -977,6 +985,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Justice",
    "type": "giveItem,shoot",
@@ -1024,6 +1033,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Trophy",
    "type": "giveItem,shoot",
@@ -1065,6 +1075,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
    "type": "shoot",
@@ -1130,6 +1141,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Work_Smarter",
    "type": "findItem,visit",
@@ -1171,6 +1183,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Information_Source",
    "type": "extract",
@@ -1199,6 +1212,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Farming",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -1255,6 +1269,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Passion_for_Ergonomics",
    "type": "findQuestItem,giveQuestItem",
@@ -1292,6 +1307,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Secrets_of_Polikhim",
    "type": "extract,findQuestItem",
@@ -1329,6 +1345,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooter_Born_in_Heaven",
    "type": "shoot",
@@ -1392,6 +1409,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Courier",
    "type": "plantItem",
@@ -1430,6 +1448,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Chemical_Experiments",
    "type": "plantItem",
@@ -1468,6 +1487,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Peacekeeping_Mission",
    "type": "shoot",
@@ -1541,6 +1561,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Seizing_the_Initiative",
    "type": "extract",
@@ -1568,6 +1589,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Tigr_Safari",
    "type": "mark",
@@ -1608,6 +1630,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Background_Check",
    "type": "findItem,findQuestItem,giveQuestItem",
@@ -1666,6 +1689,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Bad_Rep_Evidence",
    "type": "extract,findItem,findQuestItem,giveQuestItem",
@@ -1731,6 +1755,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Belka_and_Strelka",
    "type": "extract",
@@ -1759,6 +1784,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Capturing_Outposts",
    "type": "shoot",
@@ -1792,6 +1818,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Debut",
    "type": "shoot",
@@ -1825,6 +1852,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Delivery_From_the_Past",
    "type": "findQuestItem",
@@ -1865,6 +1893,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
    "type": "shoot",
@@ -1898,6 +1927,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Oil_Run",
    "type": "mark",
@@ -1939,6 +1969,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Power_of_Persuasion",
    "type": "shoot",
@@ -1982,6 +2013,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shaking_Up_the_Teller",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -2047,6 +2079,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shootout_Picnic",
    "type": "shoot",
@@ -2078,6 +2111,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_1",
    "type": "shoot",
@@ -2129,6 +2163,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Chemical_-_Part_1",
    "type": "findItem,findQuestItem,giveItem,giveQuestItem,visit",
@@ -2207,6 +2242,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Chemical - Part 1"
    ],
@@ -2273,6 +2309,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [
     "Killer Argument",
     "Discombobulate"
@@ -2314,6 +2351,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Golden_Swag",
    "type": "findQuestItem,giveQuestItem,plantItem",
@@ -2387,6 +2425,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Night_Sweep",
    "type": "findItem,giveItem,shoot",
@@ -2443,6 +2482,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Private_Club",
    "type": "findQuestItem,giveQuestItem",
@@ -2480,6 +2520,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Setup",
    "type": "shoot",
@@ -2565,6 +2606,7 @@
    "usecOnly": true,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Supplements",
    "type": "findItem,findQuestItem,giveItem,giveQuestItem",
@@ -2652,6 +2694,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Extortionist",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -2717,6 +2760,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Abandoned_Cargo",
    "type": "mark,visit",
@@ -2822,6 +2866,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Blood_in_the_Water",
    "type": "shoot",
@@ -2855,6 +2900,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [
     "Shipment Tracking"
    ],
@@ -2894,6 +2940,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Operation_Aquarius",
    "type": "giveItem,visit",
@@ -2949,6 +2996,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Pharmacist",
    "type": "findQuestItem,giveQuestItem,visit",
@@ -3014,6 +3062,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shipment_Tracking",
    "type": "findQuestItem,giveQuestItem",
@@ -3061,6 +3110,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 7,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Chumming",
    "type": "plantItem",
@@ -3100,6 +3150,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Every_Hunter_Knows_This",
    "type": "visit",
@@ -3129,6 +3180,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Unprotected but Dangerous"
    ],
@@ -3164,6 +3216,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Thrifty"
    ],
@@ -3200,6 +3253,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": true,
    "requires": [
     "Chemical - Part 4"
    ],
@@ -3249,6 +3303,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": true,
    "requires": [
     "Chemical - Part 3"
    ],
@@ -3298,6 +3353,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "Thirsty - Breadwinner"
    ],
@@ -3347,6 +3403,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": true,
    "requires": [
     "Chemical - Part 4"
    ],
@@ -3396,6 +3453,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": true,
    "requires": [
     "Create a Distraction - Part 1 [PVP ZONE]",
     "Hold the Lead [PVP ZONE]"
@@ -3465,6 +3523,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": true,
    "requires": [
     "Against the Conscience - Part 2 [PVP ZONE]"
    ],
@@ -3513,6 +3572,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": false,
    "requires": [
     "Easy Money - Part 2 [PVP ZONE]"
    ],
@@ -3564,6 +3624,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": false,
    "requires": [
     "Between Two Fires [PVP ZONE]"
    ],
@@ -3613,6 +3674,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": true,
    "requires": [
     "Easy Money - Part 2 [PVP ZONE]"
    ],
@@ -3693,6 +3755,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 10,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Easy_Money_-_Part_1",
    "type": "plantItem",
@@ -3731,6 +3794,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 12,
+   "onMap": true,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Break_the_Deal",
    "type": "plantItem",
@@ -3828,6 +3892,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": false,
    "requires": [
     "Broadcast - Part 4"
    ],
@@ -3860,6 +3925,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Cold Blooded"
    ],
@@ -3895,6 +3961,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 17,
+   "onMap": true,
    "requires": [
     "The Tarkov Shooter - Part 4"
    ],
@@ -3960,6 +4027,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 21,
+   "onMap": false,
    "requires": [
     "Hell on Earth - Part 1"
    ],
@@ -4008,6 +4076,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
    "type": "plantItem",
@@ -4064,6 +4133,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Job_for_a_Patriot",
    "type": "shoot",
@@ -4107,6 +4177,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 25,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_1)",
    "type": "giveItem,shoot",
@@ -4203,6 +4274,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 32,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
    "type": "extract,shoot",
@@ -4241,6 +4313,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 33,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Stray_Dogs",
    "type": "shoot",
@@ -4291,6 +4364,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 35,
+   "onMap": false,
    "requires": [
     "Between Two Fires [PVP ZONE]"
    ],
@@ -4342,6 +4416,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 4"
    ],
@@ -4520,6 +4595,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 36,
+   "onMap": false,
    "requires": [
     "The Punisher - Part 5"
    ],
@@ -4589,6 +4665,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 42,
+   "onMap": false,
    "requires": [
     "Special Offer"
    ],
@@ -4634,6 +4711,7 @@
    "usecOnly": false,
    "bearOnly": true,
    "minLevel": 42,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
    "type": "giveItem,shoot",
@@ -4686,6 +4764,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 45,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Hobby_Club",
    "type": "findItem,findQuestItem,plantItem,plantQuestItem,visit",
@@ -4781,6 +4860,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 46,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Escort",
    "type": "shoot",
@@ -4812,6 +4892,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 55,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Relentless",
    "type": "shoot",

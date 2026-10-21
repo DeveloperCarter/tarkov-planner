@@ -1,0 +1,20 @@
+{
+ "notes": [
+  "Quests seen in EFT game logs that tarkov.dev doesn't list yet (checked against the 2026-10-20 snapshot).",
+  "The logs give only the quest ID, the trader, and start/completion events. Names, objectives and maps are unknown.",
+  "Add a name when you learn it. The ETL adds these to tasks-index.json and says when tarkov.dev has caught up, so the entry can be removed.",
+  "kind 'repeatable' marks daily/weekly templates: they complete repeatedly and are never shown as current quests.",
+  "Never record player-specific details here (profile IDs, dates, progress)."
+ ],
+ "quests": [
+  {"id": "6a7637fed31fb1191903fc07", "trader": "Prapor", "name": null, "kind": "quest"},
+  {"id": "68fa00bda5ef093c440fb0ba", "trader": "Jaeger", "name": null, "kind": "quest"},
+  {"id": "6a91840a740be0cff50e0310", "trader": "Ref", "name": null, "kind": "quest"},
+  {"id": "6ac3bc49f3f4480654003d7a", "trader": "Therapist", "name": null, "kind": "quest"},
+  {"id": "6ac3ca960cee4580a601b28c", "trader": "Therapist", "name": null, "kind": "quest"},
+  {"id": "6ac3d88d14db1a2f3e0787bd", "trader": "Therapist", "name": null, "kind": "quest"},
+  {"id": "61604635c725987e815b1a46", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"},
+  {"id": "616052ea3054fc0e2c24ce6e", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"},
+  {"id": "6180385770bf5a029372b9aa", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"}
+ ]
+}

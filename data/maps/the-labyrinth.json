@@ -4,7 +4,7 @@
   "mapId": "6733700029c367a3d40b02af",
   "key": "the-labyrinth",
   "gameMode": "regular",
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 30,
   "players": "5-5",
@@ -117,6 +117,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 0,
+   "onMap": false,
    "requires": [],
    "wiki": "https://escapefromtarkov.fandom.com/wiki/Work_Smarter",
    "type": "findItem,visit",
@@ -157,6 +158,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 9,
+   "onMap": false,
    "requires": [
     "The Survivalist Path - Thrifty"
    ],
@@ -193,6 +195,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Sensory Analysis - Part 2",
     "Hypotheses Testing",
@@ -265,6 +268,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Offensive Reconnaissance"
    ],
@@ -308,6 +312,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": false,
    "requires": [
     "Hidden Layer"
    ],
@@ -350,6 +355,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Offensive Reconnaissance"
    ],
@@ -413,6 +419,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Offensive Reconnaissance"
    ],
@@ -446,6 +453,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Offensive Reconnaissance"
    ],
@@ -490,6 +498,7 @@
    "usecOnly": false,
    "bearOnly": false,
    "minLevel": 26,
+   "onMap": true,
    "requires": [
     "Offensive Reconnaissance"
    ],

@@ -78,9 +78,11 @@
     }
   }
 
-  function isCurrent(scope, id, status, map = "all") {
+  // A confirmed map list only speaks for quests that list can contain (`listed`, when given):
+  // the in-game map filter never shows quests located elsewhere or on several maps.
+  function isCurrent(scope, id, status, map = "all", listed) {
     if (!scope || status?.status !== "started") return false;
-    const membership = scope.membership[map]?.[id];
+    const membership = listed && !listed.has(id) ? null : scope.membership[map]?.[id];
     return !membership || status.at > membership.at || membership.current;
   }
 
@@ -89,7 +91,7 @@
     const state = derive(store, key);
     const result = Progress.evaluate(progression, state.statuses, options);
     for (const [id, quest] of Object.entries(result.quests)) {
-      quest.current = isCurrent(scope, id, state.statuses[id], options?.map);
+      quest.current = isCurrent(scope, id, state.statuses[id], options?.map, options?.listed);
       if (quest.current) {
         quest.status = "started"; quest.inferred = false; quest.completed = false;
         result.statuses[id] = { ...state.statuses[id] };
@@ -115,6 +117,9 @@
     }
   }
 
+  // A new character's first quest. Its event means the logs reach back to the character's start.
+  const FIRST_QUEST = "657315ddab5a49b71f098853"; // First in Line
+
   // Profiles in the log history for one mode, offered to the player to set up a scope.
   // Sessions without a profile or mode, or with mixed identities, are counted but never offered.
   function detectedProfiles(store, mode) {
@@ -123,8 +128,9 @@
     for (const { event, meta } of Object.values(store.journal)) {
       if (meta.identityConflict || !meta.profileId || !meta.mode) { unusable++; continue; }
       if (meta.mode !== mode || !Number.isFinite(event.at)) continue;
-      const p = found.get(meta.profileId) || { profileId: meta.profileId, mode, events: 0, first: event.at, last: event.at };
+      const p = found.get(meta.profileId) || { profileId: meta.profileId, mode, events: 0, first: event.at, last: event.at, fromStart: false };
       p.events++; p.first = Math.min(p.first, event.at); p.last = Math.max(p.last, event.at);
+      p.fromStart ||= event.questId === FIRST_QUEST;
       found.set(meta.profileId, p);
     }
     return { profiles: [...found.values()].sort((a, b) => b.last - a.last), unusable };
@@ -151,6 +157,15 @@
     return next;
   }
 
+  // One-click onboarding: replay a profile's whole log history. The player chose the profile;
+  // the evidence says whether the logs reach back to the character's start.
+  function scopeFromLogs(store, mode, profileId) {
+    const p = detectedProfiles(store, mode).profiles.find(x => x.profileId === profileId);
+    if (!p) throw new Error("That profile has no quest events in your logs for this mode.");
+    return createScope(store, { profile: p.profileId, mode, start: p.first, label: "Current character",
+      evidence: p.fromStart ? "Full log history from this character's first quest" : "Full log history; logs start after this character's first quest" });
+  }
+
   function historyCounts(store, key, legacy) {
     const scope = windowFor(store, key);
     const rows = Object.values(store.journal);
@@ -170,5 +185,5 @@
     return { ids: [...new Set(ids)], errors };
   }
   return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, confirmCurrent, isCurrent, evaluate,
-    previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary };
+    previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs };
 });

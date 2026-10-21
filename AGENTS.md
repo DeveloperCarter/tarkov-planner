@@ -21,6 +21,7 @@ scripts/check_site.py          inline-script parsing and relative navigation val
 data/pve/                     PvE maps, task index and progression (never reuse PvP gates)
 .github/workflows/pages.yml    daily refresh and GitHub Pages deployment
 data/customs-quests.json       hand-built Customs plan; the reference result for the raid bundler
+data/placeholder-quests.json   hand-kept quests seen in logs that tarkov.dev doesn't list yet (no player data)
 tests/                         node:test files (*.test.cjs) + fixtures
 snapshot/ dist/                generated; never commit (.gitignore)
 ```
@@ -87,6 +88,12 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - Objective `count` can be null.
 - An objective listing several `items` means any one of them works.
 - Some names repeat as faction variants. Key by task ID, never by name.
+- A task's own `map` is what the in-game map filter uses; it's null for quests spanning several
+  maps. Map data keeps every quest with an objective on the map and marks `onMap` from the task
+  map. A player's confirmed map list only governs `onMap` quests. Verified on real logs: grouping
+  this way reproduced the player's 12 Customs quests exactly.
+- Wiki prerequisites are often outdated (progression was loosened in 1.x); real accept order
+  contradicted about a dozen of them. Prefer tarkov.dev requirements and the logged order.
 
 **Coordinates**
 - Map position = game `(x, z)` rotated by `coordinateRotation`. Checked on Customs (180°) only.
@@ -102,6 +109,10 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - The application log line `Session mode: Regular|Pve` gives the mode.
 - `PrepareSelectedProfileLocally ProfileId:<24 hex>` identifies the profile. Retain no account ID.
   Missing identity or mixed profiles/modes stays in history, never guessed into a wipe.
+- A First in Line (`657315ddab5a49b71f098853`) event means the logs reach the character's start,
+  so replaying them gives the full quest history. Completions were reliable in 47 real sessions.
+- BTR Driver quests are accepted in raid and leave no start event. Repeatable (daily/weekly)
+  templates reuse one ID and complete repeatedly; new 1.2.5 quests may be missing from tarkov.dev.
 
 ## Writing style for UI text
 
