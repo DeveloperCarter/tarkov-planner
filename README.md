@@ -2,9 +2,11 @@
 
 Public site: **https://developercarter.github.io/tarkov-planner/**
 The build and deployment passed, and the public HTTPS home and map pages load in Chrome
-without console errors. The owner-approved removal of the retired `carterbrown.dev` CNAME
-restored the default GitHub Pages addresses. M2's final live-folder check awaits selecting
-the real Logs folder on this new origin; localhost progress remains preserved.
+without console errors. The real-folder live check passes: Chrome watches the player's
+PvP session and has scanned 46 sessions / 182 quest events. The owner-approved removal of
+the retired `carterbrown.dev` CNAME restored the default Pages addresses. Localhost progress
+remains preserved. A new browser still needs its own level and current-list confirmation;
+historical starts alone do not establish the exact active list. No phone sync is included.
 
 M2 adds a map home page and separate PvP/PvE planners. Current counts use the chosen
 profile/mode/wipe; possible unlocks are counted separately as estimates. A quest with

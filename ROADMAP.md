@@ -5,9 +5,9 @@ on each map right now, plans the raids, and tells you what to bring and what to 
 
 The order is by return on effort. Each milestone ships something usable on its own.
 M1A is implemented and checked against the supplied 12-quest Customs reference.
-M1B is implemented and validated. M2 is deployed and public HTTPS access is verified.
-The final real-folder live-tracking check awaits the player's Chrome folder selection;
-M2 is not yet accepted as complete.
+M1B is implemented and validated. M2 is deployed and its live HTTPS acceptance check passes.
+The public Chrome tab watches the real Logs folder. Its Customs list has been reconciled
+with the confirmed 12-quest reference, level 24, and a three-quest raid focus.
 M3 remains unstarted.
 
 ## Where things stand (2026-10-20)
@@ -194,7 +194,7 @@ the M1A screenshot-confirmed baseline still has exactly 12 Customs quests, no mi
 The nine additional historical starts remain an accuracy limitation, preserved for review.
 No automatic bundling, ranking, deployment, or M2 work was added.
 
-## M2 · Ship it on https  (public HTTPS verified; live-folder check pending)
+## M2 · Ship it on https  (implemented; live-folder check passed)
 
 Start only after M1A and M1B pass their acceptance checks.
 
@@ -245,10 +245,25 @@ planner's standard HTTPS URL returned HTTP 200 with no redirect to the retired d
 public home and Customs tracker load directly in Chrome with no console warnings/errors.
 HTTP redirects to HTTPS, and the Pages API confirms HTTPS enforcement. The deployed home,
 PvP and PvE pages also pass light/dark at 1440px/400px without console errors or overflow.
-The tracker offers Connect logs folder; a real native folder selection is still required
-before marking the live-folder acceptance check complete. HTTPS has a separate browser store
-from localhost; the existing local scope/corrections remain preserved. No DNS records or
-other personal-site content were changed.
+**Live check passed:** the player's public Chrome tab watches the real session
+`log_2026.10.20_19-42-17_1.2.5.0.48146`, reports PvP and continues polling. Its past-session
+scan reads 46 sessions / 182 quest events. The new origin initially had 21 historical starts,
+level 1 and an empty selection because the earlier localhost correction was not present.
+The same supplied 12-quest Customs reference was explicitly confirmed through the UI;
+level 24 was restored. Chemical Experiments, Tigr Safari and Pharmacist are selected for a
+readable quick test: 3 selected / 12 current, 5 spots, 1 required key. The nine extra starts
+remain history; none was falsely completed or failed. Existing local progress is preserved.
+No DNS records or other personal-site content were changed.
+
+**Usability finding from the player's screenshot:** a connected folder does not reconstruct
+an exact current quest list from incomplete historical logs. Current-list confirmation and
+player level are too easy to miss below the map. The blank schematic with tiny labels and
+all extracts is still difficult to use as a raid map, even after selecting quests. Real
+terrain remains M4 and generated routes remain M3; neither is claimed complete here.
+Phone transfer/sync work was cancelled by the player and is not included.
+After reconciling the live public state, all 64 Node tests and 13 Python tests pass; both
+default builds succeed and all 130 inline scripts / local navigation links pass. The public
+tab has no console warnings/errors and remains connected while changing raid selections.
 
 ## M3 · Raid bundler v1  (M–L, what sets this apart)
 
