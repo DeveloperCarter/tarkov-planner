@@ -276,6 +276,19 @@ mark { background:color-mix(in srgb, var(--signal) 28%, transparent); color:inhe
 .live-chip { font:600 11px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ok); display:inline-flex; align-items:center; gap:6px; }
 .live-chip::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
 @media (prefers-reduced-motion: no-preference) { .live-chip::before { animation:pulse 2.4s ease-in-out infinite; } }
+
+/* Spawn-based objective route */
+.route-planner { display:grid; gap:8px; padding:10px 0; border-block:1px solid var(--line); min-width:0; }
+.route-planner:empty { display:none; }
+.route-planner label { display:grid; gap:5px; font-size:13px; }
+.route-planner select, .spawn-dialog select { width:100%; min-width:0; max-width:100%; background:var(--panel); color:var(--ink); border:1px solid var(--line); padding:8px; }
+.route-planner ol { margin:0; padding-left:22px; display:grid; gap:5px; }
+.route-planner li button { border:0; background:none; color:var(--ink); padding:4px; text-align:left; cursor:pointer; font:inherit; }
+.spawn-dialog { width:min(440px,calc(100vw - 32px)); padding:22px; background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:8px; }
+.spawn-dialog::backdrop { background:rgb(0 0 0 / .55); }
+.spawn-dialog form { display:grid; gap:12px; }
+.objective-route { pointer-events:none; }
+
 /* Raid mode */
 .raid-go { width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 9px; padding:10px 12px; margin:2px 0 4px; letter-spacing:.06em; text-transform:uppercase; }
 .raid-go svg { width:12px; height:12px; fill:currentColor; }
@@ -305,7 +318,7 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .rp-obj input[type=checkbox] { width:22px; height:22px; flex:none; accent-color:var(--ok); margin:0; }
 .rp-obj .done > span, .rp-obj .done .rp-t { text-decoration:line-through; color:var(--muted); }
 .rp-obj .opt { opacity:.8; }
-.rp-obj .rp-c { cursor:default; }
+.rp-obj .rp-c { cursor:pointer; }
 .rp-c .rp-t { flex:1; }
 .rp-c .counter { display:flex; align-items:center; gap:6px; }
 .rp-c .counter button { width:40px; height:40px; border:1px solid var(--line); border-radius:6px; background:var(--panel); color:var(--ink); font:600 20px/1 var(--font-mono); cursor:pointer; }
@@ -537,6 +550,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
+      <div id="routePlanner" class="route-planner"></div>
       <div id="focusSort"></div>
       <div class="focus-list" id="focusList"></div>
     </aside>
@@ -689,6 +703,13 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <div class="rp-body" id="rpBody"></div>
   </aside>
 
+  <dialog class="spawn-dialog" id="spawnDialog" aria-labelledby="spawnTitle">
+    <form method="dialog"><h2 id="spawnTitle">Where did you spawn?</h2>
+      <p>The log has no usable spawn position. Choose an area to plan the route.</p>
+      <label for="spawnChoice">Spawn area</label><select id="spawnChoice" required></select>
+      <div class="actions"><button class="btn" value="choose">Use this area</button><button class="btn" value="later" formnovalidate>Not now</button></div>
+    </form>
+  </dialog>
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
   <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
     <div class="qd" id="qdBody"></div>
@@ -705,9 +726,12 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__PROGRESS__*/</script>
 <script>/*__STORE__*/</script>
 <script>/*__FOCUS__*/</script>
+<script>/*__ROUTE__*/</script>
+<script>/*__SESSION__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
 let STORE_KEY = "", state = {};
+let routeSession = RaidSession.empty(), objectiveRoute = null, spawnWait = null;
 const RAID_COLORS = { A: "var(--olive)", B: "var(--steel)", C: "var(--signal)" };
 
 function save() { if (STORE_KEY) try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
@@ -829,16 +853,22 @@ function renderMap(active = currentRoute) {
     if (popEx === e.id && e.switch?.x != null) s += `<g class="pin sw" transform="translate(${e.switch.x} ${e.switch.y})"><g class="glyph"><path d="M0-8 8 0 0 8-8 0Z"/><text x="11" y="4">${esc(e.switch.name || "Switch")}</text></g></g>`;
   }
   // Hand-built plans: the planned routes, each stop numbered in the raid's colour.
-  for (const r of focus.raids) {
+  for (const r of (objectiveRoute ? [] : focus.raids)) {
     if (!r.stops.length) continue;
     const pts = r.stops.map(st => z[st.zone]).concat([exById[r.extract[0]]]).filter(Boolean);
     const col = RAID_COLORS[r.id], off = r.id === "B" ? -16 : r.id === "C" ? 16 : 0;
     s += `<g class="route" opacity="${active === "all" || active === r.id ? 1 : 0.1}"><polyline points="${pts.map(p => p.x + "," + p.y).join(" ")}" fill="none" stroke="${col}" stroke-width="3" vector-effect="non-scaling-stroke" stroke-dasharray="${r.id === "B" ? "8 5" : r.id === "C" ? "2 5" : "0"}" stroke-linecap="round" stroke-linejoin="round"/>` +
       r.stops.map((st, i) => `<g transform="translate(${z[st.zone].x} ${z[st.zone].y})"><g class="glyph"><circle cx="${off}" cy="16" r="9" fill="${col}"/><text class="stop" x="${off}" y="20">${i + 1}</text></g></g>`).join("") + `</g>`;
   }
+  if (objectiveRoute && routeSession.start) {
+    const start = RaidSession.marker(DATA, routeSession.start), points = [start, ...objectiveRoute.stops].filter(Boolean);
+    s += `<g class="objective-route" aria-label="Objective route"><polyline points="${points.map(p => `${p.x},${p.y}`).join(" ")}" fill="none" stroke="var(--steel)" stroke-width="4" stroke-dasharray="8 4" vector-effect="non-scaling-stroke"/>`;
+    if (start) s += `<g class="glyph" transform="translate(${start.x} ${start.y})"><circle r="8" fill="var(--steel)"/><text x="12" y="4" fill="var(--ink)">Start</text></g>`;
+    s += objectiveRoute.stops.map((p,i) => `<g transform="translate(${p.x} ${p.y})"><g class="glyph"><circle cx="16" cy="12" r="10" fill="var(--steel)"/><text class="stop" x="16" y="16">${i+1}</text></g></g>`).join("") + '</g>';
+  }
   // One pin per spot, in the colour and number of the first selected quest that needs it.
   const at = new Map();
-  pinned.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid]) at.set(zid, [...(at.get(zid) || []), i]); }));
+  pinned.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid] && (!objectiveRoute || objectiveRoute.stops.some(st => st.zone === zid))) at.set(zid, [...(at.get(zid) || []), i]); }));
   for (const [zid, idx] of at) {
     const p = z[zid], col = QUEST_COLORS[idx[0] % QUEST_COLORS.length];
     s += `<g class="pin spot" data-zone="${esc(zid)}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${esc(p.name)}: ${idx.map(i => esc(pinned[i].name)).join(", ")}"><g class="glyph">
@@ -848,7 +878,7 @@ function renderMap(active = currentRoute) {
   document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === active)));
   applyView();
   if (popZone && !at.has(popZone)) closePop(); else positionPop();
-  const key = [...at.keys()].sort().join();
+  const key = [...at.keys()].sort().join() + JSON.stringify(routeSession.start);
   if (key !== lastFitKey) { lastFitKey = key; fit(lastFitKey !== null && svg.dataset.ready === "1"); svg.dataset.ready = "1"; }
 }
 document.getElementById("raidSwitch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) renderMap(b.dataset.r); });
@@ -890,6 +920,7 @@ function setView(v, animate) {
 // Frame the selected spots (pins point up, so leave room above them); the whole map when none.
 function fit(animate, zones, points) {
   const pts = points || (zones || [...svg.querySelectorAll(".pin.spot")].map(g => g.dataset.zone)).map(id => DATA.zones[id]).filter(Boolean);
+  if (!points && !zones && objectiveRoute) { const start = RaidSession.marker(DATA, routeSession.start); if (start) pts.push(start); }
   if (!pts.length) return setView(BASE, animate);
   const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
   const minW = Math.max(BASE.w, BASE.h) / 5, w = Math.max(Math.max(...xs) - Math.min(...xs), minW) * 1.35, h = Math.max(Math.max(...ys) - Math.min(...ys), minW) * 1.35;
@@ -1033,8 +1064,9 @@ document.addEventListener("click", e => {
   if (d) { e.preventDefault(); return openQuest(d.dataset.detail); }
   // Card backgrounds open details; embedded controls retain their normal action.
   const card = e.target.closest("[data-quest-card]");
-  if (!card || e.target.closest("a, button, input, select, textarea, label, summary, [role=button], [contenteditable]")) return;
+  if (!card || e.target.closest("a, button, input, select, textarea, label.include-raid, label.label, summary, [role=button], [contenteditable]")) return;
   if (window.getSelection()?.toString()) return;
+  e.preventDefault();
   openQuest(card.dataset.questCard);
 });
 document.getElementById("raidSwitch").hidden = !PLANNED;
@@ -1058,7 +1090,7 @@ function renderRaids() {
   document.getElementById("raids").innerHTML = !focus.quests.length
     ? `<p class="notice">No quests selected. Include a current quest above to build your raid focus.</p>`
     : bringList() +
-    (!PLANNED ? `<div class="notice"><span class="label">Manual raid focus</span><p>The map shows your selected quests. Routes for this map have not been planned.</p></div>` :
+    (!PLANNED ? `<div class="notice"><span class="label">Manual raid focus</span><p>Choose your spawn area above to order the selected objectives. The route ends at the last objective.</p></div>` :
       `<p class="map-note">Filtered hand-built plan: original stop order, with selected objectives only. This route has not been optimized for your selection. Optional key-hunt detours are omitted; see Keys &amp; items for sources.</p>` + focus.raids.map(r => `
       <article class="raid ${r.id}"><div class="head"><span class="tag">RAID ${r.id}</span><h3>${esc(r.name)}</h3></div>
       <div class="chips">${r.quests.map(id => `<span class="chip">${esc(qById[id].name)}</span>`).join("")}</div>
@@ -1188,7 +1220,7 @@ function renderFocus() {
       (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
     : `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
-  document.getElementById("raidGo").disabled = !selectedIds.length;
+  document.getElementById("raidGo").disabled = !currentQuests.length;
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
   setText("mapEmpty", currentQuests.length ? "Tick quests on the right to pin their spots on the map." : "No current quests yet. Choose your profile under Quests to see them here.");
 }
@@ -1210,6 +1242,8 @@ document.getElementById("showSelected").addEventListener("click", () => {
 });
 
 function loadScopedPreferences() {
+  clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null;
+  document.getElementById("spawnDialog").close();
   STORE_KEY = scopeKey ? `eft-checklist:${scopeKey}:${MAP}` : "";
   LEVEL_KEY = scopeKey ? `eft-player-level:${scopeKey}` : "";
   state = {}; LEVEL = P.level ?? 1;
@@ -1363,13 +1397,15 @@ function objList(q, pre) {
   return `<ul class="obj">${q.objectives.map(o => o.count ? `
         <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" ${objDone(o) ? "checked" : ""} disabled aria-label="Counter complete">
           <span>${hl(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
-        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}>
+        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}>
           <label for="${pre}-${o.id}"><span>${hl(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
 }
 function renderQuests() {
   progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP, listed: LISTED });
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
+  updateObjectiveRoute();
+  renderRoutePlanner();
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   visibleQuests = inView.filter(passes);
   const filtered = searching() || filters.trader || filters.kappa;
@@ -1439,6 +1475,7 @@ function renderOtherQuests() {
 }
 // Quest controls (raid toggle, status, objectives, counters) behave the same on cards and in the detail panel.
 function questControlsChange(e) {
+  if (e.target.dataset.spawnArea !== undefined) { chooseSpawn(e.target.value); return; }
   if (e.target.dataset.focus) { changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus); return; }
   if (e.target.dataset.quest) {
     if (!activeScope()) { setText("scopeEvidence", "Choose a profile and wipe before editing progress."); renderQuests(); return; }
@@ -1575,7 +1612,7 @@ function clock() {
   el.classList.toggle("late", s >= 35 * 60); // most raids run 35–50 minutes
 }
 function enterRaid() {
-  if (raidOn || !selectedIds.length) return;
+  if (raidOn) return;
   raidOn = true;
   show("plan");
   document.body.classList.add("raid-mode");
@@ -1617,15 +1654,15 @@ function renderRaidPanel() {
   const quest = q => {
     const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
     return `<article class="rp-q${ready ? " ready" : ""}" data-quest-card="${esc(bsgId(q))}" style="--qc:${colorOf(q)}">
-      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-rp-fit="${esc(bsgId(q))}" title="Show its spots on the map">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-detail="${esc(bsgId(q))}" aria-label="Details for ${esc(q.name)}">Info</button></h3>
+      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
       <ul class="rp-obj">${q.objectives.map(o => o.count
         ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
-        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><label><input type="checkbox" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}</span></label></li>`).join("")}</ul>
+        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}</span></div></li>`).join("")}</ul>
     </article>`;
   };
   const exits = DATA.extracts.filter(e => e.x != null && e.faction !== "scav" && mySide(e))
     .sort((a, b) => exReq(a) - exReq(b) || a.name.localeCompare(b.name)); // walk-outs first
-  rpBody.innerHTML = (pinned.length ? "" : `<p class="map-note">No quests selected. Exit and tick quests to bring them into the raid.</p>`) +
+  rpBody.innerHTML = `<section class="route-planner">${routeControls("rp")}</section>` + (pinned.length ? "" : `<p class="map-note">No quests selected. Exit and tick quests to bring them into the raid.</p>`) +
     (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
     `<section class="rp-sec">${pinned.map(quest).join("")}</section>` +
     (exits.length ? `<section class="rp-sec"><span class="label">Extracts</span><div class="rp-ex">${exits.map(e =>
@@ -1641,6 +1678,63 @@ rpBody.addEventListener("click", e => {
   if (ex) { fit(true, null, ex.switch?.x != null ? [ex, ex.switch] : [ex]); openExPop(ex.id); }
 });
 
+/* ---------- spawn and objective route integration ---------- */
+const canRoute = () => !!DATA.spawns?.length;
+function updateObjectiveRoute() {
+  if (!canRoute() || !routeSession.start || !selectedIds.length) { objectiveRoute = null; return; }
+  const completed = new Set(DATA.quests.flatMap(q => q.objectives.filter(objDone).map(o => o.id)));
+  routeSession = RaidSession.advance(routeSession, objectiveRoute?.stops || [], completed);
+  objectiveRoute = RaidRoute.route(DATA, selectedIds, routeSession.start, { done: state });
+}
+function routeControls(prefix) {
+  if (!canRoute()) return '<p class="map-note">Spawn routes are available on the generated map pages.</p>';
+  const area = routeSession.source === 'manual' ? routeSession.area : '';
+  const status = routeSession.waiting ? 'Raid started. Waiting up to 10 seconds for a spawn position…'
+    : !routeSession.start ? 'Choose a spawn area, or connect logs to detect it at raid start.'
+    : routeSession.source === 'log' ? 'Spawn detected from the live log.' : routeSession.source === 'objective' ? 'Rerouted from your last completed stop.' : 'Starting from your chosen area.';
+  return `<label for="${prefix}-spawn">Spawn area <select id="${prefix}-spawn" data-spawn-area><option value="">${routeSession.start && !area ? 'Detected / current position' : 'Choose an area'}</option>${DATA.spawnAreas.map(a => `<option value="${esc(a.id)}" ${a.id === area ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></label>
+    <p class="map-note" role="status">${status}</p>${objectiveRoute ? `<b>${objectiveRoute.stops.length} stops · ${Math.round(objectiveRoute.metres)} m${objectiveRoute.approximate ? ' · Approximate order' : ''}</b><ol>${objectiveRoute.stops.map(st => `<li><button type="button" data-route-zone="${esc(st.zone)}">${esc(DATA.zones[st.zone].name)}</button></li>`).join('')}</ol><p class="map-note">Straight lines to objectives; check terrain. One of each alternative location is shown. Random quest-item positions are search suggestions. Ends at the last objective.</p>` : ''}`;
+}
+function renderRoutePlanner() { document.getElementById('routePlanner').innerHTML = routeControls('plan'); }
+function chooseSpawn(area) {
+  clearTimeout(spawnWait); routeSession = RaidSession.choose(routeSession, DATA, area); objectiveRoute = null;
+  renderQuests();
+}
+document.getElementById('routePlanner').addEventListener('change', questControlsChange);
+document.addEventListener('click', e => {
+  const zone = e.target.closest('[data-route-zone]')?.dataset.routeZone;
+  if (zone) { fit(true, [zone]); openPop(zone); }
+});
+function promptSpawn() {
+  if (!canRoute() || routeSession.start || !currentQuests.length) return;
+  const dialog = document.getElementById('spawnDialog');
+  if (qd.open || dialog.open) return;
+  document.getElementById('spawnChoice').innerHTML = '<option value="">Choose an area</option>' + DATA.spawnAreas.map(a => `<option value="${esc(a.id)}">${esc(a.name)}</option>`).join('');
+  dialog.showModal();
+}
+document.getElementById('spawnDialog').addEventListener('close', e => {
+  if (e.target.returnValue === 'choose') chooseSpawn(document.getElementById('spawnChoice').value);
+});
+function handleRaidEvent(event, meta) {
+  const scope = ProgressStore.windowFor(progressStore, scopeKey);
+  if (!scope || !ProgressStore.accepts(scope, event, meta)) return;
+  if (event.map !== DATA.meta.key) {
+    if (event.kind === 'raid-loading') toast({ label:'Raid loading', title:event.map ? `Raid is on ${event.map}` : 'Unknown raid location', body:'<p>Open that map to plan its objectives.</p>' });
+    return;
+  }
+  clearTimeout(spawnWait);
+  routeSession = RaidSession.reduce(routeSession, DATA, event); objectiveRoute = null;
+  if (event.kind === 'raid-started') {
+    raidStart = event.at;
+    try { sessionStorage.setItem('eft-raid-start:' + MAP, String(raidStart)); } catch (_) {}
+    if (raidOn) clock();
+    spawnWait = setTimeout(() => { if (RaidSession.needsArea(routeSession, Date.now())) { routeSession.waiting = false; renderRoutePlanner(); renderRaidPanel(); promptSpawn(); } }, Math.max(0, event.at + 10000 - Date.now()));
+  }
+  if (routeSession.start || event.kind === 'raid-loading') document.getElementById('spawnDialog').close();
+  renderQuests();
+  if (RaidSession.needsArea(routeSession, Date.now())) promptSpawn();
+}
+
 /* ---------- log tracking UI ---------- */
 const trk = { skipped: 0, note: "", fallback: false };
 const STATE_TEXT = {
@@ -1655,7 +1749,7 @@ const ACTIONS = {
   watching: [["scan", "Scan past sessions"], ["connect", "Change folder"]],
   error: [["reconnect", "Reconnect logs folder", true], ["connect", "Choose folder"]],
 };
-const watcher = new EftLogs.LogWatcher({ onEvents: handleEvents, onStatus: () => renderTracker() });
+const watcher = new EftLogs.LogWatcher({ onRaid: handleRaidEvent, onEvents: handleEvents, onStatus: () => renderTracker() });
 
 function handleEvents(events, meta) {
   // Only events new to this browser and from around now are news; scans and the session replay

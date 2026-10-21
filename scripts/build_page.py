@@ -26,6 +26,8 @@ PROGRESSION = ROOT / "data" / "progression.json"
 TRACKER = ROOT / "page" / "eft-log-tracker.js"
 STORE = ROOT / "page" / "progress-store.js"
 FOCUS = ROOT / "page" / "raid-focus.js"
+ROUTE = ROOT / "page" / "raid-route.js"
+SESSION = ROOT / "page" / "raid-session.js"
 TASKS_INDEX = ROOT / "data" / "tasks-index.json"
 ART = ROOT / "cache" / "art"  # filled by scripts/fetch_art.py; never committed
 
@@ -125,6 +127,8 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__TRACKER__*/", TRACKER.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
+    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION)]:
+        html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__PROGRESS__*/", PROGRESS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__DATA__*/null", payload, 1)
     html = html.replace("<!--__SITE_NAV__-->", navigation(out_path, mode, data['meta'].get('key', 'customs')), 1)
