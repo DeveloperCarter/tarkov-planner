@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarkov Raid Planner</title>
+<style>/*__STYLES__*/
+.home-controls {display:grid;gap:12px;background:var(--panel);border:1px solid var(--line);padding:18px;margin:22px 0}
+.home-controls label {display:grid;gap:5px;min-width:0}
+.home-controls select {font:inherit;padding:8px;background:var(--bg);color:var(--ink);border:1px solid var(--line);max-width:100%;width:100%}
+.map-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:22px}
+.map-card {display:grid;gap:14px;padding:20px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--olive);text-decoration:none;color:var(--ink)}
+.map-card:hover {border-color:var(--olive)}
+.map-card .total {font:700 36px/1 var(--font-display);color:var(--olive)}
+.map-card .card-count {display:flex;align-items:baseline;gap:9px}
+.map-card .estimated {color:var(--muted);font-size:14px}
+.home-footer {margin-top:28px;color:var(--muted);font-size:13px}
+</style>
+<body><main class="wrap">
+<nav class="site-nav" aria-label="Maps and mode"><a href="index.html" aria-current="page">All maps</a><a id="pvpLink" href="index.html?mode=regular">PvP</a><a id="pveLink" href="index.html?mode=pve">PvE</a><button class="btn" id="themeToggle" type="button">Theme: system</button></nav>
+<header class="brief"><span class="label">Field brief · Escape from Tarkov</span><h1>Choose your next raid</h1><p>Current quests by map. Open a map to connect your Logs folder, confirm your quest list and choose what to tackle this raid.</p></header>
+<section class="home-controls" aria-label="Progress scope">
+<label>Game mode<select id="homeMode"><option value="regular">PvP</option><option value="pve">PvE</option></select></label>
+<label>Profile and wipe<select id="homeScope"></select></label>
+<p class="map-note" id="homeEvidence"></p><p class="map-note" id="homeFreshness"></p>
+</section>
+<div class="notice" id="homeNotice"></div>
+<section id="mapCards" class="map-cards" aria-label="Maps"></section>
+<p class="home-footer">Possible unlocks are estimates. Missing log history and opaque game conditions can affect them. Your quest progress stays in this browser; changing the site address starts a separate browser store.</p>
+<p class="home-footer">Data: <a href="https://tarkov.dev">tarkov.dev</a> · Prerequisite facts: <a href="https://escapefromtarkov.fandom.com/wiki/Quests">Escape from Tarkov Wiki (CC BY-SA)</a>. No affiliation with Battlestate Games.</p>
+<noscript>Enable JavaScript to read your saved quest progress and browse map counts.</noscript>
+</main>
+<script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__HOME__*/</script>
+<script>
+const DATA = /*__DATA__*/null;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let store;
+try {store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY));} catch(e) {}
+if (!store || store.version !== 2) store = ProgressStore.empty();
+let mode = new URLSearchParams(location.search).get("mode") === "pve" ? "pve" : "regular";
+const modeInput = document.getElementById("homeMode"), scopeInput = document.getElementById("homeScope");
+function render() {
+  modeInput.value = mode;
+  const key = store.active[mode], scope = store.scopes[key]?.mode === mode ? store.scopes[key] : null;
+  scopeInput.innerHTML = '<option value="">Choose a profile and wipe</option>' + Object.entries(store.scopes)
+    .filter(([,s]) => s.mode === mode).map(([k,s]) => `<option value="${esc(k)}" ${scope && k === key ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)}</option>`).join("");
+  let savedLevel;
+  try {savedLevel = Number(localStorage.getItem(`eft-player-level:${key}`));} catch(e) {}
+  const level = Number.isInteger(savedLevel) && savedLevel >= 1 && savedLevel <= 100 ? savedLevel : DATA.player.level;
+  document.getElementById("homeEvidence").textContent = scope ? `${scope.label} · ${scope.profile} · level ${level} · ${DATA.player.faction} · ${scope.evidence}` : "Choose a saved scope, or open a map to create one. No progress is assumed.";
+  document.getElementById("homeFreshness").textContent = `${MapHome.freshness(DATA.modes[mode].snapshot)} · snapshot ${DATA.modes[mode].snapshot} · built ${DATA.built}`;
+  document.getElementById("homeNotice").textContent = scope ? "Current counts use accepted quests and your corrections for this profile, mode and wipe. A quest with objectives on several maps can appear on several cards." : "No current quest list selected. Open a map, choose your profile and wipe, then connect or import logs. Possible unlocks will be estimated only after a scope is selected.";
+  document.getElementById("mapCards").innerHTML = MapHome.summarize(DATA,store,mode,key,{[key]:level}).map(m => `<a class="map-card" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests</span></div><span class="estimated">${m.possible} possible unlocks · estimates</span><span class="label">Open raid planner →</span></a>`).join("");
+  document.getElementById("pvpLink").setAttribute("aria-current", mode === "regular" ? "true" : "false");
+  document.getElementById("pveLink").setAttribute("aria-current", mode === "pve" ? "true" : "false");
+}
+modeInput.addEventListener("change", () => {mode = modeInput.value; history.replaceState(null,"",`?mode=${mode}`); render();});
+scopeInput.addEventListener("change", () => {store.active[mode] = scopeInput.value; try {localStorage.setItem(ProgressStore.STORAGE_KEY,JSON.stringify(store));} catch(e) {} render();});
+window.addEventListener("storage", e => {if(e.key === ProgressStore.STORAGE_KEY) {try {const next = JSON.parse(e.newValue); store = next?.version === 2 ? next : ProgressStore.empty(); render();} catch(e) {}}});
+window.addEventListener("storage", e => {if(e.key?.startsWith("eft-player-level:")) render();});
+render();
+/*__THEME__*/
+</script></body></html>

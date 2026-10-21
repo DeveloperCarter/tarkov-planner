@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "map": "Customs",
+    "generated": "2026-10-20",
+    "player": { "level": 24, "faction": "USEC", "client": "1.2.5.0.48146" },
+    "lede": "Three raids that cover your 12 active Customs tasks. They're ordered so the no-key work comes first and the key hunt sets up the dorms.",
+    "notice": { "label": "Level 24 flea lock", "text": "Keys open on the flea at about level 25, stims and barter items at about 30. You can't buy either dorm key yet, so Raid B goes looking for them. If you hit 25 before running the dorms, just buy the keys." },
+    "mapNote": "Schematic, not to scale. North is up and the river is on the east side. The order of stops assumes a matching spawn, so reverse it if you spawn at the other end.",
+    "fleaNote": "Unlock levels come from a community guide (timesaver.gg, updated Aug 2026, patch 1.0.5) and Insider Gaming. tarkov.dev's per-item data agrees: the Dorm 114 key and the AKS-74U both show level 25. Check the in-game flea all the same.",
+    "sources": [
+      { "name": "Escape from Tarkov Wiki (Fandom)", "url": "https://escapefromtarkov.fandom.com/wiki/", "use": "Quest objectives, rewards, guide spots, key spawns, extracts, Reshala" },
+      { "name": "timesaver.gg flea market guide (updated Aug 2026)", "url": "https://timesaver.gg/blog/tarkov-how-to-unlock-flea-market", "use": "Flea category unlock levels (no official BSG table exists)" },
+      { "name": "Insider Gaming", "url": "https://insider-gaming.com/tarkov-flea-market-locked-level-40/", "use": "Full flea access at level 40" },
+      { "name": "tarkov.dev GraphQL API", "url": "https://api.tarkov.dev/graphql", "use": "Intended structured source; returned 'GraphQL server unavailable' during this pass" }
+    ],
+    "caveats": [
+      "Map positions are read off the wiki's map images and are approximate. The tarkov.dev API was down, so no exact objective coordinates were available.",
+      "Flea unlock levels come from a community guide, not Battlestate. Your client is 1.2.5 and the guide was written against 1.0.5, so check the in-game flea before relying on them.",
+      "The wiki lists Peacekeeper as the giver of Chemical Experiments and Tigr Safari.",
+      "The wiki doesn't document where the paramedic's car for Pharmacist is. It's an optional objective, so you can skip it."
+    ]
+  },
+
+  "fleaGating": [
+    { "category": "Base access (buy + list)", "level": 15, "status": "open", "impact": "Open to you." },
+    { "category": "Bolt-actions, muzzle devices, foregrips", "level": 20, "status": "open", "impact": "Open to you." },
+    { "category": "Keys (most mechanical keys)", "level": 25, "status": "locked", "impact": "You can't buy Dorm 114, 203 or 214 keys. Find them or barter for them, or hit 25 first." },
+    { "category": "Assault & marksman rifles, backpacks, lights/lasers", "level": 25, "status": "locked", "impact": "Buy the AKS-74U for Punisher from Prapor LL1 (or the stripped one from Mechanic LL1)." },
+    { "category": "Injectors / stims, meds (e.g. Grizzly)", "level": 30, "status": "locked", "impact": "Stock meds from Therapist. No flea stims." },
+    { "category": "Barter items, gear components", "level": 30, "status": "locked", "impact": "You'll probably have to find or craft the corrugated hose and the Therapist barter ingredients for the 114 key." },
+    { "category": "Keycards", "level": 30, "status": "locked", "impact": "Not needed for these quests." },
+    { "category": "High-tier ammo (M80 ~35, PS12B / .300 BLK ~40), premium scopes", "level": 35, "status": "locked", "impact": "The guide doesn't list 5.45x39 as gated. Use the best 5.45 pen you can get for Reshala's guards." },
+    { "category": "Full flea access", "level": 40, "status": "locked", "impact": "Not relevant yet." }
+  ],
+
+  "zones": {
+    "checkpoint": { "name": "Checkpoint by Scav CP", "x": 97, "y": 276 },
+    "tigr2":      { "name": "Tigr on the road south of USEC", "x": 116, "y": 250 },
+    "wh6":        { "name": "Warehouse 6 (USEC)", "x": 110, "y": 196 },
+    "tigr1":      { "name": "Tigr on the road south of Container", "x": 186, "y": 250 },
+    "wh5":        { "name": "Warehouse 5 (Container)", "x": 197, "y": 206 },
+    "bunker":     { "name": "Smugglers' Bunker (ZB-1012)", "x": 214, "y": 150 },
+    "wh4":        { "name": "Warehouse 4", "x": 330, "y": 206 },
+    "plant":      { "name": "Industrial plant", "x": 380, "y": 214 },
+    "newgas":     { "name": "New gas station", "x": 263, "y": 292 },
+    "fort":       { "name": "Fort / Scav base", "x": 466, "y": 142 },
+    "lab":        { "name": "Crack house (med lab)", "x": 575, "y": 112 },
+    "boiler":     { "name": "Boiler building", "x": 549, "y": 186 },
+    "wh17":       { "name": "Warehouse 17", "x": 612, "y": 206 },
+    "tigr3":      { "name": "Tigr on the east road", "x": 650, "y": 262 },
+    "boat":       { "name": "Smugglers' Boat", "x": 702, "y": 372 },
+    "dorms":      { "name": "Dorms (2-story + 3-story)", "x": 470, "y": 408 },
+    "bigred":     { "name": "Big Red (customs warehouse)", "x": 856, "y": 152 },
+    "garage88":   { "name": "Garage #88", "x": 934, "y": 128 }
+  },
+
+  "extracts": [
+    { "id": "zb1011",     "name": "ZB-1011",          "x": 47,  "y": 132, "rule": "Always open" },
+    { "id": "crossroads", "name": "Crossroads",       "x": 962, "y": 200, "rule": "Always open" },
+    { "id": "trailer",    "name": "Trailer Park",     "x": 948, "y": 46,  "rule": "Always open" },
+    { "id": "dormsvex",   "name": "Dorms V-Ex",       "x": 478, "y": 478, "rule": "Paid car, PMC only, max 4 players, single use; fee scales with Scav karma" },
+    { "id": "oldgas",     "name": "Old Gas Station",  "x": 400, "y": 90,  "rule": "PMC needs a green flare" },
+    { "id": "smugglers",  "name": "Smugglers' Boat / Bunker", "x": null, "y": null, "rule": "Needs Note with code word Voron (in raid only, can't be taken out)" }
+  ],
+
+  "quests": [
+    {
+      "id": "trophy", "name": "The Huntsman Path - Trophy", "trader": "Jaeger", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Trophy",
+      "type": "boss", "raid": "C",
+      "objectives": [
+        { "id": "trophy-1", "text": "Eliminate Reshala", "zone": ["dorms", "newgas", "fort"] },
+        { "id": "trophy-2", "text": "Find Reshala's Golden TT in raid (loot it off him and extract)", "zone": ["dorms", "newgas", "fort"], "mustExtract": true },
+        { "id": "trophy-3", "text": "Hand over the Golden TT to Jaeger" }
+      ],
+      "needs": [],
+      "tips": [
+        "He spawns at the dorms (in the buildings or the yard), the new gas station, or the Fort/Scav base, with 2-4 guards.",
+        "Reshala never wears armor. His guards wear class 3-6 armor and helmets with face shields, push hard, and throw frags and flashbangs. Grenades work well when they're bunched up at the dorms.",
+        "He sometimes carries the Voron note, which lets you leave through either Smugglers' extract."
+      ],
+      "reward": "15,300 XP, 90,000 RUB, Magazine case, gold chains, rings and a Roler"
+    },
+    {
+      "id": "chem", "name": "Chemical Experiments", "trader": "Peacekeeper", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Chemical_Experiments",
+      "type": "stash", "raid": "A",
+      "objectives": [
+        { "id": "chem-1", "text": "Stash a Corrugated hose on any table in the experiments area, 2nd floor of the crack house lab", "zone": ["lab"] }
+      ],
+      "needs": [ { "item": "Corrugated hose", "qty": 1, "fir": false, "provided": false } ],
+      "tips": [ "Doesn't need to be found in raid. You can bring any hose." ],
+      "reward": "3,000 XP, $550"
+    },
+    {
+      "id": "cargo", "name": "Abandoned Cargo", "trader": "Therapist", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Abandoned_Cargo",
+      "type": "mark", "raid": "A",
+      "objectives": [
+        { "id": "cargo-1", "text": "Mark ONE TerraGroup cargo with the MS2000: Boiler building (#2 by the showers, #4 barrels by the chimneys, #5 outside on the north side), Warehouse 17 (#7 1F, #3 2F staircase behind the paintings, #6 3F/crane), or Big Red (#1 west side)", "zone": ["boiler", "wh17", "bigred"] }
+      ],
+      "needs": [ { "item": "MS2000 Marker", "qty": 1, "provided": true } ],
+      "tips": [ "Don't open the cargo containers." ],
+      "reward": "3,000 XP, 80,000 RUB"
+    },
+    {
+      "id": "pharm", "name": "Pharmacist", "trader": "Therapist", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Pharmacist",
+      "type": "fetch", "raid": "C",
+      "objectives": [
+        { "id": "pharm-1", "text": "Get the carbon case from on top of the safe in room 114 (2-story dorms, 1st floor)", "zone": ["dorms"], "mustExtract": true },
+        { "id": "pharm-2", "text": "(Optional) Locate the paramedic's car", "optional": true },
+        { "id": "pharm-3", "text": "Hand over the case to Therapist" }
+      ],
+      "needs": [ { "item": "Dorm room 114 key", "qty": 1, "kind": "key" } ],
+      "tips": [ "The case goes to your quest inventory, so it takes no backpack space. You lose it if you die." ],
+      "reward": "3,000 XP, 80,000 RUB"
+    },
+    {
+      "id": "tigr", "name": "Tigr Safari", "trader": "Peacekeeper", "kappa": true, "usecOnly": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Tigr_Safari",
+      "type": "mark", "raid": "B",
+      "objectives": [
+        { "id": "tigr-1", "text": "Mark any UN Tigr with an MS2000. Two are on the main road on the west side (south of Container and south of USEC) and one is on the east road near the bridge. Stay alive until the timer finishes.", "zone": ["tigr1", "tigr2", "tigr3"] }
+      ],
+      "needs": [ { "item": "MS2000 Marker", "qty": 1, "provided": false } ],
+      "tips": [ "Not provided. Buy one from Prapor, Ragman or Therapist at LL1. Keep markers in your special slots so you don't lose them." ],
+      "reward": "3,000 XP, $550"
+    },
+    {
+      "id": "club", "name": "Private Club", "trader": "Skier", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Private_Club",
+      "type": "fetch", "raid": "A",
+      "objectives": [
+        { "id": "club-1", "text": "Get Skier's wallet from the 2nd-floor room in Warehouse 17. It spawns in one of four spots: under the shelf by the door, under the table, on the table, or behind the TV on the desk.", "zone": ["wh17"], "mustExtract": true },
+        { "id": "club-2", "text": "Hand over the wallet to Skier" }
+      ],
+      "needs": [],
+      "tips": [ "No key needed. The wallet goes to your quest inventory." ],
+      "reward": "3,000 XP, 450 EUR"
+    },
+    {
+      "id": "punisher", "name": "The Punisher - Part 1", "trader": "Prapor", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_1",
+      "type": "kills", "raid": "all",
+      "objectives": [
+        { "id": "punisher-1", "text": "Kill 25 Scavs on Customs with an AKS-74U, AKS-74UN, AKS-74UB or SAG AK Short", "count": 25 }
+      ],
+      "needs": [ { "item": "AKS-74U (or UN / UB / SAG AK Short)", "qty": 1 } ],
+      "tips": [ "Bring it every raid in this plan. Scavs you kill in the industrial plant also count toward Provide Viewership's 15." ],
+      "reward": "10,000 XP, 165,000 RUB, DVL-10 Urbana"
+    },
+    {
+      "id": "viewership", "name": "Provide Viewership", "trader": "Ref", "kappa": false,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Provide_Viewership",
+      "type": "place+kills", "raid": "A",
+      "objectives": [
+        { "id": "view-1", "text": "Camera 4: in the garage, at the stacked barrels in front of the truck", "zone": ["plant"] },
+        { "id": "view-2", "text": "Camera 2: northern building, at the brick pallets", "zone": ["plant"] },
+        { "id": "view-3", "text": "Camera 1: northern building, 3rd floor, at the three blue barrels farthest from the stairs", "zone": ["plant"] },
+        { "id": "view-4", "text": "Camera 3: take the connector on the 2nd floor to the southern building, pipes on the left", "zone": ["plant"] },
+        { "id": "view-5", "text": "Kill any 15 targets in and around the industrial plant (this unlocks once all 4 cameras are placed)", "zone": ["plant"], "count": 15 }
+      ],
+      "needs": [ { "item": "WI-FI Camera", "qty": 4, "provided": true } ],
+      "tips": [ "The 4 cameras arrive by mail when you accept. Spares: Mechanic LL1 barter (electronic components + powerbank)." ],
+      "reward": "32,000 XP, 45 GP coins, TX-15 DML + mags + M855A1"
+    },
+    {
+      "id": "deal", "name": "Break the Deal", "trader": "Ragman", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Break_the_Deal",
+      "type": "stash", "raid": "A",
+      "objectives": [
+        { "id": "deal-1", "text": "ELCAN SpecterDR: scaffolding 2nd floor, crates in the far corner", "zone": ["plant"] },
+        { "id": "deal-2", "text": "DVL-10 magazine: scaffolding 3rd floor, broken crate", "zone": ["plant"] },
+        { "id": "deal-3", "text": "7.62x51 ammo pack: scaffolding 4th floor, stacked crates next to the stairs", "zone": ["plant"] },
+        { "id": "deal-4", "text": "DVL-10 rifle: scaffolding 4th floor, crates in the far corner", "zone": ["plant"] }
+      ],
+      "needs": [ { "item": "DVL-10 + mag, ELCAN SpecterDR, 7.62x51 ammo pack", "qty": 1, "provided": true } ],
+      "tips": [
+        "The kit is mailed to you when you accept. You can strip the DVL-10 down to save space because it doesn't need to work.",
+        "Don't carry your own DVL-10 as a primary or secondary. The game stashes the equipped one first."
+      ],
+      "reward": "11,400 XP, 105,000 RUB, IOTV Gen4 (High Mobility)"
+    },
+    {
+      "id": "teller", "name": "Shaking Up the Teller", "trader": "Prapor", "kappa": false, "usecOnly": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Shaking_Up_the_Teller",
+      "type": "fetch", "raid": "C",
+      "objectives": [
+        { "id": "teller-1", "text": "Get the bank case from under the bed in room 203 (3-story dorms, 2nd floor)", "zone": ["dorms"], "mustExtract": true },
+        { "id": "teller-2", "text": "(Optional) Get into room 214. A 203 key can spawn in the red mug there.", "zone": ["dorms"], "optional": true },
+        { "id": "teller-3", "text": "Hand over the case to Prapor" }
+      ],
+      "needs": [ { "item": "Dorm room 203 key", "qty": 1, "kind": "key" } ],
+      "tips": [ "Rewards also include an Electric motor and unlock 9x21 BT gzh at Prapor LL3." ],
+      "reward": "3,000 XP, 80,000 RUB, Electric motor"
+    },
+    {
+      "id": "watchman", "name": "The Huntsman Path - Angry Watchman", "trader": "Jaeger", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Angry_Watchman",
+      "type": "kills", "raid": "C",
+      "objectives": [
+        { "id": "watch-1", "text": "Kill PMCs in the dorms area (wiki says 5, tarkov.dev says 3; check your task screen)", "zone": ["dorms"], "count": 5 }
+      ],
+      "needs": [],
+      "tips": [ "Any weapon counts. Run the dorms raid early in the session, when PMC traffic is highest." ],
+      "reward": "10,000 XP, 75,000 RUB, 2 Intelligence folders, Military flash drive"
+    },
+    {
+      "id": "smarter", "name": "Work Smarter", "trader": "Jaeger", "kappa": true,
+      "wiki": "https://escapefromtarkov.fandom.com/wiki/Work_Smarter",
+      "type": "visit", "raid": "B",
+      "objectives": [
+        { "id": "smart-1", "text": "Locate a secret exfil: Smugglers' Bunker (ZB-1012, behind Container in the west) or Smugglers' Boat (south-west bank of the river)", "zone": ["bunker", "boat"] },
+        { "id": "smart-2", "text": "(Optional) Get the Note with code word Voron", "optional": true }
+      ],
+      "needs": [],
+      "tips": [ "You only need to visit. Extracting there isn't required, and neither is the note." ],
+      "reward": "6,600 XP, 32,000 RUB, 2 CMS kits"
+    }
+  ],
+
+  "acquisition": [
+    {
+      "item": "Dorm room 114 key", "for": ["pharm"], "kind": "key", "required": true, "flea": "locked until ~25",
+      "sources": [
+        "Therapist LL2 barter: 1 hydrogen peroxide + 1 saline solution + 1 pile of meds",
+        "Blue jacket in the trunk of the graffiti car at the checkpoint by Scav CP (not a guaranteed spawn)",
+        "Random: jackets, drawers, Scav pockets"
+      ]
+    },
+    {
+      "item": "Dorm room 203 key", "for": ["teller"], "kind": "key", "required": true, "flea": "locked until ~25",
+      "sources": [
+        "Warehouse 4: table in the north part of the top floor",
+        "Warehouse 5: table with the lamp near the forklift",
+        "Warehouse 6 (USEC, by the fuel silos): table in the 2nd-floor workshop, south side",
+        "Red mug in dorm room 214 (needs the 214 key)",
+        "Random: jackets, drawers, Scav pockets"
+      ]
+    },
+    {
+      "item": "Dorm room 214 key", "for": ["teller"], "kind": "key", "required": false, "flea": "locked until ~25",
+      "sources": [ "Garage #88, east side near Big Red: between the pallets", "Random: jackets, drawers, Scav pockets" ]
+    },
+    {
+      "item": "MS2000 Marker (extra)", "for": ["tigr"], "kind": "item", "required": true, "flea": "n/a",
+      "sources": [ "Prapor LL1, Ragman LL1, Therapist LL1. Abandoned Cargo gives you its own." ]
+    },
+    {
+      "item": "Corrugated hose", "for": ["chem"], "kind": "item", "required": true, "flea": "barter items locked until ~30",
+      "sources": [ "Toolboxes, technical supply crates, sport bags, dead Scavs, ground caches", "Lavatory L1 craft: silicone tube + 3 bundles of wires + 3 insulating tape (makes 2)" ]
+    },
+    {
+      "item": "AKS-74U family", "for": ["punisher"], "kind": "item", "required": true, "flea": "assault rifles locked until ~25",
+      "sources": [ "Prapor LL1 (standard)", "Mechanic LL1 (stripped)" ]
+    },
+    {
+      "item": "4x WI-FI Camera", "for": ["viewership"], "kind": "item", "required": true, "flea": "n/a",
+      "sources": [ "Mailed when you accept the quest" ]
+    },
+    {
+      "item": "Break the Deal kit", "for": ["deal"], "kind": "item", "required": true, "flea": "n/a",
+      "sources": [ "Mailed when you accept the quest. Collect it from Messenger before it expires." ]
+    },
+    {
+      "item": "Note with code word Voron", "for": ["smarter"], "kind": "intel", "required": false, "flea": "can't be extracted",
+      "sources": [ "Found in raid (anywhere; Reshala sometimes has it)", "Cultist Circle: sacrifice a Mastichin figurine" ]
+    }
+  ],
+
+  "everyRaid": [
+    ["The Punisher - Part 1", "Carry the AKS-74U every raid. 25 Scav kills on Customs, and any kill in the plant also counts toward Provide Viewership."],
+    ["Provide Viewership", "After the cameras are up, you need 15 kills of any target in and around the industrial plant. It's a good hold spot between the other stops."],
+    ["Angry Watchman", "PMC kills in the dorms area: 5 per the wiki, 3 per tarkov.dev. Your task screen has the real number. Run Raid C early in a session for more traffic."],
+    ["Trophy (Reshala)", "60% spawn chance, split evenly between the dorms, the new gas station and the Fort. Raids A, B and C each pass one of those spots, so check whichever is on your route."]
+  ],
+
+  "raids": [
+    {
+      "id": "A", "name": "Industrial plant and the north-east",
+      "why": "Run this first. It needs no keys and clears the placement objectives for four quests. With a lucky Tigr or Boat stop it covers up to six.",
+      "quests": ["viewership", "deal", "chem", "cargo", "club", "tigr", "smarter", "punisher"],
+      "bring": ["4 WI-FI cameras (mailed)", "Break the Deal kit (mailed)", "Corrugated hose", "MS2000 from Abandoned Cargo + 1 spare for Tigr", "AKS-74U"],
+      "stops": [
+        { "zone": "plant", "do": "Place all 4 cameras, then go up the south scaffolding and stash the Break the Deal items (2F scope, 3F mag, 4F ammo + rifle). The 15-kill counter starts now, so hold the plant if you hear Scavs.", "obj": ["view-1", "view-2", "view-3", "view-4", "deal-1", "deal-2", "deal-3", "deal-4"] },
+        { "zone": "fort", "do": "Look for Reshala from the edge. If his guards are up and you're not geared for it, skip.", "obj": [] },
+        { "zone": "lab", "do": "Crack house, 2nd floor experiments area: stash the hose on a table.", "obj": ["chem-1"] },
+        { "zone": "boiler", "do": "Mark cargo #2, #4 or #5 with the MS2000.", "obj": ["cargo-1"] },
+        { "zone": "wh17", "do": "Go to the 2nd-floor room and grab Skier's wallet (check all 4 spots). If you skipped the boiler, cargo #3, #6 and #7 are in this building too.", "obj": ["club-1"] },
+        { "zone": "tigr3", "do": "Mark the east Tigr with your spare MS2000 and stay alive for the timer.", "obj": ["tigr-1"] },
+        { "zone": "boat", "do": "Walk into the Smugglers' Boat area for Work Smarter.", "obj": ["smart-1"] }
+      ],
+      "extract": ["crossroads", "trailer"],
+      "mustExtractWith": ["Skier's wallet"]
+    },
+    {
+      "id": "B", "name": "West loop for keys and markers",
+      "why": "This is the key hunt. It covers three 203-key spawns and one 114-key spawn, plus the two west Tigrs, Smugglers' Bunker and the new gas station Reshala spawn.",
+      "quests": ["tigr", "smarter", "teller", "pharm", "trophy", "punisher"],
+      "bring": ["MS2000 for Tigr (if not done in A)", "AKS-74U", "Frags if you plan to hit Reshala"],
+      "stops": [
+        { "zone": "checkpoint", "do": "Check the blue jacket in the trunk of the graffiti car for the 114 key.", "obj": [] },
+        { "zone": "tigr2", "do": "Mark the Tigr south of USEC (or the one south of Container) and wait out the timer.", "obj": ["tigr-1"] },
+        { "zone": "wh6", "do": "USEC building, 2nd-floor workshop table on the south side: 203 key spawn.", "obj": [] },
+        { "zone": "wh5", "do": "Table with the lamp near the forklift: 203 key spawn. Smugglers' Bunker is on the north side, so step in for Work Smarter.", "obj": ["smart-1"] },
+        { "zone": "wh4", "do": "Table in the north part of the top floor: 203 key spawn.", "obj": [] },
+        { "zone": "newgas", "do": "Reshala spawn. Fight or skip, depending on your kit.", "obj": ["trophy-1", "trophy-2"] }
+      ],
+      "extract": ["zb1011"],
+      "mustExtractWith": ["Any keys you found", "Golden TT if Reshala died"],
+      "branch": "If you found both keys and you're healthy, keep going south to the dorms and run Raid C now. Leave through Dorms V-Ex."
+    },
+    {
+      "id": "C", "name": "Dorms",
+      "why": "This needs the 114 and 203 keys. It has both case pickups, the PMC kills for Angry Watchman, and a Reshala spawn. Expect a fight.",
+      "quests": ["pharm", "teller", "watchman", "trophy", "punisher"],
+      "bring": ["Dorm 114 key", "Dorm 203 key (or 214 key for the mug)", "Frags + flashbangs", "Best 5.45 pen you can get", "Money for Dorms V-Ex"],
+      "stops": [
+        { "zone": "garage88", "do": "Optional, only on an east spawn without a 203 key: the 214 key is between the pallets.", "obj": [] },
+        { "zone": "bigred", "do": "Optional: cargo #1 on the west side, if Abandoned Cargo isn't done yet.", "obj": ["cargo-1"] },
+        { "zone": "dorms", "do": "2-story 1F: open room 114 and take the case from the safe. 3-story 2F: open room 203 and take the case from under the bed (or 214, then the mug). Clear the yard for PMC kills and Reshala.", "obj": ["pharm-1", "teller-1", "teller-2", "watch-1", "trophy-1", "trophy-2"] }
+      ],
+      "extract": ["dormsvex", "crossroads"],
+      "mustExtractWith": ["Carbon case", "Bank case", "Golden TT"]
+    }
+  ]
+}

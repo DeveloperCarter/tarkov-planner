@@ -1,0 +1,7068 @@
+{
+ "657315ddab5a49b71f098853": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 1,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "657315df034d76585f032e01": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 1,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "657315e270bb0b8dba00cc48": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 1,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "657315e4a6af4ab4b50f3459": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 1,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59c9392986f7742f6923add2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 5,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a68663e86f774501078f78a": {
+  "requirements": [
+   {
+    "task": "5a68661a86f774500f48afb0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 5,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135d89444fb141f4e6eea": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 5,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa39ee749756c920d02c8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 5,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a68665c86f774255929b4c7": {
+  "requirements": [
+   {
+    "task": "5a68663e86f774501078f78a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 5,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59675d6c86f7740a842fc482": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 6,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0d190cd09282029f5390d8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 6,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f5aac4b63b74469b6c14c2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 6,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b4795fb86f7745876267770": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 7,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f5e20652fc01298e2c61e3": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 7,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa395c4c5c04798002497": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 7,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596a204686f774576d4c95de": {
+  "requirements": [
+   {
+    "task": "59689ee586f7740d1570bbd5",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a03153686f77442d90e2171": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b75b86f7742e97191958": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b9de86f77464e5044585": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bb8386f7741c770d2d0a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bbf886f774333a418eeb": {
+  "requirements": [
+   {
+    "task": "5a27bb8386f7741c770d2d0a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 8,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "597a0e5786f77426d66c0636": {
+  "requirements": [
+   {
+    "task": "597a0b2986f77426d66c0633",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27d2af86f7744e1115b323": {
+  "requirements": [
+   {
+    "task": "5a27c99a86f7747d2c6bdd8e",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc479e586f7747f376c7da3": {
+  "requirements": [
+   {
+    "task": "5bc4776586f774512d07cf05",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25b6be86f77444001e1b89": {
+  "requirements": [
+   {
+    "task": "5d25aed386f77442734d25d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639136e84ed9512be67647db": {
+  "requirements": [
+   {
+    "task": "63a88045abf76d719f42d715",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "665eeacf5d86b6c8aa03c79b": {
+  "requirements": [
+   {
+    "task": "63a88045abf76d719f42d715",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa3a08b4a64b332041ff7": {
+  "requirements": [
+   {
+    "task": "669fa38fad7f1eac2607ed46",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "669fa3910c828825de06d69f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66b38e144f2ab7cc530c3fe7": {
+  "requirements": [
+   {
+    "task": "66b38c7bf85b8bf7250f9cb6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "597a0f5686f774273b74f676": {
+  "requirements": [
+   {
+    "task": "597a0e5786f77426d66c0636",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "597a160786f77477531d39d2": {
+  "requirements": [
+   {
+    "task": "597a0f5686f774273b74f676",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "597a171586f77405ba6887d3": {
+  "requirements": [
+   {
+    "task": "597a0f5686f774273b74f676",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59c93e8e86f7742a406989c4": {
+  "requirements": [
+   {
+    "task": "597a0f5686f774273b74f676",
+    "statuses": [
+     "failed"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc47dbf86f7741ee74e93b9": {
+  "requirements": [
+   {
+    "task": "5bc479e586f7747f376c7da3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25aed386f77442734d25d2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25bfd086f77442734d3007": {
+  "requirements": [
+   {
+    "task": "5d25b6be86f77444001e1b89",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25c81b86f77443e625dd71": {
+  "requirements": [
+   {
+    "task": "5d25aed386f77442734d25d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5d25bfd086f77442734d3007",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25cf2686f77443e75488d4": {
+  "requirements": [
+   {
+    "task": "5d25c81b86f77443e625dd71",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "665eec1f5e47a79f8605565a": {
+  "requirements": [
+   {
+    "task": "665eeacf5d86b6c8aa03c79b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "665eec4a4dfc83b0ed0a9dca": {
+  "requirements": [
+   {
+    "task": "665eec1f5e47a79f8605565a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "665eeca45d86b6c8aa03c79d": {
+  "requirements": [
+   {
+    "task": "665eec4a4dfc83b0ed0a9dca",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "665eeca92f7aedcc900b0437": {
+  "requirements": [
+   {
+    "task": "665eeca45d86b6c8aa03c79d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 9,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834145ebc1f443d7603c8a7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834158f2f0e2a7eb90b62c8": {
+  "requirements": [
+   {
+    "task": "6834145ebc1f443d7603c8a7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341846186efa3c5b07f989": {
+  "requirements": [
+   {
+    "task": "6834158f2f0e2a7eb90b62c8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341a0b2f0e2a7eb90b62d4": {
+  "requirements": [
+   {
+    "task": "68341846186efa3c5b07f989",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341b407559f4e6d50bc0ce": {
+  "requirements": [
+   {
+    "task": "68341a0b2f0e2a7eb90b62d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341c4babec72d95d0c1260": {
+  "requirements": [
+   {
+    "task": "68341b407559f4e6d50bc0ce",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341d7d7559f4e6d50bc0db": {
+  "requirements": [
+   {
+    "task": "68341c4babec72d95d0c1260",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "68341eb25619c8e2a9031501": {
+  "requirements": [
+   {
+    "task": "6978907718bd6d7cbd0e8b8e",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68341f6fe2e7ef70a3060a0a": {
+  "requirements": [
+   {
+    "task": "68341eb25619c8e2a9031501",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834202a186efa3c5b07f9a2": {
+  "requirements": [
+   {
+    "task": "68341f6fe2e7ef70a3060a0a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "683421515619c8e2a9031511": {
+  "requirements": [
+   {
+    "task": "6834202a186efa3c5b07f9a2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "68342265a8d674b5740b31f0": {
+  "requirements": [
+   {
+    "task": "683421515619c8e2a9031511",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68342446a8d674b5740b31fc": {
+  "requirements": [
+   {
+    "task": "6834233fecd5cf3a440d855b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834254f2f0e2a7eb90b62ef": {
+  "requirements": [
+   {
+    "task": "68342446a8d674b5740b31fc",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "683425dd8f5b18d29a05d9d1",
+    "statuses": [
+     "active"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "683425dd8f5b18d29a05d9d1": {
+  "requirements": [
+   {
+    "task": "68342446a8d674b5740b31fc",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69788d4e963f08d9140bce19": {
+  "requirements": [
+   {
+    "task": "68341846186efa3c5b07f989",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "697878057aa1273126030fb0",
+    "statuses": [
+     "active"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "697878057aa1273126030fb0": {
+  "requirements": [
+   {
+    "task": "68341846186efa3c5b07f989",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69789660b2187365e70bb94a": {
+  "requirements": [
+   {
+    "task": "697895277d31587eab080266",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6978907718bd6d7cbd0e8b8e": {
+  "requirements": [
+   {
+    "task": "69788d4e963f08d9140bce19",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "697895277d31587eab080266": {
+  "requirements": [
+   {
+    "task": "68342265a8d674b5740b31f0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834233fecd5cf3a440d855b": {
+  "requirements": [
+   {
+    "task": "68341c4babec72d95d0c1260",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "697878057aa1273126030fb0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "69789660b2187365e70bb94a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 10,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27ba9586f7741b543d8e85": {
+  "requirements": [
+   {
+    "task": "5a0449d586f77474e66227b7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3460c86f7742880308185": {
+  "requirements": [
+   {
+    "task": "5ac345dc86f774288030817f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac346a886f7744e1b083d67": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3479086f7742880308199": {
+  "requirements": [
+   {
+    "task": "5ac2428686f77412450b42bf",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5ac3467986f7741d6224abc2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "626bd75e47ea7f506e5493c5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "638fcd23dc65553116701d33": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639136fa9444fb141f4e6eee": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "65734c186dc1e402c80dc19e": {
+  "requirements": [
+   {
+    "task": "639135a7e705511c8a4a1b78",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "65802b627b44fa5e14638899": {
+  "requirements": [
+   {
+    "task": "5ae448e586f7744dcf0c2a67",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314b4d7f171c4c20226c3": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   },
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa39b91b0a8c9680fc467": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c085d59b0575973005f52": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a03173786f77451cb427172": {
+  "requirements": [
+   {
+    "task": "5a03153686f77442d90e2171",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63913715f8e5dd32bf4e3aaa": {
+  "requirements": [
+   {
+    "task": "626bd75e47ea7f506e5493c5",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314b0acf8442f8b0531a1": {
+  "requirements": [
+   {
+    "task": "666314b4d7f171c4c20226c3",
+    "statuses": [
+     "complete",
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314b2a9290f9e0806cca3": {
+  "requirements": [
+   {
+    "task": "666314b0acf8442f8b0531a1",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314b696a9349baa021bac": {
+  "requirements": [
+   {
+    "task": "666314b4d7f171c4c20226c3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314b8312343839d032d24": {
+  "requirements": [
+   {
+    "task": "666314b696a9349baa021bac",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314bafd5ca9577902e03a": {
+  "requirements": [
+   {
+    "task": "666314b8312343839d032d24",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314bc1d3ec95634095e77": {
+  "requirements": [
+   {
+    "task": "666314bafd5ca9577902e03a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314bd920800278d0f6748": {
+  "requirements": [
+   {
+    "task": "666314bc1d3ec95634095e77",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314bf1cd52e3d040a2e78": {
+  "requirements": [
+   {
+    "task": "666314bd920800278d0f6748",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314c10aa5c7436c00908c": {
+  "requirements": [
+   {
+    "task": "666314bf1cd52e3d040a2e78",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314c3acf8442f8b0531a3": {
+  "requirements": [
+   {
+    "task": "666314c10aa5c7436c00908c",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314c5a9290f9e0806cca5": {
+  "requirements": [
+   {
+    "task": "666314c3acf8442f8b0531a3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 12,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae448a386f7744d3730fff0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 15,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63ab180c87413d64ae0ac20a": {
+  "requirements": [
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete",
+     "failed"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 15,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac346cf86f7741d63233a02": {
+  "requirements": [
+   {
+    "task": "5ac346a886f7744e1b083d67",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 15,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac346e886f7741d6118b99b": {
+  "requirements": [
+   {
+    "task": "5ac346cf86f7741d63233a02",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 15,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e4b786f77408251c4bfc": {
+  "requirements": [
+   {
+    "task": "5d25e4ad86f77443e625e387",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e4d586f77443e625e388": {
+  "requirements": [
+   {
+    "task": "63a88045abf76d719f42d715",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135b04ed9512be67647d7": {
+  "requirements": [
+   {
+    "task": "6391359b9444fb141f4e6ee6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639136df4b15ca31f76bc31f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "6a45208043b8d7604d00b8d5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5bc480a686f7741af0342e29": {
+  "requirements": [
+   {
+    "task": "5bc47dbf86f7741ee74e93b9",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2d886f77442734d335e": {
+  "requirements": [
+   {
+    "task": "5d25cf2686f77443e75488d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61904daa7d0d857927447b9c": {
+  "requirements": [
+   {
+    "task": "5d25cf2686f77443e75488d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63a511ea30d85e10e375b045": {
+  "requirements": [
+   {
+    "task": "63913715f8e5dd32bf4e3aaa",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc4826c86f774106d22d88b": {
+  "requirements": [
+   {
+    "task": "5bc480a686f7741af0342e29",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc4836986f7740c0152911c": {
+  "requirements": [
+   {
+    "task": "5bc480a686f7741af0342e29",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25d2c186f77443e35162e5": {
+  "requirements": [
+   {
+    "task": "5d25c81b86f77443e625dd71",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "5d25e2d886f77442734d335e",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e29d86f7740a22516326": {
+  "requirements": [
+   {
+    "task": "5d25cf2686f77443e75488d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "5d25d2c186f77443e35162e5",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2a986f77409dd5cdf2a": {
+  "requirements": [
+   {
+    "task": "5d25e29d86f7740a22516326",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6391372c8ba6894d155e77d7": {
+  "requirements": [
+   {
+    "task": "63a511ea30d85e10e375b045",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64ee99639878a0569d6ec8c9": {
+  "requirements": [
+   {
+    "task": "6391372c8ba6894d155e77d7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5969f90786f77420d2328015": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edab736cc183c769d778bc2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179afd0bca27a099552e040": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a68667486f7742607157d28": {
+  "requirements": [
+   {
+    "task": "5a68665c86f774255929b4c7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a68669a86f774255929b4d4": {
+  "requirements": [
+   {
+    "task": "5a68667486f7742607157d28",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d6fb2c086f77449da599c24": {
+  "requirements": [
+   {
+    "task": "5a68667486f7742607157d28",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 18,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bb3d86f77411ea361a21": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6086c852c945025d41566124": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179b4d1bca27a099552e04e": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a5cd2178fd7c2b201032f3f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bc1586f7741f6d40fa2f": {
+  "requirements": [
+   {
+    "task": "5a27bbf886f774333a418eeb",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bb5986f7741dfb660900": {
+  "requirements": [
+   {
+    "task": "5a27bb3d86f77411ea361a21",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bc3686f7741c73584026": {
+  "requirements": [
+   {
+    "task": "5a27bc1586f7741f6d40fa2f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 19,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e48d86f77408251c4bfb": {
+  "requirements": [
+   {
+    "task": "5979ed3886f77431307dc512",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5d24b81486f77439c92d6ba8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 20,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59c50c8886f7745fed3193bf": {
+  "requirements": [
+   {
+    "task": "59c50a9e86f7745fef66f4ff",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ede55112c95834b583f052a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60896bca6ee58f38c417d4f2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179ac7511973d018217d0b9": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ede567cfa6dc072ce15d6e3": {
+  "requirements": [
+   {
+    "task": "5ede55112c95834b583f052a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179acbdc760af5ad2053585": {
+  "requirements": [
+   {
+    "task": "6179ac7511973d018217d0b9",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 21,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60896888e4a85c72ef3fa300": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 22,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179b4f16e9dd54ac275e407": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 22,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "671a49f77d49aea42c029b5f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 22,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b47876e86f7744d1c353205": {
+  "requirements": [
+   {
+    "task": "5ae448f286f77448d73c0131",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5ae4495086f77443c122bc40",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 23,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f5deac39e45b527a7c4232": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 25,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66d9cbb67b491f9d5304f6e6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 25,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": 1,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a959d33b9b22567ed0d0a4e": {
+  "requirements": [
+   {
+    "task": "66d9cbb67b491f9d5304f6e6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 25,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac244eb86f7741356335af1": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5ae3270f86f77445ba41d4dd": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "6089732b59b92115597ad789": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6089736efa70fc097863b8f6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a0970744893b9f3f0d9b68": {
+  "requirements": [
+   {
+    "task": "67a096577e86e067eb045733",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a0970f05d1611ed90be75d": {
+  "requirements": [
+   {
+    "task": "67a0970744893b9f3f0d9b68",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a09724972c11a3f5077324": {
+  "requirements": [
+   {
+    "task": "67a0970744893b9f3f0d9b68",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a0972e77dd677f600804bd": {
+  "requirements": [
+   {
+    "task": "67a0970744893b9f3f0d9b68",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a097379f2068e74603c6ac": {
+  "requirements": [
+   {
+    "task": "67a0970744893b9f3f0d9b68",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67d03be712fb5f8fd2096332": {
+  "requirements": [
+   {
+    "task": "67a0970744893b9f3f0d9b68",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a09761e720611a6a01f288": {
+  "requirements": [
+   {
+    "task": "67a096ed77dd677f600804ba",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "67a0970f05d1611ed90be75d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "67a09724972c11a3f5077324",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "67a0972e77dd677f600804bd",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "67a097379f2068e74603c6ac",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "67d03be712fb5f8fd2096332",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 26,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "608974d01a66564e74191fc0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71dc67fcf9c556f325056": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135bbc115f907b14700a6": {
+  "requirements": [
+   {
+    "task": "5b478d0f86f7744d190d91b5",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "639135a7e705511c8a4a1b78",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6613f3007f6666d56807c929": {
+  "requirements": [
+   {
+    "task": "5b478d0f86f7744d190d91b5",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": true
+ },
+ "66151401efb0539ae10875ae": {
+  "requirements": [
+   {
+    "task": "5b478d0f86f7744d190d91b5",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "USEC",
+  "restartable": true
+ },
+ "66aa61663aa37705c5024277": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 27,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae3280386f7742a41359364": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 29,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5c0d0d5086f774363760aef2": {
+  "requirements": [
+   {
+    "task": "5a68667486f7742607157d28",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 30,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0d4e61d09282029f53920e": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 32,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "626bdcc3a371ee3a7a3514c5": {
+  "requirements": [
+   {
+    "task": "5d25e2c386f77443e7549029",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "5d25e2e286f77444001e2e48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "5d25e2ee86f77443e35162ea",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135cd8ba6894d155e77cb": {
+  "requirements": [
+   {
+    "task": "639135c3744e452011470807",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63a9b36cc31b00242d28a99f": {
+  "requirements": [
+   {
+    "task": "639136df4b15ca31f76bc31f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "faction:the huntsman path - administrator"
+   },
+   {
+    "task": "6391372c8ba6894d155e77d7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "6a45208043b8d7604d00b8d5",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "faction:the huntsman path - administrator"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a4532e48e82d8ffea0c3eae": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc4856986f77454c317bea7": {
+  "requirements": [
+   {
+    "task": "5bc4836986f7740c0152911c",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5eaaaa7c93afa0558f3b5a1c": {
+  "requirements": [
+   {
+    "task": "5d25e29d86f7740a22516326",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc4893c86f774626f5ebf3e": {
+  "requirements": [
+   {
+    "task": "5bc4856986f77454c317bea7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 33,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "5c12452c86f7744b83469073": {
+  "requirements": [
+   {
+    "task": "5967725e86f774601a446662",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c1ff1a757ddd00404f0aa": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0bdb5286f774166e38eed4": {
+  "requirements": [
+   {
+    "task": "5b4795fb86f7745876267770",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "683427418f5b18d29a05d9e3": {
+  "requirements": [
+   {
+    "task": "68342446a8d674b5740b31fc",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "683425dd8f5b18d29a05d9d1",
+    "statuses": [
+     "active"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0be5fc86f774467a116593": {
+  "requirements": [
+   {
+    "task": "5a68667486f7742607157d28",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6834287b7559f4e6d50bc0fa": {
+  "requirements": [
+   {
+    "task": "683427418f5b18d29a05d9e3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 35,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d4bec3486f7743cac246665": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6574e0dedc0d635f633a5805": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67b45467814ab0ffa000c7e7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59ca264786f77445a80ed044": {
+  "requirements": [
+   {
+    "task": "59c50c8886f7745fed3193bf",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59ca29fb86f77445ab465c87": {
+  "requirements": [
+   {
+    "task": "59ca264786f77445a80ed044",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59ca2eb686f77445a80ed049": {
+  "requirements": [
+   {
+    "task": "59ca29fb86f77445ab465c87",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "64e7b99017ab941a6f7bf9d7": {
+  "requirements": [
+   {
+    "task": "59ca2eb686f77445a80ed049",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64e7b9a4aac4cd0a726562cb": {
+  "requirements": [
+   {
+    "task": "64e7b99017ab941a6f7bf9d7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 36,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0d1c4cd0928202a02a6f5c": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edac020218d181e29451446": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63a9b229813bba58a50c9ee5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66aba85403e0ee3101042877": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa3a3ad7f1eac2607ed48": {
+  "requirements": [
+   {
+    "task": "5a68669a86f774255929b4d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bc6986f7741c7358402b": {
+  "requirements": [
+   {
+    "task": "5a27bc3686f7741c73584026",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bc8586f7741b543d8ea4": {
+  "requirements": [
+   {
+    "task": "5a27bc6986f7741c7358402b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d6fbc2886f77449d825f9d3": {
+  "requirements": [
+   {
+    "task": "5a27bc6986f7741c7358402b",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 37,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0bbaa886f7746941031d82": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 38,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": true
+ },
+ "5c0bc91486f7746ab41857a2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 38,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71c48c1bfa3050473b8e5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 38,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "671a59e43d73dac1360765cc": {
+  "requirements": [
+   {
+    "task": "671a49f77d49aea42c029b5f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 38,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0be13186f7746f016734aa": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": true
+ },
+ "60e71d23c1bfa3050473b8e6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639872fe8871e1272b10ccf6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6942b44f891369fc790e385a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac242ab86f77412464f68b4": {
+  "requirements": [
+   {
+    "task": "5ac244c486f77413e12cf945",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac244c486f77413e12cf945": {
+  "requirements": [
+   {
+    "task": "639872fe8871e1272b10ccf6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b47749f86f7746c5d6a5fd4": {
+  "requirements": [
+   {
+    "task": "5ac242ab86f77412464f68b4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b477b6f86f7747290681823": {
+  "requirements": [
+   {
+    "task": "5b47749f86f7746c5d6a5fd4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b477f7686f7744d1b23c4d2": {
+  "requirements": [
+   {
+    "task": "639873003693c63d86328f25",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b47825886f77468074618d3": {
+  "requirements": [
+   {
+    "task": "63987301e11ec11ff5504036",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639873003693c63d86328f25": {
+  "requirements": [
+   {
+    "task": "5b477b6f86f7747290681823",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63987301e11ec11ff5504036": {
+  "requirements": [
+   {
+    "task": "5b477f7686f7744d1b23c4d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f83bb69878a0569d6ecfbe": {
+  "requirements": [
+   {
+    "task": "5b47825886f77468074618d3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f83bcdde58fc437700d8fa": {
+  "requirements": [
+   {
+    "task": "64f83bb69878a0569d6ecfbe",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f83bd983cfca080a362c82": {
+  "requirements": [
+   {
+    "task": "676529af9c90953d090882e7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "676529af9c90953d090882e7": {
+  "requirements": [
+   {
+    "task": "64f83bcdde58fc437700d8fa",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 40,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c1141f386f77430ff393792": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5e381b0286f77420e3417a74": {
+  "requirements": [
+   {
+    "task": "5ae4496986f774459e77beb6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5e383a6386f77465910ce1f3": {
+  "requirements": [
+   {
+    "task": "5ae4496986f774459e77beb6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "6613f307fca4f2f386029409": {
+  "requirements": [
+   {
+    "task": "65734c186dc1e402c80dc19e",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": true
+ },
+ "6615141bfda04449120269a7": {
+  "requirements": [
+   {
+    "task": "65734c186dc1e402c80dc19e",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "USEC",
+  "restartable": true
+ },
+ "6663149cfd5ca9577902e037": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c51aac186f77432ea65c552": {
+  "requirements": [
+   {
+    "task": "596760e186f7741e11214d58",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "597a0e5786f77426d66c0636",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5ae4497b86f7744cf402ed00",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5bc480a686f7741af0342e29",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5c0bde0986f77479cf22c2f8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [
+   "Collector (see wiki requirements)"
+  ],
+  "minLevel": 42,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   },
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5e4d4ac186f774264f758336": {
+  "requirements": [
+   {
+    "task": "5e381b0286f77420e3417a74",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5e4d515e86f77438b2195244": {
+  "requirements": [
+   {
+    "task": "5e383a6386f77465910ce1f3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "6663149f1d3ec95634095e75": {
+  "requirements": [
+   {
+    "task": "6663149cfd5ca9577902e037",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314a1920800278d0f6746": {
+  "requirements": [
+   {
+    "task": "6663149f1d3ec95634095e75",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314a31cd52e3d040a2e76": {
+  "requirements": [
+   {
+    "task": "666314a1920800278d0f6746",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "666314a50aa5c7436c00908a": {
+  "requirements": [
+   {
+    "task": "666314a31cd52e3d040a2e76",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 42,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "684009026ceedc792c09b2a7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 45,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68400926706e0a55e90b0007": {
+  "requirements": [
+   {
+    "task": "684009026ceedc792c09b2a7",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 45,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68400953506db3b4db0700e7": {
+  "requirements": [
+   {
+    "task": "68400926706e0a55e90b0007",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 45,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71b62a0beca400d69efc4": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 46,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "67af4c1d8c9482eca103e477": {
+  "requirements": [
+   {
+    "task": "67af4c1991ee75c6d7060a16",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "67af4c1a6c3ebfd8e6034916",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 46,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c1405c58dc6f7056667": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c169d95ad16e004fd86": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60effd818b669d08a35bfad5": {
+  "requirements": [
+   {
+    "task": "59ca2eb686f77445a80ed049",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c17f4f1fb58a907f8f6": {
+  "requirements": [
+   {
+    "task": "67af4c1405c58dc6f7056667",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c1991ee75c6d7060a16": {
+  "requirements": [
+   {
+    "task": "67af4c17f4f1fb58a907f8f6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c1a6c3ebfd8e6034916": {
+  "requirements": [
+   {
+    "task": "67af4c1cc0e59d55e2010b97",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67af4c1cc0e59d55e2010b97": {
+  "requirements": [
+   {
+    "task": "67af4c169d95ad16e004fd86",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 50,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71e8ed54b755a3b53eb67": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 55,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "5936d90786f7742b1420ba5b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5936da9e86f7742d65037edf": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59674cd986f7744ab26e32f2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59674eb386f774539f14813a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5967530a86f77462ba22226b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59675ea386f77414b32bded2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596760e186f7741e11214d58": {
+  "requirements": [
+   {
+    "task": "59675ea386f77414b32bded2",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5967725e86f774601a446662": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5967733e86f774602332fc84": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59689ee586f7740d1570bbd5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59689fbd86f7740d137ebfc4": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5968eb3186f7741dde183a4d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5969f9e986f7741dde183a50": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596a0e1686f7741ddf17dbee": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596a101f86f7741ddb481582": {
+  "requirements": [
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "active"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596a1e6c86f7741ddc2d3206": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596a218586f77420d232807c": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596b36c586f77450d6045ad2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596b43fb86f77457ca186186": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "596b455186f77457cb50eccb": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5979ed3886f77431307dc512": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5979eee086f774311955e614": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5979f8bb86f7743ec214c7a6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5979f9ba86f7740f6c3fe9f2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "597a0b2986f77426d66c0633": {
+  "requirements": [
+   {
+    "task": "5979f9ba86f7740f6c3fe9f2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59c124d686f774189b3c843f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "59c50a9e86f7745fef66f4ff": {
+  "requirements": [
+   {
+    "task": "59c512ad86f7741f0d09de9b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59c512ad86f7741f0d09de9b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "59ca1a6286f774509a270942": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a0327ba86f77456b9154236": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a03296886f774569778596a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a0449d586f77474e66227b7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b7a786f774579c3eb376": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b7d686f77460d847e6a6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b80086f774429a5d7e20": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27b87686f77460de0252a8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27ba1c86f77461ea5a3c56": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bafb86f7741c73584017": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27bb1e86f7741f27621b7e": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a27c99a86f7747d2c6bdd8e": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5a68661a86f774500f48afb0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac23c6186f7741247042bad": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac2426c86f774138762edfe": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac2428686f77412450b42bf": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac345dc86f774288030817f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3462b86f7741d6118b983": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3464c86f7741d651d6877": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3467986f7741d6224abc2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3475486f7741d6224abd3": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ac3477486f7741d651d6885": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae3267986f7742a413592fe": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae3277186f7745973054106": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5ae327c886f7745c7b3f2f3f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5ae448bf86f7744d733e55ee": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae448e586f7744dcf0c2a67": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae448f286f77448d73c0131": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4490786f7744ca822adcc": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4493486f7744efa289417": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5ae4493d86f7744b8e15aa8f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5ae4495086f77443c122bc40": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4495c86f7744e87761355": {
+  "requirements": [
+   {
+    "task": "5ae4497b86f7744cf402ed00",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4496986f774459e77beb6": {
+  "requirements": [
+   {
+    "task": "5ae4495c86f7744e87761355",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4497b86f7744cf402ed00": {
+  "requirements": [
+   {
+    "task": "5ae4495086f77443c122bc40",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4498786f7744bde357695": {
+  "requirements": [
+   {
+    "task": "5ae4497b86f7744cf402ed00",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae4499a86f77449783815db": {
+  "requirements": [
+   {
+    "task": "5ae448f286f77448d73c0131",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "5ae4497b86f7744cf402ed00",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae449a586f7744bde357696": {
+  "requirements": [
+   {
+    "task": "5ae4498786f7744bde357695",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae449b386f77446d8741719": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae449c386f7744bde357697": {
+  "requirements": [
+   {
+    "task": "5ae449b386f77446d8741719",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5ae449d986f774453a54a7e1": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b47799d86f7746c5d6a5fd8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5b47891f86f7744d1b23c571": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b478b1886f7744d1b23c57d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b478d0f86f7744d190d91b5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b478eca86f7744642012254": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5b478ff486f7744d184ecbbf": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5b47926a86f7747ccc057c15": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5b4794cb86f774598100d5d4": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5bc4776586f774512d07cf05": {
+  "requirements": [
+   {
+    "task": "5d24b81486f77439c92d6ba8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0bd01e86f7747cdd799e56": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0bd94186f7747a727f09b2": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0bde0986f77479cf22c2f8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0d0f1886f77457b8210226": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c0d4c12d09282029f539173": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c10f94386f774227172c572": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c1128e386f7746565181106": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c112d7e86f7740d6f647486": {
+  "requirements": [
+   {
+    "task": "5b478b1886f7744d1b23c57d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c1234c286f77406fa13baeb": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5c139eb686f7747878361a6f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d2495a886f77425cd51e403": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d24b81486f77439c92d6ba8": {
+  "requirements": [
+   {
+    "task": "5d2495a886f77425cd51e403",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2b486f77409de05bba0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2c386f77443e7549029": {
+  "requirements": [
+   {
+    "task": "5d25e2b486f77409de05bba0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "5d25e2cc86f77443e47ae019": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2e286f77444001e2e48": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e2ee86f77443e35162ea": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e43786f7740a212217fa": {
+  "requirements": [
+   {
+    "task": "5d25e2b486f77409de05bba0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "5d25e44386f77409453bce7b": {
+  "requirements": [
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e44f86f77443e625e385": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e45e86f77408251c4bfa": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e46e86f77409453bce7c": {
+  "requirements": [
+   {
+    "task": "5d24b81486f77439c92d6ba8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e48186f77443e625e386": {
+  "requirements": [
+   {
+    "task": "5d25cf2686f77443e75488d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e4ad86f77443e625e387": {
+  "requirements": [
+   {
+    "task": "5d25e48186f77443e625e386",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5d25e4ca86f77409dd5cdf2c": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5eda19f0edce541157209cee": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edab4b1218d181e29451435": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edaba7c0c502106f869bc02": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edabd13218d181e29451442": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edac34d0bb72a50635c2bfa": {
+  "requirements": [
+   {
+    "task": "5edab4b1218d181e29451435",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5edac63b930f5454f51e128b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5f04886a3937dc337a6b8238": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "5fd9fad9c1ce6b1a3b486d00": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "600302d73b897b11364cd161": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60896b7bfa70fc097863b8f5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60896e28e4a85c72ef3fa301": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6089743983426423753cd58a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "608974af4b05530f55550c21": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "608a768d82e40b3c727fd17d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60c0c018f7afb4354815096a": {
+  "requirements": [
+   {
+    "task": "5ac3477486f7741d651d6885",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71b9bbd90872cb85440f3": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71bb4e456d449cd47ca75": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71c11d54b755a3b53eb65": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71c9ad54b755a3b53eb66": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71ccb5688f6424c7bfec4": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71ce009d7c801eb0c0ec6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71d6d7fcf9c556f325055": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e71dc0a94be721b065bbfc": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "60e729cf5698ee7b05057439": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179ad0a6e9dd54ac275e3f2": {
+  "requirements": [
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179ad56c760af5ad2053587": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179aff8f57fb279792c60a1": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179b3a12153c15e937d52bc": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179b3bdc7560e13d23eeb8d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6179b5b06e9dd54ac275e409": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "6179b5eabca27a099552e052": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "6193850f60b34236ee0483de": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61958c366726521dd96828ec": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61e6e5e0f5b9633f6719ed95": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": -1,
+    "compare": "<"
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61e6e60223374d168a4576a6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": -1,
+    "compare": "<="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61e6e615eea2935bc018a2c5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": -1,
+    "compare": "<="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61e6e621bfeab00251576265": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": -1,
+    "compare": "<="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "626bd75b05f287031503c7f6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "626bd75c71bd851e971b82a5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "626bd75d5bef5d7d590bd415": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135534b15ca31f76bc317": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6391359b9444fb141f4e6ee6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135a7e705511c8a4a1b78": {
+  "requirements": [
+   {
+    "task": "638fcd23dc65553116701d33",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135c3744e452011470807": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "639135e0fa894f0a866afde6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135e8c115f907b14700aa": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639135f286e646067c176a87": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639136d68ba6894d155e77cf": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "639136f086e646067c176a8b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639282134ed9512be67647ed": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "63966faeea19ac7ed845db2c": {
+  "requirements": [],
+  "unresolved": [
+   "To the Light - Getting Acquainted"
+  ],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63966fbeea19ac7ed845db2e": {
+  "requirements": [
+   {
+    "task": "63966faeea19ac7ed845db2c",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63966fccac6f8f3c677b9d89": {
+  "requirements": [
+   {
+    "task": "63966fbeea19ac7ed845db2e",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63966fd9ea19ac7ed845db30": {
+  "requirements": [
+   {
+    "task": "63966fe7ea74a47c2d3fc0e6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63966fe7ea74a47c2d3fc0e6": {
+  "requirements": [
+   {
+    "task": "63966fccac6f8f3c677b9d89",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63966ff54c3ef01b6f3ffad8": {
+  "requirements": [
+   {
+    "task": "63966fd9ea19ac7ed845db30",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639670029113f06a7c3b2377": {
+  "requirements": [
+   {
+    "task": "63966ff54c3ef01b6f3ffad8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6396700fea19ac7ed845db32": {
+  "requirements": [
+   {
+    "task": "639670029113f06a7c3b2377",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6396701b9113f06a7c3b2379": {
+  "requirements": [
+   {
+    "task": "6396700fea19ac7ed845db32",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63967028c4a91c5cb76abd81": {
+  "requirements": [
+   {
+    "task": "6396701b9113f06a7c3b2379",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639872f9decada40426d3447": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "639872fa9b4fb827b200d8e5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "639872fc93ae507d5858c3a6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "639dbaf17c898a131e1cffff": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "63a5cf262964a7488f5243ce": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63a88045abf76d719f42d715": {
+  "requirements": [
+   {
+    "task": "5d25b6be86f77444001e1b89",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "63a9ae24009ffc6a551631a5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64e7b971f9d6fa49d6769b44": {
+  "requirements": [
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "639135e0fa894f0a866afde6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64e7b9bffd30422ed03dad38": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64ee9df4496db64f9b7a4432": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f3176921045e77405d63b5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f6aafd67e11a7c6206e0d0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "64f731ab83cfca080a361e42": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6572e876dc0d635f633a5714": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "657315e1dccd301f1301416a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "65733403eefc2c312a759ddb": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "BEAR",
+  "restartable": false
+ },
+ "6573382e557ff128bf3da536": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "USEC",
+  "restartable": false
+ },
+ "6573387d0b26ed4fde798de3": {
+  "requirements": [
+   {
+    "task": "64f731ab83cfca080a361e42",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6573397ef3f8344c4575cd87": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6578eb36e5020875d64645cd": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6578ec473dbd035d04531a8d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "658027799634223183395339": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66631489acf8442f8b05319f": {
+  "requirements": [
+   {
+    "task": "6672d9def1c88688a707d042",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "6663148ca9290f9e0806cca1": {
+  "requirements": [
+   {
+    "task": "66631489acf8442f8b05319f",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6663148ed7f171c4c20226c1": {
+  "requirements": [
+   {
+    "task": "6663148ca9290f9e0806cca1",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6663149196a9349baa021baa": {
+  "requirements": [
+   {
+    "task": "6663148ed7f171c4c20226c1",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": true
+ },
+ "66631493312343839d032d22": {
+  "requirements": [
+   {
+    "task": "6663149196a9349baa021baa",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6672d9def1c88688a707d042": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": 4,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa38fad7f1eac2607ed46": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa3910c828825de06d69f": {
+  "requirements": [
+   {
+    "task": "669fa38fad7f1eac2607ed46",
+    "statuses": [
+     "active"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa3979b0ce3feae01a130": {
+  "requirements": [
+   {
+    "task": "5d25e2cc86f77443e47ae019",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa399033a3ce9870338a8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa39c64ea11e84c0642a6": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "669fa3a40c828825de06d6a1": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66aa58245ab22944110db6e9": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66aa74571e5e199ecd094f18": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66ab970848ddbe9d4a0c49a8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66ab9da7eb102b9bcd08591c": {
+  "requirements": [
+   {
+    "task": "5d25e4ad86f77443e625e387",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "66b38c7bf85b8bf7250f9cb6": {
+  "requirements": [
+   {
+    "task": "5d24b81486f77439c92d6ba8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f2cd5d3346c2167020484": {
+  "requirements": [
+   {
+    "task": "6752f6d83038f7df520c83e8",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f348dd3346c21670217e7": {
+  "requirements": [
+   {
+    "task": "6752f6d83038f7df520c83e8",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f4e956f1b89c7bc0f56ef": {
+  "requirements": [
+   {
+    "task": "673f348dd3346c21670217e7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f5a4976553f78350bdac1": {
+  "requirements": [
+   {
+    "task": "673f4e956f1b89c7bc0f56ef",
+    "statuses": [
+     "failed"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f6027352b4da8e00322d2": {
+  "requirements": [
+   {
+    "task": "673f5a4976553f78350bdac1",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f61a066e6a521aa04b62b": {
+  "requirements": [
+   {
+    "task": "673f6027352b4da8e00322d2",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "673f629c5b555b53460cf827": {
+  "requirements": [
+   {
+    "task": "673f6027352b4da8e00322d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "6745fcded0fbbc74ca0f721d",
+    "statuses": [
+     "complete",
+     "failed"
+    ],
+    "source": "both",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6740a02a69a58fceba0ff399": {
+  "requirements": [
+   {
+    "task": "673f629c5b555b53460cf827",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6740a15566e6a521aa051b15": {
+  "requirements": [
+   {
+    "task": "6740a02a69a58fceba0ff399",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "6745fcded0fbbc74ca0f721d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6740a2c17e3818d5bb0648b6": {
+  "requirements": [
+   {
+    "task": "6740a15566e6a521aa051b15",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6740a3f4eca8acb2d2055159": {
+  "requirements": [
+   {
+    "task": "6740a2c17e3818d5bb0648b6",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6740b60c60a98cad1b0e0aa0": {
+  "requirements": [
+   {
+    "task": "673f4e956f1b89c7bc0f56ef",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   },
+   {
+    "task": "673f6027352b4da8e00322d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "6740a02a69a58fceba0ff399",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "674492b6909d2013670a347a": {
+  "requirements": [
+   {
+    "task": "6740b60c60a98cad1b0e0aa0",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744a4717e3818d5bb0680bb": {
+  "requirements": [
+   {
+    "task": "674492b6909d2013670a347a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744a728352b4da8e003eda9": {
+  "requirements": [
+   {
+    "task": "6740a3f4eca8acb2d2055159",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "6744a4717e3818d5bb0680bb",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744a9dfef61d56e020b5c4a": {
+  "requirements": [
+   {
+    "task": "6740a3f4eca8acb2d2055159",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "6744a4717e3818d5bb0680bb",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744ab1def61d56e020b5c56": {
+  "requirements": [
+   {
+    "task": "6744a728352b4da8e003eda9",
+    "statuses": [
+     "complete",
+     "failed"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744aca8d3346c216702c583": {
+  "requirements": [
+   {
+    "task": "6744ab1def61d56e020b5c56",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6744af0969a58fceba101fed": {
+  "requirements": [
+   {
+    "task": "6744a728352b4da8e003eda9",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "6744aca8d3346c216702c583",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6745cbee909d2013670a4a55": {
+  "requirements": [
+   {
+    "task": "6744a9dfef61d56e020b5c4a",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "6744aca8d3346c216702c583",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6745fae369a58fceba10343d": {
+  "requirements": [
+   {
+    "task": "673f6027352b4da8e00322d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "673f629c5b555b53460cf827",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   },
+   {
+    "task": "6745fcded0fbbc74ca0f721d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6745fcded0fbbc74ca0f721d": {
+  "requirements": [
+   {
+    "task": "673f4e956f1b89c7bc0f56ef",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6745fdddd3346c216702e0bf": {
+  "requirements": [
+   {
+    "task": "6745fcded0fbbc74ca0f721d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "674600a366e6a521aa05eb66": {
+  "requirements": [
+   {
+    "task": "6745fae369a58fceba10343d",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "674602307e3818d5bb069489": {
+  "requirements": [
+   {
+    "task": "674600a366e6a521aa05eb66",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6746053b5b555b53460d9896": {
+  "requirements": [
+   {
+    "task": "674602307e3818d5bb069489",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "674605df60a98cad1b0ec799": {
+  "requirements": [
+   {
+    "task": "6746053b5b555b53460d9896",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67460662d0fbbc74ca0f7229": {
+  "requirements": [
+   {
+    "task": "6744aca8d3346c216702c583",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   },
+   {
+    "task": "674605df60a98cad1b0ec799",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6752f6d83038f7df520c83e8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c03d1f7da9792a405549a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c047fa46173572a0bd878": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c04f4db8807b75d0f38e8": {
+  "requirements": [
+   {
+    "task": "675c047fa46173572a0bd878",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c1570526ff496850895d9": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c15fbf7da9792a4059871": {
+  "requirements": [
+   {
+    "task": "6834158f2f0e2a7eb90b62c8",
+    "statuses": [
+     "active",
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c1cf4a757ddd00404f0a3": {
+  "requirements": [
+   {
+    "task": "5d24b81486f77439c92d6ba8",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c1d6d59b0575973008fc7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c1ec7a46173572a0bf20a": {
+  "requirements": [
+   {
+    "task": "675c1cf4a757ddd00404f0a3",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c3507a06634b5110e3c18": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "675c3582f6ddc329a90f9c6d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6764174c86addd02bc033d68": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a09636b8725511260bc421": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a0964e972c11a3f507731b": {
+  "requirements": [
+   {
+    "task": "67a09636b8725511260bc421",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a096577e86e067eb045733": {
+  "requirements": [
+   {
+    "task": "67a0964e972c11a3f507731b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a09673972c11a3f507731d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a0967c003a9986cb0f5ac1": {
+  "requirements": [
+   {
+    "task": "67a096577e86e067eb045733",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "67a096ed77dd677f600804ba": {
+  "requirements": [
+   {
+    "task": "67a0967c003a9986cb0f5ac1",
+    "statuses": [
+     "active"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68ee1c18b4e5bc9a68018cd7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69c27158e350f01390049e77": {
+  "requirements": [
+   {
+    "task": "69c26c07683c9831020018c7",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69c26c07683c9831020018c7": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "68db9c7557bc51a8c804c14b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce204c8702b378f9091e4b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce1de03e15cd80bd06f6c9": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce21e990144e437802b1e0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce1cfb298a6529b30d712b": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69c2a2d004de49c8f0055a3d": {
+  "requirements": [
+   {
+    "task": "69c277f3ea6da9c23e07f8d2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69c277f3ea6da9c23e07f8d2": {
+  "requirements": [
+   {
+    "task": "69c27158e350f01390049e77",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a5ccda873f06065630d61b0": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a5c1578f2689567c30eb0f3": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a5424ae135497b9df0c68be": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a7ae35b2dbf91eb050af95a": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a7af2e48fddc3979d0510b8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a7aef2360157cb5e3029a5f": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "6a7b0df31ea00c9a980e2742": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "61e6e60c5ca3b3783662be27": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Fence",
+    "type": "reputation",
+    "value": -3,
+    "compare": "<="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce213a298a6529b30d7134": {
+  "requirements": [
+   {
+    "task": "69ce204c8702b378f9091e4b",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69ce1f84ebbdbf36a200627c": {
+  "requirements": [
+   {
+    "task": "69ce1de03e15cd80bd06f6c9",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ },
+ "69e5583240c3e6c8ba0edbd5": {
+  "requirements": [
+   {
+    "task": "69ce1f84ebbdbf36a200627c",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false
+ }
+}

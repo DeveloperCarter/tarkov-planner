@@ -1,0 +1,124 @@
+2026-10-20 13:17:30.101|1.2.5.0.48146|Info|push-notifications|NotificationManager: new params received url:  ws:wss://example.invalid/push/notifier/getwebsocket/0000
+2026-10-20 13:20:01.200|1.2.5.0.48146|Info|push-notifications|Got notification | UserConfirmed
+{
+  "type": "userConfirmed",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0001",
+  "profileid": "000000000000000000000000"
+}
+2026-10-20 13:21:10.300|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0002",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000001",
+    "uid": "000000000000000000000000",
+    "type": 4,
+    "dt": 1792530070,
+    "text": "",
+    "templateId": "5bdac0b686f7743e1665e09e 0",
+    "hasRewards": true,
+    "maxStorageTime": 604800
+  }
+}
+2026-10-20 13:22:05.400|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0003",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000002",
+    "uid": "000000000000000000000000",
+    "type": 10,
+    "dt": 1792530125,
+    "text": "quest started",
+    "templateId": "5969f9e986f7741dde183a50 description",
+    "hasRewards": false,
+    "maxStorageTime": 1209600
+  }
+}
+2026-10-20 13:22:05.500|1.2.5.0.48146|Info|push-notifications|NotificationMessageProcessor.ProcessMessage | Received notification without a payload
+2026-10-20 13:40:11.600|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0004",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000003",
+    "uid": "000000000000000000000000",
+    "type": 12,
+    "dt": 1792531211,
+    "text": "quest started",
+    "templateId": "5969f9e986f7741dde183a50 successMessageText 54cb57776803fa99248b456e 0",
+    "items": {
+      "stash": "000000000000000000000004",
+      "data": [
+        { "_id": "000000000000000000000005", "_tpl": "5449016a4bdc2d6f028b456f", "upd": { "StackObjectsCount": 80000 } }
+      ]
+    },
+    "hasRewards": true,
+    "maxStorageTime": 172800
+  }
+}
+2026-10-20 13:40:11.700 -04:00|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0004",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000003",
+    "uid": "000000000000000000000000",
+    "type": 12,
+    "dt": 1792531211,
+    "text": "quest started",
+    "templateId": "5969f9e986f7741dde183a50 successMessageText 54cb57776803fa99248b456e 0",
+    "hasRewards": true,
+    "maxStorageTime": 172800
+  }
+}
+2026-10-20 13:55:00.800|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0005",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000006",
+    "uid": "000000000000000000000000",
+    "type": 11,
+    "dt": 1792532100,
+    "text": "",
+    "templateId": "59674eb386f774539f14813a description",
+    "hasRewards": false,
+    "maxStorageTime": 1209600
+  }
+}
+2026-10-20 13:55:00.900|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0006",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000007",
+    "uid": "000000000000000000000000",
+    "type": 10,
+    "dt": 1792532100,
+    "text": "quest started",
+    "templateId": "59674eb386f774539f14813a description",
+    "hasRewards": false,
+    "maxStorageTime": 1209600
+  }
+}
+2026-10-20 14:02:33.000|1.2.5.0.48146|Info|push-notifications|Got notification | ChatMessageReceived
+{
+  "type": "new_message",
+  "eventId": "aaaaaaaaaaaaaaaaaaaa0007",
+  "dialogId": "000000000000000000000000",
+  "message": {
+    "_id": "000000000000000000000008",
+    "uid": "000000000000000000000000",
+    "type": 12,
+    "dt": 1792532553,
+    "text": "quest started",
+    "templateId": "5967733e86f774602332fc84 successMessageText",
+    "items": {
+      "stash": "00000000000000000000000

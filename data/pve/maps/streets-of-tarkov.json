@@ -1,0 +1,5256 @@
+{
+ "meta": {
+  "map": "Streets of Tarkov",
+  "mapId": "5714dc692459777137212e12",
+  "key": "streets-of-tarkov",
+  "gameMode": "pve",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:11:34+00:00",
+  "raidMinutes": 40,
+  "players": "12-16",
+  "frame": {
+   "w": 1000,
+   "h": 1358,
+   "metres": 801
+  },
+  "rotation": 180,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "pharmacy-1-nw": {
+   "name": "Pharmacy 1 NW",
+   "x": 407,
+   "y": 720,
+   "hints": []
+  },
+  "kamchatskaya-st-n": {
+   "name": "Kamchatskaya St. N",
+   "x": 137,
+   "y": 575,
+   "hints": []
+  },
+  "chekannaya-st-nw": {
+   "name": "Chekannaya St. NW",
+   "x": 341,
+   "y": 864,
+   "hints": []
+  },
+  "beluga": {
+   "name": "Beluga",
+   "x": 599,
+   "y": 386,
+   "hints": []
+  },
+  "office": {
+   "name": "Office",
+   "x": 824,
+   "y": 855,
+   "hints": []
+  },
+  "pinewood-hotel-e": {
+   "name": "Pinewood Hotel E",
+   "x": 655,
+   "y": 585,
+   "hints": []
+  },
+  "razvedchikov-st-nw": {
+   "name": "Razvedchikov St. NW",
+   "x": 188,
+   "y": 1141,
+   "hints": []
+  },
+  "sparja-grocery-sw": {
+   "name": "Sparja Grocery SW",
+   "x": 285,
+   "y": 984,
+   "hints": []
+  },
+  "marked-hotel": {
+   "name": "Marked Hotel",
+   "x": 869,
+   "y": 881,
+   "hints": []
+  },
+  "abandon-factory-ne": {
+   "name": "Abandon Factory NE",
+   "x": 749,
+   "y": 924,
+   "hints": []
+  },
+  "se-of-vet-clinic": {
+   "name": "SE of Vet Clinic",
+   "x": 226,
+   "y": 857,
+   "hints": [
+    "Chek.13 marked room"
+   ]
+  },
+  "ne-of-marked-hotel": {
+   "name": "NE of Marked Hotel",
+   "x": 964,
+   "y": 822,
+   "hints": []
+  },
+  "pharmacy-1": {
+   "name": "Pharmacy 1",
+   "x": 472,
+   "y": 737,
+   "hints": []
+  },
+  "chekannaya-st-n": {
+   "name": "Chekannaya St. N",
+   "x": 364,
+   "y": 848,
+   "hints": []
+  },
+  "kilmov-shopping-mall-sw": {
+   "name": "Kilmov Shopping Mall SW",
+   "x": 708,
+   "y": 468,
+   "hints": [
+    "Inside the Stylobate building"
+   ]
+  },
+  "cinema": {
+   "name": "Cinema",
+   "x": 830,
+   "y": 1135,
+   "hints": [
+    "Rodina Cinema"
+   ]
+  },
+  "lexos": {
+   "name": "Lexos",
+   "x": 429,
+   "y": 979,
+   "hints": []
+  },
+  "post-office-s": {
+   "name": "Post Office S",
+   "x": 473,
+   "y": 680,
+   "hints": []
+  },
+  "lexos-sw": {
+   "name": "Lexos SW",
+   "x": 386,
+   "y": 1007,
+   "hints": []
+  },
+  "nizhnyaya-st-e": {
+   "name": "Nizhnyaya St. E",
+   "x": 763,
+   "y": 1199,
+   "hints": []
+  },
+  "razvedchikov-st-ne": {
+   "name": "Razvedchikov St. NE",
+   "x": 300,
+   "y": 1149,
+   "hints": []
+  },
+  "pinewood-hotel-nw": {
+   "name": "Pinewood Hotel NW",
+   "x": 533,
+   "y": 542,
+   "hints": []
+  },
+  "prestigio-cafe-e": {
+   "name": "Prestigio Cafe E",
+   "x": 515,
+   "y": 849,
+   "hints": [
+    "Armored Convoy"
+   ]
+  },
+  "lexos-n": {
+   "name": "Lexos N",
+   "x": 436,
+   "y": 930,
+   "hints": []
+  },
+  "verhnyaya-st-se": {
+   "name": "Verhnyaya St. SE",
+   "x": 750,
+   "y": 1131,
+   "hints": []
+  },
+  "post-office": {
+   "name": "Post Office",
+   "x": 477,
+   "y": 630,
+   "hints": []
+  },
+  "shestyorochka-s": {
+   "name": "Shestyorochka S",
+   "x": 868,
+   "y": 781,
+   "hints": []
+  },
+  "sparja-express-ne": {
+   "name": "Sparja Express NE",
+   "x": 662,
+   "y": 745,
+   "hints": []
+  },
+  "sw-of-construction": {
+   "name": "SW of Construction",
+   "x": 90,
+   "y": 1105,
+   "hints": []
+  },
+  "ne-of-kamchatskaya-st": {
+   "name": "NE of Kamchatskaya St.",
+   "x": 238,
+   "y": 575,
+   "hints": []
+  },
+  "school-ne-1": {
+   "name": "School NE (1)",
+   "x": 241,
+   "y": 660,
+   "hints": []
+  },
+  "school-ne-2": {
+   "name": "School NE (2)",
+   "x": 251,
+   "y": 620,
+   "hints": []
+  },
+  "razvedchikov-st-se": {
+   "name": "Razvedchikov St. SE",
+   "x": 281,
+   "y": 1226,
+   "hints": []
+  },
+  "w-of-razvedchikov-st": {
+   "name": "W of Razvedchikov St.",
+   "x": 32,
+   "y": 1157,
+   "hints": []
+  },
+  "s-of-construction": {
+   "name": "S of Construction",
+   "x": 187,
+   "y": 1079,
+   "hints": []
+  },
+  "primorsky-ave-sw": {
+   "name": "Primorsky Ave. SW",
+   "x": 470,
+   "y": 400,
+   "hints": []
+  },
+  "cardinal-apartments-e": {
+   "name": "Cardinal Apartments E",
+   "x": 442,
+   "y": 369,
+   "hints": []
+  },
+  "primorsky-ave-ne": {
+   "name": "Primorsky Ave. NE",
+   "x": 590,
+   "y": 305,
+   "hints": []
+  },
+  "vet-clinic": {
+   "name": "Vet Clinic",
+   "x": 172,
+   "y": 767,
+   "hints": []
+  },
+  "pharmacy-2": {
+   "name": "Pharmacy 2",
+   "x": 609,
+   "y": 1032,
+   "hints": []
+  },
+  "pharmacy-3": {
+   "name": "Pharmacy 3",
+   "x": 392,
+   "y": 41,
+   "hints": []
+  },
+  "cardinal-bank": {
+   "name": "Cardinal Bank",
+   "x": 397,
+   "y": 441,
+   "hints": []
+  },
+  "kilmov-shopping-mall-ne": {
+   "name": "Kilmov Shopping Mall NE",
+   "x": 787,
+   "y": 398,
+   "hints": []
+  },
+  "nw-of-pinewood-hotel": {
+   "name": "NW of Pinewood Hotel",
+   "x": 524,
+   "y": 496,
+   "hints": []
+  },
+  "kilmov-shopping-mall-se": {
+   "name": "Kilmov Shopping Mall SE",
+   "x": 807,
+   "y": 482,
+   "hints": []
+  },
+  "beluga-sw": {
+   "name": "Beluga SW",
+   "x": 536,
+   "y": 457,
+   "hints": []
+  },
+  "zmejskij-alley-w": {
+   "name": "Zmejskij Alley W",
+   "x": 271,
+   "y": 743,
+   "hints": []
+  },
+  "hive": {
+   "name": "Hive",
+   "x": 880,
+   "y": 969,
+   "hints": []
+  },
+  "nizhnyaya-st-w": {
+   "name": "Nizhnyaya St. W",
+   "x": 632,
+   "y": 1227,
+   "hints": []
+  },
+  "construction-ne": {
+   "name": "Construction NE",
+   "x": 221,
+   "y": 904,
+   "hints": []
+  },
+  "kilmov-st-se-1": {
+   "name": "Kilmov St. SE (1)",
+   "x": 350,
+   "y": 529,
+   "hints": []
+  },
+  "kilmov-st-se-2": {
+   "name": "Kilmov St. SE (2)",
+   "x": 753,
+   "y": 591,
+   "hints": []
+  },
+  "primorskij-49-n": {
+   "name": "Primorskij 49 N",
+   "x": 558,
+   "y": 841,
+   "hints": []
+  },
+  "marked-hotel-e": {
+   "name": "Marked Hotel E",
+   "x": 916,
+   "y": 870,
+   "hints": []
+  },
+  "shestyorochka": {
+   "name": "Shestyorochka",
+   "x": 877,
+   "y": 706,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "e5",
+   "name": "Collapsed Crane",
+   "faction": "pmc",
+   "x": 187,
+   "y": 929,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e4",
+   "name": "Crash Site",
+   "faction": "pmc",
+   "x": 30,
+   "y": 1145,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e3",
+   "name": "Damaged House",
+   "faction": "pmc",
+   "x": 935,
+   "y": 1046,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-e7",
+   "name": "Cardinal Apartment Complex Parking",
+   "faction": "scav",
+   "x": 367,
+   "y": 226,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "scav-e2",
+   "name": "Entrance to Catacombs",
+   "faction": "scav",
+   "x": 941,
+   "y": 882,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "exit-e10-coop",
+   "name": "Pinewood Basement (Co-Op)",
+   "faction": "shared",
+   "x": 722,
+   "y": 592,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "scav-e8",
+   "name": "Klimov Shopping Mall Exfil",
+   "faction": "scav",
+   "x": 803,
+   "y": 478,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "e1",
+   "name": "Stylobate Building Elevator",
+   "faction": "pmc",
+   "x": 610,
+   "y": 370,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e9-sniper",
+   "name": "Klimov Street (Flare)",
+   "faction": "pmc",
+   "x": 964,
+   "y": 557,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-e5",
+   "name": "Near Kamchatskaya Arch",
+   "faction": "scav",
+   "x": 116,
+   "y": 566,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "e8-yard",
+   "name": "Courtyard",
+   "faction": "pmc",
+   "x": 781,
+   "y": 1298,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-e3",
+   "name": "Ventilation Shaft",
+   "faction": "scav",
+   "x": 738,
+   "y": 1174,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "e7",
+   "name": "Expo Checkpoint",
+   "faction": "pmc",
+   "x": 192,
+   "y": 317,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "streets-secret-onyx",
+   "name": "Smugglers' Basement",
+   "faction": "pmc",
+   "x": 414,
+   "y": 568,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e2",
+   "name": "Sewer River",
+   "faction": "pmc",
+   "x": 970,
+   "y": 843,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e6",
+   "name": "Scav Checkpoint",
+   "faction": "pmc",
+   "x": 194,
+   "y": 621,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "e7-car",
+   "name": "Primorsky Ave Taxi V-Ex",
+   "faction": "pmc",
+   "x": 541,
+   "y": 1235,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-e4",
+   "name": "Sewer Manhole",
+   "faction": "scav",
+   "x": 89,
+   "y": 1047,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "scav-e6",
+   "name": "Basement Entrance",
+   "faction": "scav",
+   "x": 941,
+   "y": 882,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "transit-3",
+   "name": "Transit to Ground Zero",
+   "faction": "shared",
+   "x": 955,
+   "y": 657,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-4",
+   "name": "Transit to Interchange",
+   "faction": "shared",
+   "x": 66,
+   "y": 1301,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-5",
+   "name": "Transit to The Lab",
+   "faction": "shared",
+   "x": 197,
+   "y": 621,
+   "rule": "Transit to another map"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Kaban",
+   "spawnChance": 0.75,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Car Dealership",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Basmach",
+    "Gus",
+    "Kaban Guard",
+    "Kaban Guard (Sniper)"
+   ]
+  },
+  {
+   "name": "Kollontay",
+   "spawnChance": 0.75,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Klimov Shopping Mall",
+     "chance": 0.5
+    },
+    {
+     "name": "Ministry of the Interior Academy",
+     "chance": 0.5
+    }
+   ],
+   "escorts": [
+    "Kollontay Guard (Assault)",
+    "Kollontay Guard (Security)"
+   ]
+  },
+  {
+   "name": "BEAR",
+   "spawnChance": 1,
+   "groups": 5,
+   "locations": [],
+   "escorts": [
+    "BEAR"
+   ]
+  },
+  {
+   "name": "USEC",
+   "spawnChance": 1,
+   "groups": 5,
+   "locations": [],
+   "escorts": [
+    "USEC"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "6744af0969a58fceba101fed",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745c9b89c84a273d4a2dc28",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6745cbee909d2013670a4a55",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745cbee909d2013670a4a6e",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6663149196a9349baa021baa",
+   "name": "Small Business - Part 2",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Small Business - Part 1"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Small_Business_-_Part_2",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "666732298477f79f3f6ea229",
+     "text": "Eliminate any Scav Boss guards without killing the Bosses",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Kaban Guard",
+      "Basmach",
+      "Gus",
+      "Glukhar Guard (Assault)",
+      "Glukhar Guard (Scout)",
+      "Reshala Guard",
+      "Glukhar Guard (Security)",
+      "Glukhar Guard (Snipe)",
+      "Shturman Guard",
+      "Kollontay Guard (Assault)",
+      "Kollontay Guard (Security)",
+      "Sanitar Guard",
+      "Kaban Guard (Sniper)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "36,800 XP, 2,200 EUR, 2x Physical Bitcoin"
+  },
+  {
+   "id": "63a88045abf76d719f42d715",
+   "name": "The Delicious Sausage",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Delicious_Sausage",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a98cfbc31b00242d28a95b",
+     "text": "Scout the Shestyorochka store at Nikitskaya street",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "shestyorochka-s"
+     ]
+    },
+    {
+     "id": "63a98d24655ec5555b4aa9e7",
+     "text": "Scout the Sparja store at Primorsky ave",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "sparja-grocery-sw"
+     ]
+    },
+    {
+     "id": "63a98d39da7999196148ba3a",
+     "text": "Scout the Sparja store in Pinewood hotel",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "sparja-express-ne"
+     ]
+    },
+    {
+     "id": "63a98d60c0f61a5d8731cd9f",
+     "text": "Scout the Goshan store in Concordia",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "sw-of-construction"
+     ]
+    },
+    {
+     "id": "63a98cdf655ec5555b4aa9e6",
+     "text": "Hand over the found in raid item: Salty Dog beef sausage",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Salty Dog beef sausage"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "64e7b971f9d6fa49d6769b44",
+   "name": "The Huntsman Path - Big Game",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Big_Game",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64e7ba17220ee966bf425ecb",
+     "text": "Locate and neutralize Kaban",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Kaban"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "6578eb36e5020875d64645cd",
+   "name": "The Huntsman Path - Crooked Cop",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Crooked_Cop",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6578eb36e5020875d64645d0",
+     "text": "Locate and neutralize Kollontay",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Kollontay"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6582b05dc992d6dcc0a40c75",
+     "text": "Hand over the found in raid Kollontay's police baton",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "PR-Taran police baton"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "5d25e2cc86f77443e47ae019",
+   "name": "The Huntsman Path - Forest Cleaning",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Forest_Cleaning",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d2701b586f77469f1599fe2",
+     "text": "Eliminate Scavs on Streets of Tarkov, Reserve, Lighthouse, or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 50,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+  },
+  {
+   "id": "5bc4776586f774512d07cf05",
+   "name": "The Tarkov Shooter - Part 1",
+   "trader": "Jaeger",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5bc850d186f7747213700892",
+     "text": "Eliminate Scavs from over 40 meters away with a bolt-action rifle with iron sights",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Sniper",
+      "Scavs"
+     ],
+     "weapons": [
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle",
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Mosin 7.62x54R bolt-action rifle (Infantry), Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5bfea6e90db834001b7347f3",
+      "5de652c31b7e3716273428be",
+      "5df24cf80dee1b22f862e9bc",
+      "61f7c9e189e6fb1a5e3ea78d",
+      "627e14b21713922ded6f2c15",
+      "67c6de3ce39861860909e8e5",
+      "673cab3e03c6a20581028bc1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad"
+  },
+  {
+   "id": "63966faeea19ac7ed845db2c",
+   "name": "Information Source",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Information_Source",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6397a5cbdcdd126fef173f36",
+     "text": "Survive and extract from Streets of Tarkov through Primorsky Ave Taxi V-Ex",
+     "type": "extract",
+     "optional": false,
+     "exit": "Primorsky Ave Taxi V-Ex",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Advanced Electronic Materials textbook, Lighthouse island stash key"
+  },
+  {
+   "id": "6396701b9113f06a7c3b2379",
+   "name": "Make an Impression",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Spotter"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Make_an_Impression",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6397ac912e519e69d2139b26",
+     "text": "Eliminate Sniper Scavs from over 200 meters away",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Sniper",
+      "Shturman Guard",
+      "Glukhar Guard (Scout)",
+      "Kaban Guard (Sniper)",
+      "Shturman"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Phased array element, Phased array element, Substation marked key, Lighthouse island stash key"
+  },
+  {
+   "id": "63966fbeea19ac7ed845db2e",
+   "name": "Missing Informant",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Information Source"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Missing_Informant",
+   "type": "findQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7cee004d3dc28a52a20f8",
+     "text": "Locate the informant's backup hideout on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "verhnyaya-st-se"
+     ]
+    },
+    {
+     "id": "63990a1ddcdd126fef1771c1",
+     "text": "Obtain the informant's journal",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "verhnyaya-st-se"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Backup hideout key",
+     "itemIds": [
+      "6398fd8ad3de3849057f5128"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "0 XP, Microcontroller board"
+  },
+  {
+   "id": "6396700fea19ac7ed845db32",
+   "name": "Spotter",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Following the Bread Crumbs"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Spotter",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d2acee7b4d0d5507baf2",
+     "text": "Locate a good sniping position in Concordia overlooking the construction site",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "razvedchikov-st-nw"
+     ]
+    },
+    {
+     "id": "639c359f0a20a7001f00c7a8",
+     "text": "Hide AI Tactical Sound Moderator .338 LM near the red table",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "razvedchikov-st-nw"
+     ]
+    },
+    {
+     "id": "63a7d315f32fa1316250c3d2",
+     "text": "Locate a good sniping position at Primorsky overlooking the movie theater",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-1",
+      "post-office"
+     ]
+    },
+    {
+     "id": "639c39807c1532d85b0162a9",
+     "text": "Hide Trijicon REAP-IR thermal scope under Makhors' bed",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "pharmacy-1"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Primorsky 46-48 skybridge key",
+     "itemIds": [
+      "63a39e1d234195315d4020bd"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "AI .338 LM Tactical Sound Moderator",
+     "itemIds": [
+      "62811fa609427b40ab14e765"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "Trijicon REAP-IR thermal scope",
+     "itemIds": [
+      "5a1eaa87fcdbcb001865f75e"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "0 XP, Microcontroller board, Substation marked key"
+  },
+  {
+   "id": "63967028c4a91c5cb76abd81",
+   "name": "Trouble in the Big City",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Make an Impression"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Trouble_in_the_Big_City",
+   "type": "findItem,mark,shoot,useItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63bd64552803ffbfad0e3e48",
+     "text": "Locate the armored convoy holding the cargo on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "prestigio-cafe-e"
+     ]
+    },
+    {
+     "id": "6a873af3498d10cbc7991405",
+     "text": "Bring an MS2000 Marker into raid",
+     "type": "findItem",
+     "optional": true,
+     "items": [
+      "MS2000 Marker"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6a873b146d658e33f8c105c8",
+     "text": "Bring a yellow signal flare into raid",
+     "type": "findItem",
+     "optional": true,
+     "items": [
+      "RSP-30 reactive signal cartridge (Yellow)"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "639ae7423174277743234bb7",
+     "text": "Eliminate PMC operatives on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a8739e3690e17bca39a4664",
+     "text": "Locate and neutralize any Boss or their guards on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Kaban",
+      "Kaban Guard (Sniper)",
+      "Kaban Guard",
+      "Basmach",
+      "Gus",
+      "Kollontay Guard (Assault)",
+      "Kollontay Guard (Security)",
+      "Kollontay"
+     ],
+     "zone": []
+    },
+    {
+     "id": "639aea2228d8a21b593a3491",
+     "text": "Mark the cargo area with an MS2000 Marker",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "prestigio-cafe-e"
+     ]
+    },
+    {
+     "id": "63bd64ba3d34b0e64b0d0a17",
+     "text": "Launch a yellow flare near the armored convoy",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "prestigio-cafe-e"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "0 XP, Advanced current converter, Substation marked key"
+  },
+  {
+   "id": "65733403eefc2c312a759ddb",
+   "name": "Corporate Perks",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Corporate_Perks",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65733403eefc2c312a759ddc",
+     "text": "Locate the IT firm office on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "zmejskij-alley-w"
+     ]
+    },
+    {
+     "id": "65801ad655315fdce2096bec",
+     "text": "Unravel the secret of the firm's success",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "zmejskij-alley-w"
+     ]
+    },
+    {
+     "id": "65801b07a26e65a69c2fedd1",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "\"Negotiation\" room key",
+     "itemIds": [
+      "6582dbe43a2e5248357dbe9a"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "67a0964e972c11a3f507731b",
+   "name": "Needle in a Haystack",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Shady Contractor"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Needle_in_a_Haystack",
+   "type": "visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0bc87c60a93d7a3f28b23",
+     "text": "Investigate the children's playground by Concordia on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "s-of-construction"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Ammunition case"
+  },
+  {
+   "id": "5c0bde0986f77479cf22c2f8",
+   "name": "Shooter Born in Heaven",
+   "trader": "Mechanic",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooter_Born_in_Heaven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "629f10b114061f3074380298",
+     "text": "Eliminate PMC operatives with a bolt-action rifle headshot on Streets of Tarkov or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "MP-18 7.62x54R single-shot rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Accuracy International AXMC .338 LM bolt-action sniper rifle, Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "627e14b21713922ded6f2c15",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5df24cf80dee1b22f862e9bc",
+      "5bfea6e90db834001b7347f3",
+      "5bfd297f0db834001a669119",
+      "5de652c31b7e3716273428be",
+      "673cab3e03c6a20581028bc1",
+      "67c6de3ce39861860909e8e5",
+      "61f7c9e189e6fb1a5e3ea78d"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "55,000 XP, Weapon case, 400,000 RUB"
+  },
+  {
+   "id": "639135e8c115f907b14700aa",
+   "name": "Surveillance",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Surveillance",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "639135e8c115f907b14700ab",
+     "text": "Obtain the data on vehicle movement at the Concordia residential complex parking lot on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "razvedchikov-st-nw"
+     ]
+    },
+    {
+     "id": "639135e8c115f907b14700ac",
+     "text": "Hand over the information",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Concordia security room key",
+     "itemIds": [
+      "63a39c7964283b5e9c56b280"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "12,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "64ee9df4496db64f9b7a4432",
+   "name": "The Door",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Door",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64ee9df4496db64f9b7a4433",
+     "text": "Locate the cause of the signal interference on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "ne-of-kamchatskaya-st"
+     ]
+    },
+    {
+     "id": "64ee9df4496db64f9b7a4435",
+     "text": "Install a WI-FI Camera to watch the door",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "ne-of-kamchatskaya-st"
+     ]
+    },
+    {
+     "id": "64eea6059878a0569d6ec98b",
+     "text": "Install a WI-FI Camera to watch the stairwell",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "school-ne-2"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Rusted bloody key",
+     "itemIds": [
+      "64d4b23dc1b37504b41ac2b6"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 2,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6573382e557ff128bf3da536",
+   "name": "The Secret to Productivity",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Secret_to_Productivity",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6573382e557ff128bf3da537",
+     "text": "Unravel the secret of the IT firm's employees' high morale on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "hive"
+     ]
+    },
+    {
+     "id": "65800413f41301adef3c9698",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Relaxation room key",
+     "itemIds": [
+      "6582dbf0b8d7830efc45016f"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "6179b5eabca27a099552e052",
+   "name": "Counteraction",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Counteraction",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61a61c085d06a344766f3a29",
+     "text": "Eliminate BEAR PMC operatives on Lighthouse, Ground Zero, Reserve, Shoreline, or Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "BEAR operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "617fc08b30ccff6c7c37fcd3",
+     "text": "Hand over the found in raid item: Dogtag BEAR",
+     "type": "giveItem",
+     "optional": false,
+     "count": 20,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit"
+  },
+  {
+   "id": "5c0bd01e86f7747cdd799e56",
+   "name": "Insomnia",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Insomnia",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1242fa86f7742aa04fed52",
+     "text": "Eliminate any target during 21:00-06:00 on Streets or Tarkov, Lighthouse, Reserve, Ground Zero, or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+  },
+  {
+   "id": "5c0d4c12d09282029f539173",
+   "name": "Peacekeeping Mission",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Peacekeeping_Mission",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1b713f86f774719c22e8a0",
+     "text": "Eliminate Scavs while using UNTAR helmet and armor, and 5.56x45 UN weapons on Shoreline or Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 12,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Desert Tech MDR 5.56x45 assault rifle",
+      "Colt M4A1 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle",
+      "HK 416A5 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle (FDE)",
+      "HK G36 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle",
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)",
+      "HK 416A5 5.56x45 assault rifle (RAL 8000)",
+      "Howa Type 20 5.56x45 assault rifle",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Desert Tech MDR 5.56x45 assault rifle, Colt M4A1 5.56x45 assault rifle, FN SCAR-L 5.56x45 assault rifle (+12 more)",
+     "itemIds": [
+      "5c488a752e221602b412af63",
+      "5447a9cd4bdc2dbd208b4567",
+      "6184055050224f204c1da540",
+      "5bb2475ed4351e00853264e3",
+      "618428466ef05c2ce828f218",
+      "623063e994fc3f7b302a9696",
+      "68a639748e1fe612970728e9",
+      "68a6399922b1e0bd360afe56",
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27",
+      "6a15ae2ae5267ba21c07f98f",
+      "6a3bffbebc377285900b85cf",
+      "5d43021ca4b9362eab4b5e25",
+      "6895bb82c4519957df062f82"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, Desert Tech MDR 7.62x51 assault rifle Default, 2,750 USD, Armband (UNTAR)"
+  },
+  {
+   "id": "639135f286e646067c176a87",
+   "name": "Revision - Streets of Tarkov",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Revision_-_Streets_of_Tarkov",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63927f14744e452011470816",
+     "text": "Locate and mark the first LAV III with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "nizhnyaya-st-e"
+     ]
+    },
+    {
+     "id": "63927f2d8ba6894d155e77e6",
+     "text": "Locate and mark the Stryker with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "razvedchikov-st-ne"
+     ]
+    },
+    {
+     "id": "63927f349444fb141f4e6f24",
+     "text": "Locate and mark the second LAV III with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "pinewood-hotel-nw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,100 USD"
+  },
+  {
+   "id": "639282134ed9512be67647ed",
+   "name": "Road Closed",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Road_Closed",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d461f32fa1316250c3d7",
+     "text": "Determine the ambush spot",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "lexos-n"
+     ]
+    },
+    {
+     "id": "63a7d444f32fa1316250c3d5",
+     "text": "Locate the cargo convoy on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "prestigio-cafe-e"
+     ]
+    },
+    {
+     "id": "639cdf9aad9d7e3216668fd0",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 1,100 USD"
+  },
+  {
+   "id": "6a5ccda873f06065630d61b0",
+   "name": "Secret Message",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Secret_Message",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a5ccda873f06065630d61b2",
+     "text": "Eliminate any target with headshots using a 12ga shotgun on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "MTs-255-12 12ga shotgun",
+      "Benelli M3 Super 90 12ga dual-mode shotgun",
+      "MP-133 12ga pump-action shotgun",
+      "MP-153 12ga semi-automatic shotgun",
+      "MP-43 12ga sawed-off double-barrel shotgun",
+      "MP-43-1C 12ga double-barrel shotgun",
+      "MP-155 12ga semi-automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun (Redline)",
+      "Mossberg 590A1 12ga pump-action shotgun",
+      "Remington Model 870 12ga pump-action shotgun",
+      "Saiga-12K ver.10 12ga semi-automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun",
+      "MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
+      "MPS Auto Assault-12 Gen 2 12ga automatic shotgun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: MTs-255-12 12ga shotgun, Benelli M3 Super 90 12ga dual-mode shotgun, MP-133 12ga pump-action shotgun (+11 more)",
+     "itemIds": [
+      "60db29ce99594040e04c4a27",
+      "6259b864ebedf17603599e88",
+      "54491c4f4bdc2db1078b4568",
+      "56dee2bdd2720bc8328b4567",
+      "64748cb8de82c85eaf0a273a",
+      "5580223e4bdc2d1c128b457f",
+      "606dae0ab0e443224b421bb7",
+      "6981d72ed009ad83920da43a",
+      "5e870397991fd70db46995c8",
+      "5a7828548dc32e5a9c28b516",
+      "576165642459773c7a400233",
+      "674fe9a75e51f1c47c04ec23",
+      "66ffa9b66e19cc902401c5e8",
+      "67124dcfa3541f2a1f0e788b"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,100 USD"
+  },
+  {
+   "id": "639135534b15ca31f76bc317",
+   "name": "Your Car Needs a Service",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Your_Car_Needs_a_Service",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "639135534b15ca31f76bc318",
+     "text": "Obtain the digital storage device from the car dealership manager's office on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "lexos"
+     ]
+    },
+    {
+     "id": "639135534b15ca31f76bc319",
+     "text": "Hand over the storage device",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Car dealership director's office room key",
+     "itemIds": [
+      "63a399193901f439517cafb6"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "Car dealership closed section key",
+     "itemIds": [
+      "63a397d3af870e651d58e65b"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,100 USD, 2x Military flash drive"
+  },
+  {
+   "id": "64e7b9bffd30422ed03dad38",
+   "name": "District Patrol",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/District_Patrol",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64e7bdd52d369a1c0172722f",
+     "text": "Eliminate any target with Assault rifles or Assault carbines on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "ADAR 2-15 5.56x45 carbine",
+      "ASh-12 12.7x55 assault rifle",
+      "CMMG Mk47 Mutant 7.62x39 assault rifle",
+      "Colt M4A1 5.56x45 assault rifle",
+      "DS Arms SA58 7.62x51 assault rifle",
+      "Desert Tech MDR 5.56x45 assault rifle",
+      "Desert Tech MDR 7.62x51 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle (FDE)",
+      "FN SCAR-H 7.62x51 assault rifle",
+      "FN SCAR-H 7.62x51 assault rifle (FDE)",
+      "HK 416A5 5.56x45 assault rifle",
+      "HK G36 5.56x45 assault rifle",
+      "Kalashnikov AK-101 5.56x45 assault rifle",
+      "Kalashnikov AK-102 5.56x45 assault rifle",
+      "Kalashnikov AK-103 7.62x39 assault rifle",
+      "Kalashnikov AK-104 7.62x39 assault rifle",
+      "Kalashnikov AK-105 5.45x39 assault rifle",
+      "Kalashnikov AK-12 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AKM 7.62x39 assault rifle",
+      "Kalashnikov AKMN 7.62x39 assault rifle",
+      "Kalashnikov AKMS 7.62x39 assault rifle",
+      "Kalashnikov AKMSN 7.62x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74U 5.45x39 assault rifle",
+      "Kalashnikov AKS-74UB 5.45x39 assault rifle",
+      "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Molot Arms VPO-209 .366 TKM carbine",
+      "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
+      "Rifle Dynamics RD-704 7.62x39 assault rifle",
+      "SAG AK-545 5.45x39 carbine",
+      "SAG AK-545 Short 5.45x39 carbine",
+      "SIG MCX .300 Blackout assault rifle",
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+      "Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine",
+      "AS VAL 9x39 special assault rifle",
+      "Tokarev AVT-40 7.62x54R automatic rifle",
+      "TOZ Simonov SKS 7.62x39 carbine",
+      "Tokarev SVT-40 7.62x54R rifle",
+      "SIG MCX-SPEAR 6.8x51 assault rifle",
+      "KBP 9A-91 9x39 compact assault rifle",
+      "KBP VSK-94 9x39 rifle",
+      "SR-3M 9x39 compact assault rifle",
+      "FN SCAR-H X-17 7.62x51 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)",
+      "Custom Guns NL545 (GP) 5.45x39 assault rifle",
+      "Custom Guns NL545 (DI) 5.45x39 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Kalashnikov AK-308 7.62x51 assault rifle",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle",
+      "AS VAL MOD.4 9x39 special assault rifle",
+      "Howa Type 20 5.56x45 assault rifle",
+      "Norinco QBZ-191 5.8x42 assault rifle",
+      "HK 416A5 5.56x45 assault rifle (RAL 8000)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: ADAR 2-15 5.56x45 carbine, ASh-12 12.7x55 assault rifle, CMMG Mk47 Mutant 7.62x39 assault rifle (+59 more)",
+     "itemIds": [
+      "5c07c60e0db834002330051f",
+      "5cadfbf7ae92152ac412eeef",
+      "606587252535c57a13424cfd",
+      "5447a9cd4bdc2dbd208b4567",
+      "5b0bbe4e5acfc40dc528a72d",
+      "5c488a752e221602b412af63",
+      "5dcbd56fdbd3d91b3e5468d5",
+      "6184055050224f204c1da540",
+      "618428466ef05c2ce828f218",
+      "6183afd850224f204c1da514",
+      "6165ac306ef05c2ce828ef74",
+      "5bb2475ed4351e00853264e3",
+      "623063e994fc3f7b302a9696",
+      "5ac66cb05acfc40198510a10",
+      "5ac66d015acfc400180ae6e4",
+      "5ac66d2e5acfc43b321d4b53",
+      "5ac66d725acfc43b321d4b60",
+      "5ac66d9b5acfc4001633997a",
+      "6499849fc93611967b034949",
+      "5bf3e03b0db834001d2c4a9c",
+      "5ac4cd105acfc40016339859",
+      "5644bd2b4bdc2d3b4c8b4572",
+      "59d6088586f774275f37482f",
+      "5a0ec13bfcdbcb00165aa685",
+      "59ff346386f77477562ff5e2",
+      "5abcbc27d8ce8700182eceeb",
+      "5bf3e0490db83400196199af",
+      "5ab8e9fcd8ce870019439434",
+      "57dc2fa62459775949412633",
+      "5839a40f24597726f856b511",
+      "583990e32459771419544dd2",
+      "5d43021ca4b9362eab4b5e25",
+      "59e6687d86f77411d949b251",
+      "59e6152586f77473dc057aa1",
+      "628a60ae6b1d481ff772e9c8",
+      "628b5638ad252a16da6dd245",
+      "628b9c37a733087d0d7fe84b",
+      "5fbcc1d9016cce60e8341ab3",
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "587e02ff24597743df3deaeb",
+      "5c501a4d2e221602b412b540",
+      "57c44b372459772d2b39b8ce",
+      "6410733d5dd49d77bd07847e",
+      "574d967124597745970e7c94",
+      "643ea5b23db6f9f57107d9fd",
+      "65290f395ae2ae97b80fdf2d",
+      "644674a13d52156624001fbc",
+      "645e0c6b3b381ede770e1cc9",
+      "651450ce0e00edc794068371",
+      "676176d362e0497044079f4c",
+      "6718817435e3cfd9550d2c27",
+      "68c2940aecc41cc5490bd40e",
+      "68c16b9ab6b75a8a480520a6",
+      "68a6399922b1e0bd360afe56",
+      "68a639748e1fe612970728e9",
+      "689166b6c2d6fa42e7044756",
+      "6895bb82c4519957df062f82",
+      "6871284e9a353bb50606f3ed",
+      "6a3bffbebc377285900b85cf",
+      "69f9ebbcaae020b0db02f65d",
+      "6a15ae2ae5267ba21c07f98f"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "8,300 XP, 165,000 RUB"
+  },
+  {
+   "id": "639136d68ba6894d155e77cf",
+   "name": "Green Corridor",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Green_Corridor",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d53904d3dc28a52a2100",
+     "text": "Locate the cargo convoy on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "prestigio-cafe-e"
+     ]
+    },
+    {
+     "id": "63a7d58004d3dc28a52a2102",
+     "text": "Determine the ambush spot",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "lexos-n"
+     ]
+    },
+    {
+     "id": "639cee16f5765f47cc7f0ea1",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "60e71bb4e456d449cd47ca75",
+   "name": "Intimidator",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e8650e5d67b234af3d3926",
+     "text": "Eliminate Scavs with headshots",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+  },
+  {
+   "id": "639136f086e646067c176a8b",
+   "name": "Kings of the Rooftops",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Kings_of_the_Rooftops",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63929224744e45201147081a",
+     "text": "Eliminate Sniper Scavs on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 8,
+     "targets": [
+      "Sniper",
+      "Kaban Guard (Sniper)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Toolset, SV-98 7.62x54R bolt-action sniper rifle Default, 165,000 RUB"
+  },
+  {
+   "id": "6573397ef3f8344c4575cd87",
+   "name": "Properties All Around",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Properties_All_Around",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6573397ef3f8344c4575cd88",
+     "text": "Locate the real estate fund on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "nizhnyaya-st-w"
+     ]
+    },
+    {
+     "id": "6581676e7a18ff402fd23e68",
+     "text": "Locate and obtain the Tarkov real estate transactions document",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "nizhnyaya-st-w"
+     ]
+    },
+    {
+     "id": "658167a0e53c40116f8632fa",
+     "text": "Hand over the obtained information",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Real estate agency office room key",
+     "itemIds": [
+      "6582dc5740562727a654ebb1"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "6,600 XP, 165,000 RUB"
+  },
+  {
+   "id": "6391359b9444fb141f4e6ee6",
+   "name": "You've Got Mail",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/You've_Got_Mail",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6391359b9444fb141f4e6ee7",
+     "text": "Locate and obtain the registered mail on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "post-office-s"
+     ]
+    },
+    {
+     "id": "6391359b9444fb141f4e6ee8",
+     "text": "Hand over the letter",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "639135a7e705511c8a4a1b78",
+   "name": "Ballet Lover",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Ballet_Lover",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7da6f5199ab1f7d4a774a",
+     "text": "Locate the balletmeister's apartment on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-1"
+     ]
+    },
+    {
+     "id": "63a7daae04d3dc28a52a2109",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Primorsky 46-48 skybridge key",
+     "itemIds": [
+      "63a39e1d234195315d4020bd"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "67a0967c003a9986cb0f5ac1",
+   "name": "Sensory Analysis - Part 1",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Hidden Layer"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Sensory_Analysis_-_Part_1",
+   "type": "findItem,taskStatus,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67dc3861d5c0070b960c1bba",
+     "text": "Obtain the item: Bottle of Fierce Hatchling moonshine",
+     "type": "findItem",
+     "optional": false,
+     "items": [
+      "Bottle of Fierce Hatchling moonshine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "67dc393c6089aa48050efa02",
+     "text": "Go to Woods or Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "67dc294d681db91b2fa3b279",
+     "text": "Hand over the Bottle of Fierce Hatchling moonshine to BTR driver",
+     "type": "taskStatus",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Safariland Liberator HP 2.0 Hearing Protection Headset (FDE), 2x ECLiPSE RBAV-AF plate carrier (Ranger Green) Default"
+  },
+  {
+   "id": "639dbaf17c898a131e1cffff",
+   "name": "Debtor",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Debtor",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7cd3aee7b4d0d5507baee",
+     "text": "Locate the debtor on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pinewood-hotel-e"
+     ]
+    },
+    {
+     "id": "6a5a9710671cbfe928bbfde2",
+     "text": "Locate the private prison warden's apartment on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "chekannaya-st-nw"
+     ]
+    },
+    {
+     "id": "6a5a96d23542bf577a87a59d",
+     "text": "Hand over the item: Iron gate key",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Iron gate key"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "13,200 XP, 1,000 EUR"
+  },
+  {
+   "id": "639135c3744e452011470807",
+   "name": "House Arrest",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/House_Arrest",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d767f32fa1316250c3da",
+     "text": "Locate where the missing group was held captive on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "chekannaya-st-nw"
+     ]
+    },
+    {
+     "id": "6a5a95f70cfa2d5efcf39d77",
+     "text": "Locate the debtor on Streets of tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pinewood-hotel-e"
+     ]
+    },
+    {
+     "id": "6a5a962ba945960673b0e2d2",
+     "text": "Hand over the item: Chekannaya 15 apartment key",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Chekannaya 15 apartment key"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Iron gate key",
+     "itemIds": [
+      "63a39f6e64283b5e9c56b289"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR"
+  },
+  {
+   "id": "6572e876dc0d635f633a5714",
+   "name": "Pyramid Scheme",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Pyramid_Scheme",
+   "type": "mark,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a5b8db01dc53f0f3ec7f0d9",
+     "text": "Mark any ATM on Klimov Street with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "cardinal-bank"
+     ]
+    },
+    {
+     "id": "6572e876dc0d635f633a5718",
+     "text": "Locate the first group of ATMs on Klimov Street on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "cardinal-bank"
+     ]
+    },
+    {
+     "id": "6573058d6a542c099ce5d92b",
+     "text": "Locate the first ATM inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "kilmov-shopping-mall-ne"
+     ]
+    },
+    {
+     "id": "65730579d50436e87723dae4",
+     "text": "Locate the first ATM on Klimov Street on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "cardinal-bank"
+     ]
+    },
+    {
+     "id": "657305989d1d1fe81237e9e7",
+     "text": "Locate the third ATM on Klimov Street on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "nw-of-pinewood-hotel"
+     ]
+    },
+    {
+     "id": "657305913186869491d7f5fd",
+     "text": "Locate the second ATM inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "kilmov-shopping-mall-sw"
+     ]
+    },
+    {
+     "id": "65730593d4b1bd9359203a74",
+     "text": "Locate the third ATM inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "kilmov-shopping-mall-se"
+     ]
+    },
+    {
+     "id": "6573058b4e3f646b0e364add",
+     "text": "Locate the first group of ATMs inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "kilmov-shopping-mall-ne"
+     ]
+    },
+    {
+     "id": "65730597d64537696cc661c6",
+     "text": "Locate the second ATM on Klimov Street on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "beluga-sw"
+     ]
+    },
+    {
+     "id": "6573058f5c2ba64444301c25",
+     "text": "Locate the second group of ATMs inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "beluga"
+     ]
+    },
+    {
+     "id": "65730595fd5ec1426ebd5484",
+     "text": "Locate the third group of ATMs inside Klimov Shopping Mall on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "beluga"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "12,400 XP, 1,650 EUR, 2x Golden neck chain, 2x Glock .45 ACP KRISS G30 MagEx 30-round magazine, 2x .45 ACP RIP ammo pack (50 pcs)"
+  },
+  {
+   "id": "674600a366e6a521aa05eb66",
+   "name": "Route Deviation",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "The Higher They Fly"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Route_Deviation",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67460118d3498f1b35e0a025",
+     "text": "Mark the Collapsed Crane BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "construction-ne"
+     ]
+    },
+    {
+     "id": "6746011dfd1dc9d0f502e55d",
+     "text": "Mark the Old Scav Checkpoint BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "kilmov-st-se-1"
+     ]
+    },
+    {
+     "id": "674601247aa943781a1cf3fc",
+     "text": "Mark the Pinewood Hotel BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "kilmov-st-se-2"
+     ]
+    },
+    {
+     "id": "674601282043d1ef3c6b2eec",
+     "text": "Mark the City Center BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "primorskij-49-n"
+     ]
+    },
+    {
+     "id": "6746012a35218bb89951248e",
+     "text": "Mark the Tram BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "marked-hotel-e"
+     ]
+    },
+    {
+     "id": "6746012d871e69a9abb5873d",
+     "text": "Mark the Rodina Cinema BTR stop with an MS2000 Marker on Streets of Tarkov",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "verhnyaya-st-se"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 6,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR, Desert Tech MDR 5.56x45 assault rifle Default, 3x AR-15 5.56x45 Magpul PMAG 40 GEN M3 STANAG 40-round magazine, 3x 5.56x45mm M855A1 ammo pack (50 pcs)"
+  },
+  {
+   "id": "64f6aafd67e11a7c6206e0d0",
+   "name": "The Secret Recipe",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Secret_Recipe",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f6aafd67e11a7c6206e0d1",
+     "text": "Locate and obtain the red vial at the TerraGroup office on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "cardinal-apartments-e",
+      "primorsky-ave-ne",
+      "primorsky-ave-sw"
+     ]
+    },
+    {
+     "id": "64f6aafd67e11a7c6206e0d2",
+     "text": "Hand over the found item",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "TerraGroup meeting room key",
+     "itemIds": [
+      "64ccc206793ca11c8f450a38"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR"
+  },
+  {
+   "id": "64f3176921045e77405d63b5",
+   "name": "Paramedic",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Paramedic",
+   "type": "extract,findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f3176921045e77405d63ba",
+     "text": "Locate and obtain the ambulance paramedic's smartphone on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "razvedchikov-st-se",
+      "s-of-construction",
+      "w-of-razvedchikov-st"
+     ]
+    },
+    {
+     "id": "64f4fdfa67e11a7c6206de72",
+     "text": "Extract from Streets of Tarkov through Primorsky Ave Taxi V-Ex",
+     "type": "extract",
+     "optional": false,
+     "exit": "Primorsky Ave Taxi V-Ex",
+     "zone": []
+    },
+    {
+     "id": "64f3176921045e77405d63bb",
+     "text": "Hand over the smartphone",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "64f731ab83cfca080a361e42",
+   "name": "Pets Won't Need It",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Pets_Won't_Need_It",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f731fa39e45b527a7c4300",
+     "text": "Locate and scout the vet clinic on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "vet-clinic"
+     ]
+    },
+    {
+     "id": "64f732240e186112c4455d84",
+     "text": "Locate and scout the x-ray technician's room on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "school-ne-1"
+     ]
+    },
+    {
+     "id": "6a568465f58d7f6b0a60fe7f",
+     "text": "Locate the first pharmacy on Primorsky Ave on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-1"
+     ]
+    },
+    {
+     "id": "6a56846efc5f232676a88d09",
+     "text": "Locate the second pharmacy on Primorsky Ave on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-2"
+     ]
+    },
+    {
+     "id": "6a56847638efe4385b7efdb3",
+     "text": "Locate the pharmacy near Cardinal apartment complex on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-3"
+     ]
+    },
+    {
+     "id": "6a5684f79688ddb4fea39af6",
+     "text": "Hand over any found in raid medicine items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "Morphine injector",
+      "Analgin painkillers",
+      "Augmentin antibiotic pills",
+      "Golden Star balm",
+      "Ibuprofen painkillers",
+      "Vaseline balm"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "X-ray room key",
+     "itemIds": [
+      "64ccc246ff54fb38131acf29"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, 2x Surv12 field surgical kit"
+  },
+  {
+   "id": "6573387d0b26ed4fde798de3",
+   "name": "Pets Won't Need It - Part 2",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Pets Won't Need It"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Pets_Won't_Need_It_-_Part_2",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6573387d0b26ed4fde798de4",
+     "text": "Locate the first pharmacy on Primorsky Ave on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-1"
+     ]
+    },
+    {
+     "id": "657338ded9b444e1fb07b1a8",
+     "text": "Locate the second pharmacy on Primorsky Ave on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-2"
+     ]
+    },
+    {
+     "id": "657338ed8e8e3a05445b760d",
+     "text": "Locate the third pharmacy at Cardinal apartment complex on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-3"
+     ]
+    },
+    {
+     "id": "658009db6b313a8a4ed58851",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "9,000 XP, 55,000 RUB, 4x Disposable syringe, 4x Pile of meds, 2x Morphine injector, 2x L1 (Norepinephrine) injector"
+  },
+  {
+   "id": "67a09673972c11a3f507731d",
+   "name": "The Tarkov Butcher",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Butcher",
+   "type": "plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a57565d0c4e021f681b32f0",
+     "text": "Stash the container by the police station on Streets of Tarkov",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "shestyorochka"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, 2x Surv12 field surgical kit"
+  },
+  {
+   "id": "639135e0fa894f0a866afde6",
+   "name": "Urban Medicine",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Urban_Medicine",
+   "type": "findQuestItem,giveQuestItem,shoot,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d64710b7a13eb015961f",
+     "text": "Locate the chemical laboratory on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "lexos-sw"
+     ]
+    },
+    {
+     "id": "639135e0fa894f0a866afde7",
+     "text": "Obtain the container with drug samples",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "lexos-sw"
+     ]
+    },
+    {
+     "id": "639135e0fa894f0a866afde8",
+     "text": "Hand over the container",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6a5675112830d55110e00a8f",
+     "text": "Eliminate Scavs on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Sniper",
+      "Scavs"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "639135d89444fb141f4e6eea",
+   "name": "Population Census",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 5,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Population_Census",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "639135d89444fb141f4e6eeb",
+     "text": "Obtain the journal containing resident details on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "pharmacy-1-nw"
+     ]
+    },
+    {
+     "id": "639135d89444fb141f4e6eec",
+     "text": "Hand over the journal",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "64f5aac4b63b74469b6c14c2",
+   "name": "Glory to CPSU",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 6,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Glory_to_CPSU",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f5aac4b63b74469b6c14c7",
+     "text": "Locate the place of work of Prapor's friend on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "kamchatskaya-st-n"
+     ]
+    },
+    {
+     "id": "6a26943d55478d73e6b4fadf",
+     "text": "Locate the apartment of Prapor's friend on Streets of Tarkov",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "chekannaya-st-nw"
+     ]
+    },
+    {
+     "id": "64f5b876a2a5bb727b61c5ad",
+     "text": "Obtain any information on the fate of Prapor's friend",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "kamchatskaya-st-n"
+     ]
+    },
+    {
+     "id": "64f5bbc967e11a7c6206e00e",
+     "text": "Hand over the found data",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "64f5e20652fc01298e2c61e3",
+   "name": "Beyond the Red Meat",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 7,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Beyond_the_Red_Meat",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f6a9e6dd44b6417729b535",
+     "text": "Locate and obtain information on culinary secrets at the Beluga restaurant on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "beluga"
+     ]
+    },
+    {
+     "id": "64f6aa6cdd44b6417729b536",
+     "text": "Hand over the found data",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Beluga restaurant director key",
+     "itemIds": [
+      "64ccc1fe088064307e14a6f7"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR"
+  },
+  {
+   "id": "639136e84ed9512be67647db",
+   "name": "Cease Fire!",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Cease_Fire!",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63929101744e452011470818",
+     "text": "Survive and extract from Streets of Tarkov through Klimov Street (Flare)",
+     "type": "extract",
+     "optional": false,
+     "exit": "Klimov Street (Flare)",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "5d25c81b86f77443e625dd71",
+   "name": "The Survivalist Path - Wounded Beast",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Unprotected but Dangerous"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Wounded_Beast",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c8c986f77443e47ad47a",
+     "text": "Eliminate Scavs while suffering from the Pain status effect",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "5d25bfd086f77442734d3007",
+   "name": "The Survivalist Path - Zhivchik",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Thrifty"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Zhivchik",
+   "type": "experience,extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c5a186f77443fe457661",
+     "text": "Gain the Dehydration status effect and maintain it for 5 minutes (On any location excluding Factory)",
+     "type": "experience",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "5d9f035086f7741cac4a9713",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+  },
+  {
+   "id": "68341846186efa3c5b07f989",
+   "name": "Balancing - Part 1 [PVE ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Easy Money - Part 2 [PVE ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Balancing_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68341846186efa3c5b07f98c",
+     "text": "Eliminate Scavs while using a Steyr AUG on any location",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Steyr AUG A1 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle (Black)",
+     "itemIds": [
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask"
+  },
+  {
+   "id": "68341d7d7559f4e6d50bc0db",
+   "name": "Create a Distraction - Part 2 [PVE ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Create a Distraction - Part 1 [PVE ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Create_a_Distraction_-_Part_2",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68341d7d7559f4e6d50bc0de",
+     "text": "Eliminate Kaban's or Kollontay's guards on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 2,
+     "targets": [
+      "Kaban Guard (Sniper)",
+      "Basmach",
+      "Gus",
+      "Kaban Guard",
+      "Kollontay Guard (Assault)",
+      "Kollontay Guard (Security)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Degtyarev RPDN 7.62x39 machine gun Default, RPD 7.62x39 Buben 100-round box, 10x 7.62x39mm FMJ ammo pack (20 pcs), Lega Medal"
+  },
+  {
+   "id": "63913715f8e5dd32bf4e3aaa",
+   "name": "Broadcast - Part 2",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [
+    "Broadcast - Part 1"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Broadcast_-_Part_2",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d99804d3dc28a52a2106",
+     "text": "Locate the place of bloody broadcast inside the grocery store on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "sparja-grocery-sw"
+     ]
+    },
+    {
+     "id": "639da5ec8fe84d33a25a1435",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, Steyr AUG A1 5.56x45 assault rifle Default, 2x Steyr AUG 5.56x45 30-round magazine, 5.56x45mm M855A1 ammo pack (100 pcs)"
+  },
+  {
+   "id": "639136fa9444fb141f4e6eee",
+   "name": "Watching You",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Watching_You",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d8665199ab1f7d4a7747",
+     "text": "Locate the surveillance spot on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pinewood-hotel-e"
+     ]
+    },
+    {
+     "id": "639136fa9444fb141f4e6eef",
+     "text": "Obtain the observation results",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "pinewood-hotel-e"
+     ]
+    },
+    {
+     "id": "639136fa9444fb141f4e6ef0",
+     "text": "Hand over the data",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Pinewood hotel room 215 key",
+     "itemIds": [
+      "63a39f08cd6db0635c197600"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "638fcd23dc65553116701d33",
+   "name": "Audit",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Audit",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "638fd070202cd55bee01ca11",
+     "text": "Obtain the financial records on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "office"
+     ]
+    },
+    {
+     "id": "638fd0805e5a195d2c443754",
+     "text": "Hand over the journal",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "65734c186dc1e402c80dc19e",
+   "name": "Dandies",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Dandies",
+   "type": "plantItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65734c186dc1e402c80dc1a2",
+     "text": "Eliminate any target while wearing a Bomber beanie and RayBench Hipster Reserve sunglasses on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    },
+    {
+     "id": "657356c410becd24bc776f55",
+     "text": "Stash a Bomber beanie inside the barber shop on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "razvedchikov-st-nw"
+     ]
+    },
+    {
+     "id": "657356d0a95a1e7e1a8d8d99",
+     "text": "Stash RayBench Hipster Reserve sunglasses inside the barber shop on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "razvedchikov-st-nw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Bomber beanie",
+     "itemIds": [
+      "60bf74184a63fc79b60c57f6"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "RayBench Hipster Reserve sunglasses",
+     "itemIds": [
+      "5aa2b9aee5b5b00015693121"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "11,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "666314c5a9290f9e0806cca5",
+   "name": "Key to the City",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [
+    "Proper Comeback"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Key_to_the_City",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6679884cef969161e3e9d64d",
+     "text": "Locate and obtain the souvenir key to the city on Streets of Tarkov",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "kamchatskaya-st-n"
+     ]
+    },
+    {
+     "id": "667988545af9f7082798b67d",
+     "text": "Hand over the found item",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 3x Bottle of Fierce Hatchling moonshine, Item case"
+  },
+  {
+   "id": "63ab180c87413d64ae0ac20a",
+   "name": "Dangerous Road",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 15,
+   "requires": [
+    "Supply Plans"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Dangerous_Road",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ab184ff627f540861d1185",
+     "text": "Survive and extract from Streets of Tarkov through Primorsky Ave Taxi V-Ex",
+     "type": "extract",
+     "optional": false,
+     "exit": "Primorsky Ave Taxi V-Ex",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "7,800 XP, 45,000 RUB, 2x Aluminum splint, 2x CALOK-B hemostatic applicator"
+  },
+  {
+   "id": "63a511ea30d85e10e375b045",
+   "name": "Broadcast - Part 3",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "Broadcast - Part 2"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Broadcast_-_Part_3",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac22b8f627f540861d1b2d",
+     "text": "Locate the place of bloody broadcast inside the old house on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "marked-hotel"
+     ]
+    },
+    {
+     "id": "63a511ea30d85e10e375b047",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, MP-155 12ga semi-automatic shotgun Ultima, 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "6391372c8ba6894d155e77d7",
+   "name": "Broadcast - Part 4",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "Broadcast - Part 3"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Broadcast_-_Part_4",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d6d61f06d111271f5aeb",
+     "text": "Locate the cultist meeting spot on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "abandon-factory-ne"
+     ]
+    },
+    {
+     "id": "639da86bad9d7e3216668fd7",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Abandoned factory marked key",
+     "itemIds": [
+      "63a3a93f8a56922e82001f5d"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Expeditionary fuel tank"
+  },
+  {
+   "id": "64ee99639878a0569d6ec8c9",
+   "name": "Broadcast - Part 5",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "Broadcast - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Broadcast_-_Part_5",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64ee9a979878a0569d6ec8cb",
+     "text": "Locate the ritual spot on Chekannaya st. on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "se-of-vet-clinic"
+     ]
+    },
+    {
+     "id": "64ee9b5a1a5f313cb144bf87",
+     "text": "Stash a Cultist knife at the ritual spot",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "se-of-vet-clinic"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Mysterious room marked key",
+     "itemIds": [
+      "64ccc25f95763a1ae376e447"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "Cultist knife",
+     "itemIds": [
+      "5fc64ea372b0dd78d51159dc"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Armasight Zeus-Pro 640 2-8x50 30Hz thermal scope"
+  },
+  {
+   "id": "5d25e29d86f7740a22516326",
+   "name": "The Survivalist Path - Eagle-Owl",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Survivalist Path - Cold Blooded"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Eagle-Owl",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25fd8386f77443fe457cae",
+     "text": "Eliminate Scavs during 21:00-04:00 without using any NVGs or thermal sights (Excluding Factory)",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+  },
+  {
+   "id": "5bc4836986f7740c0152911c",
+   "name": "The Tarkov Shooter - Part 5",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Tarkov Shooter - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_5",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5bc483ba86f77415034ba8d0",
+     "text": "Eliminate Sniper Scavs with a bolt-action rifle",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Sniper"
+     ],
+     "weapons": [
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle",
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Mosin 7.62x54R bolt-action rifle (Infantry), Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5bfea6e90db834001b7347f3",
+      "5de652c31b7e3716273428be",
+      "5df24cf80dee1b22f862e9bc",
+      "61f7c9e189e6fb1a5e3ea78d",
+      "627e14b21713922ded6f2c15",
+      "67c6de3ce39861860909e8e5",
+      "673cab3e03c6a20581028bc1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Mosin Rifle ProMag Archangel OPFOR PRS chassis"
+  },
+  {
+   "id": "639135b04ed9512be67647d7",
+   "name": "Glory to CPSU - Part 1",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "You've Got Mail"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Glory_to_CPSU_-_Part_1",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7db4a3e491955e65fb88b",
+     "text": "Locate the apartment of Prapor's friend on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "chekannaya-st-nw"
+     ]
+    },
+    {
+     "id": "639c8c875573fd6cc27d99bb",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "7,300 XP, 42,000 RUB, 2x Bottle of Tarkovskaya vodka"
+  },
+  {
+   "id": "66d9cbb67b491f9d5304f6e6",
+   "name": "Is This a Reference?",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66d9cbb67b491f9d5304f6eb",
+     "text": "Install a WI-FI Camera at the barbed wire body on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "se-of-vet-clinic"
+     ]
+    },
+    {
+     "id": "66d9cbb67b491f9d5304f6e9",
+     "text": "Install a WI-FI Camera at the amphibian pizza lovers' hideout on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "ne-of-marked-hotel"
+     ]
+    },
+    {
+     "id": "66dacf2a88c7001436a67390",
+     "text": "Install a WI-FI Camera at the really scary hole in the wall on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "se-of-vet-clinic"
+     ]
+    },
+    {
+     "id": "66d9cbb67b491f9d5304f6ea",
+     "text": "Install a WI-FI Camera at the burned girl's sickroom on Streets of Tarkov",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "school-ne-1"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 4,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "30,000 XP, 200,000 RUB, Streamer item case"
+  },
+  {
+   "id": "639135bbc115f907b14700a6",
+   "name": "Audiophile",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 27,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Audiophile",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7d8f404d3dc28a52a2104",
+     "text": "Locate the musician gathering spot on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "pharmacy-1"
+     ]
+    },
+    {
+     "id": "639135bbc115f907b14700a7",
+     "text": "Locate and obtain the engraved guitar pick",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "pharmacy-1"
+     ]
+    },
+    {
+     "id": "639135bbc115f907b14700a8",
+     "text": "Hand over the guitar pick",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Primorsky 46-48 skybridge key",
+     "itemIds": [
+      "63a39e1d234195315d4020bd"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "66aa61663aa37705c5024277",
+   "name": "Know Your Place!",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 27,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Know_Your_Place!",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66aa61663aa37705c5024278",
+     "text": "Eliminate any target on Streets of Tarkov (In one raid)",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    },
+    {
+     "id": "66aa61663aa37705c502427c",
+     "text": "Use the transit from Streets of Tarkov to Interchange (In one raid)",
+     "type": "extract",
+     "optional": false,
+     "exit": "TRANSIT02",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "5c0d4e61d09282029f53920e",
+   "name": "The Guide",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 32,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a5cdc97790159682d2bc19e",
+     "text": "Eliminate any target",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    },
+    {
+     "id": "65e08b7a2f82d184fcf9ef61",
+     "text": "Survive and extract from Ground Zero or Streets of Tarkov with the \"Survived\" exit status",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+  },
+  {
+   "id": "63a9b36cc31b00242d28a99f",
+   "name": "Slaughterhouse",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Slaughterhouse",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9b41dad5cc12f22162022",
+     "text": "Eliminate Scavs with melee weapons on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "ER FULCRUM BAYONET",
+      "Bars A-2607 95Kh18 knife",
+      "Bars A-2607 Damascus knife",
+      "Crash Axe",
+      "Cultist knife",
+      "Freeman crowbar",
+      "6Kh5 Bayonet",
+      "Miller Bros. Blades M-2 Tactical Sword",
+      "Red Rebel ice pick",
+      "SOG Voodoo Hawk tactical tomahawk",
+      "SP-8 Survival Machete",
+      "Kiba Arms Tactical Tomahawk",
+      "UVSR Taiga-1 survival machete",
+      "Camper axe",
+      "Antique axe",
+      "MPL-50 entrenching tool",
+      "PR-Taran police baton",
+      "APOK Tactical Wasteland Gladius",
+      "United Cutlery M48 Tactical Kukri",
+      "Akula push dagger",
+      "NKVD Finka knife",
+      "KA-BAR USMC Fighter knife",
+      "Microtech Jagdkommando knife"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: ER FULCRUM BAYONET, Bars A-2607 95Kh18 knife, Bars A-2607 Damascus knife (+20 more)",
+     "itemIds": [
+      "54491bb74bdc2d09088b4567",
+      "57e26fc7245977162a14b800",
+      "57e26ea924597715ca604a09",
+      "5bffe7930db834001b734a39",
+      "5fc64ea372b0dd78d51159dc",
+      "5c07df7f0db834001b73588a",
+      "5bffdc370db834001d23eca8",
+      "5bffdd7e0db834001b734a1a",
+      "5c0126f40db834002a125382",
+      "63920105a83e15700a00f168",
+      "5c010e350db83400232feec7",
+      "57cd379a24597778e7682ecf",
+      "601948682627df266209af05",
+      "5c012ffc0db834001d23f03f",
+      "5bc9c1e2d4351e00367fbcf0",
+      "5bead2e00db834001c062938",
+      "6540d2162ae6d96b540afcaf",
+      "664a5428d5e33a713b622379",
+      "65ca457b4aafb5d7fc0dcb5d",
+      "674d90b55704568fe60bc8f5",
+      "68f244ae22c8979ee308f4d8",
+      "6a3935772db31ca1c800fe26",
+      "6a39358c658f5889ba050ef3"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "639135cd8ba6894d155e77cb",
+   "name": "House Arrest - Part 2",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [
+    "House Arrest"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/House_Arrest_-_Part_2",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a7dbefee7b4d0d5507baf8",
+     "text": "Find out what happened to the warden",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "chekannaya-st-n"
+     ]
+    },
+    {
+     "id": "63a7dbc31943b749b5021ec3",
+     "text": "Locate the improvised jail warden's apartment on Streets of Tarkov",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "chekannaya-st-nw"
+     ]
+    },
+    {
+     "id": "63972db222ea23711e21aaaa",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Chekannaya 15 apartment key",
+     "itemIds": [
+      "63a39fc0af870e651d58e6ae"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "29,200 XP, 114,000 RUB, TDI KRISS Vector Gen.2 9x19 submachine gun Default"
+  },
+  {
+   "id": "64e7b99017ab941a6f7bf9d7",
+   "name": "Gendarmerie - Mall Cop",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 6"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Gendarmerie_-_Mall_Cop",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64e7bc2c5e6d3e61ca2ca097",
+     "text": "Eliminate any target at the stylobate building while using Pistols on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Beretta M9A3 9x19 pistol",
+      "Colt M1911A1 .45 ACP pistol",
+      "Colt M45A1 .45 ACP pistol",
+      "FN Five-seveN MK2 5.7x28 pistol",
+      "FN Five-seveN MK2 5.7x28 pistol (FDE)",
+      "Glock 17 9x19 pistol",
+      "Glock 18C 9x19 machine pistol",
+      "Glock 19X 9x19 pistol",
+      "HK USP .45 ACP pistol",
+      "Lebedev PL-15 9x19 pistol",
+      "Yarygin MP-443 Grach 9x19 pistol",
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol",
+      "Stechkin APS 9x18PM machine pistol",
+      "SIG P226R 9x19 pistol",
+      "PB 9x18PM silenced pistol",
+      "Serdyukov SR-1MP Gyurza 9x21 pistol",
+      "Stechkin APB 9x18PM silenced machine pistol",
+      "Tokarev TT-33 7.62x25 TT pistol",
+      "Tokarev TT-33 7.62x25 TT pistol (Golden)",
+      "Chiappa Rhino 200DS 9x19 revolver",
+      "Chiappa Rhino 50DS .357 revolver",
+      "RSh-12 12.7x55 revolver",
+      "Magnum Research Desert Eagle L5 .50 AE pistol",
+      "Magnum Research Desert Eagle L5 .357 pistol",
+      "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+      "Magnum Research Desert Eagle L6 .50 AE pistol",
+      "Magnum Research Desert Eagle Mk XIX .50 AE pistol",
+      "20x1mm toy gun"
+     ],
+     "zone": [
+      "kilmov-shopping-mall-sw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Beretta M9A3 9x19 pistol, Colt M1911A1 .45 ACP pistol, Colt M45A1 .45 ACP pistol (+26 more)",
+     "itemIds": [
+      "5cadc190ae921500103bb3b6",
+      "5e81c3cbac2bb513793cdc75",
+      "5f36a0e5fbf956000b716b65",
+      "5d3eb3b0a4b93615055e84d2",
+      "5d67abc1a4b93614ec50137f",
+      "5a7ae0c351dfba0017554310",
+      "5b1fa9b25acfc40018633c01",
+      "63088377b5cd696784087147",
+      "6193a720f8ee7e52e42109ed",
+      "602a9740da11d6478d5a06dc",
+      "576a581d2459771e7b1bc4f1",
+      "5448bd6b4bdc2dfc2f8b4569",
+      "579204f224597773d619e051",
+      "5a17f98cfcdbcb0980087290",
+      "56d59856d2720bd8418b456a",
+      "56e0598dd2720bb5668b45a6",
+      "59f98b4986f7746f546d2cef",
+      "5abccb7dd8ce87001773e277",
+      "571a12c42459771f627b58a0",
+      "5b3b713c5acfc4330140bd8d",
+      "624c2e8614da335f1e034d8c",
+      "61a4c8884f95bc3b2c5dc96f",
+      "633ec7c2a6918cb895019c6c",
+      "669fa3f88abd2662d80eee77",
+      "669fa409933e898cce0c2166",
+      "669fa3d876116c89840b1217",
+      "669fa39b48fc9f8db6035a0c",
+      "668fe5a998b5ad715703ddd6",
+      "66015072e9f84d5680039678"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "7,100 XP, 120,000 RUB, SR-2M Veresk 9x21 submachine gun Default, 4x SR-2M 9x21 30-round magazine, 5x 9x21mm PS gzh ammo pack (30 pcs)"
+  },
+  {
+   "id": "64e7b9a4aac4cd0a726562cb",
+   "name": "Gendarmerie - Tickets, Please",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "Gendarmerie - Mall Cop"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Gendarmerie_-_Tickets%2C_Please",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64e7bd0c6393886f74119f41",
+     "text": "Eliminate any target at the Rodina cinema while using SMGs on Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 25,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "B&T MP9 9x19 submachine gun",
+      "B&T MP9-N 9x19 submachine gun",
+      "FN P90 5.7x28 submachine gun",
+      "HK MP5K 9x19 submachine gun",
+      "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+      "HK MP7A1 4.6x30 submachine gun",
+      "HK MP7A2 4.6x30 submachine gun",
+      "HK UMP .45 ACP submachine gun",
+      "PP-19-01 Vityaz 9x19 submachine gun",
+      "Saiga-9 9x19 carbine",
+      "SIG MPX 9x19 submachine gun",
+      "Soyuz-TM STM-9 Gen.2 9x19 carbine",
+      "TDI KRISS Vector Gen.2 .45 ACP submachine gun",
+      "TDI KRISS Vector Gen.2 9x19 submachine gun",
+      "SR-2M Veresk 9x21 submachine gun",
+      "PPSh-41 7.62x25 submachine gun",
+      "PP-91-01 Kedr-B 9x18PM submachine gun",
+      "PP-91 Kedr 9x18PM submachine gun",
+      "PP-9 Klin 9x18PMM submachine gun",
+      "IWI UZI 9x19 submachine gun",
+      "IWI UZI PRO Pistol 9x19 submachine gun",
+      "IWI UZI PRO SMG 9x19 submachine gun"
+     ],
+     "zone": [
+      "cinema"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: B&T MP9 9x19 submachine gun, B&T MP9-N 9x19 submachine gun, FN P90 5.7x28 submachine gun (+19 more)",
+     "itemIds": [
+      "5e00903ae9dc277128008b87",
+      "5de7bd7bfd6b4e6e2276dc25",
+      "5cc82d76e24e8d00134b4b83",
+      "5d2f0d8048f0356c925bc3b0",
+      "5926bb2186f7744b1c6c6e60",
+      "5ba26383d4351e00334c93d9",
+      "5bd70322209c4d00d7167b8f",
+      "5fc3e272f8b6a877a729eac5",
+      "59984ab886f7743e98271174",
+      "59f9cabd86f7743a10721f46",
+      "58948c8e86f77409493f7266",
+      "60339954d62c9b14ed777c06",
+      "5fb64bc92b1b027b1f50bcf2",
+      "5fc3f2d5900b1d5091531e57",
+      "62e14904c2699c0ec93adc47",
+      "5ea03f7400685063ec28bfa8",
+      "57f3c6bd24597738e730fa2f",
+      "57d14d2524597714373db789",
+      "57f4c844245977379d5c14d1",
+      "66992b349950f5f4cd06029f",
+      "6680304edadb7aa61d00cef0",
+      "668e71a8dadf42204c032ce1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "7,500 XP, 150,000 RUB, 2x Kalashnikov AK-103 7.62x39 assault rifle Default, 4x AK-103 7.62x39 30-round magazine, 9x 7.62x39mm PP gzh ammo pack (20 pcs)"
+  },
+  {
+   "id": "59ca29fb86f77445ab465c87",
+   "name": "The Punisher - Part 5",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_5",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca293c86f77445a80ed147",
+     "text": "Find the item in raid: any Kalashnikov AK-74 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca29ab86f77445ab133c86",
+     "text": "Hand over the AK-74",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2bdc86f77445a80ed148",
+     "text": "Find the item in raid: Colt M4A1 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c3086f77445aa0ddc15",
+     "text": "Hand over the M4A1",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c9e86f77428ea721232",
+     "text": "Find the item in raid: Makarov PM pistol",
+     "type": "findItem",
+     "optional": false,
+     "count": 2,
+     "mustExtract": true,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2cbe86f7740fe95c3e52",
+     "text": "Hand over the pistols",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "5c922dde86f77438500a0fec",
+     "text": "Eliminate PMC operatives with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "RPK-16 5.45x39 light machine gun"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a57a51fe5c2c08b474109fb",
+     "text": "Eliminate Scavs with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (FDE) (+5 more)",
+     "itemIds": [
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "5beed0f50db834001c062b12"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    },
+    {
+     "item": "Any of: RPK-16 5.45x39 light machine gun, U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (+5 more)",
+     "itemIds": [
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case"
+  },
+  {
+   "id": "59ca2eb686f77445a80ed049",
+   "name": "The Punisher - Part 6",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_6",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a57a60057699da0521e1c7b",
+     "text": "Locate and neutralize any Boss",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Black Div.",
+      "Glukhar",
+      "Killa",
+      "Vengeful Killa",
+      "Knight",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "bossStormtrooper",
+      "Tagilla",
+      "Shadow of Tagilla",
+      "The Wedge",
+      "The Wedge (Labs)",
+      "Big Pipe",
+      "Birdeye",
+      "Black Div. Guard",
+      "The Wedge (Labs) Guard",
+      "Infected Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "5b0548e686f7740306753506",
+     "text": "Hand over the item: Dogtag BEAR or Dogtag USEC",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+  },
+  {
+   "id": "66aba85403e0ee3101042877",
+   "name": "Beneath The Streets",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Beneath_The_Streets",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66aba85403e0ee310104287a",
+     "text": "Use the transit from Streets of Tarkov to The Lab (In one raid)",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "66aba85403e0ee3101042878",
+     "text": "Locate the passage leading to The Lab on Streets of Tarkov (In one raid)",
+     "type": "visit",
+     "optional": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "24,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "666314a31cd52e3d040a2e76",
+   "name": "Combat Proven",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 42,
+   "requires": [
+    "Special Offer"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Combat_Proven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6669abb8dac5788ebd0ff74a",
+     "text": "Locate and neutralize any Boss (excluding The Goons, The Wedge and Partisan) while using any Goons Edition tactical rig",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Glukhar",
+      "Killa",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "Tagilla",
+      "Zryachiy",
+      "Vengeful Killa",
+      "Shadow of Tagilla",
+      "Infected Tagilla",
+      "Labyrinth Guard"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "92,000 XP, 340,000 RUB, 3x NPP KlASS Bagariy plate carrier (EMR) Default"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "\"Negotiation\" room key",
+   "itemId": "6582dbe43a2e5248357dbe9a",
+   "kind": "key",
+   "for": [
+    "65733403eefc2c312a759ddb"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 17385,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Abandoned factory marked key",
+   "itemId": "63a3a93f8a56922e82001f5d",
+   "kind": "key",
+   "for": [
+    "6391372c8ba6894d155e77d7"
+   ],
+   "required": true,
+   "fleaLevel": 35,
+   "flea": "flea from level 35",
+   "price": 20574565,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Backup hideout key",
+   "itemId": "6398fd8ad3de3849057f5128",
+   "kind": "key",
+   "for": [
+    "63966fbeea19ac7ed845db2e"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Beluga restaurant director key",
+   "itemId": "64ccc1fe088064307e14a6f7",
+   "kind": "key",
+   "for": [
+    "64f5e20652fc01298e2c61e3"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 207924,
+   "lockCount": 2,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Car dealership closed section key",
+   "itemId": "63a397d3af870e651d58e65b",
+   "kind": "key",
+   "for": [
+    "639135534b15ca31f76bc317"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 590942,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Car dealership director's office room key",
+   "itemId": "63a399193901f439517cafb6",
+   "kind": "key",
+   "for": [
+    "639135534b15ca31f76bc317"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 47661,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Chekannaya 15 apartment key",
+   "itemId": "63a39fc0af870e651d58e6ae",
+   "kind": "key",
+   "for": [
+    "639135cd8ba6894d155e77cb"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 3447200,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Concordia security room key",
+   "itemId": "63a39c7964283b5e9c56b280",
+   "kind": "key",
+   "for": [
+    "639135e8c115f907b14700aa"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 43408,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Iron gate key",
+   "itemId": "63a39f6e64283b5e9c56b289",
+   "kind": "key",
+   "for": [
+    "639135c3744e452011470807"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 504291,
+   "lockCount": 3,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Mysterious room marked key",
+   "itemId": "64ccc25f95763a1ae376e447",
+   "kind": "key",
+   "for": [
+    "64ee99639878a0569d6ec8c9"
+   ],
+   "required": true,
+   "fleaLevel": 35,
+   "flea": "flea from level 35",
+   "price": 25342481,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Pinewood hotel room 215 key",
+   "itemId": "63a39f08cd6db0635c197600",
+   "kind": "key",
+   "for": [
+    "639136fa9444fb141f4e6eee"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 461593,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Primorsky 46-48 skybridge key",
+   "itemId": "63a39e1d234195315d4020bd",
+   "kind": "key",
+   "for": [
+    "6396700fea19ac7ed845db32",
+    "639135a7e705511c8a4a1b78",
+    "639135bbc115f907b14700a6"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Real estate agency office room key",
+   "itemId": "6582dc5740562727a654ebb1",
+   "kind": "key",
+   "for": [
+    "6573397ef3f8344c4575cd87"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 696324,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Relaxation room key",
+   "itemId": "6582dbf0b8d7830efc45016f",
+   "kind": "key",
+   "for": [
+    "6573382e557ff128bf3da536"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 547777,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Rusted bloody key",
+   "itemId": "64d4b23dc1b37504b41ac2b6",
+   "kind": "key",
+   "for": [
+    "64ee9df4496db64f9b7a4432"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "TerraGroup meeting room key",
+   "itemId": "64ccc206793ca11c8f450a38",
+   "kind": "key",
+   "for": [
+    "64f6aafd67e11a7c6206e0d0"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 536668,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "X-ray room key",
+   "itemId": "64ccc246ff54fb38131acf29",
+   "kind": "key",
+   "for": [
+    "64f731ab83cfca080a361e42"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 124269,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "AI .338 LM Tactical Sound Moderator",
+   "itemId": "62811fa609427b40ab14e765",
+   "kind": "item",
+   "for": [
+    "6396700fea19ac7ed845db32"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 54459,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL4: 130,000 RUB"
+   ]
+  },
+  {
+   "item": "Bomber beanie",
+   "itemId": "60bf74184a63fc79b60c57f6",
+   "kind": "item",
+   "for": [
+    "65734c186dc1e402c80dc19e"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 41284,
+   "lockCount": 0,
+   "sources": [
+    "Ragman LL2: 41,283 RUB, after Dandies"
+   ]
+  },
+  {
+   "item": "Cultist knife",
+   "itemId": "5fc64ea372b0dd78d51159dc",
+   "kind": "item",
+   "for": [
+    "64ee99639878a0569d6ec8c9"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 115294,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "MS2000 Marker",
+   "itemId": "5991b51486f77447b112d44f",
+   "kind": "item",
+   "for": [
+    "63967028c4a91c5cb76abd81",
+    "639135f286e646067c176a87",
+    "6572e876dc0d635f633a5714",
+    "674600a366e6a521aa05eb66"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 28774,
+   "lockCount": 0,
+   "sources": [
+    "Ragman LL1: 145 EUR",
+    "Prapor LL1: 18,936 RUB",
+    "Therapist LL1: 19,353 RUB"
+   ]
+  },
+  {
+   "item": "RayBench Hipster Reserve sunglasses",
+   "itemId": "5aa2b9aee5b5b00015693121",
+   "kind": "item",
+   "for": [
+    "65734c186dc1e402c80dc19e"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 52509,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A1 5.56x45 assault rifle",
+   "itemId": "62e7c4fba689e8c9c50dfc38",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 60355,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle",
+   "itemId": "63171672192e68c5460cebc5",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 166639,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle (Black)",
+   "itemId": "6718817435e3cfd9550d2c27",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 162433,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Trijicon REAP-IR thermal scope",
+   "itemId": "5a1eaa87fcdbcb001865f75e",
+   "kind": "item",
+   "for": [
+    "6396700fea19ac7ed845db32"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "Skier LL4 barter: 5x Wooden clock + 6x Roler Submariner gold wrist watch + 6x Gold skull ring",
+    "Mechanic LL4 barter: 4x Iridium military thermal vision module + 4x Military circuit board + 4x Military power filter"
+   ]
+  },
+  {
+   "item": "WI-FI Camera",
+   "itemId": "5b4391a586f7745321235ab2",
+   "kind": "item",
+   "for": [
+    "64ee9df4496db64f9b7a4432",
+    "66d9cbb67b491f9d5304f6e6"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 101344,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1: 329 EUR, after Informed Means Armed",
+    "Mechanic LL1 barter: 1x Electronic components + 1x Portable Powerbank"
+   ]
+  }
+ ],
+ "raids": []
+}

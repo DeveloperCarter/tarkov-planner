@@ -1,0 +1,477 @@
+[
+  {
+    "name": "The Huntsman Path - Trophy",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Trophy",
+    "trader": "Jaeger",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": "The Huntsman Path - Secured Perimeter",
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Eliminate Reshala"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Find 1 Reshala's Golden TT in raid"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Hand over 1 Reshala's Golden TT to Jaeger"
+      }
+    ],
+    "rewards": [
+      "+15,300 EXP",
+      "Jaeger Rep +0.02",
+      "90,000 Roubles",
+      "1× Magazine case",
+      "3× Golden neck chain",
+      "2× Gold skull ring",
+      "1× Roler Submariner gold wrist watch"
+    ],
+    "guide": "In this quest you have to kill Reshala and find his golden TT pistol in raid.\n{{Navbox quests}}\nCategory:Quests\ncs:Cesta lovce - Trofej\nde:Pfad des Jägers. Die Trophäe\nfr:La voie du chasseur - Le trophée\nru:Путь охотника. Трофей",
+    "spots": []
+  },
+  {
+    "name": "Chemical Experiments",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Chemical_Experiments",
+    "trader": "Peacekeeper",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Stash a Corrugated hose in the med lab on Customs"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Peacekeeper Rep +0.1",
+      "550 Dollars"
+    ],
+    "guide": "In this quest you have to stash a Corrugated hose at any table in the experiments area on the second floor of the the laboratory building on Customs.\n{{Navbox quests}}\nCategory:Quests\ncs:Wellness túra - Část 7\nfr:Visite du spa - Partie 7\nru:Путевка в санаторий. Часть 7\nde:Spa Tour - Teil 7",
+    "spots": [
+      "Lab location marked on map"
+    ]
+  },
+  {
+    "name": "Abandoned Cargo",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Abandoned_Cargo",
+    "trader": "Therapist",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Mark any of the special TerraGroup cargo boxes with an MS2000 Marker on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the first special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the second special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the third special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the fourth special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the fifth special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the sixth special TerraGroup cargo on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the seventh special TerraGroup cargo on Customs"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Therapist Rep +0.1",
+      "80,000 Roubles"
+    ],
+    "guide": "In this quest you have to mark 1 of 7 cargo pallets on Customs with a MS2000 Marker.\n===Red customs control warehouse - Cargo 1===\n===Warehouse 17 - Cargo 3, 6, 7===\n===Boiler building - Cargo 2, 4, 5===",
+    "spots": [
+      "Cargo 1 location marked on map",
+      "Cargo 1 on the west side of the warehouse",
+      "Warehouse 17 location marked on map",
+      "Warehouse 17 southern entrance",
+      "Cargo 7 on the first floor",
+      "Cargo 3 on the second floor in the staircase behind the wall paintings",
+      "Cargo 6 on the third floor/crane",
+      "Boiler building location marked on map",
+      "The boiler building",
+      "Cargo 5 outside on the north side of the building",
+      "Cargo 2 next to the showers",
+      "Cargo 4 (barrels) next to the chimneys"
+    ]
+  },
+  {
+    "name": "Pharmacist",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Pharmacist",
+    "trader": "Therapist",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Locate and obtain the suitcase with the device on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Locate the paramedic's car on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Find a way inside the two-story dorm room 114 on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Hand over the suitcase"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Therapist Rep +0.1",
+      "80,000 Roubles"
+    ],
+    "guide": "In this quest you have to find a carbon case on Customs. It can be found on a safe in room 114 on the first floor of the two-story dorms building. A Dorm room 114 key is required to enter it.\n{{Navbox quests}}\nCategory:Quests\ncs:Lékárník\nde:Apotheker\nfr:Pharmacien\nru:Провизор",
+    "spots": [
+      "2 story dorms and room 114 marked on map",
+      "The carbon case on the safe"
+    ]
+  },
+  {
+    "name": "Tigr Safari",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Tigr_Safari",
+    "trader": "Peacekeeper",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": true,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Locate and mark any UN Tigr vehicle with an MS2000 Marker on Customs"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Peacekeeper Rep +0.1",
+      "550 Dollars"
+    ],
+    "guide": "MS2000 Markers can be bought from Prapor or Ragman.",
+    "spots": [
+      "Vehicle locations marked on map",
+      "First Tigr vehicle",
+      "Second Tigr vehicle",
+      "Third Tigr vehicle"
+    ]
+  },
+  {
+    "name": "Private Club",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Private_Club",
+    "trader": "Skier",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Locate and obtain Skier's wallet on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Hand over the found item"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Skier Rep +0.1",
+      "450 Euros"
+    ],
+    "guide": "In this quest you have to find Skier's wallet on Customs. It can be found in a room on the second floor of Warehouse 17. There are multiple spawns throughout the room.\n{{Navbox quests}}\nCategory:Quests\nfr:Club privé\nru:Закрытый клуб",
+    "spots": [
+      "Warehouse 17 location marked on map",
+      "Warehouse 17 southern entrance",
+      "Way to the room on the second floor",
+      "Door to the room",
+      "First spawn on the floor under the shelf next to the door",
+      "Second spawn on the floor under the table",
+      "Third spawn on the table",
+      "Fourth spawn behind the TV on the desk"
+    ]
+  },
+  {
+    "name": "The Punisher - Part 1",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_1",
+    "trader": "Prapor",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Eliminate 25 Scavs with AKS-74U on Customs"
+      }
+    ],
+    "rewards": [
+      "+10,000 EXP",
+      "165,000 Roubles",
+      "1× Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle (variant Urbana)",
+      "Unlocks craft for 5.45x39mm PP gs at Workbench level 2"
+    ],
+    "guide": "In this quest you have to kill 25 Scavs on Customs with short AK series assault rifles. You can use any of the following:\n* AKS-74U\n* AKS-74UN\n* AKS-74UB\n* SAG AK Short\n{{Navbox quests}}\nCategory:Quests\ncs:Mstitel - Část 1\nde:Der Peiniger - Teil 1\nfr:Le Punisher - Partie 1\nru:Каратель",
+    "spots": []
+  },
+  {
+    "name": "Provide Viewership",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Provide_Viewership",
+    "trader": "Ref",
+    "location": "Customs",
+    "kappa": false,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": "Accept Easy Money - Part 2",
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Install the first WI-FI Camera Inside the industrial plant on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Install the second WI-FI Camera Inside the industrial plant on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Install the third WI-FI Camera Inside the industrial plant on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Install the fourth WI-FI Camera Inside the industrial plant on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Eliminate any 15 targets inside the industrial plant on Customs"
+      }
+    ],
+    "rewards": [
+      "+32,000 EXP",
+      "Ref Rep +0.02",
+      "45 GP coins",
+      "1× Lone Star TX-15 DML 5.56x45 carbine",
+      "3× AR-15 5.56x45 HK 30 STANAG polymer 30-round magazine",
+      "3× 5.56x45mm M855A1 ammo pack (50 pcs)"
+    ],
+    "guide": "In this quest you first have to install 4 WI-FI Cameras in the industrial plant on Customs. Afterwards you have to kill any 15 targets in and around it.\n===Camera 4 and 2 - First floor garage and northern building===\n===Camera 1 - Third floor northern building===\n===Camera 3 - Second floor southern building===\n{{Navbox quests}}\nCategory:Quests\nfr:Fournir une audience\nru:Обеспечить просмотры",
+    "spots": [
+      "Kill area marked on map",
+      "The industrial plant",
+      "Camera 4: In the garage at the stacked barrels in front of the truck",
+      "Way from camera spot 4 to spot 2",
+      "Camera 2: In the northern building at brick pallets",
+      "Staircase to the third floor on the second floor",
+      "Camera 1: At the three blue barrels farthest from the staircase",
+      "Connector to the southern building next to the staircase on the second floor of the northern building",
+      "Camera 3: At the pipes to the left after leaving the connector"
+    ]
+  },
+  {
+    "name": "Break the Deal",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Break_the_Deal",
+    "trader": "Ragman",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Stash a DVL-10 sniper rifle at the specified spot on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Stash a DVL-10 magazine at the specified spot on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Stash an ELCAN SpecterDR scope at the specified spot on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Stash a pack of any 7.62x51 ammo at the specified spot on Customs"
+      }
+    ],
+    "rewards": [
+      "+11,400 EXP",
+      "Ragman Rep +0.03",
+      "105,000 Roubles",
+      "1× IOTV Gen4 body armor (High Mobility Kit, MultiCam)"
+    ],
+    "guide": "In this quest you have to stash the 4 specified items on the scaffolding of the southern industrial plant building on Customs. After accepting the quest you will be sent a set of the required items via in-game mail. It is possible to completely disassemble the DVL-10 rifle since it doesn't need to be functional to be stashed.\nNote: If you have a DVL-10 equipped as primary or secondary weapon, it will be used up as first for the stashing.\n{{Navbox quests}}\nCategory:Quests\nfr:Rupture de contrat\nru:Сорвать сделку",
+    "spots": [
+      "Building location marked on map",
+      "The scaffolding",
+      "SpecterDR scope spot: 2nd floor at the crates in the far corner",
+      "DVL-10 magazine spot: 3rd floor in the broken crate",
+      "Ammo pack spot: 4th floor at the stacked crates next to the stairs",
+      "DVL-10 rifle spot: 4th floor at the crates in the far corner"
+    ]
+  },
+  {
+    "name": "Shaking Up the Teller",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Shaking_Up_the_Teller",
+    "trader": "Prapor",
+    "location": "Customs",
+    "kappa": false,
+    "usecOnly": true,
+    "bearOnly": false,
+    "previous": null,
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Locate and obtain the valuable item in dorm room 203 on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Gain access to dorm room 214 on Customs"
+      },
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Hand over the valuable item"
+      }
+    ],
+    "rewards": [
+      "+3,000 EXP",
+      "Prapor Rep +0.1",
+      "80,000 Roubles",
+      "1× Electric motor",
+      "Unlocks purchase of 9x21mm BT gzh at Prapor LL3"
+    ],
+    "guide": "In this quest you have to find a bank case on Customs. It can be found under the bed in room 203 on the second floor of the three-story dorms building. A Dorm room 203 key is required to enter it.\n{{Navbox quests}}\nCategory:Quests\ncs:Třesoucí se pokladní\nde:Kassensturz\nfr:Secouez le caissier\nru:Тряхнуть кассира",
+    "spots": [
+      "3 story dorms and room 203 marked on map",
+      "The bank case under the bed"
+    ]
+  },
+  {
+    "name": "The Huntsman Path - Angry Watchman",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Angry_Watchman",
+    "trader": "Jaeger",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": "The Huntsman Path - Forest Cleaning",
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Eliminate 5 PMCs in the Dorms area on Customs"
+      }
+    ],
+    "rewards": [
+      "+10,000 EXP",
+      "Jaeger Rep +0.02",
+      "75,000 Roubles",
+      "2× Intelligence folder",
+      "1× Military flash drive"
+    ],
+    "guide": "{{Navbox quests}}\nCategory:Quests\ncs:Cesta lovce - Zlý hlídač\nde:Pfad des Jägers. Böse Wächter\nfr:La voie du chasseur - Gardien maléfique\nru:Путь охотника. Злой вахтёр",
+    "spots": [
+      "Kill area marked on map"
+    ]
+  },
+  {
+    "name": "Work Smarter",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Work_Smarter",
+    "trader": "Jaeger",
+    "location": "Customs",
+    "kappa": true,
+    "usecOnly": false,
+    "bearOnly": false,
+    "previous": "Acquaintance",
+    "objectives": [
+      {
+        "depth": 1,
+        "optional": false,
+        "text": "Locate the secret exfil on Customs"
+      },
+      {
+        "depth": 2,
+        "optional": true,
+        "text": "Obtain the special item to extract through the secret exfil"
+      }
+    ],
+    "rewards": [
+      "+6,600 EXP",
+      "Jaeger Rep +0.01",
+      "32,000 Roubles",
+      "2× CMS surgical kit"
+    ],
+    "guide": "In this quest you have to visit either of the 2 hidden extractions on Customs. The hidden ones are \"Smugglers' Boat\" and \"Smugglers' Bunker (ZB-1012)\". Extracting through them is not required.\n{{Navbox quests}}\nCategory:Quests\nfr:Travailler plus intelligemment\nru:Умный в гору не пойдёт",
+    "spots": [
+      "Extractions marked on map",
+      "The Smugglers' Boat extraction",
+      "The Smugglers' Bunker (ZB-1012) extraction"
+    ]
+  }
+]

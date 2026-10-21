@@ -1,0 +1,4632 @@
+{
+ "meta": {
+  "map": "Lighthouse",
+  "mapId": "5704e4dad2720bb55b8b4567",
+  "key": "lighthouse",
+  "gameMode": "regular",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:13:44+00:00",
+  "raidMinutes": 40,
+  "players": "10-12",
+  "frame": {
+   "w": 657,
+   "h": 1376,
+   "metres": 1988
+  },
+  "rotation": 180,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/Lighthouse",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "plant-1": {
+   "name": "Plant 1",
+   "x": 290,
+   "y": 535,
+   "hints": []
+  },
+  "train-yard": {
+   "name": "Train Yard",
+   "x": 333,
+   "y": 387,
+   "hints": [
+    "Train Station Warehouse"
+   ]
+  },
+  "cabins": {
+   "name": "Cabins",
+   "x": 481,
+   "y": 742,
+   "hints": []
+  },
+  "tennis-court": {
+   "name": "Tennis Court",
+   "x": 359,
+   "y": 1047,
+   "hints": []
+  },
+  "plant-2-sw": {
+   "name": "Plant 2 SW",
+   "x": 359,
+   "y": 507,
+   "hints": []
+  },
+  "sw-of-crash-site": {
+   "name": "SW of Crash Site",
+   "x": 273,
+   "y": 1301,
+   "hints": []
+  },
+  "pikes-peak-resort-sw": {
+   "name": "Pikes Peak Resort SW",
+   "x": 344,
+   "y": 970,
+   "hints": []
+  },
+  "water-treatment-s": {
+   "name": "Water Treatment S",
+   "x": 365,
+   "y": 586,
+   "hints": [
+    "Helicopter at Water Treatment Plant"
+   ]
+  },
+  "grand-chalet": {
+   "name": "Grand Chalet",
+   "x": 396,
+   "y": 1019,
+   "hints": []
+  },
+  "crash-site": {
+   "name": "Crash Site",
+   "x": 400,
+   "y": 1159,
+   "hints": []
+  },
+  "boathouses": {
+   "name": "Boathouses",
+   "x": 230,
+   "y": 858,
+   "hints": [
+    "Yacht Club Pier"
+   ]
+  },
+  "construction-nw": {
+   "name": "Construction NW",
+   "x": 293,
+   "y": 786,
+   "hints": []
+  },
+  "w-of-tennis-court": {
+   "name": "W of Tennis Court",
+   "x": 252,
+   "y": 1036,
+   "hints": []
+  },
+  "drug-lab": {
+   "name": "Drug Lab",
+   "x": 395,
+   "y": 402,
+   "hints": []
+  },
+  "pikes-peak-resort-se": {
+   "name": "Pikes Peak Resort SE",
+   "x": 405,
+   "y": 959,
+   "hints": [
+    "Chalets"
+   ]
+  },
+  "drug-lab-n": {
+   "name": "Drug Lab N",
+   "x": 394,
+   "y": 349,
+   "hints": []
+  },
+  "plant-3-sw": {
+   "name": "Plant 3 SW",
+   "x": 420,
+   "y": 555,
+   "hints": []
+  },
+  "gunner-nest-1": {
+   "name": "Gunner Nest (1)",
+   "x": 302,
+   "y": 649,
+   "hints": []
+  },
+  "gunner-nest-2": {
+   "name": "Gunner Nest (2)",
+   "x": 296,
+   "y": 679,
+   "hints": []
+  },
+  "plant-2": {
+   "name": "Plant 2",
+   "x": 390,
+   "y": 462,
+   "hints": []
+  },
+  "tennis-court-w": {
+   "name": "Tennis Court W",
+   "x": 304,
+   "y": 1028,
+   "hints": []
+  },
+  "dead-tree-sw": {
+   "name": "Dead Tree SW",
+   "x": 226,
+   "y": 991,
+   "hints": []
+  },
+  "lightkeeper-island-se": {
+   "name": "Lightkeeper Island SE",
+   "x": 83,
+   "y": 1321,
+   "hints": []
+  },
+  "pikes-peak-resort-e": {
+   "name": "Pikes Peak Resort E",
+   "x": 430,
+   "y": 923,
+   "hints": []
+  },
+  "pikes-peak-resort-ne": {
+   "name": "Pikes Peak Resort NE",
+   "x": 436,
+   "y": 882,
+   "hints": []
+  },
+  "cottages-se": {
+   "name": "Cottages SE",
+   "x": 437,
+   "y": 841,
+   "hints": []
+  },
+  "nw-of-train-yard": {
+   "name": "NW of Train Yard",
+   "x": 245,
+   "y": 325,
+   "hints": []
+  },
+  "pikes-peak-resort-nw": {
+   "name": "Pikes Peak Resort NW",
+   "x": 369,
+   "y": 900,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "exfil-train",
+   "name": "Armored Train",
+   "faction": "shared",
+   "x": 312,
+   "y": 383,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "coastal-south-road",
+   "name": "Southern Road",
+   "faction": "pmc",
+   "x": 512,
+   "y": 1237,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-coastal-south",
+   "name": "Southern Road Landslide",
+   "faction": "scav",
+   "x": 503,
+   "y": 1238,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "shorl-free-scav",
+   "name": "Path to Shoreline",
+   "faction": "scav",
+   "x": 558,
+   "y": 879,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "alpinist-light",
+   "name": "Mountain Pass",
+   "faction": "pmc",
+   "x": 441,
+   "y": 916,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "lighthouse-secret-minefield",
+   "name": "Passage by the Lake",
+   "faction": "pmc",
+   "x": 566,
+   "y": 533,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "nothern-checkpoint",
+   "name": "Northern Checkpoint",
+   "faction": "pmc",
+   "x": 241,
+   "y": 304,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "scav-underboat-hideout",
+   "name": "Hideout Under the Landing Stage",
+   "faction": "scav",
+   "x": 228,
+   "y": 1149,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "scav-hideout-at-the-grotto",
+   "name": "Scav Hideout at the Grotto",
+   "faction": "scav",
+   "x": 197,
+   "y": 637,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "scav-industrial-zone",
+   "name": "Industrial Zone Gates",
+   "faction": "scav",
+   "x": 417,
+   "y": 433,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "tunnel-shared",
+   "name": "Side Tunnel (Co-Op)",
+   "faction": "shared",
+   "x": 362,
+   "y": 1170,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "shorl-free",
+   "name": "Path to Shoreline",
+   "faction": "pmc",
+   "x": 558,
+   "y": 879,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "transit-21",
+   "name": "Transit to Shoreline",
+   "faction": "shared",
+   "x": 540,
+   "y": 849,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-22",
+   "name": "Transit to Reserve",
+   "faction": "shared",
+   "x": 511,
+   "y": 442,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-23",
+   "name": "Transit to Woods",
+   "faction": "shared",
+   "x": 243,
+   "y": 321,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-51",
+   "name": "Transit to Icebreaker",
+   "faction": "shared",
+   "x": 219,
+   "y": 838,
+   "rule": "Transit to another map"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Zryachiy",
+   "spawnChance": 1,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Island",
+     "chance": 1
+    }
+   ],
+   "escorts": []
+  },
+  {
+   "name": "Knight",
+   "spawnChance": 0.2,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Chalet",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Big Pipe",
+    "Birdeye"
+   ]
+  },
+  {
+   "name": "Partisan",
+   "spawnChance": 0.25,
+   "groups": 1,
+   "locations": [],
+   "escorts": []
+  },
+  {
+   "name": "Rogue",
+   "spawnChance": 1,
+   "groups": 5,
+   "locations": [
+    {
+     "name": "Chalet",
+     "chance": 1
+    },
+    {
+     "name": "Rocks",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Rogue"
+   ]
+  },
+  {
+   "name": "Glukhar",
+   "spawnChance": 1,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Water Treatment",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Glukhar Guard (Assault)",
+    "Glukhar Guard (Scout)",
+    "Glukhar Guard (Security)"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "674492b6909d2013670a347a",
+   "name": "Ask for Directions",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Another Shipping Delay"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Ask_for_Directions",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "674492e56e8d2d5239a3fd37",
+     "text": "Locate and mark the first section of the cliff path with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "pikes-peak-resort-se"
+     ]
+    },
+    {
+     "id": "674492ebf6f84f7d09ef1abb",
+     "text": "Locate and mark the second section of the cliff path with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "pikes-peak-resort-e"
+     ]
+    },
+    {
+     "id": "674492f0636d0661476732f2",
+     "text": "Locate and mark the third section of the cliff path with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "pikes-peak-resort-ne"
+     ]
+    },
+    {
+     "id": "674492f30f45cb752f21df39",
+     "text": "Locate and mark the fourth section of the cliff path with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "cottages-se"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 4,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "13,200 XP, 85,000 RUB, GreenBat lithium battery, GreenBat lithium battery"
+  },
+  {
+   "id": "69c27158e350f01390049e77",
+   "name": "Saving Private Roman",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Stick to It"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Saving_Private_Roman",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69c2745137b8de0e367891c6",
+     "text": "Mark the transit to Woods with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "nw-of-train-yard"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "42,000 XP"
+  },
+  {
+   "id": "69c26c07683c9831020018c7",
+   "name": "Stick to It",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stick_to_It",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69c26dfeaa4283497aab0d36",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "Big Pipe",
+      "Birdeye",
+      "Rogue",
+      "Knight"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "25,000 XP, 100,000 RUB, 3x Water filter"
+  },
+  {
+   "id": "6744af0969a58fceba101fed",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "extract,shoot,useItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745c986a3e10e0bf6472d8e",
+     "text": "Launch a yellow signal flare at the train station warehouse on Lighthouse",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "train-yard"
+     ]
+    },
+    {
+     "id": "6745c992bf76b3aeaf6370e0",
+     "text": "Launch a yellow signal flare at the pier on Lighthouse",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "boathouses"
+     ]
+    },
+    {
+     "id": "6745c9b89c84a273d4a2dc28",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6745c9a86086867a2c723e9d",
+     "text": "Survive and extract from Lighthouse",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6745cbee909d2013670a4a55",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "extract,shoot,useItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745cbee909d2013670a4a6a",
+     "text": "Launch a yellow signal flare at the train station warehouse on Lighthouse",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "train-yard"
+     ]
+    },
+    {
+     "id": "6745cbee909d2013670a4a6c",
+     "text": "Launch a yellow signal flare at the pier on Lighthouse",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "boathouses"
+     ]
+    },
+    {
+     "id": "6745cbee909d2013670a4a6e",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6745cbee909d2013670a4a70",
+     "text": "Survive and extract from Lighthouse",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6663149196a9349baa021baa",
+   "name": "Small Business - Part 2",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Small Business - Part 1"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Small_Business_-_Part_2",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "666732298477f79f3f6ea229",
+     "text": "Eliminate any Scav Boss guards without killing the Bosses",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Kaban Guard",
+      "Basmach",
+      "Gus",
+      "Glukhar Guard (Assault)",
+      "Glukhar Guard (Scout)",
+      "Reshala Guard",
+      "Glukhar Guard (Security)",
+      "Glukhar Guard (Snipe)",
+      "Shturman Guard",
+      "Kollontay Guard (Assault)",
+      "Kollontay Guard (Security)",
+      "Sanitar Guard",
+      "Kaban Guard (Sniper)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "36,800 XP, 2,200 EUR, 2x Physical Bitcoin"
+  },
+  {
+   "id": "66ab9da7eb102b9bcd08591c",
+   "name": "Forester's Duty",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Forester's_Duty",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66ab9da7eb102b9bcd08591d",
+     "text": "Eliminate Scavs on Lighthouse (In one raid)",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    },
+    {
+     "id": "66ab9da7eb102b9bcd08591f",
+     "text": "Use the transit from Lighthouse to Shoreline (In one raid)",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+  },
+  {
+   "id": "5d25e2cc86f77443e47ae019",
+   "name": "The Huntsman Path - Forest Cleaning",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Forest_Cleaning",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d2701b586f77469f1599fe2",
+     "text": "Eliminate Scavs on Streets of Tarkov, Reserve, Lighthouse, or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 50,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+  },
+  {
+   "id": "6179ad0a6e9dd54ac275e3f2",
+   "name": "The Huntsman Path - Outcasts",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Outcasts",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bf1e1d93d977d2452051f",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Rogue",
+      "Rogue",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+  },
+  {
+   "id": "5bc4776586f774512d07cf05",
+   "name": "The Tarkov Shooter - Part 1",
+   "trader": "Jaeger",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5bc850d186f7747213700892",
+     "text": "Eliminate Scavs from over 40 meters away with a bolt-action rifle with iron sights",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Sniper",
+      "Scavs"
+     ],
+     "weapons": [
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle",
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Mosin 7.62x54R bolt-action rifle (Infantry), Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5bfea6e90db834001b7347f3",
+      "5de652c31b7e3716273428be",
+      "5df24cf80dee1b22f862e9bc",
+      "61f7c9e189e6fb1a5e3ea78d",
+      "627e14b21713922ded6f2c15",
+      "67c6de3ce39861860909e8e5",
+      "673cab3e03c6a20581028bc1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad"
+  },
+  {
+   "id": "639670029113f06a7c3b2377",
+   "name": "Following the Bread Crumbs",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Provocation"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Following_the_Bread_Crumbs",
+   "type": "giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "639ae5445b201a534f436ef3",
+     "text": "Bring the tape to Lightkeeper",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key"
+  },
+  {
+   "id": "63966faeea19ac7ed845db2c",
+   "name": "Information Source",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Information_Source",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a8731e6baeab185affc4b4a",
+     "text": "Survive and extract from Lighthouse through Road to Military Base V-Ex",
+     "type": "extract",
+     "optional": false,
+     "exit": "Road to Military Base V-Ex",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Advanced Electronic Materials textbook, Lighthouse island stash key"
+  },
+  {
+   "id": "6396701b9113f06a7c3b2379",
+   "name": "Make an Impression",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Spotter"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Make_an_Impression",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6397ac912e519e69d2139b26",
+     "text": "Eliminate Sniper Scavs from over 200 meters away",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Sniper",
+      "Shturman Guard",
+      "Glukhar Guard (Scout)",
+      "Kaban Guard (Sniper)",
+      "Shturman"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Phased array element, Phased array element, Substation marked key, Lighthouse island stash key"
+  },
+  {
+   "id": "63966fbeea19ac7ed845db2e",
+   "name": "Missing Informant",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Information Source"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Missing_Informant",
+   "type": "giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63990ae2dcdd126fef1771c2",
+     "text": "Bring the information to Lightkeeper",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Microcontroller board"
+  },
+  {
+   "id": "63966fccac6f8f3c677b9d89",
+   "name": "Snatch",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Missing Informant"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Snatch",
+   "type": "extract,findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63b33cd9862e1142130b610c",
+     "text": "Extract from Lighthouse",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6399b45d98e4ed53fa4632db",
+     "text": "Obtain the forged intelligence at the Rogue base on Lighthouse",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "gunner-nest-1"
+     ]
+    },
+    {
+     "id": "6399cc30b5992f573c65782b",
+     "text": "Bring the original intelligence to Lightkeeper",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, VPX Flash Storage Module, VPX Flash Storage Module, VPX Flash Storage Module, Substation marked key"
+  },
+  {
+   "id": "6179b3bdc7560e13d23eeb8d",
+   "name": "Corporate Secrets",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Corporate_Secrets",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bf6c70cf4a041de5b3972",
+     "text": "Locate and obtain the data on the water pump operation on Lighthouse",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "plant-2"
+     ]
+    },
+    {
+     "id": "61951c30aa0f643f9a0ae1b7",
+     "text": "Locate and obtain the data on the pumping station operation on Lighthouse",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "plant-1"
+     ]
+    },
+    {
+     "id": "617bf77a3de8a6689b533a2a",
+     "text": "Hand over the extracted data",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "61951c3e2e2805073c2d29db",
+     "text": "Hand over the extracted data",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6179b3a12153c15e937d52bc",
+   "name": "Energy Crisis",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Energy_Crisis",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bf5860cf4a041de5b396b",
+     "text": "Find and mark the group of fuel tanks with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "drug-lab-n"
+     ]
+    },
+    {
+     "id": "61926522b0295324b5484459",
+     "text": "Find and mark the first tanker truck with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "train-yard"
+     ]
+    },
+    {
+     "id": "6192653d80c326298126aee1",
+     "text": "Find and mark the second tanker truck with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "plant-3-sw"
+     ]
+    },
+    {
+     "id": "61926544bb0c712ed42d583c",
+     "text": "Find and mark the third tanker truck with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "gunner-nest-2"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 4,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "5c0bde0986f77479cf22c2f8",
+   "name": "Shooter Born in Heaven",
+   "trader": "Mechanic",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooter_Born_in_Heaven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c137f5286f7747ae267d8a3",
+     "text": "Eliminate PMC operatives with a bolt-action rifle headshot on Customs or Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "MP-18 7.62x54R single-shot rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Accuracy International AXMC .338 LM bolt-action sniper rifle, Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "627e14b21713922ded6f2c15",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5df24cf80dee1b22f862e9bc",
+      "5bfea6e90db834001b7347f3",
+      "5bfd297f0db834001a669119",
+      "5de652c31b7e3716273428be",
+      "673cab3e03c6a20581028bc1",
+      "67c6de3ce39861860909e8e5",
+      "61f7c9e189e6fb1a5e3ea78d"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "55,000 XP, Weapon case, 400,000 RUB"
+  },
+  {
+   "id": "6179b5eabca27a099552e052",
+   "name": "Counteraction",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Counteraction",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61a61c085d06a344766f3a29",
+     "text": "Eliminate BEAR PMC operatives on Lighthouse, Ground Zero, Reserve, Shoreline, or Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "BEAR operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "617fc08b30ccff6c7c37fcd3",
+     "text": "Hand over the found in raid item: Dogtag BEAR",
+     "type": "giveItem",
+     "optional": false,
+     "count": 20,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+  },
+  {
+   "id": "61958c366726521dd96828ec",
+   "name": "Gifts from Tarkov",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Gifts_from_Tarkov",
+   "type": "mark,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61958d54aa0f643f9a0aed73",
+     "text": "Locate and mark the TerraGroup cargo with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "dead-tree-sw"
+     ]
+    },
+    {
+     "id": "6a5cd57d36c4fb654692787c",
+     "text": "Eliminate any target with an M203 grenade launcher on Lighthouse or Reserve",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "M203 40mm underbarrel grenade launcher"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "M203 40mm underbarrel grenade launcher",
+     "itemIds": [
+      "6357c98711fb55120211f7e1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,900 USD, 4x Power supply unit"
+  },
+  {
+   "id": "5c0bd01e86f7747cdd799e56",
+   "name": "Insomnia",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Insomnia",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1242fa86f7742aa04fed52",
+     "text": "Eliminate any target during 21:00-06:00 on Streets or Tarkov, Lighthouse, Reserve, Ground Zero, or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+  },
+  {
+   "id": "6179aff8f57fb279792c60a1",
+   "name": "Overpopulation",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Overpopulation",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bf4e152e86c73d372a95d",
+     "text": "Eliminate any target around the chalets on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "pikes-peak-resort-se"
+     ]
+    },
+    {
+     "id": "6a5cd4d03a5504087ed636d3",
+     "text": "Hand over the found in raid item: Topographic survey maps, Intelligence folder, or TerraGroup \"Blue Folders\" materials",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "Topographic survey maps",
+      "Intelligence folder",
+      "TerraGroup \"Blue Folders\" materials"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 1,900 USD"
+  },
+  {
+   "id": "5c0d4c12d09282029f539173",
+   "name": "Peacekeeping Mission",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Peacekeeping_Mission",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1b713486f77413bc250406",
+     "text": "Eliminate Scavs while using UNTAR helmet and armor, and 5.56x45 UN weapons on Customs or Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 12,
+     "targets": [
+      "Scavs",
+      "Sniper",
+      "Scav"
+     ],
+     "weapons": [
+      "Desert Tech MDR 5.56x45 assault rifle",
+      "Colt M4A1 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle",
+      "HK 416A5 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle (FDE)",
+      "HK G36 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle",
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)",
+      "HK 416A5 5.56x45 assault rifle (RAL 8000)",
+      "Howa Type 20 5.56x45 assault rifle",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Desert Tech MDR 5.56x45 assault rifle, Colt M4A1 5.56x45 assault rifle, FN SCAR-L 5.56x45 assault rifle (+12 more)",
+     "itemIds": [
+      "5c488a752e221602b412af63",
+      "5447a9cd4bdc2dbd208b4567",
+      "6184055050224f204c1da540",
+      "5bb2475ed4351e00853264e3",
+      "618428466ef05c2ce828f218",
+      "623063e994fc3f7b302a9696",
+      "68a639748e1fe612970728e9",
+      "68a6399922b1e0bd360afe56",
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27",
+      "6a15ae2ae5267ba21c07f98f",
+      "6a3bffbebc377285900b85cf",
+      "5d43021ca4b9362eab4b5e25",
+      "6895bb82c4519957df062f82"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, Desert Tech MDR 7.62x51 assault rifle Default, 2,750 USD"
+  },
+  {
+   "id": "63a9ae24009ffc6a551631a5",
+   "name": "Best Job in the World",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Best_Job_in_the_World",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9ae63da7999196148ba5c",
+     "text": "Eliminate any target with AK-74 series weapons on Reserve or Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Kalashnikov AK-74 5.45x39 assault rifle, Kalashnikov AK-74M 5.45x39 assault rifle, Kalashnikov AK-74N 5.45x39 assault rifle (+2 more)",
+     "itemIds": [
+      "5bf3e03b0db834001d2c4a9c",
+      "5ac4cd105acfc40016339859",
+      "5644bd2b4bdc2d3b4c8b4572",
+      "5bf3e0490db83400196199af",
+      "5ab8e9fcd8ce870019439434"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, Armband (BEAR), ASh-12 12.7x55 assault rifle Default, 10x 12.7x55mm PS12B (10 pcs), 400,000 RUB"
+  },
+  {
+   "id": "669fa3a40c828825de06d6a1",
+   "name": "Easy-Breezy",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Easy-Breezy",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66a0f5a7f9eae6761253114c",
+     "text": "Eliminate any target with SR-2M with suppressor and KP-SR2 sight on Reserve or Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "SR-2M Veresk 9x21 submachine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "SR-2M Veresk 9x21 submachine gun",
+     "itemIds": [
+      "62e14904c2699c0ec93adc47"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "60e71bb4e456d449cd47ca75",
+   "name": "Intimidator",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e8650e5d67b234af3d3926",
+     "text": "Eliminate Scavs with headshots",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+  },
+  {
+   "id": "6179b5b06e9dd54ac275e409",
+   "name": "Our Own Land",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Our_Own_Land",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6193dc1e6623e330c82e0be9",
+     "text": "Eliminate Rogues with a GP-25 grenade launcher",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Rogue",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
+     ],
+     "weapons": [
+      "GP-25 Kostyor 40mm underbarrel grenade launcher"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "GP-25 Kostyor 40mm underbarrel grenade launcher",
+     "itemIds": [
+      "62e7e7bbe6da9612f743f1e0"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Military power filter, 275,000 RUB"
+  },
+  {
+   "id": "626bd75c71bd851e971b82a5",
+   "name": "Reconnaissance",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Reconnaissance",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac1b741b5c95746621ddb4",
+     "text": "Investigate the roof of any water treatment plant facility on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "plant-2-sw"
+     ]
+    },
+    {
+     "id": "62987d43b7bd956bd62a09b3",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "7,500 XP, Military power filter, 275,000 RUB"
+  },
+  {
+   "id": "5c0bd94186f7747a727f09b2",
+   "name": "The Tarkov Import",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Import",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1b765d86f77413193fa4f2",
+     "text": "Eliminate PMCs with SR-25 with Hybrid 46 suppressor and S&B PM II 1-8x24 scope on Lighthouse or Reserve",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Knight's Armament Company SR-25 7.62x51 marksman rifle, Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)",
+     "itemIds": [
+      "5df8ce05b11454561e39243b",
+      "6932abeb5403890d0c09c926"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Military power filter, 275,000 RUB"
+  },
+  {
+   "id": "6a7af2e48fddc3979d0510b8",
+   "name": "Akimbo",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Akimbo",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a7af67630b640e1392221b7",
+     "text": "Eliminate any target with Thorax or Stomach shots using 7.62x39 caliber weapons on Lighthouse (In one raid)",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+      "TOZ Simonov SKS 7.62x39 carbine",
+      "Kalashnikov AKMN 7.62x39 assault rifle",
+      "CMMG Mk47 Mutant 7.62x39 assault rifle",
+      "Kalashnikov AK-103 7.62x39 assault rifle",
+      "Kalashnikov AK-104 7.62x39 assault rifle",
+      "Kalashnikov AKM 7.62x39 assault rifle",
+      "Kalashnikov AKMS 7.62x39 assault rifle",
+      "Kalashnikov AKMSN 7.62x39 assault rifle",
+      "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
+      "Rifle Dynamics RD-704 7.62x39 assault rifle",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a7af6808295795b9de6d790",
+     "text": "Eliminate any target with Thorax or Stomach shots using 7.62x51 caliber weapons on Lighthouse (In one raid)",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine",
+      "DS Arms SA58 7.62x51 assault rifle",
+      "FN SCAR-H 7.62x51 assault rifle",
+      "FN SCAR-H 7.62x51 assault rifle (FDE)",
+      "Desert Tech MDR 7.62x51 assault rifle",
+      "Kalashnikov AK-308 7.62x51 assault rifle",
+      "FN SCAR-H X-17 7.62x51 assault rifle",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "HK G28 7.62x51 marksman rifle",
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)",
+      "Kel-Tec RFB 7.62x51 rifle",
+      "Remington R11 RSASS 7.62x51 marksman rifle",
+      "Springfield Armory M1A 7.62x51 rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Molot Arms Simonov OP-SKS 7.62x39 carbine, TOZ Simonov SKS 7.62x39 carbine, Kalashnikov AKMN 7.62x39 assault rifle (+10 more)",
+     "itemIds": [
+      "587e02ff24597743df3deaeb",
+      "574d967124597745970e7c94",
+      "5a0ec13bfcdbcb00165aa685",
+      "606587252535c57a13424cfd",
+      "5ac66d2e5acfc43b321d4b53",
+      "5ac66d725acfc43b321d4b60",
+      "59d6088586f774275f37482f",
+      "59ff346386f77477562ff5e2",
+      "5abcbc27d8ce8700182eceeb",
+      "59e6152586f77473dc057aa1",
+      "628a60ae6b1d481ff772e9c8",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    },
+    {
+     "item": "Any of: Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine, DS Arms SA58 7.62x51 assault rifle, FN SCAR-H 7.62x51 assault rifle (+16 more)",
+     "itemIds": [
+      "5c501a4d2e221602b412b540",
+      "5b0bbe4e5acfc40dc528a72d",
+      "6183afd850224f204c1da514",
+      "6165ac306ef05c2ce828ef74",
+      "5dcbd56fdbd3d91b3e5468d5",
+      "689166b6c2d6fa42e7044756",
+      "676176d362e0497044079f4c",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "6176aca650224f204c1da3fb",
+      "5df8ce05b11454561e39243b",
+      "6932abeb5403890d0c09c926",
+      "5f2a9575926fd9352339381f",
+      "5a367e5dc4a282000e49738f",
+      "5aafa857e5b5b00018480968",
+      "588892092459774ac91d4b11",
+      "5df24cf80dee1b22f862e9bc",
+      "5bfea6e90db834001b7347f3"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, Gruppa 99 T30 backpack (MultiCam), HighCom Trooper TFO body armor (MultiCam) Default, 2x Power cord"
+  },
+  {
+   "id": "6a7b0df31ea00c9a980e2742",
+   "name": "Sisyphus",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Sisyphus",
+   "type": "extract,plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a7b0ea2a83358328235f137",
+     "text": "Stash the second case in the railcar with the Ural truck at the train platform on Lighthouse",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "train-yard"
+     ]
+    },
+    {
+     "id": "6a7b0f2bd9debb2dc2a4841f",
+     "text": "Extract from Lighthouse or Reserve through the Armored Train",
+     "type": "extract",
+     "optional": false,
+     "exit": "Armored Train",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, Ballistic plate case, 275,000 RUB, 2x Power cord"
+  },
+  {
+   "id": "67460662d0fbbc74ca0f7229",
+   "name": "Choose Your Friends Wisely",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Killer Argument",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Choose_Your_Friends_Wisely",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6746071002dfd67c0629a379",
+     "text": "Survive and extract from Lighthouse",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "674607317781508c405fb979",
+     "text": "Eliminate PMC operatives while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 5,000 EUR, T H I C C Weapon case"
+  },
+  {
+   "id": "5c0d0f1886f77457b8210226",
+   "name": "From Hand to Hand",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/From_Hand_to_Hand",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a64ac7ac5943cb1fead70c9",
+     "text": "Stash a Virtex programmable processor inside the makeshift lab on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "drug-lab"
+     ]
+    },
+    {
+     "id": "6a64ac8f1865f0af52cee545",
+     "text": "Stash a Military COFDM Wireless Signal Transmitter inside the makeshift lab on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "drug-lab"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Virtex programmable processor",
+     "itemIds": [
+      "5c05308086f7746b2101e90b"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "Military COFDM Wireless Signal Transmitter",
+     "itemIds": [
+      "5c052f6886f7746b1e3db148"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR, TDI KRISS Vector Gen.2 9x19 submachine gun Default, 2x Glock 9x19 \"Big Stick\" 33-round magazine, 2x 9x19mm PBP ammo pack (50 pcs)"
+  },
+  {
+   "id": "6193850f60b34236ee0483de",
+   "name": "Long Road",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Long_Road",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6193dabd5f6468204470571f",
+     "text": "Eliminate Scavs along the shore and the main road on Lighthouse or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 4,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "tennis-court-w"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR"
+  },
+  {
+   "id": "6a7aef2360157cb5e3029a5f",
+   "name": "Stimulating Demand",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stimulating_Demand",
+   "type": "findQuestItem,giveQuestItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a7aeff8ec4d9a4ca538930c",
+     "text": "Eliminate Rogues or The Goons with 7.62x54R caliber weapons on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Knight",
+      "Rogue",
+      "Rogue",
+      "Big Pipe",
+      "Birdeye"
+     ],
+     "weapons": [
+      "Tokarev AVT-40 7.62x54R automatic rifle",
+      "Tokarev SVT-40 7.62x54R rifle",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "SVDS 7.62x54R sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a7af0a1ab2c638179e73c4c",
+     "text": "Locate and obtain the cargo package at the Rogue chalets on Lighthouse",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "grand-chalet"
+     ]
+    },
+    {
+     "id": "6a7af0a7ed36813ec822f498",
+     "text": "Hand over the package",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Tokarev AVT-40 7.62x54R automatic rifle, Tokarev SVT-40 7.62x54R rifle, Kalashnikov PKM 7.62x54R machine gun (+6 more)",
+     "itemIds": [
+      "6410733d5dd49d77bd07847e",
+      "643ea5b23db6f9f57107d9fd",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "5c46fbd72e2216398b5a8c9c",
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "61f7c9e189e6fb1a5e3ea78d"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, 2x Glock .45 ACP KRISS G30 MagEx 30-round magazine, 2x .45 ACP RIP ammo pack (50 pcs)"
+  },
+  {
+   "id": "626bd75d5bef5d7d590bd415",
+   "name": "Top Secret",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Top_Secret",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac19f9de609574d97adf78",
+     "text": "Locate the radar station commandant's office on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "lightkeeper-island-se"
+     ]
+    },
+    {
+     "id": "62863b9ae5b4f5010e0d30c8",
+     "text": "Locate and obtain the HDD with archived flight routes inside the room",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "lightkeeper-island-se"
+     ]
+    },
+    {
+     "id": "626c30c55bef5d7d590bd41b",
+     "text": "Hand over the drive",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Radar station commandant room key",
+     "itemIds": [
+      "62987c658081af308d7558c6"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, Lone Star TX-15 DML 5.56x45 carbine Default, 5.56x45mm M856A1 ammo pack (50 pcs)"
+  },
+  {
+   "id": "626bd75b05f287031503c7f6",
+   "name": "Drug Trafficking",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drug_Trafficking",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac210b1287ef0b827d0cb8",
+     "text": "Locate the hidden drug lab on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "drug-lab"
+     ]
+    },
+    {
+     "id": "626c3010a371ee3a7a3514cb",
+     "text": "Stash a WI-FI Camera in the drug lab",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "drug-lab"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope"
+  },
+  {
+   "id": "6a7ae35b2dbf91eb050af95a",
+   "name": "Invasive Therapy",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Invasive_Therapy",
+   "type": "findItem,giveItem,plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a7ae35b2dbf91eb050af95e",
+     "text": "Hand over the found in raid item: P22 (Product 22) stimulant injector",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "P22 (Product 22) stimulant injector"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a7ae35b2dbf91eb050af95c",
+     "text": "Find the item in raid: P22 (Product 22) stimulant injector",
+     "type": "findItem",
+     "optional": true,
+     "count": 5,
+     "mustExtract": true,
+     "items": [
+      "P22 (Product 22) stimulant injector"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a7ae35b2dbf91eb050af960",
+     "text": "Hand over the found in raid item: xTG-12 antidote injector",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "xTG-12 antidote injector"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a7ae35b2dbf91eb050af95d",
+     "text": "Find the item in raid: xTG-12 antidote injector",
+     "type": "findItem",
+     "optional": true,
+     "count": 5,
+     "mustExtract": true,
+     "items": [
+      "xTG-12 antidote injector"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a7ae5f20bc48d094a928d3d",
+     "text": "Stash any Obdolbos cocktail injector in the med bay at the upper Rogue chalet on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "grand-chalet"
+     ]
+    },
+    {
+     "id": "6a7ae5f45e291533cfe8bafa",
+     "text": "Stash any Obdolbos cocktail injector in the guest hall supplies at the upper Rogue chalet on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "grand-chalet"
+     ]
+    },
+    {
+     "id": "6a7ae5f66e0065c75adca672",
+     "text": "Stash any Obdolbos cocktail injector in the ammo stockpile at the lower Rogue chalet on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "pikes-peak-resort-nw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Obdolbos cocktail injector, Obdolbos 2 cocktail injector",
+     "itemIds": [
+      "5ed5166ad380ab312177c100",
+      "637b60c3b7afa97bfc3d7001"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope"
+  },
+  {
+   "id": "6179ad56c760af5ad2053587",
+   "name": "Seaside Vacation",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Seaside_Vacation",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bf2a6f8e6c97ec70878b7",
+     "text": "Locate and obtain the informant's briefcase on Lighthouse",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "boathouses"
+     ]
+    },
+    {
+     "id": "617bf29a52e86c73d372a917",
+     "text": "Hand over the found package",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "5d25c81b86f77443e625dd71",
+   "name": "The Survivalist Path - Wounded Beast",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Unprotected but Dangerous"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Wounded_Beast",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c8c986f77443e47ad47a",
+     "text": "Eliminate Scavs while suffering from the Pain status effect",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "5d25bfd086f77442734d3007",
+   "name": "The Survivalist Path - Zhivchik",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Thrifty"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Zhivchik",
+   "type": "experience,extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c5a186f77443fe457661",
+     "text": "Gain the Dehydration status effect and maintain it for 5 minutes (On any location excluding Factory)",
+     "type": "experience",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "5d9f035086f7741cac4a9713",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+  },
+  {
+   "id": "66058cb7c7f3584787181476",
+   "name": "Balancing - Part 1 [PVP ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Easy Money - Part 2 [PVP ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Balancing_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6606d133fcb99b9004aa2d1d",
+     "text": "Eliminate Scavs while using a Steyr AUG on any location",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Steyr AUG A1 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle (Black)",
+     "itemIds": [
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask"
+  },
+  {
+   "id": "626bd75e47ea7f506e5493c5",
+   "name": "Broadcast - Part 1",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Broadcast_-_Part_1",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac232087413d64ae0ac23c",
+     "text": "Locate the hidden recording studio on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "plant-1"
+     ]
+    },
+    {
+     "id": "626c3158a371ee3a7a3514cc",
+     "text": "Place a Signal Jammer inside the studio",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "plant-1"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Operating room key",
+     "itemIds": [
+      "62987da96188c076bc0d8c51"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "Signal Jammer",
+     "itemIds": [
+      "5ac78a9b86f7741cca0bbd8d"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, Ammunition case"
+  },
+  {
+   "id": "61904daa7d0d857927447b9c",
+   "name": "The Hermit",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Survivalist Path - Tough Guy"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Hermit",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac22351b5c95746621ddc4",
+     "text": "Locate the hideout of Jaeger's friend on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "cabins"
+     ]
+    },
+    {
+     "id": "61904e76f62c89219a56e04c",
+     "text": "Find and obtain the message for Jaeger",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "cabins"
+     ]
+    },
+    {
+     "id": "61904ebb22e6d82ee97ccbbe",
+     "text": "Hand over the message",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6a45208043b8d7604d00b8d5",
+   "name": "The Huntsman Path - Administrator",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Administrator",
+   "type": "shoot,useItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a45208043b8d7604d00b8d9",
+     "text": "Launch a yellow signal flare at the train station on Lighthouse",
+     "type": "useItem",
+     "optional": false,
+     "zone": [
+      "train-yard"
+     ]
+    },
+    {
+     "id": "6a45208043b8d7604d00b8d7",
+     "text": "Eliminate any target at the train station territory on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "train-yard"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "5d25e29d86f7740a22516326",
+   "name": "The Survivalist Path - Eagle-Owl",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Survivalist Path - Cold Blooded"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Eagle-Owl",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25fd8386f77443fe457cae",
+     "text": "Eliminate Scavs during 21:00-04:00 without using any NVGs or thermal sights (Excluding Factory)",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+  },
+  {
+   "id": "6179afd0bca27a099552e040",
+   "name": "Lost Contact",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 18,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Lost_Contact",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac0c99f83fd608393890bf",
+     "text": "Locate the lost group in the chalet area on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "tennis-court"
+     ]
+    },
+    {
+     "id": "6190464d74169a76c90aa230",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6179b4d1bca27a099552e04e",
+   "name": "Revision - Lighthouse",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 19,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Revision_-_Lighthouse",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61952308aa0f643f9a0ae20f",
+     "text": "Locate and mark the first BRDM with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "gunner-nest-1"
+     ]
+    },
+    {
+     "id": "6195231dd07bdc6de57b40a5",
+     "text": "Locate and mark the second BRDM with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "plant-2-sw"
+     ]
+    },
+    {
+     "id": "61952325aa0f643f9a0ae212",
+     "text": "Locate and mark the first Stryker with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "sw-of-crash-site"
+     ]
+    },
+    {
+     "id": "6195232a1e972a652931edb6",
+     "text": "Locate and mark the second Stryker with an MS2000 Marker on Lighthouse",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "pikes-peak-resort-sw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 4,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,900 USD"
+  },
+  {
+   "id": "6179ac7511973d018217d0b9",
+   "name": "Easy Job",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 21,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Easy_Job",
+   "type": "mark,shoot,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63ac1e0a87413d64ae0ac233",
+     "text": "Locate the helicopter at the water treatment plant on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "water-treatment-s"
+     ]
+    },
+    {
+     "id": "6179b804bca27a099552e057",
+     "text": "Mark the helicopter with an MS2000 Marker",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "water-treatment-s"
+     ]
+    },
+    {
+     "id": "6a32a392e606f585c978ef38",
+     "text": "Eliminate any target around the helicopter area",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "water-treatment-s"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6179acbdc760af5ad2053585",
+   "name": "Easy Job - Part 2",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 21,
+   "requires": [
+    "Easy Job"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Easy_Job_-_Part_2",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "617bd94c5a52d2390a2630c7",
+     "text": "Eliminate any target around the helicopter area at the water treatment plant on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "water-treatment-s"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "18,000 XP, 155,000 RUB"
+  },
+  {
+   "id": "6179b4f16e9dd54ac275e407",
+   "name": "Missing Cargo",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 22,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Missing_Cargo",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61a00eff2d708d41a34f19b4",
+     "text": "Locate and obtain the informant's intelligence folder",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "grand-chalet"
+     ]
+    },
+    {
+     "id": "63ac1a941b5c95746621ddb2",
+     "text": "Locate the crashed helicopter on Lighthouse",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "crash-site"
+     ]
+    },
+    {
+     "id": "61a00f3f177fb945751bbe92",
+     "text": "Hand over the folder",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR"
+  },
+  {
+   "id": "66d9cbb67b491f9d5304f6e6",
+   "name": "Is This a Reference?",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66dad1ddec53b0df3b10a1b9",
+     "text": "Install a WI-FI Camera by your friend Wilson on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "boathouses"
+     ]
+    },
+    {
+     "id": "66dad1de93c8fcffd5790d89",
+     "text": "Install a WI-FI Camera at the kindled rest place on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "boathouses"
+     ]
+    },
+    {
+     "id": "66dad1e0703b718902451ee4",
+     "text": "Install a WI-FI Camera at the ominous welcome sign on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "construction-nw"
+     ]
+    },
+    {
+     "id": "66dad1e21e7ef28d17a69a93",
+     "text": "Install a WI-FI Camera at the megagenius scientist's seat on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "w-of-tennis-court"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 4,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "30,000 XP, 200,000 RUB, Streamer item case"
+  },
+  {
+   "id": "64f5deac39e45b527a7c4232",
+   "name": "Job for a Patriot",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Job_for_a_Patriot",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "64f5deac39e45b527a7c4235",
+     "text": "Eliminate 20 PMCs with AK-12 with the proprietary suppressor and PS-320 scope on Lighthouse, Customs, or Reserve",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "Kalashnikov AK-12 5.45x39 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Kalashnikov AK-12 5.45x39 assault rifle",
+     "itemIds": [
+      "6499849fc93611967b034949"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "18,000 XP, Toolset, 3x VOG-25 Khattabka improvised hand grenade, 165,000 RUB"
+  },
+  {
+   "id": "6761f28a022f60bb320f3e95",
+   "name": "New Beginning",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_1)",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6761f93bc757eb8c228fa754",
+     "text": "Eliminate Scavs",
+     "type": "shoot",
+     "optional": false,
+     "count": 50,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6761f6f1bacf72169272e381",
+     "text": "Hand over any PMC figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "BEAR operative figurine",
+      "PMC Origins figurine",
+      "Hardened PMC figurine",
+      "Escape figurine",
+      "Walking Tank figurine",
+      "USEC operative figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f7d086fd2d9c941b8aa3",
+     "text": "Hand over any Scav figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Politician Mutkevich figurine",
+      "Scav figurine",
+      "Elvisvista figurine",
+      "Hideout Cat figurine",
+      "Mastichin figurine",
+      "Ryzhy figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f7f87b309912d6b5f2a9",
+     "text": "Hand over any Boss figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Killa figurine",
+      "Ded Moroz figurine",
+      "Cultist figurine",
+      "Reshala figurine",
+      "Tagilla figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f87227aeff895cef62c5",
+     "text": "Hand over any Trader figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "BTR figurine",
+      "Fence figurine",
+      "Jaeger figurine",
+      "Lightkeeper figurine",
+      "Mechanic figurine",
+      "Peacekeeper figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 100,000 RUB"
+  },
+  {
+   "id": "5c0d4e61d09282029f53920e",
+   "name": "The Guide",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 32,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1931e686f7747ce71bcbea",
+     "text": "Survive and extract from The Lab or Lighthouse with the \"Survived\" exit status",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6a5cdc97790159682d2bc19e",
+     "text": "Eliminate any target",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+  },
+  {
+   "id": "63a9b36cc31b00242d28a99f",
+   "name": "Slaughterhouse",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Slaughterhouse",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9b45bda7999196148ba5f",
+     "text": "Eliminate Scavs with melee weapons on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "ER FULCRUM BAYONET",
+      "Bars A-2607 95Kh18 knife",
+      "Bars A-2607 Damascus knife",
+      "Crash Axe",
+      "Cultist knife",
+      "Freeman crowbar",
+      "6Kh5 Bayonet",
+      "Miller Bros. Blades M-2 Tactical Sword",
+      "Red Rebel ice pick",
+      "SOG Voodoo Hawk tactical tomahawk",
+      "SP-8 Survival Machete",
+      "Kiba Arms Tactical Tomahawk",
+      "UVSR Taiga-1 survival machete",
+      "Camper axe",
+      "Antique axe",
+      "MPL-50 entrenching tool",
+      "PR-Taran police baton",
+      "APOK Tactical Wasteland Gladius",
+      "United Cutlery M48 Tactical Kukri",
+      "Akula push dagger",
+      "NKVD Finka knife",
+      "KA-BAR USMC Fighter knife",
+      "Microtech Jagdkommando knife"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: ER FULCRUM BAYONET, Bars A-2607 95Kh18 knife, Bars A-2607 Damascus knife (+20 more)",
+     "itemIds": [
+      "54491bb74bdc2d09088b4567",
+      "57e26fc7245977162a14b800",
+      "57e26ea924597715ca604a09",
+      "5bffe7930db834001b734a39",
+      "5fc64ea372b0dd78d51159dc",
+      "5c07df7f0db834001b73588a",
+      "5bffdc370db834001d23eca8",
+      "5bffdd7e0db834001b734a1a",
+      "5c0126f40db834002a125382",
+      "63920105a83e15700a00f168",
+      "5c010e350db83400232feec7",
+      "57cd379a24597778e7682ecf",
+      "601948682627df266209af05",
+      "5c012ffc0db834001d23f03f",
+      "5bc9c1e2d4351e00367fbcf0",
+      "5bead2e00db834001c062938",
+      "6540d2162ae6d96b540afcaf",
+      "664a5428d5e33a713b622379",
+      "65ca457b4aafb5d7fc0dcb5d",
+      "674d90b55704568fe60bc8f5",
+      "68f244ae22c8979ee308f4d8",
+      "6a3935772db31ca1c800fe26",
+      "6a39358c658f5889ba050ef3"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "626bdcc3a371ee3a7a3514c5",
+   "name": "Stray Dogs",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stray_Dogs",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "626c317e05f287031503c7fd",
+     "text": "Locate and neutralize Knight (in one raid)",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Knight"
+     ],
+     "zone": []
+    },
+    {
+     "id": "626c318147ea7f506e5493c7",
+     "text": "Locate and neutralize Big Pipe (in one raid)",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Big Pipe"
+     ],
+     "zone": []
+    },
+    {
+     "id": "626c3183af14a41d9a1f4ea7",
+     "text": "Locate and neutralize Birdeye (in one raid)",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Birdeye"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, S I C C organizational pouch"
+  },
+  {
+   "id": "67e993b1ac26bf29380a320b",
+   "name": "Surprise Gift [PVP ZONE]",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 35,
+   "requires": [
+    "Between Two Fires [PVP ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Surprise_Gift",
+   "type": "giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67e993b1ac26bf29380a3212",
+     "text": "Hand over the found info",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "25,500 XP, 1,000 USD"
+  },
+  {
+   "id": "675c1ff1a757ddd00404f0aa",
+   "name": "Unique Experience",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 35,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Unique_Experience",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "675c1ff1a757ddd00404f0ae",
+     "text": "Eliminate any target with an Aklys Defense Velociraptor on Lighthouse or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Aklys Defense Velociraptor .300 Blackout assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+     "itemIds": [
+      "674d6121c09f69dfb201a888"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB"
+  },
+  {
+   "id": "6574e0dedc0d635f633a5805",
+   "name": "Getting Some Air",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Getting_Some_Air",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6574e0dedc0d635f633a5807",
+     "text": "Eliminate any target with an RPDN with EKP-1S-03 sight on Shoreline, Lighthouse, or Reserve",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Degtyarev RPDN 7.62x39 machine gun",
+     "itemIds": [
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, Armband (RFARMY), 2x AK 7.62x39 Molot Arms 75-round drum magazine, 6x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+  },
+  {
+   "id": "59ca264786f77445a80ed044",
+   "name": "The Punisher - Part 4",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 3"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_4",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59674d5986f77446b872d5f7",
+     "text": "Eliminate Scavs with an SVDS or TKPD on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "SVDS 7.62x54R sniper rifle",
+      "TKPD 9.3x64 carbine"
+     ],
+     "zone": []
+    },
+    {
+     "id": "59ca27f786f77445aa0ddc14",
+     "text": "Eliminate Scavs while wearing a Scav vest on Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    },
+    {
+     "id": "59ca293c86f91445a80ed047",
+     "text": "Find the item in raid: Bars A-2607 95Kh18 knife",
+     "type": "findItem",
+     "optional": false,
+     "count": 5,
+     "mustExtract": true,
+     "items": [
+      "Bars A-2607 95Kh18 knife"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca29ab86f77445ab431c86",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "Bars A-2607 95Kh18 knife"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: SVDS 7.62x54R sniper rifle, TKPD 9.3x64 carbine",
+     "itemIds": [
+      "5c46fbd72e2216398b5a8c9c",
+      "68aee763130c00663d08aea8"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 3x 7.62x54mm R PS gzh ammo pack (20 pcs), 3x 9x39mm SP-6 gs ammo pack (20 pcs)"
+  },
+  {
+   "id": "59ca29fb86f77445ab465c87",
+   "name": "The Punisher - Part 5",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_5",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca293c86f77445a80ed147",
+     "text": "Find the item in raid: any Kalashnikov AK-74 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca29ab86f77445ab133c86",
+     "text": "Hand over the AK-74",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2bdc86f77445a80ed148",
+     "text": "Find the item in raid: Colt M4A1 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c3086f77445aa0ddc15",
+     "text": "Hand over the M4A1",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c9e86f77428ea721232",
+     "text": "Find the item in raid: Makarov PM pistol",
+     "type": "findItem",
+     "optional": false,
+     "count": 2,
+     "mustExtract": true,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2cbe86f7740fe95c3e52",
+     "text": "Hand over the pistols",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "5c922dde86f77438500a0fec",
+     "text": "Eliminate PMC operatives with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "RPK-16 5.45x39 light machine gun"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a57a51fe5c2c08b474109fb",
+     "text": "Eliminate Scavs with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (FDE) (+5 more)",
+     "itemIds": [
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "5beed0f50db834001c062b12"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    },
+    {
+     "item": "Any of: RPK-16 5.45x39 light machine gun, U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (+5 more)",
+     "itemIds": [
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case"
+  },
+  {
+   "id": "59ca2eb686f77445a80ed049",
+   "name": "The Punisher - Part 6",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_6",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca2fba86f77445e4732b25",
+     "text": "Eliminate PMC operatives with the specified weapons on Lighthouse, Shoreline, Reserve, Ground Zero, or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "SVDS 7.62x54R sniper rifle",
+      "KBP 9A-91 9x39 compact assault rifle",
+      "KBP VSK-94 9x39 rifle",
+      "SR-3M 9x39 compact assault rifle",
+      "AS VAL 9x39 special assault rifle",
+      "AS VAL MOD.4 9x39 special assault rifle",
+      "VSS Vintorez 9x39 special sniper rifle",
+      "TKPD 9.3x64 carbine",
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+      "Kalashnikov AKS-74UB 5.45x39 assault rifle",
+      "Kalashnikov AKS-74U 5.45x39 assault rifle",
+      "SAG AK-545 5.45x39 carbine",
+      "Kalashnikov AKM 7.62x39 assault rifle",
+      "Kalashnikov AKMN 7.62x39 assault rifle",
+      "Kalashnikov AKMS 7.62x39 assault rifle",
+      "Kalashnikov AKMSN 7.62x39 assault rifle",
+      "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
+      "Kalashnikov AK-103 7.62x39 assault rifle",
+      "Kalashnikov AK-104 7.62x39 assault rifle"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a57a60057699da0521e1c7b",
+     "text": "Locate and neutralize any Boss",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Black Div.",
+      "Glukhar",
+      "Killa",
+      "Vengeful Killa",
+      "Knight",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "bossStormtrooper",
+      "Tagilla",
+      "Shadow of Tagilla",
+      "The Wedge",
+      "The Wedge (Labs)",
+      "Big Pipe",
+      "Birdeye",
+      "Black Div. Guard",
+      "The Wedge (Labs) Guard",
+      "Infected Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "5b0548e686f7740306753506",
+     "text": "Hand over the item: Dogtag BEAR or Dogtag USEC",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: SVDS 7.62x54R sniper rifle, KBP 9A-91 9x39 compact assault rifle, KBP VSK-94 9x39 rifle (+24 more)",
+     "itemIds": [
+      "5c46fbd72e2216398b5a8c9c",
+      "644674a13d52156624001fbc",
+      "645e0c6b3b381ede770e1cc9",
+      "651450ce0e00edc794068371",
+      "57c44b372459772d2b39b8ce",
+      "6871284e9a353bb50606f3ed",
+      "57838ad32459774a17445cd2",
+      "68aee763130c00663d08aea8",
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "583990e32459771419544dd2",
+      "5839a40f24597726f856b511",
+      "57dc2fa62459775949412633",
+      "628b5638ad252a16da6dd245",
+      "59d6088586f774275f37482f",
+      "5a0ec13bfcdbcb00165aa685",
+      "59ff346386f77477562ff5e2",
+      "5abcbc27d8ce8700182eceeb",
+      "59e6152586f77473dc057aa1",
+      "5ac66d2e5acfc43b321d4b53",
+      "5ac66d725acfc43b321d4b60"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+  },
+  {
+   "id": "5a27bc8586f7741b543d8ea4",
+   "name": "Wet Job - Part 6",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [
+    "Wet Job - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Wet_Job_-_Part_6",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a5dea83a4dd339f77be89eb",
+     "text": "Eliminate any target with any 7.62x51 DMR from over 50 meters away on Shoreline or Lighthouse",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Springfield Armory M1A 7.62x51 rifle",
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+      "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)",
+      "HK G28 7.62x51 marksman rifle",
+      "Remington R11 RSASS 7.62x51 marksman rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Springfield Armory M1A 7.62x51 rifle, Knight's Armament Company SR-25 7.62x51 marksman rifle, Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe) (+2 more)",
+     "itemIds": [
+      "5aafa857e5b5b00018480968",
+      "5df8ce05b11454561e39243b",
+      "6932abeb5403890d0c09c926",
+      "6176aca650224f204c1da3fb",
+      "5a367e5dc4a282000e49738f"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 2,750 USD, FN40GL Mk2 40mm grenade launcher Default, 6x 40x46mm M386 (HE) grenade, Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle Saboteur, 3x 7.62x51mm M61 ammo pack (20 pcs)"
+  },
+  {
+   "id": "63a9b229813bba58a50c9ee5",
+   "name": "Worst Job in the World",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Worst_Job_in_the_World",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9b229813bba58a50c9ee6",
+     "text": "Eliminate any target with AR-15 weapons from over 100 meters away on Reserve, Lighthouse, Shoreline, or Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Colt M4A1 5.56x45 assault rifle",
+      "ADAR 2-15 5.56x45 carbine",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Colt M4A1 5.56x45 assault rifle, ADAR 2-15 5.56x45 carbine, Lone Star TX-15 DML 5.56x45 carbine (+3 more)",
+     "itemIds": [
+      "5447a9cd4bdc2dbd208b4567",
+      "5c07c60e0db834002330051f",
+      "5d43021ca4b9362eab4b5e25",
+      "6895bb82c4519957df062f82",
+      "68a639748e1fe612970728e9",
+      "68a6399922b1e0bd360afe56"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Armband (USEC)"
+  },
+  {
+   "id": "5c0bbaa886f7746941031d82",
+   "name": "Bullshit",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 38,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Bullshit",
+   "type": "globalVariable,plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c0bc32986f7743e4d1002d2",
+     "text": "Stash an AXMC sniper rifle in the trash bags at the chalet tennis court on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "tennis-court"
+     ]
+    },
+    {
+     "id": "6a82cd4e1b6419afe449763a",
+     "text": "You must not kill Rogues or The Goons on Lighthouse while the task is active",
+     "type": "globalVariable",
+     "optional": true,
+     "zone": []
+    },
+    {
+     "id": "5c0bc43e86f7744794440ba5",
+     "text": "Stash a Roler Submariner gold wrist watch in the trash bags at the chalet tennis court on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "tennis-court"
+     ]
+    },
+    {
+     "id": "6a8467a29862ad5aa577d78a",
+     "text": "You must not kill Rogues or The Goons on Lighthouse while the task is active",
+     "type": "globalVariable",
+     "optional": true,
+     "zone": []
+    },
+    {
+     "id": "5c12320586f77437e44bcb15",
+     "text": "Stash a Military flash drive in the trash bags at the chalet tennis court on Lighthouse",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "tennis-court"
+     ]
+    },
+    {
+     "id": "6a8467953e97ee5e84f9d7fe",
+     "text": "You must not kill Rogues or The Goons on Lighthouse while the task is active",
+     "type": "globalVariable",
+     "optional": true,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+     "itemIds": [
+      "627e14b21713922ded6f2c15"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "Roler Submariner gold wrist watch",
+     "itemIds": [
+      "59faf7ca86f7740dbe19f6c2"
+     ],
+     "qty": 1,
+     "kind": "item"
+    },
+    {
+     "item": "Military flash drive",
+     "itemIds": [
+      "62a0a16d0b9d3c46de5b6e97"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,400 EUR, Saiga-12K 12ga automatic shotgun CompM4, 2x 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "5c0bc91486f7746ab41857a2",
+   "name": "Silent Caliber",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 38,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Silent_Caliber",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c0bc95086f7746e784f39ec",
+     "text": "Eliminate any target with a suppressed 12ga shotgun on Reserve, Lighthouse, Ground Zero, or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Saiga-12K ver.10 12ga semi-automatic shotgun",
+      "MP-133 12ga pump-action shotgun",
+      "Remington Model 870 12ga pump-action shotgun",
+      "Mossberg 590A1 12ga pump-action shotgun",
+      "MP-153 12ga semi-automatic shotgun",
+      "MP-43-1C 12ga double-barrel shotgun",
+      "MP-155 12ga semi-automatic shotgun",
+      "Benelli M3 Super 90 12ga dual-mode shotgun",
+      "MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
+      "MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun (Redline)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Saiga-12K ver.10 12ga semi-automatic shotgun, MP-133 12ga pump-action shotgun, Remington Model 870 12ga pump-action shotgun (+9 more)",
+     "itemIds": [
+      "576165642459773c7a400233",
+      "54491c4f4bdc2db1078b4568",
+      "5a7828548dc32e5a9c28b516",
+      "5e870397991fd70db46995c8",
+      "56dee2bdd2720bc8328b4567",
+      "5580223e4bdc2d1c128b457f",
+      "606dae0ab0e443224b421bb7",
+      "6259b864ebedf17603599e88",
+      "67124dcfa3541f2a1f0e788b",
+      "66ffa9b66e19cc902401c5e8",
+      "674fe9a75e51f1c47c04ec23",
+      "6981d72ed009ad83920da43a"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima"
+  },
+  {
+   "id": "666314a31cd52e3d040a2e76",
+   "name": "Combat Proven",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 42,
+   "requires": [
+    "Special Offer"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Combat_Proven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6669abb8dac5788ebd0ff74a",
+     "text": "Locate and neutralize any Boss (excluding The Goons, The Wedge and Partisan) while using any Goons Edition tactical rig",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Glukhar",
+      "Killa",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "Tagilla",
+      "Zryachiy",
+      "Vengeful Killa",
+      "Shadow of Tagilla",
+      "Infected Tagilla",
+      "Labyrinth Guard"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "92,000 XP, 340,000 RUB, 3x NPP KlASS Bagariy plate carrier (EMR) Default"
+  },
+  {
+   "id": "6613f307fca4f2f386029409",
+   "name": "Drip-Out - Part 2",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 42,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6615127fd998c5f2aaa4a8a0",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "Rogue",
+      "Rogue",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
+     ],
+     "zone": []
+    },
+    {
+     "id": "661681edabe376e7d6eab98f",
+     "text": "Hand over the found in raid LBT brand equipment",
+     "type": "giveItem",
+     "optional": false,
+     "count": 50,
+     "items": [
+      "LBT-1961A Load Bearing Chest Rig (Goons Edition)",
+      "LBT-1476A 3Day Pack (Woodland)",
+      "LBT-6094A Slick Plate Carrier (Olive Drab)",
+      "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+      "LBT-8005A Day Pack backpack (MultiCam Black)",
+      "LBT-1961A Load Bearing Chest Rig (MAS Grey)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, LBT-6094A Slick Plate Carrier (Olive Drab) Default"
+  },
+  {
+   "id": "60e71e8ed54b755a3b53eb67",
+   "name": "The Huntsman Path - Relentless",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 55,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Relentless",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e7261eb567ff641b129557",
+     "text": "Locate and neutralize Glukhar",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Glukhar"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope, 100 GP coins"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "Operating room key",
+   "itemId": "62987da96188c076bc0d8c51",
+   "kind": "key",
+   "for": [
+    "626bd75e47ea7f506e5493c5"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 49896,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Radar station commandant room key",
+   "itemId": "62987c658081af308d7558c6",
+   "kind": "key",
+   "for": [
+    "626bd75d5bef5d7d590bd415"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 149439,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+   "itemId": "627e14b21713922ded6f2c15",
+   "kind": "item",
+   "for": [
+    "5c0bbaa886f7746941031d82"
+   ],
+   "required": true,
+   "fleaLevel": 40,
+   "flea": "flea from level 40",
+   "price": 397743,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+   "itemId": "674d6121c09f69dfb201a888",
+   "kind": "weapon",
+   "for": [
+    "675c1ff1a757ddd00404f0aa"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 73276,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Degtyarev RPDN 7.62x39 machine gun",
+   "itemId": "65268d8ecb944ff1e90ea385",
+   "kind": "weapon",
+   "for": [
+    "6574e0dedc0d635f633a5805"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "GP-25 Kostyor 40mm underbarrel grenade launcher",
+   "itemId": "62e7e7bbe6da9612f743f1e0",
+   "kind": "weapon",
+   "for": [
+    "6179b5b06e9dd54ac275e409"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "Prapor LL3 barter: 1x Intelligence folder + 2x OFZ 30x165mm shell"
+   ]
+  },
+  {
+   "item": "Kalashnikov AK-12 5.45x39 assault rifle",
+   "itemId": "6499849fc93611967b034949",
+   "kind": "weapon",
+   "for": [
+    "64f5deac39e45b527a7c4232"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 148850,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+   "itemId": "5df8ce05b11454561e39243b",
+   "kind": "weapon",
+   "for": [
+    "5c0bd94186f7747a727f09b2"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 86207,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)",
+   "itemId": "6932abeb5403890d0c09c926",
+   "kind": "weapon",
+   "for": [
+    "5c0bd94186f7747a727f09b2"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 66403,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "M203 40mm underbarrel grenade launcher",
+   "itemId": "6357c98711fb55120211f7e1",
+   "kind": "weapon",
+   "for": [
+    "61958c366726521dd96828ec"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "Peacekeeper LL3 barter: 1x Intelligence folder + 3x Electronic components"
+   ]
+  },
+  {
+   "item": "MS2000 Marker",
+   "itemId": "5991b51486f77447b112d44f",
+   "kind": "item",
+   "for": [
+    "674492b6909d2013670a347a",
+    "69c27158e350f01390049e77",
+    "6179b3a12153c15e937d52bc",
+    "61958c366726521dd96828ec",
+    "6179b4d1bca27a099552e04e",
+    "6179ac7511973d018217d0b9"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 22916,
+   "lockCount": 0,
+   "sources": [
+    "Ragman LL1: 145 EUR",
+    "Prapor LL1: 18,936 RUB",
+    "Therapist LL1: 19,353 RUB"
+   ]
+  },
+  {
+   "item": "Military COFDM Wireless Signal Transmitter",
+   "itemId": "5c052f6886f7746b1e3db148",
+   "kind": "item",
+   "for": [
+    "5c0d0f1886f77457b8210226"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 81146,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Military flash drive",
+   "itemId": "62a0a16d0b9d3c46de5b6e97",
+   "kind": "item",
+   "for": [
+    "5c0bbaa886f7746941031d82"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 94677,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Obdolbos 2 cocktail injector",
+   "itemId": "637b60c3b7afa97bfc3d7001",
+   "kind": "item",
+   "for": [
+    "6a7ae35b2dbf91eb050af95a"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 53023,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Obdolbos cocktail injector",
+   "itemId": "5ed5166ad380ab312177c100",
+   "kind": "item",
+   "for": [
+    "6a7ae35b2dbf91eb050af95a"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 33277,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Roler Submariner gold wrist watch",
+   "itemId": "59faf7ca86f7740dbe19f6c2",
+   "kind": "item",
+   "for": [
+    "5c0bbaa886f7746941031d82"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 49589,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "SR-2M Veresk 9x21 submachine gun",
+   "itemId": "62e14904c2699c0ec93adc47",
+   "kind": "weapon",
+   "for": [
+    "669fa3a40c828825de06d6a1"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 68560,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "SVDS 7.62x54R sniper rifle",
+   "itemId": "5c46fbd72e2216398b5a8c9c",
+   "kind": "weapon",
+   "for": [
+    "59ca264786f77445a80ed044"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 111880,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Signal Jammer",
+   "itemId": "5ac78a9b86f7741cca0bbd8d",
+   "kind": "item",
+   "for": [
+    "626bd75e47ea7f506e5493c5"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 32510,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1: 21,852 RUB, after Signal - Part 3"
+   ]
+  },
+  {
+   "item": "Steyr AUG A1 5.56x45 assault rifle",
+   "itemId": "62e7c4fba689e8c9c50dfc38",
+   "kind": "weapon",
+   "for": [
+    "66058cb7c7f3584787181476"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 60434,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle",
+   "itemId": "63171672192e68c5460cebc5",
+   "kind": "weapon",
+   "for": [
+    "66058cb7c7f3584787181476"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 80128,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle (Black)",
+   "itemId": "6718817435e3cfd9550d2c27",
+   "kind": "weapon",
+   "for": [
+    "66058cb7c7f3584787181476"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 90803,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "TKPD 9.3x64 carbine",
+   "itemId": "68aee763130c00663d08aea8",
+   "kind": "weapon",
+   "for": [
+    "59ca264786f77445a80ed044"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Virtex programmable processor",
+   "itemId": "5c05308086f7746b2101e90b",
+   "kind": "item",
+   "for": [
+    "5c0d0f1886f77457b8210226"
+   ],
+   "required": true,
+   "fleaLevel": 35,
+   "flea": "flea from level 35",
+   "price": 64262,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "WI-FI Camera",
+   "itemId": "5b4391a586f7745321235ab2",
+   "kind": "item",
+   "for": [
+    "626bd75b05f287031503c7f6",
+    "66d9cbb67b491f9d5304f6e6"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 86944,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1: 330 EUR, after Informed Means Armed",
+    "Mechanic LL1 barter: 1x Electronic components + 1x Portable Powerbank"
+   ]
+  }
+ ],
+ "raids": []
+}

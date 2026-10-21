@@ -1,0 +1,2674 @@
+{
+ "meta": {
+  "map": "Factory",
+  "mapId": "55f2d3fd4bdc2d5f408b4567",
+  "key": "factory",
+  "gameMode": "pve",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:11:34+00:00",
+  "raidMinutes": 20,
+  "players": "7-8",
+  "frame": {
+   "w": 1000,
+   "h": 1120,
+   "metres": 161
+  },
+  "rotation": 90,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/Factory",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "pit-sw": {
+   "name": "Pit SW",
+   "x": 361,
+   "y": 704,
+   "hints": []
+  },
+  "breach-room": {
+   "name": "Breach Room",
+   "x": 229,
+   "y": 502,
+   "hints": []
+  },
+  "blue-containers-se": {
+   "name": "Blue Containers SE",
+   "x": 180,
+   "y": 813,
+   "hints": []
+  },
+  "servers-nw": {
+   "name": "Servers NW",
+   "x": 255,
+   "y": 783,
+   "hints": []
+  },
+  "heli-crash-nw": {
+   "name": "Heli Crash NW",
+   "x": 513,
+   "y": 444,
+   "hints": []
+  },
+  "east-halls": {
+   "name": "East Halls",
+   "x": 722,
+   "y": 371,
+   "hints": []
+  },
+  "north-stairs": {
+   "name": "North Stairs",
+   "x": 238,
+   "y": 422,
+   "hints": []
+  },
+  "hole": {
+   "name": "Hole",
+   "x": 189,
+   "y": 552,
+   "hints": [
+    "Old Cellars"
+   ]
+  },
+  "rafters-w": {
+   "name": "Rafters W",
+   "x": 404,
+   "y": 533,
+   "hints": []
+  },
+  "wood-room-s": {
+   "name": "Wood Room S",
+   "x": 93,
+   "y": 1008,
+   "hints": []
+  },
+  "pumping-station-ne": {
+   "name": "Pumping Station NE",
+   "x": 597,
+   "y": 324,
+   "hints": []
+  },
+  "east-halls-s": {
+   "name": "East Halls S",
+   "x": 696,
+   "y": 483,
+   "hints": []
+  },
+  "nw-of-north-stairs": {
+   "name": "NW of North Stairs",
+   "x": 131,
+   "y": 278,
+   "hints": []
+  },
+  "e-of-med-tent": {
+   "name": "E of Med Tent",
+   "x": 817,
+   "y": 796,
+   "hints": []
+  },
+  "scav-bunker": {
+   "name": "Scav Bunker",
+   "x": 339,
+   "y": 802,
+   "hints": []
+  },
+  "pumping-station": {
+   "name": "Pumping Station",
+   "x": 560,
+   "y": 406,
+   "hints": []
+  },
+  "glass-hall-w": {
+   "name": "Glass Hall W",
+   "x": 532,
+   "y": 222,
+   "hints": []
+  },
+  "forklifts-se": {
+   "name": "Forklifts SE",
+   "x": 802,
+   "y": 275,
+   "hints": []
+  },
+  "glass-hall-e": {
+   "name": "Glass Hall E",
+   "x": 674,
+   "y": 232,
+   "hints": []
+  },
+  "heli-crash-e": {
+   "name": "Heli Crash E",
+   "x": 611,
+   "y": 486,
+   "hints": []
+  },
+  "rafters": {
+   "name": "Rafters",
+   "x": 462,
+   "y": 540,
+   "hints": [
+    "Old Cellars"
+   ]
+  },
+  "s-of-scav-bunker": {
+   "name": "S of Scav Bunker",
+   "x": 394,
+   "y": 1007,
+   "hints": [
+    "Old Cellars"
+   ]
+  },
+  "n-of-underground-stash": {
+   "name": "N of Underground Stash",
+   "x": 672,
+   "y": 540,
+   "hints": [
+    "Old Cellars"
+   ]
+  },
+  "boilers-nw": {
+   "name": "Boilers NW",
+   "x": 394,
+   "y": 243,
+   "hints": [
+    "Old Cellars"
+   ]
+  },
+  "heli-crash-sw": {
+   "name": "Heli Crash SW",
+   "x": 508,
+   "y": 498,
+   "hints": []
+  },
+  "n-of-north-stairs": {
+   "name": "N of North Stairs",
+   "x": 253,
+   "y": 252,
+   "hints": []
+  },
+  "underground-stash-se": {
+   "name": "Underground Stash SE",
+   "x": 698,
+   "y": 707,
+   "hints": []
+  },
+  "blue-containers-sw": {
+   "name": "Blue Containers SW",
+   "x": 86,
+   "y": 832,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "gate-m",
+   "name": "Med Tent Gate",
+   "faction": "pmc",
+   "x": 887,
+   "y": 786,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "cellars",
+   "name": "Cellars",
+   "faction": "pmc",
+   "x": 675,
+   "y": 184,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "gate-3",
+   "name": "Gate 3",
+   "faction": "scav",
+   "x": 83,
+   "y": 284,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "gate-3",
+   "name": "Gate 3",
+   "faction": "pmc",
+   "x": 67,
+   "y": 286,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "factory-secret-ark",
+   "name": "Smugglers' Passage",
+   "faction": "pmc",
+   "x": 674,
+   "y": 355,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "gate-o",
+   "name": "Courtyard Gate",
+   "faction": "pmc",
+   "x": 30,
+   "y": 514,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "camera-bunker-door",
+   "name": "Camera Bunker Door",
+   "faction": "scav",
+   "x": 220,
+   "y": 774,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "gate-2",
+   "name": "Gate 2",
+   "faction": "pmc",
+   "x": 836,
+   "y": 375,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "office-window",
+   "name": "Office Window",
+   "faction": "scav",
+   "x": 221,
+   "y": 553,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "gate-0",
+   "name": "Gate 0",
+   "faction": "pmc",
+   "x": 116,
+   "y": 1090,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "transit-12",
+   "name": "Transit to Woods",
+   "faction": "shared",
+   "x": 87,
+   "y": 511,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-13",
+   "name": "Transit to Customs",
+   "faction": "shared",
+   "x": 810,
+   "y": 557,
+   "rule": "Transit to another map"
+  },
+  {
+   "id": "transit-14",
+   "name": "Transit to The Lab",
+   "faction": "shared",
+   "x": 765,
+   "y": 849,
+   "rule": "Transit to another map"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Tagilla",
+   "spawnChance": 0.5,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Any scav spawn",
+     "chance": 1
+    }
+   ],
+   "escorts": []
+  },
+  {
+   "name": "USEC",
+   "spawnChance": 1,
+   "groups": 2,
+   "locations": [],
+   "escorts": [
+    "USEC"
+   ]
+  },
+  {
+   "name": "BEAR",
+   "spawnChance": 1,
+   "groups": 2,
+   "locations": [],
+   "escorts": [
+    "BEAR"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "6744af0969a58fceba101fed",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745c9b89c84a273d4a2dc28",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6745cbee909d2013670a4a55",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745cbee909d2013670a4a6e",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "669fa3979b0ce3feae01a130",
+   "name": "Claustrophobia",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Claustrophobia",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb1ffe34e78d618792b41",
+     "text": "Eliminate any target in basement tunnel network on Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any target"
+     ],
+     "zone": [
+      "boilers-nw",
+      "hole",
+      "n-of-underground-stash",
+      "rafters",
+      "s-of-scav-bunker"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, 3x KEKTAPE duct tape"
+  },
+  {
+   "id": "60c0c018f7afb4354815096a",
+   "name": "The Huntsman Path - Factory Chief",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Factory_Chief",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60c0d187938d68438757cda2",
+     "text": "Locate and neutralize Tagilla",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "60cfa590f81cc57f471718cc",
+     "text": "Find Tagilla's BOSS cap in raid",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "BOSS cap",
+      "Hat with antlers"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "60cfa5a85f9e6175514de2e3",
+     "text": "Hand over the BOSS cap",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "BOSS cap",
+      "Hat with antlers"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "5d25e2b486f77409de05bba0",
+   "name": "The Huntsman Path - Secured Perimeter",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Secured_Perimeter",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d26143c86f77469ef0f894c",
+     "text": "Eliminate PMC operatives on Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "5bc4776586f774512d07cf05",
+   "name": "The Tarkov Shooter - Part 1",
+   "trader": "Jaeger",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5bc850d186f7747213700892",
+     "text": "Eliminate Scavs from over 40 meters away with a bolt-action rifle with iron sights",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Sniper",
+      "Scavs"
+     ],
+     "weapons": [
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle",
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Mosin 7.62x54R bolt-action rifle (Infantry), Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5bfea6e90db834001b7347f3",
+      "5de652c31b7e3716273428be",
+      "5df24cf80dee1b22f862e9bc",
+      "61f7c9e189e6fb1a5e3ea78d",
+      "627e14b21713922ded6f2c15",
+      "67c6de3ce39861860909e8e5",
+      "673cab3e03c6a20581028bc1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad"
+  },
+  {
+   "id": "5ac345dc86f774288030817f",
+   "name": "Playing the Market",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Playing_the_Market",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5ac7a4ba86f77409f3423628",
+     "text": "Fix the first control board with a Toolset on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "glass-hall-w"
+     ]
+    },
+    {
+     "id": "5ac7a51a86f774738a4ffc96",
+     "text": "Fix the second control board with a Toolset on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "forklifts-se"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Toolset",
+     "itemIds": [
+      "590c2e1186f77425357b6124"
+     ],
+     "qty": 2,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 2x Metal spare parts, 165,000 RUB"
+  },
+  {
+   "id": "5ac3477486f7741d651d6885",
+   "name": "Scout",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Scout",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5ac61a8a86f7743a8d663c77",
+     "text": "Locate the first Factory extraction",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "glass-hall-e"
+     ]
+    },
+    {
+     "id": "5ac61ab986f7746e352cec8c",
+     "text": "Locate the second Factory extraction",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "wood-room-s"
+     ]
+    },
+    {
+     "id": "5ac61adf86f774741c1bf096",
+     "text": "Locate the third Factory extraction",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "nw-of-north-stairs"
+     ]
+    },
+    {
+     "id": "63a865ce1943b749b5021f86",
+     "text": "Locate the fourth Factory extraction",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "e-of-med-tent"
+     ]
+    },
+    {
+     "id": "5ac61b1486f7743a8f30fc84",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "66aa74571e5e199ecd094f18",
+   "name": "Secrets of Polikhim",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Secrets_of_Polikhim",
+   "type": "plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66ab97d56cb6e3bfd7c79fbc",
+     "text": "Stash the package at the laboratory storage room on Factory",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "east-halls-s"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 2x Metal spare parts, 165,000 RUB"
+  },
+  {
+   "id": "669fa38fad7f1eac2607ed46",
+   "name": "One Less Loose End",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/One_Less_Loose_End",
+   "type": "findQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669faeb6a6e02d00c47ad812",
+     "text": "Locate and obtain the lab journal on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "east-halls-s",
+      "heli-crash-e"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 550 USD, 3x CPU fan"
+  },
+  {
+   "id": "5967530a86f77462ba22226b",
+   "name": "Bad Rep Evidence",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Bad_Rep_Evidence",
+   "type": "findItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5a3fbdb086f7745a554f0c31",
+     "text": "Gain access to the locked room in the office hallway on the third floor on Factory",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "breach-room"
+     ]
+    },
+    {
+     "id": "5968941f86f7740d1570bbd2",
+     "text": "Obtain the Portable bunkhouse key",
+     "type": "findItem",
+     "optional": true,
+     "items": [
+      "Portable bunkhouse key"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "5968948986f7740d121082d4",
+     "text": "Hand over the folder",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "59674eb386f774539f14813a",
+   "name": "Delivery From the Past",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Delivery_From_the_Past",
+   "type": "plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59674fe586f7744f4e358aa2",
+     "text": "Stash the package in the break room on the 2nd floor near Gate 3 on Factory",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "north-stairs"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Toolset, 165,000 RUB"
+  },
+  {
+   "id": "60e71bb4e456d449cd47ca75",
+   "name": "Intimidator",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e8650e5d67b234af3d3926",
+     "text": "Eliminate Scavs with headshots",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+  },
+  {
+   "id": "669fa399033a3ce9870338a8",
+   "name": "Possessor",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Possessor",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb4a56e66d3d79183a5c9",
+     "text": "Locate and obtain the helicopter logbook on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "heli-crash-sw"
+     ]
+    },
+    {
+     "id": "669fb4b21f2e5268651cc96a",
+     "text": "Hand over the found information",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "59675ea386f77414b32bded2",
+   "name": "Postman Pat - Part 1",
+   "trader": "Prapor",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Postman_Pat_-_Part_1",
+   "type": "extract,findQuestItem,taskStatus",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "596895f986f7740d14064722",
+     "text": "Locate the dead messenger and obtain his letter on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "scav-bunker"
+     ]
+    },
+    {
+     "id": "5968962686f7740e7266d973",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "596896c386f7740d1570bbd4",
+     "text": "Hand over the letter to Therapist",
+     "type": "taskStatus",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "596b455186f77457cb50eccb",
+   "name": "Stirrup",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stirrup",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c9b5e3f86f7744aab7329b5",
+     "text": "Eliminate any target with pistols on Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Beretta M9A3 9x19 pistol",
+      "Lebedev PL-15 9x19 pistol",
+      "Colt M45A1 .45 ACP pistol",
+      "Stechkin APB 9x18PM silenced machine pistol",
+      "Serdyukov SR-1MP Gyurza 9x21 pistol",
+      "PB 9x18PM silenced pistol",
+      "Stechkin APS 9x18PM machine pistol",
+      "Makarov PM 9x18PM pistol",
+      "Glock 17 9x19 pistol",
+      "Glock 18C 9x19 machine pistol",
+      "Colt M1911A1 .45 ACP pistol",
+      "Yarygin MP-443 Grach 9x19 pistol",
+      "Tokarev TT-33 7.62x25 TT pistol (Golden)",
+      "SIG P226R 9x19 pistol",
+      "Tokarev TT-33 7.62x25 TT pistol",
+      "FN Five-seveN MK2 5.7x28 pistol (FDE)",
+      "FN Five-seveN MK2 5.7x28 pistol",
+      "Makarov PM (t) 9x18PM pistol",
+      "HK USP .45 ACP pistol",
+      "Chiappa Rhino 200DS 9x19 revolver",
+      "Chiappa Rhino 50DS .357 revolver",
+      "ZiD SP-81 26x75 signal pistol",
+      "RSh-12 12.7x55 revolver",
+      "Glock 19X 9x19 pistol",
+      "Magnum Research Desert Eagle L5 .357 pistol",
+      "Magnum Research Desert Eagle L5 .50 AE pistol",
+      "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+      "Magnum Research Desert Eagle L6 .50 AE pistol",
+      "Magnum Research Desert Eagle Mk XIX .50 AE pistol"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Beretta M9A3 9x19 pistol, Lebedev PL-15 9x19 pistol, Colt M45A1 .45 ACP pistol (+26 more)",
+     "itemIds": [
+      "5cadc190ae921500103bb3b6",
+      "602a9740da11d6478d5a06dc",
+      "5f36a0e5fbf956000b716b65",
+      "5abccb7dd8ce87001773e277",
+      "59f98b4986f7746f546d2cef",
+      "56e0598dd2720bb5668b45a6",
+      "5a17f98cfcdbcb0980087290",
+      "5448bd6b4bdc2dfc2f8b4569",
+      "5a7ae0c351dfba0017554310",
+      "5b1fa9b25acfc40018633c01",
+      "5e81c3cbac2bb513793cdc75",
+      "576a581d2459771e7b1bc4f1",
+      "5b3b713c5acfc4330140bd8d",
+      "56d59856d2720bd8418b456a",
+      "571a12c42459771f627b58a0",
+      "5d67abc1a4b93614ec50137f",
+      "5d3eb3b0a4b93615055e84d2",
+      "579204f224597773d619e051",
+      "6193a720f8ee7e52e42109ed",
+      "624c2e8614da335f1e034d8c",
+      "61a4c8884f95bc3b2c5dc96f",
+      "620109578d82e67e7911abf2",
+      "633ec7c2a6918cb895019c6c",
+      "63088377b5cd696784087147",
+      "669fa409933e898cce0c2166",
+      "669fa3f88abd2662d80eee77",
+      "669fa3d876116c89840b1217",
+      "669fa39b48fc9f8db6035a0c",
+      "668fe5a998b5ad715703ddd6"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 450 EUR"
+  },
+  {
+   "id": "669fa39c64ea11e84c0642a6",
+   "name": "The Walls Have Eyes",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Walls_Have_Eyes",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb5c58c03e61e1a33ddf0",
+     "text": "Install a WI-FI Camera in the first crane's cockpit on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "n-of-north-stairs"
+     ]
+    },
+    {
+     "id": "669fb5c7d5fbaaa7b285e83d",
+     "text": "Install a WI-FI Camera in the second crane's cockpit on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "underground-stash-se"
+     ]
+    },
+    {
+     "id": "669fb5c9d798aa41b9bd60b5",
+     "text": "Install a WI-FI Camera in the third crane's cockpit on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "blue-containers-sw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR, 3x Xenomorph sealing foam"
+  },
+  {
+   "id": "5b478eca86f7744642012254",
+   "name": "Vitamins",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Vitamins",
+   "type": "findItem,findQuestItem,giveItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5b478f6886f774464201225a",
+     "text": "Locate and obtain the chemical container on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "heli-crash-e"
+     ]
+    },
+    {
+     "id": "5b478f8886f7744d1b23c622",
+     "text": "Hand over the container",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6a5a98a3540d8d824a49d5bd",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 4,
+     "items": [
+      "Respirator"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a5a98b4ef24027a7f3438be",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Medical bloodset"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a5a995494755c6ceb832cb0",
+     "text": "Find the item in raid: Respirator",
+     "type": "findItem",
+     "optional": false,
+     "count": 4,
+     "mustExtract": true,
+     "items": [
+      "Respirator"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a5a996dff83204d8658461e",
+     "text": "Find the item in raid: Medical bloodset",
+     "type": "findItem",
+     "optional": false,
+     "count": 3,
+     "mustExtract": true,
+     "items": [
+      "Medical bloodset"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Health Resort west wing office room 112 key",
+     "itemIds": [
+      "5a0dc95c86f77452440fc675"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR"
+  },
+  {
+   "id": "59689ee586f7740d1570bbd5",
+   "name": "Sanitary Standards",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Sanitary_Standards",
+   "type": "giveItem,plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59689f7586f7740d14064726",
+     "text": "Hand over the found in raid item: Gas analyzer",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Gas analyzer"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a576ccec23300f0309ab511",
+     "text": "Stash a Gas analyzer in the med lab on Daytime Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "east-halls-s"
+     ]
+    },
+    {
+     "id": "6a56800fc1311a6bb4cecf9b",
+     "text": "Locate the room with gas analyzers on Factory",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "pumping-station"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Gas analyzer",
+     "itemIds": [
+      "590a3efd86f77437d351a25b"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "669fa39ee749756c920d02c8",
+   "name": "All Is Revealed",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 5,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/All_Is_Revealed",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb6c859bdae826f7325d4",
+     "text": "Take a sample of the chemicals from the damaged tank container on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "pit-sw"
+     ]
+    },
+    {
+     "id": "66a7eebed6bac3ecc16f7d6b",
+     "text": "Hand over the collected sample",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "669fa395c4c5c04798002497",
+   "name": "Exit Here",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 7,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Exit_Here",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb12eb01ceef19a5b4ebc",
+     "text": "Survive and extract from Factory through the Courtyard Gate",
+     "type": "extract",
+     "optional": false,
+     "exit": "Courtyard Gate",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR"
+  },
+  {
+   "id": "5a03153686f77442d90e2171",
+   "name": "One-Way Ticket",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 8,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/One-Way_Ticket",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c9a17c686f7747dbe2da3c1",
+     "text": "Eliminate any target with headshots using a Steyr AUG on Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Steyr AUG A1 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle (Black)",
+     "itemIds": [
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 1,100 USD"
+  },
+  {
+   "id": "669fa3a08b4a64b332041ff7",
+   "name": "Dragnet",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Dragnet",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66a0e692281e56a89b717b7d",
+     "text": "Locate and obtain the chemical container at the TerraGroup warehouse on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "blue-containers-se"
+     ]
+    },
+    {
+     "id": "66a0e69ec03c2dad1a84993a",
+     "text": "Hand over the chemical container",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "TerraGroup storage room keycard",
+     "itemIds": [
+      "66acd6702b17692df20144c0"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "66b38e144f2ab7cc530c3fe7",
+   "name": "Every Hunter Knows This",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Every_Hunter_Knows_This",
+   "type": "visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66b38e144f2ab7cc530c3fe8",
+     "text": "Locate a good tripwire installation spot in the breach room on Factory",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "breach-room"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "5d25c81b86f77443e625dd71",
+   "name": "The Survivalist Path - Wounded Beast",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Unprotected but Dangerous"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Wounded_Beast",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c8c986f77443e47ad47a",
+     "text": "Eliminate Scavs while suffering from the Pain status effect",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "597a0e5786f77426d66c0636",
+   "name": "Chemical - Part 3",
+   "trader": "Skier",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "Chemical - Part 2"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Chemical_-_Part_3",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "597a15b386f774799e5cd152",
+     "text": "Locate and obtain the chemical syringe on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "breach-room"
+     ]
+    },
+    {
+     "id": "597a15c386f77405ba6887d2",
+     "text": "Hand over the syringe",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 1,000 EUR, ORSIS T-5000M 7.62x51 bolt-action sniper rifle Default, 7.62x51mm M80 ammo pack (20 pcs)"
+  },
+  {
+   "id": "68341846186efa3c5b07f989",
+   "name": "Balancing - Part 1 [PVE ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Easy Money - Part 2 [PVE ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Balancing_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68341846186efa3c5b07f98c",
+     "text": "Eliminate Scavs while using a Steyr AUG on any location",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Steyr AUG A1 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle (Black)",
+     "itemIds": [
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask"
+  },
+  {
+   "id": "669fa39b91b0a8c9680fc467",
+   "name": "Black Swan",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Black_Swan",
+   "type": "mark",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "669fb647a5be751be095da27",
+     "text": "Locate and mark any of the heat exchangers with an MS2000 Marker on Factory",
+     "type": "mark",
+     "optional": false,
+     "zone": [
+      "east-halls",
+      "heli-crash-nw",
+      "servers-nw"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "MS2000 Marker",
+     "itemIds": [
+      "5991b51486f77447b112d44f"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB"
+  },
+  {
+   "id": "666314b4d7f171c4c20226c3",
+   "name": "The Good Times - Part 1",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Good_Times_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "666333e93962787efd64004a",
+     "text": "Eliminate PMC operatives while wearing 6B43 body armor and Kiver-M helmet on Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, Springfield Armory M1A 7.62x51 rifle 2k18 NY, 2x M1A 7.62x51 20-round magazine, 3x 7.62x51mm M62 Tracer ammo pack (20 pcs)"
+  },
+  {
+   "id": "666314bd920800278d0f6748",
+   "name": "Viewer",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [
+    "Minute of Fame"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Viewer",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66d07fa69d373d977f437fe0",
+     "text": "Install a WI-FI Camera at the office corridor on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "north-stairs"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, 5x Bottle of Pevko Light beer, 5x Bottle of Tarkovskaya vodka"
+  },
+  {
+   "id": "666314c3acf8442f8b0531a3",
+   "name": "Proper Comeback",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [
+    "Camera, Action!"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Proper_Comeback",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66d080533a3c33d823a3477d",
+     "text": "Stash a Golden rooster figurine at Prapor's WI-FI Camera on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "north-stairs"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Golden rooster figurine",
+     "itemIds": [
+      "5bc9bc53d4351e00367fbcee"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,400 EUR, 2x Golden egg, 2x Tetriz portable game console"
+  },
+  {
+   "id": "5a68669a86f774255929b4d4",
+   "name": "Health Care Privacy - Part 5",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 18,
+   "requires": [
+    "Health Care Privacy - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Health_Care_Privacy_-_Part_5",
+   "type": "plantItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5a6879be86f774284429b1bb",
+     "text": "Locate the drop spot on night-time Factory",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "breach-room"
+     ]
+    },
+    {
+     "id": "5a687a1c86f7745f2152168c",
+     "text": "Stash any Gunpowder in the designated spot",
+     "type": "plantItem",
+     "optional": false,
+     "count": 3,
+     "zone": [
+      "breach-room"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Gunpowder \"Kite\", Gunpowder \"Eagle\", Gunpowder \"Hawk\"",
+     "itemIds": [
+      "590c5a7286f7747884343aea",
+      "5d6fc78386f77449d825f9dc",
+      "5d6fc87386f77449db3db94e"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 3x IFAK individual first aid kit"
+  },
+  {
+   "id": "66d9cbb67b491f9d5304f6e6",
+   "name": "Is This a Reference?",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66db1f8d7539f4b4eb640aff",
+     "text": "Install a WI-FI Camera in the room where the firefighter burned the books to become happy on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "hole"
+     ]
+    },
+    {
+     "id": "66db1f8f564045697071d934",
+     "text": "Install a WI-FI Camera at the place where some valve technicians couldn't finish their third project on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "rafters-w"
+     ]
+    },
+    {
+     "id": "66db1f928d59a9fe511dfc25",
+     "text": "Install a WI-FI Camera at the dangerous Russian chocolate beauty on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "wood-room-s"
+     ]
+    },
+    {
+     "id": "66db1f94a147d9840ec0dfba",
+     "text": "Install a WI-FI Camera in the conspiracy theorist's room on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "breach-room"
+     ]
+    },
+    {
+     "id": "66db1f98b8e22a92437fe5c6",
+     "text": "Install a WI-FI Camera near where someone thought he'd get transported to the magic school on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "pumping-station-ne"
+     ]
+    },
+    {
+     "id": "66db1f9b4f7bf01d937eb150",
+     "text": "Install a WI-FI Camera at the mother of all strategy games on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "east-halls-s"
+     ]
+    },
+    {
+     "id": "66db1ff798d52a5a8e4ed1f8",
+     "text": "Install a WI-FI Camera at the stairway to the skies on Factory",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "nw-of-north-stairs"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Factory emergency exit key",
+     "itemIds": [
+      "5448ba0b4bdc2d02308b456c"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 7,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "30,000 XP, 200,000 RUB, Streamer item case"
+  },
+  {
+   "id": "5c0d4e61d09282029f53920e",
+   "name": "The Guide",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 32,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c13989886f7747878361a50",
+     "text": "Survive and extract from Factory or Customs with the \"Survived\" exit status",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6a5cdc97790159682d2bc19e",
+     "text": "Eliminate any target",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+  },
+  {
+   "id": "63a9b36cc31b00242d28a99f",
+   "name": "Slaughterhouse",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Slaughterhouse",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9b3d7813bba58a50c9ee9",
+     "text": "Eliminate Scavs with melee weapons on daytime Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "ER FULCRUM BAYONET",
+      "Bars A-2607 95Kh18 knife",
+      "Bars A-2607 Damascus knife",
+      "Crash Axe",
+      "Cultist knife",
+      "Freeman crowbar",
+      "6Kh5 Bayonet",
+      "Miller Bros. Blades M-2 Tactical Sword",
+      "Red Rebel ice pick",
+      "SOG Voodoo Hawk tactical tomahawk",
+      "SP-8 Survival Machete",
+      "Kiba Arms Tactical Tomahawk",
+      "UVSR Taiga-1 survival machete",
+      "Camper axe",
+      "Antique axe",
+      "MPL-50 entrenching tool",
+      "PR-Taran police baton",
+      "APOK Tactical Wasteland Gladius",
+      "United Cutlery M48 Tactical Kukri",
+      "Akula push dagger",
+      "NKVD Finka knife",
+      "KA-BAR USMC Fighter knife",
+      "Microtech Jagdkommando knife"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: ER FULCRUM BAYONET, Bars A-2607 95Kh18 knife, Bars A-2607 Damascus knife (+20 more)",
+     "itemIds": [
+      "54491bb74bdc2d09088b4567",
+      "57e26fc7245977162a14b800",
+      "57e26ea924597715ca604a09",
+      "5bffe7930db834001b734a39",
+      "5fc64ea372b0dd78d51159dc",
+      "5c07df7f0db834001b73588a",
+      "5bffdc370db834001d23eca8",
+      "5bffdd7e0db834001b734a1a",
+      "5c0126f40db834002a125382",
+      "63920105a83e15700a00f168",
+      "5c010e350db83400232feec7",
+      "57cd379a24597778e7682ecf",
+      "601948682627df266209af05",
+      "5c012ffc0db834001d23f03f",
+      "5bc9c1e2d4351e00367fbcf0",
+      "5bead2e00db834001c062938",
+      "6540d2162ae6d96b540afcaf",
+      "664a5428d5e33a713b622379",
+      "65ca457b4aafb5d7fc0dcb5d",
+      "674d90b55704568fe60bc8f5",
+      "68f244ae22c8979ee308f4d8",
+      "6a3935772db31ca1c800fe26",
+      "6a39358c658f5889ba050ef3"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "59ca29fb86f77445ab465c87",
+   "name": "The Punisher - Part 5",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_5",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca293c86f77445a80ed147",
+     "text": "Find the item in raid: any Kalashnikov AK-74 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca29ab86f77445ab133c86",
+     "text": "Hand over the AK-74",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2bdc86f77445a80ed148",
+     "text": "Find the item in raid: Colt M4A1 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c3086f77445aa0ddc15",
+     "text": "Hand over the M4A1",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c9e86f77428ea721232",
+     "text": "Find the item in raid: Makarov PM pistol",
+     "type": "findItem",
+     "optional": false,
+     "count": 2,
+     "mustExtract": true,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2cbe86f7740fe95c3e52",
+     "text": "Hand over the pistols",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "5c922dde86f77438500a0fec",
+     "text": "Eliminate PMC operatives with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "RPK-16 5.45x39 light machine gun"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a57a51fe5c2c08b474109fb",
+     "text": "Eliminate Scavs with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (FDE) (+5 more)",
+     "itemIds": [
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "5beed0f50db834001c062b12"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    },
+    {
+     "item": "Any of: RPK-16 5.45x39 light machine gun, U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (+5 more)",
+     "itemIds": [
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case"
+  },
+  {
+   "id": "59ca2eb686f77445a80ed049",
+   "name": "The Punisher - Part 6",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_6",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a57a60057699da0521e1c7b",
+     "text": "Locate and neutralize any Boss",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Black Div.",
+      "Glukhar",
+      "Killa",
+      "Vengeful Killa",
+      "Knight",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "bossStormtrooper",
+      "Tagilla",
+      "Shadow of Tagilla",
+      "The Wedge",
+      "The Wedge (Labs)",
+      "Big Pipe",
+      "Birdeye",
+      "Black Div. Guard",
+      "The Wedge (Labs) Guard",
+      "Infected Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "5b0548e686f7740306753506",
+     "text": "Hand over the item: Dogtag BEAR or Dogtag USEC",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+  },
+  {
+   "id": "669fa3a3ad7f1eac2607ed48",
+   "name": "Health Care Privacy - Part 6",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [
+    "Health Care Privacy - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Health_Care_Privacy_-_Part_6",
+   "type": "findQuestItem,giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66a0f391676953651bd8b796",
+     "text": "Locate the dead worker and take their blood sample on Factory",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "e-of-med-tent"
+     ]
+    },
+    {
+     "id": "6a60703aaa77a4b86e07aa3b",
+     "text": "Hand over the found in raid item: LEDX Skin Transilluminator",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "LEDX Skin Transilluminator"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Factory emergency exit key",
+     "itemIds": [
+      "5448ba0b4bdc2d02308b456c"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, Medicine case, 3x Morphine injector, 3x Adrenaline injector"
+  },
+  {
+   "id": "666314a31cd52e3d040a2e76",
+   "name": "Combat Proven",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 42,
+   "requires": [
+    "Special Offer"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Combat_Proven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6669abb8dac5788ebd0ff74a",
+     "text": "Locate and neutralize any Boss (excluding The Goons, The Wedge and Partisan) while using any Goons Edition tactical rig",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Glukhar",
+      "Killa",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "Tagilla",
+      "Zryachiy",
+      "Vengeful Killa",
+      "Shadow of Tagilla",
+      "Infected Tagilla",
+      "Labyrinth Guard"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "92,000 XP, 340,000 RUB, 3x NPP KlASS Bagariy plate carrier (EMR) Default"
+  },
+  {
+   "id": "60e71b62a0beca400d69efc4",
+   "name": "Escort",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 46,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Escort",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60ec07bcd7b7cb55e94c1760",
+     "text": "Eliminate PMC operatives on daytime Factory",
+     "type": "shoot",
+     "optional": false,
+     "count": 2,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "155,000 XP, SR-2M Veresk 9x21 submachine gun FSB, Rys-T assault helmet (Black), Rys-T face shield, 400,000 RUB"
+  },
+  {
+   "id": "60e71e8ed54b755a3b53eb67",
+   "name": "The Huntsman Path - Relentless",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 55,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Relentless",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e7259e465ea8368012cc45",
+     "text": "Locate and neutralize Tagilla",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Tagilla",
+      "Infected Tagilla"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope, 100 GP coins"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "Factory emergency exit key",
+   "itemId": "5448ba0b4bdc2d02308b456c",
+   "kind": "key",
+   "for": [
+    "66d9cbb67b491f9d5304f6e6",
+    "669fa3a3ad7f1eac2607ed48"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 616708,
+   "lockCount": 3,
+   "sources": [
+    "Jaeger LL2 barter: 1x Factory emergency exit key + 3x Iskra ration pack + 1x MRE ration pack"
+   ]
+  },
+  {
+   "item": "Health Resort west wing office room 112 key",
+   "itemId": "5a0dc95c86f77452440fc675",
+   "kind": "key",
+   "for": [
+    "5b478eca86f7744642012254"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 39604,
+   "lockCount": 0,
+   "sources": [
+    "Therapist LL3 barter: 4x Pile of meds"
+   ]
+  },
+  {
+   "item": "TerraGroup storage room keycard",
+   "itemId": "66acd6702b17692df20144c0",
+   "kind": "key",
+   "for": [
+    "669fa3a08b4a64b332041ff7"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 4864788,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Gas analyzer",
+   "itemId": "590a3efd86f77437d351a25b",
+   "kind": "item",
+   "for": [
+    "59689ee586f7740d1570bbd5"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 30515,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1 barter: 1x CPU fan"
+   ]
+  },
+  {
+   "item": "Golden rooster figurine",
+   "itemId": "5bc9bc53d4351e00367fbcee",
+   "kind": "item",
+   "for": [
+    "666314c3acf8442f8b0531a3"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 65452,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Gunpowder \"Eagle\"",
+   "itemId": "5d6fc78386f77449d825f9dc",
+   "kind": "item",
+   "for": [
+    "5a68669a86f774255929b4d4"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 98019,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Gunpowder \"Hawk\"",
+   "itemId": "5d6fc87386f77449db3db94e",
+   "kind": "item",
+   "for": [
+    "5a68669a86f774255929b4d4"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 62421,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Gunpowder \"Kite\"",
+   "itemId": "590c5a7286f7747884343aea",
+   "kind": "item",
+   "for": [
+    "5a68669a86f774255929b4d4"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 39894,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "MS2000 Marker",
+   "itemId": "5991b51486f77447b112d44f",
+   "kind": "item",
+   "for": [
+    "669fa39b91b0a8c9680fc467"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 28774,
+   "lockCount": 0,
+   "sources": [
+    "Ragman LL1: 145 EUR",
+    "Prapor LL1: 18,936 RUB",
+    "Therapist LL1: 19,353 RUB"
+   ]
+  },
+  {
+   "item": "Steyr AUG A1 5.56x45 assault rifle",
+   "itemId": "62e7c4fba689e8c9c50dfc38",
+   "kind": "weapon",
+   "for": [
+    "5a03153686f77442d90e2171",
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 60355,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle",
+   "itemId": "63171672192e68c5460cebc5",
+   "kind": "weapon",
+   "for": [
+    "5a03153686f77442d90e2171",
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 166639,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle (Black)",
+   "itemId": "6718817435e3cfd9550d2c27",
+   "kind": "weapon",
+   "for": [
+    "5a03153686f77442d90e2171",
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 162433,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Toolset",
+   "itemId": "590c2e1186f77425357b6124",
+   "kind": "item",
+   "for": [
+    "5ac345dc86f774288030817f"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 137930,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1 barter: 1x Pliers + 1x Screwdriver + 1x Wrench + 1x Insulating tape + 1x Construction measuring tape"
+   ]
+  },
+  {
+   "item": "WI-FI Camera",
+   "itemId": "5b4391a586f7745321235ab2",
+   "kind": "item",
+   "for": [
+    "669fa39c64ea11e84c0642a6",
+    "666314bd920800278d0f6748",
+    "66d9cbb67b491f9d5304f6e6"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 101344,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1: 329 EUR, after Informed Means Armed",
+    "Mechanic LL1 barter: 1x Electronic components + 1x Portable Powerbank"
+   ]
+  }
+ ],
+ "raids": []
+}

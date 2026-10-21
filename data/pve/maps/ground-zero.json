@@ -1,0 +1,1599 @@
+{
+ "meta": {
+  "map": "Ground Zero",
+  "mapId": "653e6760052c01c1c805532f",
+  "key": "ground-zero",
+  "gameMode": "pve",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:11:34+00:00",
+  "raidMinutes": 30,
+  "players": "9-10",
+  "frame": {
+   "w": 885,
+   "h": 1376,
+   "metres": 1216
+  },
+  "rotation": 180,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/Ground_Zero",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "elemental-global-sw": {
+   "name": "Elemental Global SW",
+   "x": 115,
+   "y": 704,
+   "hints": []
+  },
+  "tarbank": {
+   "name": "Tarbank",
+   "x": 231,
+   "y": 941,
+   "hints": []
+  },
+  "capital-insight": {
+   "name": "Capital Insight",
+   "x": 174,
+   "y": 1093,
+   "hints": []
+  },
+  "science-office": {
+   "name": "Science Office",
+   "x": 291,
+   "y": 846,
+   "hints": []
+  },
+  "terragroup-nw": {
+   "name": "TerraGroup NW",
+   "x": 307,
+   "y": 767,
+   "hints": []
+  },
+  "terragroup-s": {
+   "name": "TerraGroup S",
+   "x": 349,
+   "y": 824,
+   "hints": []
+  },
+  "fusion-e": {
+   "name": "Fusion E",
+   "x": 167,
+   "y": 954,
+   "hints": []
+  },
+  "nakatani": {
+   "name": "Nakatani",
+   "x": 279,
+   "y": 1158,
+   "hints": []
+  },
+  "m-showroom-nw": {
+   "name": "M Showroom NW",
+   "x": 155,
+   "y": 1000,
+   "hints": []
+  },
+  "asap-winery": {
+   "name": "ASAP Winery",
+   "x": 149,
+   "y": 821,
+   "hints": []
+  },
+  "skyside-sw": {
+   "name": "Skyside SW",
+   "x": 61,
+   "y": 834,
+   "hints": []
+  },
+  "sw-of-skyside": {
+   "name": "SW of Skyside",
+   "x": 38,
+   "y": 866,
+   "hints": []
+  },
+  "tarbank-sw": {
+   "name": "Tarbank SW",
+   "x": 219,
+   "y": 981,
+   "hints": []
+  },
+  "m-showroom": {
+   "name": "M Showroom",
+   "x": 188,
+   "y": 1038,
+   "hints": []
+  },
+  "oasis-e": {
+   "name": "Oasis E",
+   "x": 198,
+   "y": 900,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "nakatani-stairs-free-exit",
+   "name": "Nakatani Basement Stairs",
+   "faction": "shared",
+   "x": 301,
+   "y": 1157,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "scav-coop-exit",
+   "name": "Scav Checkpoint (Co-op)",
+   "faction": "shared",
+   "x": 256,
+   "y": 708,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "groundzero-secret-adaptation",
+   "name": "Tartowers Sales Office",
+   "faction": "pmc",
+   "x": 77,
+   "y": 938,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "exit-e10-coop",
+   "name": "Pinewood Basement (Co-Op)",
+   "faction": "shared",
+   "x": 407,
+   "y": 865,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "sniper-exit",
+   "name": "Mira Ave (Flare)",
+   "faction": "pmc",
+   "x": 48,
+   "y": 752,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "un-roadblock",
+   "name": "UN Roadblock",
+   "faction": "pmc",
+   "x": 855,
+   "y": 1106,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "unity-free-exit",
+   "name": "Emercom Checkpoint",
+   "faction": "shared",
+   "x": 120,
+   "y": 688,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "east-gate",
+   "name": "Scav Bunker",
+   "faction": "scav",
+   "x": 45,
+   "y": 30,
+   "rule": "SCAV extract"
+  },
+  {
+   "id": "sandbox-vexit",
+   "name": "Police Cordon V-Ex",
+   "faction": "pmc",
+   "x": 305,
+   "y": 918,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "transit-1",
+   "name": "Transit to Streets of Tarkov",
+   "faction": "shared",
+   "x": 35,
+   "y": 865,
+   "rule": "Transit to another map"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "BEAR",
+   "spawnChance": 1,
+   "groups": 3,
+   "locations": [],
+   "escorts": [
+    "BEAR"
+   ]
+  },
+  {
+   "name": "USEC",
+   "spawnChance": 1,
+   "groups": 3,
+   "locations": [],
+   "escorts": [
+    "USEC"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "600302d73b897b11364cd161",
+   "name": "All This Filth...",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/All_This_Filth...",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "600303250b79c6604058ce30",
+     "text": "Eliminate Scavs on Interchange, Ground Zero, Woods, or Customs",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "66b38c7bf85b8bf7250f9cb6",
+   "name": "Rough Tarkov",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Rough_Tarkov",
+   "type": "visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66b38de6a97d8cbafd711846",
+     "text": "Locate the Claymore mine on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "tarbank-sw"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "63966faeea19ac7ed845db2c",
+   "name": "Information Source",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Information_Source",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65e09d3f0d1442c78274027e",
+     "text": "Survive and extract from Ground Zero through Police Cordon V-Ex",
+     "type": "extract",
+     "optional": false,
+     "exit": "Police Cordon V-Ex",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP, Advanced Electronic Materials textbook, Lighthouse island stash key"
+  },
+  {
+   "id": "67a0964e972c11a3f507731b",
+   "name": "Needle in a Haystack",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Shady Contractor"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Needle_in_a_Haystack",
+   "type": "visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0bc81fcbc1c559d09b58f",
+     "text": "Investigate the courtyard park by TerraGroup HQ on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "science-office"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Ammunition case"
+  },
+  {
+   "id": "67a09636b8725511260bc421",
+   "name": "Shady Contractor",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shady_Contractor",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0a91f4681b4e43d13892b",
+     "text": "Locate the Knossos LLC senior manager's car on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "m-showroom"
+     ]
+    },
+    {
+     "id": "67a0ab610345d81cb3cbb24c",
+     "text": "Locate and obtain the manager's diary",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "m-showroom"
+     ]
+    },
+    {
+     "id": "67a0ab83359e2d00cf9d6b06",
+     "text": "Hand over the diary",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, 2x Steiner LAS/TAC 2 tactical flashlight"
+  },
+  {
+   "id": "5c0bde0986f77479cf22c2f8",
+   "name": "Shooter Born in Heaven",
+   "trader": "Mechanic",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooter_Born_in_Heaven",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63aec6f256503c322a190374",
+     "text": "Eliminate PMC operatives with a bolt-action rifle headshot on Interchange or Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "MP-18 7.62x54R single-shot rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Accuracy International AXMC .338 LM bolt-action sniper rifle, Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "627e14b21713922ded6f2c15",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5df24cf80dee1b22f862e9bc",
+      "5bfea6e90db834001b7347f3",
+      "5bfd297f0db834001a669119",
+      "5de652c31b7e3716273428be",
+      "673cab3e03c6a20581028bc1",
+      "67c6de3ce39861860909e8e5",
+      "61f7c9e189e6fb1a5e3ea78d"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "55,000 XP, Weapon case, 400,000 RUB"
+  },
+  {
+   "id": "6179b5eabca27a099552e052",
+   "name": "Counteraction",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Counteraction",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "61a61c085d06a344766f3a29",
+     "text": "Eliminate BEAR PMC operatives on Lighthouse, Ground Zero, Reserve, Shoreline, or Streets of Tarkov",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "BEAR operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "617fc08b30ccff6c7c37fcd3",
+     "text": "Hand over the found in raid item: Dogtag BEAR",
+     "type": "giveItem",
+     "optional": false,
+     "count": 20,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit"
+  },
+  {
+   "id": "5c0bd01e86f7747cdd799e56",
+   "name": "Insomnia",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Insomnia",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1242fa86f7742aa04fed52",
+     "text": "Eliminate any target during 21:00-06:00 on Streets or Tarkov, Lighthouse, Reserve, Ground Zero, or Shoreline",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+  },
+  {
+   "id": "66aa58245ab22944110db6e9",
+   "name": "New Paths",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Paths",
+   "type": "extract,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66aa5be8035c6a410dc570b2",
+     "text": "Use the transit from Ground Zero to Streets of Tarkov (In one raid)",
+     "type": "extract",
+     "optional": false,
+     "exit": "TRANSIT01",
+     "zone": []
+    },
+    {
+     "id": "66aa5b2cecad9c067780924b",
+     "text": "Scout the intersection of Mira Ave and the overpass on Ground Zero (In one raid)",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "skyside-sw"
+     ]
+    },
+    {
+     "id": "66aa5bb281dff8466b076894",
+     "text": "Locate the passage leading to Streets of Tarkov on Ground Zero (In one raid)",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "sw-of-skyside"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 550 USD"
+  },
+  {
+   "id": "5c0d4c12d09282029f539173",
+   "name": "Peacekeeping Mission",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Peacekeeping_Mission",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65e08aa9f5879b2586d5fd4c",
+     "text": "Eliminate Scavs while using UNTAR helmet and armor, and 5.56x45 UN weapons on Ground Zero or Interchange",
+     "type": "shoot",
+     "optional": false,
+     "count": 12,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Desert Tech MDR 5.56x45 assault rifle",
+      "Colt M4A1 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle",
+      "HK 416A5 5.56x45 assault rifle",
+      "FN SCAR-L 5.56x45 assault rifle (FDE)",
+      "HK G36 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle",
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)",
+      "HK 416A5 5.56x45 assault rifle (RAL 8000)",
+      "Howa Type 20 5.56x45 assault rifle",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Desert Tech MDR 5.56x45 assault rifle, Colt M4A1 5.56x45 assault rifle, FN SCAR-L 5.56x45 assault rifle (+12 more)",
+     "itemIds": [
+      "5c488a752e221602b412af63",
+      "5447a9cd4bdc2dbd208b4567",
+      "6184055050224f204c1da540",
+      "5bb2475ed4351e00853264e3",
+      "618428466ef05c2ce828f218",
+      "623063e994fc3f7b302a9696",
+      "68a639748e1fe612970728e9",
+      "68a6399922b1e0bd360afe56",
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27",
+      "6a15ae2ae5267ba21c07f98f",
+      "6a3bffbebc377285900b85cf",
+      "5d43021ca4b9362eab4b5e25",
+      "6895bb82c4519957df062f82"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, Desert Tech MDR 7.62x51 assault rifle Default, 2,750 USD, Armband (UNTAR)"
+  },
+  {
+   "id": "5936d90786f7742b1420ba5b",
+   "name": "Debut",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Debut",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5967379186f77463860dadd6",
+     "text": "Eliminate Scavs on Woods, Ground Zero, Interchange, or Customs",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "657315e1dccd301f1301416a",
+   "name": "Luxurious Life",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Luxurious_Life",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6575aa67197bd678a0c3f552",
+     "text": "Locate the liquor store on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "asap-winery"
+     ]
+    },
+    {
+     "id": "65817cabba2ba6ef71fc72ca",
+     "text": "Locate and obtain the wine bottle in the store",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "asap-winery"
+     ]
+    },
+    {
+     "id": "65817cd2881a7e07b3ec1249",
+     "text": "Hand over the wine bottle",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "63a5cf262964a7488f5243ce",
+   "name": "Power of Persuasion",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Power_of_Persuasion",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a5cf262964a7488f5243d1",
+     "text": "Eliminate PMC operatives with an MP5SD on Woods, Ground Zero, Interchange, or Customs",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "HK MP5 9x19 submachine gun (Navy 3 Round Burst)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+     "itemIds": [
+      "5926bb2186f7744b1c6c6e60"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, Electric motor"
+  },
+  {
+   "id": "59674cd986f7744ab26e32f2",
+   "name": "Shootout Picnic",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shootout_Picnic",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5cb31b6188a450159d330a18",
+     "text": "Eliminate any target on Woods, Ground Zero, Customs, or Interchange",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "6744a4717e3818d5bb0680bb",
+   "name": "Stabilize Business",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Ask for Directions"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stabilize_Business",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6744a4e6c8a456e74064e7d7",
+     "text": "Eliminate Scavs in one raid on Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 7,
+     "targets": [
+      "Scavs"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6744a6b96cefb76fd3f70555",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "24,100 XP, 124,000 RUB, IOTV Gen4 body armor (Assault Kit, MultiCam) Default"
+  },
+  {
+   "id": "5979f8bb86f7743ec214c7a6",
+   "name": "Polikhim Hobo",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Polikhim_Hobo",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5b0e766b86f7746bfa618964",
+     "text": "Eliminate Scavs on Interchange, Ground Zero, or Woods",
+     "type": "shoot",
+     "optional": false,
+     "count": 25,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 450 EUR"
+  },
+  {
+   "id": "67a09673972c11a3f507731d",
+   "name": "The Tarkov Butcher",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Butcher",
+   "type": "findQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0d92a6cf4a5745d0bc94f",
+     "text": "Locate and obtain the chemical container on Ground Zero",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "oasis-e"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 165,000 RUB, 2x Surv12 field surgical kit"
+  },
+  {
+   "id": "657315e4a6af4ab4b50f3459",
+   "name": "Saving the Mole",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 1,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Saving_the_Mole",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6575a64d3fc09bdfb38b713d",
+     "text": "Access the lab scientist's office on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "science-office"
+     ]
+    },
+    {
+     "id": "6575a524a39d2be74e620546",
+     "text": "Locate the USEC group at the parking lot of the TerraGroup complex",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "terragroup-nw"
+     ]
+    },
+    {
+     "id": "6575a62a62028c6d5cb43cb7",
+     "text": "Locate the lab scientist in the TerraGroup complex",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "terragroup-s"
+     ]
+    },
+    {
+     "id": "65817fbbb454159976c91917",
+     "text": "Locate and obtain the scientist's hard drive",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "science-office"
+     ]
+    },
+    {
+     "id": "65817fc99a039ed2e97896e4",
+     "text": "Hand over the hard drive",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "657315df034d76585f032e01",
+   "name": "Shooting Cans",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 1,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Shooting_Cans",
+   "type": "shoot,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "657333fee3fbaa77d3b5cd7c",
+     "text": "Locate the Utyos machine gun on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "tarbank"
+     ]
+    },
+    {
+     "id": "6573340403f471fb2bb12df1",
+     "text": "Locate the AGS grenade launcher on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "capital-insight"
+     ]
+    },
+    {
+     "id": "6a54a310b22ea41cf1c54a20",
+     "text": "Eliminate any target on Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "657315e270bb0b8dba00cc48",
+   "name": "Burning Rubber",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 1,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Burning_Rubber",
+   "type": "extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65733e571b7e7ed95fcd2f0c",
+     "text": "Use the paid vehicle extraction on Ground Zero",
+     "type": "extract",
+     "optional": false,
+     "exit": "Police Cordon V-Ex",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 450 EUR"
+  },
+  {
+   "id": "657315ddab5a49b71f098853",
+   "name": "First in Line",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 1,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/First_in_Line",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65732ac3c67dcd96adffa3c7",
+     "text": "Locate the Emercom station on Ground Zero",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "elemental-global-sw"
+     ]
+    },
+    {
+     "id": "65817bf31404f3565aef9fec",
+     "text": "Hand over any found in raid medicine items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Augmentin antibiotic pills",
+      "Golden Star balm",
+      "Ibuprofen painkillers",
+      "Morphine injector",
+      "Analgin painkillers",
+      "Vaseline balm"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB"
+  },
+  {
+   "id": "5d25bfd086f77442734d3007",
+   "name": "The Survivalist Path - Zhivchik",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Thrifty"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Zhivchik",
+   "type": "experience,extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c5a186f77443fe457661",
+     "text": "Gain the Dehydration status effect and maintain it for 5 minutes (On any location excluding Factory)",
+     "type": "experience",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "5d9f035086f7741cac4a9713",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+  },
+  {
+   "id": "68341c4babec72d95d0c1260",
+   "name": "Create a Distraction - Part 1 [PVE ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Surprise [PVE ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Create_a_Distraction_-_Part_1",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68341c4babec72d95d0c1263",
+     "text": "Plant TP-200 TNT bricks on the second floor of the cafe on Ground Zero",
+     "type": "plantItem",
+     "optional": false,
+     "count": 3,
+     "zone": [
+      "fusion-e"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "TP-200 TNT brick",
+     "itemIds": [
+      "60391b0fb847c71012789415"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "5,000 XP, 28 GP coins, Desert Tech MDR 5.56x45 assault rifle EXPS3-0, 3x AR-15 5.56x45 Magpul PMAG 20 GEN M3 STANAG 20-round magazine, 5.56x45mm M856 ammo pack (100 pcs)"
+  },
+  {
+   "id": "5d25e29d86f7740a22516326",
+   "name": "The Survivalist Path - Eagle-Owl",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Survivalist Path - Cold Blooded"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Eagle-Owl",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25fd8386f77443fe457cae",
+     "text": "Eliminate Scavs during 21:00-04:00 without using any NVGs or thermal sights (Excluding Factory)",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+  },
+  {
+   "id": "66d9cbb67b491f9d5304f6e6",
+   "name": "Is This a Reference?",
+   "trader": "Fence",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Is_This_a_Reference%3F",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66dad1d7811532f53e472c13",
+     "text": "Install a WI-FI Camera at the high rise where one die-hard guy kicked ass on Ground Zero",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "nakatani"
+     ]
+    },
+    {
+     "id": "66dad1d941756590432b0eaa",
+     "text": "Install a WI-FI Camera at the computer with a joke for programmers on Ground Zero",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "m-showroom-nw"
+     ]
+    },
+    {
+     "id": "66dad1dbb16caebe0e214d89",
+     "text": "Install a WI-FI Camera at the little chair surrounded by big black chairs on Ground Zero",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "tarbank"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "WI-FI Camera",
+     "itemIds": [
+      "5b4391a586f7745321235ab2"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "30,000 XP, 200,000 RUB, Streamer item case"
+  },
+  {
+   "id": "5c0d4e61d09282029f53920e",
+   "name": "The Guide",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 32,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a5cdc97790159682d2bc19e",
+     "text": "Eliminate any target",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    },
+    {
+     "id": "65e08b7a2f82d184fcf9ef61",
+     "text": "Survive and extract from Ground Zero or Streets of Tarkov with the \"Survived\" exit status",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+  },
+  {
+   "id": "63a9b36cc31b00242d28a99f",
+   "name": "Slaughterhouse",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Slaughterhouse",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65e0a329893b7bf535c6a9fd",
+     "text": "Eliminate Scavs with melee weapons on Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "ER FULCRUM BAYONET",
+      "Bars A-2607 95Kh18 knife",
+      "Bars A-2607 Damascus knife",
+      "Crash Axe",
+      "Cultist knife",
+      "Freeman crowbar",
+      "6Kh5 Bayonet",
+      "Miller Bros. Blades M-2 Tactical Sword",
+      "Red Rebel ice pick",
+      "SOG Voodoo Hawk tactical tomahawk",
+      "UVSR Taiga-1 survival machete",
+      "SP-8 Survival Machete",
+      "Kiba Arms Tactical Tomahawk",
+      "Camper axe",
+      "MPL-50 entrenching tool",
+      "Antique axe",
+      "PR-Taran police baton",
+      "APOK Tactical Wasteland Gladius",
+      "United Cutlery M48 Tactical Kukri",
+      "Akula push dagger",
+      "NKVD Finka knife",
+      "KA-BAR USMC Fighter knife",
+      "Microtech Jagdkommando knife"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: ER FULCRUM BAYONET, Bars A-2607 95Kh18 knife, Bars A-2607 Damascus knife (+20 more)",
+     "itemIds": [
+      "54491bb74bdc2d09088b4567",
+      "57e26fc7245977162a14b800",
+      "57e26ea924597715ca604a09",
+      "5bffe7930db834001b734a39",
+      "5fc64ea372b0dd78d51159dc",
+      "5c07df7f0db834001b73588a",
+      "5bffdc370db834001d23eca8",
+      "5bffdd7e0db834001b734a1a",
+      "5c0126f40db834002a125382",
+      "63920105a83e15700a00f168",
+      "601948682627df266209af05",
+      "5c010e350db83400232feec7",
+      "57cd379a24597778e7682ecf",
+      "5c012ffc0db834001d23f03f",
+      "5bead2e00db834001c062938",
+      "5bc9c1e2d4351e00367fbcf0",
+      "6540d2162ae6d96b540afcaf",
+      "664a5428d5e33a713b622379",
+      "65ca457b4aafb5d7fc0dcb5d",
+      "674d90b55704568fe60bc8f5",
+      "68f244ae22c8979ee308f4d8",
+      "6a3935772db31ca1c800fe26",
+      "6a39358c658f5889ba050ef3"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "63a9b229813bba58a50c9ee5",
+   "name": "Worst Job in the World",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Worst_Job_in_the_World",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "63a9b229813bba58a50c9ee6",
+     "text": "Eliminate any target with AR-15 weapons from over 100 meters away on Reserve, Lighthouse, Shoreline, or Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Colt M4A1 5.56x45 assault rifle",
+      "ADAR 2-15 5.56x45 carbine",
+      "Lone Star TX-15 DML 5.56x45 carbine",
+      "Radian Weapons Model 1 FA 5.56x45 assault rifle",
+      "Colt M16A1 5.56x45 assault rifle",
+      "Colt M16A2 5.56x45 assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Colt M4A1 5.56x45 assault rifle, ADAR 2-15 5.56x45 carbine, Lone Star TX-15 DML 5.56x45 carbine (+3 more)",
+     "itemIds": [
+      "5447a9cd4bdc2dbd208b4567",
+      "5c07c60e0db834002330051f",
+      "5d43021ca4b9362eab4b5e25",
+      "6895bb82c4519957df062f82",
+      "68a639748e1fe612970728e9",
+      "68a6399922b1e0bd360afe56"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Armband (USEC)"
+  },
+  {
+   "id": "5c0bc91486f7746ab41857a2",
+   "name": "Silent Caliber",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 38,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Silent_Caliber",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c0bc95086f7746e784f39ec",
+     "text": "Eliminate any target with a suppressed 12ga shotgun on Reserve, Lighthouse, Ground Zero, or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Saiga-12K ver.10 12ga semi-automatic shotgun",
+      "MP-133 12ga pump-action shotgun",
+      "Remington Model 870 12ga pump-action shotgun",
+      "Mossberg 590A1 12ga pump-action shotgun",
+      "MP-153 12ga semi-automatic shotgun",
+      "MP-43-1C 12ga double-barrel shotgun",
+      "MP-155 12ga semi-automatic shotgun",
+      "Benelli M3 Super 90 12ga dual-mode shotgun",
+      "MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
+      "MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun (Redline)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Saiga-12K ver.10 12ga semi-automatic shotgun, MP-133 12ga pump-action shotgun, Remington Model 870 12ga pump-action shotgun (+9 more)",
+     "itemIds": [
+      "576165642459773c7a400233",
+      "54491c4f4bdc2db1078b4568",
+      "5a7828548dc32e5a9c28b516",
+      "5e870397991fd70db46995c8",
+      "56dee2bdd2720bc8328b4567",
+      "5580223e4bdc2d1c128b457f",
+      "606dae0ab0e443224b421bb7",
+      "6259b864ebedf17603599e88",
+      "67124dcfa3541f2a1f0e788b",
+      "66ffa9b66e19cc902401c5e8",
+      "674fe9a75e51f1c47c04ec23",
+      "6981d72ed009ad83920da43a"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima"
+  },
+  {
+   "id": "60e71b62a0beca400d69efc4",
+   "name": "Escort",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 46,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Escort",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "65e19abadf39d26751b3bb1e",
+     "text": "Eliminate PMC operatives on Ground Zero",
+     "type": "shoot",
+     "optional": false,
+     "count": 2,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "155,000 XP, SR-2M Veresk 9x21 submachine gun FSB, Rys-T assault helmet (Black), Rys-T face shield, 400,000 RUB"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+   "itemId": "5926bb2186f7744b1c6c6e60",
+   "kind": "weapon",
+   "for": [
+    "63a5cf262964a7488f5243ce"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 104769,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "TP-200 TNT brick",
+   "itemId": "60391b0fb847c71012789415",
+   "kind": "item",
+   "for": [
+    "68341c4babec72d95d0c1260"
+   ],
+   "required": true,
+   "fleaLevel": 20,
+   "flea": "flea from level 20",
+   "price": 107298,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "WI-FI Camera",
+   "itemId": "5b4391a586f7745321235ab2",
+   "kind": "item",
+   "for": [
+    "66d9cbb67b491f9d5304f6e6"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 101344,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1: 329 EUR, after Informed Means Armed",
+    "Mechanic LL1 barter: 1x Electronic components + 1x Portable Powerbank"
+   ]
+  }
+ ],
+ "raids": []
+}

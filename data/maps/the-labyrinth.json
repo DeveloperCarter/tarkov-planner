@@ -1,0 +1,568 @@
+{
+ "meta": {
+  "map": "The Labyrinth",
+  "mapId": "6733700029c367a3d40b02af",
+  "key": "the-labyrinth",
+  "gameMode": "regular",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:13:44+00:00",
+  "raidMinutes": 30,
+  "players": "5-5",
+  "frame": {
+   "w": 1000,
+   "h": 857,
+   "metres": 110
+  },
+  "rotation": 270,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Labyrinth",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "unnamed-spot-1": {
+   "name": "Unnamed spot (1)",
+   "x": 340,
+   "y": 461,
+   "hints": []
+  },
+  "unnamed-spot-2": {
+   "name": "Unnamed spot (2)",
+   "x": 588,
+   "y": 393,
+   "hints": []
+  },
+  "unnamed-spot-3": {
+   "name": "Unnamed spot (3)",
+   "x": 534,
+   "y": 372,
+   "hints": []
+  },
+  "unnamed-spot-4": {
+   "name": "Unnamed spot (4)",
+   "x": 388,
+   "y": 598,
+   "hints": []
+  },
+  "unnamed-spot-5": {
+   "name": "Unnamed spot (5)",
+   "x": 504,
+   "y": 580,
+   "hints": []
+  },
+  "unnamed-spot-6": {
+   "name": "Unnamed spot (6)",
+   "x": 502,
+   "y": 263,
+   "hints": []
+  },
+  "unnamed-spot-7": {
+   "name": "Unnamed spot (7)",
+   "x": 214,
+   "y": 540,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "labir-exit",
+   "name": "The Way Up",
+   "faction": "pmc",
+   "x": 683,
+   "y": 399,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "labyrinth-secret-tagilla-key",
+   "name": "Ariadne's Path",
+   "faction": "pmc",
+   "x": 344,
+   "y": 627,
+   "rule": "PMC extract"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Shadow of Tagilla",
+   "spawnChance": 1,
+   "groups": 1,
+   "locations": [],
+   "escorts": [
+    "Vengeful Killa"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "675c1cf4a757ddd00404f0a3",
+   "name": "Work Smarter",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Work_Smarter",
+   "type": "findItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "675c1cf4a757ddd00404f0a6",
+     "text": "Locate the secret exfil on Customs",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-4"
+     ]
+    },
+    {
+     "id": "676ab31c058363b09072c78e",
+     "text": "Obtain the special item to extract through the secret exfil",
+     "type": "findItem",
+     "optional": true,
+     "items": [
+      "Note with code word Voron"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, 2x Corrugated hose"
+  },
+  {
+   "id": "5d25bfd086f77442734d3007",
+   "name": "The Survivalist Path - Zhivchik",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Thrifty"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Zhivchik",
+   "type": "experience,extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c5a186f77443fe457661",
+     "text": "Gain the Dehydration status effect and maintain it for 5 minutes (On any location excluding Factory)",
+     "type": "experience",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "5d9f035086f7741cac4a9713",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+  },
+  {
+   "id": "67a09761e720611a6a01f288",
+   "name": "Keeper's Word",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Sensory Analysis - Part 2",
+    "Hypotheses Testing",
+    "Vacate the Premises",
+    "Confidential Info",
+    "Indisputable Authority",
+    "This Tape Sucks"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Keeper's_Word",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0e4df8cddbe2df31dd1d9",
+     "text": "Stash a Cultist knife in the first special place inside The Labyrinth",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-6"
+     ]
+    },
+    {
+     "id": "67a0e4e399e34c9ffcdc6e00",
+     "text": "Stash a Cultist knife in the second special place inside The Labyrinth",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-5"
+     ]
+    },
+    {
+     "id": "67a0e4e64cb065811d95c6d9",
+     "text": "Stash a Cultist knife in the third special place inside The Labyrinth",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-7"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "Corpse room key",
+     "itemIds": [
+      "679bab714e9ca6b3d80586b4"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "Cultist knife",
+     "itemIds": [
+      "5fc64ea372b0dd78d51159dc"
+     ],
+     "qty": 3,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "56,800 XP, 4,200 USD, Virtex programmable processor, S I C C organizational pouch, Sacred Amulet"
+  },
+  {
+   "id": "67a0970f05d1611ed90be75d",
+   "name": "Hypotheses Testing",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Offensive Reconnaissance"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Hypotheses_Testing",
+   "type": "giveItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67dbe16ece16a02860ed9d33",
+     "text": "Locate the lab area with the prototype weapon inside The Labyrinth",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-2"
+     ]
+    },
+    {
+     "id": "67a0dcf4ff6f74931359b9f9",
+     "text": "Hand over the found in raid item: Labrys research notes",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "Labrys research notes"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, Ballistic plate case"
+  },
+  {
+   "id": "67a0970744893b9f3f0d9b68",
+   "name": "Offensive Reconnaissance",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Hidden Layer"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Offensive_Reconnaissance",
+   "type": "findItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67dbe0f532ff08bfa13237a8",
+     "text": "Find out what is behind the Health Resort bunker door on Shoreline",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-1"
+     ]
+    },
+    {
+     "id": "67a0dc94a4d798e79853f2eb",
+     "text": "Obtain the Labrys access keycard",
+     "type": "findItem",
+     "optional": true,
+     "items": [
+      "Labrys access keycard"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, Labrys access keycard"
+  },
+  {
+   "id": "67a09724972c11a3f5077324",
+   "name": "Confidential Info",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Offensive Reconnaissance"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Confidential_Info",
+   "type": "findQuestItem,giveQuestItem,plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0dd7a2519959b187db47f",
+     "text": "Locate and obtain the special storage module inside The Labyrinth",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "unnamed-spot-2",
+      "unnamed-spot-3"
+     ]
+    },
+    {
+     "id": "67a0de2750fdff39d267ea16",
+     "text": "Plant a hand grenade in the assembly workshop inside The Labyrinth",
+     "type": "plantItem",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-2"
+     ]
+    },
+    {
+     "id": "67a0dda1370e2f877a6c8531",
+     "text": "Hand over the found information",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: RGD-5 hand grenade, F-1 hand grenade, M67 hand grenade (+3 more)",
+     "itemIds": [
+      "5448be9a4bdc2dfd2f8b456a",
+      "5710c24ad2720bc3458b45a3",
+      "58d3db5386f77426186285a0",
+      "5e32f56fcb6d5863cc5e5ee4",
+      "5e340dcdcb6d5863cc5e5efb",
+      "66dae7cbeb28f0f96809f325"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 1,900 USD, Final Moment poster, 2x AR-15 5.56x45 Magpul PMAG D-60 STANAG 60-round magazine"
+  },
+  {
+   "id": "67d03be712fb5f8fd2096332",
+   "name": "Vacate the Premises",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Offensive Reconnaissance"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Vacate_the_Premises",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67d03be712fb5f8fd2096334",
+     "text": "Eliminate any target inside The Labyrinth",
+     "type": "shoot",
+     "optional": false,
+     "count": 36,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 3x Atomic Defense CQCM ballistic mask (Black), Last Breath poster"
+  },
+  {
+   "id": "67a097379f2068e74603c6ac",
+   "name": "Indisputable Authority",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Offensive Reconnaissance"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Indisputable_Authority",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0df619fb6c42b9a08e8e9",
+     "text": "Locate and neutralize the \"Minotaur\" inside The Labyrinth",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Shadow of Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "67a0df7f2cd4d4413cd29b45",
+     "text": "Eliminate the \"Minotaur's\" guards inside The Labyrinth",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Labyrinth Guard",
+      "Vengeful Killa"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 1,650 EUR, Tark Souls poster, 3x AK CSS knurled charging handle, 3x Zenit RK-1 tactical foregrip on B-25U mount"
+  },
+  {
+   "id": "67a0972e77dd677f600804bd",
+   "name": "This Tape Sucks",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 26,
+   "requires": [
+    "Offensive Reconnaissance"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/This_Tape_Sucks",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67a0de6954c67082e9148328",
+     "text": "Locate the torture room inside The Labyrinth",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "unnamed-spot-4"
+     ]
+    },
+    {
+     "id": "67a0de84e8e35296a13500c8",
+     "text": "Locate and obtain any evidence of torture",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "unnamed-spot-4",
+      "unnamed-spot-5"
+     ]
+    },
+    {
+     "id": "67a0de9190545ec5612fdda5",
+     "text": "Hand over the found information",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x SJ12 TGLabs combat stimulant injector, 2x Meldonin injector, 2x 3-(b-TG) stimulant injector, Taurus poster"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "Corpse room key",
+   "itemId": "679bab714e9ca6b3d80586b4",
+   "kind": "key",
+   "for": [
+    "67a09761e720611a6a01f288"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Cultist knife",
+   "itemId": "5fc64ea372b0dd78d51159dc",
+   "kind": "item",
+   "for": [
+    "67a09761e720611a6a01f288"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 340689,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  }
+ ],
+ "raids": []
+}

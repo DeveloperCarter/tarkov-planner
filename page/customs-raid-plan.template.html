@@ -1,0 +1,920 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customs Raid Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field-briefing sheet. Sticky tab bar, a schematic map beside the raid steps, quest cards below. */
+:root {
+  --bg: #e6e9e2;          /* map-paper grey-green */
+  --panel: #f3f5f0;
+  --ink: #1b211d;
+  --muted: #5b655c;
+  --line: #c4cbc0;
+  --olive: #4c5a2a;       /* raid A / primary accent */
+  --signal: #b8521c;      /* warnings, locked, raid C */
+  --steel: #2f5f86;       /* raid B */
+  --ok: #3d7a3a;
+  --map-land: #d5dccd;
+  --map-water: #9fbcd0;
+  --map-road: #f7f8f4;
+  --map-rail: #8a8f86;
+  --chip: #dde2d7;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141815; --panel: #1c211d; --ink: #dfe5dc; --muted: #97a294; --line: #323a33;
+    --olive: #a7b86c; --signal: #e3814a; --steel: #7fb0d8; --ok: #7cc174;
+    --map-land: #232a24; --map-water: #2c4a5e; --map-road: #3b443c; --map-rail: #6a7268; --chip: #262d27;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141815; --panel: #1c211d; --ink: #dfe5dc; --muted: #97a294; --line: #323a33;
+  --olive: #a7b86c; --signal: #e3814a; --steel: #7fb0d8; --ok: #7cc174;
+  --map-land: #232a24; --map-water: #2c4a5e; --map-road: #3b443c; --map-rail: #6a7268; --chip: #262d27;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 15px/1.5 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1180px; margin: 0 auto; }
+.site-nav {display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--line)}
+.site-nav a {font-weight:600;text-decoration:none}
+.site-nav a[aria-current="true"] {color:var(--olive);text-decoration:underline;text-underline-offset:5px}
+.site-nav .btn {margin-left:auto}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: .01em; }
+h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; text-transform: uppercase; }
+h2 { font-size: 26px; font-weight: 600; text-transform: uppercase; }
+h3 { font-size: 19px; font-weight: 600; }
+a { color: var(--steel); }
+.mono { font-family: var(--font-mono); font-size: 12.5px; }
+.label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+p { margin: 0; max-width: 70ch; }
+
+header.brief { display: grid; gap: 10px; padding-block: 28px 18px; border-bottom: 2px solid var(--ink); }
+.brief .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.brief .meta span b { font-weight: 500; color: var(--ink); }
+
+nav.tabs {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  display: flex; gap: 4px; overflow-x: auto; padding-block: 10px; border-bottom: 1px solid var(--line);
+}
+nav.tabs button {
+  font: 600 15px var(--font-display); text-transform: uppercase; letter-spacing: .05em;
+  background: transparent; color: var(--muted); border: 1px solid transparent; border-radius: 3px;
+  padding: 6px 14px; cursor: pointer; white-space: nowrap;
+}
+nav.tabs button[aria-selected="true"] { color: var(--bg); background: var(--ink); }
+nav.tabs button:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--steel); outline-offset: 2px; }
+section.view { display: grid; gap: 22px; padding-top: 22px; }
+
+.summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.summary div { background: var(--panel); padding: 12px 14px; display: grid; gap: 2px; }
+.summary .n { font: 700 30px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.summary .warn .n { color: var(--signal); }
+@media (max-width: 700px) { .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.notice { border-left: 3px solid var(--signal); padding: 10px 14px; background: var(--panel); display: grid; gap: 4px; }
+
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; align-items: start; }
+@media (max-width: 900px) { .plan-grid { grid-template-columns: minmax(0, 1fr); } }
+.mapbox { background: var(--panel); border: 1px solid var(--line); padding: 10px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 62px); }
+@media (max-width: 900px) { .mapbox { position: static; } }
+.mapbox svg { width: 100%; height: auto; display: block; }
+.raid-switch { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.raid-switch button {
+  font: 600 13px var(--font-mono); border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+  padding: 5px 10px; border-radius: 3px; cursor: pointer;
+}
+.raid-switch button[aria-pressed="true"] { border-color: currentColor; box-shadow: inset 0 -3px 0 currentColor; }
+.raid-switch .rA { color: var(--olive); } .raid-switch .rB { color: var(--steel); } .raid-switch .rC { color: var(--signal); }
+.map-note { margin-top: 6px; color: var(--muted); font-size: 12.5px; }
+
+.raid { border-top: 3px solid var(--rc); background: var(--panel); padding: 16px; display: grid; gap: 12px; }
+.raid.A { --rc: var(--olive); } .raid.B { --rc: var(--steel); } .raid.C { --rc: var(--signal); }
+.raid .head { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.raid .tag { font: 700 13px var(--font-mono); color: var(--rc); border: 1.5px solid var(--rc); padding: 1px 7px; border-radius: 2px; }
+.raid ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: stop; }
+.raid ol li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; }
+.raid > ol > li::before {
+  counter-increment: stop; content: counter(stop);
+  width: 24px; height: 24px; border-radius: 50%; background: var(--rc); color: var(--panel);
+  font: 700 13px/24px var(--font-mono); text-align: center;
+}
+.raid ol li b { font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { background: var(--chip); border-radius: 2px; padding: 2px 8px; font-size: 13px; }
+.chip.key { background: transparent; border: 1px dashed var(--signal); color: var(--signal); }
+.chip.ex { font-family: var(--font-mono); font-size: 12px; }
+.kv { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+.kv > .label { padding-top: 3px; }
+.branch { font-size: 14px; color: var(--muted); border-left: 2px solid var(--line); padding-left: 10px; }
+
+.repeat { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.repeat div { background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; display: grid; gap: 4px; }
+
+.qgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+@media (max-width: 420px) { .qgrid { grid-template-columns: minmax(0, 1fr); } }
+.quest { background: var(--panel); border: 1px solid var(--line); padding: 14px; display: grid; gap: 10px; align-content: start; }
+.quest.done { opacity: .62; }
+.quest .top { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+.quest .who { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.pill { font: 500 11px var(--font-mono); letter-spacing: .05em; text-transform: uppercase; padding: 1px 6px; border-radius: 2px; border: 1px solid var(--line); color: var(--muted); }
+.pill.kappa { border-color: var(--olive); color: var(--olive); }
+.pill.usec { border-color: var(--steel); color: var(--steel); }
+.pill.raid { color: var(--panel); border-color: transparent; }
+.pill.raid.A { background: var(--olive); } .pill.raid.B { background: var(--steel); } .pill.raid.C { background: var(--signal); } .pill.raid.all { background: var(--muted); }
+.obj { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.obj li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; align-items: start; font-size: 14px; }
+.obj li.opt { color: var(--muted); }
+.obj input[type="checkbox"] { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--olive); }
+.obj li.checked span { text-decoration: line-through; text-decoration-color: var(--muted); }
+.counter { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+.counter button { width: 26px; height: 24px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 3px; cursor: pointer; font: 600 14px var(--font-mono); }
+.counter output { font: 500 13px var(--font-mono); font-variant-numeric: tabular-nums; min-width: 52px; text-align: center; }
+.quest .tips { margin: 0; padding-left: 16px; color: var(--muted); font-size: 13.5px; display: grid; gap: 3px; }
+.quest .foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.btn { font: 600 13px var(--font-mono); border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 6px 12px; border-radius: 3px; cursor: pointer; }
+.confirm { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 11.5px var(--font-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.st { font: 600 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; padding: 1px 6px; border-radius: 2px; }
+.st.open { color: var(--ok); border: 1px solid var(--ok); }
+.st.locked { color: var(--signal); border: 1px solid var(--signal); }
+.acq { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.acq .card { background: var(--panel); border: 1px solid var(--line); padding: 14px; display: grid; gap: 8px; align-content: start; }
+.acq .card.req { border-top: 3px solid var(--signal); }
+.acq .card ul { margin: 0; padding-left: 16px; display: grid; gap: 4px; font-size: 14px; }
+
+.ideas { display: grid; gap: 26px; }
+.ideas .lede { font-size: 17px; max-width: 72ch; }
+.idea-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.idea { background: var(--panel); border: 1px solid var(--line); padding: 14px; display: grid; gap: 6px; align-content: start; }
+.idea .label { color: var(--olive); }
+.flow { overflow-x: auto; }
+.flow svg { min-width: 760px; width: 100%; height: auto; display: block; }
+.roadmap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.roadmap div { background: var(--panel); padding: 14px; display: grid; gap: 6px; align-content: start; }
+.roadmap ul { margin: 0; padding-left: 16px; font-size: 14px; display: grid; gap: 3px; }
+@media (max-width: 800px) { .roadmap { grid-template-columns: minmax(0, 1fr); } }
+.tracker { background: var(--panel); border: 1px solid var(--line); padding: 14px 16px; display: grid; gap: 10px; }
+.tracker > * { min-width: 0; overflow-wrap: anywhere; }
+.tracker select { min-width: 0; max-width: 100%; width: 100%; }
+.trk-head { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.trk-text { display: grid; gap: 1px; flex: 1 1 260px; min-width: 0; }
+.trk-text b { font: 600 18px var(--font-display); letter-spacing: .02em; }
+.trk-detail { font: 12.5px var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
+.trk-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); flex: none; }
+.dot[data-state="watching"] { background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent); }
+.dot[data-state="waiting"] { background: var(--steel); }
+.dot[data-state="needs-permission"], .dot[data-state="error"] { background: var(--signal); }
+@media (prefers-reduced-motion: no-preference) { .dot[data-state="watching"] { animation: pulse 2.4s ease-in-out infinite; } }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--ok) 0%, transparent); } }
+.trk-events { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 14px; }
+.trk-events li { display: grid; grid-template-columns: 16ch 9ch minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.trk-events li > :last-child { overflow-wrap: anywhere; min-width: 0; }
+.trk-events time { font: 12px var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.qst { font: 600 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+.qst.started { color: var(--steel); } .qst.completed { color: var(--ok); } .qst.failed { color: var(--signal); }
+.status-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13px; }
+.status-row select { font: 13px var(--font-body); background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; padding: 3px 6px; }
+.src { font-size: 13px; color: var(--muted); display: grid; gap: 4px; }
+.src ul { margin: 0; padding-left: 16px; }
+@media (prefers-reduced-motion: no-preference) { .route { transition: opacity .2s; } }
+
+.focus-grid { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr); gap:18px; padding-top:22px; align-items:start; }
+.focus-grid > * { min-width:0; }
+.focus-grid .mapbox { position:static; }
+.focus-picker { background:var(--panel); border:1px solid var(--line); padding:12px; display:grid; gap:10px; }
+.focus-list { display:grid; gap:1px; max-height:360px; overflow-y:auto; }
+.focus-choice { padding:9px 0; border-top:1px solid var(--line); }
+.focus-choice label { display:flex; gap:9px; align-items:start; cursor:pointer; }
+.focus-choice input, .include-raid input { accent-color:var(--olive); width:18px; height:18px; flex:none; }
+.focus-facts { color:var(--muted); font-size:12.5px; margin-left:27px; overflow-wrap:anywhere; }
+.focus-choice:has(input:checked) b { color:var(--olive); }
+.include-raid { display:flex; gap:8px; align-items:center; font-size:14px; }
+@media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } .focus-list { max-height:280px; } }
+</style>
+
+<div class="wrap">
+  <!--__SITE_NAV__-->
+  <header class="brief">
+    <span class="label" id="eyebrow"></span>
+    <h1 id="pageTitle"></h1>
+    <p id="lede"></p>
+    <p class="map-note" id="scopeSummary" style="overflow-wrap:anywhere"></p>
+    <div class="meta mono" id="meta"></div>
+    <p class="map-note" id="dataAge"></p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-plan" data-view="plan">Raid plan</button>
+    <button role="tab" id="tab-quests" data-view="quests">Quests</button>
+    <button role="tab" id="tab-gear" data-view="gear">Keys &amp; items</button>
+    <button role="tab" id="tab-ideas" data-view="ideas">Tool ideas</button>
+  </nav>
+
+  <section id="raidFocusPanel" class="focus-grid" aria-label="Choose quests for this raid">
+      <div class="mapbox">
+        <div class="raid-switch" id="raidSwitch" role="group" aria-label="Show route">
+          <button id="rs-all" data-r="all" aria-pressed="true">All routes</button>
+          <button id="rs-A" class="rA" data-r="A" aria-pressed="false">Raid A</button>
+          <button id="rs-B" class="rB" data-r="B" aria-pressed="false">Raid B</button>
+          <button id="rs-C" class="rC" data-r="C" aria-pressed="false">Raid C</button>
+        </div>
+        <p id="mapEmpty" class="notice" hidden></p><div id="map"></div>
+        <p class="map-note" id="mapNote"></p>
+        <p class="map-note" id="mapLocations"></p>
+      </div>
+
+    <aside class="focus-picker" aria-labelledby="focusTitle">
+      <div class="toolbar"><h2 id="focusTitle">This raid</h2><b id="focusCount" role="status"></b></div>
+      <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
+      <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
+      <div class="focus-list" id="focusList"></div>
+    </aside>
+  </section>
+
+  <!-- RAID PLAN -->
+  <section class="view" id="view-plan" role="tabpanel" aria-labelledby="tab-plan">
+    <div class="summary" id="summary"></div>
+    <div class="notice" id="notice"></div>
+    <div class="plan-grid">
+      <div id="raids" style="display:grid; gap:18px; min-width:0"></div>
+    </div>
+    <h2 id="repeatTitle">Every raid</h2>
+    <div class="repeat" id="repeat"></div>
+  </section>
+
+  <!-- QUESTS -->
+  <section class="view" id="view-quests" role="tabpanel" aria-labelledby="tab-quests" hidden>
+    <section class="tracker" aria-labelledby="trkTitle">
+      <div class="trk-head">
+        <span class="dot" id="trkDot" aria-hidden="true"></span>
+        <div class="trk-text">
+          <span class="label" id="trkTitle">Quest tracking from game logs</span>
+          <b id="trkState">Not connected</b>
+          <span class="trk-detail" id="trkDetail"></span>
+        </div>
+        <div class="trk-actions" id="trkActions"></div>
+      </div>
+      <label class="status-row" for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1" style="width:6em"></label>
+      <label for="progressScope">Profile and wipe <select id="progressScope" style="max-width:100%"></select></label>
+      <p class="map-note" id="scopeEvidence"></p>
+      <details><summary>Add a profile / wipe</summary>
+        <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
+          <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
+          <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
+          <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
+          <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
+          <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
+          <button class="btn" type="submit">Use this scope</button>
+          <span id="scopeError" role="status"></span>
+        </form>
+      </details>
+      <details><summary>Review log history and legacy progress</summary>
+        <p class="map-note" id="historyCounts"></p>
+        <div id="historyEvidence" style="overflow-wrap:anywhere"></div>
+        <button class="btn" type="button" id="legacyPreview">Preview legacy migration</button>
+        <div id="legacyReview"></div>
+      </details>
+      <details><summary>Confirm current quests on this map</summary>
+        <p class="map-note">Paste one quest name per line from your current in-game list. This replaces current membership on this map only. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
+        <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
+        <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
+        <span id="currentFeedback" role="status"></span>
+      </details>
+      <input type="file" id="trkImport" webkitdirectory multiple hidden>
+      <ol class="trk-events" id="trkEvents"></ol>
+      <p class="map-note">Logs record starts, failures and completions, not kills or hand-ins. Current quests uses only the chosen profile and wipe, or quests you confirm by hand. Missing profile or mode stays in history. Completed prerequisites are implied within this scope. The site reads only your chosen Logs folder and never writes to it.</p>
+    </section>
+    <div class="toolbar">
+      <span class="label" id="progress"></span>
+      <label class="status-row" for="questView">Show <select id="questView"><option value="current">Current quests</option><option value="selected">Selected only</option><option value="possible">Possible unlocks (estimates)</option><option value="all">All</option></select></label>
+      <span class="confirm" id="resetWrap">
+        <button class="btn" id="resetBtn" type="button">Reset checklist</button>
+      </span>
+    </div>
+    <div class="qgrid" id="qgrid"></div>
+    <p class="map-note" id="questEmpty" hidden>No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list. All lets you review and correct individual statuses.</p>
+    <p class="map-note" id="unlockNote" hidden>Possible unlocks are estimates from incomplete progression data. They do not prove a quest is offered in game.</p>
+    <p class="map-note">Your checkmarks are saved in this browser only.</p>
+  </section>
+
+  <!-- GEAR -->
+  <section class="view" id="view-gear" role="tabpanel" aria-labelledby="tab-gear" hidden>
+    <h2>What you need and where to get it</h2>
+    <div class="acq" id="acq"></div>
+    <h2 id="fleaTitle"></h2>
+    <div class="tablewrap"><table id="flea"><thead><tr><th id="fleaCol">Category</th><th>Unlocks</th><th>You</th><th>What it means here</th></tr></thead><tbody></tbody></table></div>
+    <p class="map-note" id="fleaNote"></p>
+  </section>
+
+  <!-- IDEAS -->
+  <section class="view ideas" id="view-ideas" role="tabpanel" aria-labelledby="tab-ideas" hidden>
+    <div style="display:grid; gap:10px">
+      <span class="label">Turning this into a tool</span>
+      <h2>Tarkov raid planner</h2>
+      <p class="lede">Connect your EFT Logs folder, and the site shows which quests you can do on each map right now, plans the raids, and tells you what to bring and what to keep. Data comes from tarkov.dev and the wiki. Your progress comes from the game's own logs, read only from your computer.</p>
+    </div>
+
+    <div class="flow" aria-label="Pipeline diagram">
+      <svg viewBox="0 0 960 200" role="img" aria-labelledby="flowT">
+        <title id="flowT">Pipeline: inputs to data to planner to outputs</title>
+        <g font-family="IBM Plex Mono, monospace" font-size="12">
+          <g id="flowBoxes"></g>
+        </g>
+      </svg>
+    </div>
+
+    <div style="display:grid; gap:12px">
+      <h3>Built</h3>
+      <div class="idea-grid">
+        <div class="idea"><span class="label">Data · every map</span><h3>tarkov.dev pipeline</h3><p>Every map's quests, objective spots, keys and items (with trader, barter, craft and flea-level sources), bosses and extracts. Refreshed from a dated snapshot that also works offline.</p></div>
+        <div class="idea"><span class="label">Progress</span><h3>Quest status from game logs</h3><p>Live watching of the Logs folder in Chrome or Edge, a scan of past sessions, a one-time import elsewhere, and manual edits. Tested against 45 real sessions.</p></div>
+        <div class="idea"><span class="label">Plan</span><h3>Customs raid plan</h3><p>Three hand-built raids with routes, what to bring and flea locks. It's the reference the raid bundler is tested against.</p></div>
+      </div>
+    </div>
+
+    <div style="display:grid; gap:12px">
+      <h3>Roadmap, in order of payoff</h3>
+      <div class="roadmap">
+        <div><span class="label">M1 · built</span><b>Only quests you can do now</b><ul><li>Progression tree: wiki + tarkov.dev</li><li>Hide completed and locked quests by default</li><li>Fill in prerequisites from later quests</li></ul></div>
+        <div><span class="label">M2</span><b>Ship it on https</b><ul><li>Front door with available quests per map</li><li>PvP and PvE</li><li>Hosting plus a daily data refresh</li></ul></div>
+        <div><span class="label">M3</span><b>Raid bundler</b><ul><li>Group available quests into raids</li><li>Key-gated raids kept separate</li><li>Tested against the Customs plan</li></ul></div>
+        <div><span class="label">M4–M5</span><b>Real maps, keep list</b><ul><li>tarkov.dev map art (license check)</li><li>FIR items to keep for your quests</li></ul></div>
+      </div>
+      <p class="map-note">Dropped: screenshot import and TarkovTracker as the main input, since the logs cover both; the wiki as the main data source; hand-built plans for each map. Later, once people are using it: squads, TarkovTracker sync, boss and ammo briefs, an in-raid second screen, ask-the-planner, and a paid tier.</p>
+    </div>
+
+    <div style="display:grid; gap:8px">
+      <h3>Things to get right early</h3>
+      <div class="idea-grid">
+        <div class="idea"><b>Patches break data</b><p>Quest text, givers and spawns change between wipes. Version the snapshot and show the "verified on" date next to every fact.</p></div>
+        <div class="idea"><b>Licensing</b><p>Fandom text is CC BY-SA and needs attribution. The community map images carry their own licenses (re3mr's are CC BY-NC-SA). Link to them or draw your own schematics, as this page does.</p></div>
+        <div class="idea"><b>Stay outside the game</b><p>Read only the Logs folder the user picks, plus public data. Never read game memory or network traffic, and never automate the client.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="src" id="sources" style="margin-top:34px"></footer>
+</div>
+
+<script>/*__TRACKER__*/</script>
+<script>/*__PROGRESS__*/</script>
+<script>/*__STORE__*/</script>
+<script>/*__FOCUS__*/</script>
+<script>
+const DATA = /*__DATA__*/null;
+let STORE_KEY = "", state = {};
+const RAID_COLORS = { A: "var(--olive)", B: "var(--steel)", C: "var(--signal)" };
+
+function save() { if (STORE_KEY) try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const qById = Object.fromEntries(DATA.quests.map(q => [q.id, q]));
+const exById = Object.fromEntries(DATA.extracts.map(e => [e.id, e]));
+
+/* ---------- header + summary ---------- */
+// Hand-built plans carry raids and their own copy; generated map files only carry data.
+const P = DATA.meta.player || {};
+const PAGE_MODE = DATA.meta.gameMode || "regular";
+/*__THEME__*/
+let LEVEL_KEY = "";
+let LEVEL = P.level ?? 1;
+let visibleQuests = [], currentQuests = [], selectedIds = [];
+let focus;
+const PLANNED = DATA.raids.length > 0;
+const MAP = DATA.meta.map;
+const setText = (id, text) => { document.getElementById(id).textContent = text; };
+document.title = `${MAP} ${PAGE_MODE === "pve" ? "PvE" : "PvP"} Raid Plan`;
+setText("eyebrow", ["Field brief", MAP, P.faction, LEVEL && `PMC ${LEVEL}`].filter(Boolean).join(" · "));
+setText("pageTitle", `${MAP} Raid Plan`);
+setText("dataAge", `${PAGE_MODE === "pve" ? "PvE" : "PvP"} data · ${DATA.meta.snapshot ? (Date.now() - Date.parse(DATA.meta.snapshot) > 86400000 ? "Snapshot more than a day old" : "Snapshot less than a day old") : "Hand-built reference; see source dates"}`);
+setText("lede", PLANNED ? "Choose current quests for this raid. The hand-built plan keeps its original stop order and shows only selected objectives." : "Choose current quests to focus the map, objective locations, and gear for one raid.");
+document.getElementById("meta").innerHTML = [
+  P.client && ["client", P.client], ["in map data", DATA.quests.length], ["built", DATA.meta.generated],
+  DATA.meta.snapshot && ["data", DATA.meta.snapshot.slice(0, 10)]
+].filter(Boolean).map(([k, v]) => `<span>${k} <b>${esc(v)}</b></span>`).join("");
+
+const fleaOpen = a => a.fleaLevel != null && LEVEL != null && a.fleaLevel <= LEVEL;
+function renderSummary() {
+  const visibleIds = new Set(focus.quests.map(q => q.id));
+  const reqKeys = DATA.acquisition.filter(a => a.kind === "key" && a.required && a.for.some(id => visibleIds.has(id)));
+  document.getElementById("summary").innerHTML = [
+    ["Selected quests", focus.quests.length, ""],
+    ["Objective spots", focus.zones.length, ""],
+    ["Keys required", reqKeys.length, "warn"],
+    ["Flea-buyable keys", LEVEL == null ? "–" : reqKeys.filter(fleaOpen).length, "warn"]
+  ].map(([l, n, c]) => `<div class="${c}"><span class="label">${l}</span><span class="n">${n}</span></div>`).join("");
+
+  const notice = document.getElementById("notice");
+  if (LEVEL == null) {
+    notice.innerHTML = `<span class="label">Flea locks</span><p>Enter your player level in the tracker panel to check flea locks.</p>`;
+  } else {
+    const locked = reqKeys.filter(a => !fleaOpen(a));
+    notice.innerHTML = locked.length
+      ? `<span class="label">Level ${LEVEL} flea lock</span><p>${locked.length} of ${reqKeys.length} required keys can't be bought on the flea at your level: ${locked.map(a => esc(a.item)).join(", ")}. The Keys &amp; items tab lists trader, barter and craft sources.</p>`
+      : `<span class="label">Level ${LEVEL} flea</span><p>${reqKeys.length ? "Every required key for the selected quests is on the flea at your level." : "No required keys for the selected quests."}</p>`;
+  }
+}
+
+setText("mapNote", DATA.meta.mapNote || "Schematic built from tarkov.dev positions. North is up. Dots are objective spots and green squares are PMC extracts and transits.");
+
+/* ---------- map ---------- */
+function mapSVG(active) {
+  const z = DATA.zones;
+  const F = DATA.meta.frame || { w: 1000, h: 520 };
+  let s = `<svg viewBox="0 0 ${F.w} ${F.h}" role="img" aria-label="Schematic map of ${esc(MAP)} with objective spots and raid routes">`;
+  if (DATA.meta.frame) {
+    s += `<rect x="0" y="0" width="${F.w}" height="${F.h}" fill="var(--map-land)" stroke="var(--line)" stroke-width="2"/>`;
+  } else {
+    // Hand-drawn Customs outline, river, roads and rail for the hand-built plan.
+    const land = "12,110 318,104 334,70 452,8 612,30 636,112 700,104 712,40 990,30 990,300 800,300 772,320 760,505 300,505 12,480";
+    s += `<polygon points="${land}" fill="var(--map-land)" stroke="var(--line)" stroke-width="2"/>
+  <path d="M716 20 C735 120 760 170 748 240 C738 300 770 360 752 430 L740 520 L716 520 C726 440 704 360 716 300 C728 230 702 150 700 20 Z" fill="var(--map-water)"/>
+  <polyline points="14,250 640,252 652,268 700,110" fill="none" stroke="var(--map-road)" stroke-width="9" stroke-linecap="round"/>
+  <polyline points="652,268 980,200" fill="none" stroke="var(--map-road)" stroke-width="9" stroke-linecap="round"/>
+  <polyline points="480,252 478,470" fill="none" stroke="var(--map-road)" stroke-width="7" stroke-linecap="round"/>
+  <line x1="206" y1="512" x2="472" y2="14" stroke="var(--map-rail)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="742" y="470" font-size="12" fill="var(--muted)" font-family="IBM Plex Mono, monospace" transform="rotate(-80 742 470)">river</text>`;
+  }
+  const visibleZones = new Set(focus.zones);
+  // zones
+  for (const [id, p] of Object.entries(z)) {
+    if (!visibleZones.has(id)) continue;
+    s += `<g data-zone="${esc(id)}"><circle cx="${p.x}" cy="${p.y}" r="7" fill="var(--olive)" stroke="var(--panel)" stroke-width="1.5"/>
+      <text x="${p.x + 7}" y="${p.y - 6}" font-size="11.5" fill="var(--ink)" font-family="Barlow, sans-serif">${esc(p.name.replace(/ \(.*\)$/, ""))}</text></g>`;
+  }
+  // extracts
+  for (const e of DATA.extracts) {
+    if (e.x == null || e.faction === "scav") continue;
+    s += `<g><rect x="${e.x - 6}" y="${e.y - 6}" width="12" height="12" fill="var(--panel)" stroke="var(--ok)" stroke-width="2.5"/>
+      <text x="${e.x + 9}" y="${e.y + 16}" font-size="11" fill="var(--ok)" font-family="IBM Plex Mono, monospace">${esc(e.name)}</text></g>`;
+  }
+  // routes
+  for (const r of focus.raids) {
+    const show = active === "all" || active === r.id;
+    const stops = r.stops;
+    if (!stops.length) continue;
+    const pts = stops.map(st => z[st.zone]).concat([exById[r.extract[0]]]).filter(Boolean);
+    const col = RAID_COLORS[r.id];
+    s += `<g class="route" opacity="${show ? 1 : 0.08}">
+      <polyline points="${pts.map(p => p.x + "," + p.y).join(" ")}" fill="none" stroke="${col}" stroke-width="3" stroke-dasharray="${r.id === "B" ? "8 5" : r.id === "C" ? "2 5" : "0"}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    stops.forEach((st, i) => {
+      const p = z[st.zone];
+      const off = r.id === "B" ? -14 : r.id === "C" ? 14 : 0;
+      s += `<circle cx="${p.x + off}" cy="${p.y + 14}" r="9" fill="${col}"/>
+        <text x="${p.x + off}" y="${p.y + 18}" font-size="11" text-anchor="middle" fill="var(--panel)" font-family="IBM Plex Mono, monospace" font-weight="600">${i + 1}</text>`;
+    });
+    s += `</g>`;
+  }
+  return s + `</svg>`;
+}
+function setRoute(r) {
+  currentRoute = r;
+  document.getElementById("map").innerHTML = mapSVG(r);
+  document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === r)));
+}
+document.getElementById("raidSwitch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setRoute(b.dataset.r); });
+document.getElementById("raidSwitch").hidden = !PLANNED;
+let currentRoute = "all";
+
+/* ---------- raids ---------- */
+function needText(n) { return `${n.qty || 1} × ${n.item}${n.optional ? " (optional)" : ""}`; }
+function renderRaids() {
+  document.getElementById("raids").innerHTML = !focus.quests.length
+    ? `<p class="notice">No quests selected. Include a current quest above to build your raid focus.</p>`
+    : `<article class="raid A"><h2>Bring for this raid</h2><div class="chips">${focus.bring.map(n => `<span class="chip ${n.kind === "key" ? "key" : ""}" title="${esc(n.for.map(id => qById[id].name).join(", "))}">${esc(needText(n))}</span>`).join("") || "No keys or items listed for this selection."}</div><p class="map-note">Quantities are the listed quest requirements; check your remaining objectives before packing.</p></article>` +
+    (!PLANNED ? `<div class="notice"><span class="label">Manual raid focus</span><p>The map shows your selected quests. Routes for this map have not been planned.</p></div>` :
+      `<p class="map-note">Filtered hand-built plan: original stop order, with selected objectives only. This route has not been optimized for your selection. Optional key-hunt detours are omitted; see Keys &amp; items for sources.</p>` + focus.raids.map(r => `
+      <article class="raid ${r.id}"><div class="head"><span class="tag">RAID ${r.id}</span><h3>${esc(r.name)}</h3></div>
+      <div class="chips">${r.quests.map(id => `<span class="chip">${esc(qById[id].name)}</span>`).join("")}</div>
+      ${r.stops.length ? `<ol>${r.stops.map(st => `<li><div><b>${esc(DATA.zones[st.zone].name)}</b><ul>${st.objectives.map(o => `<li style="display:list-item">${esc(o.text)}${o.mustExtract ? " · Extract required" : ""}</li>`).join("")}</ul></div></li>`).join("")}</ol>` : `<p class="map-note">No fixed stops for these quests on this route.</p>`}
+      <div class="chips">${r.extract.map(id => `<span class="chip ex">${esc(exById[id].name)} · ${esc(exById[id].rule)}</span>`).join("")}</div></article>`).join(""));
+  setText("repeatTitle", "Selected quest objectives");
+  document.getElementById("repeat").innerHTML = focus.quests.map(q => `<div><h3>${esc(q.name)}</h3>${q.objectives.map(o => `<p>${esc(o.text)}${o.mustExtract || o.type === "extract" ? " · Extract required" : ""}</p>`).join("")}</div>`).join("");
+  document.getElementById("repeatTitle").hidden = !focus.quests.length;
+  document.querySelectorAll("#raidSwitch button").forEach(b => { b.hidden = b.dataset.r !== "all" && !focus.raids.some(r => r.id === b.dataset.r); });
+  if (currentRoute !== "all" && !focus.raids.some(r => r.id === currentRoute)) currentRoute = "all";
+}
+
+/* ---------- quest status (from game logs or set by hand) ---------- */
+// The mode-only store is read-only legacy evidence. Current progress requires an explicit scope.
+let progressStore;
+try { progressStore = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY)); } catch (e) {}
+if (!progressStore || progressStore.version !== 2) progressStore = ProgressStore.empty();
+let legacyStatus;
+try { legacyStatus = JSON.parse(localStorage.getItem(`eft-quest-status:${PAGE_MODE}`)); } catch (e) {}
+const STATUS_LABEL = { started: "Started", completed: "Completed", failed: "Failed" };
+let scopeKey = progressStore.active[PAGE_MODE] || "";
+let questStatus = ProgressStore.derive(progressStore, scopeKey);
+const activeScope = () => progressStore.scopes[scopeKey];
+function saveStatus() { try { localStorage.setItem(ProgressStore.STORAGE_KEY, JSON.stringify(progressStore)); } catch (e) {} }
+const bsgId = q => q.bsgId || q.id;
+const questName = id => DATA.taskNames?.[id] || DATA.quests.find(q => bsgId(q) === id)?.name || id;
+let questView = "current";
+let progressResult;
+
+function renderFocus() {
+  const previous = JSON.stringify(activeScope()?.raidFocus?.[MAP]);
+  selectedIds = RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId));
+  if (JSON.stringify(activeScope()?.raidFocus?.[MAP]) !== previous) saveStatus();
+  focus = RaidFocus.project(DATA, selectedIds);
+  setText("mapLocations", focus.zones.length ? "Selected locations: " + focus.zones.map(id => DATA.zones[id].name).join(" · ") : focus.quests.length ? "No fixed locations listed for these quests; see the objectives below." : "");
+  setText("focusCount", `${selectedIds.length} selected / ${currentQuests.length} current`);
+  document.getElementById("focusList").innerHTML = currentQuests.map(q => {
+    const f = RaidFocus.facts(q);
+    return `<div class="focus-choice"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}"><b>${esc(q.name)}</b></label>
+      <p class="focus-facts">${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
+  }).join("") || `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
+  document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
+  document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
+  setText("mapEmpty", "No quests selected. Include quests in This raid to show their locations and gear. Green squares are extracts.");
+}
+function changeFocus(action, id) {
+  if (!activeScope()) return;
+  RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId), action, id);
+  saveStatus(); renderQuests();
+}
+document.getElementById("raidFocusPanel").addEventListener("change", e => {
+  if (e.target.dataset.focus) changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus);
+});
+document.getElementById("raidFocusPanel").addEventListener("click", e => {
+  const action = e.target.closest("[data-focus-action]")?.dataset.focusAction;
+  if (action) changeFocus(action);
+});
+document.getElementById("showSelected").addEventListener("click", () => {
+  questView = "selected"; document.getElementById("questView").value = questView;
+  renderQuests(); show("quests"); document.getElementById("questView").scrollIntoView({ block:"center" });
+});
+
+function loadScopedPreferences() {
+  STORE_KEY = scopeKey ? `eft-checklist:${scopeKey}:${MAP}` : "";
+  LEVEL_KEY = scopeKey ? `eft-player-level:${scopeKey}` : "";
+  state = {}; LEVEL = P.level ?? 1;
+  if (scopeKey) try {
+    state = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+    const saved = Number(localStorage.getItem(LEVEL_KEY));
+    if (Number.isInteger(saved) && saved >= 1 && saved <= 100) LEVEL = saved;
+  } catch (e) {}
+  document.getElementById("playerLevel").value = LEVEL;
+  setText("eyebrow", ["Field brief", MAP, P.faction, `PMC ${LEVEL}`].filter(Boolean).join(" · "));
+}
+function refreshScope() {
+  questStatus = ProgressStore.derive(progressStore, scopeKey);
+  renderScope(); renderQuests(); renderEvents();
+}
+function renderScope() {
+  document.getElementById("progressScope").innerHTML = `<option value="">Choose a profile and wipe</option>` +
+    Object.entries(progressStore.scopes).filter(([, s]) => s.mode === PAGE_MODE).map(([key, s]) =>
+      `<option value="${esc(key)}" ${key === scopeKey ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)} · ${s.mode === "pve" ? "PvE" : "PvP"}</option>`).join("");
+  const scope = ProgressStore.windowFor(progressStore, scopeKey);
+  const evidence = scope ? `${scope.label} · ${scope.mode === "pve" ? "PvE" : "PvP"} · ${scope.profile} · ${scope.start === null ? "Wipe boundary unconfirmed; manual quests only" : "Events since " + new Date(scope.start).toLocaleString() + (scope.end === null ? "" : " until next confirmed wipe " + new Date(scope.end).toLocaleString())} · ${scope.evidence}` : "No scope selected. Older progress is preserved as history and is not current-wipe evidence.";
+  setText("scopeEvidence", evidence);
+  setText("scopeSummary", scope ? `${scope.label} · ${scope.mode === "pve" ? "PvE" : "PvP"} · ${scope.start === null ? "Manual current list; wipe date unconfirmed" : "Confirmed wipe scope"}` : evidence);
+  const counts = ProgressStore.historyCounts(progressStore, scopeKey, legacyStatus);
+  setText("historyCounts", `${counts.included} events in this scope · ${counts.excluded} earlier, other-profile/mode or unidentified events in history · ${counts.unscoped} legacy quest statuses`);
+  const groups = new Map();
+  for (const { event, meta } of Object.values(progressStore.journal)) {
+    const key = JSON.stringify([meta.profileId, meta.mode, meta.identityConflict]);
+    const g = groups.get(key) || { ...meta, count: 0, first: event.at, last: event.at };
+    g.count++; g.first = Math.min(g.first, event.at); g.last = Math.max(g.last, event.at); groups.set(key, g);
+  }
+  document.getElementById("historyEvidence").innerHTML = [...groups.values()].map(g => `<p class="map-note">${esc(g.profileId || "Profile unknown")} · ${esc(g.mode || "Mode unknown")} ${g.identityConflict ? "(mixed identities; excluded)" : ""} · ${g.count} events · ${esc(fmtWhen(g.first))} – ${esc(fmtWhen(g.last))}</p>`).join("") || `<p class="map-note">Scan or import logs to inspect profile IDs and event dates. No boundary is chosen automatically.</p>`;
+  document.getElementById("confirmCurrent").disabled = !scope;
+  document.getElementById("legacyReview").innerHTML = "";
+}
+document.getElementById("progressScope").addEventListener("change", e => {
+  scopeKey = e.target.value; progressStore.active[PAGE_MODE] = scopeKey;
+  saveStatus(); loadScopedPreferences(); refreshScope();
+});
+document.getElementById("scopeForm").addEventListener("submit", e => {
+  e.preventDefault();
+  try {
+    const time = document.getElementById("scopeStart").value;
+    scopeKey = ProgressStore.createScope(progressStore, { profile: document.getElementById("scopeProfile").value,
+      mode: PAGE_MODE, label: document.getElementById("scopeLabel").value, start: time ? new Date(time).getTime() : null,
+      evidence: document.getElementById("scopeSource").value.trim() || (time ? "Start confirmed by player" : "Player-confirmed current list; boundary not established") });
+    saveStatus(); loadScopedPreferences(); refreshScope(); setText("scopeError", "Scope selected.");
+  } catch (err) { setText("scopeError", err.message); }
+});
+document.getElementById("confirmCurrent").addEventListener("click", () => {
+  const tasks = DATA.quests.filter(q => !DATA.progression[bsgId(q)].faction || DATA.progression[bsgId(q)].faction === "Any" || DATA.progression[bsgId(q)].faction === P.faction);
+  const result = ProgressStore.resolveNames(document.getElementById("currentNames").value, tasks);
+  if (result.errors.length) { setText("currentFeedback", result.errors.join(" · ")); return; }
+  ProgressStore.confirmCurrent(progressStore, scopeKey, tasks.map(bsgId), result.ids, Date.now(), MAP);
+  saveStatus(); refreshScope(); setText("currentFeedback", `${result.ids.length} current quests confirmed for ${MAP}.`);
+});
+document.getElementById("legacyPreview").addEventListener("click", () => {
+  const preview = ProgressStore.previewLegacy(legacyStatus, ProgressStore.windowFor(progressStore, scopeKey));
+  document.getElementById("legacyReview").innerHTML = `<p class="map-note">${preview.total} legacy statuses are preserved. ${preview.eligible.length} have timestamps within this boundary. They have no reliable profile/wipe identity: review every entry before confirming.</p>` +
+    preview.eligible.map(id => `<p class="map-note">${esc(questName(id))} · ${esc(legacyStatus.statuses[id].status)} · ${esc(fmtWhen(legacyStatus.statuses[id].at))}</p>`).join("") +
+    (preview.eligible.length ? `<button class="btn" id="legacyConfirm" type="button">Confirm reviewed entries belong to this scope</button>` : "");
+});
+document.getElementById("legacyReview").addEventListener("click", e => {
+  if (e.target.id !== "legacyConfirm") return;
+  ProgressStore.migrateLegacy(progressStore, scopeKey, legacyStatus); saveStatus(); refreshScope();
+});
+window.addEventListener("storage", e => {
+  if (e.key !== ProgressStore.STORAGE_KEY || !e.newValue) return;
+  try {
+    const next = JSON.parse(e.newValue); if (next.version !== 2) return;
+    progressStore = next; scopeKey = next.active[PAGE_MODE] || ""; loadScopedPreferences(); refreshScope();
+  } catch (err) {}
+});
+loadScopedPreferences();
+document.getElementById("questView").addEventListener("change", e => {
+  questView = e.target.value; renderQuests();
+});
+document.getElementById("playerLevel").value = LEVEL;
+function updatePlayerLevel(e) {
+  const value = Number(e.target.value);
+  if (!Number.isInteger(value) || value < 1 || value > 100) {
+    if (e.type === "change") e.target.value = LEVEL;
+    return;
+  }
+  LEVEL = value;
+  if (LEVEL_KEY) try { localStorage.setItem(LEVEL_KEY, String(LEVEL)); } catch (err) {}
+  setText("eyebrow", ["Field brief", MAP, P.faction, `PMC ${LEVEL}`].filter(Boolean).join(" · "));
+  renderQuests();
+}
+document.getElementById("playerLevel").addEventListener("input", updatePlayerLevel);
+document.getElementById("playerLevel").addEventListener("change", updatePlayerLevel);
+function lockReason(reason) {
+  if (reason.type === "unresolved") return `prerequisite needs review: ${reason.name}`;
+  if (reason.type === "anyOf") return "needs either " + reason.requirements.map(r => `${questName(r.task)} ${r.statuses.join(" or ")}`).join(" / ");
+  if (reason.type === "level") return `needs level ${reason.level}`;
+  if (reason.type === "faction") return `${reason.faction} only`;
+  if (reason.type === "failed") return "failed; cannot restart";
+  return `needs ${questName(reason.task)} ${reason.statuses.join(" or ")}`;
+}
+
+/* ---------- quests checklist ---------- */
+function objDone(o) { return o.count ? (state[o.id] || 0) >= o.count : !!state[o.id]; }
+function renderQuests() {
+  progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP });
+  currentQuests = DATA.quests.filter(q => progressResult.quests[bsgId(q)].current);
+  renderFocus();
+  visibleQuests = questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
+  let total = 0, done = 0, completedCount = 0, lockedCount = 0;
+  document.getElementById("qgrid").innerHTML = DATA.quests.map(q => {
+    const req = q.objectives.filter(o => !o.optional);
+    const progress = progressResult.quests[bsgId(q)];
+    const st = progress.status;
+    const qDone = st === "completed" || (req.length > 0 && req.every(objDone));
+    total += req.length; done += req.filter(objDone).length;
+    if (st === "completed") completedCount++;
+    if (progress.locked && !progress.current) lockedCount++;
+    if (!visibleQuests.includes(q)) return "";
+    const src = (progress.current ? questStatus.statuses[bsgId(q)] : progressResult.statuses[bsgId(q)])?.source;
+    return `<article class="quest ${qDone ? "done" : ""}">
+      <div class="top"><h3>${esc(q.name)}</h3><span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span></div>
+      <div class="who"><span class="pill">${esc(q.trader)}</span>${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
+        ${q.needs.filter(n => n.kind === "key").map(n => `<span class="chip key">${esc(n.item)}</span>`).join("")}</div>
+      ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
+      ${st === "started" && !progress.current ? `<p class="map-note">Earlier start; excluded from your confirmed current list.</p>` : ""}
+      ${(DATA.progression[bsgId(q)].traderRequirements || []).map(r => `<p class="map-note">needs ${esc(r.trader)} ${r.type === "level" ? "LL" : esc(r.type) + " "}${esc(r.value)}</p>`).join("")}
+      ${progress.current ? `<label class="include-raid"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""}>Include this raid</label>` : ""}
+      <div class="status-row">
+        <label for="st-${q.id}" class="label">Status</label>
+        <select id="st-${q.id}" data-quest="${esc(bsgId(q))}">
+          ${["", "started", "completed", "failed"].map(v => `<option value="${v}" ${v === (st === "not-started" ? "" : st) ? "selected" : ""}>${v === "completed" && progress.inferred ? "completed (implied)" : v ? STATUS_LABEL[v] : "Not started"}</option>`).join("")}
+          ${src === "manual" ? `<option value="auto">Clear manual status</option>` : ""}
+        </select>
+        ${src ? `<span class="qst ${st}">${src === "inferred" ? "completed (implied)" : src === "log" ? "from game log" : "set by hand"}</span>` : ""}
+      </div>
+      <ul class="obj">${q.objectives.map(o => o.count ? `
+        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="cb-${o.id}" ${objDone(o) ? "checked" : ""} disabled aria-label="Counter complete">
+          <span>${esc(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
+        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="cb-${o.id}" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}>
+          <label for="cb-${o.id}"><span>${esc(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>
+      ${q.tips.length ? `<ul class="tips">${q.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+      <div class="foot"><span>${esc(q.reward)}</span><a href="${esc(q.wiki)}" target="_blank" rel="noopener">Wiki ↗</a></div>
+    </article>`;
+  }).join("");
+  const currentCount = DATA.quests.filter(q => progressResult.quests[bsgId(q)].current).length;
+  const possibleCount = DATA.quests.filter(q => progressResult.quests[bsgId(q)].possible).length;
+  const history = ProgressStore.historyCounts(progressStore, scopeKey, legacyStatus);
+  const earlierStarts = DATA.quests.filter(q => questStatus.statuses[bsgId(q)]?.status === "started" && !progressResult.quests[bsgId(q)].current).length;
+  document.getElementById("progress").textContent =
+    `${visibleQuests.length} shown · ${selectedIds.length} selected / ${currentCount} current · ${possibleCount} possible unlocks (estimates) · ${completedCount} completed · ${lockedCount} locked · ${earlierStarts} earlier starts outside current list · ${history.excluded} historical events / ${history.unscoped} unscoped statuses`;
+  document.getElementById("questEmpty").hidden = visibleQuests.length > 0;
+  setText("questEmpty", questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
+  document.getElementById("unlockNote").hidden = questView !== "possible";
+  renderRaids();
+  setRoute(currentRoute);
+  renderGear();
+  renderSummary();
+}
+document.getElementById("qgrid").addEventListener("change", e => {
+  if (e.target.dataset.focus) { changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus); return; }
+  if (e.target.dataset.quest) {
+    if (!activeScope()) { setText("scopeEvidence", "Choose a profile and wipe before editing progress."); renderQuests(); return; }
+    ProgressStore.setManual(progressStore, scopeKey, e.target.dataset.quest, e.target.value === "auto" ? null : e.target.value || "not-started");
+    saveStatus(); refreshScope();
+    return;
+  }
+  const id = e.target.dataset.obj; if (!id) return;
+  state[id] = e.target.checked; save(); renderQuests();
+});
+document.getElementById("qgrid").addEventListener("click", e => {
+  const inc = e.target.dataset.inc, dec = e.target.dataset.dec; if (!inc && !dec) return;
+  const id = inc || dec;
+  const o = DATA.quests.flatMap(q => q.objectives).find(x => x.id === id);
+  state[id] = Math.max(0, Math.min(o.count, (state[id] || 0) + (inc ? 1 : -1))); save(); renderQuests();
+});
+const resetWrap = document.getElementById("resetWrap");
+resetWrap.addEventListener("click", e => {
+  if (e.target.id === "resetBtn") {
+    resetWrap.innerHTML = `<span>Clear all checkmarks?</span><button class="btn" id="resetYes" type="button">Clear</button><button class="btn" id="resetNo" type="button">Keep</button>`;
+  } else if (e.target.id === "resetYes" || e.target.id === "resetNo") {
+    if (e.target.id === "resetYes") { for (const k of Object.keys(state)) delete state[k]; save(); renderQuests(); }
+    resetWrap.innerHTML = `<button class="btn" id="resetBtn" type="button">Reset checklist</button>`;
+  }
+});
+/* ---------- log tracking UI ---------- */
+const trk = { skipped: 0, note: "", fallback: false };
+const STATE_TEXT = {
+  unsupported: "Live tracking isn't available here", "not-connected": "Not connected",
+  "needs-permission": "Logs folder needs permission again", waiting: "Waiting for game", watching: "Watching", error: "Stopped",
+};
+const ACTIONS = {
+  unsupported: [["import", "Import logs folder", true]],
+  "not-connected": [["connect", "Connect logs folder", true]],
+  "needs-permission": [["reconnect", "Reconnect logs folder", true]],
+  waiting: [["scan", "Scan past sessions"], ["connect", "Change folder"]],
+  watching: [["scan", "Scan past sessions"], ["connect", "Change folder"]],
+  error: [["reconnect", "Reconnect logs folder", true], ["connect", "Choose folder"]],
+};
+const watcher = new EftLogs.LogWatcher({ onEvents: handleEvents, onStatus: () => renderTracker() });
+
+function handleEvents(events, meta) {
+  ProgressStore.ingest(progressStore, events, meta);
+  saveStatus(); refreshScope();
+}
+function fmtWhen(ms) {
+  const d = new Date(ms);
+  return `${d.toLocaleDateString(undefined, { month: "short", day: "numeric" })} ${d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}`;
+}
+function renderEvents() {
+  document.getElementById("trkEvents").innerHTML = questStatus.recent.slice(0, 6).map(r =>
+    `<li><time>${fmtWhen(r.at)}</time><span class="qst ${r.status}">${STATUS_LABEL[r.status]}</span><span>${esc(questName(r.questId))}</span></li>`).join("");
+}
+function renderTracker() {
+  const s = watcher.status;
+  const state = trk.fallback ? "unsupported" : s.state;
+  document.getElementById("trkDot").dataset.state = state;
+  setText("trkState", state === "watching" ? `Watching ${s.folder}` : STATE_TEXT[state] || state);
+  const bits = [];
+  if (state === "unsupported") bits.push("Live tracking needs Chrome or Edge, opened over https or localhost. Import reads the folder once.");
+  if (s.detail && !trk.fallback) bits.push(s.detail);
+  if (state === "needs-permission" && s.folder) bits.push(`Folder: ${s.folder}`);
+  if (s.mode && !trk.fallback) bits.push(`${s.mode === "pve" ? "PvE" : "PvP"} session`);
+  if (s.lastRead && state === "watching") bits.push(`last update ${new Date(s.lastRead).toLocaleTimeString()}`);
+  if (trk.skipped) bits.push(`${trk.skipped} events from ${PAGE_MODE === "pve" ? "PvP" : "PvE"} sessions skipped`);
+  if (trk.note) bits.push(trk.note);
+  setText("trkDetail", bits.join(" · "));
+  const actions = [...(ACTIONS[state] || [])];
+  if (!actions.some(([act]) => act === "import")) actions.push(["import", "Import logs folder"]);
+  document.getElementById("trkActions").innerHTML = actions.map(([act, label, primary]) =>
+    `<button class="btn${primary ? " primary" : ""}" type="button" id="trk-${act}" data-act="${act}">${label}</button>`).join("");
+}
+document.getElementById("trkActions").addEventListener("click", async e => {
+  const act = e.target.closest("button")?.dataset.act;
+  if (!act) return;
+  trk.note = "";
+  try {
+    if (act === "import") return document.getElementById("trkImport").click();
+    if (act === "connect") await watcher.connect();          // the picker opens inside this click
+    if (act === "reconnect") await watcher.reconnect();      // so does the permission prompt
+    if (act === "scan") {
+      trk.note = "Scanning past sessions…"; renderTracker();
+      const r = await watcher.scanPast();
+      trk.note = `Scanned ${r.sessions} sessions, ${r.events} quest events`;
+    }
+  } catch (err) {
+    if (err.name === "AbortError") return; // closed the picker
+    if (err.name === "SecurityError") {
+      trk.fallback = true; // e.g. inside an embedded frame that may not open folders
+      trk.note = "This page can't open folders where it's running. Import the folder instead, or open the page from localhost.";
+    } else trk.note = err.message;
+  }
+  renderTracker();
+});
+document.getElementById("trkImport").addEventListener("change", async e => {
+  if (!e.target.files.length) return;
+  trk.note = "Reading logs…"; renderTracker();
+  try {
+    const r = await EftLogs.importFileList(e.target.files, handleEvents);
+    trk.note = r.sessions ? `Imported ${r.events} quest events from ${r.sessions} sessions` : "No log_… session folders found. Pick the Logs folder inside your EFT install.";
+  } catch (err) { trk.note = err.message; }
+  e.target.value = "";
+  renderTracker();
+});
+renderScope();
+renderEvents();
+renderTracker();
+watcher.restore().catch(err => { trk.note = err.message; renderTracker(); });
+
+/* ---------- gear ---------- */
+function renderGear() {
+const visibleIds = new Set(focus.quests.map(q => q.id));
+const acquisition = focus.acquisition;
+document.getElementById("acq").innerHTML = acquisition.map(a => `
+  <div class="card ${a.required && a.kind === "key" ? "req" : ""}">
+    <div class="top" style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">
+      <h3>${esc(a.item)}</h3><span class="pill">${a.required ? "required" : "optional"}</span></div>
+    <span class="label">For ${a.for.filter(id => visibleIds.has(id)).map(id => esc(qById[id].name)).join(", ")} · flea: ${esc(a.flea)}</span>
+    <ul>${a.sources.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+  </div>`).join("") || `<p class="map-note">No keys or items needed for the selected quests.</p>`;
+document.getElementById("flea").parentElement.hidden = acquisition.length === 0;
+setText("fleaTitle", LEVEL == null ? "Flea market" : `Flea market at level ${LEVEL}`);
+if (DATA.fleaGating) {
+  document.querySelector("#flea tbody").innerHTML = DATA.fleaGating.map(f => ({ ...f, status: LEVEL >= f.level ? "open" : "locked", impact: LEVEL >= f.level ? "Open at your level." : `Needs level ${f.level}.` })).map(f => `
+    <tr><td>${esc(f.category)}</td><td class="lvl">${f.level}${f.level === 35 ? "–40" : ""}</td>
+    <td><span class="st ${f.status}">${f.status}</span></td><td>${esc(f.impact)}</td></tr>`).join("");
+} else {
+  setText("fleaCol", "Item");
+  document.querySelector("#flea tbody").innerHTML = acquisition.map(a => {
+    const st = a.fleaLevel == null ? ["locked", "no flea", "Trader, barter, craft or find in raid"]
+      : LEVEL == null ? ["open", "?", `Flea from level ${a.fleaLevel}`]
+      : fleaOpen(a) ? ["open", "open", "Buy it on the flea"] : ["locked", "locked", `Locked until level ${a.fleaLevel}`];
+    return `<tr><td>${esc(a.item)}</td><td class="lvl">${a.fleaLevel ?? "–"}</td>
+      <td><span class="st ${st[0]}">${st[1]}</span></td><td>${esc(st[2])}</td></tr>`;
+  }).join("");
+}
+setText("fleaNote", DATA.meta.fleaNote || "Flea levels are each item's own minimum level from tarkov.dev (minLevelForFlea).");
+}
+renderQuests();
+
+/* ---------- pipeline diagram ---------- */
+(function () {
+  const cols = [
+    ["Inputs", ["EFT Logs folder (live)", "Level · faction · mode", "Manual status edits"]],
+    ["Data", ["tarkov.dev snapshot", "Wiki progression + spots", "Flea levels per item"]],
+    ["Planner", ["Unlock + progression", "Raid bundler", "Route + extract"]],
+    ["Outputs", ["Available quests by map", "Raid plan + map", "Bring and keep lists"]]
+  ];
+  const w = 200, gap = 53, x0 = 8;
+  let g = "";
+  cols.forEach(([h, items], i) => {
+    const x = x0 + i * (w + gap);
+    g += `<text x="${x}" y="18" fill="var(--muted)" letter-spacing="1.2">${h.toUpperCase()}</text>`;
+    items.forEach((t, j) => {
+      const y = 30 + j * 54;
+      g += `<rect x="${x}" y="${y}" width="${w}" height="42" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <text x="${x + 12}" y="${y + 26}" fill="var(--ink)">${t}</text>`;
+    });
+    if (i < cols.length - 1) {
+      const ax = x + w + 6, bx = x + w + gap - 6;
+      g += `<line x1="${ax}" y1="105" x2="${bx - 6}" y2="105" stroke="var(--olive)" stroke-width="2"/>
+            <polygon points="${bx},105 ${bx - 9},100 ${bx - 9},110" fill="var(--olive)"/>`;
+    }
+  });
+  document.getElementById("flowBoxes").innerHTML = g;
+})();
+
+/* ---------- sources ---------- */
+document.getElementById("sources").innerHTML = `<span class="label">Sources and caveats</span>
+  <ul>${DATA.meta.sources.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>: ${esc(s.use)}</li>`).join("")}</ul>
+  <ul>${DATA.meta.caveats.map(c => `<li>${esc(c)}</li>`).join("")}</ul>`;
+
+/* ---------- tabs ---------- */
+const VIEWS = ["plan", "quests", "gear", "ideas"];
+function show(v) {
+  if (!VIEWS.includes(v)) v = "plan";
+  document.getElementById("raidFocusPanel").hidden = v === "ideas";
+  VIEWS.forEach(x => {
+    document.getElementById("view-" + x).hidden = x !== v;
+    document.getElementById("tab-" + x).setAttribute("aria-selected", String(x === v));
+  });
+  try { localStorage.setItem(STORE_KEY + ":tab", v); } catch (e) {}
+}
+document.querySelector("nav.tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  show(b.dataset.view); try { history.replaceState(null, "", "#" + b.dataset.view); } catch (e) {}
+});
+let start = location.hash.slice(1);
+if (!VIEWS.includes(start)) { try { start = localStorage.getItem(STORE_KEY + ":tab") || "plan"; } catch (e) { start = "plan"; } }
+show(start);
+</script>

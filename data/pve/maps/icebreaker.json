@@ -1,0 +1,1251 @@
+{
+ "meta": {
+  "map": "Icebreaker",
+  "mapId": "69af492a4819ea4ba10a69c5",
+  "key": "icebreaker",
+  "gameMode": "pve",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:11:34+00:00",
+  "raidMinutes": 50,
+  "players": "1-3",
+  "frame": {
+   "w": 251,
+   "h": 1376,
+   "metres": 161
+  },
+  "rotation": 180,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/Icebreaker",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "unnamed-spot-1": {
+   "name": "Unnamed spot (1)",
+   "x": 95,
+   "y": 891,
+   "hints": []
+  },
+  "unnamed-spot-2": {
+   "name": "Unnamed spot (2)",
+   "x": 73,
+   "y": 526,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "heli",
+   "name": "Helicopter",
+   "faction": "pmc",
+   "x": 123,
+   "y": 131,
+   "rule": "PMC extract"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Knight",
+   "spawnChance": 1,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Mash_t1",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Rogue"
+   ]
+  },
+  {
+   "name": "Rogue",
+   "spawnChance": 1,
+   "groups": 6,
+   "locations": [
+    {
+     "name": "Front",
+     "chance": 1
+    },
+    {
+     "name": "Kitchen",
+     "chance": 1
+    },
+    {
+     "name": "KorrDown1",
+     "chance": 1
+    },
+    {
+     "name": "Room_Eng",
+     "chance": 1
+    },
+    {
+     "name": "Room_Eng2",
+     "chance": 1
+    },
+    {
+     "name": "Front2",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Rogue"
+   ]
+  },
+  {
+   "name": "Black Div.",
+   "spawnChance": 1,
+   "groups": 21,
+   "locations": [
+    {
+     "name": "EngineHide",
+     "chance": 1
+    },
+    {
+     "name": "SternTop",
+     "chance": 1
+    },
+    {
+     "name": "Stern",
+     "chance": 1
+    },
+    {
+     "name": "Outside_t3",
+     "chance": 1
+    },
+    {
+     "name": "Inside_t4",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Black Div.",
+    "Black Div. Guard"
+   ]
+  },
+  {
+   "name": "The Wedge",
+   "spawnChance": 1,
+   "groups": 12,
+   "locations": [
+    {
+     "name": "RoomsFour",
+     "chance": 1
+    },
+    {
+     "name": "RoomsThird",
+     "chance": 1
+    },
+    {
+     "name": "RoomsThirdKitchen",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "The Wedge"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "69c26c07683c9831020018c7",
+   "name": "Stick to It",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stick_to_It",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69c26dfeaa4283497aab0d36",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "Big Pipe",
+      "Birdeye",
+      "Rogue",
+      "Knight"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "25,000 XP, 100,000 RUB, 3x Water filter"
+  },
+  {
+   "id": "6744af0969a58fceba101fed",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745c9b89c84a273d4a2dc28",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "6745cbee909d2013670a4a55",
+   "name": "The Price of Independence",
+   "trader": "BTR Driver",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Battery Change",
+    "Discombobulate"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Price_of_Independence",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6745cbee909d2013670a4a6e",
+     "text": "Eliminate Scavs while completing the other objectives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "85,400 XP, 300,000 RUB"
+  },
+  {
+   "id": "69ce1cfb298a6529b30d712b",
+   "name": "A Wedge Between Us",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/A_Wedge_Between_Us",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce1cfb298a6529b30d712d",
+     "text": "Locate and neutralize The Wedge's squad",
+     "type": "shoot",
+     "optional": false,
+     "count": 4,
+     "targets": [
+      "The Wedge"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a03343990ee160507db2294",
+     "text": "Claim a trophy from The Wedge",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Spiritus Systems LV-119 Plate Carrier (MultiCam Black)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a033442e041f8512e182c8e",
+     "text": "Hand over the found item",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Spiritus Systems LV-119 Plate Carrier (MultiCam Black)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "52,000 XP, 450,000 RUB, Accuracy International AXMC .338 LM bolt-action sniper rifle Default, 3x .338 Lapua Magnum FMJ ammo pack (20 pcs), 3x AI AXMC .338 LM 10-round magazine"
+  },
+  {
+   "id": "5bc4776586f774512d07cf05",
+   "name": "The Tarkov Shooter - Part 1",
+   "trader": "Jaeger",
+   "kappa": true,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Tarkov_Shooter_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5bc850d186f7747213700892",
+     "text": "Eliminate Scavs from over 40 meters away with a bolt-action rifle with iron sights",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Sniper",
+      "Scavs"
+     ],
+     "weapons": [
+      "Mosin 7.62x54R bolt-action rifle (Infantry)",
+      "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "SV-98 7.62x54R bolt-action sniper rifle",
+      "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+      "Remington Model 700 7.62x51 bolt-action sniper rifle",
+      "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+      "MP-18 7.62x54R single-shot rifle",
+      "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+      "Marlin MXLR .308 ME lever-action rifle",
+      "Sako TRG M10 .338 LM bolt-action sniper rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Mosin 7.62x54R bolt-action rifle (Infantry), Mosin 7.62x54R bolt-action rifle (Sniper), SV-98 7.62x54R bolt-action sniper rifle (+8 more)",
+     "itemIds": [
+      "5bfd297f0db834001a669119",
+      "5ae08f0a5acfc408fb1398a1",
+      "55801eed4bdc2d89578b4588",
+      "588892092459774ac91d4b11",
+      "5bfea6e90db834001b7347f3",
+      "5de652c31b7e3716273428be",
+      "5df24cf80dee1b22f862e9bc",
+      "61f7c9e189e6fb1a5e3ea78d",
+      "627e14b21713922ded6f2c15",
+      "67c6de3ce39861860909e8e5",
+      "673cab3e03c6a20581028bc1"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad"
+  },
+  {
+   "id": "69ce1f84ebbdbf36a200627c",
+   "name": "Peaceful Atom",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Oil Change"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Peaceful_Atom",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce1f84ebbdbf36a200627e",
+     "text": "Locate and obtain the nuclear power unit control log on Icebreaker",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "unnamed-spot-1",
+      "unnamed-spot-2"
+     ]
+    },
+    {
+     "id": "69ce1f84ebbdbf36a200627f",
+     "text": "Hand over the found item",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "24,000 XP, HK G28 7.62x51 marksman rifle Default, 5x 7.62x51mm M80A1 ammo pack (20 pcs), 3x HK417/G28 7.62x51 20-round magazine, 3,600 USD"
+  },
+  {
+   "id": "69e5583240c3e6c8ba0edbd5",
+   "name": "Wiring the Vessel",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Peaceful Atom"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Wiring_the_Vessel",
+   "type": "plantItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69e5593e3f425636f1d762d9",
+     "text": "Repair the equipment in the automation room leading to the engine room on Icebreaker",
+     "type": "plantItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "69e5594c6dd4d9e12fa3de0d",
+     "text": "Repair the equipment in the automation room under the engine room on Icebreaker",
+     "type": "plantItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "69e559525afcf4e746e98e33",
+     "text": "Repair the equipment in the automation room near the storage room on Icebreaker",
+     "type": "plantItem",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "69e559bf4b53b554a2779130",
+     "text": "Install the hacking device in the central control station room on Icebreaker",
+     "type": "plantItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Toolset",
+     "itemIds": [
+      "590c2e1186f77425357b6124"
+     ],
+     "qty": 3,
+     "kind": "item"
+    },
+    {
+     "item": "Local network hacking device",
+     "itemIds": [
+      "68e63a53371639e1e4004b6e"
+     ],
+     "qty": 1,
+     "kind": "item"
+    }
+   ],
+   "tips": [],
+   "reward": "30,000 XP, 5,400 USD"
+  },
+  {
+   "id": "60e71bb4e456d449cd47ca75",
+   "name": "Intimidator",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Intimidator",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e8650e5d67b234af3d3926",
+     "text": "Eliminate Scavs with headshots",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+  },
+  {
+   "id": "69ce1de03e15cd80bd06f6c9",
+   "name": "Oil Change",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Oil_Change",
+   "type": "findItem,giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce1e2614b1a16885f61da4",
+     "text": "Find the item in raid: AMG-10 hydraulic fluid",
+     "type": "findItem",
+     "optional": false,
+     "count": 5,
+     "mustExtract": true,
+     "items": [
+      "AMG-10 hydraulic fluid"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "69ce1e30e2c52320f2eba4ee",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "AMG-10 hydraulic fluid"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "32,000 XP, 330,000 RUB"
+  },
+  {
+   "id": "69ce21e990144e437802b1e0",
+   "name": "Fresh Stock",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Fresh_Stock",
+   "type": "findItem,giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce21e990144e437802b1e2",
+     "text": "Find the item in raid: Black Division plate carrier",
+     "type": "findItem",
+     "optional": false,
+     "count": 5,
+     "mustExtract": true,
+     "items": [
+      "First Spear Siege-R Optimized M.A.S.S. Plate Carrier (Black Division)",
+      "Spiritus Systems LV-119 Plate Carrier (Black Division V2)",
+      "Ferro Concepts FCPC V5 Plate Carrier (Black Division)",
+      "Spiritus Systems LV-119 Plate Carrier (Black Division V1)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "69ce21e990144e437802b1e3",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 5,
+     "items": [
+      "First Spear Siege-R Optimized M.A.S.S. Plate Carrier (Black Division)",
+      "Spiritus Systems LV-119 Plate Carrier (Black Division V2)",
+      "Ferro Concepts FCPC V5 Plate Carrier (Black Division)",
+      "Spiritus Systems LV-119 Plate Carrier (Black Division V1)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "25,000 XP, 300,000 RUB"
+  },
+  {
+   "id": "69ce213a298a6529b30d7134",
+   "name": "Biochemistry",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "War Never Changes"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Biochemistry",
+   "type": "giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce213a298a6529b30d7136",
+     "text": "Find the item in raid: Aceso Xpress semi-automatic biochemical analyzer",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Aceso Xpress semi-automatic biochemical analyzer"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "32,000 XP, 360,000 RUB"
+  },
+  {
+   "id": "69ce204c8702b378f9091e4b",
+   "name": "War Never Changes",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/War_Never_Changes",
+   "type": "findItem,giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "69ce204c8702b378f9091e4d",
+     "text": "Find the item in raid: Nooby Shield potassium iodide tablets",
+     "type": "findItem",
+     "optional": false,
+     "count": 10,
+     "mustExtract": true,
+     "items": [
+      "Nooby Shield potassium iodide tablets"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "69ce204c8702b378f9091e4e",
+     "text": "Hand over the items",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Nooby Shield potassium iodide tablets"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "27,000 XP, 250,000 RUB, 5x Trimadol stimulant injector, 2x Surv12 field surgical kit"
+  },
+  {
+   "id": "5d25c81b86f77443e625dd71",
+   "name": "The Survivalist Path - Wounded Beast",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Unprotected but Dangerous"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Wounded_Beast",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c8c986f77443e47ad47a",
+     "text": "Eliminate Scavs while suffering from the Pain status effect",
+     "type": "shoot",
+     "optional": false,
+     "count": 3,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)"
+  },
+  {
+   "id": "68341846186efa3c5b07f989",
+   "name": "Balancing - Part 1 [PVE ZONE]",
+   "trader": "Ref",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 10,
+   "requires": [
+    "Easy Money - Part 2 [PVE ZONE]"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Balancing_-_Part_1",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68341846186efa3c5b07f98c",
+     "text": "Eliminate Scavs while using a Steyr AUG on any location",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "Steyr AUG A1 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle",
+      "Steyr AUG A3 5.56x45 assault rifle (Black)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Steyr AUG A1 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle, Steyr AUG A3 5.56x45 assault rifle (Black)",
+     "itemIds": [
+      "62e7c4fba689e8c9c50dfc38",
+      "63171672192e68c5460cebc5",
+      "6718817435e3cfd9550d2c27"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask"
+  },
+  {
+   "id": "626bdcc3a371ee3a7a3514c5",
+   "name": "Stray Dogs",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Stray_Dogs",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "626c317e05f287031503c7fd",
+     "text": "Locate and neutralize Knight (in one raid)",
+     "type": "shoot",
+     "optional": false,
+     "targets": [
+      "Knight"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, S I C C organizational pouch"
+  },
+  {
+   "id": "59ca29fb86f77445ab465c87",
+   "name": "The Punisher - Part 5",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 4"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_5",
+   "type": "findItem,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca293c86f77445a80ed147",
+     "text": "Find the item in raid: any Kalashnikov AK-74 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca29ab86f77445ab133c86",
+     "text": "Hand over the AK-74",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "Kalashnikov AK-74 5.45x39 assault rifle",
+      "Kalashnikov AK-74M 5.45x39 assault rifle",
+      "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "Kalashnikov AKS-74 5.45x39 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2bdc86f77445a80ed148",
+     "text": "Find the item in raid: Colt M4A1 assault rifle",
+     "type": "findItem",
+     "optional": false,
+     "mustExtract": true,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c3086f77445aa0ddc15",
+     "text": "Hand over the M4A1",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Colt M4A1 5.56x45 assault rifle"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2c9e86f77428ea721232",
+     "text": "Find the item in raid: Makarov PM pistol",
+     "type": "findItem",
+     "optional": false,
+     "count": 2,
+     "mustExtract": true,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "59ca2cbe86f7740fe95c3e52",
+     "text": "Hand over the pistols",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Makarov PM 9x18PM pistol",
+      "Makarov PM (t) 9x18PM pistol"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "5c922dde86f77438500a0fec",
+     "text": "Eliminate PMC operatives with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "RPK-16 5.45x39 light machine gun"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6a57a51fe5c2c08b474109fb",
+     "text": "Eliminate Scavs with Light machine guns",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "weapons": [
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (FDE) (+5 more)",
+     "itemIds": [
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "5beed0f50db834001c062b12"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    },
+    {
+     "item": "Any of: RPK-16 5.45x39 light machine gun, U.S. Ordnance M60E4 7.62x51 light machine gun, U.S. Ordnance M60E6 7.62x51 light machine gun (+5 more)",
+     "itemIds": [
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case"
+  },
+  {
+   "id": "59ca2eb686f77445a80ed049",
+   "name": "The Punisher - Part 6",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_6",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a57a60057699da0521e1c7b",
+     "text": "Locate and neutralize any Boss",
+     "type": "shoot",
+     "optional": false,
+     "count": 5,
+     "targets": [
+      "Kaban",
+      "Reshala",
+      "Black Div.",
+      "Glukhar",
+      "Killa",
+      "Vengeful Killa",
+      "Knight",
+      "Shturman",
+      "Kollontay",
+      "Sanitar",
+      "bossStormtrooper",
+      "Tagilla",
+      "Shadow of Tagilla",
+      "The Wedge",
+      "The Wedge (Labs)",
+      "Big Pipe",
+      "Birdeye",
+      "Black Div. Guard",
+      "The Wedge (Labs) Guard",
+      "Infected Tagilla"
+     ],
+     "zone": []
+    },
+    {
+     "id": "5b0548e686f7740306753506",
+     "text": "Hand over the item: Dogtag BEAR or Dogtag USEC",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+  },
+  {
+   "id": "6613f307fca4f2f386029409",
+   "name": "Drip-Out - Part 2",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 42,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6615127fd998c5f2aaa4a8a0",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "Rogue",
+      "Rogue",
+      "Big Pipe",
+      "Birdeye",
+      "Knight"
+     ],
+     "zone": []
+    },
+    {
+     "id": "661681edabe376e7d6eab98f",
+     "text": "Hand over the found in raid LBT brand equipment",
+     "type": "giveItem",
+     "optional": false,
+     "count": 50,
+     "items": [
+      "LBT-1961A Load Bearing Chest Rig (Goons Edition)",
+      "LBT-1476A 3Day Pack (Woodland)",
+      "LBT-6094A Slick Plate Carrier (Olive Drab)",
+      "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+      "LBT-8005A Day Pack backpack (MultiCam Black)",
+      "LBT-1961A Load Bearing Chest Rig (MAS Grey)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, LBT-6094A Slick Plate Carrier (Olive Drab) Default"
+  },
+  {
+   "id": "6615141bfda04449120269a7",
+   "name": "Drip-Out - Part 2",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 42,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_2",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6615141bfda04449120269a8",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "Rogue"
+     ],
+     "zone": []
+    },
+    {
+     "id": "661682aed31d408548016468",
+     "text": "Hand over the found in raid LBT brand equipment",
+     "type": "giveItem",
+     "optional": false,
+     "count": 50,
+     "items": [
+      "LBT-1961A Load Bearing Chest Rig (Goons Edition)",
+      "LBT-1476A 3Day Pack (Woodland)",
+      "LBT-6094A Slick Plate Carrier (Olive Drab)",
+      "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+      "LBT-8005A Day Pack backpack (MultiCam Black)",
+      "LBT-1961A Load Bearing Chest Rig (MAS Grey)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, LBT-6094A Slick Plate Carrier (Coyote Tan) Default"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "Local network hacking device",
+   "itemId": "68e63a53371639e1e4004b6e",
+   "kind": "item",
+   "for": [
+    "69e5583240c3e6c8ba0edbd5"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": null,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1 barter: 1x Wilston cigarettes + 2x Apollo Soyuz cigarettes"
+   ]
+  },
+  {
+   "item": "Steyr AUG A1 5.56x45 assault rifle",
+   "itemId": "62e7c4fba689e8c9c50dfc38",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 60355,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle",
+   "itemId": "63171672192e68c5460cebc5",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 166639,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Steyr AUG A3 5.56x45 assault rifle (Black)",
+   "itemId": "6718817435e3cfd9550d2c27",
+   "kind": "weapon",
+   "for": [
+    "68341846186efa3c5b07f989"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 162433,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Toolset",
+   "itemId": "590c2e1186f77425357b6124",
+   "kind": "item",
+   "for": [
+    "69e5583240c3e6c8ba0edbd5"
+   ],
+   "required": true,
+   "fleaLevel": null,
+   "flea": "not on flea",
+   "price": 137930,
+   "lockCount": 0,
+   "sources": [
+    "Mechanic LL1 barter: 1x Pliers + 1x Screwdriver + 1x Wrench + 1x Insulating tape + 1x Construction measuring tape"
+   ]
+  }
+ ],
+ "raids": []
+}

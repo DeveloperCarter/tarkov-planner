@@ -1,0 +1,1617 @@
+{
+ "meta": {
+  "map": "The Lab",
+  "mapId": "5b0fc42d86f7744a585f9105",
+  "key": "the-lab",
+  "gameMode": "regular",
+  "generated": "2026-10-20",
+  "snapshot": "2026-10-21T02:13:44+00:00",
+  "raidMinutes": 30,
+  "players": "8-10",
+  "frame": {
+   "w": 1000,
+   "h": 851,
+   "metres": 239
+  },
+  "rotation": 270,
+  "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Lab",
+  "sources": [
+   {
+    "name": "tarkov.dev data (json.tarkov.dev)",
+    "url": "https://tarkov.dev",
+    "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"
+   },
+   {
+    "name": "tarkov-dev map labels (MIT)",
+    "url": "https://github.com/the-hideout/tarkov-dev",
+    "use": "Area names and coordinate rotation"
+   }
+  ],
+  "caveats": [
+   "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+   "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
+   "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map."
+  ]
+ },
+ "zones": {
+  "w-of-main-working-area": {
+   "name": "W of Main Working Area",
+   "x": 365,
+   "y": 461,
+   "hints": []
+  },
+  "server-room": {
+   "name": "Server Room",
+   "x": 614,
+   "y": 642,
+   "hints": []
+  },
+  "sw-of-offices-1": {
+   "name": "SW of Offices #1",
+   "x": 182,
+   "y": 474,
+   "hints": []
+  },
+  "control-room-e": {
+   "name": "Control Room E",
+   "x": 717,
+   "y": 470,
+   "hints": []
+  },
+  "test-room-e": {
+   "name": "Test Room E",
+   "x": 507,
+   "y": 622,
+   "hints": []
+  },
+  "s-of-lecture-hall": {
+   "name": "S of Lecture Hall",
+   "x": 600,
+   "y": 423,
+   "hints": []
+  },
+  "test-room": {
+   "name": "Test Room",
+   "x": 423,
+   "y": 625,
+   "hints": []
+  },
+  "main-working-area-s": {
+   "name": "Main Working Area S",
+   "x": 481,
+   "y": 506,
+   "hints": []
+  },
+  "main-working-area-1": {
+   "name": "Main Working Area (1)",
+   "x": 478,
+   "y": 458,
+   "hints": []
+  },
+  "main-working-area-2": {
+   "name": "Main Working Area (2)",
+   "x": 485,
+   "y": 477,
+   "hints": []
+  }
+ },
+ "extracts": [
+  {
+   "id": "lab-hangar-gate",
+   "name": "Hangar Gate",
+   "faction": "pmc",
+   "x": 970,
+   "y": 471,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "lab-elevator-med",
+   "name": "Medical Block Elevator",
+   "faction": "shared",
+   "x": 477,
+   "y": 700,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "lab-vent",
+   "name": "Ventilation Shaft",
+   "faction": "pmc",
+   "x": 270,
+   "y": 572,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "lab-elevator-cargo",
+   "name": "Cargo Elevator",
+   "faction": "shared",
+   "x": 224,
+   "y": 702,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "lab-elevator-main",
+   "name": "Main Elevator",
+   "faction": "shared",
+   "x": 514,
+   "y": 30,
+   "rule": "SHARED extract"
+  },
+  {
+   "id": "lab-parking-gate",
+   "name": "Parking Gate",
+   "faction": "pmc",
+   "x": 30,
+   "y": 232,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "lab-under-storage-collector",
+   "name": "Sewage Conduit",
+   "faction": "pmc",
+   "x": 815,
+   "y": 659,
+   "rule": "PMC extract"
+  },
+  {
+   "id": "transit-8",
+   "name": "Transit to Streets of Tarkov",
+   "faction": "shared",
+   "x": 176,
+   "y": 473,
+   "rule": "Transit to another map"
+  }
+ ],
+ "bosses": [
+  {
+   "name": "Raider",
+   "spawnChance": 0.6,
+   "groups": 16,
+   "locations": [
+    {
+     "name": "First Floor",
+     "chance": 1
+    },
+    {
+     "name": "Second Floor",
+     "chance": 1
+    },
+    {
+     "name": "Basement",
+     "chance": 1
+    },
+    {
+     "name": "Parking Gate",
+     "chance": 1
+    },
+    {
+     "name": "Hangar Gate",
+     "chance": 1
+    }
+   ],
+   "escorts": [
+    "Raider"
+   ]
+  },
+  {
+   "name": "Scourge",
+   "spawnChance": 1,
+   "groups": 1,
+   "locations": [
+    {
+     "name": "Armory",
+     "chance": 0.5
+    },
+    {
+     "name": "GreenOffice",
+     "chance": 0.5
+    }
+   ],
+   "escorts": [
+    "Scourge Guard"
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "id": "5d25e45e86f77408251c4bfa",
+   "name": "The Huntsman Path - Liberation",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Liberation",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d273a4d86f774457411b266",
+     "text": "Eliminate Raiders",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Raider"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+  },
+  {
+   "id": "639670029113f06a7c3b2377",
+   "name": "Following the Bread Crumbs",
+   "trader": "Lightkeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [
+    "Provocation"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Following_the_Bread_Crumbs",
+   "type": "findQuestItem,shoot,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "639adf3edbf1d842d260cda6",
+     "text": "Eliminate any target in The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    },
+    {
+     "id": "63a7cf9f04d3dc28a52a20fa",
+     "text": "Search the weapon testing area in The Lab",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "s-of-lecture-hall"
+     ]
+    },
+    {
+     "id": "63a7cfe104d3dc28a52a20fc",
+     "text": "Search the human experiment room in The Lab",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "test-room"
+     ]
+    },
+    {
+     "id": "639ae49a5e3c9b787264d675",
+     "text": "Obtain the secured tape inside the manager's office in The Lab",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "main-working-area-1",
+      "main-working-area-2",
+      "main-working-area-s"
+     ]
+    }
+   ],
+   "needs": [
+    {
+     "item": "TerraGroup Labs weapon testing area key",
+     "itemIds": [
+      "5c1e2d1f86f77431e9280bee"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    },
+    {
+     "item": "TerraGroup Labs keycard (Black)",
+     "itemIds": [
+      "5c1d0f4986f7744bb01837fa"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key"
+  },
+  {
+   "id": "5edac63b930f5454f51e128b",
+   "name": "TerraGroup Employee",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/TerraGroup_Employee",
+   "type": "findQuestItem,giveQuestItem,visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5eff5674befb6436ce3bbaf7",
+     "text": "Locate and obtain any information about Sanitar's work",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "test-room-e"
+     ]
+    },
+    {
+     "id": "5eec9d054110547f1f545c99",
+     "text": "Locate Sanitar's workplace in The Lab",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "test-room-e"
+     ]
+    },
+    {
+     "id": "5edac8483c809a44ef12b4d2",
+     "text": "Hand over the found intel",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Keycard with a blue marking",
+     "itemIds": [
+      "5efde6b4f5448336730dbd61"
+     ],
+     "qty": 1,
+     "kind": "key",
+     "optional": false
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Mesa Tactical Crosshair Hydraulic buffer tube, AR-15 Magpul ACS Carbine stock (Black), AR-15 Magpul ACS Carbine stock (FDE)"
+  },
+  {
+   "id": "60e71c9ad54b755a3b53eb66",
+   "name": "The Cleaner",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 0,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Cleaner",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60e745d6479eef59b01b0bdc",
+     "text": "Eliminate Raiders or Black Division operatives on Reserve or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "Raider",
+      "Black Div.",
+      "Black Div. Guard",
+      "Black Div.",
+      "Black Div."
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 1,900 EUR, 4x Power supply unit"
+  },
+  {
+   "id": "5d25bfd086f77442734d3007",
+   "name": "The Survivalist Path - Zhivchik",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 9,
+   "requires": [
+    "The Survivalist Path - Thrifty"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Zhivchik",
+   "type": "experience,extract",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25c5a186f77443fe457661",
+     "text": "Gain the Dehydration status effect and maintain it for 5 minutes (On any location excluding Factory)",
+     "type": "experience",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "5d9f035086f7741cac4a9713",
+     "text": "Survive and extract from the location",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+  },
+  {
+   "id": "666314b696a9349baa021bac",
+   "name": "Quality Standard",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 12,
+   "requires": [
+    "The Good Times - Part 1"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Quality_Standard",
+   "type": "findQuestItem,giveQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6672e47f25ab92726912c3e5",
+     "text": "Locate and obtain the special version of the LEDX Skin Transilluminator in The Lab",
+     "type": "findQuestItem",
+     "optional": false,
+     "mustExtract": true,
+     "zone": [
+      "w-of-main-working-area"
+     ]
+    },
+    {
+     "id": "6672e49679243c500ec02c2e",
+     "text": "Hand over the found item",
+     "type": "giveQuestItem",
+     "optional": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB, 5x Propital regenerative stimulant injector, 5x eTG-change regenerative stimulant injector"
+  },
+  {
+   "id": "5d25e29d86f7740a22516326",
+   "name": "The Survivalist Path - Eagle-Owl",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 17,
+   "requires": [
+    "The Survivalist Path - Cold Blooded"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Survivalist_Path_-_Eagle-Owl",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5d25fd8386f77443fe457cae",
+     "text": "Eliminate Scavs during 21:00-04:00 without using any NVGs or thermal sights (Excluding Factory)",
+     "type": "shoot",
+     "optional": false,
+     "count": 6,
+     "targets": [
+      "Scav",
+      "Scavs",
+      "Sniper"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+  },
+  {
+   "id": "6761f28a022f60bb320f3e95",
+   "name": "New Beginning",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 25,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_1)",
+   "type": "extract,giveItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6761f9d718fa62aac3264ff2",
+     "text": "Survive and extract from The Lab",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6761f6f1bacf72169272e381",
+     "text": "Hand over any PMC figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "BEAR operative figurine",
+      "PMC Origins figurine",
+      "Hardened PMC figurine",
+      "Escape figurine",
+      "Walking Tank figurine",
+      "USEC operative figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f7d086fd2d9c941b8aa3",
+     "text": "Hand over any Scav figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Politician Mutkevich figurine",
+      "Scav figurine",
+      "Elvisvista figurine",
+      "Hideout Cat figurine",
+      "Mastichin figurine",
+      "Ryzhy figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f7f87b309912d6b5f2a9",
+     "text": "Hand over any Boss figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "Killa figurine",
+      "Ded Moroz figurine",
+      "Cultist figurine",
+      "Reshala figurine",
+      "Tagilla figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    },
+    {
+     "id": "6761f87227aeff895cef62c5",
+     "text": "Hand over any Trader figurine",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "BTR figurine",
+      "Fence figurine",
+      "Jaeger figurine",
+      "Lightkeeper figurine",
+      "Mechanic figurine",
+      "Peacekeeper figurine"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "10,000 XP, 100,000 RUB"
+  },
+  {
+   "id": "6613f3007f6666d56807c929",
+   "name": "Drip-Out - Part 1",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "BEAR",
+   "usecOnly": false,
+   "bearOnly": true,
+   "minLevel": 27,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_1",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6613f36ca4dc044e13e02295",
+     "text": "Eliminate Raiders",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "Raider"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6616819ac7c53d7769413d9c",
+     "text": "Hand over the found in raid WARTECH brand equipment",
+     "type": "giveItem",
+     "optional": false,
+     "count": 50,
+     "items": [
+      "WARTECH TV-115 plate carrier (Olive Drab)",
+      "WARTECH Berkut BB-102 backpack (A-TACS FG)",
+      "WARTECH TV-110 plate carrier (Coyote)",
+      "WARTECH MK3 TV-104 chest rig (MultiCam)",
+      "WARTECH TV-109 + TV-106 chest rig (A-TACS FG)",
+      "WARTECH TV-115 plate carrier (Black)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "66151401efb0539ae10875ae",
+   "name": "Drip-Out - Part 1",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "USEC",
+   "usecOnly": true,
+   "bearOnly": false,
+   "minLevel": 27,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Drip-Out_-_Part_1",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66151401efb0539ae10875af",
+     "text": "Eliminate Raiders",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "Raider"
+     ],
+     "zone": []
+    },
+    {
+     "id": "66168239957ac58c30b29135",
+     "text": "Hand over the found in raid WARTECH brand equipment",
+     "type": "giveItem",
+     "optional": false,
+     "count": 50,
+     "items": [
+      "WARTECH TV-115 plate carrier (Olive Drab)",
+      "WARTECH Berkut BB-102 backpack (A-TACS FG)",
+      "WARTECH TV-110 plate carrier (Coyote)",
+      "WARTECH MK3 TV-104 chest rig (MultiCam)",
+      "WARTECH TV-109 + TV-106 chest rig (A-TACS FG)",
+      "WARTECH TV-115 plate carrier (Black)"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "28,000 XP, 275,000 RUB"
+  },
+  {
+   "id": "6761ff17cdc36bd66102e9d0",
+   "name": "New Beginning",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 30,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_2)",
+   "type": "extract,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6762015739c53fca8ac51336",
+     "text": "Eliminate PMC operatives",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6761ff17cdc36bd66102e9d6",
+     "text": "Survive and extract from The Lab",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6761ff17cdc36bd66102e9d8",
+     "text": "Hand over any found in raid PMC figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "BEAR operative figurine",
+      "USEC operative figurine",
+      "Den figurine",
+      "Walking Tank figurine",
+      "PMC Origins figurine",
+      "Hardened PMC figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6761ff17cdc36bd66102e9d9",
+     "text": "Hand over any found in raid Scav figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Scav figurine",
+      "Ryzhy figurine",
+      "Politician Mutkevich figurine",
+      "Mastichin figurine",
+      "Elvisvista figurine",
+      "Hideout Cat figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6761ff17cdc36bd66102e9da",
+     "text": "Hand over any found in raid Boss figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Killa figurine",
+      "Tagilla figurine",
+      "Reshala figurine",
+      "Ded Moroz figurine",
+      "Cultist figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6761ff17cdc36bd66102e9e1",
+     "text": "Hand over any found in raid Trader figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 2,
+     "items": [
+      "Prapor figurine",
+      "Therapist figurine",
+      "Fence figurine",
+      "Skier figurine",
+      "Peacekeeper figurine",
+      "Mechanic figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "11,000 XP, 200,000 RUB"
+  },
+  {
+   "id": "5c0d4e61d09282029f53920e",
+   "name": "The Guide",
+   "trader": "Peacekeeper",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 32,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Guide",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1931e686f7747ce71bcbea",
+     "text": "Survive and extract from The Lab or Lighthouse with the \"Survived\" exit status",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6a5cdc97790159682d2bc19e",
+     "text": "Eliminate any target",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+  },
+  {
+   "id": "6a4532e48e82d8ffea0c3eae",
+   "name": "The Huntsman Path - Control",
+   "trader": "Jaeger",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 33,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Huntsman_Path_-_Control",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a4532e48e82d8ffea0c3eb0",
+     "text": "Eliminate any target in The Lab (in one raid)",
+     "type": "shoot",
+     "optional": false,
+     "count": 10,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "675c1ff1a757ddd00404f0aa",
+   "name": "Unique Experience",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 35,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Unique_Experience",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "675c1ff1a757ddd00404f0ae",
+     "text": "Eliminate any target with an Aklys Defense Velociraptor on Lighthouse or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Aklys Defense Velociraptor .300 Blackout assault rifle"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+     "itemIds": [
+      "674d6121c09f69dfb201a888"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB"
+  },
+  {
+   "id": "6848100b00afffa81f09e365",
+   "name": "New Beginning",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 35,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_3)",
+   "type": "extract,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6848100b00afffa81f09e369",
+     "text": "Eliminate PMC operatives",
+     "type": "shoot",
+     "optional": false,
+     "count": 15,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "684812156189183883f13947",
+     "text": "Eliminate Raiders",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "Raider"
+     ],
+     "zone": []
+    },
+    {
+     "id": "6848100b00afffa81f09e36b",
+     "text": "Use the transit from The Lab to Streets of Tarkov",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "6848100b00afffa81f09e36d",
+     "text": "Hand over any found in raid PMC figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "BEAR operative figurine",
+      "USEC operative figurine",
+      "Den figurine",
+      "Walking Tank figurine",
+      "PMC Origins figurine",
+      "Hardened PMC figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6848100b00afffa81f09e36e",
+     "text": "Hand over any found in raid Scav figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Scav figurine",
+      "Ryzhy figurine",
+      "Politician Mutkevich figurine",
+      "Mastichin figurine",
+      "Elvisvista figurine",
+      "Hideout Cat figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6848100b00afffa81f09e36f",
+     "text": "Hand over any found in raid Boss figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Killa figurine",
+      "Tagilla figurine",
+      "Reshala figurine",
+      "Ded Moroz figurine",
+      "Cultist figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6848100b00afffa81f09e376",
+     "text": "Hand over any found in raid Trader figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Prapor figurine",
+      "Therapist figurine",
+      "Fence figurine",
+      "Skier figurine",
+      "Peacekeeper figurine",
+      "Mechanic figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "11,000 XP, 2,000,000 RUB, 2x Physical Bitcoin"
+  },
+  {
+   "id": "59ca2eb686f77445a80ed049",
+   "name": "The Punisher - Part 6",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 36,
+   "requires": [
+    "The Punisher - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Punisher_-_Part_6",
+   "type": "giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "59ca2fba86f77445e4732b25",
+     "text": "Eliminate PMC operatives with the specified weapons on Lighthouse, Shoreline, Reserve, Ground Zero, or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "weapons": [
+      "SVDS 7.62x54R sniper rifle",
+      "KBP 9A-91 9x39 compact assault rifle",
+      "KBP VSK-94 9x39 rifle",
+      "SR-3M 9x39 compact assault rifle",
+      "AS VAL 9x39 special assault rifle",
+      "AS VAL MOD.4 9x39 special assault rifle",
+      "VSS Vintorez 9x39 special sniper rifle",
+      "TKPD 9.3x64 carbine",
+      "RPK-16 5.45x39 light machine gun",
+      "U.S. Ordnance M60E4 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun",
+      "U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)",
+      "Kalashnikov PKM 7.62x54R machine gun",
+      "Kalashnikov PKP 7.62x54R infantry machine gun",
+      "Degtyarev RPD 7.62x39 machine gun",
+      "Degtyarev RPDN 7.62x39 machine gun",
+      "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+      "Kalashnikov AKS-74UB 5.45x39 assault rifle",
+      "Kalashnikov AKS-74U 5.45x39 assault rifle",
+      "SAG AK-545 5.45x39 carbine",
+      "Kalashnikov AKM 7.62x39 assault rifle",
+      "Kalashnikov AKMN 7.62x39 assault rifle",
+      "Kalashnikov AKMS 7.62x39 assault rifle",
+      "Kalashnikov AKMSN 7.62x39 assault rifle",
+      "Molot Arms VPO-136 Vepr-KM 7.62x39 carbine",
+      "Kalashnikov AK-103 7.62x39 assault rifle",
+      "Kalashnikov AK-104 7.62x39 assault rifle"
+     ],
+     "zone": []
+    },
+    {
+     "id": "5b0548e686f7740306753506",
+     "text": "Hand over the item: Dogtag BEAR or Dogtag USEC",
+     "type": "giveItem",
+     "optional": false,
+     "count": 10,
+     "items": [
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR",
+      "Dogtag BEAR"
+     ],
+     "foundInRaid": false,
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: SVDS 7.62x54R sniper rifle, KBP 9A-91 9x39 compact assault rifle, KBP VSK-94 9x39 rifle (+24 more)",
+     "itemIds": [
+      "5c46fbd72e2216398b5a8c9c",
+      "644674a13d52156624001fbc",
+      "645e0c6b3b381ede770e1cc9",
+      "651450ce0e00edc794068371",
+      "57c44b372459772d2b39b8ce",
+      "6871284e9a353bb50606f3ed",
+      "57838ad32459774a17445cd2",
+      "68aee763130c00663d08aea8",
+      "5beed0f50db834001c062b12",
+      "65fb023261d5829b2d090755",
+      "661ceb1b9311543c7104149b",
+      "661cec09b2c6356b4d0c7a36",
+      "64637076203536ad5600c990",
+      "64ca3d3954fc657e230529cc",
+      "6513ef33e06849f06c0957ca",
+      "65268d8ecb944ff1e90ea385",
+      "583990e32459771419544dd2",
+      "5839a40f24597726f856b511",
+      "57dc2fa62459775949412633",
+      "628b5638ad252a16da6dd245",
+      "59d6088586f774275f37482f",
+      "5a0ec13bfcdbcb00165aa685",
+      "59ff346386f77477562ff5e2",
+      "5abcbc27d8ce8700182eceeb",
+      "59e6152586f77473dc057aa1",
+      "5ac66d2e5acfc43b321d4b53",
+      "5ac66d725acfc43b321d4b60"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+  },
+  {
+   "id": "66aba85403e0ee3101042877",
+   "name": "Beneath The Streets",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Beneath_The_Streets",
+   "type": "visit",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "66b090f5723e7bbe8b518ca8",
+     "text": "Scout the server room in The Lab (In one raid)",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "server-room"
+     ]
+    },
+    {
+     "id": "66aba85403e0ee3101042878",
+     "text": "Locate the passage leading to The Lab on Streets of Tarkov (In one raid)",
+     "type": "visit",
+     "optional": true,
+     "zone": []
+    },
+    {
+     "id": "66aba97b1000025218c82ea8",
+     "text": "Locate the passage leading to Streets of Tarkov in The Lab (In one raid)",
+     "type": "visit",
+     "optional": true,
+     "zone": [
+      "sw-of-offices-1"
+     ]
+    },
+    {
+     "id": "66b0910951c5294b9d213918",
+     "text": "Scout the hazard dome in The Lab (In one raid)",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "w-of-main-working-area"
+     ]
+    },
+    {
+     "id": "66b10eef0951e90ec383850b",
+     "text": "Scout the control room in The Lab (In one raid)",
+     "type": "visit",
+     "optional": false,
+     "zone": [
+      "control-room-e"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "24,000 XP, 400,000 RUB"
+  },
+  {
+   "id": "5c0d1c4cd0928202a02a6f5c",
+   "name": "Decontamination Service",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Decontamination_Service",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c1b778286f774294438b536",
+     "text": "Eliminate any target from less than 60 meters away while wearing a gas mask or respirator in The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 40,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "12,500 XP, 400,000 RUB"
+  },
+  {
+   "id": "669fa3a3ad7f1eac2607ed48",
+   "name": "Health Care Privacy - Part 6",
+   "trader": "Therapist",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 37,
+   "requires": [
+    "Health Care Privacy - Part 5"
+   ],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Health_Care_Privacy_-_Part_6",
+   "type": "giveItem,plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a60703aaa77a4b86e07aa3b",
+     "text": "Hand over the found in raid item: LEDX Skin Transilluminator",
+     "type": "giveItem",
+     "optional": false,
+     "items": [
+      "LEDX Skin Transilluminator"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "6a6070549ba7daf0a3ca7ae9",
+     "text": "Stash the blood sample in Sanitar's office in The Lab",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "test-room-e"
+     ]
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "65,000 XP, 400,000 RUB, Medicine case, 3x Morphine injector, 3x Adrenaline injector"
+  },
+  {
+   "id": "5c0bc91486f7746ab41857a2",
+   "name": "Silent Caliber",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 38,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Silent_Caliber",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "5c0bc95086f7746e784f39ec",
+     "text": "Eliminate any target with a suppressed 12ga shotgun on Reserve, Lighthouse, Ground Zero, or The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "any target"
+     ],
+     "weapons": [
+      "Saiga-12K ver.10 12ga semi-automatic shotgun",
+      "MP-133 12ga pump-action shotgun",
+      "Remington Model 870 12ga pump-action shotgun",
+      "Mossberg 590A1 12ga pump-action shotgun",
+      "MP-153 12ga semi-automatic shotgun",
+      "MP-43-1C 12ga double-barrel shotgun",
+      "MP-155 12ga semi-automatic shotgun",
+      "Benelli M3 Super 90 12ga dual-mode shotgun",
+      "MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
+      "MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun",
+      "Saiga-12K 12ga automatic shotgun (Redline)"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [
+    {
+     "item": "Any of: Saiga-12K ver.10 12ga semi-automatic shotgun, MP-133 12ga pump-action shotgun, Remington Model 870 12ga pump-action shotgun (+9 more)",
+     "itemIds": [
+      "576165642459773c7a400233",
+      "54491c4f4bdc2db1078b4568",
+      "5a7828548dc32e5a9c28b516",
+      "5e870397991fd70db46995c8",
+      "56dee2bdd2720bc8328b4567",
+      "5580223e4bdc2d1c128b457f",
+      "606dae0ab0e443224b421bb7",
+      "6259b864ebedf17603599e88",
+      "67124dcfa3541f2a1f0e788b",
+      "66ffa9b66e19cc902401c5e8",
+      "674fe9a75e51f1c47c04ec23",
+      "6981d72ed009ad83920da43a"
+     ],
+     "qty": 1,
+     "kind": "weapon"
+    }
+   ],
+   "tips": [],
+   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima"
+  },
+  {
+   "id": "68481881f43abfdda2058369",
+   "name": "New Beginning",
+   "trader": "Ragman",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 40,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/New_Beginning_(Prestige_4)",
+   "type": "extract,giveItem,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "68481881f43abfdda205836d",
+     "text": "Eliminate PMC operatives",
+     "type": "shoot",
+     "optional": false,
+     "count": 20,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    },
+    {
+     "id": "68481a8eda10b760b3b1a73f",
+     "text": "Eliminate Rogues",
+     "type": "shoot",
+     "optional": false,
+     "count": 30,
+     "targets": [
+      "Rogue"
+     ],
+     "zone": []
+    },
+    {
+     "id": "68481881f43abfdda205836f",
+     "text": "Use the transit from The Lab to Streets of Tarkov",
+     "type": "extract",
+     "optional": false,
+     "zone": []
+    },
+    {
+     "id": "68481881f43abfdda2058371",
+     "text": "Hand over any found in raid PMC figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "BEAR operative figurine",
+      "USEC operative figurine",
+      "Den figurine",
+      "Walking Tank figurine",
+      "PMC Origins figurine",
+      "Hardened PMC figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "68481881f43abfdda2058372",
+     "text": "Hand over any found in raid Scav figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Scav figurine",
+      "Ryzhy figurine",
+      "Politician Mutkevich figurine",
+      "Mastichin figurine",
+      "Elvisvista figurine",
+      "Hideout Cat figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "68481881f43abfdda2058373",
+     "text": "Hand over any found in raid Boss figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Killa figurine",
+      "Tagilla figurine",
+      "Reshala figurine",
+      "Ded Moroz figurine",
+      "Cultist figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    },
+    {
+     "id": "68481881f43abfdda205837a",
+     "text": "Hand over any found in raid Trader figurine",
+     "type": "giveItem",
+     "optional": false,
+     "count": 3,
+     "items": [
+      "Prapor figurine",
+      "Therapist figurine",
+      "Fence figurine",
+      "Skier figurine",
+      "Peacekeeper figurine",
+      "Mechanic figurine"
+     ],
+     "foundInRaid": true,
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "11,000 XP, 3,000,000 RUB, 3x Physical Bitcoin"
+  },
+  {
+   "id": "60e71b62a0beca400d69efc4",
+   "name": "Escort",
+   "trader": "Prapor",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 46,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Escort",
+   "type": "shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "60ec0b1871035f300c301acd",
+     "text": "Eliminate PMC operatives in The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 2,
+     "targets": [
+      "any PMC operatives"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "155,000 XP, SR-2M Veresk 9x21 submachine gun FSB, Rys-T assault helmet (Black), Rys-T face shield, 400,000 RUB"
+  },
+  {
+   "id": "67af4c1d8c9482eca103e477",
+   "name": "Consolation Prize",
+   "trader": "Skier",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 46,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/Consolation_Prize",
+   "type": "extract,shoot",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "67af727750e1b6f21d9f5511",
+     "text": "Survive and extract from The Lab",
+     "type": "extract",
+     "optional": false,
+     "count": 15,
+     "zone": []
+    },
+    {
+     "id": "67af730c69887224a61084ac",
+     "text": "Eliminate any target in The Lab",
+     "type": "shoot",
+     "optional": false,
+     "count": 100,
+     "targets": [
+      "any target"
+     ],
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "0 XP"
+  }
+ ],
+ "acquisition": [
+  {
+   "item": "Keycard with a blue marking",
+   "itemId": "5efde6b4f5448336730dbd61",
+   "kind": "key",
+   "for": [
+    "5edac63b930f5454f51e128b"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 514140,
+   "lockCount": 1,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "TerraGroup Labs keycard (Black)",
+   "itemId": "5c1d0f4986f7744bb01837fa",
+   "kind": "key",
+   "for": [
+    "639670029113f06a7c3b2377"
+   ],
+   "required": true,
+   "fleaLevel": 30,
+   "flea": "flea from level 30",
+   "price": 522622,
+   "lockCount": 4,
+   "sources": [
+    "Mechanic LL4 barter: 5x 6-STEN-140-M military battery + 8x Cyclon rechargeable battery + 2x UHF RFID Reader + 1x Secure magnetic tape cassette"
+   ]
+  },
+  {
+   "item": "TerraGroup Labs weapon testing area key",
+   "itemId": "5c1e2d1f86f77431e9280bee",
+   "kind": "key",
+   "for": [
+    "639670029113f06a7c3b2377"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 67740,
+   "lockCount": 2,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  },
+  {
+   "item": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+   "itemId": "674d6121c09f69dfb201a888",
+   "kind": "weapon",
+   "for": [
+    "675c1ff1a757ddd00404f0aa"
+   ],
+   "required": true,
+   "fleaLevel": 25,
+   "flea": "flea from level 25",
+   "price": 73276,
+   "lockCount": 0,
+   "sources": [
+    "No trader, barter or craft source. Find it in raid."
+   ]
+  }
+ ],
+ "raids": []
+}

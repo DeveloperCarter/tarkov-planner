@@ -1,0 +1,102 @@
+{
+ "snapshot": "2026-10-21T02:13:44+00:00",
+ "mode": "regular",
+ "maps": [
+  {
+   "key": "factory",
+   "name": "Factory",
+   "file": "factory.json",
+   "quests": 42,
+   "zones": 28,
+   "keys": 3
+  },
+  {
+   "key": "customs",
+   "name": "Customs",
+   "file": "customs.json",
+   "quests": 81,
+   "zones": 40,
+   "keys": 13
+  },
+  {
+   "key": "woods",
+   "name": "Woods",
+   "file": "woods.json",
+   "quests": 79,
+   "zones": 38,
+   "keys": 0
+  },
+  {
+   "key": "lighthouse",
+   "name": "Lighthouse",
+   "file": "lighthouse.json",
+   "quests": 70,
+   "zones": 28,
+   "keys": 2
+  },
+  {
+   "key": "shoreline",
+   "name": "Shoreline",
+   "file": "shoreline.json",
+   "quests": 80,
+   "zones": 35,
+   "keys": 9
+  },
+  {
+   "key": "reserve",
+   "name": "Reserve",
+   "file": "reserve.json",
+   "quests": 60,
+   "zones": 27,
+   "keys": 7
+  },
+  {
+   "key": "interchange",
+   "name": "Interchange",
+   "file": "interchange.json",
+   "quests": 43,
+   "zones": 31,
+   "keys": 5
+  },
+  {
+   "key": "streets-of-tarkov",
+   "name": "Streets of Tarkov",
+   "file": "streets-of-tarkov.json",
+   "quests": 79,
+   "zones": 55,
+   "keys": 17
+  },
+  {
+   "key": "the-lab",
+   "name": "The Lab",
+   "file": "the-lab.json",
+   "quests": 23,
+   "zones": 10,
+   "keys": 3
+  },
+  {
+   "key": "ground-zero",
+   "name": "Ground Zero",
+   "file": "ground-zero.json",
+   "quests": 30,
+   "zones": 15,
+   "keys": 0
+  },
+  {
+   "key": "the-labyrinth",
+   "name": "The Labyrinth",
+   "file": "the-labyrinth.json",
+   "quests": 9,
+   "zones": 7,
+   "keys": 1
+  },
+  {
+   "key": "icebreaker",
+   "name": "Icebreaker",
+   "file": "icebreaker.json",
+   "quests": 20,
+   "zones": 2,
+   "keys": 0
+  }
+ ]
+}
