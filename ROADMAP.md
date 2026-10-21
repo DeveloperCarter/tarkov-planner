@@ -369,6 +369,29 @@ flags count, and quests without wiki coverage are listed for review. Accepted qu
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
 The map and raid-mode quest pickers have a Kappa-only filter and a Kappa quests preset.
 
+## M7 · Scav mode  (S–M)
+
+A short, phone-friendly list of the found-in-raid items your quests still need, for scav runs.
+It reuses the M5 keep list (`QuestCareer.evaluate`); scav runs are about loot, not objectives.
+
+- **Where:** a Scav toggle in raid mode swaps the checklist and route for the item list and keeps
+  the map and clock. Auto-switch only if the logs reliably mark a scav raid (check whether the scav
+  profile ID differs from the PMC one in real logs first); until then the toggle is manual.
+- **What:** items for current quests, then possible unlocks, then The Collector, with the count still
+  needed and which quests want each. Exclude quest-only pickups (`findQuestItem`) and anything
+  handed in or ticked. Sort by count still needed.
+- **Found this raid:** + / − counters per row, saved per profile, mode and wipe as a stash count kept
+  apart from hand-ins ("need 3 · have 2 in stash"). Leaving scav mode gives a short summary
+  ("Found 4 items for 3 quests").
+- **Later, if a source holds up:** where needed items tend to spawn on this map, only from
+  tarkov.dev loot-container data, never guessed. Hideout found-in-raid items need a hideout tracker first.
+- **Checks:** tests that quest-only items are excluded, stash counts reduce what's still needed without
+  completing quests, and shared items count once. Browser check at phone width and desktop, light and
+  dark, with counters surviving a reload.
+
+**Done when:** raid mode can switch to Scav and show only items a scav can bring back for your
+quests, and counting them updates the Keep list on every page.
+
 ## Later (after people are using it)
 
 Squad merge (shared stops, who carries what) · TarkovTracker two-way sync · Boss and ammo brief ·
