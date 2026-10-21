@@ -8,7 +8,7 @@ M1A is implemented and checked against the supplied 12-quest Customs reference.
 M1B is implemented and validated. M2 is deployed and its live HTTPS acceptance check passes.
 The public Chrome tab watches the real Logs folder. Its Customs list has been reconciled
 with the confirmed 12-quest reference, level 24, and a three-quest raid focus.
-M3 data and pure logic are implemented on feat/spawn-routes; UI integration is a separate change.
+M3 spawn routing, UI integration and raid focus presets are implemented and tested.
 M4 (real maps, spot photos, quest details) shipped ahead of it.
 
 ## Where things stand (2026-10-20)
@@ -266,7 +266,7 @@ After reconciling the live public state, all 64 Node tests and 13 Python tests p
 default builds succeed and all 130 inline scripts / local navigation links pass. The public
 tab has no console warnings/errors and remains connected while changing raid selections.
 
-## M3 · Spawn-based objective routes (data and pure logic implemented; UI integration pending)
+## M3 · Spawn-based objective routes and raid focus presets (implemented)
 
 Route through the player's selected current quests from M1B, starting at the actual spawn.
 The route ends at the last objective. Extract planning, automatic key-based raid grouping and
@@ -286,18 +286,25 @@ splitting the selection into several raids are outside this design.
    targets. Choose alternatives globally with the order. Up to ten independent requirements or
    candidate stops use exact Held–Karp; larger cases use nearest-neighbour plus 2-opt and report
    approximate:true. Distances are straight lines in game metres, not terrain-aware paths.
-4. **UI integration (parallel change)** — prompt for the spawn area if no usable Position arrives
+4. **UI integration** — prompt for the spawn area if no usable Position arrives
    within ten seconds, or it is over 30 m from a known spawn. Offer manual correction and reroute
    from the last completed stop. A raid-loading event can prepare the map during loading;
    raid-started begins the wait. Missing/unknown maps must never select an unrelated map silently.
    Show the route for the selected quests only, with its approximation/search-location caveats.
 
+5. **Raid focus presets** — choose quests inside raid mode using All current, Key raids, No required
+   keys, Quest-item pickups, Mark & place or Combat. Show counts, describe each preset, and allow
+   checkbox adjustments and Clear. Apply only current quests; never alter statuses or assume key
+   ownership. Preset selections use the existing scoped raid-focus persistence.
+
 **Foundation checks:** synthetic fixtures cover multi-raid/split-chunk parsing, live-only watcher
 callbacks, rotations, spawn filtering and matching, brute-force route optimality, alternative zones,
 shared stops, counters, rerouting, determinism and the large-route approximation flag. Both modes
-regenerate offline. No UI template changes are included in the foundation branch.
+regenerate offline. The integrated UI draws numbered routes, offers manual spawn selection, prompts when live logs lack
+a usable position, and reroutes on objective completion. Key and pickup presets are covered by
+synthetic tests; desktop/mobile interaction checks cover cards, selection, routes and both themes.
 
-**Done when:** the foundation tests/build checks pass and the separately reviewed UI handles a
+**Done when:** the foundation tests/build checks pass and the integrated UI handles a
 live raid, manual area selection when the log lacks a position, quest selection changes and
 completion-based rerouting. No extract recommendation is part of this milestone.
 

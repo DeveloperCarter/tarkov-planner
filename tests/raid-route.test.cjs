@@ -136,3 +136,9 @@ test('alternative-route optimum matches brute-force subsets and permutations',()
   }
   assert.ok(Math.abs(R.route(d,['q'],'area').metres-best)<1e-8);
 });
+
+test('optional visits do not add detours to required objective routes',()=>{
+ const d=data([['a',1,0],['b',100,0]],[{id:'required',zone:['a']},{id:'optional',zone:['b'],optional:true}]);
+ assert.deepEqual(R.route(d,['q'],'area').stops.map(s=>s.zone),['a']);
+ assert.deepEqual(R.route(d,['q'],'area',{done:new Set(['required'])}).stops,[]);
+});

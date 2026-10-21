@@ -128,7 +128,7 @@
       const id = quest.bsgId || quest.id;
       if (!wanted.has(id) && !wanted.has(quest.id)) continue;
       for (const objective of quest.objectives || []) {
-        if (isDone(done, objective)) continue;
+        if (objective.optional || isDone(done, objective)) continue;
         const choices = [...new Set(objective.zone || [])].sort(compare);
         if (!choices.length) continue;
         for (const zone of choices) if (!zones[zone]) throw new RangeError(`Unknown objective zone: ${zone}`);
@@ -160,5 +160,5 @@
     return { stops, metres: length(stops.map(s => s.zone), byId, origin),
       ...(isApproximate ? { approximate: true } : {}) };
   }
-  return { matchSpawn, route };
+  return { matchSpawn, route, isDone };
 });

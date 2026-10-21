@@ -17,6 +17,8 @@ page/eft-log-tracker.js        log parser + watcher; inlined by build_page.py; l
 page/progress-store.js         profile/mode/wipe scopes, replay history and current-list corrections
 page/raid-focus.js             manual raid selection, shared locations/items and filtered plan projection
 page/raid-route.js             spawn matching and shortest open objective route (pure UMD; no extracts)
+page/raid-session.js           transient spawn/start/completion state (pure UMD)
+page/raid-presets.js           current-quest raid focus presets (pure UMD)
 page/map-home.js               home-page counts using the same scoped quest evaluation
 page/site-search.js            site-wide quest search ranking over dist/search-index.json (pure, tested)
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
@@ -161,13 +163,32 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   per game metre. Distances use the x/z plane, ignore walls, paths, elevations, enemies and keys,
   and end at the last objective. These are geometric routes, not guaranteed walkable paths.
 - `RaidRoute.route(data,selectedIds,start,{done})` uses selected quest IDs/bsgIds, merges shared
-  zones, drops completed objectives and ignores objectives without zones. `done` is an objective-ID
+  zones, drops completed/optional objectives and ignores objectives without zones. `done` is an objective-ID
   Set, or a Map/object with booleans, numeric counters or `{count}`; counters finish at objective.count.
   `start` is `{gx,gz}`, a spawn-area ID (member centroid), or a previous output stop for rerouting.
   Stops include zone,x,y,gx,gz,quests,objectives. Exact generalized Held–Karp handles up to ten
   independent requirements or candidate stops, including global choice among alternative zones;
   larger problems use deterministic nearest-neighbour and open-path 2-opt with approximate:true.
   Identical/subsumed requirements are reduced first. No extracts are added.
+
+**M3 UI integration and raid presets (2026-10-21)**
+- build_page.py inlines RaidRoute, RaidSession and RaidPresets. Manual spawn selection is available
+  before and during raid mode. Matching live raid events use ProgressStore.accepts for the current
+  profile/mode/wipe; they never change quest status. No spawn/raid positions are persisted.
+- A missing or unmatched spawn prompts for an area after ten seconds (immediately if unmatched).
+  Manual choice wins over late automatic detection. Another map's loading event clears the prior
+  route and shows a notice; it does not navigate automatically. The route never includes an extract.
+- Marking a prefix of stops done reroutes from the last completed one. Checking a later stop out of
+  order drops its objective without teleporting the route start. Counters need their full quantity.
+- Raid mode contains a collapsible quest picker and All current, Key raids, No required keys,
+  Quest-item pickups, Mark & place, and Combat presets. Presets replace only raid selection from
+  current quests on this page, including multi-map quests. Optional keys don't qualify as required.
+  Objective presets ignore done/optional objectives; general loot handovers aren't located pickups.
+  Key ownership is unknown. Counts and checkboxes show exactly which quests will be selected.
+  Clear stays empty; current scope/map persistence continues through RaidFocus.
+- Clicking card titles or ordinary text opens details; checkboxes/buttons/links/selects retain
+  their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh
+  build of dist/ and page reload: an older local dist caused the reported missing card interaction.
 
 **Map art and spot photos**
 - SVG maps: the-hideout/tarkov-dev-svg-maps, CC BY-NC-SA 4.0 (non-commercial; credit and same

@@ -485,7 +485,7 @@ class Normalizer:
                     {"name": "tarkov-dev map labels (MIT)", "url": "https://github.com/the-hideout/tarkov-dev", "use": "Area names and coordinate rotation"},
                 ],
                 "caveats": [
-                    "Generated automatically. Raids aren't planned yet; that's the planner's job.",
+                    "Routes use straight-line distances between selected objectives; check terrain and access requirements.",
                     "tarkov.dev marks only a handful of tasks as Kappa (13 of 503 in the 2026-10-20 snapshot), so its Kappa flag is incomplete. Use the wiki for Kappa.",
                     "Zone names come from the nearest tarkov.dev map label plus a compass direction, so check them on the map.",
                 ],
