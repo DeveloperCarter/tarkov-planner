@@ -5,8 +5,9 @@ on each map right now, plans the raids, and tells you what to bring and what to 
 
 The order is by return on effort. Each milestone ships something usable on its own.
 M1A is implemented and checked against the supplied 12-quest Customs reference.
-M1B is implemented and validated. M2 is built and deployed; an inherited custom domain blocks
-public access and the final live-folder check. M2 is not yet accepted as complete.
+M1B is implemented and validated. M2 is deployed and public HTTPS access is verified.
+The final real-folder live-tracking check awaits the player's Chrome folder selection;
+M2 is not yet accepted as complete.
 M3 remains unstarted.
 
 ## Where things stand (2026-10-20)
@@ -193,7 +194,7 @@ the M1A screenshot-confirmed baseline still has exactly 12 Customs quests, no mi
 The nine additional historical starts remain an accuracy limitation, preserved for review.
 No automatic bundling, ranking, deployment, or M2 work was added.
 
-## M2 · Ship it on https  (deployed; inherited domain and live-folder check pending)
+## M2 · Ship it on https  (public HTTPS verified; live-folder check pending)
 
 Start only after M1A and M1B pass their acceptance checks.
 
@@ -237,13 +238,17 @@ Browser checks on localhost cover the home and both mode pages in light/dark at 
 with no console warnings/errors or horizontal overflow. Home Customs agrees with the confirmed
 12 current quests and 14 separate unlock estimates; PvE has no selected scope and shows zero.
 
-**External blocker:** the account's personal Pages repository has `carterbrown.dev` configured.
-Project Pages inherits that domain, and the standard planner URL redirects there. GitHub's DNS
-health check reports NXDOMAIN and no HTTPS eligibility. Approval to remove that separate
-repository's domain setting/CNAME is pending. Do not change it without approval. Once resolved,
-open the public URL directly in Chrome/Edge and connect the actual Logs folder before marking
-M2's live-folder acceptance check complete. HTTPS has a separate browser store from localhost;
-the existing local scope/corrections remain preserved.
+**Domain issue resolved with owner approval:** the personal Pages site's retired
+`carterbrown.dev` CNAME was removed in commit `3dfa494ee33f8c9795689392d3d32ded2bb1e1dc`.
+GitHub automatically cleared its custom-domain setting. After the personal site rebuilt, the
+planner's standard HTTPS URL returned HTTP 200 with no redirect to the retired domain. The
+public home and Customs tracker load directly in Chrome with no console warnings/errors.
+HTTP redirects to HTTPS, and the Pages API confirms HTTPS enforcement. The deployed home,
+PvP and PvE pages also pass light/dark at 1440px/400px without console errors or overflow.
+The tracker offers Connect logs folder; a real native folder selection is still required
+before marking the live-folder acceptance check complete. HTTPS has a separate browser store
+from localhost; the existing local scope/corrections remain preserved. No DNS records or
+other personal-site content were changed.
 
 ## M3 · Raid bundler v1  (M–L, what sets this apart)
 

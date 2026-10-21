@@ -1,10 +1,10 @@
 # tarkov-planner (v1 data pipeline)
 
-Deployment target: **https://developercarter.github.io/tarkov-planner/**
-The initial build and deployment passed. Public access currently redirects to the personal
-Pages site's inherited `carterbrown.dev` domain, which GitHub reports as NXDOMAIN. Removing
-that unrelated site's domain mapping requires the owner's approval; M2's live-folder
-acceptance check remains pending until public HTTPS access is restored.
+Public site: **https://developercarter.github.io/tarkov-planner/**
+The build and deployment passed, and the public HTTPS home and map pages load in Chrome
+without console errors. The owner-approved removal of the retired `carterbrown.dev` CNAME
+restored the default GitHub Pages addresses. M2's final live-folder check awaits selecting
+the real Logs folder on this new origin; localhost progress remains preserved.
 
 M2 adds a map home page and separate PvP/PvE planners. Current counts use the chosen
 profile/mode/wipe; possible unlocks are counted separately as estimates. A quest with
