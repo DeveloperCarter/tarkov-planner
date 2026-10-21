@@ -30,15 +30,30 @@ def relative_url(target: Path, page: Path) -> str:
     return os.path.relpath(target, page.parent).replace(os.sep, "/")
 
 
-def navigation(out_path: Path, mode: str, key: str = "customs") -> str:
+def map_rows(mode: str) -> list:
+    index = ROOT / "data" / ("" if mode == "regular" else "pve") / "maps" / "index.json"
+    return sorted(json.loads(index.read_text(encoding="utf-8"))["maps"], key=lambda r: r["name"]) if index.exists() else []
+
+
+def navigation(out_path: Path, mode: str, key: str | None = "customs") -> str:
+    """Site bar: name, map switcher, PvP/PvE toggle, theme. key=None is the home page, whose
+    mode changes in the browser, so every link carries both modes' URLs (data-pvp / data-pve)."""
     home = relative_url(ROOT / "dist" / "index.html", out_path)
-    links = [("All maps", home + "?mode=" + mode),
-             ("PvP", relative_url(ROOT / "dist" / "maps" / f"{key}.html", out_path)),
-             ("PvE", relative_url(ROOT / "dist" / "pve" / "maps" / f"{key}.html", out_path))]
-    return '<nav class="site-nav" aria-label="Maps and mode">' + ''.join(
-        f'<a href="{html_lib.escape(url, quote=True)}"' +
-        (' aria-current="true"' if label == ('PvE' if mode == 'pve' else 'PvP') else '') +
-        f'>{label}</a>' for label, url in links) + '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>'
+    page = lambda m, k: relative_url(ROOT / "dist" / ("maps" if m == "regular" else "pve/maps") / f"{k}.html", out_path)
+    keys = {m: {r["key"] for r in map_rows(m)} for m in ("regular", "pve")}
+    url = lambda m, k: page(m, k) if k in keys[m] else home + "?mode=" + m
+    attr = lambda s: html_lib.escape(s, quote=True)
+    both = lambda k: f' data-pvp="{attr(url("regular", k) if k else home + "?mode=regular")}" data-pve="{attr(url("pve", k) if k else home + "?mode=pve")}"'
+    options = [f'<option value="{attr(home + "?mode=" + mode)}"{both(None)}{" selected" if key is None else ""}>All maps</option>']
+    options += [f'<option value="{attr(url(mode, r["key"]))}"{both(r["key"])}{" selected" if r["key"] == key else ""}>{html_lib.escape(r["name"])}</option>'
+                for r in map_rows(mode)]
+    current = ' aria-current="page"'
+    modes = ''.join(f'<a href="{attr(url(m, key) if key else home + "?mode=" + m)}" data-mode="{m}"'
+                    f'{current if m == mode else ""}>{label}</a>' for m, label in (("regular", "PvP"), ("pve", "PvE")))
+    return (f'<nav class="site-nav" aria-label="Site"><a class="brand" href="{attr(home + "?mode=" + mode)}">Tarkov Raid Planner</a>'
+            f'<select class="map-jump" aria-label="Map" onchange="location.href=this.value">{"".join(options)}</select>'
+            f'<div class="mode-toggle" role="group" aria-label="Game mode">{modes}</div>'
+            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>')
 
 
 def styles() -> str:
@@ -176,6 +191,7 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
     for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
+    text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)
     text = text.replace('/*__DATA__*/null', json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), 1)
     (ROOT / 'dist').mkdir(exist_ok=True)
     (ROOT / 'dist' / 'index.html').write_text(text, encoding='utf-8')
