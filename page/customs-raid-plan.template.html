@@ -877,7 +877,7 @@ function renderMap(active = currentRoute) {
   if (objectiveRoute && routeSession.start) {
     const start = RaidSession.marker(DATA, routeSession.start), points = [start, ...objectiveRoute.stops].filter(Boolean);
     s += `<g class="objective-route" aria-label="Objective route"><polyline points="${points.map(p => `${p.x},${p.y}`).join(" ")}" fill="none" stroke="var(--steel)" stroke-width="4" stroke-dasharray="8 4" vector-effect="non-scaling-stroke"/>`;
-    if (start) s += `<g class="glyph" transform="translate(${start.x} ${start.y})"><circle r="8" fill="var(--steel)"/><text x="12" y="4" fill="var(--ink)">Start</text></g>`;
+    if (start) s += `<g data-route-start transform="translate(${start.x} ${start.y})"><g class="glyph"><circle r="8" fill="var(--steel)"/><text x="12" y="4" fill="var(--ink)">Start</text></g></g>`;
     s += objectiveRoute.stops.map((p,i) => `<g transform="translate(${p.x} ${p.y})"><g class="glyph"><circle cx="16" cy="12" r="10" fill="var(--steel)"/><text class="stop" x="16" y="16">${i+1}</text></g></g>`).join("") + '</g>';
   }
   // One pin per spot, in the colour and number of the first selected quest that needs it.
