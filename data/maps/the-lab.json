@@ -103,7 +103,20 @@
    "faction": "pmc",
    "x": 970,
    "y": 471,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "switch",
+   "alwaysOpen": false,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Open the hangar gate from the control in cabin B24.",
+   "overrideReason": "The wiki requires opening the gate from the B24 control cabin. The repeated snapshot switch list does not identify that control reliably.",
+   "type": "pmc",
+   "unclassified": [
+    "Switch position not verified"
+   ],
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-elevator-med",
@@ -111,7 +124,19 @@
    "faction": "shared",
    "x": 477,
    "y": 700,
-   "rule": "SHARED extract"
+   "rule": "SHARED extract",
+   "requirement": "switch",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Activate the extraction switch before leaving.",
+   "type": "shared",
+   "unclassified": [
+    "Switch position not verified"
+   ],
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-vent",
@@ -119,7 +144,16 @@
    "faction": "pmc",
    "x": 270,
    "y": 572,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Remove your backpack before extracting.",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-elevator-cargo",
@@ -127,7 +161,19 @@
    "faction": "shared",
    "x": 224,
    "y": 702,
-   "rule": "SHARED extract"
+   "rule": "SHARED extract",
+   "requirement": "switch",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Activate the extraction switch before leaving.",
+   "type": "shared",
+   "unclassified": [
+    "Switch position not verified"
+   ],
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-elevator-main",
@@ -135,7 +181,19 @@
    "faction": "shared",
    "x": 514,
    "y": 30,
-   "rule": "SHARED extract"
+   "rule": "SHARED extract",
+   "requirement": "switch",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Activate the extraction switch before leaving.",
+   "type": "shared",
+   "unclassified": [
+    "Switch position not verified"
+   ],
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-parking-gate",
@@ -143,7 +201,20 @@
    "faction": "pmc",
    "x": 30,
    "y": 232,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "switch",
+   "alwaysOpen": false,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Open the parking gate from the control in room Y21.",
+   "overrideReason": "The wiki requires opening the gate from Y21. The repeated snapshot switch list does not identify that control reliably.",
+   "type": "pmc",
+   "unclassified": [
+    "Switch position not verified"
+   ],
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "lab-under-storage-collector",
@@ -151,7 +222,23 @@
    "faction": "pmc",
    "x": 815,
    "y": 659,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "switch",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Press the pump switch in B1 and wait for the water to drain.",
+   "overrideReason": "The wiki requires draining water at the B1 switch; the snapshot names a Pump_button distinct from the unrelated repeated extraction switch list.",
+   "type": "pmc",
+   "switch": {
+    "id": "a948c3ba250ffcaaa508230d0b3392bf09cb6964",
+    "name": "Sewage pump button",
+    "x": 830,
+    "y": 604
+   },
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   },
   {
    "id": "transit-8",
@@ -159,7 +246,16 @@
    "faction": "shared",
    "x": 176,
    "y": 473,
-   "rule": "Transit to another map"
+   "rule": "Transit to another map",
+   "type": "transit",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Travel to another map; available after 1 minute(s).",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   }
  ],
  "bosses": [
@@ -243,7 +339,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 84364,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "639670029113f06a7c3b2377",
@@ -326,7 +433,18 @@
     }
    ],
    "tips": [],
-   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key"
+   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 523257,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.04
+     }
+    ]
+   }
   },
   {
    "id": "5edac63b930f5454f51e128b",
@@ -383,7 +501,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, Mesa Tactical Crosshair Hydraulic buffer tube, AR-15 Magpul ACS Carbine stock (Black), AR-15 Magpul ACS Carbine stock (FDE)"
+   "reward": "65,000 XP, 2,750 USD, Mesa Tactical Crosshair Hydraulic buffer tube, AR-15 Magpul ACS Carbine stock (Black), AR-15 Magpul ACS Carbine stock (FDE)",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 140144,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "60e71c9ad54b755a3b53eb66",
@@ -419,7 +548,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 1,900 EUR, 4x Power supply unit"
+   "reward": "28,000 XP, 1,900 EUR, 4x Power supply unit",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 252700,
+    "itemValue": 121960,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5d25bfd086f77442734d3007",
@@ -456,7 +596,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 0,
+    "itemValue": 175392,
+    "rep": []
+   }
   },
   {
    "id": "666314b696a9349baa021bac",
@@ -496,7 +642,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 5x Propital regenerative stimulant injector, 5x eTG-change regenerative stimulant injector"
+   "reward": "28,000 XP, 275,000 RUB, 5x Propital regenerative stimulant injector, 5x eTG-change regenerative stimulant injector",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 777765,
+    "rep": []
+   }
   },
   {
    "id": "5d25e29d86f7740a22516326",
@@ -532,7 +684,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 431719,
+    "rep": []
+   }
   },
   {
    "id": "6761f28a022f60bb320f3e95",
@@ -623,7 +781,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, 100,000 RUB"
+   "reward": "10,000 XP, 100,000 RUB",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 100000,
+    "itemValue": 0,
+    "rep": []
+   }
   },
   {
    "id": "6613f3007f6666d56807c929",
@@ -672,7 +836,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": []
+   }
   },
   {
    "id": "66151401efb0539ae10875ae",
@@ -721,7 +891,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": []
+   }
   },
   {
    "id": "6761ff17cdc36bd66102e9d0",
@@ -827,7 +1003,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "11,000 XP, 200,000 RUB"
+   "reward": "11,000 XP, 200,000 RUB",
+   "rewards": {
+    "xp": 11000,
+    "roubles": 200000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Ragman",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "5c0d4e61d09282029f53920e",
@@ -866,7 +1053,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 111625,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6a4532e48e82d8ffea0c3eae",
@@ -898,7 +1096,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 400,000 RUB"
+   "reward": "65,000 XP, 400,000 RUB",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "675c1ff1a757ddd00404f0aa",
@@ -942,7 +1151,18 @@
     }
    ],
    "tips": [],
-   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB"
+   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB",
+   "rewards": {
+    "xp": 32000,
+    "roubles": 400000,
+    "itemValue": 172945,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6848100b00afffa81f09e365",
@@ -1059,7 +1279,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "11,000 XP, 2,000,000 RUB, 2x Physical Bitcoin"
+   "reward": "11,000 XP, 2,000,000 RUB, 2x Physical Bitcoin",
+   "rewards": {
+    "xp": 11000,
+    "roubles": 2000000,
+    "itemValue": 2197738,
+    "rep": [
+     {
+      "trader": "Ragman",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "59ca2eb686f77445a80ed049",
@@ -1174,7 +1405,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 1205454,
+    "rep": []
+   }
   },
   {
    "id": "66aba85403e0ee3101042877",
@@ -1238,7 +1475,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "24,000 XP, 400,000 RUB"
+   "reward": "24,000 XP, 400,000 RUB",
+   "rewards": {
+    "xp": 24000,
+    "roubles": 400000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "5c0d1c4cd0928202a02a6f5c",
@@ -1270,7 +1518,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "12,500 XP, 400,000 RUB"
+   "reward": "12,500 XP, 400,000 RUB",
+   "rewards": {
+    "xp": 12500,
+    "roubles": 400000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "669fa3a3ad7f1eac2607ed48",
@@ -1313,7 +1572,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 400,000 RUB, Medicine case, 3x Morphine injector, 3x Adrenaline injector"
+   "reward": "65,000 XP, 400,000 RUB, Medicine case, 3x Morphine injector, 3x Adrenaline injector",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 582538,
+    "rep": []
+   }
   },
   {
    "id": "5c0bc91486f7746ab41857a2",
@@ -1379,7 +1644,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima"
+   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 319200,
+    "itemValue": 70464,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "68481881f43abfdda2058369",
@@ -1496,7 +1772,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "11,000 XP, 3,000,000 RUB, 3x Physical Bitcoin"
+   "reward": "11,000 XP, 3,000,000 RUB, 3x Physical Bitcoin",
+   "rewards": {
+    "xp": 11000,
+    "roubles": 3000000,
+    "itemValue": 3296607,
+    "rep": [
+     {
+      "trader": "Ragman",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "60e71b62a0beca400d69efc4",
@@ -1528,7 +1815,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "155,000 XP, SR-2M Veresk 9x21 submachine gun FSB, Rys-T assault helmet (Black), Rys-T face shield, 400,000 RUB"
+   "reward": "155,000 XP, SR-2M Veresk 9x21 submachine gun FSB, Rys-T assault helmet (Black), Rys-T face shield, 400,000 RUB",
+   "rewards": {
+    "xp": 155000,
+    "roubles": 400000,
+    "itemValue": 327461,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "67af4c1d8c9482eca103e477",
@@ -1568,7 +1866,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP"
+   "reward": "0 XP",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 0,
+    "rep": []
+   }
   }
  ],
  "acquisition": [

@@ -224,7 +224,17 @@
    "faction": "shared",
    "x": 312,
    "y": 383,
-   "rule": "SHARED extract"
+   "rule": "SHARED extract",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Board after the train arrives; extraction happens on departure.",
+   "overrideReason": "The wiki lists the train as always available, but extraction still requires its scheduled departure.",
+   "type": "shared",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "coastal-south-road",
@@ -232,7 +242,16 @@
    "faction": "pmc",
    "x": 512,
    "y": 1237,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "scav-coastal-south",
@@ -240,7 +259,16 @@
    "faction": "scav",
    "x": 503,
    "y": 1238,
-   "rule": "SCAV extract"
+   "rule": "SCAV extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "scav",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "shorl-free-scav",
@@ -248,7 +276,16 @@
    "faction": "scav",
    "x": 558,
    "y": 879,
-   "rule": "SCAV extract"
+   "rule": "SCAV extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "scav",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "alpinist-light",
@@ -256,7 +293,17 @@
    "faction": "pmc",
    "x": 441,
    "y": 916,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "cliff",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Bring a Red Rebel and paracord; remove body armor before extracting.",
+   "item": "Red Rebel ice pick + Paracord",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "lighthouse-secret-minefield",
@@ -264,7 +311,17 @@
    "faction": "pmc",
    "x": 566,
    "y": 533,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "item",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Carry the required item to use this extraction.",
+   "item": "Minefield map (Lighthouse)",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "nothern-checkpoint",
@@ -272,7 +329,16 @@
    "faction": "pmc",
    "x": 241,
    "y": 304,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "scav-underboat-hideout",
@@ -280,7 +346,16 @@
    "faction": "scav",
    "x": 228,
    "y": 1149,
-   "rule": "SCAV extract"
+   "rule": "SCAV extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "scav",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "scav-hideout-at-the-grotto",
@@ -288,7 +363,16 @@
    "faction": "scav",
    "x": 197,
    "y": 637,
-   "rule": "SCAV extract"
+   "rule": "SCAV extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "scav",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "scav-industrial-zone",
@@ -296,7 +380,16 @@
    "faction": "scav",
    "x": 417,
    "y": 433,
-   "rule": "SCAV extract"
+   "rule": "SCAV extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "scav",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "tunnel-shared",
@@ -304,7 +397,16 @@
    "faction": "shared",
    "x": 362,
    "y": 1170,
-   "rule": "SHARED extract"
+   "rule": "SHARED extract",
+   "requirement": "coop",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "A PMC and a player Scav must extract together.",
+   "type": "coop",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "shorl-free",
@@ -312,7 +414,16 @@
    "faction": "pmc",
    "x": 558,
    "y": 879,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "none",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "No equipment or payment required.",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "transit-21",
@@ -320,7 +431,16 @@
    "faction": "shared",
    "x": 540,
    "y": 849,
-   "rule": "Transit to another map"
+   "rule": "Transit to another map",
+   "type": "transit",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Travel to another map; available after 1 minute(s).",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "transit-22",
@@ -328,7 +448,16 @@
    "faction": "shared",
    "x": 511,
    "y": 442,
-   "rule": "Transit to another map"
+   "rule": "Transit to another map",
+   "type": "transit",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Travel to another map; available after 1 minute(s).",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "transit-23",
@@ -336,7 +465,16 @@
    "faction": "shared",
    "x": 243,
    "y": 321,
-   "rule": "Transit to another map"
+   "rule": "Transit to another map",
+   "type": "transit",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Travel to another map; available after 1 minute(s).",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   },
   {
    "id": "transit-51",
@@ -344,7 +482,16 @@
    "faction": "shared",
    "x": 219,
    "y": 838,
-   "rule": "Transit to another map"
+   "rule": "Transit to another map",
+   "type": "transit",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Travel to another map; available after 1 minute(s).",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
   }
  ],
  "bosses": [
@@ -484,7 +631,18 @@
     }
    ],
    "tips": [],
-   "reward": "13,200 XP, 85,000 RUB, GreenBat lithium battery, GreenBat lithium battery"
+   "reward": "13,200 XP, 85,000 RUB, GreenBat lithium battery, GreenBat lithium battery",
+   "rewards": {
+    "xp": 13200,
+    "roubles": 85000,
+    "itemValue": 395548,
+    "rep": [
+     {
+      "trader": "BTR Driver",
+      "standing": 0.02
+     }
+    ]
+   }
   },
   {
    "id": "69c27158e350f01390049e77",
@@ -525,7 +683,13 @@
     }
    ],
    "tips": [],
-   "reward": "42,000 XP"
+   "reward": "42,000 XP",
+   "rewards": {
+    "xp": 42000,
+    "roubles": 0,
+    "itemValue": 0,
+    "rep": []
+   }
   },
   {
    "id": "69c26c07683c9831020018c7",
@@ -560,7 +724,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "25,000 XP, 100,000 RUB, 3x Water filter"
+   "reward": "25,000 XP, 100,000 RUB, 3x Water filter",
+   "rewards": {
+    "xp": 25000,
+    "roubles": 100000,
+    "itemValue": 268218,
+    "rep": []
+   }
   },
   {
    "id": "6744af0969a58fceba101fed",
@@ -622,7 +792,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "85,400 XP, 300,000 RUB"
+   "reward": "85,400 XP, 300,000 RUB",
+   "rewards": {
+    "xp": 85400,
+    "roubles": 300000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "BTR Driver",
+      "standing": 0.5
+     }
+    ]
+   }
   },
   {
    "id": "6745cbee909d2013670a4a55",
@@ -684,7 +865,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "85,400 XP, 300,000 RUB"
+   "reward": "85,400 XP, 300,000 RUB",
+   "rewards": {
+    "xp": 85400,
+    "roubles": 300000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "BTR Driver",
+      "standing": 0.5
+     }
+    ]
+   }
   },
   {
    "id": "6663149196a9349baa021baa",
@@ -730,7 +922,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "36,800 XP, 2,200 EUR, 2x Physical Bitcoin"
+   "reward": "36,800 XP, 2,200 EUR, 2x Physical Bitcoin",
+   "rewards": {
+    "xp": 36800,
+    "roubles": 292600,
+    "itemValue": 2197738,
+    "rep": [
+     {
+      "trader": "Fence",
+      "standing": 0.04
+     }
+    ]
+   }
   },
   {
    "id": "66ab9da7eb102b9bcd08591c",
@@ -771,7 +974,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 84364,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5d25e2cc86f77443e47ae019",
@@ -805,7 +1019,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 84364,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179ad0a6e9dd54ac275e3f2",
@@ -841,7 +1066,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam"
+   "reward": "28,000 XP, 275,000 RUB, 2x Shustrilo sealing foam",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 84364,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5bc4776586f774512d07cf05",
@@ -907,7 +1143,13 @@
     }
    ],
    "tips": [],
-   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad"
+   "reward": "3,000 XP, 80,000 RUB, 2x Mosin Rifle AIM Sports MNG rail mount, 2x Mosin Rifle AIM Sports Recoil Pad",
+   "rewards": {
+    "xp": 3000,
+    "roubles": 80000,
+    "itemValue": 14546,
+    "rep": []
+   }
   },
   {
    "id": "639670029113f06a7c3b2377",
@@ -937,7 +1179,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key"
+   "reward": "0 XP, Far-forward GPS Signal Amplifier Unit, Substation marked key",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 523257,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.04
+     }
+    ]
+   }
   },
   {
    "id": "63966faeea19ac7ed845db2c",
@@ -966,7 +1219,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP, Advanced Electronic Materials textbook, Lighthouse island stash key"
+   "reward": "0 XP, Advanced Electronic Materials textbook, Lighthouse island stash key",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 491000,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "6396701b9113f06a7c3b2379",
@@ -1004,7 +1268,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP, Phased array element, Phased array element, Substation marked key, Lighthouse island stash key"
+   "reward": "0 XP, Phased array element, Phased array element, Substation marked key, Lighthouse island stash key",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 609241,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.04
+     }
+    ]
+   }
   },
   {
    "id": "63966fbeea19ac7ed845db2e",
@@ -1034,7 +1309,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP, Microcontroller board"
+   "reward": "0 XP, Microcontroller board",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 100000,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "63966fccac6f8f3c677b9d89",
@@ -1081,7 +1367,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "0 XP, VPX Flash Storage Module, VPX Flash Storage Module, VPX Flash Storage Module, Substation marked key"
+   "reward": "0 XP, VPX Flash Storage Module, VPX Flash Storage Module, VPX Flash Storage Module, Substation marked key",
+   "rewards": {
+    "xp": 0,
+    "roubles": 0,
+    "itemValue": 745422,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "6179b3bdc7560e13d23eeb8d",
@@ -1136,7 +1433,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Mechanic",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179b3a12153c15e937d52bc",
@@ -1202,7 +1510,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Mechanic",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5c0bde0986f77479cf22c2f8",
@@ -1266,7 +1585,18 @@
     }
    ],
    "tips": [],
-   "reward": "55,000 XP, Weapon case, 400,000 RUB"
+   "reward": "55,000 XP, Weapon case, 400,000 RUB",
+   "rewards": {
+    "xp": 55000,
+    "roubles": 400000,
+    "itemValue": 1850585,
+    "rep": [
+     {
+      "trader": "Mechanic",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6179b5eabca27a099552e052",
@@ -1315,7 +1645,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 293406,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "61958c366726521dd96828ec",
@@ -1376,7 +1717,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,900 USD, 4x Power supply unit"
+   "reward": "28,000 XP, 1,900 USD, 4x Power supply unit",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 231800,
+    "itemValue": 121960,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5c0bd01e86f7747cdd799e56",
@@ -1408,7 +1760,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug"
+   "reward": "65,000 XP, 2,750 USD, 4x AFAK tactical individual first aid kit, CENS ProFlex DX5 tactical earplug",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 293406,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6179aff8f57fb279792c60a1",
@@ -1456,7 +1819,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 1,900 USD"
+   "reward": "28,000 XP, 1,900 USD",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 231800,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5c0d4c12d09282029f539173",
@@ -1530,7 +1904,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, Desert Tech MDR 7.62x51 assault rifle Default, 2,750 USD"
+   "reward": "65,000 XP, Desert Tech MDR 7.62x51 assault rifle Default, 2,750 USD",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 131834,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "63a9ae24009ffc6a551631a5",
@@ -1582,7 +1967,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, Armband (BEAR), ASh-12 12.7x55 assault rifle Default, 10x 12.7x55mm PS12B (10 pcs), 400,000 RUB"
+   "reward": "65,000 XP, Armband (BEAR), ASh-12 12.7x55 assault rifle Default, 10x 12.7x55mm PS12B (10 pcs), 400,000 RUB",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 652469,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "669fa3a40c828825de06d6a1",
@@ -1626,7 +2022,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "60e71bb4e456d449cd47ca75",
@@ -1660,7 +2067,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+   "reward": "65,000 XP, 5x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 5000,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6179b5b06e9dd54ac275e409",
@@ -1707,7 +2125,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, Military power filter, 275,000 RUB"
+   "reward": "28,000 XP, Military power filter, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 61494,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "626bd75c71bd851e971b82a5",
@@ -1744,7 +2173,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "7,500 XP, Military power filter, 275,000 RUB"
+   "reward": "7,500 XP, Military power filter, 275,000 RUB",
+   "rewards": {
+    "xp": 7500,
+    "roubles": 275000,
+    "itemValue": 61494,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5c0bd94186f7747a727f09b2",
@@ -1790,7 +2230,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, Military power filter, 275,000 RUB"
+   "reward": "28,000 XP, Military power filter, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 61494,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6a7af2e48fddc3979d0510b8",
@@ -1916,7 +2367,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, Gruppa 99 T30 backpack (MultiCam), HighCom Trooper TFO body armor (MultiCam) Default, 2x Power cord"
+   "reward": "28,000 XP, 275,000 RUB, Gruppa 99 T30 backpack (MultiCam), HighCom Trooper TFO body armor (MultiCam) Default, 2x Power cord",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 242789,
+    "rep": [
+     {
+      "trader": "Ragman",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6a7b0df31ea00c9a980e2742",
@@ -1954,7 +2416,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, Ballistic plate case, 275,000 RUB, 2x Power cord"
+   "reward": "28,000 XP, Ballistic plate case, 275,000 RUB, 2x Power cord",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 1321303,
+    "rep": [
+     {
+      "trader": "Ragman",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "67460662d0fbbc74ca0f7229",
@@ -1996,7 +2469,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 5,000 EUR, T H I C C Weapon case"
+   "reward": "65,000 XP, 5,000 EUR, T H I C C Weapon case",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 665000,
+    "itemValue": 1350000,
+    "rep": [
+     {
+      "trader": "BTR Driver",
+      "standing": -0.3
+     }
+    ]
+   }
   },
   {
    "id": "5c0d0f1886f77457b8210226",
@@ -2052,7 +2536,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR, TDI KRISS Vector Gen.2 9x19 submachine gun Default, 2x Glock 9x19 \"Big Stick\" 33-round magazine, 2x 9x19mm PBP ammo pack (50 pcs)"
+   "reward": "28,000 XP, 1,650 EUR, TDI KRISS Vector Gen.2 9x19 submachine gun Default, 2x Glock 9x19 \"Big Stick\" 33-round magazine, 2x 9x19mm PBP ammo pack (50 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 327615,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6193850f60b34236ee0483de",
@@ -2086,7 +2581,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR"
+   "reward": "28,000 XP, 1,650 EUR",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6a7aef2360157cb5e3029a5f",
@@ -2167,7 +2673,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, 2x Glock .45 ACP KRISS G30 MagEx 30-round magazine, 2x .45 ACP RIP ammo pack (50 pcs)"
+   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, 2x Glock .45 ACP KRISS G30 MagEx 30-round magazine, 2x .45 ACP RIP ammo pack (50 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 200412,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "626bd75d5bef5d7d590bd415",
@@ -2224,7 +2741,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, Lone Star TX-15 DML 5.56x45 carbine Default, 5.56x45mm M856A1 ammo pack (50 pcs)"
+   "reward": "28,000 XP, 1,650 EUR, 2x Golden neck chain, Lone Star TX-15 DML 5.56x45 carbine Default, 5.56x45mm M856A1 ammo pack (50 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 198958,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "626bd75b05f287031503c7f6",
@@ -2272,7 +2800,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope"
+   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 55798,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6a7ae35b2dbf91eb050af95a",
@@ -2380,7 +2919,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope"
+   "reward": "28,000 XP, 275,000 RUB, Ophthalmoscope",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 55798,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179ad56c760af5ad2053587",
@@ -2418,7 +2968,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5d25c81b86f77443e625dd71",
@@ -2454,7 +3015,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)"
+   "reward": "10,000 XP, Benelli M3 Super 90 12ga dual-mode shotgun Default, 12/70 flechette ammo pack (25 pcs)",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 0,
+    "itemValue": 69194,
+    "rep": []
+   }
   },
   {
    "id": "5d25bfd086f77442734d3007",
@@ -2491,7 +3058,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 0,
+    "itemValue": 175392,
+    "rep": []
+   }
   },
   {
    "id": "66058cb7c7f3584787181476",
@@ -2543,7 +3116,18 @@
     }
    ],
    "tips": [],
-   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask"
+   "reward": "5,100 XP, 45 GP coins, Steyr AUG A1 5.56x45 assault rifle Default, 3x 5.56x45mm M856 ammo pack (50 pcs), 3x Steyr AUG 5.56x45 30-round magazine, Death Shadow mask",
+   "rewards": {
+    "xp": 5100,
+    "roubles": 0,
+    "itemValue": 561901,
+    "rep": [
+     {
+      "trader": "Ref",
+      "standing": 0.03
+     }
+    ]
+   }
   },
   {
    "id": "626bd75e47ea7f506e5493c5",
@@ -2600,7 +3184,13 @@
     }
    ],
    "tips": [],
-   "reward": "10,000 XP, Ammunition case"
+   "reward": "10,000 XP, Ammunition case",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 0,
+    "itemValue": 252588,
+    "rep": []
+   }
   },
   {
    "id": "61904daa7d0d857927447b9c",
@@ -2649,7 +3239,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6a45208043b8d7604d00b8d5",
@@ -2692,7 +3293,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "5d25e29d86f7740a22516326",
@@ -2728,7 +3340,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)"
+   "reward": "28,000 XP, 3x Armasight Vulcan MG 3.5x Bravo night vision scope, VSS Vintorez 9x39 special sniper rifle VSS, 4x 9x39mm SPP gs ammo pack (20 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 431719,
+    "rep": []
+   }
   },
   {
    "id": "6179afd0bca27a099552e040",
@@ -2765,7 +3383,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Therapist",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179b4d1bca27a099552e04e",
@@ -2831,7 +3460,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,900 USD"
+   "reward": "28,000 XP, 1,900 USD",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 231800,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179ac7511973d018217d0b9",
@@ -2892,7 +3532,18 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB"
+   "reward": "28,000 XP, 275,000 RUB",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "6179acbdc760af5ad2053585",
@@ -2928,7 +3579,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "18,000 XP, 155,000 RUB"
+   "reward": "18,000 XP, 155,000 RUB",
+   "rewards": {
+    "xp": 18000,
+    "roubles": 155000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.02
+     }
+    ]
+   }
   },
   {
    "id": "6179b4f16e9dd54ac275e407",
@@ -2975,7 +3637,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR"
+   "reward": "28,000 XP, 1,650 EUR",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 0.75
+     }
+    ]
+   }
   },
   {
    "id": "66d9cbb67b491f9d5304f6e6",
@@ -3041,7 +3714,13 @@
     }
    ],
    "tips": [],
-   "reward": "30,000 XP, 200,000 RUB, Streamer item case"
+   "reward": "30,000 XP, 200,000 RUB, Streamer item case",
+   "rewards": {
+    "xp": 30000,
+    "roubles": 200000,
+    "itemValue": 1,
+    "rep": []
+   }
   },
   {
    "id": "64f5deac39e45b527a7c4232",
@@ -3085,7 +3764,18 @@
     }
    ],
    "tips": [],
-   "reward": "18,000 XP, Toolset, 3x VOG-25 Khattabka improvised hand grenade, 165,000 RUB"
+   "reward": "18,000 XP, Toolset, 3x VOG-25 Khattabka improvised hand grenade, 165,000 RUB",
+   "rewards": {
+    "xp": 18000,
+    "roubles": 165000,
+    "itemValue": 215819,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 0.25
+     }
+    ]
+   }
   },
   {
    "id": "6761f28a022f60bb320f3e95",
@@ -3182,7 +3872,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, 100,000 RUB"
+   "reward": "10,000 XP, 100,000 RUB",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 100000,
+    "itemValue": 0,
+    "rep": []
+   }
   },
   {
    "id": "5c0d4e61d09282029f53920e",
@@ -3221,7 +3917,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)"
+   "reward": "65,000 XP, 2,750 USD, Velocity Systems SLAAP Plate (Tan)",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 111625,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "63a9b36cc31b00242d28a99f",
@@ -3311,7 +4018,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 400,000 RUB"
+   "reward": "65,000 XP, 400,000 RUB",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "626bdcc3a371ee3a7a3514c5",
@@ -3362,7 +4080,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 400,000 RUB, S I C C organizational pouch"
+   "reward": "65,000 XP, 400,000 RUB, S I C C organizational pouch",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 935985,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "67e993b1ac26bf29380a320b",
@@ -3392,7 +4121,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "25,500 XP, 1,000 USD"
+   "reward": "25,500 XP, 1,000 USD",
+   "rewards": {
+    "xp": 25500,
+    "roubles": 122000,
+    "itemValue": 0,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.01
+     }
+    ]
+   }
   },
   {
    "id": "675c1ff1a757ddd00404f0aa",
@@ -3436,7 +4176,18 @@
     }
    ],
    "tips": [],
-   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB"
+   "reward": "32,000 XP, Kalashnikov AK-12 5.45x39 assault rifle Silenced, 5.45x39mm BP gs ammo pack (120 pcs), 400,000 RUB",
+   "rewards": {
+    "xp": 32000,
+    "roubles": 400000,
+    "itemValue": 172945,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "6574e0dedc0d635f633a5805",
@@ -3480,7 +4231,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, Armband (RFARMY), 2x AK 7.62x39 Molot Arms 75-round drum magazine, 6x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB"
+   "reward": "65,000 XP, Armband (RFARMY), 2x AK 7.62x39 Molot Arms 75-round drum magazine, 6x 7.62x39mm BP gzh ammo pack (20 pcs), 400,000 RUB",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 151144,
+    "rep": [
+     {
+      "trader": "Prapor",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "59ca264786f77445a80ed044",
@@ -3568,7 +4330,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 3x 7.62x54mm R PS gzh ammo pack (20 pcs), 3x 9x39mm SP-6 gs ammo pack (20 pcs)"
+   "reward": "28,000 XP, 3x 7.62x54mm R PS gzh ammo pack (20 pcs), 3x 9x39mm SP-6 gs ammo pack (20 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 157308,
+    "rep": []
+   }
   },
   {
    "id": "59ca29fb86f77445ab465c87",
@@ -3747,7 +4515,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case"
+   "reward": "28,000 XP, Kalashnikov AK-308 7.62x51 assault rifle Default, AK-308 7.62x51 QD sound suppressor, Document case",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 355211,
+    "rep": []
+   }
   },
   {
    "id": "59ca2eb686f77445a80ed049",
@@ -3892,7 +4666,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon"
+   "reward": "28,000 XP, 5x 9x39mm SP-6 gs ammo pack (20 pcs), SR-3M 9x39 compact assault rifle Default, Secure container Epsilon",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 1205454,
+    "rep": []
+   }
   },
   {
    "id": "5a27bc8586f7741b543d8ea4",
@@ -3946,7 +4726,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 2,750 USD, FN40GL Mk2 40mm grenade launcher Default, 6x 40x46mm M386 (HE) grenade, Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle Saboteur, 3x 7.62x51mm M61 ammo pack (20 pcs)"
+   "reward": "28,000 XP, 2,750 USD, FN40GL Mk2 40mm grenade launcher Default, 6x 40x46mm M386 (HE) grenade, Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle Saboteur, 3x 7.62x51mm M61 ammo pack (20 pcs)",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 335500,
+    "itemValue": 248199,
+    "rep": []
+   }
   },
   {
    "id": "63a9b229813bba58a50c9ee5",
@@ -4000,7 +4786,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 2,750 USD, Armband (USEC)"
+   "reward": "65,000 XP, 2,750 USD, Armband (USEC)",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 335500,
+    "itemValue": 199636,
+    "rep": [
+     {
+      "trader": "Peacekeeper",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "5c0bbaa886f7746941031d82",
@@ -4094,7 +4891,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 2,400 EUR, Saiga-12K 12ga automatic shotgun CompM4, 2x 12/70 flechette ammo pack (25 pcs)"
+   "reward": "65,000 XP, 2,400 EUR, Saiga-12K 12ga automatic shotgun CompM4, 2x 12/70 flechette ammo pack (25 pcs)",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 319200,
+    "itemValue": 246735,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "5c0bc91486f7746ab41857a2",
@@ -4160,7 +4968,18 @@
     }
    ],
    "tips": [],
-   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima"
+   "reward": "65,000 XP, 2,400 EUR, MP-155 12ga semi-automatic shotgun Ultima",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 319200,
+    "itemValue": 70464,
+    "rep": [
+     {
+      "trader": "Skier",
+      "standing": 1.5
+     }
+    ]
+   }
   },
   {
    "id": "666314a31cd52e3d040a2e76",
@@ -4206,7 +5025,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "92,000 XP, 340,000 RUB, 3x NPP KlASS Bagariy plate carrier (EMR) Default"
+   "reward": "92,000 XP, 340,000 RUB, 3x NPP KlASS Bagariy plate carrier (EMR) Default",
+   "rewards": {
+    "xp": 92000,
+    "roubles": 340000,
+    "itemValue": 185706,
+    "rep": []
+   }
   },
   {
    "id": "6613f307fca4f2f386029409",
@@ -4259,7 +5084,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, LBT-6094A Slick Plate Carrier (Olive Drab) Default"
+   "reward": "65,000 XP, LBT-6094A Slick Plate Carrier (Olive Drab) Default",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 0,
+    "itemValue": 109010,
+    "rep": []
+   }
   },
   {
    "id": "60e71e8ed54b755a3b53eb67",
@@ -4290,7 +5121,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "65,000 XP, 400,000 RUB, FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope, 100 GP coins"
+   "reward": "65,000 XP, 400,000 RUB, FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope, 100 GP coins",
+   "rewards": {
+    "xp": 65000,
+    "roubles": 400000,
+    "itemValue": 894794,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 1.5
+     }
+    ]
+   }
   }
  ],
  "acquisition": [

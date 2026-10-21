@@ -1,0 +1,115 @@
+{
+  "customs": {
+    "ZB-1013": {
+      "reason": "The wiki specifies the warehouse 4 lever and a ZB-1013 key. The snapshot repeats this lever on all Customs extracts; bind it only here.",
+      "switchIds": ["ae4bdfc1fc5b30100701158b56ae4d20840e0550"],
+      "switchName": "Warehouse 4 power lever",
+      "note": "Activate the warehouse 4 lever and bring the ZB-1013 key."
+    },
+    "Old Gas Station": {
+      "reason": "The wiki's green flare is an availability indicator, not a flare the player must fire. PMC and Scav availability differs.",
+      "byFaction": {
+        "pmc": {"requirement": "other", "alwaysOpen": false, "note": "Available to PMCs when the green signal is lit."},
+        "scav": {"requirement": "none", "alwaysOpen": true, "note": "No equipment or payment required for Scavs."}
+      }
+    }
+  },
+  "reserve": {
+    "D-2": {
+      "reason": "The wiki requires bunker power and the door button. The snapshot omits extract references; the named D2_LEVER switch identifies the power lever.",
+      "switchIds": ["9cad024bc31223f02f7296c3cb1834c5f6fa2fe2"],
+      "switchName": "D-2 bunker power lever",
+      "note": "Turn on bunker power, then press the button beside the D-2 door."
+    },
+    "Bunker Hermetic Door": {
+      "reason": "The wiki identifies the exterior extraction lever; the snapshot's EXFIL lever is distinct from D2_LEVER and the D-2 gate button.",
+      "switchIds": ["2c4a9ff1d031afefbd0965b189f58e3834cdb367"],
+      "switchName": "Hermetic door lever",
+      "note": "Activate the exterior lever; the exit stays active for four minutes."
+    },
+    "Armored Train": {
+      "reason": "An empty equipment-requirements cell does not describe the train schedule. The wiki says the train arrives late and departs once.",
+      "requirement": "other",
+      "alwaysOpen": false,
+      "note": "Board after the train arrives; it leaves once per raid."
+    }
+  },
+  "lighthouse": {
+    "Armored Train": {
+      "reason": "The wiki lists the train as always available, but extraction still requires its scheduled departure.",
+      "requirement": "other",
+      "alwaysOpen": true,
+      "note": "Board after the train arrives; extraction happens on departure."
+    }
+  },
+  "woods": {
+    "RUAF Gate": {
+      "reason": "The wiki's green flare marks an open exit; it is not a player-fired flare requirement.",
+      "requirement": "other",
+      "alwaysOpen": false,
+      "note": "Available when the green signal is lit."
+    },
+    "ZB-016": {
+      "reason": "The wiki's green flares are availability indicators rather than items to bring.",
+      "requirement": "other",
+      "alwaysOpen": false,
+      "note": "Available when the green signals are lit."
+    },
+    "ZB-014": {
+      "reason": "The wiki requires both an active green signal and the ZB-014 key; retain the key and explain the availability condition.",
+      "note": "Bring the ZB-014 key; the green signals must be lit."
+    }
+  },
+  "shoreline": {
+    "Pier Boat": {
+      "reason": "The wiki's green flare is an open-exit indicator, not a player-fired flare requirement.",
+      "requirement": "other",
+      "alwaysOpen": false,
+      "note": "Available when the green signal is lit."
+    }
+  },
+  "streets-of-tarkov": {
+    "Courtyard": {
+      "reason": "The wiki's green flare indicates availability; firing a flare is not required.",
+      "requirement": "other",
+      "alwaysOpen": false,
+      "note": "Available when the green signal is lit."
+    }
+  },
+  "the-lab": {
+    "Hangar Gate": {
+      "reason": "The wiki requires opening the gate from the B24 control cabin. The repeated snapshot switch list does not identify that control reliably.",
+      "requirement": "switch",
+      "alwaysOpen": false,
+      "note": "Open the hangar gate from the control in cabin B24."
+    },
+    "Parking Gate": {
+      "reason": "The wiki requires opening the gate from Y21. The repeated snapshot switch list does not identify that control reliably.",
+      "requirement": "switch",
+      "alwaysOpen": false,
+      "note": "Open the parking gate from the control in room Y21."
+    },
+    "Sewage Conduit": {
+      "reason": "The wiki requires draining water at the B1 switch; the snapshot names a Pump_button distinct from the unrelated repeated extraction switch list.",
+      "requirement": "switch",
+      "alwaysOpen": true,
+      "switchIds": ["a948c3ba250ffcaaa508230d0b3392bf09cb6964"],
+      "switchName": "Sewage pump button",
+      "note": "Press the pump switch in B1 and wait for the water to drain."
+    }
+  },
+  "the-labyrinth": {
+    "The Way Up": {
+      "reason": "The wiki specifies a fifteen-minute delay, which is not an item or switch requirement.",
+      "requirement": "other",
+      "alwaysOpen": true,
+      "note": "Available fifteen minutes after raid start."
+    }
+  },
+  "icebreaker": {
+    "Helicopter": {
+      "reason": "The wiki requires both a green flare and 2,400 euros per player. Keep the euro payment in the note; do not invent a rouble price.",
+      "note": "Fire a green flare in the signal area and pay 2,400 euros per player."
+    }
+  }
+}

@@ -13,6 +13,7 @@
    "h": 857,
    "metres": 110
   },
+  "art": null,
   "rotation": 270,
   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Labyrinth",
   "sources": [
@@ -84,7 +85,17 @@
    "faction": "pmc",
    "x": 683,
    "y": 399,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "other",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Available fifteen minutes after raid start.",
+   "overrideReason": "The wiki specifies a fifteen-minute delay, which is not an item or switch requirement.",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Labyrinth"
   },
   {
    "id": "labyrinth-secret-tagilla-key",
@@ -92,7 +103,17 @@
    "faction": "pmc",
    "x": 344,
    "y": 627,
-   "rule": "PMC extract"
+   "rule": "PMC extract",
+   "requirement": "item",
+   "alwaysOpen": true,
+   "sides": [
+    "USEC",
+    "BEAR"
+   ],
+   "note": "Carry the required item to use this extraction.",
+   "item": "Ariadne symbol key",
+   "type": "pmc",
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Labyrinth"
   }
  ],
  "bosses": [
@@ -160,7 +181,18 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "3,000 XP, 80,000 RUB, 2x Corrugated hose"
+   "reward": "3,000 XP, 80,000 RUB, 2x Corrugated hose",
+   "rewards": {
+    "xp": 3000,
+    "roubles": 80000,
+    "itemValue": 391366,
+    "rep": [
+     {
+      "trader": "Jaeger",
+      "standing": 0.1
+     }
+    ]
+   }
   },
   {
    "id": "5d25bfd086f77442734d3007",
@@ -197,7 +229,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter"
+   "reward": "10,000 XP, 3x Aquamari water bottle with filter, Water filter",
+   "rewards": {
+    "xp": 10000,
+    "roubles": 0,
+    "itemValue": 241809,
+    "rep": []
+   }
   },
   {
    "id": "67a09761e720611a6a01f288",
@@ -270,7 +308,18 @@
     }
    ],
    "tips": [],
-   "reward": "56,800 XP, 4,200 USD, Virtex programmable processor, S I C C organizational pouch, Sacred Amulet"
+   "reward": "56,800 XP, 4,200 USD, Virtex programmable processor, S I C C organizational pouch, Sacred Amulet",
+   "rewards": {
+    "xp": 56800,
+    "roubles": 512400,
+    "itemValue": 2018683,
+    "rep": [
+     {
+      "trader": "Lightkeeper",
+      "standing": 0.03
+     }
+    ]
+   }
   },
   {
    "id": "67a0970f05d1611ed90be75d",
@@ -314,7 +363,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, Ballistic plate case"
+   "reward": "28,000 XP, Ballistic plate case",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 1380536,
+    "rep": []
+   }
   },
   {
    "id": "67a0970744893b9f3f0d9b68",
@@ -357,7 +412,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, Labrys access keycard"
+   "reward": "28,000 XP, Labrys access keycard",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 0,
+    "itemValue": 120732,
+    "rep": []
+   }
   },
   {
    "id": "67a09724972c11a3f5077324",
@@ -421,7 +482,13 @@
     }
    ],
    "tips": [],
-   "reward": "28,000 XP, 1,900 USD, Final Moment poster, 2x AR-15 5.56x45 Magpul PMAG D-60 STANAG 60-round magazine"
+   "reward": "28,000 XP, 1,900 USD, Final Moment poster, 2x AR-15 5.56x45 Magpul PMAG D-60 STANAG 60-round magazine",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 231800,
+    "itemValue": 130826,
+    "rep": []
+   }
   },
   {
    "id": "67d03be712fb5f8fd2096332",
@@ -455,7 +522,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 3x Atomic Defense CQCM ballistic mask (Black), Last Breath poster"
+   "reward": "28,000 XP, 275,000 RUB, 3x Atomic Defense CQCM ballistic mask (Black), Last Breath poster",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 324406,
+    "rep": []
+   }
   },
   {
    "id": "67a097379f2068e74603c6ac",
@@ -500,7 +573,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 1,650 EUR, Tark Souls poster, 3x AK CSS knurled charging handle, 3x Zenit RK-1 tactical foregrip on B-25U mount"
+   "reward": "28,000 XP, 1,650 EUR, Tark Souls poster, 3x AK CSS knurled charging handle, 3x Zenit RK-1 tactical foregrip on B-25U mount",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 219450,
+    "itemValue": 706777,
+    "rep": []
+   }
   },
   {
    "id": "67a0972e77dd677f600804bd",
@@ -550,7 +629,13 @@
    ],
    "needs": [],
    "tips": [],
-   "reward": "28,000 XP, 275,000 RUB, 2x SJ12 TGLabs combat stimulant injector, 2x Meldonin injector, 2x 3-(b-TG) stimulant injector, Taurus poster"
+   "reward": "28,000 XP, 275,000 RUB, 2x SJ12 TGLabs combat stimulant injector, 2x Meldonin injector, 2x 3-(b-TG) stimulant injector, Taurus poster",
+   "rewards": {
+    "xp": 28000,
+    "roubles": 275000,
+    "itemValue": 616442,
+    "rep": []
+   }
   }
  ],
  "acquisition": [

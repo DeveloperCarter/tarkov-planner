@@ -15,12 +15,15 @@ Usage:
 import argparse
 import datetime as dt
 import hashlib
+import html
 import json
 import math
 import re
 import tempfile
+import time
 import sys
 import urllib.request
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,6 +98,155 @@ def load_snapshot(path: Path) -> dict:
 
 
 # ---------------------------------------------------------------- helpers
+
+_EXTRACT_LAST_REQUEST = 0.0
+
+
+def fetch_extract_wiki(title: str, *, cache: Path | None = None, refresh: bool = False,
+                       offline: bool = False) -> dict:
+    """Cache the wiki's map-page responses (its own "missing page" errors too). A network failure is
+    returned but not cached, so the next run retries it. Refresh is explicit only."""
+    global _EXTRACT_LAST_REQUEST
+    cache = cache if cache is not None else ROOT / 'raw' / 'wiki' / 'extracts'
+    path = cache / (slug(title) + '.json')
+    if offline and (refresh or not path.exists()):
+        return {'error': {'info': 'Extraction wiki page not cached; run without --offline first'}}
+    if refresh or not path.exists():
+        cache.mkdir(parents=True, exist_ok=True)
+        time.sleep(max(0, 1 - (time.monotonic() - _EXTRACT_LAST_REQUEST)))
+        query = urllib.parse.urlencode({'action': 'parse', 'page': title, 'prop': 'wikitext',
+                                        'redirects': 1, 'format': 'json'})
+        _EXTRACT_LAST_REQUEST = time.monotonic()
+        try:
+            req = urllib.request.Request('https://escapefromtarkov.fandom.com/api.php?' + query,
+                                         headers={'User-Agent': UA})
+            with urllib.request.urlopen(req, timeout=30) as response:
+                body = response.read()
+            path.write_bytes(body)
+        except Exception as exc:  # CI never passes --refresh, so a cached failure would stick
+            return {'error': {'info': f'Extraction wiki page not fetched: {exc}'}}
+    try:
+        return json.loads(path.read_text(encoding='utf-8'))
+    except (ValueError, UnicodeError):
+        return {'error': {'info': 'Invalid cached extraction response; use --refresh to retry'}}
+
+
+def extract_cell(text: str) -> str:
+    """Plain text for recognizing facts only; never publish scraped table prose."""
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
+    text = re.sub(r'\[\[File:[^\]]*?\blink=([^|\]]+)[^\]]*\]\]', r'\1', text, flags=re.I)
+    text = re.sub(r'\[\[(?:File|Image):[^\]]*\]\]', '', text, flags=re.I)
+    text = re.sub(r'\[\[(?:[^|\]]*\|)?([^\]]*)\]\]', r'\1', text)
+    text = re.sub(r'\{\{(?:yes|y|tick)\}\}', '✓', text, flags=re.I)
+    text = re.sub(r'\{\{(?:no|n|cross)\}\}', '✘', text, flags=re.I)
+    return ' '.join(html.unescape(re.sub(r'<[^>]*>|\'\'+', ' ', text)).split())
+
+
+def parse_extract_tables(wikitext: str) -> list[dict]:
+    """Read only extraction/transit tables, using headers rather than column offsets."""
+    rows = []
+    for section in re.finditer(r'^==\s*(Extractions?|Transits?)\s*==\s*\n(.*?)(?=^==[^=]|\Z)',
+                               wikitext, re.I | re.M | re.S):
+        for table in re.findall(r'\{\|[^\n]*\n(.*?)\|\}', section[2], re.S):
+            chunks = re.split(r'^\|-.*$', table, flags=re.M)
+            def cells(chunk):
+                out = []
+                for line in chunk.splitlines():
+                    if line.startswith(('!', '|')):
+                        line = line[1:]
+                        line = re.sub(r'^\s*(?:style|rowspan|colspan|scope|align|class)\b[^|]*\|', '', line)
+                        out.append(line)
+                    elif out:
+                        out[-1] += '\n' + line
+                return out
+            headers = [extract_cell(s).casefold() for s in cells(chunks[0])]
+            if not {'name', 'requirements'}.issubset(headers):
+                continue
+            for chunk in chunks[1:]:
+                values = cells(chunk)
+                # MediaWiki permits omitted trailing empty cells (Ground Zero's co-op row).
+                if len(values) < len(headers) and all(h in ('notes', 'announcement') for h in headers[len(values):]):
+                    values += [''] * (len(headers) - len(values))
+                if len(values) != len(headers):
+                    continue  # unsupported rowspan/nested table: no column guessing
+                row = dict(zip(headers, values))
+                row['section'] = section[1].casefold()
+                rows.append(row)
+    return rows
+
+
+def extract_key(name: str) -> str:
+    return ' '.join(name.replace('’', "'").casefold().split())
+
+
+def extract_availability(cell: str, faction: str) -> bool | None:
+    branches = re.split(r'<br\s*/?>', cell, flags=re.I)
+    labelled = [s for s in branches if re.search(r'\b(?:PMC|Scav)\s*:', s, re.I)]
+    if labelled:
+        branches = [s for s in labelled if re.search(r'\b' + re.escape(faction) + r'\s*:', s, re.I)]
+    signs = set()
+    for branch in branches:
+        text = extract_cell(branch).strip()
+        if re.search(r'[✓✔]|\byes\b', text, re.I): signs.add(True)
+        if re.search(r'[✗✘×]|\bno\b', text, re.I): signs.add(False)
+    return next(iter(signs)) if len(signs) == 1 else None
+
+
+def classify_extract_row(row: dict, faction: str) -> dict:
+    raw = row['requirements']
+    req = extract_cell(raw)
+    low = req.casefold()
+    result = {'requirement': 'other', 'alwaysOpen': extract_availability(row.get('always available', ''), faction),
+              'sides': ['USEC', 'BEAR'], 'note': 'Requirements need review.'}
+    if re.search(r'\bUSEC\b', req) and not re.search(r'\bBEAR\b', req): result['sides'] = ['USEC']
+    if re.search(r'\bBEAR\b', req) and not re.search(r'\bUSEC\b', req): result['sides'] = ['BEAR']
+    money = re.search(r'(\d[\d, ]*)\s*(?:Roubles?\b|RUB\b|₽)', raw, re.I)
+    links = re.findall(r'\[\[(?!File:|Image:)([^|\]]+)(?:\|[^\]]*)?\]\]', raw, re.I)
+    file_links = re.findall(r'\[\[(?:File|Image):[^\]]*?\blink=([^|\]]+)', raw, re.I)
+    items = list(dict.fromkeys(s for s in links + file_links if s.casefold() not in
+        ('scav', 'scavs', 'pmc', 'pmcs', 'backpacks', 'armor vest', 'armored rigs')))
+    if money:
+        result.update(requirement='paid', cost=int(re.sub(r'\D', '', money[1])),
+                      note='Base fare per player; Scav karma can change the price.')
+    elif 'red rebel' in low and 'paracord' in low:
+        result.update(requirement='cliff', item='Red Rebel ice pick + Paracord',
+                      note='Bring a Red Rebel and paracord; remove body armor before extracting.')
+    elif re.search(r'\bscav\b\s*\+\s*pmc|\bpmc\b\s*\+\s*scav', low):
+        result.update(requirement='coop', note='A PMC and a player Scav must extract together.')
+    elif re.search(r'\b(?:shoot|fire|fired)\b.*\bflare\b', low):
+        result.update(requirement='flare', item='Green signal flare', note='Fire a green flare inside the signal area.')
+    elif re.search(r'\b(?:activate|turn on|press|restore)\b.*\b(?:lever|power|button|switch)\b', low):
+        result.update(requirement='switch', note='Activate the extraction switch before leaving.')
+        if items: result['item'] = ' + '.join(items)
+    elif re.search(r'\bno\b.*\bbackpack\b', low):
+        result.update(note='Remove your backpack before extracting.')
+    elif req.strip(' -–—') == '':
+        result.update(requirement='none', note='No equipment or payment required.')
+    elif items and not re.search(r'\b(?:or|except|optional)\b', low):
+        result.update(requirement='item', item=' + '.join(items), note='Carry the required item to use this extraction.')
+    if result['note'] == 'Requirements need review.': result['unclassified'] = ['Wiki requirement not recognized']
+    if result['alwaysOpen'] is None: result.setdefault('unclassified', []).append('Availability unknown')
+    return result
+
+
+def extract_overrides(map_key: str, name: str, faction: str, rules: dict) -> dict:
+    entry = next((v for k, v in rules.get(map_key, {}).items() if extract_key(k) == extract_key(name)), {})
+    if entry and not entry.get('reason'):
+        raise ValueError(f'{map_key}/{name}: extract override needs a review reason')
+    return {**{k: v for k, v in entry.items() if k != 'byFaction'}, **entry.get('byFaction', {}).get(faction, {})}
+
+
+def extract_switches(m: dict, refs: list, frame: 'Frame', en) -> tuple[list, list]:
+    switches, missing = [], []
+    by_id = {s['id']: s for s in m.get('switches', [])}
+    for sid in dict.fromkeys(refs):
+        s = by_id.get(sid)
+        if not s or not s.get('position'):
+            missing.append(sid)
+            continue
+        x, y = frame.xy(en(s['position']))
+        switches.append({'id': sid, 'name': s['name'], 'x': x, 'y': y})
+    return switches, missing
 
 class Tr:
     """tarkov.dev ships text as translation keys. Look a key up, falling back to the key."""
@@ -341,8 +493,23 @@ class Normalizer:
             "needs": needs,
             "tips": [],
             "reward": ", ".join(reward),
+            "rewards": self.reward_values(t),
             "_points": points,
         }
+
+    def reward_values(self, t: dict) -> dict:
+        """Numbers to sort by: XP, money in roubles (dollars and euros at their trader rate),
+        the flea value of item rewards (recent average, else base price) and trader standing."""
+        cash = items = 0
+        for r in (t.get("finishRewards") or {}).get("items", []):
+            it = self.items.get(r["item"], {})
+            if CURRENCIES.get(r["item"]) in ("RUB", "USD", "EUR"):
+                cash += r["count"] * (it.get("basePrice") or 1)
+            else:
+                items += r["count"] * (it.get("avg24hPrice") or it.get("lastLowPrice") or it.get("basePrice") or 0)
+        rep = [{"trader": self.traders.get(s["trader"], s["trader"]), "standing": s["standing"]}
+               for s in (t.get("finishRewards") or {}).get("traderStanding", [])]
+        return {"xp": t.get("experience", 0), "roubles": round(cash), "itemValue": round(items), "rep": rep}
 
     def build_objective(self, o: dict, pids: list) -> dict:
         obj = {
@@ -408,15 +575,81 @@ class Normalizer:
         return zones, zone_of
 
     def build_extracts(self, m: dict, frame: Frame, en) -> list:
+        title = urllib.parse.unquote((m.get('wiki') or '').split('/wiki/')[-1]).replace('_', ' ')
+        wiki = fetch_extract_wiki(title, offline=getattr(self, 'extract_offline', False),
+                                  refresh=getattr(self, 'extract_refresh', False)) if title else {}
+        rows = parse_extract_tables(wiki.get('parse', {}).get('wikitext', {}).get('*', ''))
+        rules_path = ROOT / 'data' / 'extract-rules.json'
+        rules = json.loads(rules_path.read_text(encoding='utf-8')) if rules_path.exists() else {}
+        # Some snapshots repeat one map-wide switch list on every extract (Customs/Labs).
+        # Such a list cannot establish which extract the switch actually opens.
+        def refs(e):
+            return list(dict.fromkeys([s for s in [e.get('switch'), *(e.get('switches') or [])] if isinstance(s, str)]))
+        repeated_refs = len(m['extracts']) > 1 and len({tuple(refs(e)) for e in m['extracts']}) == 1
         out = []
         for e in m["extracts"]:
+            name, faction = self.tr(e['name']), e.get('faction')
+            override = extract_overrides(m['normalizedName'], name, faction, rules)
+            lookup = override.get('wikiName', name)
+            matches = [r for r in rows if r['section'].startswith('extraction') and
+                       extract_key(extract_cell(r['name'])) == extract_key(lookup) and
+                       (not r.get('faction') or extract_cell(r['faction']).casefold() in
+                        ('all', faction, 'pmc' if faction in ('usec', 'bear') else faction))]
+            details = classify_extract_row(matches[0], faction) if len(matches) == 1 else {
+                'requirement': 'other', 'alwaysOpen': None, 'sides': ['USEC', 'BEAR'],
+                'note': 'Extraction requirements are not verified.',
+                'unclassified': ['No matching wiki extraction row' if not matches else 'Ambiguous wiki extraction rows']}
+            if faction in ('usec', 'bear'): details['sides'] = [faction.upper()]
+            for key in ('type', 'requirement', 'cost', 'item', 'alwaysOpen', 'sides', 'note'):
+                if key in override: details[key] = override[key]
+            if 'requirement' in override:
+                details.pop('unclassified', None)
+                if details['alwaysOpen'] is None: details['unclassified'] = ['Availability unknown']
+            if override: details['overrideReason'] = override['reason']
+            details.setdefault('type', 'coop' if details['requirement'] == 'coop' else
+                               'pmc' if faction in ('usec', 'bear') else faction)
+            if details['type'] not in ('pmc', 'scav', 'shared', 'coop'):
+                details['type'] = None
+                details.setdefault('unclassified', []).append('Faction unknown')
+            switch_refs = override.get('switchIds', refs(e) if not repeated_refs else [])
+            if (matches and switch_refs and details['requirement'] != 'switch' and
+                    'requirement' not in override and 'switchIds' not in override):
+                details['requirement'] = 'other'
+                details['note'] = 'The switch link and wiki requirements disagree; check this exit in raid.'
+                details.setdefault('unclassified', []).append('Switch link conflicts with wiki requirements')
+            if details['requirement'] == 'switch' or (not matches and switch_refs):
+                details['requirement'] = 'switch'
+                positions, missing = extract_switches(m, switch_refs, frame, en)
+                for s in positions:
+                    translated = self.tr(s['name'])
+                    s['name'] = override.get('switchName') or (translated if translated != s['name'] else 'Extraction switch')
+                if positions:
+                    details['switch'] = positions[0]
+                    if len(positions) > 1: details['switches'] = positions
+                if missing or not positions:
+                    details.setdefault('unclassified', []).append('Switch position not verified')
+            if 'unclassified' in details:
+                print(f"  UNCLASSIFIED {self.mode}/{m['normalizedName']}: {name} ({faction}): " +
+                      '; '.join(details['unclassified']), file=sys.stderr)
             x, y = frame.xy(en(e["position"]))
-            out.append({"id": slug(e["name"]), "name": self.tr(e["name"]), "faction": e.get("faction"),
-                        "x": x, "y": y, "rule": f"{(e.get('faction') or 'any').upper()} extract"})
+            out.append({"id": slug(e["name"]), "name": name, "faction": faction,
+                        "x": x, "y": y, "rule": f"{(faction or 'any').upper()} extract", **details,
+                        'detailsSource': m.get('wiki')})
         for t in m.get("transits", []):
             x, y = frame.xy(en(t["position"]))
+            name = self.tr(t['description'])
+            matches = [r for r in rows if r['section'].startswith('transit') and
+                       extract_key(extract_cell(r['name'])) == extract_key(name)]
+            availability = extract_availability(matches[0].get('always available', ''), 'shared') if len(matches) == 1 else None
+            delay = re.search(r'Only available (\d+) min after raid start', extract_cell(matches[0]['requirements']), re.I) if len(matches) == 1 else None
+            note = f'Travel to another map; available after {delay[1]} minute(s).' if delay else 'Travel to another map; check the in-raid transit conditions.'
+            details = {'type': 'transit', 'requirement': 'other', 'alwaysOpen': availability,
+                       'sides': ['USEC', 'BEAR'], 'note': note, 'detailsSource': m.get('wiki')}
+            if not delay:
+                details['unclassified'] = ['Transit timing or conditions not verified']
+                print(f"  UNCLASSIFIED {self.mode}/{m['normalizedName']}: {name}: Transit timing or conditions not verified", file=sys.stderr)
             out.append({"id": f"transit-{t['id']}", "name": self.tr(t["description"]), "faction": "shared",
-                        "x": x, "y": y, "rule": "Transit to another map"})
+                        "x": x, "y": y, "rule": "Transit to another map", **details})
         return out
 
     def build_bosses(self, m: dict) -> list:
@@ -507,8 +740,11 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--mode", default="regular", choices=["regular", "pve"])
     ap.add_argument("--offline", action="store_true", help="skip fetching; use the newest saved snapshot")
+    ap.add_argument("--refresh", action="store_true", help="explicitly refetch cached extraction wiki pages (never used by CI)")
     ap.add_argument("--out", help="map output directory (defaults to the selected mode)")
     args = ap.parse_args()
+    if args.offline and args.refresh:
+        ap.error('--offline cannot be combined with --refresh')
 
     if args.offline:
         snap = latest_snapshot(args.mode)
@@ -522,6 +758,7 @@ def main() -> None:
     print(f"using snapshot {snap.relative_to(ROOT)}", file=sys.stderr)
 
     norm = Normalizer(load_snapshot(snap), args.mode)
+    norm.extract_offline, norm.extract_refresh = args.offline, args.refresh
     out = Path(args.out) if args.out else ROOT / "data" / ("" if args.mode == "regular" else "pve") / "maps"
     out.mkdir(parents=True, exist_ok=True)
     index = []

@@ -21,5 +21,11 @@ class RaidNeedsTests(unittest.TestCase):
         multi = {**task, 'map': None, 'objectives': [{**o, 'maps': ['customs']} for o in objectives]}
         self.assertFalse(norm.build_quest(multi, 'customs', lambda p: p)['onMap'], 'multi-map quests have no task map')
         needs = quest['needs']
+        # Rewards for sorting: dollars at their trader rate, items at their recent flea price.
+        norm.items.update({'5696686a4bdc2da3298b456a': {'name': 'Dollars', 'basePrice': 122},
+                           'Case': {'name': 'Case', 'avg24hPrice': 1000, 'basePrice': 5}})
+        paid = norm.build_quest({**task, 'experience': 5000, 'finishRewards': {'items': [{'item': '5696686a4bdc2da3298b456a', 'count': 100},
+            {'item': 'Case', 'count': 2}], 'traderStanding': [{'trader': 'T', 'standing': 0.1}]}}, 'customs', lambda p: p)
+        self.assertEqual(paid['rewards'], {'xp': 5000, 'roubles': 12200, 'itemValue': 2000, 'rep': [{'trader': 'T', 'standing': 0.1}]})
         self.assertEqual({n['item']: n['qty'] for n in needs},
                          {'Camera': 4, 'Any of: Pack A, Pack B': 2, 'Rifle': 1})

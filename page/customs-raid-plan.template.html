@@ -68,10 +68,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .mode-toggle a {font:600 13px var(--font-mono);padding:6px 12px;text-decoration:none;color:var(--muted);background:var(--panel)}
 .mode-toggle a + a {border-left:1px solid var(--line)}
 .mode-toggle a[aria-current="page"] {background:var(--ink);color:var(--bg)}
-/* Phones: name and theme on the first row; map and mode share the second. */
+/* Phones: name and theme on the first row, search on the second; map and mode share the third. */
 @media (max-width:560px) {
   .site-nav .brand {order:1} .site-nav #themeToggle {order:2}
-  .map-jump {order:3;flex:1 1 0} .mode-toggle {order:4}
+  .site-search {order:3} .map-jump {order:4;flex:1 1 0} .mode-toggle {order:5}
 }
 h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: .01em; }
 h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; text-transform: uppercase; }
@@ -240,6 +240,131 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .focus-choice:has(input:checked) b { color:var(--olive); }
 .include-raid { display:flex; gap:8px; align-items:center; font-size:14px; }
 @media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } .focus-list { max-height:280px; } }
+/* Quests tab filters: search first, the rest as compact controls that wrap */
+.qfilters { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:18px 0 10px; scroll-margin-top:72px; }
+.qsearch { flex:1 1 260px; display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:0 10px; min-height:38px; }
+.qsearch:focus-within { border-color:var(--olive); box-shadow:0 0 0 2px color-mix(in srgb, var(--olive) 25%, transparent); }
+.qsearch svg { width:15px; height:15px; flex:none; fill:none; stroke:var(--muted); stroke-width:1.6; stroke-linecap:round; }
+.qsearch input { flex:1; min-width:0; border:0; background:transparent; color:var(--ink); font:15px var(--font-body); padding:8px 0; outline:none; }
+.qsearch kbd { font:11px var(--font-mono); color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:0 5px; }
+.qsearch:focus-within kbd { display:none; }
+.toggle { font:600 12px var(--font-mono); letter-spacing:.04em; border:1px solid var(--line); background:var(--panel); color:var(--muted); padding:6px 11px; border-radius:999px; cursor:pointer; }
+.toggle[aria-pressed="true"] { background:var(--olive); border-color:var(--olive); color:var(--bg); }
+.filter-note { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; color:var(--muted); }
+.filter-note .btn { padding:3px 9px; font-size:12px; }
+mark { background:color-mix(in srgb, var(--signal) 28%, transparent); color:inherit; border-radius:2px; padding:0 1px; }
+.kmark { font:700 10px var(--font-mono); color:var(--olive); border:1px solid var(--olive); border-radius:3px; padding:0 4px; margin-left:6px; vertical-align:2px; }
+/* Toasts: quest accepted, completed, unlocked; newest at the bottom, near your thumb on phones */
+.toasts { position:fixed; right:16px; bottom:16px; z-index:60; display:grid; gap:10px; width:min(380px, calc(100vw - 32px)); pointer-events:none; }
+.toast { pointer-events:auto; position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:0 10px; background:var(--panel); color:var(--ink);
+  border:1px solid var(--line); border-left:4px solid var(--tc, var(--olive)); border-radius:6px; box-shadow:0 12px 32px rgb(0 0 0 / .24); padding:12px 10px 12px 14px; }
+.toast.started { --tc:var(--steel); } .toast.completed { --tc:var(--ok); } .toast.failed { --tc:var(--signal); } .toast.unlock { --tc:var(--olive); }
+.toast .t-label { font:600 11px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--tc); }
+.toast b { display:block; font:600 16px/1.25 var(--font-body); margin-top:2px; }
+.toast p { margin:4px 0 0; font-size:13px; color:var(--muted); }
+.toast ul { margin:6px 0 0; padding-left:18px; font-size:14px; }
+.toast .t-acts { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.toast .t-acts .btn { padding:4px 10px; font-size:12px; }
+.toast .t-x { border:0; background:none; color:var(--muted); font-size:20px; line-height:1; cursor:pointer; padding:0 4px; align-self:start; }
+.toast .t-bar { position:absolute; left:0; bottom:0; height:2px; background:var(--tc); opacity:.5; width:100%; transform-origin:left; }
+@media (prefers-reduced-motion: no-preference) {
+  .toast { animation:toast-in .22s ease-out; }
+  .toast.leaving { transition:opacity .18s, transform .18s; opacity:0; transform:translateY(8px); }
+}
+@keyframes toast-in { from { opacity:0; transform:translateY(14px); } }
+@media (max-width:560px) { .toasts { left:12px; right:12px; bottom:12px; width:auto; } }
+.live-chip { font:600 11px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ok); display:inline-flex; align-items:center; gap:6px; }
+.live-chip::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
+@media (prefers-reduced-motion: no-preference) { .live-chip::before { animation:pulse 2.4s ease-in-out infinite; } }
+/* Raid mode */
+.raid-go { width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 9px; padding:10px 12px; margin:2px 0 4px; letter-spacing:.06em; text-transform:uppercase; }
+.raid-go svg { width:12px; height:12px; fill:currentColor; }
+.raid-go span { text-transform:none; letter-spacing:0; font:400 12px var(--font-body); opacity:.75; }
+.raid-go:disabled { opacity:.4; cursor:default; }
+body.raid-mode { overflow:hidden; }
+body.raid-mode .map-stage.full { right:min(420px, 40vw); }
+body.raid-mode .map-ctrl [data-map="full"] { display:none; }
+.raid-panel { position:fixed; z-index:41; top:0; right:0; bottom:0; width:min(420px, 40vw); background:var(--bg); border-left:1px solid var(--line); display:flex; flex-direction:column; box-shadow:-8px 0 30px rgb(0 0 0 / .18); }
+.raid-panel[hidden] { display:none; }
+.rp-head { display:flex; align-items:center; gap:10px; padding:10px 12px 10px 16px; border-bottom:1px solid var(--line); background:var(--panel); }
+.rp-title { flex:1; min-width:0; }
+.rp-title h2 { margin:0; font:700 22px/1.1 var(--font-display); text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.rp-clock { font:600 22px var(--font-mono); font-variant-numeric:tabular-nums; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); cursor:pointer; padding:4px 10px; }
+.rp-clock.late { color:var(--signal); border-color:var(--signal); }
+.rp-body { overflow:auto; padding:12px 12px 28px; display:grid; gap:12px; align-content:start; overscroll-behavior:contain; }
+.rp-sec { display:grid; gap:6px; }
+.rp-sec > .label { margin-left:2px; }
+.rp-q { background:var(--panel); border:1px solid var(--line); border-left:5px solid var(--qc); border-radius:6px; padding:8px 8px 8px 10px; }
+.rp-q.ready { border-color:var(--ok); border-left-color:var(--ok); }
+.rp-q h3 { display:flex; gap:8px; align-items:center; margin:0 0 6px; font:600 16px/1.25 var(--font-body); }
+.rp-q h3 .rp-name { flex:1; min-width:0; text-align:left; border:0; background:none; color:inherit; font:inherit; padding:4px 0; cursor:pointer; }
+.rp-q h3 .rp-more { border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:4px; font:600 12px var(--font-mono); padding:5px 9px; cursor:pointer; }
+.rp-ready { font:600 11px var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--ok); }
+.rp-obj { list-style:none; margin:0; padding:0; display:grid; gap:4px; }
+.rp-obj label, .rp-obj .rp-c { min-height:44px; display:flex; align-items:center; gap:12px; border-radius:5px; background:var(--bg); padding:7px 10px; font:15px/1.3 var(--font-body); cursor:pointer; }
+.rp-obj input[type=checkbox] { width:22px; height:22px; flex:none; accent-color:var(--ok); margin:0; }
+.rp-obj .done > span, .rp-obj .done .rp-t { text-decoration:line-through; color:var(--muted); }
+.rp-obj .opt { opacity:.8; }
+.rp-obj .rp-c { cursor:default; }
+.rp-c .rp-t { flex:1; }
+.rp-c .counter { display:flex; align-items:center; gap:6px; }
+.rp-c .counter button { width:40px; height:40px; border:1px solid var(--line); border-radius:6px; background:var(--panel); color:var(--ink); font:600 20px/1 var(--font-mono); cursor:pointer; }
+.rp-c output { min-width:52px; text-align:center; font:600 15px var(--font-mono); font-variant-numeric:tabular-nums; }
+.rp-chips { display:flex; flex-wrap:wrap; gap:6px; }
+.rp-ex { display:grid; gap:4px; }
+.rp-ex button { display:flex; justify-content:space-between; gap:10px; width:100%; text-align:left; border:1px solid var(--line); border-radius:5px; background:var(--panel); color:var(--ink); font:14px var(--font-body); padding:9px 10px; cursor:pointer; }
+.rp-ex small { color:var(--ok); font-size:12px; text-align:right; }
+.rp-ex .req small { color:var(--signal); }
+@media (max-width:760px) {
+  body.raid-mode .map-stage.full { right:0; bottom:50vh; }
+  .raid-panel { top:auto; left:0; width:auto; height:50vh; border-left:0; border-top:1px solid var(--line); border-radius:14px 14px 0 0; box-shadow:0 -8px 30px rgb(0 0 0 / .2); }
+}
+/* Site search: a command palette over every quest in this mode */
+.site-search { display:inline-flex; align-items:center; gap:8px; min-width:min(260px, 100%); font:14px var(--font-body); color:var(--muted); background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:6px 8px 6px 10px; cursor:pointer; }
+.site-search:hover { border-color:var(--muted); color:var(--ink); }
+.site-search svg, .ss-field svg { width:15px; height:15px; flex:none; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; }
+.site-search span { flex:1; text-align:left; }
+.site-search kbd, .ss-x { font:11px var(--font-mono); color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:1px 5px; background:var(--bg); }
+dialog.ss { width:min(680px, calc(100vw - 24px)); max-height:min(78vh, 720px); margin:9vh auto auto; padding:0; border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink); box-shadow:0 24px 60px rgb(0 0 0 / .35); overflow:hidden; }
+dialog.ss[open] { display:flex; flex-direction:column; }
+dialog.ss::backdrop { background:rgb(10 12 10 / .5); }
+@media (prefers-reduced-motion: no-preference) { dialog.ss[open] { animation:pop-in .14s ease-out; } }
+.ss-field { display:flex; align-items:center; gap:10px; padding:12px 14px; border-bottom:1px solid var(--line); color:var(--muted); }
+.ss-field input { flex:1; min-width:0; border:0; outline:none; background:transparent; color:var(--ink); font:18px var(--font-body); padding:4px 0; }
+.ss-field input::-webkit-search-cancel-button { display:none; }
+.ss-mode { font:600 11px var(--font-mono); letter-spacing:.06em; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 8px; }
+.ss-x { cursor:pointer; }
+.ss-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 14px; border-bottom:1px solid var(--line); }
+.ss-note { margin-left:auto; font-size:12.5px; color:var(--muted); }
+.ss-list { list-style:none; margin:0; padding:6px; overflow:auto; flex:1; overscroll-behavior:contain; }
+.ss-row { display:grid; gap:3px; padding:9px 10px; border-radius:6px; cursor:pointer; }
+.ss-row[aria-selected="true"] { background:var(--bg); box-shadow:inset 3px 0 0 var(--olive); }
+.ss-row.other-side { opacity:.6; }
+.ss-main { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 8px; }
+.ss-name { font:600 16px/1.25 var(--font-body); }
+.ss-main .kmark { margin-left:0; }
+.ss-new { font:700 10px var(--font-mono); color:var(--steel); border:1px solid var(--steel); border-radius:3px; padding:0 4px; }
+.ss-meta { display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12.5px; color:var(--muted); }
+.ss-maps { display:flex; flex-wrap:wrap; gap:5px; margin-top:3px; }
+.ss-maps a { font:600 11.5px var(--font-mono); text-decoration:none; color:var(--ink); background:var(--chip); border:1px solid transparent; border-radius:3px; padding:2px 7px; }
+.ss-maps a.multi { background:transparent; border-color:var(--line); color:var(--muted); }
+.ss-maps a.primary { border-color:var(--olive); }
+.ss-maps a.wiki { background:none; color:var(--muted); }
+.ss-maps a:hover { border-color:var(--ink); }
+.ss-foot { display:flex; gap:16px; margin:0; padding:8px 14px; border-top:1px solid var(--line); font:11px var(--font-mono); color:var(--muted); }
+@media (max-width:640px) {
+  .site-search { min-width:0; flex:1 1 100%; } .site-search kbd { display:none; }
+  dialog.ss { width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; border:0; border-radius:0; }
+  .ss-foot { display:none; }
+}
+.sort-pick { display:inline-flex; gap:6px; align-items:center; font-size:13px; color:var(--muted); }
+.sort-pick select { font:13px var(--font-body); background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:3px; padding:3px 6px; }
+.focus-reward { color:var(--ink); font-family:var(--font-mono); font-size:12px; }
+.bring-q { display:grid; gap:7px; padding-top:10px; border-top:1px solid var(--line); }
+.bring-q h3 { display:flex; gap:8px; align-items:center; font-size:17px; }
+.focus-group { position:sticky; top:0; z-index:1; margin:0; padding:8px 0 6px; background:var(--panel); border-bottom:1px solid var(--line); font:600 11.5px var(--font-mono); letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+.focus-group span { display:block; font:400 12px var(--font-body); letter-spacing:0; text-transform:none; margin-top:2px; }
+.focus-group + .focus-choice { border-top:0; }
 .focus-row { display:flex; gap:8px; align-items:start; justify-content:space-between; }
 .focus-row label b { flex:1; }
 .focus-more { flex:none; font:600 12px var(--font-mono); border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:3px; padding:3px 8px; cursor:pointer; }
@@ -252,7 +377,7 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 #map, #map svg { width:100%; height:100%; display:block; }
 #map svg { cursor:grab; user-select:none; -webkit-user-select:none; }
 #map svg.dragging { cursor:grabbing; }
-.map-stage.full { position:fixed; inset:0; z-index:40; max-height:none; aspect-ratio:auto; border:0; border-radius:0; }
+.map-stage.full { position:fixed; inset:0; z-index:40; width:auto; height:auto; max-height:none; aspect-ratio:auto; border:0; border-radius:0; }
 body.map-full { overflow:hidden; }
 .map-ctrl { position:absolute; top:10px; right:10px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; box-shadow:0 2px 10px rgb(0 0 0 / .18); }
 .map-ctrl button { width:38px; height:36px; border:0; background:var(--panel); color:var(--ink); font:600 18px/1 var(--font-mono); cursor:pointer; }
@@ -270,7 +395,16 @@ body.map-full { overflow:hidden; }
 .pin.spot text.more { fill:var(--bg); font-size:9px; }
 .pin.spot.active path, .pin.spot:hover path, .pin.spot:focus-visible path { stroke:var(--ink); stroke-width:2.6; }
 .pin.spot:focus { outline:none; }
+.pin.ex { cursor:pointer; }
 .pin.ex rect { fill:var(--panel); stroke:var(--ok); stroke-width:2.5; }
+.pin.ex.req rect { stroke:var(--signal); stroke-dasharray:3 2; }
+.pin.ex.req text { fill:var(--signal); }
+.pin.ex.active rect, .pin.ex:hover rect, .pin.ex:focus-visible rect { stroke-width:4; }
+.pin.sw path { fill:var(--signal); stroke:var(--panel); stroke-width:2; }
+.pin.sw text { fill:var(--signal); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
+.pop-ex { margin:0; font:600 19px/1.15 var(--font-display); padding-right:28px; }
+.pop-need { margin:0; font-weight:600; color:var(--ok); }
+.pop-need.req { color:var(--signal); }
 .pin.ex text { display:none; fill:var(--ok); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
 svg.zoomed .pin.ex text, .map-stage.full .pin.ex text { display:inline; }
 text.stop { fill:var(--panel); font:600 11px var(--font-mono); text-anchor:middle; }
@@ -359,7 +493,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <span class="label" id="eyebrow"></span>
     <h1 id="pageTitle"></h1>
     <p id="lede"></p>
-    <div class="brief-meta"><span id="scopeSummary"></span><span class="meta mono" id="meta"></span><span id="dataAge"></span></div>
+    <div class="brief-meta"><span class="live-chip" id="liveChip" hidden>Live</span><span id="scopeSummary"></span><span class="meta mono" id="meta"></span><span id="dataAge"></span></div>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
@@ -398,8 +532,10 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 
     <aside class="focus-picker" aria-labelledby="focusTitle">
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
+      <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
+      <div id="focusSort"></div>
       <div class="focus-list" id="focusList"></div>
     </aside>
   </section>
@@ -459,13 +595,20 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       </div></details>
       <input type="file" id="trkImport" webkitdirectory multiple hidden>
     </section>
+    <div class="qfilters" role="search" aria-label="Filter quests">
+      <label class="qsearch"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg><input id="questSearch" type="search" placeholder="Search quests, items, places" autocomplete="off" aria-label="Search quests on this map"><kbd aria-hidden="true">/</kbd></label>
+      <label class="status-row" for="questView">Show <select id="questView"><option value="current">Current quests</option><option value="selected">Selected only</option><option value="possible">Possible unlocks (estimates)</option><option value="all">All</option></select></label>
+      <label class="status-row" for="questTrader">Trader <select id="questTrader"></select></label>
+      <button type="button" class="toggle kappa" id="questKappa" aria-pressed="false">Kappa only</button>
+      <span id="questSort"></span>
+    </div>
     <div class="toolbar">
       <span class="label" id="progress"></span>
-      <label class="status-row" for="questView">Show <select id="questView"><option value="current">Current quests</option><option value="selected">Selected only</option><option value="possible">Possible unlocks (estimates)</option><option value="all">All</option></select></label>
       <span class="confirm" id="resetWrap">
         <button class="btn" id="resetBtn" type="button">Reset checklist</button>
       </span>
     </div>
+    <div class="filter-note" id="filterNote" role="status" hidden></div>
     <div class="qgrid" id="qgrid"></div>
     <div id="otherQuests"></div>
     <p class="map-note" id="questEmpty" hidden>No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list. All lets you review and correct individual statuses.</p>
@@ -530,6 +673,19 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
   </section>
 
   <footer class="src" id="sources" style="margin-top:34px"></footer>
+
+  <!-- What just happened in the game, from the live log watcher -->
+  <div class="toasts" id="toasts" aria-live="polite" aria-relevant="additions"></div>
+
+  <!-- Raid mode: the map full screen beside a big-target checklist, for a second screen or a phone -->
+  <aside class="raid-panel" id="raidPanel" aria-label="Raid mode" hidden>
+    <header class="rp-head">
+      <div class="rp-title"><span class="label" id="rpLabel"></span><h2 id="rpMap"></h2></div>
+      <button type="button" class="rp-clock" id="rpClock" title="Time since raid mode started; tap to restart">00:00</button>
+      <button type="button" class="btn" id="rpExit">Exit</button>
+    </header>
+    <div class="rp-body" id="rpBody"></div>
+  </aside>
 
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
   <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
@@ -600,7 +756,7 @@ function renderSummary() {
   }
 }
 
-setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Green squares are PMC extracts and transits.`);
+setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Extracts: solid green to walk out, dashed orange when they need something; tap one for details.`);
 
 /* ---------- map: real art (or schematic), a numbered pin per selected quest, pan and zoom ---------- */
 const FR = DATA.meta.frame || { w: 1000, h: 520 };
@@ -654,8 +810,10 @@ if (ART_RECT) fetch(ART_RECT.href).then(r => r.ok ? r.text() : Promise.reject(r.
   stage.classList.add("has-art");
 }).catch(() => {}); // the schematic stays
 
-const questNo = q => focus.quests.indexOf(q) + 1;
-const colorOf = q => { const i = focus.quests.indexOf(q); return i < 0 ? null : QUEST_COLORS[i % QUEST_COLORS.length]; };
+// Selected quests in list order (located here first), which sets each quest's number and colour.
+let pinned = [];
+const questNo = q => pinned.indexOf(q) + 1;
+const colorOf = q => { const i = pinned.indexOf(q); return i < 0 ? null : QUEST_COLORS[i % QUEST_COLORS.length]; };
 let lastFitKey = null;
 function renderMap(active = currentRoute) {
   currentRoute = active;
@@ -663,7 +821,10 @@ function renderMap(active = currentRoute) {
   let s = "";
   for (const e of DATA.extracts) {
     if (e.x == null || e.faction === "scav") continue;
-    s += `<g class="pin ex" transform="translate(${e.x} ${e.y})"><g class="glyph"><rect x="-6" y="-6" width="12" height="12" rx="2"/><text x="10" y="4">${esc(e.name)}</text></g></g>`;
+    if (!mySide(e)) continue;
+    s += `<g class="pin ex${exReq(e) ? " req" : ""}${popEx === e.id ? " active" : ""}" data-ex="${esc(e.id)}" transform="translate(${e.x} ${e.y})" tabindex="0" role="button" aria-label="${esc(e.name)}: ${esc(exNeed(e))}"><g class="glyph"><rect x="-6" y="-6" width="12" height="12" rx="2"/><text x="10" y="4">${esc(e.name)}</text></g></g>`;
+    // The switch that opens it, while its details are open.
+    if (popEx === e.id && e.switch?.x != null) s += `<g class="pin sw" transform="translate(${e.switch.x} ${e.switch.y})"><g class="glyph"><path d="M0-8 8 0 0 8-8 0Z"/><text x="11" y="4">${esc(e.switch.name || "Switch")}</text></g></g>`;
   }
   // Hand-built plans: the planned routes, each stop numbered in the raid's colour.
   for (const r of focus.raids) {
@@ -675,10 +836,10 @@ function renderMap(active = currentRoute) {
   }
   // One pin per spot, in the colour and number of the first selected quest that needs it.
   const at = new Map();
-  focus.quests.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid]) at.set(zid, [...(at.get(zid) || []), i]); }));
+  pinned.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid]) at.set(zid, [...(at.get(zid) || []), i]); }));
   for (const [zid, idx] of at) {
     const p = z[zid], col = QUEST_COLORS[idx[0] % QUEST_COLORS.length];
-    s += `<g class="pin spot" data-zone="${esc(zid)}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${esc(p.name)}: ${idx.map(i => esc(focus.quests[i].name)).join(", ")}"><g class="glyph">
+    s += `<g class="pin spot" data-zone="${esc(zid)}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${esc(p.name)}: ${idx.map(i => esc(pinned[i].name)).join(", ")}"><g class="glyph">
       <path d="M0 0C-3-6-11-10-11-19a11 11 0 1 1 22 0C11-10 3-6 0 0Z" fill="${col}"/><text y="-15">${idx[0] + 1}</text>${idx.length > 1 ? `<circle class="more" cx="11" cy="-29" r="7.5"/><text class="more" x="11" y="-26">+${idx.length - 1}</text>` : ""}</g></g>`;
   }
   document.getElementById("mapOver").innerHTML = s;
@@ -725,8 +886,8 @@ function setView(v, animate) {
   anim = requestAnimationFrame(step);
 }
 // Frame the selected spots (pins point up, so leave room above them); the whole map when none.
-function fit(animate, zones) {
-  const pts = (zones || [...svg.querySelectorAll(".pin.spot")].map(g => g.dataset.zone)).map(id => DATA.zones[id]).filter(Boolean);
+function fit(animate, zones, points) {
+  const pts = points || (zones || [...svg.querySelectorAll(".pin.spot")].map(g => g.dataset.zone)).map(id => DATA.zones[id]).filter(Boolean);
   if (!pts.length) return setView(BASE, animate);
   const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
   const minW = Math.max(BASE.w, BASE.h) / 5, w = Math.max(Math.max(...xs) - Math.min(...xs), minW) * 1.35, h = Math.max(Math.max(...ys) - Math.min(...ys), minW) * 1.35;
@@ -745,7 +906,7 @@ const pointers = new Map();
 let drag = null, hintTimer = 0;
 svg.addEventListener("pointerdown", e => {
   pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-  if (pointers.size === 1) drag = { x: e.clientX, y: e.clientY, view: { ...view }, pin: e.target.closest?.(".pin.spot")?.dataset.zone, moved: false };
+  if (pointers.size === 1) drag = { x: e.clientX, y: e.clientY, view: { ...view }, pin: e.target.closest?.(".pin.spot")?.dataset.zone, ex: e.target.closest?.(".pin.ex")?.dataset.ex, moved: false };
   if (pointers.size === 2) {
     const [a, b] = [...pointers.values()];
     drag = { pinch: Math.hypot(a.x - b.x, a.y - b.y), mid: toSvg((a.x + b.x) / 2, (a.y + b.y) / 2), view: { ...view }, moved: true };
@@ -768,7 +929,7 @@ svg.addEventListener("pointermove", e => {
 });
 function endPointer(e) {
   pointers.delete(e.pointerId);
-  if (drag && !drag.moved && drag.pin && e.type === "pointerup") openPop(drag.pin);
+  if (drag && !drag.moved && e.type === "pointerup") { if (drag.pin) openPop(drag.pin); else if (drag.ex) openExPop(drag.ex); }
   if (!pointers.size) { drag = null; svg.classList.remove("dragging"); }
   else if (drag?.pinch) { const [a] = pointers.values(); drag = { x: a.x, y: a.y, view: { ...view }, moved: true }; }
 }
@@ -785,8 +946,8 @@ svg.addEventListener("wheel", e => {
   zoomAt(Math.exp(e.deltaY * (e.deltaMode ? 0.05 : 0.0018)), toSvg(e.clientX, e.clientY));
 }, { passive: false });
 svg.addEventListener("keydown", e => {
-  const zid = e.target.closest?.(".pin.spot")?.dataset.zone;
-  if (zid && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openPop(zid); }
+  const zid = e.target.closest?.(".pin.spot")?.dataset.zone, xid = e.target.closest?.(".pin.ex")?.dataset.ex;
+  if ((zid || xid) && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); zid ? openPop(zid) : openExPop(xid); }
 });
 stage.querySelector(".map-ctrl").addEventListener("click", e => {
   const act = e.target.closest("[data-map]")?.dataset.map;
@@ -800,13 +961,39 @@ function setFull(on) {
   stage.querySelector('[data-map="full"]').setAttribute("aria-pressed", String(on));
   requestAnimationFrame(() => fit(false, popZone ? [popZone] : undefined));
 }
-document.addEventListener("keydown", e => { if (e.key === "Escape" && !document.getElementById("questDialog").open) { if (!pop.hidden) closePop(); else if (stage.classList.contains("full")) setFull(false); } });
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape" || document.getElementById("questDialog").open || e.target.closest?.("input[type=search]")) return;
+  if (!pop.hidden) closePop(); else if (raidOn) exitRaid(); else if (stage.classList.contains("full")) setFull(false);
+});
 
 /* spot popover: the quests that need this spot, their objectives here and a photo */
-let popZone = null;
+let popZone = null, popEx = null;
+// What an extract takes, from the wiki via the ETL. Green pins: walk out. Orange: needs something.
+const EX_TYPE = { pmc: "PMC extract", scav: "Scav extract", shared: "PMC and Scav extract", coop: "Co-op extract", transit: "Transit" };
+const EX_NEED = { flare: "Fire a green flare", coop: "Co-op: needs a Scav player with you", cliff: "Paracord and Red Rebel, no armour", other: "Conditions apply" };
+const exReq = e => !!e.requirement && e.requirement !== "none";
+function exNeed(e) {
+  if (e.requirement === "paid") return e.cost ? `Pay ₽${e.cost.toLocaleString()}` : "Pay to leave";
+  if (e.requirement === "item") return e.item ? `Bring ${e.item}` : "Bring an item";
+  if (e.requirement === "switch") return e.switch?.name ? `${e.switch.name} first` : "Flip a switch first";
+  if (e.requirement === "none" || !e.requirement) return e.alwaysOpen ? "Always open" : e.requirement ? "Nothing to bring" : "";
+  return EX_NEED[e.requirement] || "";
+}
+const mySide = e => !e.sides?.length || !P.faction || e.sides.includes(P.faction);
+function openExPop(id) {
+  const e = exById[id]; if (!e) return;
+  popZone = null; popEx = id;
+  pop.innerHTML = `<button type="button" class="pop-x" data-pop="close" aria-label="Close">×</button><span class="label">${esc(EX_TYPE[e.type] || "Extract")}</span>
+    <h4 class="pop-ex">${esc(e.name)}</h4>${exNeed(e) ? `<p class="pop-need${exReq(e) ? " req" : ""}">${esc(exNeed(e))}</p>` : ""}
+    ${e.note && e.note !== exNeed(e) ? `<p class="map-note">${esc(e.note)}</p>` : ""}
+    ${e.switch?.x != null ? `<button type="button" class="btn" data-pop="switch">Show the switch</button>` : ""}`;
+  pop.hidden = false;
+  renderMap();
+  positionPop();
+}
 function openPop(zid) {
-  popZone = zid;
-  const quests = focus.quests.filter(q => RaidFocus.facts(q).zones.includes(zid));
+  popZone = zid; if (popEx) { popEx = null; renderMap(); }
+  const quests = pinned.filter(q => RaidFocus.facts(q).zones.includes(zid));
   pop.innerHTML = `<button type="button" class="pop-x" data-pop="close" aria-label="Close">×</button><span class="label">${esc(DATA.zones[zid].name)}</span>` + quests.map(q => {
     const objs = q.objectives.filter(o => (o.zone || []).includes(zid)), photo = q.photos?.[0];
     return `<div class="pop-q"><button type="button" class="pop-title" data-detail="${esc(bsgId(q))}"><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(q.name)}</span><b aria-hidden="true">›</b></button>
@@ -817,10 +1004,14 @@ function openPop(zid) {
   svg.querySelectorAll(".pin.spot").forEach(g => g.classList.toggle("active", g.dataset.zone === zid));
   positionPop();
 }
-function closePop() { popZone = null; pop.hidden = true; svg.querySelectorAll(".pin.spot.active").forEach(g => g.classList.remove("active")); }
+function closePop() {
+  const hadEx = popEx; popZone = popEx = null; pop.hidden = true;
+  svg.querySelectorAll(".pin.spot.active").forEach(g => g.classList.remove("active"));
+  if (hadEx) renderMap();
+}
 function positionPop() {
-  if (pop.hidden || !popZone) return;
-  const g = svg.querySelector(`.pin.spot[data-zone="${CSS.escape(popZone)}"]`);
+  if (pop.hidden || (!popZone && !popEx)) return;
+  const g = popZone ? svg.querySelector(`.pin.spot[data-zone="${CSS.escape(popZone)}"]`) : svg.querySelector(`.pin.ex[data-ex="${CSS.escape(popEx)}"]`);
   if (!g) return;
   const narrow = stage.clientWidth < 560;
   pop.classList.toggle("docked", narrow);
@@ -830,7 +1021,11 @@ function positionPop() {
   pop.style.left = Math.min(Math.max(8, x - pop.offsetWidth / 2), s.width - pop.offsetWidth - 8) + "px";
   pop.style.top = Math.max(8, Math.min(above > 8 ? above : r.bottom - s.top + 8, s.height - pop.offsetHeight - 8)) + "px";
 }
-pop.addEventListener("click", e => { if (e.target.closest("[data-pop='close']")) closePop(); });
+pop.addEventListener("click", e => {
+  if (e.target.closest("[data-pop='close']")) closePop();
+  const ex = e.target.closest("[data-pop='switch']") && exById[popEx];
+  if (ex) fit(true, null, [ex, ex.switch]);
+});
 document.addEventListener("click", e => {
   const d = e.target.closest("[data-detail]");
   if (d) { e.preventDefault(); openQuest(d.dataset.detail); }
@@ -840,10 +1035,22 @@ let currentRoute = "all";
 
 /* ---------- raids ---------- */
 function needText(n) { return `${n.qty || 1} × ${n.item}${n.optional ? " (optional)" : ""}`; }
+// Packing list by quest, in the same order and colours as the picker and the pins.
+function bringList() {
+  const chip = n => `<span class="chip ${n.kind === "key" ? "key" : ""}">${esc(needText(n))}</span>`;
+  const withGear = pinned.filter(q => q.needs.length), without = pinned.filter(q => !q.needs.length);
+  const shared = focus.bring.filter(n => n.for.length > 1);
+  return `<article class="raid A bring"><h2>Bring for this raid</h2>
+    ${withGear.map(q => `<div class="bring-q"><h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></h3><div class="chips">${q.needs.map(chip).join("")}</div></div>`).join("")
+      || `<p>No keys or items listed for this selection.</p>`}
+    ${without.length ? `<p class="map-note">Nothing listed for: ${without.map(q => esc(q.name)).join(", ")}.</p>` : ""}
+    ${shared.length ? `<p class="map-note"><b>Shared:</b> ${shared.map(n => `${esc(needText(n))} for ${n.for.map(id => esc(qById[id].name)).join(" and ")}`).join(" · ")}. A key covers all of them; placed items are counted per objective.</p>` : ""}
+    <p class="map-note">Quantities are the listed quest requirements; check your remaining objectives before packing.</p></article>`;
+}
 function renderRaids() {
   document.getElementById("raids").innerHTML = !focus.quests.length
     ? `<p class="notice">No quests selected. Include a current quest above to build your raid focus.</p>`
-    : `<article class="raid A"><h2>Bring for this raid</h2><div class="chips">${focus.bring.map(n => `<span class="chip ${n.kind === "key" ? "key" : ""}" title="${esc(n.for.map(id => qById[id].name).join(", "))}">${esc(needText(n))}</span>`).join("") || "No keys or items listed for this selection."}</div><p class="map-note">Quantities are the listed quest requirements; check your remaining objectives before packing.</p></article>` +
+    : bringList() +
     (!PLANNED ? `<div class="notice"><span class="label">Manual raid focus</span><p>The map shows your selected quests. Routes for this map have not been planned.</p></div>` :
       `<p class="map-note">Filtered hand-built plan: original stop order, with selected objectives only. This route has not been optimized for your selection. Optional key-hunt detours are omitted; see Keys &amp; items for sources.</p>` + focus.raids.map(r => `
       <article class="raid ${r.id}"><div class="head"><span class="tag">RAID ${r.id}</span><h3>${esc(r.name)}</h3></div>
@@ -875,24 +1082,106 @@ const bsgId = q => q.bsgId || q.id;
 const onMap = q => q.onMap !== false;
 const LISTED = new Set(DATA.quests.filter(onMap).map(bsgId));
 const ORDERED = [...DATA.quests.filter(onMap), ...DATA.quests.filter(q => !onMap(q))];
+// Sorting: located quests stay ahead of multi-map ones; within each group the chosen metric
+// decides, then the data's own order. Numbers and pin colours follow this order.
+const SORTS = { list: "List order", xp: "Most XP", roubles: "Most roubles", value: "Most total value", spots: "Fewest spots", keys: "Fewest keys", level: "Lowest level" };
+const rewardsOf = q => q.rewards || { xp: 0, roubles: 0, itemValue: 0, rep: [] };
+const SORT_KEY = { xp: q => -rewardsOf(q).xp, roubles: q => -rewardsOf(q).roubles, value: q => -(rewardsOf(q).roubles + rewardsOf(q).itemValue),
+  spots: q => RaidFocus.facts(q).zones.length, keys: q => q.needs.filter(n => n.kind === "key" && !n.optional).length, level: q => q.minLevel || 0 };
+let sortBy = "list";
+try { if (SORTS[localStorage.getItem("eft-quest-sort")]) sortBy = localStorage.getItem("eft-quest-sort"); } catch (e) {}
+const RANK = new Map(ORDERED.map((q, i) => [q, i]));
+function ordered(list) {
+  const key = SORT_KEY[sortBy], cmp = (a, b) => (key ? key(a) - key(b) : 0) || RANK.get(a) - RANK.get(b);
+  return [...list.filter(onMap).sort(cmp), ...list.filter(q => !onMap(q)).sort(cmp)];
+}
+const sortControl = () => `<label class="sort-pick">Sort <select data-sort aria-label="Sort quests">${Object.entries(SORTS).map(([k, v]) => `<option value="${k}" ${k === sortBy ? "selected" : ""}>${v}</option>`).join("")}</select></label>`;
+document.addEventListener("change", e => {
+  if (!e.target.matches("[data-sort]")) return;
+  sortBy = e.target.value;
+  try { localStorage.setItem("eft-quest-sort", sortBy); } catch (err) {}
+  renderQuests();
+});
+const short = n => n >= 1e6 ? `${(n / 1e6).toFixed(1).replace(/\.0$/, "")}M` : n >= 1e4 ? `${Math.round(n / 1e3)}k` : n.toLocaleString();
+// "8,000 XP · ₽80k · items ~₽1.2M", the figures the sort options use.
+function rewardLine(q) {
+  const r = q.rewards; if (!r) return "";
+  return [r.xp && `${r.xp.toLocaleString()} XP`, r.roubles && `₽${short(r.roubles)}`, r.itemValue && `items ~₽${short(r.itemValue)}`].filter(Boolean).join(" · ");
+}
 const questName = id => DATA.taskNames?.[id] || DATA.quests.find(q => bsgId(q) === id)?.name || id;
 let questView = "current";
 let progressResult;
+
+// Quests tab filters. Typing a search looks through every quest on this map, whatever Show says,
+// matching names, traders, objectives, items and places. Trader and Kappa are remembered.
+const filters = { text: "", trader: "", kappa: false };
+try { filters.kappa = localStorage.getItem("eft-quest-kappa") === "1"; filters.trader = localStorage.getItem("eft-quest-trader") || ""; } catch (e) {}
+const fold = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const HAY = new Map(DATA.quests.map(q => [q, fold([q.name, q.trader, ...q.objectives.map(o => o.text), ...q.needs.map(n => n.item),
+  ...RaidFocus.facts(q).zones.map(z => DATA.zones[z]?.name || "")].join("\n"))]));
+const terms = () => fold(filters.text).split(/\s+/).filter(Boolean);
+const searching = () => terms().length > 0;
+const passes = q => (!filters.kappa || q.kappa) && (!filters.trader || q.trader === filters.trader) && terms().every(t => HAY.get(q).includes(t));
+// Text with the search terms marked.
+function hl(s) {
+  const t = terms(); if (!t.length) return esc(s);
+  const re = new RegExp(`(${t.map(x => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi");
+  return String(s).split(re).map((p, i) => i % 2 ? `<mark>${esc(p)}</mark>` : esc(p)).join("");
+}
+const traders = [...new Set(DATA.quests.map(q => q.trader))].sort();
+if (!traders.includes(filters.trader)) filters.trader = "";
+document.getElementById("questTrader").innerHTML = `<option value="">All</option>` + traders.map(t => `<option ${t === filters.trader ? "selected" : ""}>${esc(t)}</option>`).join("");
+document.getElementById("questKappa").setAttribute("aria-pressed", String(filters.kappa));
+document.getElementById("questKappa").hidden = !DATA.quests.some(q => q.kappa);
+let filterFrame = 0;
+const refilter = () => { cancelAnimationFrame(filterFrame); filterFrame = requestAnimationFrame(renderQuests); };
+const questSearch = document.getElementById("questSearch");
+questSearch.addEventListener("input", () => { filters.text = questSearch.value; refilter(); });
+questSearch.addEventListener("keydown", e => { if (e.key === "Escape" && questSearch.value) { e.stopPropagation(); questSearch.value = filters.text = ""; refilter(); } });
+document.getElementById("questTrader").addEventListener("change", e => {
+  filters.trader = e.target.value; try { localStorage.setItem("eft-quest-trader", filters.trader); } catch (err) {} renderQuests();
+});
+document.getElementById("questKappa").addEventListener("click", e => {
+  filters.kappa = !filters.kappa; e.currentTarget.setAttribute("aria-pressed", String(filters.kappa));
+  try { localStorage.setItem("eft-quest-kappa", filters.kappa ? "1" : ""); } catch (err) {} renderQuests();
+});
+function clearFilters() {
+  questSearch.value = filters.text = filters.trader = ""; filters.kappa = false;
+  document.getElementById("questTrader").value = ""; document.getElementById("questKappa").setAttribute("aria-pressed", "false");
+  try { localStorage.removeItem("eft-quest-trader"); localStorage.removeItem("eft-quest-kappa"); } catch (e) {}
+  renderQuests();
+}
+// "/" searches from anywhere on the page, as on most sites.
+document.addEventListener("keydown", e => {
+  if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey || e.target.closest?.("input, textarea, select, [contenteditable]") || document.querySelector("dialog[open]")) return;
+  e.preventDefault();
+  if (document.getElementById("view-quests").hidden) show("quests");
+  questSearch.focus(); questSearch.select();
+});
 
 function renderFocus() {
   const previous = JSON.stringify(activeScope()?.raidFocus?.[MAP]);
   selectedIds = RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId));
   if (JSON.stringify(activeScope()?.raidFocus?.[MAP]) !== previous) saveStatus();
   focus = RaidFocus.project(DATA, selectedIds);
+  pinned = ordered(focus.quests);
+  document.getElementById("focusSort").innerHTML = sortControl();
   setText("mapLocations", focus.zones.length ? "Selected locations: " + focus.zones.map(id => DATA.zones[id].name).join(" · ") : focus.quests.length ? "No fixed locations listed for these quests; see the objectives below." : "");
-  setText("focusCount", `${selectedIds.length} selected / ${currentQuests.length} current`);
-  document.getElementById("focusList").innerHTML = currentQuests.map(q => {
+  // Same split as the in-game list: quests located here first, multi-map quests under their own heading.
+  const sorted = ordered(currentQuests), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
+  setText("focusCount", `${selectedIds.length} selected / ${here.length} on ${MAP}${multi.length ? ` + ${multi.length} multi-map` : ""}`);
+  const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
-    return `<div class="focus-choice"><div class="focus-row"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<b>${esc(q.name)}</b></label><button type="button" class="focus-more" data-detail="${esc(bsgId(q))}" aria-label="Details and photos for ${esc(q.name)}">${q.photos?.length ? "Photos" : "Details"} ›</button></div>
-      <p class="focus-facts">${onMap(q) ? "" : "Multi-map quest<br>"}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
-  }).join("") || `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
+    return `<div class="focus-choice"><div class="focus-row"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</b></label><button type="button" class="focus-more" data-detail="${esc(bsgId(q))}" aria-label="Details and photos for ${esc(q.name)}">${q.photos?.length ? "Photos" : "Details"} ›</button></div>
+      <p class="focus-facts">${rewardLine(q) ? `<span class="focus-reward">${esc(rewardLine(q))}</span><br>` : ""}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
+  };
+  document.getElementById("focusList").innerHTML = currentQuests.length
+    ? (multi.length && here.length ? `<p class="focus-group">On ${esc(MAP)} · ${here.length}</p>` : "") + here.map(choice).join("") +
+      (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
+    : `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
+  document.getElementById("raidGo").disabled = !selectedIds.length;
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
   setText("mapEmpty", currentQuests.length ? "Tick quests on the right to pin their spots on the map." : "No current quests yet. Choose your profile under Quests to see them here.");
 }
@@ -1022,6 +1311,7 @@ window.addEventListener("storage", e => {
   } catch (err) {}
 });
 loadScopedPreferences();
+document.getElementById("filterNote").addEventListener("click", e => { if (e.target.id === "clearFilters") clearFilters(); });
 document.getElementById("questView").addEventListener("change", e => {
   questView = e.target.value; renderQuests();
 });
@@ -1065,19 +1355,25 @@ function statusControl(q, progress, src, pre) {
 function objList(q, pre) {
   return `<ul class="obj">${q.objectives.map(o => o.count ? `
         <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" ${objDone(o) ? "checked" : ""} disabled aria-label="Counter complete">
-          <span>${esc(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
+          <span>${hl(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
         <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}>
-          <label for="${pre}-${o.id}"><span>${esc(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
+          <label for="${pre}-${o.id}"><span>${hl(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
 }
 function renderQuests() {
   progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP, listed: LISTED });
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
-  visibleQuests = questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
+  const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
+  visibleQuests = inView.filter(passes);
+  const filtered = searching() || filters.trader || filters.kappa;
+  const note = document.getElementById("filterNote");
+  note.hidden = !filtered;
+  note.innerHTML = filtered ? `<span>${visibleQuests.length} ${visibleQuests.length === 1 ? "quest" : "quests"} ${searching() ? `match “${esc(filters.text.trim())}” across all ${DATA.quests.length} on ${esc(MAP)}` : "shown"}${filters.trader ? ` · ${esc(filters.trader)}` : ""}${filters.kappa ? " · Kappa only" : ""}</span><button type="button" class="btn" id="clearFilters">Clear filters</button>` : "";
   let total = 0, done = 0, completedCount = 0, lockedCount = 0;
   const groups = visibleQuests.some(onMap) && visibleQuests.some(q => !onMap(q));
   let multiHeaded = false;
-  document.getElementById("qgrid").innerHTML = (groups ? `<h3 style="grid-column:1/-1;margin:0">On ${esc(MAP)}</h3>` : "") + ORDERED.map(q => {
+  document.getElementById("questSort").innerHTML = sortControl();
+  document.getElementById("qgrid").innerHTML = (groups ? `<h3 style="grid-column:1/-1;margin:0">On ${esc(MAP)}</h3>` : "") + ordered(DATA.quests).map(q => {
     const req = q.objectives.filter(o => !o.optional);
     const progress = progressResult.quests[bsgId(q)];
     const st = progress.status;
@@ -1089,9 +1385,9 @@ function renderQuests() {
     const src = (progress.current ? questStatus.statuses[bsgId(q)] : progressResult.statuses[bsgId(q)])?.source;
     const head = !onMap(q) && !multiHeaded ? (multiHeaded = true, `<div style="grid-column:1/-1"><h3 style="margin:8px 0 4px">Multi-map quests</h3><p class="map-note">These have objectives on ${esc(MAP)} and other maps. The in-game ${esc(MAP)} filter doesn't list them.</p></div>`) : "";
     return head + `<article class="quest ${qDone ? "done" : ""}">
-      <div class="top"><h3><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}${q.photos?.length ? `<button type="button" class="qthumb" data-detail="${esc(bsgId(q))}" aria-label="Photos and details for ${esc(q.name)}"><img src="${esc(q.photos[0].src)}" alt="" loading="lazy"></button>` : ""}</div>
+      <div class="top"><h3><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${hl(q.name)}</button></h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}${q.photos?.length ? `<button type="button" class="qthumb" data-detail="${esc(bsgId(q))}" aria-label="Photos and details for ${esc(q.name)}"><img src="${esc(q.photos[0].src)}" alt="" loading="lazy"></button>` : ""}</div>
       <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
-        ${q.needs.filter(n => n.kind === "key").map(n => `<span class="chip key">${esc(n.item)}</span>`).join("")}</div>
+        ${q.needs.filter(n => n.kind === "key" || (searching() && terms().some(t => fold(n.item).includes(t)))).map(n => `<span class="chip ${n.kind === "key" ? "key" : ""}">${hl(n.item)}</span>`).join("")}</div>
       ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
       ${st === "started" && !progress.current ? `<p class="map-note">Earlier start; excluded from your confirmed current list.</p>` : ""}
       ${(DATA.progression[bsgId(q)].traderRequirements || []).map(r => `<p class="map-note">needs ${esc(r.trader)} ${r.type === "level" ? "LL" : esc(r.type) + " "}${esc(r.value)}</p>`).join("")}
@@ -1102,23 +1398,24 @@ function renderQuests() {
       <div class="foot"><span>${esc(q.reward)}</span><a href="${esc(q.wiki)}" target="_blank" rel="noopener">Wiki ↗</a></div>
     </article>`;
   }).join("");
-  const currentCount = DATA.quests.filter(q => progressResult.quests[bsgId(q)].current).length;
+  const currentCount = currentQuests.filter(onMap).length, multiCount = currentQuests.length - currentCount;
   const possibleCount = DATA.quests.filter(q => progressResult.quests[bsgId(q)].possible).length;
   const history = ProgressStore.historyCounts(progressStore, scopeKey, legacyStatus);
   const earlierStarts = DATA.quests.filter(q => questStatus.statuses[bsgId(q)]?.status === "started" && !progressResult.quests[bsgId(q)].current).length;
   // The headline counts; history detail lives in the tracker's details.
-  document.getElementById("progress").textContent = [`${currentCount} current`, `${selectedIds.length} selected`,
+  document.getElementById("progress").textContent = [`${currentCount} current on ${MAP}`, multiCount && `${multiCount} multi-map`, `${selectedIds.length} selected`,
     `${possibleCount} possible`, `${completedCount} completed`, `${lockedCount} locked`,
     earlierStarts && `${earlierStarts} earlier starts`].filter(Boolean).join(" · ");
   setText("historyCounts", document.getElementById("historyCounts").textContent.split(" · Shown here")[0] +
     ` · Shown here: ${visibleQuests.length} · ${history.excluded} historical events / ${history.unscoped} unscoped statuses`);
   document.getElementById("questEmpty").hidden = visibleQuests.length > 0;
-  setText("questEmpty", questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
+  setText("questEmpty", filtered && inView.length ? "Nothing matches these filters. Try fewer words, or clear the filters." : questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
   document.getElementById("unlockNote").hidden = questView !== "possible";
   renderOtherQuests();
   renderRaids();
   renderMap(currentRoute);
   if (document.getElementById("questDialog").open) renderQuestDetail();
+  renderRaidPanel();
   renderGear();
   renderSummary();
 }
@@ -1260,6 +1557,83 @@ let swipeX = null; // swipe between photos on touch screens
 lightbox.addEventListener("pointerdown", e => { swipeX = e.clientX; });
 lightbox.addEventListener("pointerup", e => { if (swipeX != null && Math.abs(e.clientX - swipeX) > 50) stepLightbox(e.clientX < swipeX ? 1 : -1); swipeX = null; });
 
+/* ---------- raid mode: map, checklist and clock on one screen ---------- */
+const raidPanel = document.getElementById("raidPanel"), rpBody = document.getElementById("rpBody");
+let raidOn = false, raidStart = 0, raidTick = 0, raidEntry = null, wake = null;
+const keepAwake = async () => { try { wake = await navigator.wakeLock?.request("screen"); } catch (e) { wake = null; } };
+document.addEventListener("visibilitychange", () => { if (raidOn && document.visibilityState === "visible") keepAwake(); });
+function clock() {
+  const s = Math.floor((Date.now() - raidStart) / 1000), el = document.getElementById("rpClock");
+  el.textContent = `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  el.classList.toggle("late", s >= 35 * 60); // most raids run 35–50 minutes
+}
+function enterRaid() {
+  if (raidOn || !selectedIds.length) return;
+  raidOn = true;
+  show("plan");
+  document.body.classList.add("raid-mode");
+  raidPanel.hidden = false;
+  setFull(true);
+  try { raidStart = Number(sessionStorage.getItem("eft-raid-start:" + MAP)) || 0; } catch (e) {}
+  if (!raidStart || Date.now() - raidStart > 2 * 3600e3) restartClock(); // a reload mid-raid keeps the clock
+  clock(); raidTick = setInterval(clock, 1000);
+  keepAwake();
+  renderRaidPanel();
+  raidEntry = Date.now() + Math.random(); // Back leaves raid mode
+  try { history.pushState({ raid: raidEntry }, ""); } catch (e) {}
+  document.getElementById("rpExit").focus();
+}
+function exitRaid() {
+  if (!raidOn) return;
+  raidOn = false;
+  clearInterval(raidTick);
+  wake?.release().catch(() => {}); wake = null;
+  document.body.classList.remove("raid-mode");
+  raidPanel.hidden = true;
+  setFull(false);
+  if (raidEntry !== null && history.state?.raid === raidEntry) { raidEntry = null; history.back(); }
+  raidEntry = null;
+  document.getElementById("raidGo").focus();
+}
+function restartClock() { raidStart = Date.now(); try { sessionStorage.setItem("eft-raid-start:" + MAP, String(raidStart)); } catch (e) {} }
+window.addEventListener("popstate", () => { if (raidOn && history.state?.raid !== raidEntry) { raidEntry = null; exitRaid(); } });
+document.getElementById("raidGo").addEventListener("click", enterRaid);
+document.getElementById("rpExit").addEventListener("click", exitRaid);
+document.getElementById("rpClock").addEventListener("click", () => { restartClock(); clock(); });
+function renderRaidPanel() {
+  if (!raidOn) return;
+  const top = rpBody.scrollTop;
+  setText("rpLabel", `Raid mode · ${pinned.length} ${pinned.length === 1 ? "quest" : "quests"}`);
+  setText("rpMap", MAP);
+  const keys = focus.bring.filter(n => n.kind === "key" && !n.optional);
+  const items = focus.bring.filter(n => n.kind !== "key");
+  const quest = q => {
+    const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
+    return `<article class="rp-q${ready ? " ready" : ""}" style="--qc:${colorOf(q)}">
+      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-rp-fit="${esc(bsgId(q))}" title="Show its spots on the map">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-detail="${esc(bsgId(q))}" aria-label="Details for ${esc(q.name)}">Info</button></h3>
+      <ul class="rp-obj">${q.objectives.map(o => o.count
+        ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
+        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><label><input type="checkbox" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}</span></label></li>`).join("")}</ul>
+    </article>`;
+  };
+  const exits = DATA.extracts.filter(e => e.x != null && e.faction !== "scav" && mySide(e))
+    .sort((a, b) => exReq(a) - exReq(b) || a.name.localeCompare(b.name)); // walk-outs first
+  rpBody.innerHTML = (pinned.length ? "" : `<p class="map-note">No quests selected. Exit and tick quests to bring them into the raid.</p>`) +
+    (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
+    `<section class="rp-sec">${pinned.map(quest).join("")}</section>` +
+    (exits.length ? `<section class="rp-sec"><span class="label">Extracts</span><div class="rp-ex">${exits.map(e =>
+      `<button type="button" data-rp-ex="${esc(e.id)}" class="${exReq(e) ? "req" : ""}"><span>${esc(e.name)}</span><small>${esc(exNeed(e) || EX_TYPE[e.type] || "")}</small></button>`).join("")}</div></section>` : "");
+  rpBody.scrollTop = top;
+}
+rpBody.addEventListener("change", questControlsChange);
+rpBody.addEventListener("click", e => {
+  questControlsClick(e);
+  const q = e.target.closest("[data-rp-fit]");
+  if (q) { const zones = RaidFocus.facts(DATA.quests.find(x => bsgId(x) === q.dataset.rpFit)).zones; return fit(true, zones.length ? zones : undefined); }
+  const ex = exById[e.target.closest("[data-rp-ex]")?.dataset.rpEx];
+  if (ex) { fit(true, null, ex.switch?.x != null ? [ex, ex.switch] : [ex]); openExPop(ex.id); }
+});
+
 /* ---------- log tracking UI ---------- */
 const trk = { skipped: 0, note: "", fallback: false };
 const STATE_TEXT = {
@@ -1277,8 +1651,74 @@ const ACTIONS = {
 const watcher = new EftLogs.LogWatcher({ onEvents: handleEvents, onStatus: () => renderTracker() });
 
 function handleEvents(events, meta) {
+  // Only events new to this browser and from around now are news; scans and the session replay
+  // when the watcher starts bring back older ones, which update the lists quietly.
+  const fresh = events.filter(e => !progressStore.journal[JSON.stringify([meta.session || null, e.key])] && e.at >= PAGE_OPENED - 15 * 60e3);
+  const was = { possible: new Set(DATA.quests.map(bsgId).filter(id => progressResult.quests[id]?.possible)), selected: new Set(selectedIds) };
   ProgressStore.ingest(progressStore, events, meta);
   saveStatus(); refreshScope();
+  if (fresh.length) announce(fresh, was);
+}
+
+/* ---------- toasts: what just happened in the game ---------- */
+const PAGE_OPENED = Date.now();
+const toastBox = document.getElementById("toasts");
+function toast({ kind, label, title, body = "", actions = [], ms = 9000 }) {
+  while (toastBox.children.length >= 4) toastBox.firstElementChild.remove();
+  const el = document.createElement("div");
+  el.className = `toast ${kind}`;
+  el.innerHTML = `<div><span class="t-label">${esc(label)}</span>${title ? `<b>${esc(title)}</b>` : ""}${body}${actions.length ? `<div class="t-acts">${actions.map((a, i) =>
+    `<button type="button" class="btn${i ? "" : " primary"}" data-t="${i}">${esc(a.label)}</button>`).join("")}</div>` : ""}</div>
+    <button type="button" class="t-x" aria-label="Dismiss">×</button><i class="t-bar" aria-hidden="true"></i>`;
+  const close = () => { if (!el.isConnected) return; el.classList.add("leaving"); setTimeout(() => el.remove(), reduceMotion() ? 0 : 180); };
+  let left = ms, started = performance.now(), timer = setTimeout(close, left);
+  const bar = el.querySelector(".t-bar");
+  const run = () => bar.animate?.([{ transform: "scaleX(1)" }, { transform: "scaleX(0)" }], { duration: left, fill: "forwards" });
+  let barAnim = reduceMotion() ? null : run();
+  // Hovering or focusing a toast holds it, so there's time to read and choose.
+  const hold = () => { clearTimeout(timer); left -= performance.now() - started; barAnim?.pause(); };
+  const go = () => { started = performance.now(); timer = setTimeout(close, Math.max(1500, left)); barAnim?.play(); };
+  el.addEventListener("pointerenter", hold); el.addEventListener("pointerleave", go);
+  el.addEventListener("focusin", hold); el.addEventListener("focusout", go);
+  el.addEventListener("click", e => {
+    if (e.target.closest(".t-x")) return close();
+    const i = e.target.closest("[data-t]")?.dataset.t;
+    if (i != null) { actions[i].run(); close(); }
+  });
+  toastBox.append(el);
+}
+function announce(fresh, was) {
+  const here = id => DATA.quests.find(q => bsgId(q) === id);
+  // The scope decides what counts; an event outside it (another profile, an older wipe) stays quiet.
+  const applied = fresh.filter(e => questStatus.statuses[e.questId]?.status === e.status && questStatus.statuses[e.questId]?.at === e.at);
+  if (applied.length > 4) {
+    toast({ kind: "unlock", label: "From your game", title: `${applied.length} quest updates`,
+      body: `<ul>${applied.slice(-6).map(e => `<li>${esc(STATUS_LABEL[e.status])}: ${esc(questName(e.questId))}</li>`).join("")}</ul>` });
+  } else for (const e of applied) {
+    const q = here(e.questId);
+    if (e.status === "started") {
+      // Accepted a quest with objectives here: it joins this raid straight away.
+      if (q && progressResult.quests[e.questId]?.current && !selectedIds.includes(e.questId)) changeFocus("include", e.questId);
+      const inRaid = selectedIds.includes(e.questId);
+      toast({ kind: "started", label: "Quest accepted", title: questName(e.questId),
+        body: `<p>${!q ? `Not on ${esc(MAP)}.` : inRaid ? `Added to this raid${onMap(q) ? "" : `; multi-map, with objectives on ${esc(MAP)}`}.` : `Has objectives on ${esc(MAP)}.`}</p>`,
+        actions: q ? [{ label: "Details", run: () => openQuest(e.questId) }, ...(inRaid ? [{ label: "Remove from raid", run: () => changeFocus("exclude", e.questId) }] : [])] : [] });
+    } else if (e.status === "completed") {
+      toast({ kind: "completed", label: "Quest completed", title: questName(e.questId), body: was.selected.has(e.questId) ? `<p>Removed from this raid.</p>` : "" });
+    } else if (e.status === "failed") {
+      toast({ kind: "failed", label: "Quest failed", title: questName(e.questId) });
+    }
+  }
+  // Quests on this map that became available because of these events.
+  const unlocked = DATA.quests.filter(q => progressResult.quests[bsgId(q)]?.possible && !was.possible.has(bsgId(q)));
+  if (applied.some(e => e.status === "completed") && unlocked.length) {
+    toast({ kind: "unlock", label: `Unlocked on ${MAP}`, title: unlocked.length === 1 ? unlocked[0].name : `${unlocked.length} new quests`, ms: 14000,
+      body: `${unlocked.length > 1 ? `<ul>${unlocked.slice(0, 5).map(q => `<li>${esc(q.name)} · ${esc(q.trader)}</li>`).join("")}</ul>` : `<p>${esc(unlocked[0].trader)} · estimate from progression data</p>`}`,
+      actions: [{ label: unlocked.length === 1 ? "Details" : "Show them", run: () => {
+        if (unlocked.length === 1) return openQuest(bsgId(unlocked[0]));
+        questView = "possible"; document.getElementById("questView").value = "possible"; show("quests"); renderQuests();
+      } }] });
+  }
 }
 function fmtWhen(ms) {
   const d = new Date(ms);
@@ -1292,6 +1732,8 @@ function renderTracker() {
   const s = watcher.status;
   const state = trk.fallback ? "unsupported" : s.state;
   document.getElementById("trkDot").dataset.state = state;
+  document.getElementById("liveChip").hidden = state !== "watching";
+  document.getElementById("liveChip").title = state === "watching" ? "Watching your game logs; quest changes show up here as they happen" : "";
   setText("trkState", state === "watching" ? `Watching ${s.folder}` : STATE_TEXT[state] || state);
   const bits = [];
   if (state === "unsupported") bits.push("Live tracking needs Chrome or Edge, opened over https or localhost. Import reads the folder once.");
@@ -1427,4 +1869,13 @@ document.querySelector("nav.tabs").addEventListener("click", e => {
 let start = location.hash.slice(1);
 if (!VIEWS.includes(start)) { try { start = localStorage.getItem(STORE_KEY + ":tab") || "plan"; } catch (e) { start = "plan"; } }
 show(start);
+if (location.hash === "#raid") requestAnimationFrame(enterRaid); // a bookmark for the second screen
+// Site search opens quests here: in place on this page, or by link as #quest=<task ID>.
+window.SITE_HERE = { key: DATA.meta.key || "customs", mode: PAGE_MODE, open: openQuest };
+const wanted = /^#quest=([0-9a-f]{24})$/i.exec(location.hash)?.[1];
+if (wanted) {
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  if (DATA.quests.some(q => bsgId(q) === wanted)) requestAnimationFrame(() => openQuest(wanted));
+}
 </script>
+<!--__SITE_SEARCH__-->

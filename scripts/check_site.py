@@ -1,5 +1,6 @@
 """Parse every inline script and check local navigation stays within the published site."""
 import re
+import json
 import subprocess
 import tempfile
 from html.parser import HTMLParser
@@ -18,12 +19,44 @@ class Links(HTMLParser):
             self.hrefs += [value for name, value in attrs if name == 'href']
 
 
+def check_search_indexes(dist):
+    """Search hrefs are relative to the site root, including the PvE index's hrefs."""
+    dist = dist.resolve()
+    for relative in ('search-index.json', 'pve/search-index.json'):
+        path = dist / relative
+        if not path.is_file():
+            raise ValueError(f'{relative}: search index missing')
+        try:
+            rows = json.loads(path.read_text(encoding='utf-8'))
+        except (ValueError, UnicodeError) as exc:
+            raise ValueError(f'{relative}: invalid search JSON') from exc
+        if not isinstance(rows, list):
+            raise ValueError(f'{relative}: search index must be an array')
+        ids = set()
+        for row in rows:
+            if not isinstance(row, dict) or not isinstance(row.get('id'), str) or not isinstance(row.get('maps'), list):
+                raise ValueError(f'{relative}: invalid search entry')
+            if row['id'] in ids:
+                raise ValueError(f'{relative}: duplicate task {row["id"]}')
+            ids.add(row['id'])
+            for location in row['maps']:
+                href = location.get('href') if isinstance(location, dict) else None
+                if not isinstance(href, str) or not href:
+                    raise ValueError(f'{relative}: missing map href')
+                url = urlsplit(href)
+                target = (dist / unquote(url.path)).resolve()
+                if (url.scheme or url.netloc or url.path.startswith(('/', '\\')) or '\\' in url.path or
+                        not target.is_relative_to(dist) or not target.is_file()):
+                    raise ValueError(f'{relative}: broken search href {href}')
+
+
 def check(dist):
     dist = dist.resolve()
     scripts = 0
     pages = sorted(dist.rglob('*.html'))
     if not (dist / 'index.html').exists():
         raise ValueError('site home page missing')
+    check_search_indexes(dist)
     with tempfile.TemporaryDirectory() as temp:
         path = Path(temp) / 'inline.cjs'
         for page in pages:
@@ -43,7 +76,7 @@ def check(dist):
                 target = (page.parent / unquote(url.path)).resolve()
                 if not target.is_relative_to(dist) or not target.exists():
                     raise ValueError(f'{page}: broken local link {href}')
-    print(f'Checked {len(pages)} pages, {scripts} inline scripts and all local navigation links')
+    print(f'Checked {len(pages)} pages, {scripts} inline scripts, navigation links and both search indexes')
     return len(pages), scripts
 
 

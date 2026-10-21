@@ -13,9 +13,11 @@ import datetime as dt
 import html as html_lib
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
+from etl_tarkov_dev import latest_snapshot, load_snapshot
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "page" / "customs-raid-plan.template.html"
@@ -52,10 +54,32 @@ def navigation(out_path: Path, mode: str, key: str | None = "customs") -> str:
     current = ' aria-current="page"'
     modes = ''.join(f'<a href="{attr(url(m, key) if key else home + "?mode=" + m)}" data-mode="{m}"'
                     f'{current if m == mode else ""}>{label}</a>' for m, label in (("regular", "PvP"), ("pve", "PvE")))
+    root = home[:-len("index.html")]
+    search = (f'<button class="site-search" id="siteSearchBtn" type="button" aria-haspopup="dialog" data-root="{attr(root)}"'
+              f' data-index-pvp="{attr(root + "search-index.json")}" data-index-pve="{attr(root + "pve/search-index.json")}">'
+              '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>'
+              '<span>Search all quests</span><kbd aria-hidden="true">Ctrl K</kbd></button>')
     return (f'<nav class="site-nav" aria-label="Site"><a class="brand" href="{attr(home + "?mode=" + mode)}">Tarkov Raid Planner</a>'
-            f'<select class="map-jump" aria-label="Map" onchange="location.href=this.value">{"".join(options)}</select>'
+            f'{search}<select class="map-jump" aria-label="Map" onchange="location.href=this.value">{"".join(options)}</select>'
             f'<div class="mode-toggle" role="group" aria-label="Game mode">{modes}</div>'
-            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>')
+            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>' + SEARCH_DIALOG)
+
+
+# The site search box (page/site-search.template.js drives it).
+SEARCH_DIALOG = '''<dialog class="ss" id="siteSearch" aria-label="Search all quests">
+<div class="ss-field"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
+<input id="ssInput" type="search" placeholder="Quest, trader or map" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="ssList" aria-autocomplete="list" aria-label="Search all quests">
+<span class="ss-mode" id="ssMode"></span><button type="button" class="ss-x" data-ss="close" aria-label="Close search">Esc</button></div>
+<div class="ss-bar"><button type="button" class="toggle" data-ss-f="kappa" aria-pressed="false">Kappa</button><button type="button" class="toggle" data-ss-f="active" aria-pressed="false">Started</button><span class="ss-note" id="ssNote" role="status"></span></div>
+<ul class="ss-list" id="ssList" role="listbox" aria-label="Quests"></ul>
+<p class="ss-foot"><span>↑ ↓ move</span><span>Enter opens it on its map</span><span>Esc closes</span></p>
+</dialog>'''
+
+
+def search_scripts() -> str:
+    """The ranking module and the site bar's search UI, for every page with the site bar."""
+    return "".join(f"<script>{(ROOT / 'page' / name).read_text(encoding='utf-8').replace('</', '<' + chr(92) + '/')}</script>"
+                   for name in ("site-search.js", "site-search.template.js"))
 
 
 def styles() -> str:
@@ -71,6 +95,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     apply_profile(data, level, faction)
     attach_task_ids(data)
     validate(data)
+    attach_wiki_flags(data)
     attach_art(data, out_path)
     if not PROGRESSION.exists():
         sys.exit("data/progression.json missing; run python scripts/build_progression.py first")
@@ -104,6 +129,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__DATA__*/null", payload, 1)
     html = html.replace("<!--__SITE_NAV__-->", navigation(out_path, mode, data['meta'].get('key', 'customs')), 1)
     html = html.replace("/*__THEME__*/", theme_script(), 1)
+    html = html.replace("<!--__SITE_SEARCH__-->", search_scripts(), 1)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
     print(f"wrote {out_path.relative_to(ROOT) if out_path.is_relative_to(ROOT) else out_path} ({len(html) // 1024} KB)")
@@ -144,6 +170,25 @@ def attach_task_ids(data: dict) -> None:
             q["bsgId"] = tid
         else:
             print(f"note: no BSG ID for {q['name']!r}; log tracking can't update it", file=sys.stderr)
+
+
+def wiki_kappa(task_id: str) -> bool | None:
+    """Whether the cached wiki page (raw/wiki/<task id>.json) says Kappa needs this quest; None
+    without a page. tarkov.dev's kappaRequired marks only a handful of tasks."""
+    path = ROOT / "raw" / "wiki" / f"{task_id}.json"
+    try:
+        text = json.loads(path.read_text(encoding="utf-8"))["parse"]["wikitext"]["*"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    m = re.search(r"^\|\s*reqkappa\s*=\s*([^\n]*)", text, flags=re.M)
+    return bool(m and "yes" in m.group(1).lower())
+
+
+def attach_wiki_flags(data: dict) -> None:
+    for q in data["quests"]:
+        kappa = wiki_kappa(q.get("bsgId") or q["id"])
+        if kappa is not None:
+            q["kappa"] = kappa
 
 
 def attach_art(data: dict, out_path: Path) -> None:
@@ -230,6 +275,7 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
     text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)
+    text = text.replace('<!--__SITE_SEARCH__-->', search_scripts(), 1)
     text = text.replace('/*__DATA__*/null', json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), 1)
     (ROOT / 'dist').mkdir(exist_ok=True)
     (ROOT / 'dist' / 'index.html').write_text(text, encoding='utf-8')
@@ -242,6 +288,48 @@ def build_maps(mode: str, level: int | None, faction: str | None) -> None:
     for path in sorted((ROOT / 'data' / base / 'maps').glob('*.json')):
         if path.name != 'index.json':
             build(path, ROOT / 'dist' / base / 'maps' / f'{path.stem}.html', level, faction)
+
+
+def build_search_index(mode: str, snapshot_tasks: dict | None = None) -> list:
+    """One result per task ID, including unmapped tasks and named placeholders.
+
+    Snapshot metadata supplies flags/wiki for quests with no map objectives. No fetches.
+    Kappa comes from the cached wiki page when there is one, as on the map pages.
+    """
+    prefix = '' if mode == 'regular' else 'pve'
+    base = ROOT / 'data' / prefix
+    tasks = json.loads((base / 'tasks-index.json').read_text(encoding='utf-8'))
+    if snapshot_tasks is None:
+        snapshot_tasks = load_snapshot(latest_snapshot(mode))['tasks']['tasks']
+    locations, map_tasks = {}, {}
+    for row in map_rows(mode):
+        source = json.loads((base / 'maps' / row['file']).read_text(encoding='utf-8'))
+        if source['meta']['gameMode'] != mode:
+            raise ValueError(f'{mode}/{row["key"]}: search map mode mismatch')
+        for quest in source['quests']:
+            tid = quest.get('bsgId') or quest['id']
+            map_tasks.setdefault(tid, quest)
+            entries = locations.setdefault(tid, {})
+            entries[row['key']] = {'key': row['key'], 'name': row['name'],
+                                   'onMap': bool(quest.get('onMap', True)),
+                                   'href': (prefix + '/' if prefix else '') + 'maps/' + row['key'] + '.html'}
+    results = []
+    for tid, task in tasks.items():
+        raw, mapped = snapshot_tasks.get(tid, {}), map_tasks.get(tid, {})
+        results.append({'id': tid, 'name': task['name'], 'trader': task['trader'],
+                        'kappa': wiki_kappa(tid) if wiki_kappa(tid) is not None else bool(raw.get('kappaRequired', mapped.get('kappa', task.get('kappa', False)))),
+                        'lightkeeper': bool(raw.get('lightkeeperRequired', mapped.get('lightkeeper', task.get('lightkeeper', False)))),
+                        'minLevel': raw.get('minPlayerLevel', mapped.get('minLevel', task.get('minLevel'))),
+                        'faction': raw.get('factionName') or task.get('faction') or mapped.get('faction') or 'Any',
+                        'wiki': raw.get('wikiLink') or mapped.get('wiki') or task.get('wiki'),
+                        'placeholder': bool(task.get('placeholder', False)),
+                        'maps': sorted(locations.get(tid, {}).values(), key=lambda m: (m['name'].casefold(), m['key']))})
+    results.sort(key=lambda task: (task['name'].casefold(), task['id']))
+    out = ROOT / 'dist' / prefix / 'search-index.json'
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(results, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), encoding='utf-8')
+    print(f'wrote {out.relative_to(ROOT)} ({len(results)} tasks)')
+    return results
 
 
 if __name__ == "__main__":
@@ -259,6 +347,7 @@ if __name__ == "__main__":
         build_home(args.level or 1, args.faction or 'USEC', args.max_age_hours)
         for mode in ('regular', 'pve'):
             build_maps(mode, args.level, args.faction)
+            build_search_index(mode)
     elif args.all:
         build_maps(args.mode, args.level, args.faction)
     else:
