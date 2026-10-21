@@ -366,8 +366,10 @@ dialog.ss::backdrop { background:rgb(10 12 10 / .5); }
 .focus-group span { display:block; font:400 12px var(--font-body); letter-spacing:0; text-transform:none; margin-top:2px; }
 .focus-group + .focus-choice { border-top:0; }
 .focus-row { display:flex; gap:8px; align-items:start; justify-content:space-between; }
-.focus-row label b { flex:1; }
-.focus-more { flex:none; font:600 12px var(--font-mono); border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:3px; padding:3px 8px; cursor:pointer; }
+.focus-row > .qlink { flex:1; min-width:0; }
+[data-quest-card] { cursor:pointer; }
+.focus-choice[data-quest-card]:hover .qlink { text-decoration:underline; text-underline-offset:3px; }
+.quest[data-quest-card]:hover, .rp-q[data-quest-card]:hover { border-color:var(--olive); }
 .qnum { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; color:#fff; font:700 11.5px var(--font-mono); font-style:normal; flex:none; box-shadow:0 0 0 2px var(--panel); }
 
 /* ---------- map viewer ---------- */
@@ -1028,7 +1030,12 @@ pop.addEventListener("click", e => {
 });
 document.addEventListener("click", e => {
   const d = e.target.closest("[data-detail]");
-  if (d) { e.preventDefault(); openQuest(d.dataset.detail); }
+  if (d) { e.preventDefault(); return openQuest(d.dataset.detail); }
+  // Card backgrounds open details; embedded controls retain their normal action.
+  const card = e.target.closest("[data-quest-card]");
+  if (!card || e.target.closest("a, button, input, select, textarea, label, summary, [role=button], [contenteditable]")) return;
+  if (window.getSelection()?.toString()) return;
+  openQuest(card.dataset.questCard);
 });
 document.getElementById("raidSwitch").hidden = !PLANNED;
 let currentRoute = "all";
@@ -1173,7 +1180,7 @@ function renderFocus() {
   const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
-    return `<div class="focus-choice"><div class="focus-row"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</b></label><button type="button" class="focus-more" data-detail="${esc(bsgId(q))}" aria-label="Details and photos for ${esc(q.name)}">${q.photos?.length ? "Photos" : "Details"} ›</button></div>
+    return `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${esc(bsgId(q))}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</b></button></div>
       <p class="focus-facts">${rewardLine(q) ? `<span class="focus-reward">${esc(rewardLine(q))}</span><br>` : ""}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
   };
   document.getElementById("focusList").innerHTML = currentQuests.length
@@ -1384,7 +1391,7 @@ function renderQuests() {
     if (!visibleQuests.includes(q)) return "";
     const src = (progress.current ? questStatus.statuses[bsgId(q)] : progressResult.statuses[bsgId(q)])?.source;
     const head = !onMap(q) && !multiHeaded ? (multiHeaded = true, `<div style="grid-column:1/-1"><h3 style="margin:8px 0 4px">Multi-map quests</h3><p class="map-note">These have objectives on ${esc(MAP)} and other maps. The in-game ${esc(MAP)} filter doesn't list them.</p></div>`) : "";
-    return head + `<article class="quest ${qDone ? "done" : ""}">
+    return head + `<article class="quest ${qDone ? "done" : ""}" data-quest-card="${esc(bsgId(q))}">
       <div class="top"><h3><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${hl(q.name)}</button></h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}${q.photos?.length ? `<button type="button" class="qthumb" data-detail="${esc(bsgId(q))}" aria-label="Photos and details for ${esc(q.name)}"><img src="${esc(q.photos[0].src)}" alt="" loading="lazy"></button>` : ""}</div>
       <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
         ${q.needs.filter(n => n.kind === "key" || (searching() && terms().some(t => fold(n.item).includes(t)))).map(n => `<span class="chip ${n.kind === "key" ? "key" : ""}">${hl(n.item)}</span>`).join("")}</div>
@@ -1609,7 +1616,7 @@ function renderRaidPanel() {
   const items = focus.bring.filter(n => n.kind !== "key");
   const quest = q => {
     const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
-    return `<article class="rp-q${ready ? " ready" : ""}" style="--qc:${colorOf(q)}">
+    return `<article class="rp-q${ready ? " ready" : ""}" data-quest-card="${esc(bsgId(q))}" style="--qc:${colorOf(q)}">
       <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-rp-fit="${esc(bsgId(q))}" title="Show its spots on the map">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-detail="${esc(bsgId(q))}" aria-label="Details for ${esc(q.name)}">Info</button></h3>
       <ul class="rp-obj">${q.objectives.map(o => o.count
         ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
