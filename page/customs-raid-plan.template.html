@@ -583,6 +583,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
       <p class="map-note" data-kappa-map=""></p>
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
+      <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid starts</label>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
       <div id="routePlanner" class="route-planner"></div>
@@ -1292,6 +1293,13 @@ document.getElementById("showSelected").addEventListener("click", () => {
   renderQuests(); show("quests"); document.getElementById("questView").scrollIntoView({ block:"center" });
 });
 
+const ROUTE_KEY = "eft-raid-route:" + PAGE_MODE + ":" + (DATA.meta.key || "customs");
+function saveRoute() {
+  try {
+    if (routeSession.start || routeSession.startedAt) sessionStorage.setItem(ROUTE_KEY, JSON.stringify({ scope: scopeKey, at: Date.now(), session: routeSession }));
+  } catch (e) {}
+}
+function autoRaidOn() { try { return localStorage.getItem("eft-auto-raid") === "1"; } catch (e) { return false; } }
 function loadScopedPreferences() {
   clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null; focusPreset = "custom";
   document.getElementById("spawnDialog").close();
@@ -1302,6 +1310,11 @@ function loadScopedPreferences() {
     state = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
     const saved = Number(localStorage.getItem(LEVEL_KEY));
     if (Number.isInteger(saved) && saved >= 1 && saved <= 100) LEVEL = saved;
+  } catch (e) {}
+  // A reload mid-raid keeps this raid's spawn and route (this tab only, same scope, < 2 h old).
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(ROUTE_KEY));
+    if (saved && saved.scope === scopeKey && Date.now() - saved.at < 7200000) routeSession = saved.session;
   } catch (e) {}
   document.getElementById("playerLevel").value = LEVEL;
   setText("eyebrow", ["Field brief", MAP, P.faction, `PMC ${LEVEL}`].filter(Boolean).join(" · "));
@@ -1456,6 +1469,7 @@ function renderQuests() {
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
   updateObjectiveRoute();
+  saveRoute();
   renderRoutePlanner();
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   visibleQuests = inView.filter(passes);
@@ -1808,6 +1822,7 @@ function raidElsewhere(key) {
 function handleRaidEvent(event, meta) {
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
   if (!scope || !ProgressStore.accepts(scope, event, meta)) return;
+  if (event.kind === 'raid-loading') try { sessionStorage.removeItem(ROUTE_KEY); } catch (_) {}
   if (event.map !== DATA.meta.key) {
     if (event.kind === 'raid-loading') { clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null; document.getElementById('spawnDialog').close(); renderQuests(); raidElsewhere(event.map); }
     return;
@@ -1817,7 +1832,7 @@ function handleRaidEvent(event, meta) {
   if (event.kind === 'raid-started') {
     raidStart = event.at;
     try { sessionStorage.setItem('eft-raid-start:' + MAP, String(raidStart)); } catch (_) {}
-    if (raidOn) clock();
+    if (raidOn) clock(); else if (autoRaidOn()) enterRaid();
     spawnWait = setTimeout(() => { if (RaidSession.needsArea(routeSession, Date.now())) { routeSession.waiting = false; renderRoutePlanner(); renderRaidPanel(); promptSpawn(); } }, Math.max(0, event.at + 10000 - Date.now()));
   }
   if (routeSession.start || event.kind === 'raid-loading') document.getElementById('spawnDialog').close();
@@ -2062,6 +2077,8 @@ if (!VIEWS.includes(start)) { try { start = localStorage.getItem(STORE_KEY + ":t
 show(start);
 if (location.hash === "#raid") requestAnimationFrame(enterRaid); // a bookmark for the second screen
 // Site search opens quests here: in place on this page, or by link as #quest=<task ID>.
+document.getElementById("autoRaid").checked = autoRaidOn();
+document.getElementById("autoRaid").addEventListener("change", e => { try { localStorage.setItem("eft-auto-raid", e.target.checked ? "1" : ""); } catch (_) {} });
 window.SITE_HERE = { key: DATA.meta.key || "customs", mode: PAGE_MODE, open: openQuest };
 document.querySelector('[data-kappa-map]').dataset.kappaMap = DATA.meta.key || "customs";
 window.addEventListener("eft-progress-change", () => {

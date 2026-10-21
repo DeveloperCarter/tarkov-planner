@@ -13,9 +13,9 @@ function harness(){
   DATA:{meta:{key:'customs'},spawns:[{gx:0,gz:0,area:'a'}],spawnAreas:[{id:'a',name:'Near fixture'}]},
   MAP:'Customs',currentQuests:[{id:'q'}],qd:{open:false},routeSession:RaidSession.empty(),
   document:{getElementById:id=>id==='spawnDialog'?dialog:choice,querySelectorAll:()=>[{value:'woods.html',textContent:'Woods'}]},location:{href:''},Date:{now:()=>now},
-  sessionStorage:{setItem:(key,value)=>writes.push([key,value])},
+  sessionStorage:{setItem:(key,value)=>writes.push([key,value]),removeItem:key=>writes.push([key,null])},
   canRoute:()=>true,esc:s=>s,setTimeout:(fn,ms)=>{timer={fn,ms};return 1},clearTimeout:()=>{timer=null},
-  renderQuests:()=>rendered++,renderRoutePlanner:()=>{},renderRaidPanel:()=>{},clock:()=>{},toast:t=>c.toasts.push(t),toasts:[],raidStart:0};
+  renderQuests:()=>rendered++,renderRoutePlanner:()=>{},renderRaidPanel:()=>{},clock:()=>{},toast:t=>c.toasts.push(t),autoRaidOn:()=>false,ROUTE_KEY:'eft-raid-route:regular:customs',toasts:[],raidStart:0};
  vm.createContext(c);vm.runInContext(extract('promptSpawn')+'\n'+extract('raidElsewhere')+'\n'+extract('handleRaidEvent'),c);
  const meta={profileId:profile,mode:'regular',identityConflict:false,session:'synthetic'};
  return {c,meta,dialog,writes,get timer(){return timer},get rendered(){return rendered},get prompted(){return prompted},setNow:n=>now=n};
