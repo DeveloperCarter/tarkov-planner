@@ -115,6 +115,42 @@
     }
   }
 
+  // Profiles in the log history for one mode, offered to the player to set up a scope.
+  // Sessions without a profile or mode, or with mixed identities, are counted but never offered.
+  function detectedProfiles(store, mode) {
+    const found = new Map();
+    let unusable = 0;
+    for (const { event, meta } of Object.values(store.journal)) {
+      if (meta.identityConflict || !meta.profileId || !meta.mode) { unusable++; continue; }
+      if (meta.mode !== mode || !Number.isFinite(event.at)) continue;
+      const p = found.get(meta.profileId) || { profileId: meta.profileId, mode, events: 0, first: event.at, last: event.at };
+      p.events++; p.first = Math.min(p.first, event.at); p.last = Math.max(p.last, event.at);
+      found.set(meta.profileId, p);
+    }
+    return { profiles: [...found.values()].sort((a, b) => b.last - a.last), unusable };
+  }
+
+  // The player confirms a log boundary for a manual-only scope. Manual edits and map lists carry over.
+  function setBoundary(store, key, start, evidence) {
+    const old = store.scopes[key];
+    if (!old) throw new Error("Choose a progress scope first.");
+    if (!Number.isFinite(start)) throw new Error("Choose a valid start time.");
+    const next = createScope(store, { profile: old.profile, mode: old.mode, start, label: old.label, evidence: evidence || old.evidence });
+    if (next === key) return key;
+    const target = store.scopes[next];
+    for (const [id, m] of Object.entries(old.manual)) {
+      if (!target.manual[id] || target.manual[id].at < m.at) target.manual[id] = m;
+    }
+    for (const [map, rows] of Object.entries(old.membership)) {
+      target.membership[map] = target.membership[map] || {};
+      for (const [id, m] of Object.entries(rows)) {
+        if (!target.membership[map][id] || target.membership[map][id].at < m.at) target.membership[map][id] = m;
+      }
+    }
+    delete store.scopes[key];
+    return next;
+  }
+
   function historyCounts(store, key, legacy) {
     const scope = windowFor(store, key);
     const rows = Object.values(store.journal);
@@ -134,5 +170,5 @@
     return { ids: [...new Set(ids)], errors };
   }
   return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, confirmCurrent, isCurrent, evaluate,
-    previewLegacy, migrateLegacy, historyCounts, resolveNames };
+    previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary };
 });

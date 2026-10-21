@@ -281,14 +281,15 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
       <label class="status-row" for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1" style="width:6em"></label>
       <label for="progressScope">Profile and wipe <select id="progressScope" style="max-width:100%"></select></label>
       <p class="map-note" id="scopeEvidence"></p>
-      <details><summary>Add a profile / wipe</summary>
+      <div id="scopeFix"></div>
+      <details id="scopeDetails"><summary>Add a profile / wipe</summary>
         <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
           <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
           <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
           <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
           <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
           <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
-          <button class="btn" type="submit">Use this scope</button>
+          <button class="btn" type="submit" id="scopeSubmit">Use this scope</button>
           <span id="scopeError" role="status"></span>
         </form>
       </details>
@@ -584,11 +585,26 @@ function refreshScope() {
   questStatus = ProgressStore.derive(progressStore, scopeKey);
   renderScope(); renderQuests(); renderEvents();
 }
+const fmtDay = ms => new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+const toLocalInput = ms => new Date(ms - new Date(ms).getTimezoneOffset() * 60000).toISOString().slice(0, 19);
 function renderScope() {
-  document.getElementById("progressScope").innerHTML = `<option value="">Choose a profile and wipe</option>` +
-    Object.entries(progressStore.scopes).filter(([, s]) => s.mode === PAGE_MODE).map(([key, s]) =>
-      `<option value="${esc(key)}" ${key === scopeKey ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)} · ${s.mode === "pve" ? "PvE" : "PvP"}</option>`).join("");
+  // Saved scopes first, then profiles found in the logs that have no log-backed scope yet.
+  const saved = Object.entries(progressStore.scopes).filter(([, s]) => s.mode === PAGE_MODE);
+  const found = ProgressStore.detectedProfiles(progressStore, PAGE_MODE);
+  const tracked = new Set(saved.filter(([, s]) => s.start !== null).map(([, s]) => s.profile));
+  const offers = found.profiles.filter(p => !tracked.has(p.profileId));
+  const placeholder = saved.length ? "Choose a profile and wipe" : offers.length ? "Choose your profile from your logs" : "Scan or import logs to find your profile";
+  document.getElementById("progressScope").innerHTML = `<option value="">${placeholder}</option>` +
+    (saved.length ? `<optgroup label="Saved">${saved.map(([key, s]) =>
+      `<option value="${esc(key)}" ${key === scopeKey ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)} · ${s.mode === "pve" ? "PvE" : "PvP"}</option>`).join("")}</optgroup>` : "") +
+    (offers.length ? `<optgroup label="Found in your logs">${offers.map(p =>
+      `<option value="detect:${esc(p.profileId)}">Profile …${esc(p.profileId.slice(-6))} · ${p.events} quest events · ${fmtDay(p.first)} – ${fmtDay(p.last)}</option>`).join("")}</optgroup>` : "");
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
+  // A scope without a start date ignores the logs. Offer the logged range for its profile.
+  const logged = scope && scope.start === null && found.profiles.find(p => p.profileId === scope.profile);
+  document.getElementById("scopeFix").innerHTML = logged
+    ? `<p class="map-note">This scope has no start date, so it ignores the ${logged.events} quest events in your logs.</p><button class="btn primary" type="button" id="scopeUseLogs">Include logged quests since ${esc(fmtDay(logged.first))}</button>`
+    : (!scope && found.unusable ? `<p class="map-note">${found.unusable} logged events have no profile or game mode, or mix two profiles, so they stay in history only.</p>` : "");
   const evidence = scope ? `${scope.label} · ${scope.mode === "pve" ? "PvE" : "PvP"} · ${scope.profile} · ${scope.start === null ? "Wipe boundary unconfirmed; manual quests only" : "Events since " + new Date(scope.start).toLocaleString() + (scope.end === null ? "" : " until next confirmed wipe " + new Date(scope.end).toLocaleString())} · ${scope.evidence}` : "No scope selected. Older progress is preserved as history and is not current-wipe evidence.";
   setText("scopeEvidence", evidence);
   setText("scopeSummary", scope ? `${scope.label} · ${scope.mode === "pve" ? "PvE" : "PvP"} · ${scope.start === null ? "Manual current list; wipe date unconfirmed" : "Confirmed wipe scope"}` : evidence);
@@ -605,7 +621,29 @@ function renderScope() {
   document.getElementById("legacyReview").innerHTML = "";
 }
 document.getElementById("progressScope").addEventListener("change", e => {
+  if (e.target.value.startsWith("detect:")) {
+    // Pre-fill the form from the logs; the player still confirms the start date.
+    const p = ProgressStore.detectedProfiles(progressStore, PAGE_MODE).profiles.find(x => x.profileId === e.target.value.slice(7));
+    e.target.value = scopeKey;
+    if (!p) return;
+    document.getElementById("scopeDetails").open = true;
+    document.getElementById("scopeProfile").value = p.profileId;
+    if (!document.getElementById("scopeLabel").value) document.getElementById("scopeLabel").value = "Current wipe";
+    document.getElementById("scopeStart").value = toLocalInput(p.first);
+    document.getElementById("scopeSource").value = "First quest event in my logs for this profile";
+    setText("scopeError", `Start is set to your first logged quest event (${fmtDay(p.first)}). If you wiped after that, change it to your wipe date, then choose Use this scope.`);
+    document.getElementById("scopeSubmit").focus();
+    return;
+  }
   scopeKey = e.target.value; progressStore.active[PAGE_MODE] = scopeKey;
+  saveStatus(); loadScopedPreferences(); refreshScope();
+});
+document.getElementById("scopeFix").addEventListener("click", e => {
+  if (e.target.id !== "scopeUseLogs") return;
+  const scope = progressStore.scopes[scopeKey];
+  const p = scope && ProgressStore.detectedProfiles(progressStore, PAGE_MODE).profiles.find(x => x.profileId === scope.profile);
+  if (!p) return;
+  scopeKey = ProgressStore.setBoundary(progressStore, scopeKey, p.first, "Start set to the first logged quest event; confirmed by player");
   saveStatus(); loadScopedPreferences(); refreshScope();
 });
 document.getElementById("scopeForm").addEventListener("submit", e => {
@@ -810,7 +848,7 @@ document.getElementById("trkActions").addEventListener("click", async e => {
     if (act === "scan") {
       trk.note = "Scanning past sessions…"; renderTracker();
       const r = await watcher.scanPast();
-      trk.note = `Scanned ${r.sessions} sessions, ${r.events} quest events`;
+      trk.note = `Scanned ${r.sessions} sessions, ${r.events} quest events` + (activeScope() ? "" : ". Choose your profile under Profile and wipe to see them");
     }
   } catch (err) {
     if (err.name === "AbortError") return; // closed the picker
@@ -826,7 +864,7 @@ document.getElementById("trkImport").addEventListener("change", async e => {
   trk.note = "Reading logs…"; renderTracker();
   try {
     const r = await EftLogs.importFileList(e.target.files, handleEvents);
-    trk.note = r.sessions ? `Imported ${r.events} quest events from ${r.sessions} sessions` : "No log_… session folders found. Pick the Logs folder inside your EFT install.";
+    trk.note = r.sessions ? `Imported ${r.events} quest events from ${r.sessions} sessions` + (activeScope() ? "" : ". Choose your profile under Profile and wipe to see them") : "No log_… session folders found. Pick the Logs folder inside your EFT install.";
   } catch (err) { trk.note = err.message; }
   e.target.value = "";
   renderTracker();

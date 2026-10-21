@@ -49,6 +49,34 @@ test("profile, mode, missing identity and mixed sessions cannot leak into the sc
   assert.equal(S.historyCounts(s, k).excluded, 5);
 });
 
+test("detected profiles come only from identified sessions in the page's mode", () => {
+  const s = S.empty();
+  S.ingest(s, [event("a", "started", 300), event("b", "completed", 200)], meta);
+  S.ingest(s, [event("c", "started", 500)], { ...meta, profileId: other, session: "s2" });
+  S.ingest(s, [event("d", "started", 400)], { ...meta, mode: "pve", session: "s3" });
+  S.ingest(s, [event("e", "started", 400)], { ...meta, mode: null, session: "s4" });
+  S.ingest(s, [event("f", "started", 400)], { ...meta, identityConflict: true, session: "s5" });
+  const found = S.detectedProfiles(s, "regular");
+  assert.deepEqual(found.profiles.map(p => [p.profileId, p.events, p.first, p.last]), [[other, 1, 500, 500], [profile, 2, 200, 300]]);
+  assert.equal(found.unusable, 2, "missing mode and mixed identity are counted, never offered");
+  assert.deepEqual(S.detectedProfiles(s, "pve").profiles.map(p => p.profileId), [profile]);
+  assert.deepEqual(S.detectedProfiles(S.empty(), "regular"), { profiles: [], unusable: 0 });
+});
+
+test("a player-confirmed boundary turns a manual scope into a log scope and keeps manual edits", () => {
+  const s = S.empty(), k = scope(s, null);
+  S.ingest(s, [event("b", "started", 110), event("c", "started", 50)], meta);
+  S.setManual(s, k, "a", "started", 120);
+  S.confirmCurrent(s, k, ["a", "b"], ["a"], 130, "Customs");
+  const next = S.setBoundary(s, k, 100, "First logged quest event; confirmed by player");
+  assert.notEqual(next, k);
+  assert.equal(s.scopes[k], undefined, "the manual-only scope is replaced, not duplicated");
+  assert.equal(s.active.regular, next);
+  assert.deepEqual(Object.keys(S.derive(s, next).statuses).sort(), ["a", "b"], "events before the boundary stay out");
+  assert.equal(s.scopes[next].membership.Customs.a.current, true);
+  assert.throws(() => S.setBoundary(s, next, NaN), /valid start/);
+});
+
 test("manual-only scope ignores all log history until a boundary is confirmed", () => {
   const s = S.empty(), k = scope(s, null);
   S.ingest(s, [event("b", "started", 110)], meta);
