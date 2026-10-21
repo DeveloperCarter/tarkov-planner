@@ -33,3 +33,15 @@ test('preset candidates are only supplied current quests; membership, order and 
  assert.throws(()=>P.choose(current,'unknown'),/Unknown/);
  assert.equal(P.list(current).every(p=>p.description && p.name),true);
 });
+test('Kappa preset uses verified wiki flags and only supplied current quests',()=>{
+ assert.deepEqual(P.choose([{id:'yes',kappa:true,kappaSource:'wiki'},
+  {id:'unverified',kappa:true},{id:'no',kappa:false,kappaSource:'wiki'}],'kappa'),['yes']);
+});
+test('Kappa-only picker filtering preserves input selection and requires wiki verification',()=>{
+ const quests=[{id:'yes',kappa:true,kappaSource:'wiki',selected:true},
+  {id:'unknown',kappa:true,selected:true},{id:'no',kappa:false,selected:false}];
+ const before=JSON.stringify(quests);
+ assert.deepEqual(P.candidates(quests,true).map(q=>q.id),['yes']);
+ assert.deepEqual(P.candidates(quests,false),quests);
+ assert.equal(JSON.stringify(quests),before);
+});

@@ -329,11 +329,45 @@ The schematic dots were hard to use without terrain, and players wanted to see e
 Before any paid tier: get permission from the map authors or replace the art, and replace the wiki
 screenshots (Battlestate Games' images) with our own.
 
-## M5 · FIR keep list  (S)
+## M5 · FIR keep list  (implemented)
 
 A Keep tab listing the found-in-raid items needed by your active and available quests, with
 quantities and which quest needs each. It also flags items that locked quests further down the
 chain will need.
+
+**Status:** a Keep tab on every map page and a section on the home page, built from
+`dist/career-data.json` (all quests in the mode, not just this map). Find and hand-over pairs for
+the same items count once, alternative items share one quantity, and checklist counters reduce
+what's outstanding. Rows split into current quests, possible unlocks and later quests.
+
+## M6 · Kappa tracker  (implemented)
+
+How far you are from the Kappa container, and what to do next to get closer. Builds on what
+exists: the wiki's Kappa flags (`build_page.wiki_kappa`, already on the map pages and in the
+search index) and the scoped quest statuses from the logs.
+
+- **Progress:** "Kappa: 87 / 195 quests" for the chosen profile, mode and wipe, on the home page and
+  in the site bar, with a per-trader breakdown. PvP and PvE count separately.
+- **What's next:** the Kappa quests you can do now, ordered by how many other Kappa quests each one
+  unlocks, then by level. Each shows its map, and maps get a "Kappa quests here" count, so
+  the raid picker can favour them.
+- **What's blocking:** Kappa quests locked behind level, trader loyalty or earlier quests, with the
+  nearest blocker named ("needs level 35", "after Setup"). Failed or missed Kappa quests get a
+  warning, since some can't be restarted.
+- **The Collector:** the found-in-raid items it needs, shared with the M5 keep list. The logs don't
+  record hand-ins, so items are ticked by hand and saved per scope.
+- **Checks:** a test that the Kappa count matches the cached wiki pages for the current task list,
+  and that quests the wiki doesn't cover are listed for review instead of counted silently.
+
+**Done when:** the home page and every map page show the same Kappa progress for the chosen
+scope, the next and blocked lists match the progression data, and The Collector's items can be
+ticked off and survive a reload.
+
+**Status:** a "Kappa: n / total" button in the site bar opens Keep and Kappa views; the home page
+shows the same, and map cards and the raid picker show "Kappa quests here". Only wiki-confirmed
+flags count, and quests without wiki coverage are listed for review. Accepted quests lead What's
+next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
+The map and raid-mode quest pickers have a Kappa-only filter and a Kappa quests preset.
 
 ## Later (after people are using it)
 

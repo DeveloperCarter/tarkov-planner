@@ -61,6 +61,25 @@ body {
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .wrap { max-width: 1180px; margin: 0 auto; }
+.career-dialog {width:min(900px,calc(100vw - 24px));max-height:90dvh;overflow:auto;background:var(--panel);color:var(--ink);border:1px solid var(--line);padding:22px}
+.career-dialog::backdrop {background:#0009}
+.career-dialog > .toolbar {position:sticky;top:-22px;background:var(--panel);padding:12px 0;z-index:1}
+.career-dialog [data-career-close] {margin-left:auto}
+.career-home {margin-top:28px;padding:20px;background:var(--panel);border:1px solid var(--line)}
+[data-career-view] h3,.career-dialog h3 {margin:24px 0 8px}
+[data-career-view] details,.career-dialog details {margin:18px 0}
+[data-career-view] summary,.career-dialog summary {cursor:pointer;font-weight:600;padding:10px 0}
+[data-career-view] progress,.career-dialog progress {width:100%;height:12px;accent-color:var(--olive)}
+.keep-list,.collector-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:10px}
+.career-row,.collector-item {padding:12px;border:1px solid var(--line);overflow-wrap:anywhere}
+.career-row ul {padding-left:20px;margin-bottom:0}
+.career-row .map-note {margin:4px 0 8px}
+.collector-item {display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.collector-item input {flex-shrink:0;margin-top:4px;accent-color:var(--olive)}
+.career-quests {list-style:none;padding:0}
+.career-quests > li {padding:14px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.career-quests p {margin:5px 0}
+.career-warning {color:var(--signal)}
 .site-nav {display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line)}
 .site-nav .brand {font:700 19px/1 var(--font-display);text-transform:uppercase;letter-spacing:.04em;color:var(--ink);text-decoration:none;margin-right:auto}
 .map-jump {font:600 13px var(--font-mono);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:6px 8px;min-width:0;max-width:100%}
@@ -72,6 +91,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width:560px) {
   .site-nav .brand {order:1} .site-nav #themeToggle {order:2}
   .site-search {order:3} .map-jump {order:4;flex:1 1 0} .mode-toggle {order:5}
+  .site-nav #careerButton {order:6;width:100%}
 }
 h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: .01em; }
 h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; text-transform: uppercase; }
@@ -528,6 +548,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <button role="tab" id="tab-plan" data-view="plan">This raid</button>
     <button role="tab" id="tab-quests" data-view="quests">Quests</button>
     <button role="tab" id="tab-gear" data-view="gear">Keys &amp; items</button>
+    <button role="tab" id="tab-keep" data-view="keep">Keep</button>
     <button role="tab" id="tab-ideas" data-view="ideas">Tool ideas</button>
   </nav>
 
@@ -560,11 +581,14 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 
     <aside class="focus-picker" aria-labelledby="focusTitle">
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
+      <p class="map-note" data-kappa-map=""></p>
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
       <div id="routePlanner" class="route-planner"></div>
       <div id="focusSort"></div>
+      <label class="include-raid"><input type="checkbox" id="focusKappa" data-focus-kappa>Kappa only</label>
+      <p class="map-note" id="focusFilterNote"></p>
       <div class="focus-list" id="focusList"></div>
     </aside>
   </section>
@@ -655,6 +679,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
   </section>
 
   <!-- IDEAS -->
+  <section class="view" id="view-keep" role="tabpanel" aria-labelledby="tab-keep" hidden><div data-career-view="keep">Loading keep list…</div></section>
   <section class="view ideas" id="view-ideas" role="tabpanel" aria-labelledby="tab-ideas" hidden>
     <div style="display:grid; gap:10px">
       <span class="label">Turning this into a tool</span>
@@ -746,6 +771,8 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 const DATA = /*__DATA__*/null;
 let STORE_KEY = "", state = {};
 let routeSession = RaidSession.empty(), objectiveRoute = null, spawnWait = null, focusPreset = "custom";
+let focusKappaOnly = false;
+try { focusKappaOnly = localStorage.getItem("eft-focus-kappa") === "1"; } catch (e) {}
 const RAID_COLORS = { A: "var(--olive)", B: "var(--steel)", C: "var(--signal)" };
 
 function save() { if (STORE_KEY) try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
@@ -1221,18 +1248,21 @@ function renderFocus() {
   document.getElementById("focusSort").innerHTML = sortControl();
   setText("mapLocations", focus.zones.length ? "Selected locations: " + focus.zones.map(id => DATA.zones[id].name).join(" · ") : focus.quests.length ? "No fixed locations listed for these quests; see the objectives below." : "");
   // Same split as the in-game list: quests located here first, multi-map quests under their own heading.
-  const sorted = ordered(currentQuests), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
-  setText("focusCount", `${selectedIds.length} selected / ${here.length} on ${MAP}${multi.length ? ` + ${multi.length} multi-map` : ""}`);
+  const sorted = ordered(RaidPresets.candidates(currentQuests, focusKappaOnly)), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
+  document.getElementById("focusKappa").checked = focusKappaOnly;
+  setText("focusFilterNote", focusKappaOnly ? `${sorted.length} / ${currentQuests.length} current quests shown. Other selected quests stay in this raid.` : "");
+  const totalHere = currentQuests.filter(onMap).length;
+  setText("focusCount", `${selectedIds.length} selected / ${totalHere} on ${MAP}${currentQuests.length - totalHere ? ` + ${currentQuests.length - totalHere} multi-map` : ""}`);
   const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
     return `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${esc(bsgId(q))}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</b></button></div>
       <p class="focus-facts">${rewardLine(q) ? `<span class="focus-reward">${esc(rewardLine(q))}</span><br>` : ""}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
   };
-  document.getElementById("focusList").innerHTML = currentQuests.length
+  document.getElementById("focusList").innerHTML = sorted.length
     ? (multi.length && here.length ? `<p class="focus-group">On ${esc(MAP)} · ${here.length}</p>` : "") + here.map(choice).join("") +
       (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
-    : `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
+    : `<p class="map-note">${focusKappaOnly && currentQuests.length ? "No wiki-confirmed Kappa quests in your current list." : "No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list."}</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
   document.getElementById("raidGo").disabled = !currentQuests.length;
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
@@ -1244,6 +1274,12 @@ function changeFocus(action, id) {
   RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId), action, id);
   saveStatus(); renderQuests();
 }
+document.addEventListener("change", e => {
+  if (!e.target.matches("[data-focus-kappa]")) return;
+  focusKappaOnly = e.target.checked;
+  try { localStorage.setItem("eft-focus-kappa", focusKappaOnly ? "1" : ""); } catch (err) {}
+  renderFocus(); renderRaidPanel();
+});
 document.getElementById("raidFocusPanel").addEventListener("change", e => {
   if (e.target.dataset.focus) changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus);
 });
@@ -1476,6 +1512,7 @@ function renderQuests() {
   renderRaidPanel();
   renderGear();
   renderSummary();
+  window.dispatchEvent(new Event("eft-progress-change"));
 }
 // Quests the logs can't place on a map: new quests tarkov.dev doesn't list yet, and BTR Driver
 // quests, which are accepted in raid and leave no start in the logs.
@@ -1706,7 +1743,9 @@ function raidSelection(open) {
     <p class="map-note">Choose a preset to replace this raid's selection, then adjust the checkboxes. Quest statuses stay the same.</p>
     <div class="preset-grid">${presets.map(p => `<button type="button" data-focus-preset="${p.id}" title="${esc(p.description)}" aria-pressed="${focusPreset === p.id}" ${p.ids.length ? '' : 'disabled'}><b>${p.name}</b><span>${p.ids.length} ${p.ids.length === 1 ? "quest" : "quests"}</span><small>${esc(p.description)}</small></button>`).join('')}</div>
     <button type="button" class="btn" data-raid-clear>Clear selection</button>
-    <div class="rp-choices">${ordered(currentQuests).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
+    <label class="include-raid"><input type="checkbox" data-focus-kappa ${focusKappaOnly ? 'checked' : ''}>Kappa only</label>
+    <p class="map-note">${RaidPresets.candidates(currentQuests, focusKappaOnly).length} / ${currentQuests.length} current quests shown. Filtering leaves your raid selection unchanged.</p>
+    <div class="rp-choices">${ordered(RaidPresets.candidates(currentQuests, focusKappaOnly)).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
     <p class="map-note">Based on listed requirements. Key ownership and unlisted conditions aren't checked.</p>
   </details>`;
 }
@@ -1995,7 +2034,7 @@ document.getElementById("sources").innerHTML = `<span class="label">Sources and 
   <ul>${DATA.meta.caveats.map(c => `<li>${esc(c)}</li>`).join("")}</ul>`;
 
 /* ---------- tabs ---------- */
-const VIEWS = ["plan", "quests", "gear", "ideas"];
+const VIEWS = ["plan", "quests", "gear", "keep", "ideas"];
 function show(v) {
   if (!VIEWS.includes(v)) v = "plan";
   VIEWS.forEach(x => {
@@ -2017,6 +2056,10 @@ show(start);
 if (location.hash === "#raid") requestAnimationFrame(enterRaid); // a bookmark for the second screen
 // Site search opens quests here: in place on this page, or by link as #quest=<task ID>.
 window.SITE_HERE = { key: DATA.meta.key || "customs", mode: PAGE_MODE, open: openQuest };
+document.querySelector('[data-kappa-map]').dataset.kappaMap = DATA.meta.key || "customs";
+window.addEventListener("eft-progress-change", () => {
+  try { const saved = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY)); if (saved?.version === 2) progressStore = saved; } catch (e) {}
+});
 const wanted = /^#quest=([0-9a-f]{24})$/i.exec(location.hash)?.[1];
 if (wanted) {
   try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}

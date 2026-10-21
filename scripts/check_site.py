@@ -50,6 +50,29 @@ def check_search_indexes(dist):
                     raise ValueError(f'{relative}: broken search href {href}')
 
 
+def check_career_data(dist):
+    for mode, prefix in [('regular', ''), ('pve', 'pve/')]:
+        path = dist / (prefix + 'career-data.json')
+        if not path.is_file():
+            raise ValueError(f'{path}: career data missing')
+        data = json.loads(path.read_text(encoding='utf-8'))
+        if data.get('mode') != mode or not isinstance(data.get('progression'), dict):
+            raise ValueError(f'{path}: invalid career mode/progression')
+        tasks = data.get('tasks')
+        if not isinstance(tasks, list) or len({t['id'] for t in tasks}) != len(tasks):
+            raise ValueError(f'{path}: invalid career tasks')
+        for task in tasks:
+            if task.get('kappa') is not None and not isinstance(task['kappa'], bool):
+                raise ValueError(f'{path}: invalid Kappa flag')
+            for location in task['maps']:
+                href = location['href']
+                url = urlsplit(href)
+                target = (dist / unquote(url.path)).resolve()
+                if (url.scheme or url.netloc or url.path.startswith(('/', '\\')) or '\\' in url.path or
+                        not target.is_relative_to(dist.resolve()) or not target.is_file()):
+                    raise ValueError(f'{path}: broken career href {href}')
+
+
 def check(dist):
     dist = dist.resolve()
     scripts = 0
@@ -57,6 +80,7 @@ def check(dist):
     if not (dist / 'index.html').exists():
         raise ValueError('site home page missing')
     check_search_indexes(dist)
+    check_career_data(dist)
     with tempfile.TemporaryDirectory() as temp:
         path = Path(temp) / 'inline.cjs'
         for page in pages:

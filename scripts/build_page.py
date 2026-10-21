@@ -18,6 +18,7 @@ import shutil
 import sys
 from pathlib import Path
 from etl_tarkov_dev import latest_snapshot, load_snapshot
+from career_data import catalog
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "page" / "customs-raid-plan.template.html"
@@ -64,8 +65,13 @@ def navigation(out_path: Path, mode: str, key: str | None = "customs") -> str:
               '<span>Search all quests</span><kbd aria-hidden="true">Ctrl K</kbd></button>')
     return (f'<nav class="site-nav" aria-label="Site"><a class="brand" href="{attr(home + "?mode=" + mode)}">Tarkov Raid Planner</a>'
             f'{search}<select class="map-jump" aria-label="Map" onchange="location.href=this.value">{"".join(options)}</select>'
+            f'<button type="button" class="btn" id="careerButton" data-root="{attr(root)}">Kappa: loading</button>'
             f'<div class="mode-toggle" role="group" aria-label="Game mode">{modes}</div>'
-            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>' + SEARCH_DIALOG)
+            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>' + SEARCH_DIALOG +
+            '<dialog id="careerDialog" class="career-dialog" aria-label="Keep list and Kappa progress">'
+            '<div class="toolbar"><button type="button" class="btn" data-career-tab="keep">Keep</button>'
+            '<button type="button" class="btn" data-career-tab="kappa">Kappa</button>'
+            '<button type="button" class="btn" data-career-close>Close</button></div><div id="careerBody"></div></dialog>')
 
 
 # The site search box (page/site-search.template.js drives it).
@@ -82,7 +88,7 @@ SEARCH_DIALOG = '''<dialog class="ss" id="siteSearch" aria-label="Search all que
 def search_scripts() -> str:
     """The ranking module and the site bar's search UI, for every page with the site bar."""
     return "".join(f"<script>{(ROOT / 'page' / name).read_text(encoding='utf-8').replace('</', '<' + chr(92) + '/')}</script>"
-                   for name in ("site-search.js", "site-search.template.js"))
+                   for name in ("site-search.js", "site-search.template.js", "quest-career.js", "quest-career.template.js"))
 
 
 def styles() -> str:
@@ -103,6 +109,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     if not PROGRESSION.exists():
         sys.exit("data/progression.json missing; run python scripts/build_progression.py first")
     mode = data["meta"].get("gameMode", "regular")
+    build_career_data(mode)
     progression_path = PROGRESSION if mode == "regular" else ROOT / "data" / "pve" / "progression.json"
     progression = json.loads(progression_path.read_text(encoding="utf-8"))
     # All tasks are needed: a started quest on another map can imply this map's history.
@@ -194,6 +201,7 @@ def attach_wiki_flags(data: dict) -> None:
         kappa = wiki_kappa(q.get("bsgId") or q["id"])
         if kappa is not None:
             q["kappa"] = kappa
+            q["kappaSource"] = "wiki"
 
 
 def attach_art(data: dict, out_path: Path) -> None:
@@ -275,6 +283,8 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
                          "href": ('' if mode == 'regular' else 'pve/') + 'maps/' + row['key'] + '.html'})
         data['modes'][mode] = {"snapshot": index['snapshot'], "maps": maps,
                                "progression": json.loads((base / 'progression.json').read_text(encoding='utf-8'))}
+    for mode in ('regular', 'pve'):
+        build_career_data(mode)
     text = (ROOT / 'page' / 'home.template.html').read_text(encoding='utf-8')
     for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
@@ -295,7 +305,7 @@ def build_maps(mode: str, level: int | None, faction: str | None) -> None:
             build(path, ROOT / 'dist' / base / 'maps' / f'{path.stem}.html', level, faction)
 
 
-def build_search_index(mode: str, snapshot_tasks: dict | None = None) -> list:
+def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: bool = True) -> list:
     """One result per task ID, including unmapped tasks and named placeholders.
 
     Snapshot metadata supplies flags/wiki for quests with no map objectives. No fetches.
@@ -330,11 +340,31 @@ def build_search_index(mode: str, snapshot_tasks: dict | None = None) -> list:
                         'placeholder': bool(task.get('placeholder', False)),
                         'maps': sorted(locations.get(tid, {}).values(), key=lambda m: (m['name'].casefold(), m['key']))})
     results.sort(key=lambda task: (task['name'].casefold(), task['id']))
-    out = ROOT / 'dist' / prefix / 'search-index.json'
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(results, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), encoding='utf-8')
-    print(f'wrote {out.relative_to(ROOT)} ({len(results)} tasks)')
+    if write:
+        out = ROOT / 'dist' / prefix / 'search-index.json'
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(results, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), encoding='utf-8')
+        print(f'wrote {out.relative_to(ROOT)} ({len(results)} tasks)')
     return results
+
+
+_CAREER_BUILT = set()
+
+
+def build_career_data(mode: str) -> None:
+    key = (ROOT, mode)
+    if key in _CAREER_BUILT:
+        return
+    raw = load_snapshot(latest_snapshot(mode))
+    base = ROOT / 'data' / ('' if mode == 'regular' else 'pve')
+    progression = json.loads((base / 'progression.json').read_text(encoding='utf-8'))
+    search = build_search_index(mode, raw['tasks']['tasks'], write=False)
+    data = catalog(mode, raw, search, progression, wiki_kappa)
+    path = ROOT / 'dist' / ('' if mode == 'regular' else 'pve') / 'career-data.json'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    _CAREER_BUILT.add(key)
+    print(f'wrote {path.relative_to(ROOT)} ({len(data["tasks"])} quests)')
 
 
 if __name__ == "__main__":

@@ -20,6 +20,9 @@ page/raid-route.js             spawn matching and shortest open objective route 
 page/raid-session.js           transient spawn/start/completion state (pure UMD)
 page/raid-presets.js           current-quest raid focus presets (pure UMD)
 page/map-home.js               home-page counts using the same scoped quest evaluation
+page/quest-career.js           all-quest keep list and Kappa progress for a scope (pure UMD, tested)
+page/quest-career.template.js  the site bar's Keep/Kappa dialog and home/map views; fetches career-data.json
+scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector, keep requirements
 page/site-search.js            site-wide quest search ranking over dist/search-index.json (pure, tested)
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
 scripts/refresh_site.py        both-mode refresh, cached wiki comparisons, release build and validation
@@ -135,6 +138,10 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   placeholder level/wiki can be null when unknown. All map hrefs are relative to the site root,
   including hrefs inside the PvE index. Kappa comes from the cached wiki quest page when there is one,
   as on the map pages (`build_page.wiki_kappa`); tarkov.dev's flag marks only a handful of tasks.
+- `dist/career-data.json` (and `pve/`) holds every task in the mode for the Keep and Kappa views.
+  Its `kappa` is the wiki's answer or null; null quests are listed for review, never counted.
+  Map pages mark wiki answers with `kappaSource: "wiki"`; the Kappa preset and filter need it.
+  Collector hand-ins aren't in the logs; they're ticked by hand into `scope.collector`.
 
 **Spawn areas and objective routes (2026-10-21)**
 - `map.nameId` in both cached snapshots supplies game location IDs. `bigmap` -> customs;

@@ -66,6 +66,14 @@
     for (const membership of Object.values(scope.membership)) delete membership[id];
   }
 
+  function setCollector(store, key, objective, handedIn) {
+    const scope = store.scopes[key];
+    if (!scope) throw new Error("Choose a progress scope first.");
+    scope.collector ||= {};
+    if (handedIn) scope.collector[objective] = true;
+    else delete scope.collector[objective];
+  }
+
   // A confirmed map list corrects membership without fabricating completion/failure of extras.
   function confirmCurrent(store, key, mapIds, currentIds, at = Date.now(), map = "all") {
     const scope = store.scopes[key];
@@ -144,6 +152,8 @@
     const next = createScope(store, { profile: old.profile, mode: old.mode, start, label: old.label, evidence: evidence || old.evidence });
     if (next === key) return key;
     const target = store.scopes[next];
+    // Confirming a boundary for the same character preserves manual Collector hand-ins.
+    target.collector = { ...old.collector, ...target.collector };
     for (const [id, m] of Object.entries(old.manual)) {
       if (!target.manual[id] || target.manual[id].at < m.at) target.manual[id] = m;
     }
@@ -184,6 +194,6 @@
     }
     return { ids: [...new Set(ids)], errors };
   }
-  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, confirmCurrent, isCurrent, evaluate,
+  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, confirmCurrent, isCurrent, evaluate,
     previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs };
 });
