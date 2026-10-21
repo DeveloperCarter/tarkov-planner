@@ -22,6 +22,10 @@
   --map-road: #f7f8f4;
   --map-rail: #8a8f86;
   --chip: #dde2d7;
+  /* tarkov.dev map art, recoloured to sit with the briefing palette */
+  --art-land: #d3dac8; --art-trees: #b9c6a6; --art-water: #9fbcd0; --art-building: #66716a; --art-locked: #838d85;
+  --art-floor: #aab3a8; --art-cement: #e6e9e1; --art-tarmac: #c4cabf; --art-gravel: #cdbc97; --art-rock: #dfd8c4;
+  --art-wood: #ac8f66; --art-road: #f6f7f2; --art-gravel-road: #c9b68c; --art-rail: #8d7d72; --art-line: #87937f;
   --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
   --font-body: "Barlow", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -31,6 +35,9 @@
     --bg: #141815; --panel: #1c211d; --ink: #dfe5dc; --muted: #97a294; --line: #323a33;
     --olive: #a7b86c; --signal: #e3814a; --steel: #7fb0d8; --ok: #7cc174;
     --map-land: #232a24; --map-water: #2c4a5e; --map-road: #3b443c; --map-rail: #6a7268; --chip: #262d27;
+    --art-land: #1f2620; --art-trees: #1a2a1f; --art-water: #25435b; --art-building: #4a564c; --art-locked: #353e37;
+    --art-floor: #4d574e; --art-cement: #4c534c; --art-tarmac: #3e463f; --art-gravel: #534936; --art-rock: #514d41;
+    --art-wood: #5c472e; --art-road: #5b645c; --art-gravel-road: #6d5f42; --art-rail: #7c6c61; --art-line: #5d695e;
     color-scheme: dark;
   }
 }
@@ -38,6 +45,9 @@
   --bg: #141815; --panel: #1c211d; --ink: #dfe5dc; --muted: #97a294; --line: #323a33;
   --olive: #a7b86c; --signal: #e3814a; --steel: #7fb0d8; --ok: #7cc174;
   --map-land: #232a24; --map-water: #2c4a5e; --map-road: #3b443c; --map-rail: #6a7268; --chip: #262d27;
+  --art-land: #1f2620; --art-trees: #1a2a1f; --art-water: #25435b; --art-building: #4a564c; --art-locked: #353e37;
+  --art-floor: #4d574e; --art-cement: #4c534c; --art-tarmac: #3e463f; --art-gravel: #534936; --art-rock: #514d41;
+  --art-wood: #5c472e; --art-road: #5b645c; --art-gravel-road: #6d5f42; --art-rail: #7c6c61; --art-line: #5d695e;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -230,6 +240,117 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .focus-choice:has(input:checked) b { color:var(--olive); }
 .include-raid { display:flex; gap:8px; align-items:center; font-size:14px; }
 @media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } .focus-list { max-height:280px; } }
+.focus-row { display:flex; gap:8px; align-items:start; justify-content:space-between; }
+.focus-row label b { flex:1; }
+.focus-more { flex:none; font:600 12px var(--font-mono); border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:3px; padding:3px 8px; cursor:pointer; }
+.qnum { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; color:#fff; font:700 11.5px var(--font-mono); font-style:normal; flex:none; box-shadow:0 0 0 2px var(--panel); }
+
+/* ---------- map viewer ---------- */
+.map-stage { position:relative; width:100%; aspect-ratio:var(--ar, 1.6); max-height:72vh; min-height:280px; overflow:hidden; background:var(--map-land); border:1px solid var(--line); border-radius:4px; }
+.map-stage.has-art { background:var(--art-land); }
+@media (max-width:640px) { .map-stage { aspect-ratio:auto; height:min(62vh, 520px); } }
+#map, #map svg { width:100%; height:100%; display:block; }
+#map svg { cursor:grab; user-select:none; -webkit-user-select:none; }
+#map svg.dragging { cursor:grabbing; }
+.map-stage.full { position:fixed; inset:0; z-index:40; max-height:none; aspect-ratio:auto; border:0; border-radius:0; }
+body.map-full { overflow:hidden; }
+.map-ctrl { position:absolute; top:10px; right:10px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; box-shadow:0 2px 10px rgb(0 0 0 / .18); }
+.map-ctrl button { width:38px; height:36px; border:0; background:var(--panel); color:var(--ink); font:600 18px/1 var(--font-mono); cursor:pointer; }
+.map-ctrl button[data-map="fit"] { font-size:11.5px; letter-spacing:.04em; }
+.map-ctrl button:hover { background:var(--bg); }
+.map-ctrl button[aria-pressed="true"] { background:var(--ink); color:var(--bg); }
+.map-empty { position:absolute; left:12px; right:62px; bottom:12px; margin:0; background:var(--panel); border-left:3px solid var(--signal); padding:9px 12px; font-size:13.5px; box-shadow:0 2px 10px rgb(0 0 0 / .15); }
+.map-stage::after { content:"Hold Ctrl and scroll to zoom"; position:absolute; inset:auto 0 50%; text-align:center; font:600 14px var(--font-mono); color:#fff; pointer-events:none; opacity:0; transition:opacity .2s; text-shadow:0 1px 4px #000; }
+.map-stage.hint::after { opacity:1; }
+.map-stage.hint #map { filter:brightness(.7); }
+.pin.spot { cursor:pointer; }
+.pin.spot path { stroke:#fff; stroke-width:1.6; filter:drop-shadow(0 1px 2px rgb(0 0 0 / .45)); transition:stroke-width .15s; }
+.pin.spot text { fill:#fff; font:700 11px var(--font-mono); text-anchor:middle; pointer-events:none; }
+.pin.spot circle.more { fill:var(--ink); stroke:var(--panel); stroke-width:1.5; }
+.pin.spot text.more { fill:var(--bg); font-size:9px; }
+.pin.spot.active path, .pin.spot:hover path, .pin.spot:focus-visible path { stroke:var(--ink); stroke-width:2.6; }
+.pin.spot:focus { outline:none; }
+.pin.ex rect { fill:var(--panel); stroke:var(--ok); stroke-width:2.5; }
+.pin.ex text { display:none; fill:var(--ok); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
+svg.zoomed .pin.ex text, .map-stage.full .pin.ex text { display:inline; }
+text.stop { fill:var(--panel); font:600 11px var(--font-mono); text-anchor:middle; }
+/* the art's own classes (tarkov-dev-svg-maps), drawn with our palette */
+.map-art .land { fill:var(--art-land); } .map-art .trees { fill:var(--art-trees); } .map-art .water { fill:var(--art-water); }
+.map-art .building, .map-art .structure, .map-art .task, .map-art .chopper, .map-art .plane, .map-art .misc { fill:var(--art-building); }
+.map-art .locked { fill:var(--art-locked); } .map-art .floor, .map-art .stairs { fill:var(--art-floor); } .map-art .cement { fill:var(--art-cement); }
+.map-art .tarmac { fill:var(--art-tarmac); } .map-art .gravel { fill:var(--art-gravel); } .map-art .rock { fill:var(--art-rock); } .map-art .wood { fill:var(--art-wood); }
+.map-art .road_tarmac { fill:none; stroke:var(--art-road); } .map-art .road_gravel { fill:none; stroke:var(--art-gravel-road); }
+.map-art .road_large { stroke-width:12; } .map-art .road_medium { stroke-width:8; } .map-art .road_small { stroke-width:5; }
+.map-art .railroad { fill:none; stroke:var(--art-rail); stroke-width:3; stroke-dasharray:6; }
+.map-art .fence { fill:none; stroke:var(--art-line); stroke-width:1; }
+.map-art .powerline { fill:none; stroke:var(--art-line); stroke-width:1.5; stroke-dasharray:6 6; }
+.map-art .map_border { fill:none; stroke:var(--art-line); stroke-width:2; }
+.map-art .wall { fill:none; stroke:var(--art-building); stroke-width:.4; }
+.map-art .danger, .map-art .danger_small { fill:var(--signal); fill-opacity:.22; stroke:var(--signal); stroke-dasharray:4 2; }
+/* spot popover */
+.map-pop { position:absolute; z-index:3; width:min(310px, calc(100% - 16px)); max-height:calc(100% - 16px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 10px 30px rgb(0 0 0 / .3); padding:12px 12px 14px; display:grid; gap:12px; }
+.map-pop.docked { left:8px; right:8px; top:auto; bottom:8px; width:auto; max-height:58%; }
+@media (prefers-reduced-motion: no-preference) { .map-pop:not([hidden]) { animation:pop-in .16s ease-out; } }
+@keyframes pop-in { from { opacity:0; transform:translateY(6px); } }
+.pop-x { position:absolute; top:6px; right:6px; width:30px; height:30px; border:0; border-radius:50%; background:transparent; color:var(--muted); font-size:20px; cursor:pointer; }
+.pop-x:hover { background:var(--bg); color:var(--ink); }
+.map-pop > .label { padding-right:28px; }
+.pop-q { display:grid; gap:6px; }
+.pop-title { all:unset; cursor:pointer; display:flex; gap:8px; align-items:center; font:600 17px/1.15 var(--font-display); }
+.pop-title span { flex:1; } .pop-title b { color:var(--muted); font-size:20px; }
+.pop-title:hover span { text-decoration:underline; text-underline-offset:3px; }
+.pop-title:focus-visible { outline:2px solid var(--steel); outline-offset:2px; }
+.pop-q ul { margin:0; padding-left:18px; font-size:13.5px; display:grid; gap:3px; color:var(--ink); }
+.pop-photo { position:relative; padding:0; border:0; border-radius:5px; overflow:hidden; cursor:pointer; background:var(--chip); }
+.pop-photo img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+.pop-photo span { position:absolute; right:6px; bottom:6px; background:rgb(0 0 0 / .65); color:#fff; font:600 11px var(--font-mono); padding:2px 7px; border-radius:10px; }
+
+/* quest cards: the title and thumbnail open the detail panel */
+.qlink { all:unset; cursor:pointer; }
+.qlink:hover { text-decoration:underline; text-underline-offset:3px; }
+.qlink:focus-visible { outline:2px solid var(--steel); outline-offset:2px; }
+.quest .top h3 { flex:1; }
+.qthumb { flex:none; width:68px; height:46px; padding:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; cursor:pointer; background:var(--chip); }
+.qthumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .2s; }
+.qthumb:hover img { transform:scale(1.06); }
+
+/* ---------- quest detail panel ---------- */
+dialog.drawer { margin:0 0 0 auto; padding:0; border:0; border-left:1px solid var(--line); width:min(560px, 100vw); max-width:100vw; height:100dvh; max-height:100dvh; background:var(--panel); color:var(--ink); box-shadow:-16px 0 48px rgb(0 0 0 / .28); transform:translateX(100%); transition:transform .24s cubic-bezier(.2,.8,.2,1); }
+dialog.drawer.open { transform:none; }
+dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
+@media (max-width:640px) { dialog.drawer { width:100vw; border-left:0; transform:translateY(100%); } dialog.drawer.open { transform:none; } }
+@media (prefers-reduced-motion: reduce) { dialog.drawer { transition:none; } }
+.qd { height:100%; overflow-y:auto; overscroll-behavior:contain; }
+.qd-head { position:sticky; top:0; z-index:2; background:var(--panel); padding:14px 20px 12px; border-bottom:1px solid var(--line); display:grid; gap:8px; }
+.qd-top { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.qd-x { margin-left:auto; width:38px; height:38px; border:1px solid var(--line); border-radius:50%; background:var(--bg); color:var(--ink); font-size:22px; line-height:1; cursor:pointer; }
+.qd-head h2 { display:flex; gap:10px; align-items:center; font-size:clamp(24px, 5vw, 32px); line-height:1.05; }
+.qd-head h2 .qnum { width:28px; height:28px; font-size:13px; }
+.qd-state { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+.qd-status { font:600 11.5px var(--font-mono); letter-spacing:.06em; text-transform:uppercase; padding:3px 8px; border-radius:3px; border:1px solid var(--line); color:var(--muted); }
+.qd-status.current { color:var(--steel); border-color:var(--steel); } .qd-status.completed { color:var(--ok); border-color:var(--ok); }
+.qd-status.failed, .qd-status.locked { color:var(--signal); border-color:var(--signal); }
+.qd-photos { display:grid; grid-auto-flow:column; grid-auto-columns:84%; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding:16px 20px 6px; scroll-padding:0 20px; scrollbar-width:thin; }
+.qd-photos.single { grid-auto-columns:100%; }
+.qd-shot { scroll-snap-align:start; display:grid; padding:0; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--bg); color:var(--ink); text-align:left; cursor:zoom-in; font:inherit; }
+.qd-shot img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:var(--chip); }
+.qd-shot span { padding:8px 10px; font-size:13.5px; color:var(--muted); }
+.qd-shot:hover span { color:var(--ink); }
+.qd-sec { padding:14px 20px; display:grid; gap:9px; }
+.qd-sec + .qd-sec { border-top:1px solid var(--line); }
+.qd-sec h3 { font:600 12px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.qd-where { margin:0; padding:0; list-style:none; display:grid; gap:8px; }
+.qd-where li { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.qd-foot { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:var(--muted); padding-bottom:28px; }
+.lightbox { position:fixed; inset:0; z-index:10; background:rgb(4 6 5 / .95); display:grid; grid-template-columns:64px minmax(0,1fr) 64px; align-items:center; }
+.lightbox figure { grid-column:2; grid-row:1; min-width:0; margin:0; display:grid; gap:12px; justify-items:center; }
+.lb-nav.prev { grid-column:1; grid-row:1; } .lb-nav.next { grid-column:3; grid-row:1; }
+.lightbox img { max-width:100%; max-height:80dvh; object-fit:contain; border-radius:4px; }
+.lightbox figcaption { color:#e4e9e1; font-size:14.5px; text-align:center; max-width:70ch; padding:0 12px; }
+.lb-nav, .lb-close { border:0; background:transparent; color:#fff; cursor:pointer; }
+.lb-nav { height:100%; font-size:44px; opacity:.8; } .lb-nav:hover { opacity:1; }
+.lb-close { position:absolute; top:10px; right:14px; font-size:36px; z-index:1; }
+@media (max-width:640px) { .lightbox { grid-template-columns:0 minmax(0,1fr) 0; } .lb-nav { display:none; } }
 </style>
 
 <div class="wrap">
@@ -260,13 +381,23 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
           <button id="rs-B" class="rB" data-r="B" aria-pressed="false">Raid B</button>
           <button id="rs-C" class="rC" data-r="C" aria-pressed="false">Raid C</button>
         </div>
-        <p id="mapEmpty" class="notice" hidden></p><div id="map"></div>
+        <div class="map-stage" id="mapStage">
+          <div id="map"></div>
+          <div class="map-ctrl" role="group" aria-label="Map view">
+            <button type="button" data-map="in" aria-label="Zoom in">+</button>
+            <button type="button" data-map="out" aria-label="Zoom out">−</button>
+            <button type="button" data-map="fit" aria-label="Fit to selected spots">Fit</button>
+            <button type="button" data-map="full" aria-label="Full-screen map" aria-pressed="false">⤢</button>
+          </div>
+          <p id="mapEmpty" class="map-empty" hidden></p>
+          <div class="map-pop" id="mapPop" role="dialog" aria-label="Spot details" hidden></div>
+        </div>
         <p class="map-note" id="mapNote"></p>
         <p class="map-note" id="mapLocations"></p>
       </div>
 
     <aside class="focus-picker" aria-labelledby="focusTitle">
-      <div class="toolbar"><h2 id="focusTitle">This raid</h2><b id="focusCount" role="status"></b></div>
+      <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
       <div class="focus-list" id="focusList"></div>
@@ -399,6 +530,17 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
   </section>
 
   <footer class="src" id="sources" style="margin-top:34px"></footer>
+
+  <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
+  <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
+    <div class="qd" id="qdBody"></div>
+    <div class="lightbox" id="lightbox" hidden>
+      <button type="button" class="lb-close" data-lb="close" aria-label="Close photo">×</button>
+      <button type="button" class="lb-nav prev" data-lb="prev" aria-label="Previous photo">‹</button>
+      <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+      <button type="button" class="lb-nav next" data-lb="next" aria-label="Next photo">›</button>
+    </div>
+  </dialog>
 </div>
 
 <script>/*__TRACKER__*/</script>
@@ -458,16 +600,35 @@ function renderSummary() {
   }
 }
 
-setText("mapNote", DATA.meta.mapNote || "Schematic built from tarkov.dev positions. North is up. Dots are objective spots and green squares are PMC extracts and transits.");
+setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Green squares are PMC extracts and transits.`);
 
-/* ---------- map ---------- */
-function mapSVG(active) {
-  const z = DATA.zones;
-  const F = DATA.meta.frame || { w: 1000, h: 520 };
-  let s = `<svg viewBox="0 0 ${F.w} ${F.h}" role="img" aria-label="Schematic map of ${esc(MAP)} with objective spots and raid routes">`;
-  if (DATA.meta.frame) {
-    s += `<rect x="0" y="0" width="${F.w}" height="${F.h}" fill="var(--map-land)" stroke="var(--line)" stroke-width="2"/>`;
-  } else {
+/* ---------- map: real art (or schematic), a numbered pin per selected quest, pan and zoom ---------- */
+const FR = DATA.meta.frame || { w: 1000, h: 520 };
+const ART_RECT = DATA.meta.art?.href ? DATA.meta.art : null;
+const QUEST_COLORS = ["#e8590c", "#1971c2", "#c2255c", "#0c8599", "#7048e8", "#5c940d", "#d9480f", "#862e9c"];
+const SVGNS = "http://www.w3.org/2000/svg";
+// The whole map: the art (or the frame) plus every quest spot, and extracts near the art.
+// tarkov.dev places a few extracts far outside the drawn map (Ground Zero's UN Roadblock); they
+// still draw, but don't shrink the map to make room for them.
+const BASE = (() => {
+  const box = ART_RECT ? { x0: ART_RECT.x, y0: ART_RECT.y, x1: ART_RECT.x + ART_RECT.w, y1: ART_RECT.y + ART_RECT.h } : { x0: 0, y0: 0, x1: FR.w, y1: FR.h };
+  const m = ART_RECT ? Math.max(ART_RECT.w, ART_RECT.h) * 0.08 : Infinity;
+  const near = e => e.x > box.x0 - m && e.x < box.x1 + m && e.y > box.y0 - m && e.y < box.y1 + m;
+  for (const p of [...Object.values(DATA.zones), ...DATA.extracts.filter(e => e.x != null && e.faction !== "scav" && near(e))]) {
+    box.x0 = Math.min(box.x0, p.x); box.y0 = Math.min(box.y0, p.y); box.x1 = Math.max(box.x1, p.x); box.y1 = Math.max(box.y1, p.y);
+  }
+  const pad = Math.max(box.x1 - box.x0, box.y1 - box.y0) * 0.02;
+  return { x: box.x0 - pad, y: box.y0 - pad, w: box.x1 - box.x0 + 2 * pad, h: box.y1 - box.y0 + 2 * pad };
+})();
+const stage = document.getElementById("mapStage"), pop = document.getElementById("mapPop");
+stage.style.setProperty("--ar", (BASE.w / BASE.h).toFixed(4));
+document.getElementById("map").innerHTML = `<svg id="mapSvg" role="img" aria-label="Map of ${esc(MAP)} with your selected quest spots" viewBox="${BASE.x} ${BASE.y} ${BASE.w} ${BASE.h}"><g id="mapBase">${schematic()}</g><g id="mapOver"></g></svg>`;
+const svg = document.getElementById("mapSvg");
+
+function schematic() {
+  if (DATA.meta.frame) return `<rect x="0" y="0" width="${FR.w}" height="${FR.h}" fill="var(--map-land)" stroke="var(--line)" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+  let s = "";
+  {
     // Hand-drawn Customs outline, river, roads and rail for the hand-built plan.
     const land = "12,110 318,104 334,70 452,8 612,30 636,112 700,104 712,40 990,30 990,300 800,300 772,320 760,505 300,505 12,480";
     s += `<polygon points="${land}" fill="var(--map-land)" stroke="var(--line)" stroke-width="2"/>
@@ -478,44 +639,202 @@ function mapSVG(active) {
   <line x1="206" y1="512" x2="472" y2="14" stroke="var(--map-rail)" stroke-width="2" stroke-dasharray="6 5"/>
   <text x="742" y="470" font-size="12" fill="var(--muted)" font-family="IBM Plex Mono, monospace" transform="rotate(-80 742 470)">river</text>`;
   }
-  const visibleZones = new Set(focus.zones);
-  // zones
-  for (const [id, p] of Object.entries(z)) {
-    if (!visibleZones.has(id)) continue;
-    s += `<g data-zone="${esc(id)}"><circle cx="${p.x}" cy="${p.y}" r="7" fill="var(--olive)" stroke="var(--panel)" stroke-width="1.5"/>
-      <text x="${p.x + 7}" y="${p.y - 6}" font-size="11.5" fill="var(--ink)" font-family="Barlow, sans-serif">${esc(p.name.replace(/ \(.*\)$/, ""))}</text></g>`;
-  }
-  // extracts
+  return s;
+}
+// Load the real map once and restyle it with the page's palette (its own <style> is dropped).
+if (ART_RECT) fetch(ART_RECT.href).then(r => r.ok ? r.text() : Promise.reject(r.status)).then(text => {
+  const src = new DOMParser().parseFromString(text, "image/svg+xml").documentElement;
+  if (src.nodeName !== "svg") return;
+  src.querySelectorAll("style, script, foreignObject").forEach(n => n.remove());
+  src.querySelectorAll("*").forEach(n => [...n.attributes].forEach(a => { if (/^on/i.test(a.name)) n.removeAttribute(a.name); }));
+  const art = document.createElementNS(SVGNS, "svg");
+  for (const [k, v] of Object.entries({ x: ART_RECT.x, y: ART_RECT.y, width: ART_RECT.w, height: ART_RECT.h, viewBox: src.getAttribute("viewBox"), class: "map-art" })) art.setAttribute(k, v);
+  art.append(...[...src.childNodes].map(n => document.importNode(n, true)));
+  document.getElementById("mapBase").replaceChildren(art);
+  stage.classList.add("has-art");
+}).catch(() => {}); // the schematic stays
+
+const questNo = q => focus.quests.indexOf(q) + 1;
+const colorOf = q => { const i = focus.quests.indexOf(q); return i < 0 ? null : QUEST_COLORS[i % QUEST_COLORS.length]; };
+let lastFitKey = null;
+function renderMap(active = currentRoute) {
+  currentRoute = active;
+  const z = DATA.zones;
+  let s = "";
   for (const e of DATA.extracts) {
     if (e.x == null || e.faction === "scav") continue;
-    s += `<g><rect x="${e.x - 6}" y="${e.y - 6}" width="12" height="12" fill="var(--panel)" stroke="var(--ok)" stroke-width="2.5"/>
-      <text x="${e.x + 9}" y="${e.y + 16}" font-size="11" fill="var(--ok)" font-family="IBM Plex Mono, monospace">${esc(e.name)}</text></g>`;
+    s += `<g class="pin ex" transform="translate(${e.x} ${e.y})"><g class="glyph"><rect x="-6" y="-6" width="12" height="12" rx="2"/><text x="10" y="4">${esc(e.name)}</text></g></g>`;
   }
-  // routes
+  // Hand-built plans: the planned routes, each stop numbered in the raid's colour.
   for (const r of focus.raids) {
-    const show = active === "all" || active === r.id;
-    const stops = r.stops;
-    if (!stops.length) continue;
-    const pts = stops.map(st => z[st.zone]).concat([exById[r.extract[0]]]).filter(Boolean);
-    const col = RAID_COLORS[r.id];
-    s += `<g class="route" opacity="${show ? 1 : 0.08}">
-      <polyline points="${pts.map(p => p.x + "," + p.y).join(" ")}" fill="none" stroke="${col}" stroke-width="3" stroke-dasharray="${r.id === "B" ? "8 5" : r.id === "C" ? "2 5" : "0"}" stroke-linecap="round" stroke-linejoin="round"/>`;
-    stops.forEach((st, i) => {
-      const p = z[st.zone];
-      const off = r.id === "B" ? -14 : r.id === "C" ? 14 : 0;
-      s += `<circle cx="${p.x + off}" cy="${p.y + 14}" r="9" fill="${col}"/>
-        <text x="${p.x + off}" y="${p.y + 18}" font-size="11" text-anchor="middle" fill="var(--panel)" font-family="IBM Plex Mono, monospace" font-weight="600">${i + 1}</text>`;
-    });
-    s += `</g>`;
+    if (!r.stops.length) continue;
+    const pts = r.stops.map(st => z[st.zone]).concat([exById[r.extract[0]]]).filter(Boolean);
+    const col = RAID_COLORS[r.id], off = r.id === "B" ? -16 : r.id === "C" ? 16 : 0;
+    s += `<g class="route" opacity="${active === "all" || active === r.id ? 1 : 0.1}"><polyline points="${pts.map(p => p.x + "," + p.y).join(" ")}" fill="none" stroke="${col}" stroke-width="3" vector-effect="non-scaling-stroke" stroke-dasharray="${r.id === "B" ? "8 5" : r.id === "C" ? "2 5" : "0"}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      r.stops.map((st, i) => `<g transform="translate(${z[st.zone].x} ${z[st.zone].y})"><g class="glyph"><circle cx="${off}" cy="16" r="9" fill="${col}"/><text class="stop" x="${off}" y="20">${i + 1}</text></g></g>`).join("") + `</g>`;
   }
-  return s + `</svg>`;
+  // One pin per spot, in the colour and number of the first selected quest that needs it.
+  const at = new Map();
+  focus.quests.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid]) at.set(zid, [...(at.get(zid) || []), i]); }));
+  for (const [zid, idx] of at) {
+    const p = z[zid], col = QUEST_COLORS[idx[0] % QUEST_COLORS.length];
+    s += `<g class="pin spot" data-zone="${esc(zid)}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${esc(p.name)}: ${idx.map(i => esc(focus.quests[i].name)).join(", ")}"><g class="glyph">
+      <path d="M0 0C-3-6-11-10-11-19a11 11 0 1 1 22 0C11-10 3-6 0 0Z" fill="${col}"/><text y="-15">${idx[0] + 1}</text>${idx.length > 1 ? `<circle class="more" cx="11" cy="-29" r="7.5"/><text class="more" x="11" y="-26">+${idx.length - 1}</text>` : ""}</g></g>`;
+  }
+  document.getElementById("mapOver").innerHTML = s;
+  document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === active)));
+  applyView();
+  if (popZone && !at.has(popZone)) closePop(); else positionPop();
+  const key = [...at.keys()].sort().join();
+  if (key !== lastFitKey) { lastFitKey = key; fit(lastFitKey !== null && svg.dataset.ready === "1"); svg.dataset.ready = "1"; }
 }
-function setRoute(r) {
-  currentRoute = r;
-  document.getElementById("map").innerHTML = mapSVG(r);
-  document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === r)));
+document.getElementById("raidSwitch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) renderMap(b.dataset.r); });
+
+/* view: the viewBox follows the stage's shape; pins and labels keep their on-screen size */
+let view = { ...BASE }, anim = 0;
+const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+function shape(v) {
+  const ar = svg.clientWidth / Math.max(1, svg.clientHeight) || BASE.w / BASE.h;
+  let { w, h } = v; const cx = v.x + v.w / 2, cy = v.y + v.h / 2;
+  if (w / h > ar) h = w / ar; else w = h * ar;
+  const maxW = Math.max(BASE.w, BASE.h * ar) * 1.04, k = Math.min(Math.max(w, maxW / 14), maxW) / w;
+  w *= k; h *= k;
+  const ncx = Math.min(Math.max(cx, BASE.x), BASE.x + BASE.w), ncy = Math.min(Math.max(cy, BASE.y), BASE.y + BASE.h);
+  return { x: ncx - w / 2, y: ncy - h / 2, w, h };
 }
-document.getElementById("raidSwitch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setRoute(b.dataset.r); });
+function applyView() {
+  svg.setAttribute("viewBox", `${view.x} ${view.y} ${view.w} ${view.h}`);
+  const k = view.w / Math.max(1, svg.clientWidth);
+  svg.querySelectorAll(".glyph").forEach(g => g.setAttribute("transform", `scale(${k})`));
+  const zoomed = view.w < Math.max(BASE.w, BASE.h * svg.clientWidth / Math.max(1, svg.clientHeight)) * 0.85;
+  svg.classList.toggle("zoomed", zoomed);
+  svg.style.touchAction = zoomed || stage.classList.contains("full") ? "none" : "pan-y";
+  positionPop();
+}
+function setView(v, animate) {
+  const to = shape(v);
+  cancelAnimationFrame(anim);
+  if (!animate || reduceMotion()) { view = to; applyView(); return; }
+  const from = { ...view }, t0 = performance.now();
+  const step = t => {
+    const p = Math.min(1, (t - t0) / 280), e = 1 - Math.pow(1 - p, 3);
+    view = { x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e, w: from.w + (to.w - from.w) * e, h: from.h + (to.h - from.h) * e };
+    applyView();
+    if (p < 1) anim = requestAnimationFrame(step);
+  };
+  anim = requestAnimationFrame(step);
+}
+// Frame the selected spots (pins point up, so leave room above them); the whole map when none.
+function fit(animate, zones) {
+  const pts = (zones || [...svg.querySelectorAll(".pin.spot")].map(g => g.dataset.zone)).map(id => DATA.zones[id]).filter(Boolean);
+  if (!pts.length) return setView(BASE, animate);
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const minW = Math.max(BASE.w, BASE.h) / 5, w = Math.max(Math.max(...xs) - Math.min(...xs), minW) * 1.35, h = Math.max(Math.max(...ys) - Math.min(...ys), minW) * 1.35;
+  setView({ x: (Math.min(...xs) + Math.max(...xs)) / 2 - w / 2, y: (Math.min(...ys) + Math.max(...ys)) / 2 - h / 2 - h * 0.04, w, h }, animate);
+}
+function toSvg(cx, cy) {
+  const r = svg.getBoundingClientRect();
+  return { x: view.x + (cx - r.left) / r.width * view.w, y: view.y + (cy - r.top) / r.height * view.h };
+}
+function zoomAt(f, p, animate) { setView({ x: p.x - (p.x - view.x) * f, y: p.y - (p.y - view.y) * f, w: view.w * f, h: view.h * f }, animate); }
+const centre = () => ({ x: view.x + view.w / 2, y: view.y + view.h / 2 });
+new ResizeObserver(() => setView(view)).observe(svg);
+
+/* gestures: drag to move, pinch to zoom, tap a pin; the page keeps scrolling until you zoom in */
+const pointers = new Map();
+let drag = null, hintTimer = 0;
+svg.addEventListener("pointerdown", e => {
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (pointers.size === 1) drag = { x: e.clientX, y: e.clientY, view: { ...view }, pin: e.target.closest?.(".pin.spot")?.dataset.zone, moved: false };
+  if (pointers.size === 2) {
+    const [a, b] = [...pointers.values()];
+    drag = { pinch: Math.hypot(a.x - b.x, a.y - b.y), mid: toSvg((a.x + b.x) / 2, (a.y + b.y) / 2), view: { ...view }, moved: true };
+  }
+});
+svg.addEventListener("pointermove", e => {
+  if (!pointers.has(e.pointerId) || !drag) return;
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  const r = svg.getBoundingClientRect();
+  if (pointers.size >= 2 && drag.pinch) {
+    const [a, b] = [...pointers.values()], f = drag.pinch / Math.max(1, Math.hypot(a.x - b.x, a.y - b.y));
+    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2, w = drag.view.w * f, h = drag.view.h * f;
+    view = shape({ x: drag.mid.x - (mx - r.left) / r.width * w, y: drag.mid.y - (my - r.top) / r.height * h, w, h }); applyView();
+    return;
+  }
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  if (!drag.moved && Math.hypot(dx, dy) < 5) return;
+  if (!drag.moved) { drag.moved = true; svg.setPointerCapture(e.pointerId); svg.classList.add("dragging"); closePop(); }
+  view = shape({ ...drag.view, x: drag.view.x - dx / r.width * drag.view.w, y: drag.view.y - dy / r.height * drag.view.h }); applyView();
+});
+function endPointer(e) {
+  pointers.delete(e.pointerId);
+  if (drag && !drag.moved && drag.pin && e.type === "pointerup") openPop(drag.pin);
+  if (!pointers.size) { drag = null; svg.classList.remove("dragging"); }
+  else if (drag?.pinch) { const [a] = pointers.values(); drag = { x: a.x, y: a.y, view: { ...view }, moved: true }; }
+}
+svg.addEventListener("pointerup", endPointer);
+svg.addEventListener("pointercancel", endPointer);
+svg.addEventListener("dblclick", e => zoomAt(0.5, toSvg(e.clientX, e.clientY), true));
+svg.addEventListener("wheel", e => {
+  // A plain wheel keeps scrolling the page; Ctrl + wheel (and trackpad pinch) zooms, as does any wheel in full screen.
+  if (!e.ctrlKey && !e.metaKey && !stage.classList.contains("full")) {
+    stage.classList.add("hint"); clearTimeout(hintTimer); hintTimer = setTimeout(() => stage.classList.remove("hint"), 1200);
+    return;
+  }
+  e.preventDefault();
+  zoomAt(Math.exp(e.deltaY * (e.deltaMode ? 0.05 : 0.0018)), toSvg(e.clientX, e.clientY));
+}, { passive: false });
+svg.addEventListener("keydown", e => {
+  const zid = e.target.closest?.(".pin.spot")?.dataset.zone;
+  if (zid && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openPop(zid); }
+});
+stage.querySelector(".map-ctrl").addEventListener("click", e => {
+  const act = e.target.closest("[data-map]")?.dataset.map;
+  if (act === "in" || act === "out") zoomAt(act === "in" ? 0.6 : 1 / 0.6, centre(), true);
+  if (act === "fit") fit(true);
+  if (act === "full") setFull(!stage.classList.contains("full"));
+});
+function setFull(on) {
+  stage.classList.toggle("full", on);
+  document.body.classList.toggle("map-full", on);
+  stage.querySelector('[data-map="full"]').setAttribute("aria-pressed", String(on));
+  requestAnimationFrame(() => fit(false, popZone ? [popZone] : undefined));
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !document.getElementById("questDialog").open) { if (!pop.hidden) closePop(); else if (stage.classList.contains("full")) setFull(false); } });
+
+/* spot popover: the quests that need this spot, their objectives here and a photo */
+let popZone = null;
+function openPop(zid) {
+  popZone = zid;
+  const quests = focus.quests.filter(q => RaidFocus.facts(q).zones.includes(zid));
+  pop.innerHTML = `<button type="button" class="pop-x" data-pop="close" aria-label="Close">×</button><span class="label">${esc(DATA.zones[zid].name)}</span>` + quests.map(q => {
+    const objs = q.objectives.filter(o => (o.zone || []).includes(zid)), photo = q.photos?.[0];
+    return `<div class="pop-q"><button type="button" class="pop-title" data-detail="${esc(bsgId(q))}"><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(q.name)}</span><b aria-hidden="true">›</b></button>
+      <ul>${objs.map(o => `<li>${esc(o.text)}</li>`).join("")}</ul>
+      ${photo ? `<button type="button" class="pop-photo" data-detail="${esc(bsgId(q))}" aria-label="Photos for ${esc(q.name)}"><img src="${esc(photo.src)}" alt="" loading="lazy">${q.photos.length > 1 ? `<span>${q.photos.length} photos</span>` : ""}</button>` : ""}</div>`;
+  }).join("");
+  pop.hidden = false;
+  svg.querySelectorAll(".pin.spot").forEach(g => g.classList.toggle("active", g.dataset.zone === zid));
+  positionPop();
+}
+function closePop() { popZone = null; pop.hidden = true; svg.querySelectorAll(".pin.spot.active").forEach(g => g.classList.remove("active")); }
+function positionPop() {
+  if (pop.hidden || !popZone) return;
+  const g = svg.querySelector(`.pin.spot[data-zone="${CSS.escape(popZone)}"]`);
+  if (!g) return;
+  const narrow = stage.clientWidth < 560;
+  pop.classList.toggle("docked", narrow);
+  if (narrow) { pop.style.left = pop.style.top = ""; return; }
+  const s = stage.getBoundingClientRect(), r = g.getBoundingClientRect();
+  const x = r.left + r.width / 2 - s.left, above = r.top - s.top - pop.offsetHeight - 8;
+  pop.style.left = Math.min(Math.max(8, x - pop.offsetWidth / 2), s.width - pop.offsetWidth - 8) + "px";
+  pop.style.top = Math.max(8, Math.min(above > 8 ? above : r.bottom - s.top + 8, s.height - pop.offsetHeight - 8)) + "px";
+}
+pop.addEventListener("click", e => { if (e.target.closest("[data-pop='close']")) closePop(); });
+document.addEventListener("click", e => {
+  const d = e.target.closest("[data-detail]");
+  if (d) { e.preventDefault(); openQuest(d.dataset.detail); }
+});
 document.getElementById("raidSwitch").hidden = !PLANNED;
 let currentRoute = "all";
 
@@ -569,12 +888,13 @@ function renderFocus() {
   setText("focusCount", `${selectedIds.length} selected / ${currentQuests.length} current`);
   document.getElementById("focusList").innerHTML = currentQuests.map(q => {
     const f = RaidFocus.facts(q);
-    return `<div class="focus-choice"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}"><b>${esc(q.name)}</b></label>
+    const col = colorOf(q);
+    return `<div class="focus-choice"><div class="focus-row"><label><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<b>${esc(q.name)}</b></label><button type="button" class="focus-more" data-detail="${esc(bsgId(q))}" aria-label="Details and photos for ${esc(q.name)}">${q.photos?.length ? "Photos" : "Details"} ›</button></div>
       <p class="focus-facts">${onMap(q) ? "" : "Multi-map quest<br>"}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
   }).join("") || `<p class="map-note">No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
-  setText("mapEmpty", "No quests selected. Include quests in This raid to show their locations and gear. Green squares are extracts.");
+  setText("mapEmpty", currentQuests.length ? "Tick quests on the right to pin their spots on the map." : "No current quests yet. Choose your profile under Quests to see them here.");
 }
 function changeFocus(action, id) {
   if (!activeScope()) return;
@@ -730,6 +1050,25 @@ function lockReason(reason) {
 
 /* ---------- quests checklist ---------- */
 function objDone(o) { return o.count ? (state[o.id] || 0) >= o.count : !!state[o.id]; }
+// Shared by quest cards and the detail panel; `pre` keeps element IDs unique between the two.
+function statusControl(q, progress, src, pre) {
+  const st = progress.status;
+  return `<div class="status-row">
+        <label for="${pre}-${q.id}" class="label">Status</label>
+        <select id="${pre}-${q.id}" data-quest="${esc(bsgId(q))}">
+          ${["", "started", "completed", "failed"].map(v => `<option value="${v}" ${v === (st === "not-started" ? "" : st) ? "selected" : ""}>${v === "completed" && progress.inferred ? "completed (implied)" : v ? STATUS_LABEL[v] : "Not started"}</option>`).join("")}
+          ${src === "manual" ? `<option value="auto">Clear manual status</option>` : ""}
+        </select>
+        ${src ? `<span class="qst ${st}">${src === "inferred" ? "completed (implied)" : src === "log" ? "from game log" : "set by hand"}</span>` : ""}
+      </div>`;
+}
+function objList(q, pre) {
+  return `<ul class="obj">${q.objectives.map(o => o.count ? `
+        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" ${objDone(o) ? "checked" : ""} disabled aria-label="Counter complete">
+          <span>${esc(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
+        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}>
+          <label for="${pre}-${o.id}"><span>${esc(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
+}
 function renderQuests() {
   progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP, listed: LISTED });
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
@@ -750,26 +1089,15 @@ function renderQuests() {
     const src = (progress.current ? questStatus.statuses[bsgId(q)] : progressResult.statuses[bsgId(q)])?.source;
     const head = !onMap(q) && !multiHeaded ? (multiHeaded = true, `<div style="grid-column:1/-1"><h3 style="margin:8px 0 4px">Multi-map quests</h3><p class="map-note">These have objectives on ${esc(MAP)} and other maps. The in-game ${esc(MAP)} filter doesn't list them.</p></div>`) : "";
     return head + `<article class="quest ${qDone ? "done" : ""}">
-      <div class="top"><h3>${esc(q.name)}</h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}</div>
+      <div class="top"><h3><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}${q.photos?.length ? `<button type="button" class="qthumb" data-detail="${esc(bsgId(q))}" aria-label="Photos and details for ${esc(q.name)}"><img src="${esc(q.photos[0].src)}" alt="" loading="lazy"></button>` : ""}</div>
       <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
         ${q.needs.filter(n => n.kind === "key").map(n => `<span class="chip key">${esc(n.item)}</span>`).join("")}</div>
       ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
       ${st === "started" && !progress.current ? `<p class="map-note">Earlier start; excluded from your confirmed current list.</p>` : ""}
       ${(DATA.progression[bsgId(q)].traderRequirements || []).map(r => `<p class="map-note">needs ${esc(r.trader)} ${r.type === "level" ? "LL" : esc(r.type) + " "}${esc(r.value)}</p>`).join("")}
       ${progress.current ? `<label class="include-raid"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""}>Include this raid</label>` : ""}
-      <div class="status-row">
-        <label for="st-${q.id}" class="label">Status</label>
-        <select id="st-${q.id}" data-quest="${esc(bsgId(q))}">
-          ${["", "started", "completed", "failed"].map(v => `<option value="${v}" ${v === (st === "not-started" ? "" : st) ? "selected" : ""}>${v === "completed" && progress.inferred ? "completed (implied)" : v ? STATUS_LABEL[v] : "Not started"}</option>`).join("")}
-          ${src === "manual" ? `<option value="auto">Clear manual status</option>` : ""}
-        </select>
-        ${src ? `<span class="qst ${st}">${src === "inferred" ? "completed (implied)" : src === "log" ? "from game log" : "set by hand"}</span>` : ""}
-      </div>
-      <ul class="obj">${q.objectives.map(o => o.count ? `
-        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="cb-${o.id}" ${objDone(o) ? "checked" : ""} disabled aria-label="Counter complete">
-          <span>${esc(o.text)}<br><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></span></li>` : `
-        <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="cb-${o.id}" data-obj="${o.id}" ${objDone(o) ? "checked" : ""}>
-          <label for="cb-${o.id}"><span>${esc(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>
+      ${statusControl(q, progress, src, "st")}
+      ${objList(q, "cb")}
       ${q.tips.length ? `<ul class="tips">${q.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
       <div class="foot"><span>${esc(q.reward)}</span><a href="${esc(q.wiki)}" target="_blank" rel="noopener">Wiki ↗</a></div>
     </article>`;
@@ -789,7 +1117,8 @@ function renderQuests() {
   document.getElementById("unlockNote").hidden = questView !== "possible";
   renderOtherQuests();
   renderRaids();
-  setRoute(currentRoute);
+  renderMap(currentRoute);
+  if (document.getElementById("questDialog").open) renderQuestDetail();
   renderGear();
   renderSummary();
 }
@@ -804,7 +1133,8 @@ function renderOtherQuests() {
       `<li>${esc(questName(id))} · ${esc(trader)} · accepted ${esc(fmtDay(questStatus.statuses[id].at))}</li>`).join("")}</ul>` : "") +
     (btr ? `<p class="map-note">BTR Driver quests are accepted in raid and don't show up in the logs. If you've taken one, choose All and set it to Started.</p>` : "");
 }
-document.getElementById("qgrid").addEventListener("change", e => {
+// Quest controls (raid toggle, status, objectives, counters) behave the same on cards and in the detail panel.
+function questControlsChange(e) {
   if (e.target.dataset.focus) { changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus); return; }
   if (e.target.dataset.quest) {
     if (!activeScope()) { setText("scopeEvidence", "Choose a profile and wipe before editing progress."); renderQuests(); return; }
@@ -814,13 +1144,17 @@ document.getElementById("qgrid").addEventListener("change", e => {
   }
   const id = e.target.dataset.obj; if (!id) return;
   state[id] = e.target.checked; save(); renderQuests();
-});
-document.getElementById("qgrid").addEventListener("click", e => {
+}
+function questControlsClick(e) {
   const inc = e.target.dataset.inc, dec = e.target.dataset.dec; if (!inc && !dec) return;
   const id = inc || dec;
   const o = DATA.quests.flatMap(q => q.objectives).find(x => x.id === id);
   state[id] = Math.max(0, Math.min(o.count, (state[id] || 0) + (inc ? 1 : -1))); save(); renderQuests();
-});
+}
+for (const el of ["qgrid", "qdBody"]) {
+  document.getElementById(el).addEventListener("change", questControlsChange);
+  document.getElementById(el).addEventListener("click", questControlsClick);
+}
 const resetWrap = document.getElementById("resetWrap");
 resetWrap.addEventListener("click", e => {
   if (e.target.id === "resetBtn") {
@@ -830,6 +1164,102 @@ resetWrap.addEventListener("click", e => {
     resetWrap.innerHTML = `<button class="btn" id="resetBtn" type="button">Reset checklist</button>`;
   }
 });
+/* ---------- quest detail panel ---------- */
+const qd = document.getElementById("questDialog"), qdBody = document.getElementById("qdBody"), lightbox = document.getElementById("lightbox");
+let qdId = null, lbIndex = 0, panelEntry = null;
+const qdQuest = () => DATA.quests.find(q => bsgId(q) === qdId);
+const reqLink = tid => DATA.quests.some(q => bsgId(q) === tid)
+  ? `<button type="button" class="qlink" data-detail="${esc(tid)}">${esc(questName(tid))}</button>` : esc(questName(tid));
+function openQuest(id) {
+  if (!DATA.quests.some(q => bsgId(q) === id)) return;
+  qdId = id; closeLightbox(); renderQuestDetail(); qdBody.scrollTop = 0;
+  if (qd.open) return; // another quest from inside the panel: just swap the content
+  closePop();
+  qd.showModal();
+  requestAnimationFrame(() => qd.classList.add("open"));
+  panelEntry = Date.now() + Math.random(); // Back closes the panel, as you'd expect on a phone
+  try { history.pushState({ panel: panelEntry }, ""); } catch (e) {}
+}
+function closeQuest() {
+  if (!qd.open) return;
+  qd.classList.remove("open");
+  setTimeout(() => { if (!qd.classList.contains("open")) qd.close(); }, reduceMotion() ? 0 : 240);
+}
+// Only the entry this panel pushed is ever popped, so a reload or an old entry can't send Back off the page.
+const ownEntry = () => panelEntry !== null && history.state?.panel === panelEntry;
+function dismissQuest() { if (ownEntry()) history.back(); else closeQuest(); }
+window.addEventListener("popstate", () => { if (qd.open) closeQuest(); });
+qd.addEventListener("close", () => { qd.classList.remove("open"); closeLightbox(); if (ownEntry()) history.back(); panelEntry = null; });
+qd.addEventListener("cancel", e => { e.preventDefault(); if (!lightbox.hidden) closeLightbox(); else dismissQuest(); });
+qd.addEventListener("click", e => {
+  if (e.target === qd || e.target.closest("[data-qd='close']")) return dismissQuest();
+  const shot = e.target.closest("[data-photo]");
+  if (shot) return openLightbox(+shot.dataset.photo);
+  const where = e.target.closest("[data-show]");
+  if (where) return showOnMap(qdId, where.dataset.show);
+  const lb = e.target.closest("[data-lb]")?.dataset.lb;
+  if (lb === "close" || e.target === lightbox) closeLightbox();
+  else if (lb) stepLightbox(lb === "next" ? 1 : -1);
+});
+function renderQuestDetail() {
+  const q = qdQuest(); if (!q) return;
+  const id = bsgId(q), progress = progressResult.quests[id], st = progress.status, prog = DATA.progression[id] || {};
+  const src = (progress.current ? questStatus.statuses[id] : progressResult.statuses[id])?.source;
+  const col = colorOf(q), zones = RaidFocus.facts(q).zones, canShow = progress.current || selectedIds.includes(id);
+  const keep = { top: qdBody.scrollTop, strip: qdBody.querySelector(".qd-photos")?.scrollLeft || 0 };
+  const badge = progress.current ? ["current", "Current quest"] : st === "completed" ? ["completed", progress.inferred ? "Completed (implied)" : "Completed"]
+    : st === "failed" ? ["failed", "Failed"] : st === "started" ? ["started", "Started earlier"] : progress.locked ? ["locked", "Locked"]
+    : progress.possible ? ["possible", "Possible unlock (estimate)"] : ["", "Not started"];
+  qdBody.innerHTML = `<header class="qd-head">
+      <div class="qd-top"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.lightkeeper ? `<span class="pill">Lightkeeper</span>` : ""}
+        <button type="button" class="qd-x" data-qd="close" aria-label="Close">×</button></div>
+      <h2 id="qdTitle">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<span>${esc(q.name)}</span></h2>
+      <div class="qd-state"><span class="qd-status ${badge[0]}">${badge[1]}</span>${progress.current ? `<label class="include-raid"><input type="checkbox" data-focus="${esc(id)}" ${selectedIds.includes(id) ? "checked" : ""}>Include this raid</label>` : ""}</div>
+    </header>
+    ${q.photos?.length ? `<section class="qd-photos${q.photos.length === 1 ? " single" : ""}" aria-label="Spot photos">${q.photos.map((p, i) =>
+      `<button type="button" class="qd-shot" data-photo="${i}"><img src="${esc(p.src)}" alt="${esc(p.caption || q.name)}" loading="lazy"><span>${esc(p.caption || "Spot photo")}</span></button>`).join("")}</section>` : ""}
+    <section class="qd-sec"><h3>Where</h3>${zones.length ? `<ul class="qd-where">${zones.map(z => `<li><span>${esc(DATA.zones[z].name)}</span>${canShow ? `<button type="button" class="btn" data-show="${esc(z)}">Show on map</button>` : ""}</li>`).join("")}</ul>`
+      : `<p class="map-note">No fixed location listed for ${esc(MAP)}.</p>`}${q.photos?.length ? "" : `<p class="map-note">The wiki has no spot photos for this quest.</p>`}</section>
+    <section class="qd-sec"><h3>Objectives</h3>${objList(q, "qd")}</section>
+    ${q.needs.length ? `<section class="qd-sec"><h3>Bring</h3><div class="chips">${q.needs.map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : ""}
+    ${q.tips.length ? `<section class="qd-sec"><h3>Tips</h3><ul class="tips">${q.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
+    <section class="qd-sec"><h3>Progress</h3>${statusControl(q, progress, src, "qd-st")}
+      ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
+      ${(prog.requirements || []).some(r => r.task) ? `<p class="map-note">Unlocks after: ${prog.requirements.filter(r => r.task).map(r => `${reqLink(r.task)} ${esc(r.statuses.join(" or "))}`).join(" · ")}</p>` : ""}
+      ${(prog.traderRequirements || []).map(r => `<p class="map-note">Needs ${esc(r.trader)} ${r.type === "level" ? "LL" : esc(r.type) + " "}${esc(r.value)}</p>`).join("")}</section>
+    <footer class="qd-sec qd-foot"><span>${esc(q.reward)}</span><a href="${esc(q.wiki)}" target="_blank" rel="noopener">Full guide on the wiki ↗</a></footer>`;
+  qdBody.scrollTop = keep.top;
+  const strip = qdBody.querySelector(".qd-photos"); if (strip) strip.scrollLeft = keep.strip;
+}
+function showOnMap(id, zid) {
+  if (progressResult.quests[id]?.current && !selectedIds.includes(id)) changeFocus("include", id);
+  dismissQuest();
+  show("plan");
+  stage.scrollIntoView({ block: "center", behavior: reduceMotion() ? "auto" : "smooth" });
+  setTimeout(() => { fit(true, [zid]); if (svg.querySelector(`.pin.spot[data-zone="${CSS.escape(zid)}"]`)) openPop(zid); }, 60);
+}
+function openLightbox(i) { lbIndex = i; lightbox.hidden = false; stepLightbox(0); lightbox.querySelector(".lb-close").focus(); }
+function closeLightbox() { lightbox.hidden = true; }
+function stepLightbox(d) {
+  const photos = qdQuest()?.photos || [];
+  if (!photos.length) return;
+  lbIndex = (lbIndex + d + photos.length) % photos.length;
+  const p = photos[lbIndex], img = document.getElementById("lbImg");
+  img.src = p.src; img.alt = p.caption || "";
+  setText("lbCap", `${p.caption || ""}${photos.length > 1 ? `  ·  ${lbIndex + 1} / ${photos.length}` : ""}`);
+  lightbox.querySelectorAll(".lb-nav").forEach(b => { b.hidden = photos.length < 2; });
+}
+// The browser may close a dialog on Esc regardless of `cancel`; catch Esc first while a photo is open.
+qd.addEventListener("keydown", e => {
+  if (lightbox.hidden) return;
+  if (e.key === "Escape") { e.preventDefault(); closeLightbox(); }
+  if (e.key === "ArrowLeft") stepLightbox(-1);
+  if (e.key === "ArrowRight") stepLightbox(1);
+});
+let swipeX = null; // swipe between photos on touch screens
+lightbox.addEventListener("pointerdown", e => { swipeX = e.clientX; });
+lightbox.addEventListener("pointerup", e => { if (swipeX != null && Math.abs(e.clientX - swipeX) > 50) stepLightbox(e.clientX < swipeX ? 1 : -1); swipeX = null; });
+
 /* ---------- log tracking UI ---------- */
 const trk = { skipped: 0, note: "", fallback: false };
 const STATE_TEXT = {

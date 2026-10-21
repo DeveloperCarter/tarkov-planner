@@ -13,6 +13,7 @@ import datetime as dt
 import html as html_lib
 import json
 import os
+import shutil
 import sys
 from pathlib import Path
 
@@ -24,6 +25,7 @@ TRACKER = ROOT / "page" / "eft-log-tracker.js"
 STORE = ROOT / "page" / "progress-store.js"
 FOCUS = ROOT / "page" / "raid-focus.js"
 TASKS_INDEX = ROOT / "data" / "tasks-index.json"
+ART = ROOT / "cache" / "art"  # filled by scripts/fetch_art.py; never committed
 
 
 def relative_url(target: Path, page: Path) -> str:
@@ -69,6 +71,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     apply_profile(data, level, faction)
     attach_task_ids(data)
     validate(data)
+    attach_art(data, out_path)
     if not PROGRESSION.exists():
         sys.exit("data/progression.json missing; run python scripts/build_progression.py first")
     mode = data["meta"].get("gameMode", "regular")
@@ -141,6 +144,41 @@ def attach_task_ids(data: dict) -> None:
             q["bsgId"] = tid
         else:
             print(f"note: no BSG ID for {q['name']!r}; log tracking can't update it", file=sys.stderr)
+
+
+def attach_art(data: dict, out_path: Path) -> None:
+    """Ship the cached map art and spot photos (scripts/fetch_art.py) beside the page. Anything
+    not downloaded is simply left out: the page falls back to the schematic and to text."""
+    path = ART / "manifest.json"
+    manifest = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+    def ship(rel: str) -> str | None:
+        src, dst = ART / rel, ROOT / "dist" / "art" / rel
+        if not src.exists():
+            return None
+        if not dst.exists() or dst.stat().st_size != src.stat().st_size:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, dst)
+        return relative_url(dst, out_path)
+
+    meta = data["meta"]
+    entry = manifest.get("maps", {}).get(meta.get("key"))
+    href = meta.get("art") and entry and ship(entry["file"])
+    if href:
+        meta["art"]["href"] = href
+        meta["sources"].append({"name": f"Map art by {entry.get('author') or 'tarkov.dev contributors'} (CC BY-NC-SA 4.0)",
+                                "url": "https://github.com/the-hideout/tarkov-dev-svg-maps",
+                                "use": "Map background; other floors removed and recoloured"})
+    else:
+        meta.pop("art", None)
+    spots = manifest.get("spots", {})
+    for q in data["quests"]:
+        photos = [{"src": h, "caption": s["caption"]} for s in spots.get(q.get("bsgId") or q["id"], []) if (h := ship(s["file"]))]
+        if photos:
+            q["photos"] = photos
+    if any(q.get("photos") for q in data["quests"]):
+        meta["sources"].append({"name": "Escape from Tarkov Wiki", "url": "https://escapefromtarkov.fandom.com/wiki/Quests",
+                                "use": "Quest spot photos and captions"})
 
 
 def validate(data: dict) -> None:

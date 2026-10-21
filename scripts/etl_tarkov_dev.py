@@ -141,8 +141,24 @@ class Frame:
         self.metres = max(span_e, span_n)
 
     def xy(self, en: tuple[float, float]) -> tuple[int, int]:
+        x, y = self.exact(en)
+        return round(x), round(y)
+
+    def exact(self, en: tuple[float, float]) -> tuple[float, float]:
         e, n = en
-        return round(self.pad + (e - self.e0) * self.scale), round(self.pad + (self.n1 - n) * self.scale)
+        return self.pad + (e - self.e0) * self.scale, self.pad + (self.n1 - n) * self.scale
+
+
+def art_rect(site: dict, frame: Frame, en) -> dict | None:
+    """Where tarkov.dev's SVG map sits in this frame. tarkov.dev stretches the SVG over the projected
+    corners of svgBounds (or bounds), given as [x, z] game positions, after the same rotation we use.
+    That projection is a uniform scale of ours only when the transform's x and y scales match."""
+    t, b = site.get("transform"), site.get("svgBounds") or site.get("bounds")
+    if not site.get("svgPath") or not b or not t or t[0] != t[2]:
+        return None
+    (x0, y0), (x1, y1) = (frame.exact(en({"x": c[0], "z": c[1]})) for c in b)
+    return {"x": round(min(x0, x1), 1), "y": round(min(y0, y1), 1),
+            "w": round(abs(x1 - x0), 1), "h": round(abs(y1 - y0), 1)}
 
 
 # ---------------------------------------------------------------- normalize
@@ -228,6 +244,8 @@ class Normalizer:
                 "raidMinutes": m.get("raidDuration"),
                 "players": m.get("players"),
                 "frame": {"w": frame.w, "h": frame.h, "metres": round(frame.metres)},
+                # Real map art (scripts/fetch_art.py downloads it); absent for maps without an SVG.
+                "art": art_rect(site, frame, en),
                 "rotation": rot,
                 "wiki": m.get("wiki"),
                 "sources": [

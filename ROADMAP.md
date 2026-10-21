@@ -8,7 +8,7 @@ M1A is implemented and checked against the supplied 12-quest Customs reference.
 M1B is implemented and validated. M2 is deployed and its live HTTPS acceptance check passes.
 The public Chrome tab watches the real Logs folder. Its Customs list has been reconciled
 with the confirmed 12-quest reference, level 24, and a three-quest raid focus.
-M3 remains unstarted.
+M3 remains unstarted. M4 (real maps, spot photos, quest details) shipped ahead of it.
 
 ## Where things stand (2026-10-20)
 
@@ -285,15 +285,26 @@ already renders. Do not silently add every predicted unlock or unselected quest.
 the selection updates the plan, Customs passes the golden test, and the bundler is a pure
 module with unit tests.
 
-## M4 · Real map backgrounds  (M)
+## M4 · Real maps, spot photos and quest details  (implemented)
 
-The schematic dots are hard to use without terrain.
+The schematic dots were hard to use without terrain, and players wanted to see each spot.
 
-- Use tarkov.dev's SVG maps (`svgPath` in their `maps.json`) and copy them into `dist/`.
-  **Check the license of the-hideout/tarkov-dev-svg-maps before shipping.**
-- Place spots with the existing coordinate rotation, and check the 90°/270° maps (Factory, Labs,
-  Labyrinth) by eye.
-- Keep the schematic as the fallback.
+- **Map art:** tarkov.dev's SVG maps (CC BY-NC-SA 4.0), ground floor only, recoloured to the
+  site palette in both themes. Ten maps have art; Icebreaker, Labs and Labyrinth keep the schematic.
+  Checked by eye on Customs, Ground Zero, Reserve and Factory (90°).
+- **Map viewer:** drag, pinch and Ctrl + scroll to zoom; Fit frames the selected spots; full screen.
+  Each selected quest has a colour and number shared by its pins and its picker entry. Tapping a pin
+  shows the quests there, their objectives at that spot and a photo. A plain wheel still scrolls the
+  page, and one-finger drags scroll it until you zoom in.
+- **Quest detail panel:** opened from a card title or thumbnail, the picker, a pin or a prerequisite.
+  Spot photos with captions (swipe, full-screen viewer), where with Show on map, objectives, gear,
+  tips, status and unlock requirements, and the wiki link. Back or Esc closes it.
+- **Spot photos:** the wiki's quest galleries, ~1,180 images for 272 quests, downloaded by
+  `scripts/fetch_art.py` into a cache CI keeps; nothing is committed.
+
+**Licensing (decided by the owner, 2026-10-21):** fine while the site is free and non-commercial.
+Before any paid tier: get permission from the map authors or replace the art, and replace the wiki
+screenshots (Battlestate Games' images) with our own.
 
 ## M5 · FIR keep list  (S)
 
@@ -317,4 +328,5 @@ in the keep list · Paid tier (only once usage is proven)
    with explicit `--refresh`; trader loyalty annotates only; player level is saved in-browser
    and defaults to the build's `--level`.
 4. **PvE (decided):** included in M2 with separate mode snapshots and progression.
-5. **Map art:** if the SVG license doesn't allow reuse, keep the schematic or look for other art?
+5. **Map art and photos (decided):** use tarkov.dev's maps and the wiki's spot photos while the site
+   is free; replace both before anything is paid. See M4.

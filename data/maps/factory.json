@@ -13,6 +13,12 @@
    "h": 1120,
    "metres": 161
   },
+  "art": {
+   "x": 40.1,
+   "y": 164.0,
+   "w": 868.2,
+   "h": 938.0
+  },
   "rotation": 90,
   "wiki": "https://escapefromtarkov.fandom.com/wiki/Factory",
   "sources": [

@@ -10,6 +10,7 @@ it in order and don't start a milestone until the one before it meets its "Done 
 scripts/etl_tarkov_dev.py      json.tarkov.dev snapshot -> data/maps/<map>.json, data/tasks-index.json
 scripts/build_page.py          data file -> dist/ page (--all, --level, --faction); validates references
 scripts/fetch_wiki_quests.py   Fandom wiki quest pages -> JSON (objectives, rewards, spot captions)
+scripts/fetch_art.py           tarkov.dev SVG maps + wiki spot photos -> cache/art/ (gitignored; CI caches it)
 scripts/compare_wiki.py        tarkov.dev vs wiki disagreements -> reports/
 page/customs-raid-plan.template.html   the one page template (vanilla JS, no framework, no bundler)
 page/eft-log-tracker.js        log parser + watcher; inlined by build_page.py; loaded by Node tests
@@ -96,7 +97,20 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   contradicted about a dozen of them. Prefer tarkov.dev requirements and the logged order.
 
 **Coordinates**
-- Map position = game `(x, z)` rotated by `coordinateRotation`. Checked on Customs (180°) only.
+- Map position = game `(x, z)` rotated by `coordinateRotation`, the same formula as tarkov.dev's
+  `applyRotation`. Checked by eye on Customs, Ground Zero, Reserve (180°) and Factory (90°).
+- tarkov.dev stretches each SVG map over the projected corners of `svgBounds` (else `bounds`), both
+  given as `[x, z]`. With a uniform `transform` (x and y scales equal) that's a scale of our frame, so
+  the ETL stores the art's rectangle in frame units as `meta.art`. Icebreaker's transform isn't
+  uniform, and Labs/Labyrinth have no SVG: they keep the schematic.
+
+**Map art and spot photos**
+- SVG maps: the-hideout/tarkov-dev-svg-maps, CC BY-NC-SA 4.0 (non-commercial; credit and same
+  licence for modified copies; no use in cheats). `fetch_art.py` keeps only the ground floor; the page
+  drops the SVG's own `<style>` and recolours its classes (land, trees, water, building, road_*, ...).
+- Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no
+  licence). Thumbnails need a `Referer` header or the image server answers 403, and arrive as WebP
+  whatever the file name says. Free, non-commercial use only; revisit before anything paid.
 
 **Game logs (EFT 1.2.5)**
 - Session folders: `log_YYYY.M.D_H-MM-SS_<version>`. Hours aren't zero-padded, so sort by the

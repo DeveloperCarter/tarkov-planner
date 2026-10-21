@@ -46,6 +46,12 @@ def main():
             with contextlib.redirect_stdout(report):
                 compare_wiki(str(base / 'maps' / 'customs.json'), str(ROOT / 'raw' / 'customs-wiki.json'))
             (ROOT / 'reports' / f'customs-conflicts-{mode}.md').write_text(report.getvalue(), encoding='utf-8')
+        if not args.offline:
+            # Map art and spot photos are extras: a failed download falls back to the cache or to none.
+            try:
+                run('fetch_art.py', '--budget', 600)  # the first runs fill the cache over a few days
+            except subprocess.CalledProcessError as exc:
+                print(f'art fetch failed ({exc}); building with the cached art', file=sys.stderr)
         run('build_page.py', '--site', '--level', args.level, '--faction', args.faction, '--max-age-hours', args.max_age_hours)
         run('check_site.py')
     finally:
