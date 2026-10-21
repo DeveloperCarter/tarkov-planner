@@ -1009,7 +1009,7 @@ function setFull(on) {
   requestAnimationFrame(() => fit(false, popZone ? [popZone] : undefined));
 }
 document.addEventListener("keydown", e => {
-  if (e.key !== "Escape" || document.getElementById("questDialog").open || e.target.closest?.("input[type=search]")) return;
+  if (e.key !== "Escape" || document.querySelector("dialog[open]") || e.target.closest?.("input[type=search]")) return;
   if (!pop.hidden) closePop(); else if (raidOn) exitRaid(); else if (stage.classList.contains("full")) setFull(false);
 });
 
@@ -1754,7 +1754,7 @@ function promptSpawn() {
   const dialog = document.getElementById('spawnDialog');
   if (qd.open || dialog.open) return;
   document.getElementById('spawnChoice').innerHTML = '<option value="">Choose an area</option>' + DATA.spawnAreas.map(a => `<option value="${esc(a.id)}">${esc(a.name)}</option>`).join('');
-  dialog.showModal();
+  dialog.returnValue = ''; dialog.showModal();
 }
 document.getElementById('spawnDialog').addEventListener('close', e => {
   if (e.target.returnValue === 'choose') chooseSpawn(document.getElementById('spawnChoice').value);

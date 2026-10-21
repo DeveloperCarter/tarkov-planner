@@ -28,7 +28,7 @@ test('actual UI handler isolates identity/mode/wipe, prompts after ten seconds, 
  c.handleRaidEvent(start,{...meta,identityConflict:true});assert.equal(h.rendered,0);
  c.handleRaidEvent({...start,at:-1},meta);assert.equal(h.rendered,0);
  c.handleRaidEvent(start,meta);assert.equal(h.timer.ms,10000);
- h.setNow(11000);h.timer.fn();assert.equal(h.prompted,1);
+ h.dialog.returnValue='choose';h.setNow(11000);h.timer.fn();assert.equal(h.prompted,1);assert.equal(h.dialog.returnValue,'');
  c.handleRaidEvent({kind:'spawn-position',map:'customs',at:4000,x:1,z:1},meta);
  assert.equal(c.routeSession.source,'log');assert.equal(h.dialog.open,false);
  assert.equal(h.writes.length,1);assert.match(h.writes[0][0],/^eft-raid-start:/);
