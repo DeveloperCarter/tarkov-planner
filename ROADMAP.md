@@ -5,7 +5,8 @@ on each map right now, plans the raids, and tells you what to bring and what to 
 
 The order is by return on effort. Each milestone ships something usable on its own.
 M1A is implemented and checked against the supplied 12-quest Customs reference.
-M1B is implemented and validated. M2 is implemented locally; publication checks are in progress.
+M1B is implemented and validated. M2 is built and deployed; an inherited custom domain blocks
+public access and the final live-folder check. M2 is not yet accepted as complete.
 M3 remains unstarted.
 
 ## Where things stand (2026-10-20)
@@ -192,7 +193,7 @@ the M1A screenshot-confirmed baseline still has exactly 12 Customs quests, no mi
 The nine additional historical starts remain an accuracy limitation, preserved for review.
 No automatic bundling, ranking, deployment, or M2 work was added.
 
-## M2 · Ship it on https  (implemented; publication verification in progress)
+## M2 · Ship it on https  (deployed; inherited domain and live-folder check pending)
 
 Start only after M1A and M1B pass their acceptance checks.
 
@@ -228,6 +229,21 @@ succeed; 130 inline scripts and navigation links pass across 26 local pages (the
 25 pages; the extra local page is the hand-built Customs reference). Both-mode offline refresh,
 cached comparisons and snapshot pruning pass. Browser and live HTTPS results are recorded
 after publication. No M3 work is included.
+
+**Publication check:** the public repository is `DeveloperCarter/tarkov-planner`. GitHub Actions
+run `39532750613` passes all 62 Node and 13 Python tests, refreshes both snapshots, checks 25
+release pages / 125 scripts / relative links, saves the fallback cache and deploys successfully.
+Browser checks on localhost cover the home and both mode pages in light/dark at 1440px/400px,
+with no console warnings/errors or horizontal overflow. Home Customs agrees with the confirmed
+12 current quests and 14 separate unlock estimates; PvE has no selected scope and shows zero.
+
+**External blocker:** the account's personal Pages repository has `carterbrown.dev` configured.
+Project Pages inherits that domain, and the standard planner URL redirects there. GitHub's DNS
+health check reports NXDOMAIN and no HTTPS eligibility. Approval to remove that separate
+repository's domain setting/CNAME is pending. Do not change it without approval. Once resolved,
+open the public URL directly in Chrome/Edge and connect the actual Logs folder before marking
+M2's live-folder acceptance check complete. HTTPS has a separate browser store from localhost;
+the existing local scope/corrections remain preserved.
 
 ## M3 · Raid bundler v1  (M–L, what sets this apart)
 
