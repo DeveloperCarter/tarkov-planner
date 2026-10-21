@@ -1798,11 +1798,18 @@ function promptSpawn() {
 document.getElementById('spawnDialog').addEventListener('close', e => {
   if (e.target.returnValue === 'choose') chooseSpawn(document.getElementById('spawnChoice').value);
 });
+// Another map's raid: name it and offer its page in this mode (map pages sit side by side).
+function raidElsewhere(key) {
+  const option = key && [...document.querySelectorAll('.map-jump option')].find(o => o.value === key + '.html');
+  if (!option) { toast({ label:'Raid loading', title:'Unknown raid location', body:'<p>This page stays as it is.</p>' }); return; }
+  toast({ label:'Raid loading', title:`Loading into ${option.textContent}`, body:`<p>This page plans ${esc(MAP)}.</p>`, ms:20000,
+    actions:[{ label:`Open ${option.textContent}`, run: () => { location.href = option.value; } }] });
+}
 function handleRaidEvent(event, meta) {
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
   if (!scope || !ProgressStore.accepts(scope, event, meta)) return;
   if (event.map !== DATA.meta.key) {
-    if (event.kind === 'raid-loading') { clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null; document.getElementById('spawnDialog').close(); renderQuests(); toast({ label:'Raid loading', title:event.map ? `Raid is on ${event.map}` : 'Unknown raid location', body:'<p>Open that map to plan its objectives.</p>' }); }
+    if (event.kind === 'raid-loading') { clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null; document.getElementById('spawnDialog').close(); renderQuests(); raidElsewhere(event.map); }
     return;
   }
   clearTimeout(spawnWait);

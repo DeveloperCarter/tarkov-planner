@@ -12,11 +12,11 @@ function harness(){
  const c={ProgressStore,RaidSession,progressStore,scopeKey,spawnWait:null,objectiveRoute:null,raidOn:false,
   DATA:{meta:{key:'customs'},spawns:[{gx:0,gz:0,area:'a'}],spawnAreas:[{id:'a',name:'Near fixture'}]},
   MAP:'Customs',currentQuests:[{id:'q'}],qd:{open:false},routeSession:RaidSession.empty(),
-  document:{getElementById:id=>id==='spawnDialog'?dialog:choice},Date:{now:()=>now},
+  document:{getElementById:id=>id==='spawnDialog'?dialog:choice,querySelectorAll:()=>[{value:'woods.html',textContent:'Woods'}]},location:{href:''},Date:{now:()=>now},
   sessionStorage:{setItem:(key,value)=>writes.push([key,value])},
   canRoute:()=>true,esc:s=>s,setTimeout:(fn,ms)=>{timer={fn,ms};return 1},clearTimeout:()=>{timer=null},
-  renderQuests:()=>rendered++,renderRoutePlanner:()=>{},renderRaidPanel:()=>{},clock:()=>{},toast:()=>{},raidStart:0};
- vm.createContext(c);vm.runInContext(extract('promptSpawn')+'\n'+extract('handleRaidEvent'),c);
+  renderQuests:()=>rendered++,renderRoutePlanner:()=>{},renderRaidPanel:()=>{},clock:()=>{},toast:t=>c.toasts.push(t),toasts:[],raidStart:0};
+ vm.createContext(c);vm.runInContext(extract('promptSpawn')+'\n'+extract('raidElsewhere')+'\n'+extract('handleRaidEvent'),c);
  const meta={profileId:profile,mode:'regular',identityConflict:false,session:'synthetic'};
  return {c,meta,dialog,writes,get timer(){return timer},get rendered(){return rendered},get prompted(){return prompted},setNow:n=>now=n};
 }
@@ -43,5 +43,8 @@ test('actual UI handler clears old routes on loading elsewhere and preserves man
  c.objectiveRoute={stops:[1]};
  c.handleRaidEvent({kind:'raid-loading',map:'woods',at:5000},meta);
  assert.equal(c.objectiveRoute,null);assert.equal(c.routeSession.start,null);
+ const shown=c.toasts.at(-1);assert.equal(shown.title,'Loading into Woods');
+ shown.actions[0].run();assert.equal(c.location.href,'woods.html');
+ c.handleRaidEvent({kind:'raid-loading',map:null,at:6000},meta);assert.equal(c.toasts.at(-1).title,'Unknown raid location');
  assert.equal(h.timer,null);
 });

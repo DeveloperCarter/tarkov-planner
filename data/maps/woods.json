@@ -918,7 +918,7 @@
    "y": 531,
    "gx": -519.5,
    "gz": -156.3,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 818,
@@ -953,98 +953,98 @@
    "y": 534,
    "gx": -515.5,
    "gz": -153.1,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 813,
    "y": 536,
    "gx": -512.9,
    "gz": -149.9,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 811,
    "y": 538,
    "gx": -509.6,
    "gz": -147.5,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 809,
    "y": 539,
    "gx": -507.3,
    "gz": -145.3,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 800,
    "y": 610,
    "gx": -494.0,
    "gz": -47.8,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 799,
    "y": 609,
    "gx": -492.6,
    "gz": -48.0,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 798,
    "y": 608,
    "gx": -492.4,
    "gz": -50.2,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 798,
    "y": 611,
    "gx": -491.5,
    "gz": -45.2,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 797,
    "y": 610,
    "gx": -490.5,
    "gz": -47.0,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 746,
    "y": 270,
    "gx": -420.2,
    "gz": -519.4,
-   "area": "spawn-3"
+   "area": "spawn-4"
   },
   {
    "x": 746,
    "y": 277,
    "gx": -420.2,
    "gz": -509.6,
-   "area": "spawn-3"
+   "area": "spawn-4"
   },
   {
    "x": 745,
    "y": 273,
    "gx": -418.8,
    "gz": -515.2,
-   "area": "spawn-3"
+   "area": "spawn-4"
   },
   {
    "x": 741,
    "y": 268,
    "gx": -413.2,
    "gz": -522.4,
-   "area": "spawn-3"
+   "area": "spawn-4"
   },
   {
    "x": 738,
    "y": 274,
    "gx": -409.0,
    "gz": -513.0,
-   "area": "spawn-3"
+   "area": "spawn-4"
   },
   {
    "x": 704,
@@ -1086,35 +1086,35 @@
    "y": 542,
    "gx": -334.6,
    "gz": -140.9,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 684,
    "y": 546,
    "gx": -334.0,
    "gz": -136.2,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 682,
    "y": 544,
    "gx": -331.5,
    "gz": -138.7,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 682,
    "y": 541,
    "gx": -330.9,
    "gz": -142.3,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 681,
    "y": 542,
    "gx": -329.1,
    "gz": -141.8,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 646,
@@ -1156,664 +1156,671 @@
    "y": 188,
    "gx": -265.8,
    "gz": -632.2,
-   "area": "spawn-4"
+   "area": "spawn-5"
   },
   {
    "x": 632,
    "y": 183,
    "gx": -260.7,
    "gz": -639.8,
-   "area": "spawn-4"
+   "area": "spawn-5"
   },
   {
    "x": 631,
    "y": 189,
    "gx": -260.3,
    "gz": -631.9,
-   "area": "spawn-4"
+   "area": "spawn-5"
   },
   {
    "x": 629,
    "y": 185,
    "gx": -256.6,
    "gz": -637.5,
-   "area": "spawn-4"
+   "area": "spawn-5"
   },
   {
    "x": 628,
    "y": 497,
    "gx": -256.1,
    "gz": -203.9,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 627,
    "y": 494,
    "gx": -254.2,
    "gz": -207.9,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 627,
    "y": 496,
    "gx": -254.1,
    "gz": -204.7,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 626,
    "y": 184,
    "gx": -253.7,
    "gz": -638.9,
-   "area": "spawn-4"
+   "area": "spawn-5"
   },
   {
    "x": 625,
    "y": 495,
    "gx": -252.2,
    "gz": -207.4,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 625,
    "y": 496,
    "gx": -252.1,
    "gz": -205.0,
-   "area": "spawn-2"
+   "area": "spawn-3"
   },
   {
    "x": 511,
    "y": 920,
    "gx": -93.5,
    "gz": 382.5,
-   "area": "spawn-5"
+   "area": "spawn-6"
   },
   {
    "x": 511,
    "y": 922,
    "gx": -93.0,
    "gz": 385.3,
-   "area": "spawn-5"
+   "area": "spawn-6"
   },
   {
    "x": 510,
    "y": 918,
    "gx": -92.3,
    "gz": 380.4,
-   "area": "spawn-5"
+   "area": "spawn-6"
   },
   {
    "x": 509,
    "y": 917,
    "gx": -91.3,
    "gz": 379.4,
-   "area": "spawn-5"
+   "area": "spawn-6"
   },
   {
    "x": 509,
    "y": 916,
    "gx": -90.1,
    "gz": 377.4,
-   "area": "spawn-5"
+   "area": "spawn-6"
   },
   {
    "x": 490,
    "y": 225,
    "gx": -63.7,
    "gz": -581.0,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 489,
    "y": 221,
    "gx": -63.1,
    "gz": -587.3,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 488,
    "y": 226,
    "gx": -61.0,
    "gz": -579.6,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 487,
    "y": 228,
    "gx": -59.6,
    "gz": -577.1,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 483,
    "y": 226,
    "gx": -54.1,
    "gz": -579.4,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 385,
    "y": 250,
    "gx": 81.1,
    "gz": -546.1,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 384,
    "y": 250,
    "gx": 82.9,
    "gz": -546.5,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 383,
    "y": 251,
    "gx": 84.6,
    "gz": -545.8,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 383,
    "y": 248,
    "gx": 84.7,
    "gz": -549.3,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 381,
    "y": 249,
    "gx": 86.9,
    "gz": -547.5,
-   "area": "spawn-6"
+   "area": "spawn-7"
   },
   {
    "x": 280,
    "y": 786,
    "gx": 226.4,
    "gz": 197.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 280,
    "y": 787,
    "gx": 226.5,
    "gz": 199.0,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 279,
    "y": 788,
    "gx": 228.4,
    "gz": 199.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 278,
    "y": 789,
    "gx": 230.0,
    "gz": 200.7,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 278,
    "y": 413,
    "gx": 230.1,
    "gz": -320.1,
-   "area": "spawn-8"
+   "area": "spawn-9"
   },
   {
    "x": 277,
    "y": 415,
    "gx": 231.1,
    "gz": -317.4,
-   "area": "spawn-8"
+   "area": "spawn-9"
   },
   {
    "x": 277,
    "y": 417,
    "gx": 231.4,
    "gz": -314.4,
-   "area": "spawn-8"
+   "area": "spawn-9"
   },
   {
    "x": 277,
    "y": 789,
    "gx": 231.6,
    "gz": 201.7,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 275,
    "y": 415,
    "gx": 234.3,
    "gz": -318.0,
-   "area": "spawn-8"
+   "area": "spawn-9"
   },
   {
    "x": 274,
    "y": 417,
    "gx": 235.0,
    "gz": -314.6,
-   "area": "spawn-8"
+   "area": "spawn-9"
   },
   {
    "x": 243,
    "y": 872,
    "gx": 278.8,
    "gz": 315.8,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 242,
    "y": 871,
    "gx": 279.8,
    "gz": 314.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 242,
    "y": 873,
    "gx": 279.9,
    "gz": 317.7,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 242,
    "y": 869,
    "gx": 280.5,
    "gz": 312.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 241,
    "y": 874,
    "gx": 280.8,
    "gz": 319.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 180,
    "y": 139,
    "gx": 365.6,
    "gz": -700.8,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 180,
    "y": 141,
    "gx": 365.9,
    "gz": -698.1,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 179,
    "y": 213,
    "gx": 366.9,
    "gz": -598.2,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 179,
    "y": 137,
    "gx": 367.1,
    "gz": -703,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 179,
    "y": 215,
    "gx": 367.4,
    "gz": -594.9,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 179,
    "y": 591,
    "gx": 367.7,
    "gz": -73.8,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 178,
    "y": 220,
    "gx": 368.6,
    "gz": -588.1,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 178,
    "y": 585,
    "gx": 368.7,
    "gz": -81.7,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 178,
    "y": 595,
    "gx": 368.9,
    "gz": -67.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 177,
    "y": 213,
    "gx": 369.8,
    "gz": -597.5,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 177,
    "y": 215,
    "gx": 370.7,
    "gz": -595.7,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 176,
    "y": 139,
    "gx": 370.8,
    "gz": -700.1,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 176,
    "y": 591,
    "gx": 371.0,
    "gz": -73.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 175,
    "y": 143,
    "gx": 372.9,
    "gz": -695.6,
-   "area": "spawn-9"
+   "area": "spawn-10"
   },
   {
    "x": 174,
    "y": 589,
    "gx": 373.6,
    "gz": -76.2,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 164,
    "y": 348,
    "gx": 388.4,
    "gz": -410.3,
-   "area": "spawn-10"
+   "area": "spawn-11"
   },
   {
    "x": 164,
    "y": 351,
    "gx": 388.5,
    "gz": -407.3,
-   "area": "spawn-10"
+   "area": "spawn-11"
   },
   {
    "x": 163,
    "y": 353,
    "gx": 389.7,
    "gz": -403.9,
-   "area": "spawn-10"
+   "area": "spawn-11"
   },
   {
    "x": 161,
    "y": 351,
    "gx": 391.5,
    "gz": -406.4,
-   "area": "spawn-10"
+   "area": "spawn-11"
   },
   {
    "x": 161,
    "y": 355,
    "gx": 391.6,
    "gz": -400.8,
-   "area": "spawn-10"
+   "area": "spawn-11"
   },
   {
    "x": 148,
    "y": 654,
    "gx": 410.8,
    "gz": 13.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 145,
    "y": 653,
    "gx": 414.2,
    "gz": 13.0,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 142,
    "y": 653,
    "gx": 418.0,
    "gz": 11.9,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 142,
    "y": 650,
    "gx": 418.4,
    "gz": 9.0,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 142,
    "y": 654,
    "gx": 418.4,
    "gz": 14.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 125,
    "y": 908,
    "gx": 441.8,
    "gz": 366.6,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 124,
    "y": 906,
    "gx": 443.0,
    "gz": 364.1,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 124,
    "y": 905,
    "gx": 443.9,
    "gz": 362.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 123,
    "y": 906,
    "gx": 444.6,
    "gz": 363.1,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 123,
    "y": 905,
    "gx": 445.0,
    "gz": 362.2,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 109,
    "y": 771,
    "gx": 464.2,
    "gz": 176.2,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 109,
    "y": 770,
    "gx": 464.8,
    "gz": 174.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 108,
    "y": 772,
    "gx": 465.3,
    "gz": 177.8,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 108,
    "y": 771,
    "gx": 466.0,
    "gz": 176.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 107,
    "y": 770,
    "gx": 466.8,
    "gz": 174.2,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 92,
    "y": 881,
    "gx": 487.4,
    "gz": 328.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 92,
    "y": 882,
    "gx": 487.4,
    "gz": 330.8,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 92,
    "y": 883,
    "gx": 487.4,
    "gz": 331.2,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 92,
    "y": 884,
    "gx": 487.4,
    "gz": 332.6,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 92,
    "y": 885,
    "gx": 487.4,
    "gz": 334.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 72,
    "y": 832,
    "gx": 515.2,
    "gz": 261.5,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 72,
    "y": 835,
    "gx": 515.2,
    "gz": 264.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 71,
    "y": 835,
    "gx": 516.8,
    "gz": 264.4,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 70,
    "y": 832,
    "gx": 518.0,
    "gz": 260.7,
-   "area": "spawn-7"
+   "area": "spawn-8"
   },
   {
    "x": 70,
    "y": 834,
    "gx": 518.4,
    "gz": 264.3,
-   "area": "spawn-7"
+   "area": "spawn-8"
   }
  ],
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Bridge V-Ex (southeast)",
+   "name": "Near Bridge V-Ex, southeast",
    "x": 888,
    "y": 406,
    "count": 5
   },
   {
    "id": "spawn-2",
-   "name": "Near ZB-016",
-   "x": 756,
-   "y": 700,
-   "count": 50
+   "name": "Near UN Roadblock",
+   "x": 773,
+   "y": 803,
+   "count": 30
   },
   {
    "id": "spawn-3",
-   "name": "Near Bridge V-Ex (west)",
+   "name": "Near ZB-016",
+   "x": 730,
+   "y": 546,
+   "count": 20
+  },
+  {
+   "id": "spawn-4",
+   "name": "Near Bridge V-Ex, west",
    "x": 744,
    "y": 272,
    "count": 5
   },
   {
-   "id": "spawn-4",
-   "name": "Near Bridge V-Ex (northwest)",
+   "id": "spawn-5",
+   "name": "Near Bridge V-Ex, northwest",
    "x": 631,
    "y": 186,
    "count": 5
   },
   {
-   "id": "spawn-5",
+   "id": "spawn-6",
    "name": "Near RUAF Gate",
    "x": 510,
    "y": 919,
    "count": 5
   },
   {
-   "id": "spawn-6",
-   "name": "Near Friendship Bridge (Co-Op) (south)",
+   "id": "spawn-7",
+   "name": "Near Friendship Bridge, south",
    "x": 435,
    "y": 238,
    "count": 10
   },
   {
-   "id": "spawn-7",
+   "id": "spawn-8",
    "name": "Near ZB-014",
    "x": 155,
    "y": 787,
    "count": 40
   },
   {
-   "id": "spawn-8",
-   "name": "Near Power Line Passage (Flare) (northeast) 1",
+   "id": "spawn-9",
+   "name": "Near Power Line Passage, northeast toward ZB-014 1",
    "x": 276,
    "y": 416,
    "count": 5
   },
   {
-   "id": "spawn-9",
-   "name": "Near Friendship Bridge (Co-Op) (southwest)",
+   "id": "spawn-10",
+   "name": "Near Friendship Bridge, southwest",
    "x": 178,
    "y": 178,
    "count": 10
   },
   {
-   "id": "spawn-10",
-   "name": "Near Power Line Passage (Flare) (northeast) 2",
+   "id": "spawn-11",
+   "name": "Near Power Line Passage, northeast toward ZB-014 2",
    "x": 163,
    "y": 352,
    "count": 5

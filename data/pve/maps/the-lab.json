@@ -341,7 +341,7 @@
    "y": 95,
    "gx": -266.1,
    "gz": -321.7,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 295,
@@ -355,7 +355,7 @@
    "y": 103,
    "gx": -264.2,
    "gz": -321.7,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 304,
@@ -369,91 +369,91 @@
    "y": 115,
    "gx": -261.0,
    "gz": -321.8,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 567,
    "y": 127,
    "gx": -258.1,
    "gz": -321.2,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 574,
    "y": 130,
    "gx": -257.3,
    "gz": -319.5,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 729,
    "y": 130,
    "gx": -257.2,
    "gz": -280.1,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 670,
    "y": 132,
    "gx": -256.7,
    "gz": -295.2,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 720,
    "y": 133,
    "gx": -256.6,
    "gz": -282.4,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 657,
    "y": 140,
    "gx": -254.8,
    "gz": -298.5,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 719,
    "y": 146,
    "gx": -253.2,
    "gz": -282.7,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 730,
    "y": 146,
    "gx": -253.2,
    "gz": -279.9,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 675,
    "y": 148,
    "gx": -252.6,
    "gz": -293.9,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 664,
    "y": 154,
    "gx": -251.1,
    "gz": -296.6,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 722,
    "y": 155,
    "gx": -250.9,
    "gz": -281.8,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 675,
    "y": 159,
    "gx": -250.0,
    "gz": -293.7,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 324,
@@ -495,289 +495,317 @@
    "y": 325,
    "gx": -207.8,
    "gz": -295.2,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 683,
    "y": 329,
    "gx": -206.7,
    "gz": -291.9,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 688,
    "y": 329,
    "gx": -206.7,
    "gz": -290.5,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 676,
    "y": 332,
    "gx": -205.9,
    "gz": -293.6,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 694,
    "y": 332,
    "gx": -205.8,
    "gz": -289.1,
-   "area": "spawn-1"
+   "area": "spawn-2"
   },
   {
    "x": 503,
    "y": 469,
    "gx": -171.0,
    "gz": -337.6,
-   "area": "spawn-1"
+   "area": "spawn-3"
   },
   {
    "x": 493,
    "y": 470,
    "gx": -170.9,
    "gz": -340.1,
-   "area": "spawn-1"
+   "area": "spawn-3"
   },
   {
    "x": 484,
    "y": 470,
    "gx": -170.8,
    "gz": -342.4,
-   "area": "spawn-1"
+   "area": "spawn-3"
   },
   {
    "x": 475,
    "y": 470,
    "gx": -170.7,
    "gz": -344.6,
-   "area": "spawn-1"
+   "area": "spawn-3"
   },
   {
    "x": 191,
    "y": 471,
    "gx": -170.6,
    "gz": -416.8,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 181,
    "y": 471,
    "gx": -170.5,
    "gz": -419.4,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 190,
    "y": 480,
    "gx": -168.2,
    "gz": -417.0,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 503,
    "y": 481,
    "gx": -168.0,
    "gz": -337.5,
-   "area": "spawn-1"
+   "area": "spawn-3"
   },
   {
    "x": 180,
    "y": 482,
    "gx": -167.9,
    "gz": -419.6,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 194,
    "y": 487,
    "gx": -166.7,
    "gz": -416.1,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 793,
    "y": 612,
    "gx": -134.8,
    "gz": -263.9,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 519,
    "y": 641,
    "gx": -127.5,
    "gz": -333.6,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 784,
    "y": 643,
    "gx": -126.9,
    "gz": -266.2,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 795,
    "y": 647,
    "gx": -125.8,
    "gz": -263.4,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 500,
    "y": 649,
    "gx": -125.4,
    "gz": -338.4,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 789,
    "y": 649,
    "gx": -125.4,
    "gz": -264.9,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 520,
    "y": 659,
    "gx": -122.7,
    "gz": -333.4,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 501,
    "y": 660,
    "gx": -122.5,
    "gz": -338.1,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 509,
    "y": 661,
    "gx": -122.3,
    "gz": -336.1,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 821,
    "y": 668,
    "gx": -120.6,
    "gz": -256.7,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 834,
    "y": 668,
    "gx": -120.6,
    "gz": -253.5,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 259,
    "y": 676,
    "gx": -118.5,
    "gz": -399.5,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 839,
    "y": 676,
    "gx": -118.5,
    "gz": -252.2,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 245,
    "y": 677,
    "gx": -118.3,
    "gz": -403.1,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 546,
    "y": 677,
    "gx": -118.2,
    "gz": -326.5,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 252,
    "y": 678,
    "gx": -118.1,
    "gz": -401.4,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 832,
    "y": 684,
    "gx": -116.5,
    "gz": -253.9,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 820,
    "y": 687,
    "gx": -115.7,
    "gz": -256.9,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 573,
    "y": 688,
    "gx": -115.5,
    "gz": -319.7,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 565,
    "y": 688,
    "gx": -115.4,
    "gz": -321.8,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 544,
    "y": 689,
    "gx": -115.2,
    "gz": -327.2,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 538,
    "y": 689,
    "gx": -115.1,
    "gz": -328.6,
-   "area": "spawn-1"
+   "area": "spawn-5"
   },
   {
    "x": 191,
    "y": 698,
    "gx": -113.0,
    "gz": -416.8,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 204,
    "y": 701,
    "gx": -112.0,
    "gz": -413.6,
-   "area": "spawn-1"
+   "area": "spawn-4"
   },
   {
    "x": 203,
    "y": 709,
    "gx": -110.1,
    "gz": -413.7,
-   "area": "spawn-1"
+   "area": "spawn-4"
   }
  ],
  "spawnAreas": [
   {
    "id": "spawn-1",
+   "name": "Near Main Elevator, southwest",
+   "x": 349,
+   "y": 142,
+   "count": 15
+  },
+  {
+   "id": "spawn-2",
+   "name": "Near Main Elevator, southeast",
+   "x": 660,
+   "y": 183,
+   "count": 20
+  },
+  {
+   "id": "spawn-3",
+   "name": "Near Medical Block Elevator",
+   "x": 492,
+   "y": 472,
+   "count": 5
+  },
+  {
+   "id": "spawn-4",
    "name": "Near Ventilation Shaft",
-   "x": 512,
-   "y": 390,
-   "count": 70
+   "x": 208,
+   "y": 594,
+   "count": 11
+  },
+  {
+   "id": "spawn-5",
+   "name": "Near Sewage Conduit",
+   "x": 664,
+   "y": 665,
+   "count": 19
   }
  ],
  "bosses": [

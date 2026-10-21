@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import etl_tarkov_dev as etl
@@ -23,14 +24,36 @@ class SpawnTests(unittest.TestCase):
 
     def test_single_linkage_in_metres_and_deterministic_names_frames(self):
         m, frame, en, extracts = self.fixture()
-        spawns, areas = etl.build_spawns(m, frame, en, extracts)
+        with mock.patch.object(etl, 'SPLIT_SHARE', 1.0):
+            spawns, areas = etl.build_spawns(m, frame, en, extracts)
         self.assertEqual(len(spawns), 5)
         self.assertEqual(sorted(a['count'] for a in areas), [2, 3])
         self.assertEqual(len({a['name'] for a in areas}), 2)
-        self.assertTrue(all(a['name'].startswith('Near Gate (') for a in areas))
+        self.assertTrue(all(a['name'].startswith('Near Gate, ') for a in areas))
         self.assertEqual([a['id'] for a in areas], ['spawn-1', 'spawn-2'])
         for s in spawns:
             self.assertEqual((s['x'], s['y']), frame.xy(en({'x': s['gx'], 'z': s['gz']})))
+        m['spawns'].reverse()
+        with mock.patch.object(etl, 'SPLIT_SHARE', 1.0):
+            self.assertEqual(etl.build_spawns(m, frame, en, extracts), (spawns, areas))
+
+    def test_dense_map_splits_into_several_areas_with_clean_unique_names(self):
+        def spawn(x, z):
+            return {'position': {'x': x, 'z': z}, 'sides': ['pmc'], 'categories': ['player']}
+        # One 100 m-spaced grid: single-linkage alone would make it a single area (like Streets).
+        m = {'normalizedName': 'dense', 'spawns': [spawn(x, z) for x in range(0, 600, 100) for z in range(0, 500, 100)]}
+        frame = etl.Frame([(-100, -100), (700, 600)])
+        en = lambda p: etl.rotate(p, 90)
+        extracts = []
+        for i, (gx, gz, name) in enumerate([(0, 0, 'Sewer (Flare)'), (500, 0, 'Crane'), (0, 400, 'Gate (Co-Op)'), (500, 400, 'Expo')]):
+            x, y = frame.xy(en({'x': gx, 'z': gz}))
+            extracts.append({'id': str(i), 'name': name, 'type': 'pmc', 'x': x, 'y': y})
+        spawns, areas = etl.build_spawns(m, frame, en, extracts)
+        self.assertGreaterEqual(len(areas), 4)
+        self.assertEqual(sum(a['count'] for a in areas), 30)
+        names = [a['name'] for a in areas]
+        self.assertEqual(len(set(names)), len(names))
+        self.assertFalse(any('(' in n for n in names), names)
         m['spawns'].reverse()
         self.assertEqual(etl.build_spawns(m, frame, en, extracts), (spawns, areas))
 

@@ -316,6 +316,37 @@ def art_rect(site: dict, frame: Frame, en) -> dict | None:
 # Single-linkage in game metres. Woods needs 175 m to keep its larger perimeter useful;
 # 150 m gives four areas on Customs/Shoreline; 175 m gives ten on Woods (cached snapshot).
 SPAWN_DISTANCE = 150.0
+# Dense maps (Streets, Factory, Labs) link into one component. Any area wider than this share of
+# the map's spawn spread (and wider than SPLIT_MIN metres) is split in two, until none are.
+SPLIT_SHARE, SPLIT_MIN = 0.4, 90.0
+
+
+def split_wide(points: list, members: list, limit: float) -> list:
+    """Deterministic 2-means seeded by the farthest pair; recurse while an area is too wide."""
+    if len(members) < 2:
+        return [members]
+    pairs = [(math.dist(points[i], points[j]), i, j) for k, i in enumerate(members) for j in members[k + 1:]]
+    width, a, c = max(pairs, key=lambda t: (t[0], -t[1], -t[2]))
+    if width <= limit:
+        return [members]
+    seeds = [points[a], points[c]]
+    for _ in range(10):
+        groups = [[], []]
+        for i in members:
+            groups[math.dist(points[i], seeds[1]) < math.dist(points[i], seeds[0])].append(i)
+        new = [(sum(points[i][0] for i in g) / len(g), sum(points[i][1] for i in g) / len(g)) for g in groups if g]
+        if len(new) < 2 or new == seeds:
+            break
+        seeds = new
+    if not all(groups):
+        return [members]
+    return [part for g in groups for part in split_wide(points, sorted(g), limit)]
+
+
+def extract_label(name: str) -> str:
+    """'Power Line Passage (Flare)' -> 'Power Line Passage'; keeps names that are only a tag."""
+    short = re.sub(r"\s*\((?:Flare|Co-Op|Coop|Car|Paid|Train)\)", "", name, flags=re.I).strip()
+    return short or name
 
 
 def match_spawn(data: dict, gx: float, gz: float) -> dict | None:
@@ -349,6 +380,10 @@ def build_spawns(m: dict, frame: Frame, en, extracts: list) -> tuple[list, list]
             remaining.difference_update(neighbours)
             todo.extend(neighbours)
         clusters.append(sorted(members))
+    spread = max((math.dist(p, q) for p in points for q in points), default=0.0)
+    limit = max(SPLIT_MIN, SPLIT_SHARE * spread)
+    clusters = [part for c in clusters for part in split_wide(points, c, limit)]
+    clusters.sort(key=lambda c: points[c[0]])
     candidates = [e for e in extracts if e.get("type") in ("pmc", "shared", "coop")
                   or (e.get("type") is None and e.get("faction") in ("pmc", "shared", "all"))]
     areas, spawns, anchors = [], [], []
@@ -356,28 +391,37 @@ def build_spawns(m: dict, frame: Frame, en, extracts: list) -> tuple[list, list]
         gx = sum(points[j][0] for j in members) / len(members)
         gz = sum(points[j][1] for j in members) / len(members)
         x, y = frame.xy(en({"x": gx, "z": gz}))
-        near = min(candidates, key=lambda e: (math.hypot(e["x"] - x, e["y"] - y), e["name"], e.get("id", ""))) if candidates else None
+        ranked = sorted(candidates, key=lambda e: (math.hypot(e["x"] - x, e["y"] - y), e["name"], e.get("id", "")))
+        near = ranked[0] if ranked else None
         area_id = f"spawn-{i + 1}"
-        areas.append({"id": area_id, "name": f"Near {near['name']}" if near else "Unnamed spawn area",
+        areas.append({"id": area_id, "name": f"Near {extract_label(near['name'])}" if near else "Unnamed spawn area",
                       "x": x, "y": y, "count": len(members)})
-        anchors.append(near)
+        anchors.append(ranked)
         for j in members:
             px, py = frame.xy(en({"x": points[j][0], "z": points[j][1]}))
             spawns.append({"x": px, "y": py, "gx": round(points[j][0], 1), "gz": round(points[j][1], 1), "area": area_id})
+    # Ties on the nearest extract get a compass word ("Near Bridge V-Ex, west"), then the
+    # next-closest different extract, and a number only as a last resort.
     names = [a["name"] for a in areas]
-    for a, near in zip(areas, anchors):
-        if names.count(a["name"]) > 1 and near:
+    for a, ranked in zip(areas, anchors):
+        if names.count(a["name"]) > 1 and ranked:
+            near = ranked[0]
             # Frame y grows south; compass() takes north-up coordinates.
             direction = compass((near["x"], -near["y"]), (a["x"], -a["y"]))
-            direction = {"N": "north", "NE": "northeast", "E": "east", "SE": "southeast",
-                         "S": "south", "SW": "southwest", "W": "west", "NW": "northwest"}[direction]
-            a["name"] += f" ({direction})"
-    # Rare same-direction ties still need distinguishable, stable labels.
+            a["name"] += ", " + {"N": "north", "NE": "northeast", "E": "east", "SE": "southeast",
+                                 "S": "south", "SW": "southwest", "W": "west", "NW": "northwest"}[direction]
+    names = [a["name"] for a in areas]
+    for a, ranked in zip(areas, anchors):
+        if names.count(a["name"]) > 1 and ranked:
+            first = extract_label(ranked[0]["name"])
+            second = next((extract_label(e["name"]) for e in ranked[1:] if extract_label(e["name"]) != first), None)
+            if second:
+                a["name"] += f" toward {second}"
     for name in sorted({a["name"] for a in areas}):
         same = [a for a in areas if a["name"] == name]
         if len(same) > 1:
-            for i, a in enumerate(same, 1):
-                a["name"] += f" {i}"
+            for k, a in enumerate(same, 1):
+                a["name"] += f" {k}"
     spawns.sort(key=lambda s: (s["gx"], s["gz"], s["area"]))
     return spawns, areas
 

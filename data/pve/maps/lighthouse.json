@@ -1034,49 +1034,49 @@
   },
   {
    "id": "spawn-2",
-   "name": "Near Passage by the Lake (west)",
+   "name": "Near Passage by the Lake, west",
    "x": 524,
    "y": 527,
    "count": 5
   },
   {
    "id": "spawn-3",
-   "name": "Near Mountain Pass (north)",
+   "name": "Near Mountain Pass, north",
    "x": 468,
    "y": 838,
    "count": 5
   },
   {
    "id": "spawn-4",
-   "name": "Near Passage by the Lake (southwest)",
+   "name": "Near Passage by the Lake, southwest",
    "x": 445,
    "y": 660,
    "count": 5
   },
   {
    "id": "spawn-5",
-   "name": "Near Side Tunnel (Co-Op) (east)",
+   "name": "Near Side Tunnel, east",
    "x": 413,
    "y": 1166,
    "count": 5
   },
   {
    "id": "spawn-6",
-   "name": "Near Side Tunnel (Co-Op) (southeast)",
+   "name": "Near Side Tunnel, southeast",
    "x": 405,
    "y": 1269,
    "count": 5
   },
   {
    "id": "spawn-7",
-   "name": "Near Armored Train (southeast)",
+   "name": "Near Armored Train, southeast",
    "x": 400,
    "y": 425,
    "count": 5
   },
   {
    "id": "spawn-8",
-   "name": "Near Mountain Pass (northwest)",
+   "name": "Near Mountain Pass, northwest",
    "x": 284,
    "y": 803,
    "count": 5
@@ -1090,28 +1090,28 @@
   },
   {
    "id": "spawn-10",
-   "name": "Near Side Tunnel (Co-Op) (west)",
+   "name": "Near Side Tunnel, west",
    "x": 262,
    "y": 1130,
    "count": 5
   },
   {
    "id": "spawn-11",
-   "name": "Near Mountain Pass (west)",
+   "name": "Near Mountain Pass, west",
    "x": 242,
    "y": 963,
    "count": 5
   },
   {
    "id": "spawn-12",
-   "name": "Near Armored Train (south)",
+   "name": "Near Armored Train, south",
    "x": 229,
    "y": 617,
    "count": 5
   },
   {
    "id": "spawn-13",
-   "name": "Near Armored Train (southwest)",
+   "name": "Near Armored Train, southwest",
    "x": 202,
    "y": 479,
    "count": 5
