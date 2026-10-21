@@ -8,7 +8,8 @@ M1A is implemented and checked against the supplied 12-quest Customs reference.
 M1B is implemented and validated. M2 is deployed and its live HTTPS acceptance check passes.
 The public Chrome tab watches the real Logs folder. Its Customs list has been reconciled
 with the confirmed 12-quest reference, level 24, and a three-quest raid focus.
-M3 remains unstarted. M4 (real maps, spot photos, quest details) shipped ahead of it.
+M3 data and pure logic are implemented on feat/spawn-routes; UI integration is a separate change.
+M4 (real maps, spot photos, quest details) shipped ahead of it.
 
 ## Where things stand (2026-10-20)
 
@@ -265,25 +266,40 @@ After reconciling the live public state, all 64 Node tests and 13 Python tests p
 default builds succeed and all 130 inline scripts / local navigation links pass. The public
 tab has no console warnings/errors and remains connected while changing raid selections.
 
-## M3 · Raid bundler v1  (M–L, what sets this apart)
+## M3 · Spawn-based objective routes (data and pure logic implemented; UI integration pending)
 
-Turns the player's selected current quests from M1B into the `raids` structure the page
-already renders. Do not silently add every predicted unlock or unselected quest.
+Route through the player's selected current quests from M1B, starting at the actual spawn.
+The route ends at the last objective. Extract planning, automatic key-based raid grouping and
+splitting the selection into several raids are outside this design.
 
-- **Route stops:** placement, visit, mark and fetch objectives become stops in their zones.
-  Kill and counter objectives become "every raid" notes, not stops.
-- **Grouping:** first a raid with no keys, then raids gated by keys (only for keys you've marked
-  as owned or that are obtainable). Cap each raid at about 6–8 stops, and group the
-  must-extract items onto one survivable route.
-- **Order:** nearest-neighbour from the spawn side, ending at the nearest PMC extract that's
-  always open. Paid, flare and note-gated extracts only when you meet the condition.
-- **Testing:** golden test against `data/customs-quests.json`, where the hand-built plan is the
-  reference. It must cover every placement objective in at most 3 raids, with the key-gated work
-  in a separate raid.
+1. **Live raid events** — `page/eft-log-tracker.js` parses the application log's matching result,
+   GameStarted and incidental Position lines. `onRaid(event,meta)` receives only live lines, never
+   an old raid from initial connection, scans or imports. Map names use snapshot nameId values;
+   unknown locations stay unknown. Never retain identity/network details in raid events.
+2. **Spawn areas** — the offline ETL emits PMC player spawns in frame and game coordinates and
+   deterministic named areas near extracts. Single-linkage uses 150 m (175 m on Woods), giving
+   4 Customs, 10 Woods and 4 Shoreline areas. Matching accepts the closest individual spawn within
+   30 m. Dense maps may have one broad area; coarse areas are a manual fallback.
+3. **Objective route** — `page/raid-route.js` is pure UMD, tested in Node. Selected objectives with
+   zones become stops; shared zones merge, done objectives drop, unfinished counters remain.
+   Multi-zone objectives are alternatives (including random item search spots), not all required
+   targets. Choose alternatives globally with the order. Up to ten independent requirements or
+   candidate stops use exact Held–Karp; larger cases use nearest-neighbour plus 2-opt and report
+   approximate:true. Distances are straight lines in game metres, not terrain-aware paths.
+4. **UI integration (parallel change)** — prompt for the spawn area if no usable Position arrives
+   within ten seconds, or it is over 30 m from a known spawn. Offer manual correction and reroute
+   from the last completed stop. A raid-loading event can prepare the map during loading;
+   raid-started begins the wait. Missing/unknown maps must never select an unrelated map silently.
+   Show the route for the selected quests only, with its approximation/search-location caveats.
 
-**Done when:** every map with selected quests gets raids covering that selection, changing
-the selection updates the plan, Customs passes the golden test, and the bundler is a pure
-module with unit tests.
+**Foundation checks:** synthetic fixtures cover multi-raid/split-chunk parsing, live-only watcher
+callbacks, rotations, spawn filtering and matching, brute-force route optimality, alternative zones,
+shared stops, counters, rerouting, determinism and the large-route approximation flag. Both modes
+regenerate offline. No UI template changes are included in the foundation branch.
+
+**Done when:** the foundation tests/build checks pass and the separately reviewed UI handles a
+live raid, manual area selection when the log lacks a position, quest selection changes and
+completion-based rerouting. No extract recommendation is part of this milestone.
 
 ## M4 · Real maps, spot photos and quest details  (implemented)
 

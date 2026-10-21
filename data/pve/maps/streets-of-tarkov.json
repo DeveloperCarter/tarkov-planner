@@ -11,7 +11,8 @@
   "frame": {
    "w": 1000,
    "h": 1358,
-   "metres": 801
+   "metres": 801,
+   "scale": 1.6213046327917484
   },
   "art": {
    "x": 13.4,
@@ -44,61 +45,81 @@
    "name": "Pharmacy 1 NW",
    "x": 407,
    "y": 720,
-   "hints": []
+   "hints": [],
+   "gx": 80.2,
+   "gz": 143.7
   },
   "kamchatskaya-st-n": {
    "name": "Kamchatskaya St. N",
    "x": 137,
    "y": 575,
-   "hints": []
+   "hints": [],
+   "gx": 246.5,
+   "gz": 54.1
   },
   "chekannaya-st-nw": {
    "name": "Chekannaya St. NW",
    "x": 341,
    "y": 864,
-   "hints": []
+   "hints": [],
+   "gx": 121.2,
+   "gz": 232.3
   },
   "beluga": {
    "name": "Beluga",
    "x": 599,
    "y": 386,
-   "hints": []
+   "hints": [],
+   "gx": -38.1,
+   "gz": -62.5
   },
   "office": {
    "name": "Office",
    "x": 824,
    "y": 855,
-   "hints": []
+   "hints": [],
+   "gx": -177.1,
+   "gz": 227.1
   },
   "pinewood-hotel-e": {
    "name": "Pinewood Hotel E",
    "x": 655,
    "y": 585,
-   "hints": []
+   "hints": [],
+   "gx": -72.7,
+   "gz": 60.5
   },
   "razvedchikov-st-nw": {
    "name": "Razvedchikov St. NW",
    "x": 188,
    "y": 1141,
-   "hints": []
+   "hints": [],
+   "gx": 215.3,
+   "gz": 403.4
   },
   "sparja-grocery-sw": {
    "name": "Sparja Grocery SW",
    "x": 285,
    "y": 984,
-   "hints": []
+   "hints": [],
+   "gx": 155.5,
+   "gz": 306.6
   },
   "marked-hotel": {
    "name": "Marked Hotel",
    "x": 869,
    "y": 881,
-   "hints": []
+   "hints": [],
+   "gx": -204.7,
+   "gz": 243.0
   },
   "abandon-factory-ne": {
    "name": "Abandon Factory NE",
    "x": 749,
    "y": 924,
-   "hints": []
+   "hints": [],
+   "gx": -130.8,
+   "gz": 269.7
   },
   "se-of-vet-clinic": {
    "name": "SE of Vet Clinic",
@@ -106,25 +127,33 @@
    "y": 857,
    "hints": [
     "Chek.13 marked room"
-   ]
+   ],
+   "gx": 191.9,
+   "gz": 228.1
   },
   "ne-of-marked-hotel": {
    "name": "NE of Marked Hotel",
    "x": 964,
    "y": 822,
-   "hints": []
+   "hints": [],
+   "gx": -263.3,
+   "gz": 206.4
   },
   "pharmacy-1": {
    "name": "Pharmacy 1",
    "x": 472,
    "y": 737,
-   "hints": []
+   "hints": [],
+   "gx": 40.3,
+   "gz": 154.0
   },
   "chekannaya-st-n": {
    "name": "Chekannaya St. N",
    "x": 364,
    "y": 848,
-   "hints": []
+   "hints": [],
+   "gx": 106.8,
+   "gz": 222.5
   },
   "kilmov-shopping-mall-sw": {
    "name": "Kilmov Shopping Mall SW",
@@ -132,7 +161,9 @@
    "y": 468,
    "hints": [
     "Inside the Stylobate building"
-   ]
+   ],
+   "gx": -105.5,
+   "gz": -11.6
   },
   "cinema": {
    "name": "Cinema",
@@ -140,43 +171,57 @@
    "y": 1135,
    "hints": [
     "Rodina Cinema"
-   ]
+   ],
+   "gx": -180.4,
+   "gz": 399.5
   },
   "lexos": {
    "name": "Lexos",
    "x": 429,
    "y": 979,
-   "hints": []
+   "hints": [],
+   "gx": 66.8,
+   "gz": 303.1
   },
   "post-office-s": {
    "name": "Post Office S",
    "x": 473,
    "y": 680,
-   "hints": []
+   "hints": [],
+   "gx": 39.3,
+   "gz": 119.1
   },
   "lexos-sw": {
    "name": "Lexos SW",
    "x": 386,
    "y": 1007,
-   "hints": []
+   "hints": [],
+   "gx": 93.3,
+   "gz": 320.9
   },
   "nizhnyaya-st-e": {
    "name": "Nizhnyaya St. E",
    "x": 763,
    "y": 1199,
-   "hints": []
+   "hints": [],
+   "gx": -139.4,
+   "gz": 438.8
   },
   "razvedchikov-st-ne": {
    "name": "Razvedchikov St. NE",
    "x": 300,
    "y": 1149,
-   "hints": []
+   "hints": [],
+   "gx": 146.3,
+   "gz": 408.4
   },
   "pinewood-hotel-nw": {
    "name": "Pinewood Hotel NW",
    "x": 533,
    "y": 542,
-   "hints": []
+   "hints": [],
+   "gx": 2.2,
+   "gz": 34.0
   },
   "prestigio-cafe-e": {
    "name": "Prestigio Cafe E",
@@ -184,199 +229,265 @@
    "y": 849,
    "hints": [
     "Armored Convoy"
-   ]
+   ],
+   "gx": 13.4,
+   "gz": 222.9
   },
   "lexos-n": {
    "name": "Lexos N",
    "x": 436,
    "y": 930,
-   "hints": []
+   "hints": [],
+   "gx": 62.2,
+   "gz": 272.8
   },
   "verhnyaya-st-se": {
    "name": "Verhnyaya St. SE",
    "x": 750,
    "y": 1131,
-   "hints": []
+   "hints": [],
+   "gx": -131.5,
+   "gz": 396.8
   },
   "post-office": {
    "name": "Post Office",
    "x": 477,
    "y": 630,
-   "hints": []
+   "hints": [],
+   "gx": 37.0,
+   "gz": 88.2
   },
   "shestyorochka-s": {
    "name": "Shestyorochka S",
    "x": 868,
    "y": 781,
-   "hints": []
+   "hints": [],
+   "gx": -204.3,
+   "gz": 181.2
   },
   "sparja-express-ne": {
    "name": "Sparja Express NE",
    "x": 662,
    "y": 745,
-   "hints": []
+   "hints": [],
+   "gx": -77.2,
+   "gz": 158.9
   },
   "sw-of-construction": {
    "name": "SW of Construction",
    "x": 90,
    "y": 1105,
-   "hints": []
+   "hints": [],
+   "gx": 275.6,
+   "gz": 380.8
   },
   "ne-of-kamchatskaya-st": {
    "name": "NE of Kamchatskaya St.",
    "x": 238,
    "y": 575,
-   "hints": []
+   "hints": [],
+   "gx": 184.2,
+   "gz": 54.5
   },
   "school-ne-1": {
    "name": "School NE (1)",
    "x": 241,
    "y": 660,
-   "hints": []
+   "hints": [],
+   "gx": 182.9,
+   "gz": 106.9
   },
   "school-ne-2": {
    "name": "School NE (2)",
    "x": 251,
    "y": 620,
-   "hints": []
+   "hints": [],
+   "gx": 176.3,
+   "gz": 82.2
   },
   "razvedchikov-st-se": {
    "name": "Razvedchikov St. SE",
    "x": 281,
    "y": 1226,
-   "hints": []
+   "hints": [],
+   "gx": 157.9,
+   "gz": 456.0
   },
   "w-of-razvedchikov-st": {
    "name": "W of Razvedchikov St.",
    "x": 32,
    "y": 1157,
-   "hints": []
+   "hints": [],
+   "gx": 311.5,
+   "gz": 413.4
   },
   "s-of-construction": {
    "name": "S of Construction",
    "x": 187,
    "y": 1079,
-   "hints": []
+   "hints": [],
+   "gx": 215.6,
+   "gz": 364.8
   },
   "primorsky-ave-sw": {
    "name": "Primorsky Ave. SW",
    "x": 470,
    "y": 400,
-   "hints": []
+   "hints": [],
+   "gx": 41.6,
+   "gz": -53.9
   },
   "cardinal-apartments-e": {
    "name": "Cardinal Apartments E",
    "x": 442,
    "y": 369,
-   "hints": []
+   "hints": [],
+   "gx": 58.5,
+   "gz": -72.8
   },
   "primorsky-ave-ne": {
    "name": "Primorsky Ave. NE",
    "x": 590,
    "y": 305,
-   "hints": []
+   "hints": [],
+   "gx": -32.4,
+   "gz": -112.2
   },
   "vet-clinic": {
    "name": "Vet Clinic",
    "x": 172,
    "y": 767,
-   "hints": []
+   "hints": [],
+   "gx": 224.9,
+   "gz": 172.8
   },
   "pharmacy-2": {
    "name": "Pharmacy 2",
    "x": 609,
    "y": 1032,
-   "hints": []
+   "hints": [],
+   "gx": -44.6,
+   "gz": 336.1
   },
   "pharmacy-3": {
    "name": "Pharmacy 3",
    "x": 392,
    "y": 41,
-   "hints": []
+   "hints": [],
+   "gx": 89.3,
+   "gz": -275.4
   },
   "cardinal-bank": {
    "name": "Cardinal Bank",
    "x": 397,
    "y": 441,
-   "hints": []
+   "hints": [],
+   "gx": 86.6,
+   "gz": -28.4
   },
   "kilmov-shopping-mall-ne": {
    "name": "Kilmov Shopping Mall NE",
    "x": 787,
    "y": 398,
-   "hints": []
+   "hints": [],
+   "gx": -154.4,
+   "gz": -55.3
   },
   "nw-of-pinewood-hotel": {
    "name": "NW of Pinewood Hotel",
    "x": 524,
    "y": 496,
-   "hints": []
+   "hints": [],
+   "gx": 8.3,
+   "gz": 5.2
   },
   "kilmov-shopping-mall-se": {
    "name": "Kilmov Shopping Mall SE",
    "x": 807,
    "y": 482,
-   "hints": []
+   "hints": [],
+   "gx": -166.5,
+   "gz": -3.4
   },
   "beluga-sw": {
    "name": "Beluga SW",
    "x": 536,
    "y": 457,
-   "hints": []
+   "hints": [],
+   "gx": 0.5,
+   "gz": -18.8
   },
   "zmejskij-alley-w": {
    "name": "Zmejskij Alley W",
    "x": 271,
    "y": 743,
-   "hints": []
+   "hints": [],
+   "gx": 164.3,
+   "gz": 157.7
   },
   "hive": {
    "name": "Hive",
    "x": 880,
    "y": 969,
-   "hints": []
+   "hints": [],
+   "gx": -211.8,
+   "gz": 297.3
   },
   "nizhnyaya-st-w": {
    "name": "Nizhnyaya St. W",
    "x": 632,
    "y": 1227,
-   "hints": []
+   "hints": [],
+   "gx": -58.4,
+   "gz": 456.5
   },
   "construction-ne": {
    "name": "Construction NE",
    "x": 221,
    "y": 904,
-   "hints": []
+   "hints": [],
+   "gx": 195.2,
+   "gz": 257.0
   },
   "kilmov-st-se-1": {
    "name": "Kilmov St. SE (1)",
    "x": 350,
    "y": 529,
-   "hints": []
+   "hints": [],
+   "gx": 115.6,
+   "gz": 25.8
   },
   "kilmov-st-se-2": {
    "name": "Kilmov St. SE (2)",
    "x": 753,
    "y": 591,
-   "hints": []
+   "hints": [],
+   "gx": -133.1,
+   "gz": 63.9
   },
   "primorskij-49-n": {
    "name": "Primorskij 49 N",
    "x": 558,
    "y": 841,
-   "hints": []
+   "hints": [],
+   "gx": -13.1,
+   "gz": 218.3
   },
   "marked-hotel-e": {
    "name": "Marked Hotel E",
    "x": 916,
    "y": 870,
-   "hints": []
+   "hints": [],
+   "gx": -233.7,
+   "gz": 235.9
   },
   "shestyorochka": {
    "name": "Shestyorochka",
    "x": 877,
    "y": 706,
-   "hints": []
+   "hints": [],
+   "gx": -209.7,
+   "gz": 135.3
   }
  },
  "extracts": [
@@ -763,6 +874,1389 @@
    ],
    "note": "Travel to another map; available after 1 minute(s).",
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov"
+  }
+ ],
+ "spawns": [
+  {
+   "x": 933,
+   "y": 873,
+   "gx": -244.4,
+   "gz": 238.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 931,
+   "y": 877,
+   "gx": -243.1,
+   "gz": 240.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 931,
+   "y": 882,
+   "gx": -243.1,
+   "gz": 243.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 930,
+   "y": 880,
+   "gx": -242.6,
+   "gz": 242.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 930,
+   "y": 881,
+   "gx": -242.3,
+   "gz": 242.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 918,
+   "y": 1047,
+   "gx": -235.2,
+   "gz": 345.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 917,
+   "y": 1042,
+   "gx": -234.3,
+   "gz": 342.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 913,
+   "y": 1042,
+   "gx": -232.0,
+   "gz": 342.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 913,
+   "y": 1047,
+   "gx": -232.0,
+   "gz": 345.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 911,
+   "y": 1042,
+   "gx": -230.6,
+   "gz": 342.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 906,
+   "y": 937,
+   "gx": -227.3,
+   "gz": 277.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 906,
+   "y": 945,
+   "gx": -227.3,
+   "gz": 282.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 904,
+   "y": 940,
+   "gx": -226.6,
+   "gz": 279.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 904,
+   "y": 942,
+   "gx": -226.2,
+   "gz": 280.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 903,
+   "y": 945,
+   "gx": -225.6,
+   "gz": 282.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 872,
+   "y": 781,
+   "gx": -206.3,
+   "gz": 181.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 870,
+   "y": 782,
+   "gx": -205.1,
+   "gz": 182.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 868,
+   "y": 778,
+   "gx": -204.1,
+   "gz": 179.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 867,
+   "y": 783,
+   "gx": -203.7,
+   "gz": 182.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 867,
+   "y": 780,
+   "gx": -203.6,
+   "gz": 180.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 855,
+   "y": 1118,
+   "gx": -195.9,
+   "gz": 389.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 854,
+   "y": 1115,
+   "gx": -195.6,
+   "gz": 387.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 854,
+   "y": 1111,
+   "gx": -195.4,
+   "gz": 384.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 851,
+   "y": 1118,
+   "gx": -193.9,
+   "gz": 389.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 851,
+   "y": 1049,
+   "gx": -193.6,
+   "gz": 346.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 849,
+   "y": 1114,
+   "gx": -192.7,
+   "gz": 386.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 849,
+   "y": 1048,
+   "gx": -192.3,
+   "gz": 345.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 847,
+   "y": 1046,
+   "gx": -191.4,
+   "gz": 344.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 845,
+   "y": 1035,
+   "gx": -190.1,
+   "gz": 338.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 843,
+   "y": 1039,
+   "gx": -188.9,
+   "gz": 340.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 834,
+   "y": 1158,
+   "gx": -182.9,
+   "gz": 413.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 831,
+   "y": 1160,
+   "gx": -181.5,
+   "gz": 415.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 830,
+   "y": 1167,
+   "gx": -180.5,
+   "gz": 419.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 828,
+   "y": 1162,
+   "gx": -179.3,
+   "gz": 416.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 826,
+   "y": 1160,
+   "gx": -178.5,
+   "gz": 415.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 826,
+   "y": 662,
+   "gx": -178.0,
+   "gz": 107.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 824,
+   "y": 658,
+   "gx": -176.8,
+   "gz": 105.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 823,
+   "y": 1244,
+   "gx": -176.6,
+   "gz": 467.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 823,
+   "y": 1248,
+   "gx": -176.5,
+   "gz": 469.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 823,
+   "y": 660,
+   "gx": -176.3,
+   "gz": 106.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 822,
+   "y": 663,
+   "gx": -176.1,
+   "gz": 108.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 821,
+   "y": 1247,
+   "gx": -175.2,
+   "gz": 468.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 821,
+   "y": 1243,
+   "gx": -175.0,
+   "gz": 466.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 820,
+   "y": 662,
+   "gx": -174.3,
+   "gz": 107.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 818,
+   "y": 1245,
+   "gx": -173.3,
+   "gz": 467.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 806,
+   "y": 784,
+   "gx": -165.6,
+   "gz": 183.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 803,
+   "y": 784,
+   "gx": -163.9,
+   "gz": 183.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 801,
+   "y": 776,
+   "gx": -162.8,
+   "gz": 178.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 800,
+   "y": 782,
+   "gx": -162.4,
+   "gz": 182.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 799,
+   "y": 780,
+   "gx": -161.7,
+   "gz": 180.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 793,
+   "y": 444,
+   "gx": -158.0,
+   "gz": -26.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 790,
+   "y": 443,
+   "gx": -155.8,
+   "gz": -26.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 787,
+   "y": 383,
+   "gx": -153.9,
+   "gz": -64.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 785,
+   "y": 444,
+   "gx": -152.8,
+   "gz": -26.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 784,
+   "y": 385,
+   "gx": -152.4,
+   "gz": -63.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 784,
+   "y": 379,
+   "gx": -152.3,
+   "gz": -66.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 782,
+   "y": 379,
+   "gx": -151.1,
+   "gz": -66.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 781,
+   "y": 384,
+   "gx": -150.6,
+   "gz": -63.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 781,
+   "y": 449,
+   "gx": -150.6,
+   "gz": -23.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 780,
+   "y": 443,
+   "gx": -149.9,
+   "gz": -27.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 759,
+   "y": 1135,
+   "gx": -136.9,
+   "gz": 399.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 758,
+   "y": 1140,
+   "gx": -136.3,
+   "gz": 402.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 757,
+   "y": 1138,
+   "gx": -135.8,
+   "gz": 401.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 756,
+   "y": 1135,
+   "gx": -134.8,
+   "gz": 399.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 755,
+   "y": 1135,
+   "gx": -134.5,
+   "gz": 399.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 718,
+   "y": 441,
+   "gx": -111.7,
+   "gz": -28.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 718,
+   "y": 437,
+   "gx": -111.4,
+   "gz": -30.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 714,
+   "y": 441,
+   "gx": -109.0,
+   "gz": -28.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 710,
+   "y": 437,
+   "gx": -107.0,
+   "gz": -30.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 710,
+   "y": 440,
+   "gx": -106.4,
+   "gz": -29.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 669,
+   "y": 1035,
+   "gx": -81.4,
+   "gz": 338.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 669,
+   "y": 1032,
+   "gx": -81.3,
+   "gz": 336.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 665,
+   "y": 1033,
+   "gx": -79.0,
+   "gz": 336.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 663,
+   "y": 1033,
+   "gx": -77.6,
+   "gz": 336.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 661,
+   "y": 1033,
+   "gx": -76.3,
+   "gz": 336.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 644,
+   "y": 1233,
+   "gx": -66.0,
+   "gz": 459.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 644,
+   "y": 1229,
+   "gx": -65.7,
+   "gz": 457.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 644,
+   "y": 1235,
+   "gx": -65.7,
+   "gz": 461.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 637,
+   "y": 1236,
+   "gx": -61.9,
+   "gz": 461.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 637,
+   "y": 1229,
+   "gx": -61.5,
+   "gz": 457.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 634,
+   "y": 246,
+   "gx": -59.9,
+   "gz": -148.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 634,
+   "y": 248,
+   "gx": -59.8,
+   "gz": -147.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 634,
+   "y": 244,
+   "gx": -59.7,
+   "gz": -149.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 632,
+   "y": 252,
+   "gx": -58.3,
+   "gz": -145.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 631,
+   "y": 249,
+   "gx": -58.2,
+   "gz": -146.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 622,
+   "y": 380,
+   "gx": -52.4,
+   "gz": -66.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 620,
+   "y": 378,
+   "gx": -50.9,
+   "gz": -67.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 619,
+   "y": 382,
+   "gx": -50.8,
+   "gz": -65.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 616,
+   "y": 377,
+   "gx": -48.5,
+   "gz": -67.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 614,
+   "y": 381,
+   "gx": -47.7,
+   "gz": -65.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 612,
+   "y": 302,
+   "gx": -46.1,
+   "gz": -114.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 610,
+   "y": 302,
+   "gx": -44.8,
+   "gz": -114.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 607,
+   "y": 302,
+   "gx": -43.2,
+   "gz": -114.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 607,
+   "y": 297,
+   "gx": -42.9,
+   "gz": -117.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 607,
+   "y": 300,
+   "gx": -42.9,
+   "gz": -115.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 563,
+   "y": 270,
+   "gx": -16.3,
+   "gz": -133.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 561,
+   "y": 261,
+   "gx": -14.9,
+   "gz": -139.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 560,
+   "y": 272,
+   "gx": -13.9,
+   "gz": -132.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 554,
+   "y": 263,
+   "gx": -10.5,
+   "gz": -138.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 554,
+   "y": 268,
+   "gx": -10.4,
+   "gz": -135.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 466,
+   "y": 1162,
+   "gx": 43.8,
+   "gz": 416.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 465,
+   "y": 1160,
+   "gx": 44.5,
+   "gz": 414.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 464,
+   "y": 1158,
+   "gx": 45.1,
+   "gz": 413.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 463,
+   "y": 1163,
+   "gx": 45.8,
+   "gz": 417.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 462,
+   "y": 1161,
+   "gx": 46.2,
+   "gz": 415.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 455,
+   "y": 269,
+   "gx": 50.6,
+   "gz": -134.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 452,
+   "y": 267,
+   "gx": 52.7,
+   "gz": -135.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 451,
+   "y": 262,
+   "gx": 53.2,
+   "gz": -138.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 451,
+   "y": 272,
+   "gx": 53.2,
+   "gz": -132.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 451,
+   "y": 275,
+   "gx": 53.2,
+   "gz": -130.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 388,
+   "y": 1217,
+   "gx": 91.7,
+   "gz": 450.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 385,
+   "y": 1219,
+   "gx": 93.9,
+   "gz": 451.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 382,
+   "y": 1215,
+   "gx": 95.7,
+   "gz": 448.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 377,
+   "y": 1218,
+   "gx": 98.7,
+   "gz": 450.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 376,
+   "y": 230,
+   "gx": 99.0,
+   "gz": -158.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 376,
+   "y": 1212,
+   "gx": 99.3,
+   "gz": 446.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 374,
+   "y": 224,
+   "gx": 100.7,
+   "gz": -162.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 372,
+   "y": 230,
+   "gx": 102.1,
+   "gz": -158.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 368,
+   "y": 224,
+   "gx": 104.2,
+   "gz": -162.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 364,
+   "y": 224,
+   "gx": 106.7,
+   "gz": -162.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 287,
+   "y": 1181,
+   "gx": 154.1,
+   "gz": 428.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 285,
+   "y": 1185,
+   "gx": 155.2,
+   "gz": 430.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 285,
+   "y": 1182,
+   "gx": 155.8,
+   "gz": 428.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 283,
+   "y": 1186,
+   "gx": 157,
+   "gz": 430.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 280,
+   "y": 1182,
+   "gx": 158.3,
+   "gz": 428.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 266,
+   "y": 272,
+   "gx": 167.0,
+   "gz": -132.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 265,
+   "y": 279,
+   "gx": 167.9,
+   "gz": -128.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 264,
+   "y": 275,
+   "gx": 168.3,
+   "gz": -130.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 261,
+   "y": 272,
+   "gx": 170.1,
+   "gz": -132.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 261,
+   "y": 278,
+   "gx": 170.3,
+   "gz": -129.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 252,
+   "y": 871,
+   "gx": 175.7,
+   "gz": 236.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 252,
+   "y": 868,
+   "gx": 176.0,
+   "gz": 234.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 250,
+   "y": 868,
+   "gx": 177.3,
+   "gz": 234.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 249,
+   "y": 871,
+   "gx": 177.5,
+   "gz": 236.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 247,
+   "y": 865,
+   "gx": 179.1,
+   "gz": 233.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 237,
+   "y": 790,
+   "gx": 184.8,
+   "gz": 187.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 237,
+   "y": 1219,
+   "gx": 185.3,
+   "gz": 451.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 236,
+   "y": 1228,
+   "gx": 185.4,
+   "gz": 456.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 236,
+   "y": 794,
+   "gx": 185.6,
+   "gz": 189.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 236,
+   "y": 1232,
+   "gx": 185.6,
+   "gz": 459.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 235,
+   "y": 789,
+   "gx": 186.3,
+   "gz": 186.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 235,
+   "y": 793,
+   "gx": 186.5,
+   "gz": 188.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 234,
+   "y": 1224,
+   "gx": 186.8,
+   "gz": 454.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 234,
+   "y": 1234,
+   "gx": 186.8,
+   "gz": 460.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 234,
+   "y": 794,
+   "gx": 187.1,
+   "gz": 189.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 204,
+   "y": 968,
+   "gx": 205.6,
+   "gz": 296.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 202,
+   "y": 967,
+   "gx": 206.9,
+   "gz": 295.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 199,
+   "y": 968,
+   "gx": 208.6,
+   "gz": 296.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 197,
+   "y": 969,
+   "gx": 209.8,
+   "gz": 297.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 197,
+   "y": 1041,
+   "gx": 210.0,
+   "gz": 341.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 195,
+   "y": 1048,
+   "gx": 211.0,
+   "gz": 346.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 195,
+   "y": 969,
+   "gx": 211.1,
+   "gz": 297.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 195,
+   "y": 1041,
+   "gx": 211.1,
+   "gz": 341.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 193,
+   "y": 1044,
+   "gx": 211.9,
+   "gz": 343.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 193,
+   "y": 1047,
+   "gx": 212.0,
+   "gz": 345.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 190,
+   "y": 767,
+   "gx": 214.2,
+   "gz": 172.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 186,
+   "y": 769,
+   "gx": 216.2,
+   "gz": 174.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 178,
+   "y": 771,
+   "gx": 221.6,
+   "gz": 175.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 170,
+   "y": 1153,
+   "gx": 226.2,
+   "gz": 410.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 170,
+   "y": 1153,
+   "gx": 226.2,
+   "gz": 410.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 168,
+   "y": 1153,
+   "gx": 227.6,
+   "gz": 410.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 168,
+   "y": 770,
+   "gx": 227.8,
+   "gz": 174.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 166,
+   "y": 773,
+   "gx": 228.9,
+   "gz": 176.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 165,
+   "y": 1153,
+   "gx": 229.4,
+   "gz": 410.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 162,
+   "y": 1153,
+   "gx": 231.3,
+   "gz": 410.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 161,
+   "y": 315,
+   "gx": 231.9,
+   "gz": -106.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 160,
+   "y": 1151,
+   "gx": 232.6,
+   "gz": 409.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 160,
+   "y": 320,
+   "gx": 232.7,
+   "gz": -103.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 159,
+   "y": 313,
+   "gx": 233.4,
+   "gz": -107.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 157,
+   "y": 316,
+   "gx": 234.4,
+   "gz": -105.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 156,
+   "y": 320,
+   "gx": 234.7,
+   "gz": -103.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 141,
+   "y": 419,
+   "gx": 244.6,
+   "gz": -41.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 140,
+   "y": 427,
+   "gx": 244.7,
+   "gz": -37.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 140,
+   "y": 430,
+   "gx": 244.7,
+   "gz": -35.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 140,
+   "y": 422,
+   "gx": 244.9,
+   "gz": -40.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 140,
+   "y": 425,
+   "gx": 245.0,
+   "gz": -38.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 120,
+   "y": 570,
+   "gx": 257.3,
+   "gz": 51.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 118,
+   "y": 566,
+   "gx": 258.6,
+   "gz": 48.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 116,
+   "y": 572,
+   "gx": 259.9,
+   "gz": 52.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 114,
+   "y": 566,
+   "gx": 260.7,
+   "gz": 48.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 113,
+   "y": 568,
+   "gx": 261.5,
+   "gz": 50.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 101,
+   "y": 631,
+   "gx": 268.7,
+   "gz": 89.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 98,
+   "y": 631,
+   "gx": 270.5,
+   "gz": 88.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 97,
+   "y": 1097,
+   "gx": 271.4,
+   "gz": 376.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 96,
+   "y": 1095,
+   "gx": 272,
+   "gz": 374.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 96,
+   "y": 1096,
+   "gx": 272.0,
+   "gz": 375.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 96,
+   "y": 1324,
+   "gx": 272.0,
+   "gz": 516.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 96,
+   "y": 629,
+   "gx": 272.3,
+   "gz": 87.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 94,
+   "y": 1325,
+   "gx": 273.2,
+   "gz": 516.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 94,
+   "y": 1099,
+   "gx": 273.3,
+   "gz": 377.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 93,
+   "y": 1097,
+   "gx": 274.1,
+   "gz": 376.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 93,
+   "y": 1328,
+   "gx": 274.1,
+   "gz": 518.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 92,
+   "y": 1326,
+   "gx": 274.7,
+   "gz": 517.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 91,
+   "y": 1324,
+   "gx": 275.4,
+   "gz": 516.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 90,
+   "y": 630,
+   "gx": 275.7,
+   "gz": 88.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 88,
+   "y": 630,
+   "gx": 277.2,
+   "gz": 88.0,
+   "area": "spawn-1"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Smugglers' Basement",
+   "x": 504,
+   "y": 797,
+   "count": 196
   }
  ],
  "bosses": [
@@ -1462,7 +2956,8 @@
      "zone": [
       "pharmacy-1",
       "post-office"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "639c39807c1532d85b0162a9",
@@ -3414,7 +4909,8 @@
       "cardinal-apartments-e",
       "primorsky-ave-ne",
       "primorsky-ave-sw"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "64f6aafd67e11a7c6206e0d2",
@@ -3475,7 +4971,8 @@
       "razvedchikov-st-se",
       "s-of-construction",
       "w-of-razvedchikov-st"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "64f4fdfa67e11a7c6206de72",

@@ -227,3 +227,46 @@ test("a late identity is re-read and a subsequently mixed profile is quarantined
     assert.deepEqual(S.derive(store, key).statuses, {});
   } finally { w.stop(); }
 });
+
+// Application events use synthetic text only; initial history must never open an old raid.
+const appLine = (time, body) => `2026-01-02 10:00:${time} +00:00|Info|application|${body}\n`;
+const raidLoad = name => appLine('00.000', `TRACE-NetworkGameCreate Location: ${name}, RaidMode: Online`);
+const raidStart = appLine('01.000', 'GameStarted:1.0');
+const raidPosition = appLine('04.000', 'Reason:Lift, Position:(10.5, 1, -20.5), SpeedLimit:0.65');
+
+test('application tail is live only, chunk safe, works without notifications and survives identity updates', async () => {
+  const s = session('log_2026.1.2_10-00-00_v','',raidLoad('Woods')+raidStart+raidPosition);
+  const app=[...s.dir.children.values()].find(f=>L.isApplicationLog(f.name));
+  s.dir.children.delete(s.notif.name);
+  const got=[];const w=new L.LogWatcher({onRaid:(e,m)=>got.push({e,m})});
+  await w.watch(new MockDir('Logs',[s.dir]));w.stop();
+  assert.equal(got.length,0);
+  await w.scanPast();assert.equal(got.length,0);
+  const text=raidLoad('bigmap')+raidStart+raidPosition;
+  app.append(text.slice(0,37));await w._tick();assert.equal(got.length,0);
+  app.append(text.slice(37));await w._tick();
+  assert.deepEqual(got.map(v=>v.e.kind),['raid-loading','raid-started','spawn-position']);
+  app.append('PrepareSelectedProfileLocally ProfileId:'+ 'b'.repeat(24)+'\n');await w._tick();
+  assert.equal(got.length,3,'identity re-read does not replay application lines');
+  assert.equal(got[2].e.map,'customs');
+  assert.equal(got[0].m.session,s.dir.name);
+  app.replace(raidLoad('Woods'));await w._tick();
+  assert.equal(got.length,3,'truncated application file primes silently');
+  app.append(raidStart+raidPosition);await w._tick();
+  assert.equal(got.at(-1).e.map,'woods');
+});
+
+test('application file and session rotations retain live raid context without replaying history',async()=>{
+  const s=session('log_2026.1.2_10-00-00_v','','');
+  const logs=new MockDir('Logs',[s.dir]),got=[];
+  const w=new L.LogWatcher({onRaid:e=>got.push(e)});
+  await w.watch(logs);w.stop();
+  const app=[...s.dir.children.values()].find(f=>L.isApplicationLog(f.name));
+  app.append(raidLoad('bigmap')+raidStart);await w._tick();
+  s.dir.add(new MockFile('application_001.log',raidPosition));await w._tick();
+  assert.equal(got.at(-1).kind,'spawn-position');assert.equal(got.at(-1).map,'customs');
+  const next=session('log_2026.1.2_11-00-00_v','',raidLoad('Shoreline')+raidStart+raidPosition);
+  logs.add(next.dir);await w._checkRotation();await w._tick();
+  assert.equal(got.at(-1).map,'shoreline');
+  assert.equal(got.filter(e=>e.kind==='spawn-position').length,2);
+});

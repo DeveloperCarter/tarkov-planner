@@ -158,6 +158,64 @@
       mode: modes.length === 1 ? modes[0] : null, identityConflict: profiles.length > 1 || modes.length > 1 };
   }
 
+  // Snapshot map.nameId -> canonical planner map, including layout variants.
+  const RAID_LOCATIONS = Object.freeze({
+    bigmap: "customs", tarkovstreets: "streets-of-tarkov", woods: "woods", shoreline: "shoreline",
+    laboratory: "the-lab", laboratory_dark: "the-lab", factory4_day: "factory", factory4_night: "factory",
+    labyrinth: "the-labyrinth", interchange: "interchange", rezervbase: "reserve", lighthouse: "lighthouse",
+    sandbox: "ground-zero", sandbox_high: "ground-zero", sandbox_start: "ground-zero",
+    icebreaker: "icebreaker", terminal: "terminal",
+  });
+  function raidMap(location) { return RAID_LOCATIONS[String(location || "").toLowerCase()] || null; }
+
+  /** Application lines are independent of notification JSON. Only complete lines are consumed;
+   * headers/identity/network fields are discarded, never copied into emitted events. */
+  class RaidParser {
+    constructor(state = { map: null, started: null, positioned: false }) {
+      this.state = state;
+      this.partial = "";
+    }
+    push(text) {
+      const lines = (this.partial + text).split("\n");
+      this.partial = lines.pop();
+      return lines.flatMap(line => this.line(line.replace(/\r$/, "")));
+    }
+    flush() {
+      const events = this.partial ? this.line(this.partial.replace(/\r$/, "")) : [];
+      this.partial = "";
+      return events;
+    }
+    line(line) {
+      const h = HEADER_RE.exec(line);
+      if (!h) return [];
+      const at = entryTime({ date: h[1], time: h[2], offset: h[3]?.trim() });
+      if (at === null) return [];
+      const state = this.state;
+      const loading = /TRACE-NetworkGameCreate\b.*?\bLocation:\s*([^,\s']+)/.exec(h[4]);
+      if (loading) {
+        const location = loading[1];
+        state.map = raidMap(location); state.started = null; state.positioned = false;
+        return [{ kind: "raid-loading", location, map: state.map, at }];
+      }
+      if (/\bGameStarted:/.test(h[4])) {
+        state.started = at; state.positioned = false;
+        return [{ kind: "raid-started", map: state.map, at }];
+      }
+      const pos = /\bReason:(PacketsQueue|Lift|Speed),\s*Position:\(\s*([+\-\d.eE]+),\s*([+\-\d.eE]+),\s*([+\-\d.eE]+)\s*\)/.exec(h[4]);
+      if (!pos || state.started === null || state.positioned) return [];
+      const secondsAfterStart = (at - state.started) / 1000;
+      if (secondsAfterStart < 0 || secondsAfterStart > 10) return [];
+      const [x, y, z] = pos.slice(2).map(Number);
+      if (![x, y, z].every(Number.isFinite)) return [];
+      state.positioned = true;
+      return [{ kind: "spawn-position", map: state.map, x, y, z, at, secondsAfterStart, reason: pos[1] }];
+    }
+  }
+  function raidEventsFromText(text) {
+    const parser = new RaidParser();
+    return [...parser.push(text), ...parser.flush()];
+  }
+
   // ------------------------------------------------------------------ status store
 
   function emptyState() {
@@ -256,12 +314,14 @@
 
   /**
    * Status values: unsupported | not-connected | needs-permission | waiting | watching | error.
-   * onEvents(events, { mode, session }) gets new quest events; onStatus(info) gets status changes.
+   * onEvents gets quest history/live changes; onRaid(event, meta) gets only live application lines.
+   * onStatus(info) gets status changes. Initial application history, scans and imports never fire onRaid.
    */
   class LogWatcher {
-    constructor({ onEvents, onStatus, pollMs = 4000, rotateMs = 30000 } = {}) {
+    constructor({ onEvents, onStatus, onRaid, pollMs = 4000, rotateMs = 30000 } = {}) {
       this.onEvents = onEvents || (() => {});
       this.onStatus = onStatus || (() => {});
+      this.onRaid = onRaid || (() => {});
       this.pollMs = pollMs;
       this.rotateMs = rotateMs;
       this.dir = null;
@@ -354,14 +414,14 @@
         const sessions = await listSessions(this.dir);
         const newest = sessions[sessions.length - 1];
         if (!newest) return this._set("waiting", { folder: this.dir.name, detail: "No game sessions in this folder yet" });
-        await this._attach(newest);
+        await this._attach(newest, false);
         await this._tick();
       } catch (err) {
         this._fail(err);
       }
     }
 
-    async _attach(session) {
+    async _attach(session, live = true) {
       this.session = session;
       this.file = await findFile(session.handle, isNotificationsLog);
       this.offset = 0; // read the session from the start; duplicates are dropped by the store
@@ -370,6 +430,10 @@
       this.extraReaders = new Map();
       this.identity = await readIdentity(session.handle);
       this.mode = this.identity.mode;
+      this.appReaders = new Map();
+      this.raidState = { map: null, started: null, positioned: false };
+      // First connection primes context silently. Subsequent sessions are live rotations.
+      await this._readApplications(live);
       this._report();
     }
 
@@ -382,6 +446,7 @@
       const sessions = await listSessions(this.dir);
       const newest = sessions[sessions.length - 1];
       if (newest && (!this.session || newest.sortKey > this.session.sortKey)) {
+        if (this.session) await this._readApplications(true);
         if (this.parser) this._emit(this.parser.flush()); // finish the old session first
         for (const reader of this.extraReaders?.values() || []) this._emit(reader.parser.flush());
         await this._attach(newest);
@@ -398,6 +463,7 @@
       }
       this.identity = identity;
       this.mode = this.identity.mode;
+      await this._readApplications(true);
       if (!this.file) {
         this.file = await findFile(this.session.handle, isNotificationsLog);
         if (!this.file) return;
@@ -430,6 +496,33 @@
         if (next.size > reader.offset) {
           const bytes = await next.slice(reader.offset).arrayBuffer(); reader.offset = next.size;
           this._emit(reader.parser.push(reader.decoder.decode(bytes, { stream: true })));
+        }
+      }
+    }
+
+    async _readApplications(live) {
+      const files = [];
+      for await (const [name, handle] of this.session.handle.entries()) {
+        if (handle.kind === "file" && isApplicationLog(name)) files.push([name, handle]);
+      }
+      files.sort((a, b) => a[0].localeCompare(b[0], "en", { numeric: true }));
+      for (const [name, handle] of files) {
+        const file = await handle.getFile();
+        let reader = this.appReaders.get(name);
+        const replaced = reader && file.size < reader.offset;
+        if (!reader || replaced) {
+          // A replaced file is primed silently; otherwise a rewrite could replay an old raid.
+          if (replaced) Object.assign(this.raidState, { map: null, started: null, positioned: false });
+          reader = { offset: 0, parser: new RaidParser(this.raidState), decoder: new TextDecoder("utf-8") };
+          this.appReaders.set(name, reader);
+        }
+        if (file.size > reader.offset) {
+          const bytes = await file.slice(reader.offset).arrayBuffer();
+          reader.offset = file.size;
+          const events = reader.parser.push(reader.decoder.decode(bytes, { stream: true }));
+          if (live && !replaced) for (const event of events) {
+            this.onRaid(event, { ...this.identity, session: this.session.name });
+          }
         }
       }
     }
@@ -491,6 +584,10 @@
 
   return {
     EntryParser,
+    RaidParser,
+    raidMap,
+    raidEventsFromText,
+    RAID_LOCATIONS,
     parseSessionFolder,
     isNotificationsLog,
     isApplicationLog,

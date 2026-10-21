@@ -11,7 +11,8 @@
   "frame": {
    "w": 251,
    "h": 1376,
-   "metres": 161
+   "metres": 161,
+   "scale": 8.190745279398396
   },
   "art": null,
   "rotation": 180,
@@ -39,13 +40,17 @@
    "name": "Unnamed spot (1)",
    "x": 95,
    "y": 891,
-   "hints": []
+   "hints": [],
+   "gx": 3.6,
+   "gz": 26.8
   },
   "unnamed-spot-2": {
    "name": "Unnamed spot (2)",
    "x": 73,
    "y": 526,
-   "hints": []
+   "hints": [],
+   "gx": 6.4,
+   "gz": -17.8
   }
  },
  "extracts": [
@@ -67,6 +72,31 @@
    "overrideReason": "The wiki requires both a green flare and 2,400 euros per player. Keep the euro payment in the note; do not invent a rouble price.",
    "type": "pmc",
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Icebreaker"
+  }
+ ],
+ "spawns": [
+  {
+   "x": 136,
+   "y": 1340,
+   "gx": -1.4,
+   "gz": 81.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 128,
+   "y": 1346,
+   "gx": -0.4,
+   "gz": 82.3,
+   "area": "spawn-1"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Helicopter",
+   "x": 132,
+   "y": 1343,
+   "count": 2
   }
  ],
  "bosses": [
@@ -470,7 +500,8 @@
      "zone": [
       "unnamed-spot-1",
       "unnamed-spot-2"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "69ce1f84ebbdbf36a200627f",

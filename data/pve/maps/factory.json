@@ -11,7 +11,8 @@
   "frame": {
    "w": 1000,
    "h": 1120,
-   "metres": 161
+   "metres": 161,
+   "scale": 6.582559299055473
   },
   "art": {
    "x": 40.1,
@@ -44,43 +45,57 @@
    "name": "Pit SW",
    "x": 361,
    "y": 704,
-   "hints": []
+   "hints": [],
+   "gx": -5.1,
+   "gz": 18.6
   },
   "breach-room": {
    "name": "Breach Room",
    "x": 229,
    "y": 502,
-   "hints": []
+   "hints": [],
+   "gx": 25.6,
+   "gz": 38.7
   },
   "blue-containers-se": {
    "name": "Blue Containers SE",
    "x": 180,
    "y": 813,
-   "hints": []
+   "hints": [],
+   "gx": -21.5,
+   "gz": 46.2
   },
   "servers-nw": {
    "name": "Servers NW",
    "x": 255,
    "y": 783,
-   "hints": []
+   "hints": [],
+   "gx": -17.0,
+   "gz": 34.8
   },
   "heli-crash-nw": {
    "name": "Heli Crash NW",
    "x": 513,
    "y": 444,
-   "hints": []
+   "hints": [],
+   "gx": 34.4,
+   "gz": -4.5
   },
   "east-halls": {
    "name": "East Halls",
    "x": 722,
    "y": 371,
-   "hints": []
+   "hints": [],
+   "gx": 45.6,
+   "gz": -36.1
   },
   "north-stairs": {
    "name": "North Stairs",
    "x": 238,
    "y": 422,
-   "hints": []
+   "hints": [],
+   "gx": 37.8,
+   "gz": 37.3
   },
   "hole": {
    "name": "Hole",
@@ -88,79 +103,105 @@
    "y": 552,
    "hints": [
     "Old Cellars"
-   ]
+   ],
+   "gx": 18.1,
+   "gz": 44.8
   },
   "rafters-w": {
    "name": "Rafters W",
    "x": 404,
    "y": 533,
-   "hints": []
+   "hints": [],
+   "gx": 21.0,
+   "gz": 12.1
   },
   "wood-room-s": {
    "name": "Wood Room S",
    "x": 93,
    "y": 1008,
-   "hints": []
+   "hints": [],
+   "gx": -51.2,
+   "gz": 59.3
   },
   "pumping-station-ne": {
    "name": "Pumping Station NE",
    "x": 597,
    "y": 324,
-   "hints": []
+   "hints": [],
+   "gx": 52.7,
+   "gz": -17.2
   },
   "east-halls-s": {
    "name": "East Halls S",
    "x": 696,
    "y": 483,
-   "hints": []
+   "hints": [],
+   "gx": 28.6,
+   "gz": -32.3
   },
   "nw-of-north-stairs": {
    "name": "NW of North Stairs",
    "x": 131,
    "y": 278,
-   "hints": []
+   "hints": [],
+   "gx": 59.7,
+   "gz": 53.6
   },
   "e-of-med-tent": {
    "name": "E of Med Tent",
    "x": 817,
    "y": 796,
-   "hints": []
+   "hints": [],
+   "gx": -18.9,
+   "gz": -50.6
   },
   "scav-bunker": {
    "name": "Scav Bunker",
    "x": 339,
    "y": 802,
-   "hints": []
+   "hints": [],
+   "gx": -20.0,
+   "gz": 21.9
   },
   "pumping-station": {
    "name": "Pumping Station",
    "x": 560,
    "y": 406,
-   "hints": []
+   "hints": [],
+   "gx": 40.3,
+   "gz": -11.6
   },
   "glass-hall-w": {
    "name": "Glass Hall W",
    "x": 532,
    "y": 222,
-   "hints": []
+   "hints": [],
+   "gx": 68.2,
+   "gz": -7.4
   },
   "forklifts-se": {
    "name": "Forklifts SE",
    "x": 802,
    "y": 275,
-   "hints": []
+   "hints": [],
+   "gx": 60.1,
+   "gz": -48.4
   },
   "glass-hall-e": {
    "name": "Glass Hall E",
    "x": 674,
    "y": 232,
-   "hints": []
+   "hints": [],
+   "gx": 66.7,
+   "gz": -28.9
   },
   "heli-crash-e": {
    "name": "Heli Crash E",
    "x": 611,
    "y": 486,
-   "hints": []
+   "hints": [],
+   "gx": 28.0,
+   "gz": -19.4
   },
   "rafters": {
    "name": "Rafters",
@@ -168,7 +209,9 @@
    "y": 540,
    "hints": [
     "Old Cellars"
-   ]
+   ],
+   "gx": 19.8,
+   "gz": 3.3
   },
   "s-of-scav-bunker": {
    "name": "S of Scav Bunker",
@@ -176,7 +219,9 @@
    "y": 1007,
    "hints": [
     "Old Cellars"
-   ]
+   ],
+   "gx": -51.1,
+   "gz": 13.6
   },
   "n-of-underground-stash": {
    "name": "N of Underground Stash",
@@ -184,7 +229,9 @@
    "y": 540,
    "hints": [
     "Old Cellars"
-   ]
+   ],
+   "gx": 19.8,
+   "gz": -28.6
   },
   "boilers-nw": {
    "name": "Boilers NW",
@@ -192,31 +239,41 @@
    "y": 243,
    "hints": [
     "Old Cellars"
-   ]
+   ],
+   "gx": 65.0,
+   "gz": 13.6
   },
   "heli-crash-sw": {
    "name": "Heli Crash SW",
    "x": 508,
    "y": 498,
-   "hints": []
+   "hints": [],
+   "gx": 26.2,
+   "gz": -3.6
   },
   "n-of-north-stairs": {
    "name": "N of North Stairs",
    "x": 253,
    "y": 252,
-   "hints": []
+   "hints": [],
+   "gx": 63.6,
+   "gz": 35.1
   },
   "underground-stash-se": {
    "name": "Underground Stash SE",
    "x": 698,
    "y": 707,
-   "hints": []
+   "hints": [],
+   "gx": -5.5,
+   "gz": -32.5
   },
   "blue-containers-sw": {
    "name": "Blue Containers SW",
    "x": 86,
    "y": 832,
-   "hints": []
+   "hints": [],
+   "gx": -24.4,
+   "gz": 60.4
   }
  },
  "extracts": [
@@ -448,6 +505,612 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory"
   }
  ],
+ "spawns": [
+  {
+   "x": 429,
+   "y": 978,
+   "gx": -46.7,
+   "gz": 8.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 437,
+   "y": 975,
+   "gx": -46.3,
+   "gz": 7.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 447,
+   "y": 970,
+   "gx": -45.4,
+   "gz": 5.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 179,
+   "y": 962,
+   "gx": -44.3,
+   "gz": 46.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 165,
+   "y": 962,
+   "gx": -44.2,
+   "gz": 48.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 154,
+   "y": 961,
+   "gx": -44.0,
+   "gz": 50.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 439,
+   "y": 959,
+   "gx": -43.8,
+   "gz": 6.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 226,
+   "y": 953,
+   "gx": -42.9,
+   "gz": 39.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 166,
+   "y": 951,
+   "gx": -42.6,
+   "gz": 48.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 435,
+   "y": 950,
+   "gx": -42.4,
+   "gz": 7.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 327,
+   "y": 817,
+   "gx": -22.2,
+   "gz": 23.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 315,
+   "y": 817,
+   "gx": -22.2,
+   "gz": 25.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 292,
+   "y": 817,
+   "gx": -22.2,
+   "gz": 29.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 284,
+   "y": 817,
+   "gx": -22.2,
+   "gz": 30.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 276,
+   "y": 817,
+   "gx": -22.2,
+   "gz": 31.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 768,
+   "y": 797,
+   "gx": -19.1,
+   "gz": -43.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 768,
+   "y": 787,
+   "gx": -17.7,
+   "gz": -43.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 756,
+   "y": 783,
+   "gx": -17.0,
+   "gz": -41.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 743,
+   "y": 782,
+   "gx": -16.9,
+   "gz": -39.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 730,
+   "y": 781,
+   "gx": -16.8,
+   "gz": -37.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 370,
+   "y": 715,
+   "gx": -6.7,
+   "gz": 17.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 380,
+   "y": 713,
+   "gx": -6.5,
+   "gz": 15.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 577,
+   "y": 710,
+   "gx": -5.9,
+   "gz": -14.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 387,
+   "y": 708,
+   "gx": -5.6,
+   "gz": 14.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 390,
+   "y": 699,
+   "gx": -4.3,
+   "gz": 14.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 599,
+   "y": 693,
+   "gx": -3.3,
+   "gz": -17.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 362,
+   "y": 689,
+   "gx": -2.8,
+   "gz": 18.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 530,
+   "y": 678,
+   "gx": -1.1,
+   "gz": -7.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 151,
+   "y": 676,
+   "gx": -0.7,
+   "gz": 50.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 578,
+   "y": 672,
+   "gx": -0.2,
+   "gz": -14.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 564,
+   "y": 671,
+   "gx": -0.1,
+   "gz": -12.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 163,
+   "y": 672,
+   "gx": -0.1,
+   "gz": 48.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 159,
+   "y": 655,
+   "gx": 2.4,
+   "gz": 49.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 168,
+   "y": 646,
+   "gx": 3.7,
+   "gz": 48.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 150,
+   "y": 645,
+   "gx": 4.0,
+   "gz": 50.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 777,
+   "y": 619,
+   "gx": 7.9,
+   "gz": -44.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 771,
+   "y": 615,
+   "gx": 8.5,
+   "gz": -43.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 762,
+   "y": 605,
+   "gx": 10.0,
+   "gz": -42.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 97,
+   "y": 604,
+   "gx": 10.2,
+   "gz": 58.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 761,
+   "y": 597,
+   "gx": 11.2,
+   "gz": -42.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 764,
+   "y": 588,
+   "gx": 12.6,
+   "gz": -42.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 137,
+   "y": 588,
+   "gx": 12.6,
+   "gz": 52.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 88,
+   "y": 588,
+   "gx": 12.6,
+   "gz": 60.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 124,
+   "y": 580,
+   "gx": 13.8,
+   "gz": 54.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 101,
+   "y": 579,
+   "gx": 14.0,
+   "gz": 58.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 222,
+   "y": 575,
+   "gx": 14.6,
+   "gz": 39.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 235,
+   "y": 573,
+   "gx": 14.9,
+   "gz": 37.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 252,
+   "y": 572,
+   "gx": 15.0,
+   "gz": 35.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 243,
+   "y": 569,
+   "gx": 15.5,
+   "gz": 36.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 227,
+   "y": 568,
+   "gx": 15.7,
+   "gz": 39.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 587,
+   "y": 548,
+   "gx": 18.6,
+   "gz": -15.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 576,
+   "y": 548,
+   "gx": 18.6,
+   "gz": -14.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 592,
+   "y": 538,
+   "gx": 20.2,
+   "gz": -16.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 572,
+   "y": 537,
+   "gx": 20.3,
+   "gz": -13.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 580,
+   "y": 530,
+   "gx": 21.4,
+   "gz": -14.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 348,
+   "y": 488,
+   "gx": 27.8,
+   "gz": 20.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 369,
+   "y": 482,
+   "gx": 28.7,
+   "gz": 17.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 341,
+   "y": 472,
+   "gx": 30.3,
+   "gz": 21.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 363,
+   "y": 463,
+   "gx": 31.6,
+   "gz": 18.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 356,
+   "y": 462,
+   "gx": 31.8,
+   "gz": 19.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 692,
+   "y": 459,
+   "gx": 32.2,
+   "gz": -31.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 708,
+   "y": 458,
+   "gx": 32.3,
+   "gz": -34.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 717,
+   "y": 456,
+   "gx": 32.7,
+   "gz": -35.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 703,
+   "y": 445,
+   "gx": 34.4,
+   "gz": -33.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 711,
+   "y": 438,
+   "gx": 35.4,
+   "gz": -34.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 535,
+   "y": 415,
+   "gx": 38.8,
+   "gz": -7.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 543,
+   "y": 410,
+   "gx": 39.6,
+   "gz": -9.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 547,
+   "y": 400,
+   "gx": 41.1,
+   "gz": -9.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 534,
+   "y": 400,
+   "gx": 41.2,
+   "gz": -7.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 538,
+   "y": 392,
+   "gx": 42.4,
+   "gz": -8.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 441,
+   "y": 305,
+   "gx": 55.5,
+   "gz": 6.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 138,
+   "y": 297,
+   "gx": 56.9,
+   "gz": 52.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 437,
+   "y": 295,
+   "gx": 57.1,
+   "gz": 7.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 157,
+   "y": 289,
+   "gx": 57.9,
+   "gz": 49.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 443,
+   "y": 288,
+   "gx": 58.2,
+   "gz": 6.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 146,
+   "y": 288,
+   "gx": 58.2,
+   "gz": 51.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 137,
+   "y": 286,
+   "gx": 58.4,
+   "gz": 52.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 439,
+   "y": 279,
+   "gx": 59.5,
+   "gz": 6.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 138,
+   "y": 275,
+   "gx": 60.1,
+   "gz": 52.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 442,
+   "y": 266,
+   "gx": 61.5,
+   "gz": 6.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 967,
+   "y": 215,
+   "gx": 69.2,
+   "gz": -73.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 953,
+   "y": 210,
+   "gx": 70.0,
+   "gz": -71.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 963,
+   "y": 205,
+   "gx": 70.8,
+   "gz": -72.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 954,
+   "y": 199,
+   "gx": 71.7,
+   "gz": -71.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 970,
+   "y": 197,
+   "gx": 72.1,
+   "gz": -73.9,
+   "area": "spawn-1"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Smugglers' Passage",
+   "x": 448,
+   "y": 587,
+   "count": 85
+  }
+ ],
  "bosses": [
   {
    "name": "Tagilla",
@@ -608,7 +1271,8 @@
       "n-of-underground-stash",
       "rafters",
       "s-of-scav-bunker"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [],
@@ -1008,7 +1672,8 @@
      "zone": [
       "east-halls-s",
       "heli-crash-e"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [],
@@ -2059,7 +2724,8 @@
       "east-halls",
       "heli-crash-nw",
       "servers-nw"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [

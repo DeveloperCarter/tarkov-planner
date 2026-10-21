@@ -11,7 +11,8 @@
   "frame": {
    "w": 1000,
    "h": 566,
-   "metres": 1011
+   "metres": 1011,
+   "scale": 0.9297600412971715
   },
   "art": {
    "x": 4.2,
@@ -44,25 +45,33 @@
    "name": "Dorms SE",
    "x": 485,
    "y": 484,
-   "hints": []
+   "hints": [],
+   "gx": 180.5,
+   "gz": 165.9
   },
   "depot": {
    "name": "Depot",
    "x": 206,
    "y": 259,
-   "hints": []
+   "hints": [],
+   "gx": 480.8,
+   "gz": -76.7
   },
   "se-of-old-construction": {
    "name": "SE of Old Construction",
    "x": 642,
    "y": 363,
-   "hints": []
+   "hints": [],
+   "gx": 11.7,
+   "gz": 35.6
   },
   "fortress": {
    "name": "Fortress",
    "x": 467,
    "y": 221,
-   "hints": []
+   "hints": [],
+   "gx": 200.2,
+   "gz": -117.2
   },
   "skeleton-w": {
    "name": "Skeleton W",
@@ -70,67 +79,89 @@
    "y": 301,
    "hints": [
     "Inudstrial Plant"
-   ]
+   ],
+   "gx": 255.9,
+   "gz": -31.4
   },
   "streamer-house": {
    "name": "Streamer House",
    "x": 123,
    "y": 259,
-   "hints": []
+   "hints": [],
+   "gx": 570.0,
+   "gz": -76.3
   },
   "military-checkpoint": {
    "name": "Military Checkpoint",
    "x": 119,
    "y": 327,
-   "hints": []
+   "hints": [],
+   "gx": 574.7,
+   "gz": -3.0
   },
   "powerline-tower-n": {
    "name": "Powerline Tower N",
    "x": 186,
    "y": 416,
-   "hints": []
+   "hints": [],
+   "gx": 502.8,
+   "gz": 91.8
   },
   "old-construction-w": {
    "name": "Old Construction W",
    "x": 558,
    "y": 321,
-   "hints": []
+   "hints": [],
+   "gx": 101.9,
+   "gz": -10.0
   },
   "big-red-s": {
    "name": "Big Red S",
    "x": 848,
    "y": 237,
-   "hints": []
+   "hints": [],
+   "gx": -210.1,
+   "gz": -100.2
   },
   "skeleton-s": {
    "name": "Skeleton S",
    "x": 463,
    "y": 342,
-   "hints": []
+   "hints": [],
+   "gx": 204.1,
+   "gz": 12.4
   },
   "dorms-w": {
    "name": "Dorms W",
    "x": 435,
    "y": 471,
-   "hints": []
+   "hints": [],
+   "gx": 234.9,
+   "gz": 151.7
   },
   "warehouse-4-sw": {
    "name": "Warehouse 4 SW",
    "x": 311,
    "y": 284,
-   "hints": []
+   "hints": [],
+   "gx": 368.5,
+   "gz": -50.1
   },
   "warehouse-17-ne": {
    "name": "Warehouse 17 NE",
    "x": 634,
    "y": 231,
-   "hints": []
+   "hints": [],
+   "gx": 20.3,
+   "gz": -106.4
   },
   "warehouse-7-e": {
    "name": "Warehouse 7 E",
    "x": 198,
    "y": 200,
-   "hints": []
+   "hints": [],
+   "gx": 489.5,
+   "gz": -140.1
   },
   "new-gas-w": {
    "name": "New Gas W",
@@ -138,37 +169,49 @@
    "y": 355,
    "hints": [
     "New Gas Station"
-   ]
+   ],
+   "gx": 424.1,
+   "gz": 26.8
   },
   "old-gas": {
    "name": "Old Gas",
    "x": 350,
    "y": 153,
-   "hints": []
+   "hints": [],
+   "gx": 326.4,
+   "gz": -190.6
   },
   "storage-ne": {
    "name": "Storage NE",
    "x": 952,
    "y": 167,
-   "hints": []
+   "hints": [],
+   "gx": -321.3,
+   "gz": -175.2
   },
   "depot-sw": {
    "name": "Depot SW",
    "x": 184,
    "y": 320,
-   "hints": []
+   "hints": [],
+   "gx": 505.0,
+   "gz": -11.3
   },
   "old-construction-e": {
    "name": "Old Construction E",
    "x": 637,
    "y": 330,
-   "hints": []
+   "hints": [],
+   "gx": 17.9,
+   "gz": 0.4
   },
   "crackhouse": {
    "name": "Crackhouse",
    "x": 573,
    "y": 189,
-   "hints": []
+   "hints": [],
+   "gx": 86.1,
+   "gz": -151.5
   },
   "dorms-n": {
    "name": "Dorms N",
@@ -176,103 +219,137 @@
    "y": 438,
    "hints": [
     "Dorms"
-   ]
+   ],
+   "gx": 194.6,
+   "gz": 116.4
   },
   "new-gas-e": {
    "name": "New Gas E",
    "x": 302,
    "y": 350,
-   "hints": []
+   "hints": [],
+   "gx": 377.3,
+   "gz": 20.9
   },
   "repair-shop-s": {
    "name": "Repair Shop S",
    "x": 562,
    "y": 268,
-   "hints": []
+   "hints": [],
+   "gx": 97.8,
+   "gz": -66.9
   },
   "old-gas-sw": {
    "name": "Old Gas SW",
    "x": 334,
    "y": 182,
-   "hints": []
+   "hints": [],
+   "gx": 343.1,
+   "gz": -158.9
   },
   "trailer-park-w": {
    "name": "Trailer Park W",
    "x": 817,
    "y": 136,
-   "hints": []
+   "hints": [],
+   "gx": -176.7,
+   "gz": -209.0
   },
   "storage": {
    "name": "Storage",
    "x": 913,
    "y": 198,
-   "hints": []
+   "hints": [],
+   "gx": -279.1,
+   "gz": -141.9
   },
   "crackhouse-e": {
    "name": "Crackhouse E",
    "x": 612,
    "y": 184,
-   "hints": []
+   "hints": [],
+   "gx": 43.8,
+   "gz": -157.2
   },
   "e-of-sniper-hill": {
    "name": "E of Sniper Hill",
    "x": 633,
    "y": 420,
-   "hints": []
+   "hints": [],
+   "gx": 21.9,
+   "gz": 96.8
   },
   "trailer-park-s": {
    "name": "Trailer Park S",
    "x": 842,
    "y": 155,
-   "hints": []
+   "hints": [],
+   "gx": -203.2,
+   "gz": -188.3
   },
   "big-red-se": {
    "name": "Big Red SE",
    "x": 890,
    "y": 245,
-   "hints": []
+   "hints": [],
+   "gx": -254.8,
+   "gz": -91.3
   },
   "warehouse-4-e": {
    "name": "Warehouse 4 E",
    "x": 405,
    "y": 262,
-   "hints": []
+   "hints": [],
+   "gx": 266.6,
+   "gz": -73.4
   },
   "big-red-nw": {
    "name": "Big Red NW",
    "x": 825,
    "y": 207,
-   "hints": []
+   "hints": [],
+   "gx": -184.3,
+   "gz": -132.6
   },
   "repair-shop-sw": {
    "name": "Repair Shop SW",
    "x": 516,
    "y": 267,
-   "hints": []
+   "hints": [],
+   "gx": 147.9,
+   "gz": -67.7
   },
   "warehouse-17": {
    "name": "Warehouse 17",
    "x": 600,
    "y": 276,
-   "hints": []
+   "hints": [],
+   "gx": 57.2,
+   "gz": -58.0
   },
   "old-construction-nw": {
    "name": "Old Construction NW",
    "x": 546,
    "y": 294,
-   "hints": []
+   "hints": [],
+   "gx": 115.6,
+   "gz": -38.4
   },
   "s-of-junk-bridge": {
    "name": "S of Junk Bridge",
    "x": 692,
    "y": 444,
-   "hints": []
+   "hints": [],
+   "gx": -41.5,
+   "gz": 122.7
   },
   "depot-n": {
    "name": "Depot N",
    "x": 223,
    "y": 226,
-   "hints": []
+   "hints": [],
+   "gx": 462.8,
+   "gz": -112.3
   },
   "old-gas-se": {
    "name": "Old Gas SE",
@@ -280,7 +357,9 @@
    "y": 196,
    "hints": [
     "Old Gas Station"
-   ]
+   ],
+   "gx": 307.9,
+   "gz": -144.6
   }
  },
  "extracts": [
@@ -864,6 +943,878 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Customs"
   }
  ],
+ "spawns": [
+  {
+   "x": 954,
+   "y": 120,
+   "gx": -323.9,
+   "gz": -225.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 954,
+   "y": 124,
+   "gx": -323.9,
+   "gz": -222.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 952,
+   "y": 125,
+   "gx": -321.0,
+   "gz": -220.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 951,
+   "y": 118,
+   "gx": -320.6,
+   "gz": -227.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 951,
+   "y": 122,
+   "gx": -320.6,
+   "gz": -223.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 945,
+   "y": 248,
+   "gx": -313.9,
+   "gz": -88.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 941,
+   "y": 240,
+   "gx": -309.9,
+   "gz": -97.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 941,
+   "y": 242,
+   "gx": -309.9,
+   "gz": -94.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 938,
+   "y": 247,
+   "gx": -306.1,
+   "gz": -89.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 935,
+   "y": 247,
+   "gx": -303.4,
+   "gz": -89.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 861,
+   "y": 193,
+   "gx": -223.2,
+   "gz": -147.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 859,
+   "y": 327,
+   "gx": -221.7,
+   "gz": -3.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 858,
+   "y": 198,
+   "gx": -220.2,
+   "gz": -141.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 856,
+   "y": 192,
+   "gx": -218.7,
+   "gz": -148.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 856,
+   "y": 195,
+   "gx": -217.6,
+   "gz": -144.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 855,
+   "y": 203,
+   "gx": -217.4,
+   "gz": -137.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 855,
+   "y": 328,
+   "gx": -216.6,
+   "gz": -2.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 853,
+   "y": 330,
+   "gx": -214.6,
+   "gz": -0.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 848,
+   "y": 331,
+   "gx": -209.1,
+   "gz": 0.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 845,
+   "y": 332,
+   "gx": -206.3,
+   "gz": 2.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 837,
+   "y": 113,
+   "gx": -197.2,
+   "gz": -233.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 835,
+   "y": 112,
+   "gx": -196.0,
+   "gz": -234.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 834,
+   "y": 114,
+   "gx": -194.3,
+   "gz": -232.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 831,
+   "y": 110,
+   "gx": -191.0,
+   "gz": -236.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 829,
+   "y": 111,
+   "gx": -189.1,
+   "gz": -235.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 797,
+   "y": 211,
+   "gx": -154.4,
+   "gz": -128.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 794,
+   "y": 202,
+   "gx": -152.0,
+   "gz": -137.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 794,
+   "y": 209,
+   "gx": -151.8,
+   "gz": -129.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 791,
+   "y": 197,
+   "gx": -148.3,
+   "gz": -143.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 791,
+   "y": 204,
+   "gx": -147.9,
+   "gz": -135.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 778,
+   "y": 366,
+   "gx": -134.2,
+   "gz": 38.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 777,
+   "y": 367,
+   "gx": -132.9,
+   "gz": 39.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 777,
+   "y": 371,
+   "gx": -132.9,
+   "gz": 44.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 775,
+   "y": 370,
+   "gx": -131.3,
+   "gz": 42.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 775,
+   "y": 366,
+   "gx": -130.7,
+   "gz": 38.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 673,
+   "y": 437,
+   "gx": -21.3,
+   "gz": 115.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 672,
+   "y": 435,
+   "gx": -19.8,
+   "gz": 113.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 667,
+   "y": 443,
+   "gx": -14.7,
+   "gz": 121.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 667,
+   "y": 448,
+   "gx": -14.4,
+   "gz": 126.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 655,
+   "y": 448,
+   "gx": -1.9,
+   "gz": 127.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 645,
+   "y": 211,
+   "gx": 8.7,
+   "gz": -127.8,
+   "area": "spawn-2"
+  },
+  {
+   "x": 641,
+   "y": 213,
+   "gx": 13.1,
+   "gz": -125.6,
+   "area": "spawn-2"
+  },
+  {
+   "x": 638,
+   "y": 212,
+   "gx": 16.0,
+   "gz": -126.9,
+   "area": "spawn-2"
+  },
+  {
+   "x": 636,
+   "y": 212,
+   "gx": 18.8,
+   "gz": -127.1,
+   "area": "spawn-2"
+  },
+  {
+   "x": 634,
+   "y": 214,
+   "gx": 20.4,
+   "gz": -124.8,
+   "area": "spawn-2"
+  },
+  {
+   "x": 569,
+   "y": 235,
+   "gx": 90.1,
+   "gz": -102.0,
+   "area": "spawn-2"
+  },
+  {
+   "x": 568,
+   "y": 233,
+   "gx": 91.3,
+   "gz": -104.9,
+   "area": "spawn-2"
+  },
+  {
+   "x": 563,
+   "y": 231,
+   "gx": 96.6,
+   "gz": -106.2,
+   "area": "spawn-2"
+  },
+  {
+   "x": 562,
+   "y": 230,
+   "gx": 98.1,
+   "gz": -107.2,
+   "area": "spawn-2"
+  },
+  {
+   "x": 560,
+   "y": 227,
+   "gx": 100.6,
+   "gz": -110.8,
+   "area": "spawn-2"
+  },
+  {
+   "x": 385,
+   "y": 143,
+   "gx": 288.1,
+   "gz": -201.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 384,
+   "y": 148,
+   "gx": 289.0,
+   "gz": -196.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 382,
+   "y": 147,
+   "gx": 291.7,
+   "gz": -197.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 380,
+   "y": 148,
+   "gx": 294.3,
+   "gz": -195.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 377,
+   "y": 144,
+   "gx": 296.6,
+   "gz": -200.6,
+   "area": "spawn-3"
+  },
+  {
+   "x": 361,
+   "y": 246,
+   "gx": 314.1,
+   "gz": -90.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 360,
+   "y": 244,
+   "gx": 314.9,
+   "gz": -93.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 360,
+   "y": 254,
+   "gx": 315.8,
+   "gz": -82.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 360,
+   "y": 257,
+   "gx": 315.8,
+   "gz": -79.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 358,
+   "y": 257,
+   "gx": 317.3,
+   "gz": -78.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 329,
+   "y": 472,
+   "gx": 348.4,
+   "gz": 152.8,
+   "area": "spawn-4"
+  },
+  {
+   "x": 322,
+   "y": 472,
+   "gx": 355.8,
+   "gz": 152.1,
+   "area": "spawn-4"
+  },
+  {
+   "x": 318,
+   "y": 474,
+   "gx": 360.0,
+   "gz": 154.3,
+   "area": "spawn-4"
+  },
+  {
+   "x": 315,
+   "y": 475,
+   "gx": 363.2,
+   "gz": 155.6,
+   "area": "spawn-4"
+  },
+  {
+   "x": 313,
+   "y": 469,
+   "gx": 365.5,
+   "gz": 149.3,
+   "area": "spawn-4"
+  },
+  {
+   "x": 311,
+   "y": 246,
+   "gx": 368.4,
+   "gz": -90.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 304,
+   "y": 248,
+   "gx": 375.1,
+   "gz": -88.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 302,
+   "y": 243,
+   "gx": 377.7,
+   "gz": -93.4,
+   "area": "spawn-3"
+  },
+  {
+   "x": 301,
+   "y": 222,
+   "gx": 379.0,
+   "gz": -116.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 295,
+   "y": 222,
+   "gx": 385.7,
+   "gz": -116.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 292,
+   "y": 224,
+   "gx": 388.4,
+   "gz": -114.3,
+   "area": "spawn-3"
+  },
+  {
+   "x": 292,
+   "y": 240,
+   "gx": 388.9,
+   "gz": -97.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 289,
+   "y": 221,
+   "gx": 391.6,
+   "gz": -117.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 286,
+   "y": 218,
+   "gx": 394.9,
+   "gz": -120.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 286,
+   "y": 252,
+   "gx": 394.9,
+   "gz": -84.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 209,
+   "y": 253,
+   "gx": 478,
+   "gz": -83.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 208,
+   "y": 256,
+   "gx": 478.9,
+   "gz": -79.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 207,
+   "y": 252,
+   "gx": 480.2,
+   "gz": -84.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 206,
+   "y": 254,
+   "gx": 480.6,
+   "gz": -81.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 206,
+   "y": 256,
+   "gx": 481.1,
+   "gz": -79.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 186,
+   "y": 270,
+   "gx": 502.3,
+   "gz": -64.4,
+   "area": "spawn-3"
+  },
+  {
+   "x": 186,
+   "y": 272,
+   "gx": 502.7,
+   "gz": -62.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 185,
+   "y": 275,
+   "gx": 503.2,
+   "gz": -59.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 185,
+   "y": 277,
+   "gx": 503.4,
+   "gz": -57.6,
+   "area": "spawn-3"
+  },
+  {
+   "x": 185,
+   "y": 279,
+   "gx": 503.8,
+   "gz": -55.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 171,
+   "y": 504,
+   "gx": 518.3,
+   "gz": 187.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 170,
+   "y": 520,
+   "gx": 519.8,
+   "gz": 204.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 167,
+   "y": 497,
+   "gx": 522.4,
+   "gz": 179.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 164,
+   "y": 515,
+   "gx": 525.6,
+   "gz": 199,
+   "area": "spawn-3"
+  },
+  {
+   "x": 159,
+   "y": 512,
+   "gx": 531.9,
+   "gz": 195.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 151,
+   "y": 375,
+   "gx": 539.7,
+   "gz": 48.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 147,
+   "y": 375,
+   "gx": 544.7,
+   "gz": 48.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 146,
+   "y": 378,
+   "gx": 545.0,
+   "gz": 51.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 145,
+   "y": 373,
+   "gx": 546.9,
+   "gz": 45.6,
+   "area": "spawn-3"
+  },
+  {
+   "x": 144,
+   "y": 374,
+   "gx": 548.1,
+   "gz": 47.6,
+   "area": "spawn-3"
+  },
+  {
+   "x": 125,
+   "y": 226,
+   "gx": 568.1,
+   "gz": -111.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 124,
+   "y": 221,
+   "gx": 569.0,
+   "gz": -117.4,
+   "area": "spawn-3"
+  },
+  {
+   "x": 123,
+   "y": 281,
+   "gx": 569.8,
+   "gz": -52.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 123,
+   "y": 283,
+   "gx": 569.9,
+   "gz": -50.4,
+   "area": "spawn-3"
+  },
+  {
+   "x": 123,
+   "y": 279,
+   "gx": 570.1,
+   "gz": -55.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 123,
+   "y": 226,
+   "gx": 570.5,
+   "gz": -111.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 122,
+   "y": 282,
+   "gx": 571.2,
+   "gz": -51.7,
+   "area": "spawn-3"
+  },
+  {
+   "x": 122,
+   "y": 280,
+   "gx": 571.4,
+   "gz": -53.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 122,
+   "y": 465,
+   "gx": 571.6,
+   "gz": 145.3,
+   "area": "spawn-3"
+  },
+  {
+   "x": 119,
+   "y": 223,
+   "gx": 574,
+   "gz": -114.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 117,
+   "y": 223,
+   "gx": 576.4,
+   "gz": -115.3,
+   "area": "spawn-3"
+  },
+  {
+   "x": 112,
+   "y": 467,
+   "gx": 582.3,
+   "gz": 147.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 110,
+   "y": 466,
+   "gx": 584.1,
+   "gz": 146.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 109,
+   "y": 466,
+   "gx": 585.7,
+   "gz": 145.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 107,
+   "y": 462,
+   "gx": 587.9,
+   "gz": 141.9,
+   "area": "spawn-3"
+  },
+  {
+   "x": 82,
+   "y": 235,
+   "gx": 614.4,
+   "gz": -102.6,
+   "area": "spawn-3"
+  },
+  {
+   "x": 81,
+   "y": 240,
+   "gx": 615.6,
+   "gz": -96.8,
+   "area": "spawn-3"
+  },
+  {
+   "x": 79,
+   "y": 234,
+   "gx": 617.5,
+   "gz": -103.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 79,
+   "y": 240,
+   "gx": 617.7,
+   "gz": -96.9,
+   "area": "spawn-3"
+  },
+  {
+   "x": 77,
+   "y": 240,
+   "gx": 620.1,
+   "gz": -97.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 57,
+   "y": 371,
+   "gx": 641.5,
+   "gz": 43.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 56,
+   "y": 372,
+   "gx": 642.1,
+   "gz": 45.5,
+   "area": "spawn-3"
+  },
+  {
+   "x": 53,
+   "y": 373,
+   "gx": 645.3,
+   "gz": 46.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 51,
+   "y": 375,
+   "gx": 647.5,
+   "gz": 48.4,
+   "area": "spawn-3"
+  },
+  {
+   "x": 50,
+   "y": 377,
+   "gx": 648.8,
+   "gz": 50.2,
+   "area": "spawn-3"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Crossroads",
+   "x": 834,
+   "y": 252,
+   "count": 40
+  },
+  {
+   "id": "spawn-2",
+   "name": "Near RUAF Roadblock",
+   "x": 602,
+   "y": 222,
+   "count": 10
+  },
+  {
+   "id": "spawn-3",
+   "name": "Near Smugglers' Bunker (ZB-1012)",
+   "x": 194,
+   "y": 297,
+   "count": 65
+  },
+  {
+   "id": "spawn-4",
+   "name": "Near Dorms V-Ex",
+   "x": 320,
+   "y": 472,
+   "count": 5
+  }
+ ],
  "bosses": [
   {
    "name": "Reshala",
@@ -1016,7 +1967,8 @@
       "trailer-park-s",
       "trailer-park-w",
       "warehouse-17-ne"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [
@@ -1641,7 +2593,8 @@
      "zone": [
       "depot-n",
       "s-of-junk-bridge"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "676ab31c058363b09072c78e",
@@ -2200,7 +3153,8 @@
       "depot-sw",
       "military-checkpoint",
       "old-construction-e"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [
@@ -2627,7 +3581,8 @@
       "old-construction-w",
       "old-gas",
       "storage-ne"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [
@@ -3690,7 +4645,8 @@
       "repair-shop-s",
       "repair-shop-sw",
       "warehouse-17"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "6a574fe188bf38e4f6c954f6",

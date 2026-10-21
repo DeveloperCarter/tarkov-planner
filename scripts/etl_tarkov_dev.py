@@ -313,6 +313,75 @@ def art_rect(site: dict, frame: Frame, en) -> dict | None:
             "w": round(abs(x1 - x0), 1), "h": round(abs(y1 - y0), 1)}
 
 
+# Single-linkage in game metres. Woods needs 175 m to keep its larger perimeter useful;
+# 150 m gives four areas on Customs/Shoreline; 175 m gives ten on Woods (cached snapshot).
+SPAWN_DISTANCE = 150.0
+
+
+def match_spawn(data: dict, gx: float, gz: float) -> dict | None:
+    """Closest PMC player spawn within 30 m; raw x/z, never frame pixels."""
+    if not all(math.isfinite(v) for v in (gx, gz)):
+        return None
+    spawns = data.get("spawns") or []
+    if not spawns:
+        return None
+    spawn = min(spawns, key=lambda s: (math.hypot(s["gx"] - gx, s["gz"] - gz),
+                                       s["gx"], s["gz"], s["area"]))
+    metres = math.hypot(spawn["gx"] - gx, spawn["gz"] - gz)
+    area = next((a for a in data.get("spawnAreas", []) if a["id"] == spawn["area"]), None)
+    return {"spawn": spawn, "area": area, "metres": metres} if metres <= 30 else None
+
+
+def build_spawns(m: dict, frame: Frame, en, extracts: list) -> tuple[list, list]:
+    """Deterministic single-linkage of PMC player spawns, including Labs' all-side spawns."""
+    points = sorted([(s["position"]["x"], s["position"]["z"]) for s in m.get("spawns", [])
+                     if set(s.get("sides", [])) & {"pmc", "all"} and "player" in s.get("categories", [])])
+    threshold = 175.0 if m["normalizedName"] == "woods" else SPAWN_DISTANCE
+    remaining, clusters = set(range(len(points))), []
+    while remaining:
+        first = min(remaining)
+        remaining.remove(first)
+        todo, members = [first], []
+        while todo:
+            i = todo.pop()
+            members.append(i)
+            neighbours = sorted(j for j in remaining if math.dist(points[i], points[j]) <= threshold)
+            remaining.difference_update(neighbours)
+            todo.extend(neighbours)
+        clusters.append(sorted(members))
+    candidates = [e for e in extracts if e.get("type") in ("pmc", "shared", "coop")
+                  or (e.get("type") is None and e.get("faction") in ("pmc", "shared", "all"))]
+    areas, spawns, anchors = [], [], []
+    for i, members in enumerate(clusters):
+        gx = sum(points[j][0] for j in members) / len(members)
+        gz = sum(points[j][1] for j in members) / len(members)
+        x, y = frame.xy(en({"x": gx, "z": gz}))
+        near = min(candidates, key=lambda e: (math.hypot(e["x"] - x, e["y"] - y), e["name"], e.get("id", ""))) if candidates else None
+        area_id = f"spawn-{i + 1}"
+        areas.append({"id": area_id, "name": f"Near {near['name']}" if near else "Unnamed spawn area",
+                      "x": x, "y": y, "count": len(members)})
+        anchors.append(near)
+        for j in members:
+            px, py = frame.xy(en({"x": points[j][0], "z": points[j][1]}))
+            spawns.append({"x": px, "y": py, "gx": round(points[j][0], 1), "gz": round(points[j][1], 1), "area": area_id})
+    names = [a["name"] for a in areas]
+    for a, near in zip(areas, anchors):
+        if names.count(a["name"]) > 1 and near:
+            # Frame y grows south; compass() takes north-up coordinates.
+            direction = compass((near["x"], -near["y"]), (a["x"], -a["y"]))
+            direction = {"N": "north", "NE": "northeast", "E": "east", "SE": "southeast",
+                         "S": "south", "SW": "southwest", "W": "west", "NW": "northwest"}[direction]
+            a["name"] += f" ({direction})"
+    # Rare same-direction ties still need distinguishable, stable labels.
+    for name in sorted({a["name"] for a in areas}):
+        same = [a for a in areas if a["name"] == name]
+        if len(same) > 1:
+            for i, a in enumerate(same, 1):
+                a["name"] += f" {i}"
+    spawns.sort(key=lambda s: (s["gx"], s["gz"], s["area"]))
+    return spawns, areas
+
+
 # ---------------------------------------------------------------- normalize
 
 class Normalizer:
@@ -380,11 +449,22 @@ class Normalizer:
                 quests.append(q)
                 points += [p for p in q.pop("_points")]
         zones, zone_of = self.cluster(points, labels, frame)
+        for z in zones.values():
+            # Retain raw metres for routing; frame coordinates are only for drawing.
+            east, north = z.pop("_en")
+            gx, gz = rotate({"x": east, "z": north}, -rot)
+            z.update(gx=round(gx, 1), gz=round(gz, 1))
         for q in quests:
             for o in q["objectives"]:
                 o["zone"] = sorted({zone_of[pid] for pid in o.pop("_pids")})
+                if len(o["zone"]) > 1:
+                    o["zoneMode"] = "any"
         quests.sort(key=lambda q: (q["minLevel"], q["trader"], q["name"]))
 
+        extracts = self.build_extracts(m, frame, en)
+        spawns, spawn_areas = build_spawns(m, frame, en, extracts)
+        print(f"SPAWNS {self.mode}/{key}: {len(spawns)} spawns, {len(spawn_areas)} areas: " +
+              "; ".join(a["name"] for a in spawn_areas), file=sys.stderr)
         return {
             "meta": {
                 "map": self.tr(m["name"]),
@@ -395,7 +475,7 @@ class Normalizer:
                 "snapshot": self.raw["manifest"]["fetchedAt"],
                 "raidMinutes": m.get("raidDuration"),
                 "players": m.get("players"),
-                "frame": {"w": frame.w, "h": frame.h, "metres": round(frame.metres)},
+                "frame": {"w": frame.w, "h": frame.h, "metres": round(frame.metres), "scale": frame.scale},
                 # Real map art (scripts/fetch_art.py downloads it); absent for maps without an SVG.
                 "art": art_rect(site, frame, en),
                 "rotation": rot,
@@ -411,7 +491,9 @@ class Normalizer:
                 ],
             },
             "zones": zones,
-            "extracts": self.build_extracts(m, frame, en),
+            "extracts": extracts,
+            "spawns": spawns,
+            "spawnAreas": spawn_areas,
             "bosses": self.build_bosses(m),
             "quests": quests,
             "acquisition": self.build_acquisition(quests, m),
@@ -569,7 +651,7 @@ class Normalizer:
                         zone_of[k] = f"{base}-1"
             x, y = frame.xy(c["en"])
             zones[zid] = {"name": name if used[base] == 1 else f"{name} ({used[base]})", "x": x, "y": y,
-                          "hints": sorted({m["hint"] for m in c["members"] if m["hint"]})[:4]}
+                          "hints": sorted({m["hint"] for m in c["members"] if m["hint"]})[:4], "_en": c["en"]}
             for mbr in c["members"]:
                 zone_of[mbr["pid"]] = zid
         return zones, zone_of

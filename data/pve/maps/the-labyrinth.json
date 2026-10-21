@@ -11,7 +11,8 @@
   "frame": {
    "w": 1000,
    "h": 857,
-   "metres": 110
+   "metres": 110,
+   "scale": 8.537174262526646
   },
   "art": null,
   "rotation": 270,
@@ -39,43 +40,57 @@
    "name": "Unnamed spot (1)",
    "x": 340,
    "y": 461,
-   "hints": []
+   "hints": [],
+   "gx": 0.0,
+   "gz": 0.0
   },
   "unnamed-spot-2": {
    "name": "Unnamed spot (2)",
    "x": 588,
    "y": 393,
-   "hints": []
+   "hints": [],
+   "gx": -8.0,
+   "gz": 29.0
   },
   "unnamed-spot-3": {
    "name": "Unnamed spot (3)",
    "x": 534,
    "y": 372,
-   "hints": []
+   "hints": [],
+   "gx": -10.5,
+   "gz": 22.7
   },
   "unnamed-spot-4": {
    "name": "Unnamed spot (4)",
    "x": 388,
    "y": 598,
-   "hints": []
+   "hints": [],
+   "gx": 16.1,
+   "gz": 5.6
   },
   "unnamed-spot-5": {
    "name": "Unnamed spot (5)",
    "x": 504,
    "y": 580,
-   "hints": []
+   "hints": [],
+   "gx": 14.0,
+   "gz": 19.2
   },
   "unnamed-spot-6": {
    "name": "Unnamed spot (6)",
    "x": 502,
    "y": 263,
-   "hints": []
+   "hints": [],
+   "gx": -23.2,
+   "gz": 19.0
   },
   "unnamed-spot-7": {
    "name": "Unnamed spot (7)",
    "x": 214,
    "y": 540,
-   "hints": []
+   "hints": [],
+   "gx": 9.2,
+   "gz": -14.8
   }
  },
  "extracts": [
@@ -114,6 +129,52 @@
    "item": "Ariadne symbol key",
    "type": "pmc",
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Labyrinth"
+  }
+ ],
+ "spawns": [
+  {
+   "x": 204,
+   "y": 32,
+   "gx": -50.3,
+   "gz": -15.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 970,
+   "y": 142,
+   "gx": -37.4,
+   "gz": 73.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 54,
+   "y": 512,
+   "gx": 6.0,
+   "gz": -33.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 783,
+   "y": 661,
+   "gx": 23.4,
+   "gz": 51.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 609,
+   "y": 827,
+   "gx": 42.9,
+   "gz": 31.5,
+   "area": "spawn-1"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near The Way Up",
+   "x": 524,
+   "y": 435,
+   "count": 5
   }
  ],
  "bosses": [
@@ -447,7 +508,8 @@
      "zone": [
       "unnamed-spot-2",
       "unnamed-spot-3"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "67a0de2750fdff39d267ea16",
@@ -617,7 +679,8 @@
      "zone": [
       "unnamed-spot-4",
       "unnamed-spot-5"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "67a0de9190545ec5612fdda5",

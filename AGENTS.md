@@ -16,6 +16,7 @@ page/customs-raid-plan.template.html   the one page template (vanilla JS, no fra
 page/eft-log-tracker.js        log parser + watcher; inlined by build_page.py; loaded by Node tests
 page/progress-store.js         profile/mode/wipe scopes, replay history and current-list corrections
 page/raid-focus.js             manual raid selection, shared locations/items and filtered plan projection
+page/raid-route.js             spawn matching and shortest open objective route (pure UMD; no extracts)
 page/map-home.js               home-page counts using the same scoped quest evaluation
 page/site-search.js            site-wide quest search ranking over dist/search-index.json (pure, tested)
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
@@ -133,6 +134,41 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   including hrefs inside the PvE index. Kappa comes from the cached wiki quest page when there is one,
   as on the map pages (`build_page.wiki_kappa`); tarkov.dev's flag marks only a handful of tasks.
 
+**Spawn areas and objective routes (2026-10-21)**
+- `map.nameId` in both cached snapshots supplies game location IDs. `bigmap` -> customs;
+  `TarkovStreets` -> streets-of-tarkov; `Woods`, `Shoreline`, `Lighthouse`, `Interchange`, `Icebreaker`,
+  `Terminal` -> their lower-case keys; `RezervBase` -> reserve; `laboratory`/`laboratory_dark` -> the-lab;
+  `factory4_day`/`factory4_night` -> factory; `Labyrinth` -> the-labyrinth;
+  `Sandbox`/`Sandbox_high`/`Sandbox_start` -> ground-zero. Unknown locations remain null.
+- PMC player spawns have `sides` containing pmc or all and `categories` containing player. Store
+  `spawns: [{x,y,gx,gz,area}]`: x/y are the existing rotated Frame, gx/gz raw game x/z rounded to 0.1 m.
+  `spawnAreas: [{id,name,x,y,count}]` are deterministic single-linkage components. The threshold is
+  150 game metres, except Woods at 175 m: this produces Customs 120/4, Woods 140/10, Shoreline 130/4
+  spawns/areas in the cached snapshot. A common threshold could not produce 4–10 on all three.
+  Dense maps can chain into one large area; these labels are coarse manual fallbacks, not spawn IDs.
+- Names use the closest PMC/shared (including co-op) extract to the area centroid, with compass
+  suffixes for duplicate names and stable numbers for same-direction ties. Terminal has no eligible
+  extract, so its area is explicitly unnamed. No exit planning or exit eligibility is implied.
+- `etl_tarkov_dev.match_spawn` and `RaidRoute.matchSpawn(data,gx,gz)` return the closest spawn,
+  its area and distance only within 30 m (inclusive). Ties sort by raw coordinates, then area ID.
+- An objective's multi-zone list is alternatives, not a checklist. Verified in the snapshot:
+  Abandoned Cargo marks any of seven cargo boxes, Tigr Safari any of three vehicles, and Steady
+  Signal any of five weather stations. Multiple visit volumes can also describe one target;
+  work at distinct required targets appears as separate objective IDs. `possibleLocations` are
+  random quest-item locations, also alternatives: a route cannot know which currently holds the item.
+  ETL marks multi-zone objectives `zoneMode: "any"`; the route also supports explicit "all".
+- Objective zones retain raw centroid `gx/gz` (0.1 m) and frame x/y. `meta.frame.scale` is frame units
+  per game metre. Distances use the x/z plane, ignore walls, paths, elevations, enemies and keys,
+  and end at the last objective. These are geometric routes, not guaranteed walkable paths.
+- `RaidRoute.route(data,selectedIds,start,{done})` uses selected quest IDs/bsgIds, merges shared
+  zones, drops completed objectives and ignores objectives without zones. `done` is an objective-ID
+  Set, or a Map/object with booleans, numeric counters or `{count}`; counters finish at objective.count.
+  `start` is `{gx,gz}`, a spawn-area ID (member centroid), or a previous output stop for rerouting.
+  Stops include zone,x,y,gx,gz,quests,objectives. Exact generalized Held–Karp handles up to ten
+  independent requirements or candidate stops, including global choice among alternative zones;
+  larger problems use deterministic nearest-neighbour and open-path 2-opt with approximate:true.
+  Identical/subsumed requirements are reduced first. No extracts are added.
+
 **Map art and spot photos**
 - SVG maps: the-hideout/tarkov-dev-svg-maps, CC BY-NC-SA 4.0 (non-commercial; credit and same
   licence for modified copies; no use in cheats). `fetch_art.py` keeps only the ground floor; the page
@@ -150,6 +186,23 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - Quest ID = first word of `message.templateId`, and it equals the tarkov.dev task ID.
 - `eventId` is always present. Use `message.dt` (Unix seconds) for ordering.
 - The application log line `Session mode: Regular|Pve` gives the mode.
+- Supplied verification over 120 EFT 1.2.5 raids: application_000.log has `TRACE-NetworkGameCreate
+  profileStatus: ... Location: bigmap, ...` at matching end, and `GameStarted:...` at raid start.
+  Incidental `Reason:PacketsQueue|Lift|Speed, Position:(x,y,z), ...` lines sometimes follow in 2–5 s.
+  This Position line is undocumented and may disappear. Provided samples had positions in Customs
+  5/10, Woods 4/7, Shoreline 3/9 and Streets 37/58 raids; Labs, Factory and Labyrinth had none.
+  Some Streets positions were up to 95 m from a spawn; reject matches over 30 m and ask for an area.
+- `EftLogs.RaidParser` is a pure streaming line parser; raidEventsFromText is its complete-text helper.
+  Events are raid-loading {location,map,at}, raid-started {map,at}, and spawn-position
+  {map,x,y,z,at,secondsAfterStart,reason}, each with kind. at is epoch milliseconds; only the first
+  qualifying Position within ten seconds (inclusive) after GameStarted is emitted per raid.
+  A loading event resets the raid. Events retain no profile/account IDs, IPs, Sid or shortId.
+- Optional `new LogWatcher({onRaid(event,meta)})` tails application files incrementally with UTF-8
+  split-chunk handling, session/file rotations and truncation detection. Initial application history
+  and replaced-file history prime context silently; scanPast/importFileList never emit raid events.
+  Identity re-reads never replay raids. The callback uses the existing session identity metadata;
+  the event itself has only the whitelist above. Log access remains read-only in the picked folder.
+
 - `PrepareSelectedProfileLocally ProfileId:<24 hex>` identifies the profile. Retain no account ID.
   Missing identity or mixed profiles/modes stays in history, never guessed into a wipe.
 - A First in Line (`657315ddab5a49b71f098853`) event means the logs reach the character's start,

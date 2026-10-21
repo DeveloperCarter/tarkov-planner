@@ -11,7 +11,8 @@
   "frame": {
    "w": 657,
    "h": 1376,
-   "metres": 1988
+   "metres": 1988,
+   "scale": 0.6621201552263222
   },
   "art": {
    "x": -24.6,
@@ -44,7 +45,9 @@
    "name": "Plant 1",
    "x": 290,
    "y": 535,
-   "hints": []
+   "hints": [],
+   "gx": 39.4,
+   "gz": -639.8
   },
   "train-yard": {
    "name": "Train Yard",
@@ -52,49 +55,65 @@
    "y": 387,
    "hints": [
     "Train Station Warehouse"
-   ]
+   ],
+   "gx": -24.5,
+   "gz": -863.2
   },
   "cabins": {
    "name": "Cabins",
    "x": 481,
    "y": 742,
-   "hints": []
+   "hints": [],
+   "gx": -248.0,
+   "gz": -328.3
   },
   "tennis-court": {
    "name": "Tennis Court",
    "x": 359,
    "y": 1047,
-   "hints": []
+   "hints": [],
+   "gx": -64.3,
+   "gz": 132.8
   },
   "tennis-court-sw": {
    "name": "Tennis Court SW",
    "x": 311,
    "y": 1074,
-   "hints": []
+   "hints": [],
+   "gx": 8.4,
+   "gz": 173.8
   },
   "plant-2-sw": {
    "name": "Plant 2 SW",
    "x": 359,
    "y": 507,
-   "hints": []
+   "hints": [],
+   "gx": -64.4,
+   "gz": -682.5
   },
   "sw-of-crash-site": {
    "name": "SW of Crash Site",
    "x": 273,
    "y": 1301,
-   "hints": []
+   "hints": [],
+   "gx": 66.0,
+   "gz": 516.8
   },
   "pikes-peak-resort-sw": {
    "name": "Pikes Peak Resort SW",
    "x": 344,
    "y": 970,
-   "hints": []
+   "hints": [],
+   "gx": -41.0,
+   "gz": 16.5
   },
   "nw-of-plant-1": {
    "name": "NW of Plant 1",
    "x": 192,
    "y": 489,
-   "hints": []
+   "hints": [],
+   "gx": 187.4,
+   "gz": -709.8
   },
   "water-treatment-s": {
    "name": "Water Treatment S",
@@ -102,19 +121,25 @@
    "y": 586,
    "hints": [
     "Helicopter at Water Treatment Plant"
-   ]
+   ],
+   "gx": -73.7,
+   "gz": -563.1
   },
   "grand-chalet": {
    "name": "Grand Chalet",
    "x": 396,
    "y": 1019,
-   "hints": []
+   "hints": [],
+   "gx": -120.4,
+   "gz": 90.2
   },
   "crash-site": {
    "name": "Crash Site",
    "x": 400,
    "y": 1159,
-   "hints": []
+   "hints": [],
+   "gx": -126.7,
+   "gz": 301.5
   },
   "boathouses": {
    "name": "Boathouses",
@@ -122,25 +147,33 @@
    "y": 858,
    "hints": [
     "Yacht Club Pier"
-   ]
+   ],
+   "gx": 130.3,
+   "gz": -151.9
   },
   "construction-nw": {
    "name": "Construction NW",
    "x": 293,
    "y": 786,
-   "hints": []
+   "hints": [],
+   "gx": 35.6,
+   "gz": -261.5
   },
   "w-of-tennis-court": {
    "name": "W of Tennis Court",
    "x": 252,
    "y": 1036,
-   "hints": []
+   "hints": [],
+   "gx": 97.0,
+   "gz": 115.7
   },
   "drug-lab": {
    "name": "Drug Lab",
    "x": 395,
    "y": 402,
-   "hints": []
+   "hints": [],
+   "gx": -119.2,
+   "gz": -841.1
   },
   "pikes-peak-resort-se": {
    "name": "Pikes Peak Resort SE",
@@ -148,85 +181,113 @@
    "y": 959,
    "hints": [
     "Chalets"
-   ]
+   ],
+   "gx": -133.6,
+   "gz": 0.5
   },
   "drug-lab-n": {
    "name": "Drug Lab N",
    "x": 394,
    "y": 349,
-   "hints": []
+   "hints": [],
+   "gx": -116.6,
+   "gz": -921.9
   },
   "plant-3-sw": {
    "name": "Plant 3 SW",
    "x": 420,
    "y": 555,
-   "hints": []
+   "hints": [],
+   "gx": -156.4,
+   "gz": -610.5
   },
   "gunner-nest-1": {
    "name": "Gunner Nest (1)",
    "x": 302,
    "y": 649,
-   "hints": []
+   "hints": [],
+   "gx": 22.1,
+   "gz": -467.7
   },
   "gunner-nest-2": {
    "name": "Gunner Nest (2)",
    "x": 296,
    "y": 679,
-   "hints": []
+   "hints": [],
+   "gx": 30.3,
+   "gz": -422.2
   },
   "plant-2": {
    "name": "Plant 2",
    "x": 390,
    "y": 462,
-   "hints": []
+   "hints": [],
+   "gx": -111.0,
+   "gz": -750.1
   },
   "tennis-court-w": {
    "name": "Tennis Court W",
    "x": 304,
    "y": 1028,
-   "hints": []
+   "hints": [],
+   "gx": 19.0,
+   "gz": 104.0
   },
   "dead-tree-sw": {
    "name": "Dead Tree SW",
    "x": 226,
    "y": 991,
-   "hints": []
+   "hints": [],
+   "gx": 136.9,
+   "gz": 47.9
   },
   "lightkeeper-island-se": {
    "name": "Lightkeeper Island SE",
    "x": 83,
    "y": 1321,
-   "hints": []
+   "hints": [],
+   "gx": 352.9,
+   "gz": 546.7
   },
   "pikes-peak-resort-e": {
    "name": "Pikes Peak Resort E",
    "x": 430,
    "y": 923,
-   "hints": []
+   "hints": [],
+   "gx": -171.0,
+   "gz": -54.7
   },
   "pikes-peak-resort-ne": {
    "name": "Pikes Peak Resort NE",
    "x": 436,
    "y": 882,
-   "hints": []
+   "hints": [],
+   "gx": -181.1,
+   "gz": -115.7
   },
   "cottages-se": {
    "name": "Cottages SE",
    "x": 437,
    "y": 841,
-   "hints": []
+   "hints": [],
+   "gx": -182.6,
+   "gz": -177.4
   },
   "nw-of-train-yard": {
    "name": "NW of Train Yard",
    "x": 245,
    "y": 325,
-   "hints": []
+   "hints": [],
+   "gx": 107.6,
+   "gz": -957.6
   },
   "pikes-peak-resort-nw": {
    "name": "Pikes Peak Resort NW",
    "x": 369,
    "y": 900,
-   "hints": []
+   "hints": [],
+   "gx": -79.9,
+   "gz": -88.4
   }
  },
  "extracts": [
@@ -504,6 +565,556 @@
    ],
    "note": "Travel to another map; available after 1 minute(s).",
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Lighthouse"
+  }
+ ],
+ "spawns": [
+  {
+   "x": 613,
+   "y": 734,
+   "gx": -448.2,
+   "gz": -339.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 613,
+   "y": 733,
+   "gx": -447.6,
+   "gz": -341.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 612,
+   "y": 734,
+   "gx": -446.7,
+   "gz": -340.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 611,
+   "y": 734,
+   "gx": -445.6,
+   "gz": -339.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 611,
+   "y": 733,
+   "gx": -445.1,
+   "gz": -340.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 526,
+   "y": 526,
+   "gx": -317.0,
+   "gz": -654.3,
+   "area": "spawn-2"
+  },
+  {
+   "x": 525,
+   "y": 525,
+   "gx": -315.0,
+   "gz": -655.7,
+   "area": "spawn-2"
+  },
+  {
+   "x": 525,
+   "y": 530,
+   "gx": -314.3,
+   "gz": -648.2,
+   "area": "spawn-2"
+  },
+  {
+   "x": 523,
+   "y": 527,
+   "gx": -312.4,
+   "gz": -652.8,
+   "area": "spawn-2"
+  },
+  {
+   "x": 523,
+   "y": 528,
+   "gx": -311.2,
+   "gz": -650.4,
+   "area": "spawn-2"
+  },
+  {
+   "x": 469,
+   "y": 838,
+   "gx": -230.6,
+   "gz": -183.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 468,
+   "y": 839,
+   "gx": -229.6,
+   "gz": -181.0,
+   "area": "spawn-3"
+  },
+  {
+   "x": 468,
+   "y": 838,
+   "gx": -229.1,
+   "gz": -182.9,
+   "area": "spawn-3"
+  },
+  {
+   "x": 467,
+   "y": 839,
+   "gx": -228.0,
+   "gz": -181.2,
+   "area": "spawn-3"
+  },
+  {
+   "x": 467,
+   "y": 838,
+   "gx": -227.4,
+   "gz": -183.1,
+   "area": "spawn-3"
+  },
+  {
+   "x": 446,
+   "y": 658,
+   "gx": -196.1,
+   "gz": -454.4,
+   "area": "spawn-4"
+  },
+  {
+   "x": 446,
+   "y": 660,
+   "gx": -195.5,
+   "gz": -452.1,
+   "area": "spawn-4"
+  },
+  {
+   "x": 445,
+   "y": 659,
+   "gx": -194.3,
+   "gz": -452.7,
+   "area": "spawn-4"
+  },
+  {
+   "x": 445,
+   "y": 661,
+   "gx": -194.1,
+   "gz": -449.7,
+   "area": "spawn-4"
+  },
+  {
+   "x": 443,
+   "y": 661,
+   "gx": -191.8,
+   "gz": -449.9,
+   "area": "spawn-4"
+  },
+  {
+   "x": 416,
+   "y": 1165,
+   "gx": -150.0,
+   "gz": 310.8,
+   "area": "spawn-5"
+  },
+  {
+   "x": 414,
+   "y": 1165,
+   "gx": -147.9,
+   "gz": 311.1,
+   "area": "spawn-5"
+  },
+  {
+   "x": 413,
+   "y": 1165,
+   "gx": -145.6,
+   "gz": 311.3,
+   "area": "spawn-5"
+  },
+  {
+   "x": 413,
+   "y": 1167,
+   "gx": -145.1,
+   "gz": 313.9,
+   "area": "spawn-5"
+  },
+  {
+   "x": 411,
+   "y": 1167,
+   "gx": -143.0,
+   "gz": 315.0,
+   "area": "spawn-5"
+  },
+  {
+   "x": 405,
+   "y": 1267,
+   "gx": -134.4,
+   "gz": 465.5,
+   "area": "spawn-6"
+  },
+  {
+   "x": 405,
+   "y": 1269,
+   "gx": -134.3,
+   "gz": 468.0,
+   "area": "spawn-6"
+  },
+  {
+   "x": 405,
+   "y": 1270,
+   "gx": -134.3,
+   "gz": 469.9,
+   "area": "spawn-6"
+  },
+  {
+   "x": 405,
+   "y": 1268,
+   "gx": -133.2,
+   "gz": 466.3,
+   "area": "spawn-6"
+  },
+  {
+   "x": 404,
+   "y": 1269,
+   "gx": -132.6,
+   "gz": 468.9,
+   "area": "spawn-6"
+  },
+  {
+   "x": 402,
+   "y": 425,
+   "gx": -129.5,
+   "gz": -806.9,
+   "area": "spawn-7"
+  },
+  {
+   "x": 401,
+   "y": 427,
+   "gx": -128.3,
+   "gz": -803.5,
+   "area": "spawn-7"
+  },
+  {
+   "x": 400,
+   "y": 424,
+   "gx": -126.9,
+   "gz": -807.6,
+   "area": "spawn-7"
+  },
+  {
+   "x": 398,
+   "y": 427,
+   "gx": -123.4,
+   "gz": -804.0,
+   "area": "spawn-7"
+  },
+  {
+   "x": 398,
+   "y": 425,
+   "gx": -123.1,
+   "gz": -806.2,
+   "area": "spawn-7"
+  },
+  {
+   "x": 285,
+   "y": 803,
+   "gx": 47.3,
+   "gz": -235.4,
+   "area": "spawn-8"
+  },
+  {
+   "x": 285,
+   "y": 802,
+   "gx": 48.0,
+   "gz": -236.9,
+   "area": "spawn-8"
+  },
+  {
+   "x": 284,
+   "y": 803,
+   "gx": 49.1,
+   "gz": -234.9,
+   "area": "spawn-8"
+  },
+  {
+   "x": 283,
+   "y": 803,
+   "gx": 50.4,
+   "gz": -236.0,
+   "area": "spawn-8"
+  },
+  {
+   "x": 282,
+   "y": 802,
+   "gx": 51.4,
+   "gz": -237.4,
+   "area": "spawn-8"
+  },
+  {
+   "x": 275,
+   "y": 335,
+   "gx": 62.5,
+   "gz": -942.3,
+   "area": "spawn-9"
+  },
+  {
+   "x": 275,
+   "y": 334,
+   "gx": 62.7,
+   "gz": -944.3,
+   "area": "spawn-9"
+  },
+  {
+   "x": 275,
+   "y": 332,
+   "gx": 62.9,
+   "gz": -947.0,
+   "area": "spawn-9"
+  },
+  {
+   "x": 274,
+   "y": 333,
+   "gx": 63.6,
+   "gz": -945.7,
+   "area": "spawn-9"
+  },
+  {
+   "x": 274,
+   "y": 334,
+   "gx": 64.8,
+   "gz": -944.2,
+   "area": "spawn-9"
+  },
+  {
+   "x": 263,
+   "y": 1129,
+   "gx": 81.2,
+   "gz": 257.6,
+   "area": "spawn-10"
+  },
+  {
+   "x": 262,
+   "y": 1131,
+   "gx": 82.0,
+   "gz": 259.8,
+   "area": "spawn-10"
+  },
+  {
+   "x": 262,
+   "y": 1128,
+   "gx": 82.4,
+   "gz": 255.2,
+   "area": "spawn-10"
+  },
+  {
+   "x": 262,
+   "y": 1129,
+   "gx": 83.0,
+   "gz": 257.4,
+   "area": "spawn-10"
+  },
+  {
+   "x": 261,
+   "y": 1131,
+   "gx": 83.4,
+   "gz": 260.3,
+   "area": "spawn-10"
+  },
+  {
+   "x": 243,
+   "y": 962,
+   "gx": 111.3,
+   "gz": 4.0,
+   "area": "spawn-11"
+  },
+  {
+   "x": 242,
+   "y": 962,
+   "gx": 112.3,
+   "gz": 5.3,
+   "area": "spawn-11"
+  },
+  {
+   "x": 241,
+   "y": 964,
+   "gx": 113.5,
+   "gz": 8.1,
+   "area": "spawn-11"
+  },
+  {
+   "x": 241,
+   "y": 963,
+   "gx": 113.6,
+   "gz": 6.2,
+   "area": "spawn-11"
+  },
+  {
+   "x": 240,
+   "y": 965,
+   "gx": 114.7,
+   "gz": 9.3,
+   "area": "spawn-11"
+  },
+  {
+   "x": 233,
+   "y": 614,
+   "gx": 125.8,
+   "gz": -520.5,
+   "area": "spawn-12"
+  },
+  {
+   "x": 232,
+   "y": 616,
+   "gx": 127.2,
+   "gz": -518.5,
+   "area": "spawn-12"
+  },
+  {
+   "x": 229,
+   "y": 619,
+   "gx": 132.8,
+   "gz": -513.7,
+   "area": "spawn-12"
+  },
+  {
+   "x": 227,
+   "y": 619,
+   "gx": 134.8,
+   "gz": -514.1,
+   "area": "spawn-12"
+  },
+  {
+   "x": 226,
+   "y": 619,
+   "gx": 136.9,
+   "gz": -513.1,
+   "area": "spawn-12"
+  },
+  {
+   "x": 204,
+   "y": 476,
+   "gx": 170.3,
+   "gz": -728.9,
+   "area": "spawn-13"
+  },
+  {
+   "x": 204,
+   "y": 475,
+   "gx": 170.5,
+   "gz": -731.1,
+   "area": "spawn-13"
+  },
+  {
+   "x": 203,
+   "y": 478,
+   "gx": 171.9,
+   "gz": -726.7,
+   "area": "spawn-13"
+  },
+  {
+   "x": 202,
+   "y": 481,
+   "gx": 173.5,
+   "gz": -721.1,
+   "area": "spawn-13"
+  },
+  {
+   "x": 201,
+   "y": 483,
+   "gx": 174.4,
+   "gz": -719.3,
+   "area": "spawn-13"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Path to Shoreline",
+   "x": 612,
+   "y": 734,
+   "count": 5
+  },
+  {
+   "id": "spawn-2",
+   "name": "Near Passage by the Lake (west)",
+   "x": 524,
+   "y": 527,
+   "count": 5
+  },
+  {
+   "id": "spawn-3",
+   "name": "Near Mountain Pass (north)",
+   "x": 468,
+   "y": 838,
+   "count": 5
+  },
+  {
+   "id": "spawn-4",
+   "name": "Near Passage by the Lake (southwest)",
+   "x": 445,
+   "y": 660,
+   "count": 5
+  },
+  {
+   "id": "spawn-5",
+   "name": "Near Side Tunnel (Co-Op) (east)",
+   "x": 413,
+   "y": 1166,
+   "count": 5
+  },
+  {
+   "id": "spawn-6",
+   "name": "Near Side Tunnel (Co-Op) (southeast)",
+   "x": 405,
+   "y": 1269,
+   "count": 5
+  },
+  {
+   "id": "spawn-7",
+   "name": "Near Armored Train (southeast)",
+   "x": 400,
+   "y": 425,
+   "count": 5
+  },
+  {
+   "id": "spawn-8",
+   "name": "Near Mountain Pass (northwest)",
+   "x": 284,
+   "y": 803,
+   "count": 5
+  },
+  {
+   "id": "spawn-9",
+   "name": "Near Northern Checkpoint",
+   "x": 275,
+   "y": 333,
+   "count": 5
+  },
+  {
+   "id": "spawn-10",
+   "name": "Near Side Tunnel (Co-Op) (west)",
+   "x": 262,
+   "y": 1130,
+   "count": 5
+  },
+  {
+   "id": "spawn-11",
+   "name": "Near Mountain Pass (west)",
+   "x": 242,
+   "y": 963,
+   "count": 5
+  },
+  {
+   "id": "spawn-12",
+   "name": "Near Armored Train (south)",
+   "x": 229,
+   "y": 617,
+   "count": 5
+  },
+  {
+   "id": "spawn-13",
+   "name": "Near Armored Train (southwest)",
+   "x": 202,
+   "y": 479,
+   "count": 5
   }
  ],
  "bosses": [
@@ -3469,7 +4080,8 @@
       "gunner-nest-1",
       "plant-2-sw",
       "tennis-court-sw"
-     ]
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "61952325aa0f643f9a0ae212",
@@ -3480,7 +4092,8 @@
       "nw-of-plant-1",
       "pikes-peak-resort-sw",
       "sw-of-crash-site"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [

@@ -11,7 +11,8 @@
   "frame": {
    "w": 1000,
    "h": 873,
-   "metres": 755
+   "metres": 755,
+   "scale": 1.245462508464839
   },
   "art": {
    "x": 275.7,
@@ -46,37 +47,49 @@
    "y": 439,
    "hints": [
     "Underground Warehouse"
-   ]
+   ],
+   "gx": 80.8,
+   "gz": -116.2
   },
   "white-rook-ne": {
    "name": "White Rook NE",
    "x": 473,
    "y": 410,
-   "hints": []
+   "hints": [],
+   "gx": 130.4,
+   "gz": -139.4
   },
   "e-of-shipping-yard": {
    "name": "E of Shipping Yard",
    "x": 761,
    "y": 389,
-   "hints": []
+   "hints": [],
+   "gx": -100.5,
+   "gz": -155.8
   },
   "white-knight": {
    "name": "White Knight",
    "x": 537,
    "y": 544,
-   "hints": []
+   "hints": [],
+   "gx": 79.0,
+   "gz": -31.7
   },
   "garage-s": {
    "name": "Garage S",
    "x": 509,
    "y": 662,
-   "hints": []
+   "hints": [],
+   "gx": 101.8,
+   "gz": 63.5
   },
   "s-of-mechanic": {
    "name": "S of Mechanic",
    "x": 569,
    "y": 736,
-   "hints": []
+   "hints": [],
+   "gx": 53.7,
+   "gz": 122.3
   },
   "tarmac": {
    "name": "Tarmac",
@@ -84,55 +97,73 @@
    "y": 624,
    "hints": [
     "Command Bunker"
-   ]
+   ],
+   "gx": -114.6,
+   "gz": 33.0
   },
   "white-bishop-se": {
    "name": "White Bishop SE",
    "x": 738,
    "y": 556,
-   "hints": []
+   "hints": [],
+   "gx": -82.3,
+   "gz": -22.0
   },
   "black-bishop-s": {
    "name": "Black Bishop S",
    "x": 815,
    "y": 591,
-   "hints": []
+   "hints": [],
+   "gx": -144.2,
+   "gz": 6.2
   },
   "black-pawn-nw": {
    "name": "Black Pawn NW",
    "x": 832,
    "y": 635,
-   "hints": []
+   "hints": [],
+   "gx": -157.8,
+   "gz": 41.5
   },
   "white-pawn-n": {
    "name": "White Pawn N",
    "x": 769,
    "y": 680,
-   "hints": []
+   "hints": [],
+   "gx": -107.0,
+   "gz": 77.5
   },
   "white-king-se": {
    "name": "White King SE",
    "x": 724,
    "y": 619,
-   "hints": []
+   "hints": [],
+   "gx": -70.6,
+   "gz": 29.0
   },
   "white-pawn-nw": {
    "name": "White Pawn NW",
    "x": 741,
    "y": 659,
-   "hints": []
+   "hints": [],
+   "gx": -84.4,
+   "gz": 60.7
   },
   "white-rook-se": {
    "name": "White Rook SE",
    "x": 479,
    "y": 473,
-   "hints": []
+   "hints": [],
+   "gx": 125.4,
+   "gz": -88.9
   },
   "s-of-white-pawn-1": {
    "name": "S of White Pawn (1)",
    "x": 745,
    "y": 771,
-   "hints": []
+   "hints": [],
+   "gx": -88.1,
+   "gz": 151.1
   },
   "s-of-white-pawn-2": {
    "name": "S of White Pawn (2)",
@@ -140,43 +171,57 @@
    "y": 797,
    "hints": [
     "D-2 Extract"
-   ]
+   ],
+   "gx": -119.8,
+   "gz": 171.8
   },
   "mechanic-e": {
    "name": "Mechanic E",
    "x": 621,
    "y": 675,
-   "hints": []
+   "hints": [],
+   "gx": 11.9,
+   "gz": 73.8
   },
   "white-rook-sw": {
    "name": "White Rook SW",
    "x": 424,
    "y": 461,
-   "hints": []
+   "hints": [],
+   "gx": 170.0,
+   "gz": -97.9
   },
   "k4": {
    "name": "K4",
    "x": 572,
    "y": 437,
-   "hints": []
+   "hints": [],
+   "gx": 50.9,
+   "gz": -117.1
   },
   "white-bishop": {
    "name": "White Bishop",
    "x": 708,
    "y": 535,
-   "hints": []
+   "hints": [],
+   "gx": -58.5,
+   "gz": -38.4
   },
   "black-pawn-n": {
    "name": "Black Pawn N",
    "x": 844,
    "y": 622,
-   "hints": []
+   "hints": [],
+   "gx": -167.4,
+   "gz": 31.4
   },
   "white-pawn-e": {
    "name": "White Pawn E",
    "x": 792,
    "y": 702,
-   "hints": []
+   "hints": [],
+   "gx": -125.5,
+   "gz": 95.7
   },
   "white-queen": {
    "name": "White Queen",
@@ -184,31 +229,41 @@
    "y": 813,
    "hints": [
     "Radar Station"
-   ]
+   ],
+   "gx": -15.8,
+   "gz": 184.8
   },
   "warehouse-bunkers-ne": {
    "name": "д - Warehouse Bunkers NE",
    "x": 571,
    "y": 357,
-   "hints": []
+   "hints": [],
+   "gx": 51.8,
+   "gz": -181.6
   },
   "garage": {
    "name": "Garage",
    "x": 511,
    "y": 618,
-   "hints": []
+   "hints": [],
+   "gx": 100.4,
+   "gz": 27.7
   },
   "black-bishop-nw": {
    "name": "Black Bishop NW",
    "x": 794,
    "y": 557,
-   "hints": []
+   "hints": [],
+   "gx": -127.4,
+   "gz": -21.0
   },
   "train-station-nw": {
    "name": "Train Station NW",
    "x": 376,
    "y": 369,
-   "hints": []
+   "hints": [],
+   "gx": 208.4,
+   "gz": -171.8
   }
  },
  "extracts": [
@@ -466,6 +521,570 @@
    ],
    "note": "Travel to another map; available after 1 minute(s).",
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Reserve"
+  }
+ ],
+ "spawns": [
+  {
+   "x": 846,
+   "y": 653,
+   "gx": -168.6,
+   "gz": 55.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 845,
+   "y": 657,
+   "gx": -167.8,
+   "gz": 59.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 839,
+   "y": 659,
+   "gx": -163.7,
+   "gz": 61.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 838,
+   "y": 661,
+   "gx": -162.3,
+   "gz": 62.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 836,
+   "y": 665,
+   "gx": -160.5,
+   "gz": 65.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 807,
+   "y": 421,
+   "gx": -138.0,
+   "gz": -130.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 805,
+   "y": 421,
+   "gx": -136.0,
+   "gz": -130.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 804,
+   "y": 421,
+   "gx": -135.5,
+   "gz": -130.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 804,
+   "y": 421,
+   "gx": -135.1,
+   "gz": -130.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 804,
+   "y": 421,
+   "gx": -135.1,
+   "gz": -130.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 787,
+   "y": 556,
+   "gx": -121.9,
+   "gz": -21.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 786,
+   "y": 681,
+   "gx": -120.8,
+   "gz": 78.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 784,
+   "y": 553,
+   "gx": -119.0,
+   "gz": -24.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 783,
+   "y": 680,
+   "gx": -118.3,
+   "gz": 77.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 780,
+   "y": 555,
+   "gx": -115.9,
+   "gz": -23.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 780,
+   "y": 558,
+   "gx": -115.7,
+   "gz": -20.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 779,
+   "y": 550,
+   "gx": -115.4,
+   "gz": -26.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 779,
+   "y": 678,
+   "gx": -114.9,
+   "gz": 76.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 775,
+   "y": 677,
+   "gx": -112.1,
+   "gz": 75.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 770,
+   "y": 675,
+   "gx": -108.3,
+   "gz": 73.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 734,
+   "y": 825,
+   "gx": -79,
+   "gz": 193.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 734,
+   "y": 821,
+   "gx": -78.7,
+   "gz": 191.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 730,
+   "y": 825,
+   "gx": -76.0,
+   "gz": 194.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 728,
+   "y": 822,
+   "gx": -74.3,
+   "gz": 192,
+   "area": "spawn-1"
+  },
+  {
+   "x": 725,
+   "y": 825,
+   "gx": -71.5,
+   "gz": 193.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 699,
+   "y": 603,
+   "gx": -50.7,
+   "gz": 15.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 697,
+   "y": 606,
+   "gx": -49.3,
+   "gz": 18.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 696,
+   "y": 602,
+   "gx": -48.3,
+   "gz": 15.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 694,
+   "y": 601,
+   "gx": -47.2,
+   "gz": 14.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 694,
+   "y": 607,
+   "gx": -47.2,
+   "gz": 18.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 682,
+   "y": 369,
+   "gx": -37.5,
+   "gz": -172.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 681,
+   "y": 375,
+   "gx": -36.4,
+   "gz": -167.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 679,
+   "y": 373,
+   "gx": -34.9,
+   "gz": -169.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 678,
+   "y": 388,
+   "gx": -33.7,
+   "gz": -156.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 677,
+   "y": 391,
+   "gx": -32.9,
+   "gz": -154.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 671,
+   "y": 811,
+   "gx": -28.3,
+   "gz": 182.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 670,
+   "y": 809,
+   "gx": -27.9,
+   "gz": 181.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 670,
+   "y": 813,
+   "gx": -27.9,
+   "gz": 184.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 669,
+   "y": 811,
+   "gx": -26.8,
+   "gz": 182.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 607,
+   "y": 590,
+   "gx": 22.7,
+   "gz": 5.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 607,
+   "y": 592,
+   "gx": 23.2,
+   "gz": 6.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 606,
+   "y": 594,
+   "gx": 23.6,
+   "gz": 8.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 604,
+   "y": 589,
+   "gx": 25.7,
+   "gz": 4.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 603,
+   "y": 592,
+   "gx": 25.9,
+   "gz": 7.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 566,
+   "y": 664,
+   "gx": 55.9,
+   "gz": 65.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 565,
+   "y": 666,
+   "gx": 56.7,
+   "gz": 66.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 563,
+   "y": 664,
+   "gx": 57.9,
+   "gz": 64.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 560,
+   "y": 663,
+   "gx": 60.7,
+   "gz": 63.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 559,
+   "y": 363,
+   "gx": 61.5,
+   "gz": -177.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 558,
+   "y": 366,
+   "gx": 62.3,
+   "gz": -174.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 557,
+   "y": 662,
+   "gx": 62.8,
+   "gz": 63.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 557,
+   "y": 369,
+   "gx": 63.1,
+   "gz": -172.0,
+   "area": "spawn-1"
+  },
+  {
+   "x": 556,
+   "y": 374,
+   "gx": 63.7,
+   "gz": -168.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 551,
+   "y": 374,
+   "gx": 67.8,
+   "gz": -168.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 530,
+   "y": 536,
+   "gx": 85.1,
+   "gz": -37.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 528,
+   "y": 538,
+   "gx": 86.2,
+   "gz": -36.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 527,
+   "y": 541,
+   "gx": 86.8,
+   "gz": -33.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 526,
+   "y": 545,
+   "gx": 87.8,
+   "gz": -30.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 524,
+   "y": 553,
+   "gx": 89.4,
+   "gz": -24.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 460,
+   "y": 635,
+   "gx": 141.4,
+   "gz": 41.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 458,
+   "y": 634,
+   "gx": 142.9,
+   "gz": 40.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 452,
+   "y": 626,
+   "gx": 147.1,
+   "gz": 34.6,
+   "area": "spawn-1"
+  },
+  {
+   "x": 450,
+   "y": 631,
+   "gx": 148.7,
+   "gz": 38.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 450,
+   "y": 628,
+   "gx": 148.8,
+   "gz": 36.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 441,
+   "y": 291,
+   "gx": 156.5,
+   "gz": -234.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 436,
+   "y": 291,
+   "gx": 160.2,
+   "gz": -234.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 436,
+   "y": 374,
+   "gx": 160.2,
+   "gz": -168.1,
+   "area": "spawn-1"
+  },
+  {
+   "x": 431,
+   "y": 291,
+   "gx": 164.5,
+   "gz": -234.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 430,
+   "y": 382,
+   "gx": 164.8,
+   "gz": -161.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 426,
+   "y": 291,
+   "gx": 168.4,
+   "gz": -234.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 423,
+   "y": 291,
+   "gx": 170.3,
+   "gz": -234.9,
+   "area": "spawn-1"
+  },
+  {
+   "x": 422,
+   "y": 375,
+   "gx": 171.6,
+   "gz": -167.7,
+   "area": "spawn-1"
+  },
+  {
+   "x": 419,
+   "y": 373,
+   "gx": 173.8,
+   "gz": -169.2,
+   "area": "spawn-1"
+  },
+  {
+   "x": 419,
+   "y": 376,
+   "gx": 174.0,
+   "gz": -166.8,
+   "area": "spawn-1"
+  },
+  {
+   "x": 403,
+   "y": 453,
+   "gx": 186.8,
+   "gz": -105,
+   "area": "spawn-1"
+  },
+  {
+   "x": 400,
+   "y": 451,
+   "gx": 188.8,
+   "gz": -106.4,
+   "area": "spawn-1"
+  },
+  {
+   "x": 400,
+   "y": 463,
+   "gx": 189.5,
+   "gz": -96.3,
+   "area": "spawn-1"
+  },
+  {
+   "x": 399,
+   "y": 457,
+   "gx": 189.6,
+   "gz": -101.5,
+   "area": "spawn-1"
+  },
+  {
+   "x": 396,
+   "y": 462,
+   "gx": 192.4,
+   "gz": -97.5,
+   "area": "spawn-1"
+  }
+ ],
+ "spawnAreas": [
+  {
+   "id": "spawn-1",
+   "name": "Near Sewer Manhole",
+   "x": 621,
+   "y": 550,
+   "count": 79
   }
  ],
  "bosses": [
@@ -1200,7 +1819,8 @@
      "zone": [
       "white-bishop",
       "white-bishop-se"
-     ]
+     ],
+     "zoneMode": "any"
     }
    ],
    "needs": [],
