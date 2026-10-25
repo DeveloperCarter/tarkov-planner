@@ -1216,11 +1216,26 @@ const SORT_KEY = { xp: q => -rewardsOf(q).xp, roubles: q => -rewardsOf(q).rouble
 let sortBy = "list";
 try { if (SORTS[localStorage.getItem("eft-quest-sort")]) sortBy = localStorage.getItem("eft-quest-sort"); } catch (e) {}
 const RANK = new Map(ORDERED.map((q, i) => [q, i]));
+// Once a spawn is known, quests follow the route: the quest with the first stop comes first.
+// The order is set when the route starts from a spawn and kept as stops are ticked off,
+// so numbers and pin colours don't shuffle mid-raid.
+let routeRank = new Map(), routeRankKey = "";
 function ordered(list) {
   const key = SORT_KEY[sortBy], cmp = (a, b) => (key ? key(a) - key(b) : 0) || RANK.get(a) - RANK.get(b);
-  return [...list.filter(onMap).sort(cmp), ...list.filter(q => !onMap(q)).sort(cmp)];
+  const byRoute = (a, b) => routeRank.get(bsgId(a)) - routeRank.get(bsgId(b));
+  const routed = list.filter(q => routeRank.has(bsgId(q))).sort(byRoute), rest = list.filter(q => !routeRank.has(bsgId(q)));
+  return [...routed, ...rest.filter(onMap).sort(cmp), ...rest.filter(q => !onMap(q)).sort(cmp)];
 }
-const sortControl = () => `<label class="sort-pick">Sort <select data-sort aria-label="Sort quests">${Object.entries(SORTS).map(([k, v]) => `<option value="${k}" ${k === sortBy ? "selected" : ""}>${v}</option>`).join("")}</select></label>`;
+// True when the route order changed, so the lists need drawing again.
+function updateRouteRank() {
+  const fresh = objectiveRoute && (routeSession.source !== "objective" || !routeRankKey); // a reload mid-raid sets it again
+  const key = fresh ? JSON.stringify([routeSession.start, selectedIds]) : routeSession.start ? routeRankKey : "";
+  if (key === routeRankKey) return false;
+  routeRankKey = key; routeRank = new Map();
+  if (fresh) for (const stop of objectiveRoute.stops) for (const id of stop.quests) if (!routeRank.has(id)) routeRank.set(id, routeRank.size);
+  return true;
+}
+const sortControl = () => (routeRank.size ? `<p class="map-note">In route order from your spawn. Quests with nothing left to route follow.</p>` : "") + `<label class="sort-pick">Sort <select data-sort aria-label="Sort quests">${Object.entries(SORTS).map(([k, v]) => `<option value="${k}" ${k === sortBy ? "selected" : ""}>${v}</option>`).join("")}</select></label>`;
 document.addEventListener("change", e => {
   if (!e.target.matches("[data-sort]")) return;
   sortBy = e.target.value;
@@ -1514,6 +1529,7 @@ function renderQuests() {
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
   updateObjectiveRoute();
+  if (updateRouteRank()) renderFocus(); // numbers and colours follow the new order
   saveRoute();
   renderRoutePlanner();
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
