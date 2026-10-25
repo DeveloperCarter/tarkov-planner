@@ -337,8 +337,8 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .rp-title h2 { margin:0; font:700 22px/1.1 var(--font-display); text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .rp-clock { font:600 22px var(--font-mono); font-variant-numeric:tabular-nums; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); cursor:pointer; padding:4px 10px; }
 .rp-clock.late { color:var(--signal); border-color:var(--signal); }
-.rp-body { overflow:auto; padding:12px 12px 28px; display:grid; gap:12px; align-content:start; overscroll-behavior:contain; }
-.rp-sec { display:grid; gap:6px; }
+.rp-body { overflow:auto; padding:12px 12px 28px; display:grid; grid-template-columns:minmax(0, 1fr); gap:12px; align-content:start; overscroll-behavior:contain; }
+.rp-sec { display:grid; grid-template-columns:minmax(0, 1fr); gap:6px; }
 .rp-sec > .label { margin-left:2px; }
 .rp-q { background:var(--panel); border:1px solid var(--line); border-left:5px solid var(--qc); border-radius:6px; padding:8px 8px 8px 10px; }
 .rp-q.ready { border-color:var(--ok); border-left-color:var(--ok); }
@@ -346,6 +346,22 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .rp-q h3 .rp-name { flex:1; min-width:0; text-align:left; border:0; background:none; color:inherit; font:inherit; padding:4px 0; cursor:pointer; }
 .rp-q h3 .rp-more { border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:4px; font:600 12px var(--font-mono); padding:5px 9px; cursor:pointer; }
 .rp-ready { font:600 11px var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--ok); }
+.rp-next { background:var(--panel); border:1px solid var(--line); border-left:5px solid var(--olive); border-radius:6px; padding:10px 12px; display:grid; gap:6px; }
+.rp-next h3 { margin:0; font:700 20px/1.15 var(--font-display); text-transform:uppercase; letter-spacing:.03em; }
+.rp-next h3 button { border:0; background:none; color:inherit; font:inherit; padding:0; text-align:left; cursor:pointer; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:4px; }
+.rp-dir { margin:0; font:600 15px var(--font-mono); color:var(--olive); }
+.rp-next ul { list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.rp-next li { display:flex; gap:8px; align-items:flex-start; font:15px/1.3 var(--font-body); }
+.rp-next p { margin:0; }
+.rp-warn { border:1px solid var(--signal); border-radius:6px; padding:10px 12px; display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; }
+.rp-warn p { margin:0; flex:1 1 200px; }
+.rp-warn .btn { white-space:normal; }
+.rp-where { display:block; margin-top:2px; font:12px/1.3 var(--font-mono); color:var(--muted); }
+.rp-where b { color:var(--ink); }
+.rp-needs { margin:0 0 6px; font:13px/1.35 var(--font-body); color:var(--muted); }
+.rp-shots { display:flex; gap:6px; overflow-x:auto; margin:0 0 6px; }
+.rp-shots button { flex:none; border:1px solid var(--line); border-radius:4px; padding:0; background:var(--bg); cursor:pointer; }
+.rp-shots img { display:block; width:96px; height:64px; object-fit:cover; border-radius:3px; }
 .rp-obj { list-style:none; margin:0; padding:0; display:grid; gap:4px; }
 .rp-obj label, .rp-obj .rp-c { min-height:44px; display:flex; align-items:center; gap:12px; border-radius:5px; background:var(--bg); padding:7px 10px; font:15px/1.3 var(--font-body); cursor:pointer; }
 .rp-obj input[type=checkbox] { width:22px; height:22px; flex:none; accent-color:var(--ok); margin:0; }
@@ -583,7 +599,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
       <p class="map-note" data-kappa-map=""></p>
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
-      <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid starts</label>
+      <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid loads (follows you to that map)</label>
       <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
       <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
       <div id="routePlanner" class="route-planner"></div>
@@ -1299,7 +1315,7 @@ function saveRoute() {
     if (routeSession.start || routeSession.startedAt) sessionStorage.setItem(ROUTE_KEY, JSON.stringify({ scope: scopeKey, at: Date.now(), session: routeSession }));
   } catch (e) {}
 }
-function autoRaidOn() { try { return localStorage.getItem("eft-auto-raid") === "1"; } catch (e) { return false; } }
+function autoRaidOn() { try { return localStorage.getItem("eft-auto-raid") !== "0"; } catch (e) { return true; } }
 function loadScopedPreferences() {
   clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null; focusPreset = "custom";
   document.getElementById("spawnDialog").close();
@@ -1710,26 +1726,63 @@ window.addEventListener("popstate", () => { if (raidOn && history.state?.raid !=
 document.getElementById("raidGo").addEventListener("click", enterRaid);
 document.getElementById("rpExit").addEventListener("click", exitRaid);
 document.getElementById("rpClock").addEventListener("click", () => { restartClock(); clock(); });
+// Where to go next: the first unfinished stop, with straight-line distance and direction.
+const COMPASS = ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"];
+function heading(from, to) {
+  const dx = to.x - from.x, dy = from.y - to.y; // frame y grows south
+  const angle = (Math.atan2(dx, dy) * 180 / Math.PI + 360) % 360;
+  return { metres: Math.hypot(dx, dy) / (DATA.meta.frame?.scale || 1), dir: COMPASS[Math.round(angle / 45) % 8] };
+}
+function nextStop() {
+  if (!canRoute() || !pinned.length) return "";
+  const box = body => `<section class="rp-next" aria-live="polite">${body}</section>`;
+  if (!objectiveRoute) return box(`<span class="label">Next stop</span><p>${routeSession.waiting ? "Raid started. Waiting a few seconds for your spawn…" : "Pick your spawn area under Spawn area to get a route."}</p>`);
+  const [stop, ...rest] = objectiveRoute.stops;
+  if (!stop) return box(`<span class="label">Next stop</span><p><b>All located objectives are done.</b> Finish the rest below, then pick an extract.</p>`);
+  const from = RaidSession.marker(DATA, routeSession.start), h = from && heading(from, stop);
+  const tasks = pinned.flatMap(q => q.objectives.filter(o => stop.objectives.includes(o.id)).map(o => ({ q, o })));
+  return box(`<span class="label">Next stop · 1 of ${objectiveRoute.stops.length}</span>
+    <h3><button type="button" data-route-zone="${esc(stop.zone)}">${esc(DATA.zones[stop.zone].name)}</button></h3>
+    ${h ? `<p class="rp-dir">${Math.round(h.metres)} m ${h.dir} of ${routeSession.source === "objective" ? "your last stop" : "your spawn"}</p>` : ""}
+    <ul>${tasks.map(({ q, o }) => `<li><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(o.text)}</span></li>`).join("")}</ul>
+    ${rest.length ? `<p class="map-note">Then ${rest.slice(0, 3).map(st => esc(DATA.zones[st.zone].name)).join(" → ")}${rest.length > 3 ? ` and ${rest.length - 3} more` : ""}.</p>` : ""}`);
+}
+// Raid events need the logs folder; after a browser restart it has to be reconnected.
+function trackingWarning() {
+  const state = trk.fallback ? "unsupported" : watcher.status.state;
+  if (state === "watching" || state === "waiting") return "";
+  const primary = (ACTIONS[state] || []).find(a => a[2]);
+  return `<section class="rp-warn"><p><b>Live tracking is off.</b> ${esc(STATE_TEXT[state] || state)}. Raid start and your spawn won't be detected.</p>${primary && primary[0] !== "import" ? `<button type="button" class="btn primary" data-rp-track="${primary[0]}">${esc(primary[1])}</button>` : ""}</section>`;
+}
 function renderRaidPanel() {
   if (!raidOn) return;
   const top = rpBody.scrollTop;
-  const selectionOpen = rpBody.querySelector("#rpSelection")?.open ?? true;
+  const selectionOpen = rpBody.querySelector("#rpSelection")?.open ?? !pinned.length;
   setText("rpLabel", `Raid mode · ${pinned.length} ${pinned.length === 1 ? "quest" : "quests"}`);
   setText("rpMap", MAP);
   const keys = focus.bring.filter(n => n.kind === "key" && !n.optional);
   const items = focus.bring.filter(n => n.kind !== "key");
+  const stopOf = new Map((objectiveRoute?.stops || []).flatMap((st, i) => st.objectives.map(id => [id, i + 1])));
+  const where = o => {
+    const names = (o.zone || []).filter(z => DATA.zones[z]).map(z => DATA.zones[z].name);
+    if (!names.length || objDone(o)) return "";
+    return `<small class="rp-where">${stopOf.has(o.id) ? `<b>Stop ${stopOf.get(o.id)}</b> · ` : ""}${esc(names.join(" or "))}</small>`;
+  };
   const quest = q => {
+    const needs = q.needs.filter(n => !n.optional);
     const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
     return `<article class="rp-q${ready ? " ready" : ""}" data-quest-card="${esc(bsgId(q))}" style="--qc:${colorOf(q)}">
       <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
+      ${needs.length ? `<p class="rp-needs">Bring: ${needs.map(n => esc(needText(n))).join(" · ")}</p>` : ""}
+      ${q.photos?.length ? `<div class="rp-shots">${q.photos.slice(0, 4).map(ph => `<button type="button" data-detail="${esc(bsgId(q))}" aria-label="Spot photos for ${esc(q.name)}"><img src="${esc(ph.src)}" alt="${esc(ph.caption || q.name)}" loading="lazy"></button>`).join("")}</div>` : ""}
       <ul class="rp-obj">${q.objectives.map(o => o.count
-        ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
-        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}</span></div></li>`).join("")}</ul>
+        ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}${where(o)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
+        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}${where(o)}</span></div></li>`).join("")}</ul>
     </article>`;
   };
   const exits = DATA.extracts.filter(e => e.x != null && e.faction !== "scav" && mySide(e))
     .sort((a, b) => exReq(a) - exReq(b) || a.name.localeCompare(b.name)); // walk-outs first
-  rpBody.innerHTML = raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + (pinned.length ? "" : `<p class="map-note">No quests selected. Choose a preset or check quests above.</p>`) +
+  rpBody.innerHTML = trackingWarning() + nextStop() + raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + (pinned.length ? "" : `<p class="map-note">No quests selected. Choose a preset or check quests above.</p>`) +
     (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
     `<section class="rp-sec">${pinned.map(quest).join("")}</section>` +
     (exits.length ? `<section class="rp-sec"><span class="label">Extracts</span><div class="rp-ex">${exits.map(e =>
@@ -1742,6 +1795,8 @@ rpBody.addEventListener("click", e => {
   if (preset) { applyFocusPreset(preset); return; }
   const action = e.target.closest('[data-raid-clear]');
   if (action) { changeFocus('clear'); return; }
+  const track = e.target.closest("[data-rp-track]")?.dataset.rpTrack;
+  if (track) { document.getElementById("trk-" + track)?.click(); return; }
   questControlsClick(e);
   const q = e.target.closest("[data-rp-fit]");
   if (q) { const zones = RaidFocus.facts(DATA.quests.find(x => bsgId(x) === q.dataset.rpFit)).zones; return fit(true, zones.length ? zones : undefined); }
@@ -1816,8 +1871,9 @@ document.getElementById('spawnDialog').addEventListener('close', e => {
 function raidElsewhere(key) {
   const option = key && [...document.querySelectorAll('.map-jump option')].find(o => o.value === key + '.html');
   if (!option) { toast({ label:'Raid loading', title:'Unknown raid location', body:'<p>This page stays as it is.</p>' }); return; }
+  if (autoRaidOn()) { location.href = option.value + "#raid"; return; } // follow the raid to its map
   toast({ label:'Raid loading', title:`Loading into ${option.textContent}`, body:`<p>This page plans ${esc(MAP)}.</p>`, ms:20000,
-    actions:[{ label:`Open ${option.textContent}`, run: () => { location.href = option.value; } }] });
+    actions:[{ label:`Open ${option.textContent}`, run: () => { location.href = option.value + "#raid"; } }] });
 }
 function handleRaidEvent(event, meta) {
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
@@ -1835,6 +1891,7 @@ function handleRaidEvent(event, meta) {
     if (raidOn) clock(); else if (autoRaidOn()) enterRaid();
     spawnWait = setTimeout(() => { if (RaidSession.needsArea(routeSession, Date.now())) { routeSession.waiting = false; renderRoutePlanner(); renderRaidPanel(); promptSpawn(); } }, Math.max(0, event.at + 10000 - Date.now()));
   }
+  if (event.kind === 'raid-loading') { restartClock(); if (autoRaidOn()) enterRaid(); else if (raidOn) clock(); }
   if (routeSession.start || event.kind === 'raid-loading') document.getElementById('spawnDialog').close();
   renderQuests();
   if (RaidSession.needsArea(routeSession, Date.now())) promptSpawn();
@@ -1938,6 +1995,7 @@ function renderTracker() {
   const s = watcher.status;
   const state = trk.fallback ? "unsupported" : s.state;
   document.getElementById("trkDot").dataset.state = state;
+  if (raidOn && !!rpBody.querySelector(".rp-warn") !== (state !== "watching" && state !== "waiting")) renderRaidPanel();
   document.getElementById("liveChip").hidden = state !== "watching";
   document.getElementById("liveChip").title = state === "watching" ? "Watching your game logs; quest changes show up here as they happen" : "";
   setText("trkState", state === "watching" ? `Watching ${s.folder}` : STATE_TEXT[state] || state);
@@ -2078,7 +2136,7 @@ show(start);
 if (location.hash === "#raid") requestAnimationFrame(enterRaid); // a bookmark for the second screen
 // Site search opens quests here: in place on this page, or by link as #quest=<task ID>.
 document.getElementById("autoRaid").checked = autoRaidOn();
-document.getElementById("autoRaid").addEventListener("change", e => { try { localStorage.setItem("eft-auto-raid", e.target.checked ? "1" : ""); } catch (_) {} });
+document.getElementById("autoRaid").addEventListener("change", e => { try { localStorage.setItem("eft-auto-raid", e.target.checked ? "1" : "0"); } catch (_) {} });
 window.SITE_HERE = { key: DATA.meta.key || "customs", mode: PAGE_MODE, open: openQuest };
 document.querySelector('[data-kappa-map]').dataset.kappaMap = DATA.meta.key || "customs";
 window.addEventListener("eft-progress-change", () => {

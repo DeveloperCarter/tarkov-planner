@@ -44,7 +44,12 @@ test('actual UI handler clears old routes on loading elsewhere and preserves man
  c.handleRaidEvent({kind:'raid-loading',map:'woods',at:5000},meta);
  assert.equal(c.objectiveRoute,null);assert.equal(c.routeSession.start,null);
  const shown=c.toasts.at(-1);assert.equal(shown.title,'Loading into Woods');
- shown.actions[0].run();assert.equal(c.location.href,'woods.html');
+ shown.actions[0].run();assert.equal(c.location.href,'woods.html#raid');
  c.handleRaidEvent({kind:'raid-loading',map:null,at:6000},meta);assert.equal(c.toasts.at(-1).title,'Unknown raid location');
+ // Auto raid mode (on by default) follows the raid to its map, and opens raid mode on this map's loading screen.
+ c.autoRaidOn=()=>true;c.location.href='';const shown2=c.toasts.length;
+ c.handleRaidEvent({kind:'raid-loading',map:'woods',at:7000},meta);assert.equal(c.location.href,'woods.html#raid');assert.equal(c.toasts.length,shown2);
+ let entered=0,restarted=0;c.enterRaid=()=>entered++;c.restartClock=()=>restarted++;
+ c.handleRaidEvent({kind:'raid-loading',map:'customs',at:8000},meta);assert.equal(entered,1);assert.equal(restarted,1);
  assert.equal(h.timer,null);
 });
