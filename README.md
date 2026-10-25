@@ -224,3 +224,17 @@ Quantities are full listed requirements, not remaining progress read from logs.
 Hand-built routes retain authored stop order and show selected objective text in place of
 mixed quest instructions. Unlinked optional detours are omitted; key sources remain in
 Keys & items. This is manual focus, with no route optimization or automatic difficulty rank.
+
+
+## Quest focus shortcuts
+
+In PMC raid mode, Previous / Next highlights a selected quest card and its map locations in route
+order. Ctrl + Shift + Left / Right does the same while the planner has focus. Browsing never checks
+off objectives, edits quest status or changes the selected quests.
+
+For shortcuts while Tarkov has focus, download `downloads/quest-shortcuts.zip` from the raid panel's
+Keyboard shortcuts section. Extract it and follow its README to load the optional Chrome/Edge
+extension. Use its toolbar button to explicitly choose one planner tab. Global defaults are
+Ctrl + Shift + 9 / 0; change them to modified arrows in the browser's extension shortcut settings.
+The extension has no game or log access and sends no data to a server. Closing/changing the map
+or restarting the browser disarms it. This is an unpacked developer extension, not a store release.

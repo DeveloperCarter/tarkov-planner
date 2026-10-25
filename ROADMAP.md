@@ -308,6 +308,11 @@ synthetic tests; desktop/mobile interaction checks cover cards, selection, route
 live raid, manual area selection when the log lacks a position, quest selection changes and
 completion-based rerouting. No extract recommendation is part of this milestone.
 
+**Quest focus shortcuts (2026-10-25):** PMC raid mode can browse the selected quests in route
+order with Previous/Next or Ctrl+Shift+Left/Right while focused. The optional unpacked Chrome/Edge
+extension supplies global commands to one explicitly chosen map tab while Tarkov has focus. The
+controls highlight cards/pins and frame locations without checking objectives or changing selection.
+
 ## M4 · Real maps, spot photos and quest details  (implemented)
 
 The schematic dots were hard to use without terrain, and players wanted to see each spot.

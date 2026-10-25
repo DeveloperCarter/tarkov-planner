@@ -379,6 +379,12 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .rp-where { display:block; margin-top:2px; font:12px/1.3 var(--font-mono); color:var(--muted); }
 .rp-where b { color:var(--ink); }
 .rp-needs { margin:0 0 6px; font:13px/1.35 var(--font-body); color:var(--muted); }
+.quest-focus-nav { flex:none; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--panel); }
+.quest-focus-nav p { margin:6px 0; font:14px/1.4 var(--font-body); overflow-wrap:anywhere; }
+.quest-focus-nav summary { font:12px/1.5 var(--font-body); cursor:pointer; }
+.quest-focus-nav details p { max-height:120px; overflow:auto; }
+.rp-q.quest-focused { outline:2px solid var(--signal); outline-offset:-2px; }
+.pin.spot.quest-focused path { stroke:var(--signal); stroke-width:4; }
 .rp-shots { display:flex; gap:6px; overflow-x:auto; margin:0 0 6px; }
 .rp-shots button { flex:none; border:1px solid var(--line); border-radius:4px; padding:0; background:var(--bg); cursor:pointer; }
 .rp-shots img { display:block; width:96px; height:64px; object-fit:cover; border-radius:3px; }
@@ -739,6 +745,11 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <button type="button" class="rp-clock" id="rpClock" title="Time since raid mode started; tap to restart">00:00</button>
       <button type="button" class="btn" id="rpExit">Exit</button>
     </header>
+    <section class="quest-focus-nav" id="questFocusNav" aria-label="Browse selected quests" hidden>
+      <div class="toolbar"><button type="button" class="btn" data-quest-step="-1" aria-label="Focus previous quest">← Previous</button><button type="button" class="btn" data-quest-step="1" aria-label="Focus next quest">Next →</button></div>
+      <p id="questFocusLabel" role="status" aria-live="polite"></p>
+      <details><summary>Keyboard shortcuts</summary><p>Ctrl + Shift + ← / → while this page has focus. For controls while Tarkov has focus, install the optional <a href="__QUEST_SHORTCUTS_URL__" id="questShortcutsDownload">quest shortcuts extension</a> and choose this tab from its toolbar button. Browsing never checks off objectives.</p></details>
+    </section>
     <div class="rp-body" id="rpBody"></div>
   </aside>
 
@@ -821,6 +832,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__ROUTE__*/</script>
 <script>/*__SESSION__*/</script>
 <script>/*__PRESETS__*/</script>
+<script>/*__QUEST_NAV__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
 let STORE_KEY = "", state = {};
@@ -972,6 +984,7 @@ function renderMap(active = currentRoute) {
   document.getElementById("mapOver").innerHTML = s;
   document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === active)));
   applyView();
+  paintQuestNavigation();
   if (popZone && !at.has(popZone)) closePop(); else positionPop();
   const key = [...at.keys()].sort().join() + JSON.stringify(routeSession.start);
   if (key !== lastFitKey) { lastFitKey = key; fit(lastFitKey !== null && svg.dataset.ready === "1"); svg.dataset.ready = "1"; }
@@ -1767,6 +1780,7 @@ function exitRaid() {
   if (!raidOn) return;
   if (scavOn) scavSummary();
   raidOn = false;
+  paintQuestNavigation();
   clearInterval(raidTick);
   wake?.release().catch(() => {}); wake = null;
   document.body.classList.remove("raid-mode");
@@ -1896,11 +1910,12 @@ function renderRaidPanel() {
     .sort((a, b) => exReq(a) - exReq(b) || a.name.localeCompare(b.name)); // walk-outs first
   const extractsHTML = exits.length ? `<section class="rp-sec"><span class="label">${scavOn ? "Scav extracts" : "Extracts"}</span><div class="rp-ex">${exits.map(e =>
       `<button type="button" data-rp-ex="${esc(e.id)}" class="${exReq(e) ? "req" : ""}"><span>${esc(e.name)}</span><small>${esc(exNeed(e) || EX_TYPE[e.type] || "")}</small></button>`).join("")}</div></section>` : "";
-  if (scavOn) { rpBody.innerHTML = trackingWarning() + scavHTML() + extractsHTML; rpBody.scrollTop = top; return; }
+  if (scavOn) { rpBody.innerHTML = trackingWarning() + scavHTML() + extractsHTML; rpBody.scrollTop = top; paintQuestNavigation(); return; }
   rpBody.innerHTML = trackingWarning() + nextStop() + raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + (pinned.length ? "" : `<p class="map-note">No quests selected. Choose a preset or check quests above.</p>`) +
     (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
     `<section class="rp-sec">${pinned.map(quest).join("")}</section>` + extractsHTML;
   rpBody.scrollTop = top;
+  paintQuestNavigation();
 }
 rpBody.addEventListener("change", questControlsChange);
 rpBody.addEventListener("click", e => {
@@ -2055,6 +2070,8 @@ function handleRaidEvent(event, meta) {
   renderQuests();
   if (RaidSession.needsArea(routeSession, Date.now())) promptSpawn();
 }
+
+/*__QUEST_NAV_UI__*/
 
 /* ---------- settings dialog ---------- */
 const settingsDialog = document.getElementById("settingsDialog");
