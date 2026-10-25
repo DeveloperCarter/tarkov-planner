@@ -1834,7 +1834,7 @@ function nextStop() {
   return box(`<span class="label">Next stop · 1 of ${objectiveRoute.stops.length}</span>
     <h3><button type="button" data-route-zone="${esc(stop.zone)}">${esc(DATA.zones[stop.zone].name)}</button></h3>
     ${h ? `<p class="rp-dir">${Math.round(h.metres)} m ${h.dir} of ${routeSession.source === "objective" ? "your last stop" : "your spawn"}</p>` : ""}
-    <ul>${tasks.map(({ q, o }) => `<li><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(o.text)}</span></li>`).join("")}</ul>
+    <ul>${tasks.map(({ q, o }) => `<li><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(o.text)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</span></li>`).join("")}</ul>
     ${rest.length ? `<p class="map-note">Then ${rest.slice(0, 3).map(st => esc(DATA.zones[st.zone].name)).join(" → ")}${rest.length > 3 ? ` and ${rest.length - 3} more` : ""}.</p>` : ""}`);
 }
 // Raid events need the logs folder; after a browser restart it has to be reconnected.
@@ -1919,7 +1919,7 @@ function renderRaidPanel() {
     const needs = q.needs.filter(n => !n.optional);
     const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
     return `<article class="rp-q${ready ? " ready" : ""}" data-quest-card="${esc(bsgId(q))}" style="--qc:${colorOf(q)}">
-      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
+      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
       ${needs.length ? `<p class="rp-needs">Bring: ${needs.map(n => esc(needText(n))).join(" · ")}</p>` : ""}
       ${q.photos?.length ? `<div class="rp-shots">${q.photos.slice(0, 4).map(ph => `<button type="button" data-detail="${esc(bsgId(q))}" aria-label="Spot photos for ${esc(q.name)}"><img src="${esc(ph.src)}" alt="${esc(ph.caption || q.name)}" loading="lazy"></button>`).join("")}</div>` : ""}
       <ul class="rp-obj">${q.objectives.map(o => o.count
@@ -1962,7 +1962,7 @@ function raidSelection(open) {
   const hidden = selectedIds.length - shownIds.length;
   return `<details id="rpSelection" class="rp-selection" ${open ? 'open' : ''}><summary>Choose quests · ${shownIds.length} selected${QuestFilter.active(qf) ? ` · ${esc(QuestFilter.summary(qf))}` : ''}${hidden ? ` · ${hidden} hidden` : ''}</summary>
     ${currentQuests.length ? focusControls("raid", visible) : ""}
-    <div class="rp-choices">${ordered(visible).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
+    <div class="rp-choices">${ordered(visible).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</button></div></div>`).join('')}</div>
     <p class="map-note">Based on listed requirements. Key ownership and unlisted conditions aren't checked.</p>
   </details>`;
 }

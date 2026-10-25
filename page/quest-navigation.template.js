@@ -11,7 +11,7 @@ function paintQuestNavigation() {
   const nav = document.getElementById('questFocusNav');
   nav.hidden = !raidOn || scavOn;
   document.getElementById('questFocusLabel').textContent = q
-    ? `Quest ${ids.indexOf(focusedQuest) + 1} of ${ids.length} · ${q.name}${zones.size ? '' : ' · No fixed map locations'}`
+    ? `Quest ${ids.indexOf(focusedQuest) + 1} of ${ids.length} · ${q.name}${q.kappa ? ' · Kappa' : ''}${zones.size ? '' : ' · No fixed map locations'}`
     : 'Select quests to browse this raid.';
   nav.querySelectorAll('button').forEach(b => { b.disabled = !ids.length; });
   rpBody.querySelectorAll('.rp-q').forEach(card => {
