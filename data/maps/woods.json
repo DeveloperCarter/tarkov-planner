@@ -4,7 +4,7 @@
   "mapId": "5704e3c2d2720bac5b8b4567",
   "key": "woods",
   "gameMode": "regular",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 35,
   "players": "10-14",
@@ -1750,7 +1750,7 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Bridge V-Ex, southeast",
+   "name": "Near Scav Town",
    "x": 888,
    "y": 406,
    "count": 5
@@ -1764,21 +1764,21 @@
   },
   {
    "id": "spawn-3",
-   "name": "Near ZB-016",
+   "name": "Near Old Sawmill",
    "x": 730,
    "y": 546,
    "count": 20
   },
   {
    "id": "spawn-4",
-   "name": "Near Bridge V-Ex, west",
+   "name": "Near Bridge V-Ex",
    "x": 744,
    "y": 272,
    "count": 5
   },
   {
    "id": "spawn-5",
-   "name": "Near Bridge V-Ex, northwest",
+   "name": "Near Cultist Village",
    "x": 631,
    "y": 186,
    "count": 5
@@ -1792,7 +1792,7 @@
   },
   {
    "id": "spawn-7",
-   "name": "Near Friendship Bridge, south",
+   "name": "Near Ponds",
    "x": 435,
    "y": 238,
    "count": 10
@@ -1806,24 +1806,106 @@
   },
   {
    "id": "spawn-9",
-   "name": "Near Power Line Passage, northeast toward ZB-014 1",
+   "name": "Near USEC Camp, south",
    "x": 276,
    "y": 416,
    "count": 5
   },
   {
    "id": "spawn-10",
-   "name": "Near Friendship Bridge, southwest",
+   "name": "Near Convoy",
    "x": 178,
    "y": 178,
    "count": 10
   },
   {
    "id": "spawn-11",
-   "name": "Near Power Line Passage, northeast toward ZB-014 2",
+   "name": "Near USEC Camp, southwest",
    "x": 163,
    "y": 352,
    "count": 5
+  }
+ ],
+ "labels": [
+  {
+   "x": 436,
+   "y": 642,
+   "text": "Sawmill"
+  },
+  {
+   "x": 793,
+   "y": 363,
+   "text": "Scav Town"
+  },
+  {
+   "x": 816,
+   "y": 493,
+   "text": "Old Sawmill"
+  },
+  {
+   "x": 501,
+   "y": 154,
+   "text": "Cultist Village"
+  },
+  {
+   "x": 235,
+   "y": 302,
+   "text": "USEC Camp"
+  },
+  {
+   "x": 579,
+   "y": 813,
+   "text": "Military Camp"
+  },
+  {
+   "x": 447,
+   "y": 273,
+   "text": "Ponds"
+  },
+  {
+   "x": 625,
+   "y": 617,
+   "text": "Crash Site"
+  },
+  {
+   "x": 271,
+   "y": 597,
+   "text": "Checkpoint"
+  },
+  {
+   "x": 268,
+   "y": 734,
+   "text": "Shack"
+  },
+  {
+   "x": 455,
+   "y": 556,
+   "text": "Lumber"
+  },
+  {
+   "x": 446,
+   "y": 591,
+   "text": "Cabins"
+  },
+  {
+   "x": 612,
+   "y": 901,
+   "text": "Bus Stop"
+  },
+  {
+   "x": 679,
+   "y": 658,
+   "text": "Jaeger's Camp"
+  },
+  {
+   "x": 382,
+   "y": 538,
+   "text": "Sniper Rock"
+  },
+  {
+   "x": 300,
+   "y": 207,
+   "text": "Convoy"
   }
  ],
  "bosses": [

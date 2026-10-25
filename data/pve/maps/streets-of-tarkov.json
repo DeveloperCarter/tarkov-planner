@@ -4,7 +4,7 @@
   "mapId": "5714dc692459777137212e12",
   "key": "streets-of-tarkov",
   "gameMode": "pve",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 40,
   "players": "12-16",
@@ -2253,35 +2253,35 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Sewer River",
+   "name": "Near Marked Hotel",
    "x": 884,
    "y": 885,
    "count": 25
   },
   {
    "id": "spawn-2",
-   "name": "Near Courtyard",
+   "name": "Near Cinema",
    "x": 773,
    "y": 1138,
    "count": 35
   },
   {
    "id": "spawn-3",
-   "name": "Near Stylobate Building Elevator",
+   "name": "Near Kilmov Shopping Mall",
    "x": 691,
    "y": 390,
    "count": 40
   },
   {
    "id": "spawn-4",
-   "name": "Near Crash Site",
+   "name": "Near Razvedchikov St.",
    "x": 237,
    "y": 1175,
    "count": 41
   },
   {
    "id": "spawn-5",
-   "name": "Near Expo Checkpoint",
+   "name": "Near Cardinal Apartments",
    "x": 311,
    "y": 272,
    "count": 20
@@ -2299,6 +2299,238 @@
    "x": 117,
    "y": 541,
    "count": 15
+  }
+ ],
+ "labels": [
+  {
+   "x": 522,
+   "y": 987,
+   "text": "Primorsky Ave."
+  },
+  {
+   "x": 522,
+   "y": 656,
+   "text": "Primorsky Ave."
+  },
+  {
+   "x": 522,
+   "y": 357,
+   "text": "Primorsky Ave."
+  },
+  {
+   "x": 334,
+   "y": 503,
+   "text": "Kilmov St."
+  },
+  {
+   "x": 706,
+   "y": 533,
+   "text": "Kilmov St."
+  },
+  {
+   "x": 740,
+   "y": 828,
+   "text": "Nikitskaya St."
+  },
+  {
+   "x": 719,
+   "y": 1072,
+   "text": "Verhnyaya St."
+  },
+  {
+   "x": 861,
+   "y": 957,
+   "text": "Malevecha St."
+  },
+  {
+   "x": 357,
+   "y": 894,
+   "text": "Chekannaya St."
+  },
+  {
+   "x": 701,
+   "y": 1202,
+   "text": "Nizhnyaya St."
+  },
+  {
+   "x": 255,
+   "y": 1184,
+   "text": "Razvedchikov St."
+  },
+  {
+   "x": 310,
+   "y": 730,
+   "text": "Zmejskij Alley"
+  },
+  {
+   "x": 161,
+   "y": 649,
+   "text": "Kamchatskaya St."
+  },
+  {
+   "x": 745,
+   "y": 430,
+   "text": "Kilmov Shopping Mall"
+  },
+  {
+   "x": 610,
+   "y": 403,
+   "text": "Beluga"
+  },
+  {
+   "x": 377,
+   "y": 372,
+   "text": "Cardinal Apartments"
+  },
+  {
+   "x": 164,
+   "y": 965,
+   "text": "Construction"
+  },
+  {
+   "x": 430,
+   "y": 982,
+   "text": "Lexos"
+  },
+  {
+   "x": 310,
+   "y": 974,
+   "text": "Sparja Grocery"
+  },
+  {
+   "x": 821,
+   "y": 1136,
+   "text": "Cinema"
+  },
+  {
+   "x": 890,
+   "y": 706,
+   "text": "Shestyorochka"
+  },
+  {
+   "x": 594,
+   "y": 591,
+   "text": "Pinewood Hotel"
+  },
+  {
+   "x": 432,
+   "y": 1132,
+   "text": "Teppakot / Koener"
+  },
+  {
+   "x": 310,
+   "y": 1074,
+   "text": "Concordia"
+  },
+  {
+   "x": 393,
+   "y": 455,
+   "text": "Cardinal Bank"
+  },
+  {
+   "x": 150,
+   "y": 390,
+   "text": "LERM Expo"
+  },
+  {
+   "x": 641,
+   "y": 756,
+   "text": "Sparja Express"
+  },
+  {
+   "x": 586,
+   "y": 711,
+   "text": "Burger Spot"
+  },
+  {
+   "x": 469,
+   "y": 644,
+   "text": "Post Office"
+  },
+  {
+   "x": 469,
+   "y": 747,
+   "text": "Pharmacy 1"
+  },
+  {
+   "x": 818,
+   "y": 854,
+   "text": "Office"
+  },
+  {
+   "x": 856,
+   "y": 1038,
+   "text": "Corner Restaurant"
+  },
+  {
+   "x": 607,
+   "y": 1030,
+   "text": "Pharmacy 2"
+  },
+  {
+   "x": 391,
+   "y": 38,
+   "text": "Pharmacy 3"
+  },
+  {
+   "x": 428,
+   "y": 860,
+   "text": "Tarbank"
+  },
+  {
+   "x": 195,
+   "y": 696,
+   "text": "School"
+  },
+  {
+   "x": 177,
+   "y": 768,
+   "text": "Vet Clinic"
+  },
+  {
+   "x": 881,
+   "y": 974,
+   "text": "Hive"
+  },
+  {
+   "x": 899,
+   "y": 940,
+   "text": "Family Market"
+  },
+  {
+   "x": 861,
+   "y": 889,
+   "text": "Marked Hotel"
+  },
+  {
+   "x": 821,
+   "y": 969,
+   "text": "South Hotel"
+  },
+  {
+   "x": 730,
+   "y": 952,
+   "text": "Abandon Factory"
+  },
+  {
+   "x": 667,
+   "y": 868,
+   "text": "Diner"
+  },
+  {
+   "x": 558,
+   "y": 883,
+   "text": "Primorskij 49"
+  },
+  {
+   "x": 474,
+   "y": 860,
+   "text": "Prestigio Cafe"
+  },
+  {
+   "x": 651,
+   "y": 1043,
+   "text": "Bilbo Coffee"
   }
  ],
  "bosses": [

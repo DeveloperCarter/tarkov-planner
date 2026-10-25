@@ -4,7 +4,7 @@
   "mapId": "5704e5fad2720bc05b8b4567",
   "key": "reserve",
   "gameMode": "regular",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 40,
   "players": "9-11",
@@ -1081,7 +1081,7 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Scav Lands",
+   "name": "Near Black Bishop",
    "x": 809,
    "y": 545,
    "count": 15
@@ -1095,31 +1095,168 @@
   },
   {
    "id": "spawn-3",
-   "name": "Near Sewer Manhole",
+   "name": "Near Gas Station",
    "x": 621,
    "y": 620,
    "count": 15
   },
   {
    "id": "spawn-4",
-   "name": "Near Bunker Hermetic Door",
+   "name": "Near Shipping Yard",
    "x": 618,
    "y": 374,
    "count": 10
   },
   {
    "id": "spawn-5",
-   "name": "Near Armored Train, south",
+   "name": "Near E2 Bunkers",
    "x": 460,
    "y": 543,
    "count": 15
   },
   {
    "id": "spawn-6",
-   "name": "Near Armored Train, northwest",
+   "name": "Near Barracks",
    "x": 428,
    "y": 333,
    "count": 10
+  }
+ ],
+ "labels": [
+  {
+   "x": 601,
+   "y": 456,
+   "text": "K Buildings"
+  },
+  {
+   "x": 667,
+   "y": 808,
+   "text": "White Queen"
+  },
+  {
+   "x": 765,
+   "y": 699,
+   "text": "White Pawn"
+  },
+  {
+   "x": 810,
+   "y": 565,
+   "text": "Black Bishop"
+  },
+  {
+   "x": 719,
+   "y": 546,
+   "text": "White Bishop"
+  },
+  {
+   "x": 697,
+   "y": 603,
+   "text": "White King"
+  },
+  {
+   "x": 618,
+   "y": 570,
+   "text": "Black Knight"
+  },
+  {
+   "x": 533,
+   "y": 546,
+   "text": "White Knight"
+  },
+  {
+   "x": 450,
+   "y": 429,
+   "text": "White Rook"
+  },
+  {
+   "x": 435,
+   "y": 398,
+   "text": "Train Station"
+  },
+  {
+   "x": 841,
+   "y": 654,
+   "text": "Black Pawn"
+  },
+  {
+   "x": 428,
+   "y": 307,
+   "text": "Barracks"
+  },
+  {
+   "x": 910,
+   "y": 567,
+   "text": "E1 Bunkers"
+  },
+  {
+   "x": 420,
+   "y": 580,
+   "text": "E2 Bunkers"
+  },
+  {
+   "x": 536,
+   "y": 375,
+   "text": "д - Warehouse Bunkers"
+  },
+  {
+   "x": 516,
+   "y": 621,
+   "text": "Garage"
+  },
+  {
+   "x": 566,
+   "y": 659,
+   "text": "Mechanic"
+  },
+  {
+   "x": 599,
+   "y": 620,
+   "text": "Gas Station"
+  },
+  {
+   "x": 674,
+   "y": 397,
+   "text": "Shipping Yard"
+  },
+  {
+   "x": 637,
+   "y": 495,
+   "text": "K1"
+  },
+  {
+   "x": 553,
+   "y": 471,
+   "text": "K2"
+  },
+  {
+   "x": 642,
+   "y": 466,
+   "text": "K3"
+  },
+  {
+   "x": 561,
+   "y": 444,
+   "text": "K4"
+  },
+  {
+   "x": 649,
+   "y": 440,
+   "text": "K5"
+  },
+  {
+   "x": 568,
+   "y": 419,
+   "text": "K6"
+  },
+  {
+   "x": 646,
+   "y": 801,
+   "text": "Dome"
+  },
+  {
+   "x": 785,
+   "y": 629,
+   "text": "Tarmac"
   }
  ],
  "bosses": [

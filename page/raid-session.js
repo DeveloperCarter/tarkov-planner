@@ -22,6 +22,18 @@
     if (!(data.spawnAreas || []).some(a => a.id === area)) throw new RangeError('Unknown spawn area');
     return { ...state, start: area, area, source: 'manual', waiting: false, unavailable: false };
   }
+  // A spawn point picked on the map (frame coordinates); the route starts exactly there.
+  function nearestSpawn(data, x, y) {
+    let best = null;
+    for (const spawn of data.spawns || []) {
+      const px = Math.hypot(spawn.x - x, spawn.y - y);
+      if (!best || px < best.px) best = { spawn, px };
+    }
+    return best && { spawn: best.spawn, metres: best.px / (data.meta.frame?.scale || 1) };
+  }
+  function choosePoint(state, spawn) {
+    return { ...state, start: { gx: spawn.gx, gz: spawn.gz }, area: spawn.area, source: 'manual', waiting: false, unavailable: false };
+  }
   function needsArea(state, now) {
     return !state.start && (state.unavailable || (state.startedAt !== null && now - state.startedAt >= 10000));
   }
@@ -44,5 +56,5 @@
     return { x: anchor.x + (dx * Math.cos(angle) - dz * Math.sin(angle)) * scale,
       y: anchor.y - (dx * Math.sin(angle) + dz * Math.cos(angle)) * scale };
   }
-  return { empty, reduce, choose, needsArea, advance, marker };
+  return { empty, reduce, choose, nearestSpawn, choosePoint, needsArea, advance, marker };
 });

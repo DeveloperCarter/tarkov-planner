@@ -363,8 +363,9 @@ def match_spawn(data: dict, gx: float, gz: float) -> dict | None:
     return {"spawn": spawn, "area": area, "metres": metres} if metres <= 30 else None
 
 
-def build_spawns(m: dict, frame: Frame, en, extracts: list) -> tuple[list, list]:
-    """Deterministic single-linkage of PMC player spawns, including Labs' all-side spawns."""
+def build_spawns(m: dict, frame: Frame, en, extracts: list, labels: list = ()) -> tuple[list, list]:
+    """Deterministic single-linkage of PMC player spawns, including Labs' all-side spawns.
+    Areas are named after the closest PMC extract or map label (Dorms, Scav Town, ...)."""
     points = sorted([(s["position"]["x"], s["position"]["z"]) for s in m.get("spawns", [])
                      if set(s.get("sides", [])) & {"pmc", "all"} and "player" in s.get("categories", [])])
     threshold = 175.0 if m["normalizedName"] == "woods" else SPAWN_DISTANCE
@@ -386,6 +387,9 @@ def build_spawns(m: dict, frame: Frame, en, extracts: list) -> tuple[list, list]
     clusters.sort(key=lambda c: points[c[0]])
     candidates = [e for e in extracts if e.get("type") in ("pmc", "shared", "coop")
                   or (e.get("type") is None and e.get("faction") in ("pmc", "shared", "all"))]
+    for label in labels:
+        x, y = frame.xy(label["en"])
+        candidates.append({"name": label["text"], "x": x, "y": y, "id": "label"})
     areas, spawns, anchors = [], [], []
     for i, members in enumerate(clusters):
         gx = sum(points[j][0] for j in members) / len(members)
@@ -506,7 +510,7 @@ class Normalizer:
         quests.sort(key=lambda q: (q["minLevel"], q["trader"], q["name"]))
 
         extracts = self.build_extracts(m, frame, en)
-        spawns, spawn_areas = build_spawns(m, frame, en, extracts)
+        spawns, spawn_areas = build_spawns(m, frame, en, extracts, labels)
         print(f"SPAWNS {self.mode}/{key}: {len(spawns)} spawns, {len(spawn_areas)} areas: " +
               "; ".join(a["name"] for a in spawn_areas), file=sys.stderr)
         return {
@@ -538,6 +542,8 @@ class Normalizer:
             "extracts": extracts,
             "spawns": spawns,
             "spawnAreas": spawn_areas,
+            # Common area names (tarkov-dev map labels) for the spawn picker.
+            "labels": [dict(zip(("x", "y"), frame.xy(l["en"])), text=l["text"]) for l in labels],
             "bosses": self.build_bosses(m),
             "quests": quests,
             "acquisition": self.build_acquisition(quests, m),

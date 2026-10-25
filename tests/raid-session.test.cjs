@@ -20,6 +20,15 @@ test('missing or distant positions prompt for an area; explicit choice wins over
  assert.equal(S.reduce(s,data,{kind:'spawn-position',map:'customs',at:4000,x:10,z:20}),s);
  assert.equal(S.choose(s,data,'').start,null);assert.throws(()=>S.choose(s,data,'unknown'));
 });
+test('a tap on the map snaps to the nearest spawn point and starts the route there',()=>{
+ const two={...data,spawns:[...data.spawns,{gx:50,gz:60,x:300,y:400,area:'b'}]};
+ const hit=S.nearestSpawn(two,290,390);assert.equal(hit.spawn.area,'b');assert.equal(Math.round(hit.metres),7);
+ assert.equal(S.nearestSpawn({meta:{},spawns:[]},0,0),null);
+ let s=S.reduce(S.empty(),data,{kind:'raid-started',map:'customs',at:0});
+ s=S.choosePoint(s,hit.spawn);assert.deepEqual(s.start,{gx:50,gz:60});assert.equal(s.area,'b');assert.equal(s.source,'manual');
+ assert.equal(S.needsArea(s,60000),false);
+ assert.equal(S.reduce(s,data,{kind:'spawn-position',map:'customs',at:4000,x:10,z:20}),s,'a manual pick wins');
+});
 test('completion reroutes from the last completed prefix stop, not a later checked stop',()=>{
  const route=R.route(data,['q'],'a');const s=S.choose(S.empty(),data,'a');
  assert.equal(S.advance(s,route.stops,new Set()),s);

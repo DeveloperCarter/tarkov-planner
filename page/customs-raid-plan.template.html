@@ -317,9 +317,21 @@ mark { background:color-mix(in srgb, var(--signal) 28%, transparent); color:inhe
 .route-planner select, .spawn-dialog select { width:100%; min-width:0; max-width:100%; background:var(--panel); color:var(--ink); border:1px solid var(--line); padding:8px; }
 .route-planner ol { margin:0; padding-left:22px; display:grid; gap:5px; }
 .route-planner li button { border:0; background:none; color:var(--ink); padding:4px; text-align:left; cursor:pointer; font:inherit; }
-.spawn-dialog { width:min(440px,calc(100vw - 32px)); padding:22px; background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:8px; }
+.spawn-dialog { width:min(760px,calc(100vw - 16px)); max-height:calc(100dvh - 16px); overflow:auto; padding:16px; background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:8px; }
 .spawn-dialog::backdrop { background:rgb(0 0 0 / .55); }
 .spawn-dialog form { display:grid; gap:12px; }
+.spawn-dialog h2 { margin:0; }
+.spawn-dialog p { margin:0; }
+.sp-map { display:block; width:100%; height:auto; max-height:62dvh; background:var(--bg); border:1px solid var(--line); border-radius:6px; cursor:crosshair; touch-action:manipulation; }
+.sp-labels text { fill:var(--muted); opacity:.8; dominant-baseline:middle; pointer-events:none; font-family:var(--font-mono); }
+.sp-points circle { fill:var(--steel); opacity:.45; pointer-events:none; }
+.sp-points circle.on { opacity:1; fill:var(--olive); }
+.sp-area text { fill:var(--ink); stroke:var(--bg); paint-order:stroke; dominant-baseline:middle; font-weight:700; font-family:var(--font-body); cursor:pointer; }
+.sp-area.on text { fill:var(--olive); }
+.sp-area:focus-visible text { text-decoration:underline; }
+.sp-chosen { fill:none; stroke:var(--signal); pointer-events:none; }
+.spawn-dialog .actions { display:flex; gap:8px; flex-wrap:wrap; }
+.spawn-dialog .btn:disabled { opacity:.45; cursor:default; }
 .objective-route { pointer-events:none; }
 
 /* Raid mode */
@@ -760,9 +772,11 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 
   <dialog class="spawn-dialog" id="spawnDialog" aria-labelledby="spawnTitle">
     <form method="dialog"><h2 id="spawnTitle">Where did you spawn?</h2>
-      <p>The log has no usable spawn position. Choose an area to plan the route.</p>
-      <label for="spawnChoice">Spawn area</label><select id="spawnChoice" required></select>
-      <div class="actions"><button class="btn" value="choose">Use this area</button><button class="btn" value="later" formnovalidate>Not now</button></div>
+      <p id="spawnWhy">Tap where you spawned, or an area name.</p>
+      <svg class="sp-map" id="spawnMap" role="group" aria-label="Map: tap where you spawned"></svg>
+      <p id="spawnPicked" class="map-note" role="status">Nothing picked yet.</p>
+      <label for="spawnChoice">Or choose an area</label><select id="spawnChoice"></select>
+      <div class="actions"><button class="btn primary" value="choose" id="spawnUse" disabled>Start route here</button><button class="btn" value="later" formnovalidate>Not now</button></div>
     </form>
   </dialog>
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
@@ -1840,8 +1854,10 @@ function routeControls(prefix) {
   const area = routeSession.source === 'manual' ? routeSession.area : '';
   const status = routeSession.waiting ? 'Raid started. Waiting up to 10 seconds for a spawn position…'
     : !routeSession.start ? 'Choose a spawn area, or connect logs to detect it at raid start.'
-    : routeSession.source === 'log' ? 'Spawn detected from the live log.' : routeSession.source === 'objective' ? 'Rerouted from your last completed stop.' : 'Starting from your chosen area.';
+    : routeSession.source === 'log' ? 'Spawn detected from the live log.' : routeSession.source === 'objective' ? 'Rerouted from your last completed stop.'
+    : typeof routeSession.start === 'object' ? 'Starting from the spawn you picked on the map.' : 'Starting from your chosen area.';
   return `<label for="${prefix}-spawn">Spawn area <select id="${prefix}-spawn" data-spawn-area><option value="">${routeSession.start && !area ? 'Detected / current position' : 'Choose an area'}</option>${DATA.spawnAreas.map(a => `<option value="${esc(a.id)}" ${a.id === area ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></label>
+    <button type="button" class="btn" data-spawn-map>Pick spawn on the map</button>
     <p class="map-note" role="status">${status}</p>${objectiveRoute ? `<details ${prefix === "plan" ? "open" : ""}><summary>${objectiveRoute.stops.length} ${objectiveRoute.stops.length === 1 ? "stop" : "stops"} · ${Math.round(objectiveRoute.metres)} m${objectiveRoute.approximate ? ' · Approximate order' : ''}</summary><ol>${objectiveRoute.stops.map(st => `<li><button type="button" data-route-zone="${esc(st.zone)}">${esc(DATA.zones[st.zone].name)}</button></li>`).join('')}</ol><p class="map-note">Straight lines to objectives; check terrain. Only required, unfinished objectives are routed. One of each alternative location is shown. Random quest-item positions are search suggestions. Ends at the last objective.</p></details>` : ''}`;
 }
 function renderRoutePlanner() {
@@ -1859,13 +1875,55 @@ document.addEventListener('click', e => {
 });
 function promptSpawn() {
   if (!canRoute() || routeSession.start || !currentQuests.length) return;
+  openSpawnPicker("The log has no usable spawn position. Tap where you spawned, or an area name.");
+}
+/* ---------- spawn picker: tap the map, an area name, or use the list ---------- */
+let spawnPick = null; // { area, spawn? }: an area's centre, or one snapped spawn point
+function openSpawnPicker(why) {
   const dialog = document.getElementById('spawnDialog');
-  if (qd.open || dialog.open) return;
+  if (!canRoute() || qd.open || dialog.open) return;
+  setText('spawnWhy', why);
+  spawnPick = null;
   document.getElementById('spawnChoice').innerHTML = '<option value="">Choose an area</option>' + DATA.spawnAreas.map(a => `<option value="${esc(a.id)}">${esc(a.name)}</option>`).join('');
   dialog.returnValue = ''; dialog.showModal();
+  renderSpawnPicker(); // after showModal, so the map has its on-screen size
 }
+function renderSpawnPicker() {
+  // Sizes are set in screen pixels, so names stay readable on a phone and a desktop alike.
+  const svg = document.getElementById('spawnMap'), px = BASE.w / (svg.getBoundingClientRect().width || 600);
+  svg.setAttribute('viewBox', `${BASE.x} ${BASE.y} ${BASE.w} ${BASE.h}`);
+  const on = spawnPick?.area, dot = spawnPick?.spawn;
+  // Names near an edge grow inward instead of being cut off.
+  const anchor = x => { const at = (x - BASE.x) / BASE.w; return at < .22 ? 'start' : at > .78 ? 'end' : 'middle'; };
+  svg.innerHTML = `<g class="sp-base"></g>
+    <g class="sp-labels">${(DATA.labels || []).map(l => `<text x="${l.x}" y="${l.y}" text-anchor="${anchor(l.x)}" font-size="${(px * 11).toFixed(1)}">${esc(l.text)}</text>`).join('')}</g>
+    <g class="sp-points">${DATA.spawns.map(s => `<circle cx="${s.x}" cy="${s.y}" r="${(px * 3.5).toFixed(1)}"${s.area === on ? ' class="on"' : ''}/>`).join('')}</g>
+    ${dot ? `<circle class="sp-chosen" cx="${dot.x}" cy="${dot.y}" r="${(px * 11).toFixed(1)}" stroke-width="${(px * 3).toFixed(1)}"/>` : ''}
+    <g class="sp-areas">${DATA.spawnAreas.map(a => `<g class="sp-area${a.id === on && !dot ? ' on' : ''}" data-area="${esc(a.id)}" role="button" tabindex="0" aria-label="${esc(a.name)}"><text x="${a.x}" y="${a.y}" text-anchor="${anchor(a.x)}" font-size="${(px * 15).toFixed(1)}" stroke-width="${(px * 4).toFixed(1)}">${esc(a.name.replace(/^Near /, ''))}</text></g>`).join('')}</g>`;
+  const base = document.getElementById('mapBase').cloneNode(true);
+  svg.querySelector('.sp-base').replaceChildren(...base.childNodes);
+  const area = DATA.spawnAreas.find(a => a.id === on);
+  setText('spawnPicked', !spawnPick ? 'Nothing picked yet.' : dot ? `Spawn point ${(area?.name || 'in this area').replace(/^Near/, 'near')}, ${Math.round(spawnPick.metres)} m from your tap.` : `${area?.name}: the route starts from the middle of this area.`);
+  document.getElementById('spawnChoice').value = on || '';
+  document.getElementById('spawnUse').disabled = !spawnPick;
+}
+function pickSpawn(e) {
+  const area = e.target.closest('[data-area]')?.dataset.area;
+  if (area) { spawnPick = { area }; return renderSpawnPicker(); }
+  const svg = document.getElementById('spawnMap'), pt = svg.createSVGPoint();
+  pt.x = e.clientX; pt.y = e.clientY;
+  const at = pt.matrixTransform(svg.getScreenCTM().inverse()), hit = RaidSession.nearestSpawn(DATA, at.x, at.y);
+  if (hit) { spawnPick = { area: hit.spawn.area, spawn: hit.spawn, metres: hit.metres }; renderSpawnPicker(); }
+}
+document.getElementById('spawnMap').addEventListener('click', pickSpawn);
+document.getElementById('spawnMap').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('[data-area]')) { e.preventDefault(); pickSpawn(e); } });
+document.getElementById('spawnChoice').addEventListener('change', e => { spawnPick = e.target.value ? { area: e.target.value } : null; renderSpawnPicker(); });
+document.addEventListener('click', e => { if (e.target.closest('[data-spawn-map]')) openSpawnPicker('Tap where you spawned, or an area name.'); });
 document.getElementById('spawnDialog').addEventListener('close', e => {
-  if (e.target.returnValue === 'choose') chooseSpawn(document.getElementById('spawnChoice').value);
+  if (e.target.returnValue !== 'choose' || !spawnPick) return;
+  if (!spawnPick.spawn) return chooseSpawn(spawnPick.area);
+  clearTimeout(spawnWait); routeSession = RaidSession.choosePoint(routeSession, spawnPick.spawn); objectiveRoute = null;
+  renderQuests();
 });
 // Another map's raid: name it and offer its page in this mode (map pages sit side by side).
 function raidElsewhere(key) {

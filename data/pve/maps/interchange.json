@@ -4,7 +4,7 @@
   "mapId": "5714dbc024597771384a510d",
   "key": "interchange",
   "gameMode": "pve",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 40,
   "players": "11-15",
@@ -1412,59 +1412,446 @@
   },
   {
    "id": "spawn-2",
-   "name": "Near Hole in the Fence",
+   "name": "Near Wall Break",
    "x": 907,
    "y": 491,
    "count": 15
   },
   {
    "id": "spawn-3",
-   "name": "Near Power Station V-Ex, south",
+   "name": "Near Power Station",
    "x": 906,
    "y": 259,
    "count": 15
   },
   {
    "id": "spawn-4",
-   "name": "Near Power Station V-Ex, west",
+   "name": "Near Idea Tower, east",
    "x": 691,
    "y": 72,
    "count": 15
   },
   {
    "id": "spawn-5",
-   "name": "Near Saferoom Exfil",
+   "name": "Near Cargo Containers",
    "x": 513,
    "y": 767,
    "count": 15
   },
   {
    "id": "spawn-6",
-   "name": "Near Railway Exfil, east",
+   "name": "Near Idea Tower, west",
    "x": 450,
    "y": 71,
    "count": 20
   },
   {
    "id": "spawn-7",
-   "name": "Near Path to River, east",
+   "name": "Near Scav Camp",
    "x": 329,
    "y": 451,
    "count": 15
   },
   {
    "id": "spawn-8",
-   "name": "Near Path to River, southeast",
+   "name": "Near Oli Tower",
    "x": 317,
    "y": 774,
    "count": 5
   },
   {
    "id": "spawn-9",
-   "name": "Near Railway Exfil, southeast",
+   "name": "Near Highway Construction",
    "x": 252,
    "y": 172,
    "count": 15
+  }
+ ],
+ "labels": [
+  {
+   "x": 801,
+   "y": 147,
+   "text": "Power Station"
+  },
+  {
+   "x": 472,
+   "y": 210,
+   "text": "Go Kart"
+  },
+  {
+   "x": 469,
+   "y": 378,
+   "text": "Four Camp"
+  },
+  {
+   "x": 556,
+   "y": 756,
+   "text": "Cargo Containers"
+  },
+  {
+   "x": 873,
+   "y": 573,
+   "text": "Wall Break"
+  },
+  {
+   "x": 791,
+   "y": 594,
+   "text": "Ramps"
+  },
+  {
+   "x": 427,
+   "y": 665,
+   "text": "Oli Tower"
+  },
+  {
+   "x": 577,
+   "y": 108,
+   "text": "Idea Tower"
+  },
+  {
+   "x": 368,
+   "y": 443,
+   "text": "Scav Camp"
+  },
+  {
+   "x": 262,
+   "y": 77,
+   "text": "Highway Construction"
+  },
+  {
+   "x": 590,
+   "y": 240,
+   "text": "Garage A"
+  },
+  {
+   "x": 576,
+   "y": 346,
+   "text": "Garage B"
+  },
+  {
+   "x": 622,
+   "y": 499,
+   "text": "Garage C"
+  },
+  {
+   "x": 602,
+   "y": 587,
+   "text": "Garage D"
+  },
+  {
+   "x": 654,
+   "y": 227,
+   "text": "IDEA"
+  },
+  {
+   "x": 733,
+   "y": 411,
+   "text": "Goshan"
+  },
+  {
+   "x": 649,
+   "y": 589,
+   "text": "OLI"
+  },
+  {
+   "x": 538,
+   "y": 295,
+   "text": "Nortex"
+  },
+  {
+   "x": 564,
+   "y": 307,
+   "text": "TRend"
+  },
+  {
+   "x": 555,
+   "y": 325,
+   "text": "Mode7"
+  },
+  {
+   "x": 603,
+   "y": 330,
+   "text": "TTS"
+  },
+  {
+   "x": 658,
+   "y": 330,
+   "text": "Book Store"
+  },
+  {
+   "x": 534,
+   "y": 339,
+   "text": "Dino Clothes"
+  },
+  {
+   "x": 604,
+   "y": 355,
+   "text": "EMERCOM"
+  },
+  {
+   "x": 649,
+   "y": 355,
+   "text": "Kostin"
+  },
+  {
+   "x": 684,
+   "y": 355,
+   "text": "Bizarro"
+  },
+  {
+   "x": 533,
+   "y": 370,
+   "text": "Spiel"
+  },
+  {
+   "x": 639,
+   "y": 370,
+   "text": "Voyage"
+  },
+  {
+   "x": 567,
+   "y": 390,
+   "text": "Viking"
+  },
+  {
+   "x": 609,
+   "y": 390,
+   "text": "Mantis"
+  },
+  {
+   "x": 639,
+   "y": 385,
+   "text": "German"
+  },
+  {
+   "x": 567,
+   "y": 423,
+   "text": "The National"
+  },
+  {
+   "x": 609,
+   "y": 423,
+   "text": "Brutal"
+  },
+  {
+   "x": 639,
+   "y": 430,
+   "text": "Kiba"
+  },
+  {
+   "x": 654,
+   "y": 435,
+   "text": "Pretty Lights"
+  },
+  {
+   "x": 533,
+   "y": 437,
+   "text": "Telespot"
+  },
+  {
+   "x": 562,
+   "y": 442,
+   "text": "Revis"
+  },
+  {
+   "x": 603,
+   "y": 448,
+   "text": "ADIK"
+  },
+  {
+   "x": 649,
+   "y": 454,
+   "text": "Generic"
+  },
+  {
+   "x": 533,
+   "y": 468,
+   "text": "Top Brand"
+  },
+  {
+   "x": 563,
+   "y": 468,
+   "text": "Sports"
+  },
+  {
+   "x": 554,
+   "y": 485,
+   "text": "Yushka"
+  },
+  {
+   "x": 603,
+   "y": 479,
+   "text": "Rasmussen"
+  },
+  {
+   "x": 657,
+   "y": 479,
+   "text": "Avokado"
+  },
+  {
+   "x": 534,
+   "y": 507,
+   "text": "Boots 4 Life"
+  },
+  {
+   "x": 563,
+   "y": 502,
+   "text": "Texho"
+  },
+  {
+   "x": 616,
+   "y": 501,
+   "text": "Dom"
+  },
+  {
+   "x": 585,
+   "y": 290,
+   "text": "Father & Sons"
+  },
+  {
+   "x": 555,
+   "y": 309,
+   "text": "Tarkovstar"
+  },
+  {
+   "x": 597,
+   "y": 310,
+   "text": "Eastland"
+  },
+  {
+   "x": 553,
+   "y": 329,
+   "text": "Arena"
+  },
+  {
+   "x": 570,
+   "y": 331,
+   "text": "ТАРЗДРАВ"
+  },
+  {
+   "x": 602,
+   "y": 331,
+   "text": "МЕБЕЛЬ МК"
+  },
+  {
+   "x": 555,
+   "y": 342,
+   "text": "Intourist"
+  },
+  {
+   "x": 648,
+   "y": 355,
+   "text": "Burger Spot"
+  },
+  {
+   "x": 554,
+   "y": 363,
+   "text": "FCK"
+  },
+  {
+   "x": 554,
+   "y": 370,
+   "text": "McDaniels"
+  },
+  {
+   "x": 560,
+   "y": 387,
+   "text": "Tarducks"
+  },
+  {
+   "x": 580,
+   "y": 387,
+   "text": "Coffee Joy"
+  },
+  {
+   "x": 607,
+   "y": 383,
+   "text": "Jacob & Jacob"
+  },
+  {
+   "x": 654,
+   "y": 378,
+   "text": "ПУШКИН"
+  },
+  {
+   "x": 560,
+   "y": 421,
+   "text": "Sushi Huyushi"
+  },
+  {
+   "x": 638,
+   "y": 423,
+   "text": "Underway"
+  },
+  {
+   "x": 557,
+   "y": 431,
+   "text": "Burger House"
+  },
+  {
+   "x": 654,
+   "y": 431,
+   "text": "Philly Cute"
+  },
+  {
+   "x": 557,
+   "y": 439,
+   "text": "Shiccos"
+  },
+  {
+   "x": 605,
+   "y": 454,
+   "text": "МУЗЕЙ ИСТОРИИ"
+  },
+  {
+   "x": 533,
+   "y": 470,
+   "text": "Papillon"
+  },
+  {
+   "x": 566,
+   "y": 466,
+   "text": "ЗАКРЫТО НА РЕМОНТ"
+  },
+  {
+   "x": 554,
+   "y": 480,
+   "text": "НА-СВЯЗИ"
+  },
+  {
+   "x": 570,
+   "y": 477,
+   "text": "СКОРО ОТКРЫТИЕ"
+  },
+  {
+   "x": 603,
+   "y": 479,
+   "text": "Figaro"
+  },
+  {
+   "x": 553,
+   "y": 499,
+   "text": "АПТЕКА"
+  },
+  {
+   "x": 571,
+   "y": 499,
+   "text": "SARA"
+  },
+  {
+   "x": 597,
+   "y": 498,
+   "text": "Urban Clothes"
+  },
+  {
+   "x": 534,
+   "y": 506,
+   "text": "TECHLIGHT"
+  },
+  {
+   "x": 584,
+   "y": 519,
+   "text": "Fashion Store"
   }
  ],
  "bosses": [

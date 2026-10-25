@@ -4,7 +4,7 @@
   "mapId": "653e6760052c01c1c805532f",
   "key": "ground-zero",
   "gameMode": "pve",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 30,
   "players": "9-10",
@@ -1058,24 +1058,91 @@
   },
   {
    "id": "spawn-2",
-   "name": "Near Tartowers Sales Office",
+   "name": "Near Fusion",
    "x": 174,
    "y": 957,
    "count": 35
   },
   {
    "id": "spawn-3",
-   "name": "Near Mira Ave",
+   "name": "Near Skyside",
    "x": 142,
    "y": 793,
    "count": 25
   },
   {
    "id": "spawn-4",
-   "name": "Near Nakatani Basement Stairs",
+   "name": "Near Capital Insight",
    "x": 150,
    "y": 1093,
    "count": 20
+  }
+ ],
+ "labels": [
+  {
+   "x": 338,
+   "y": 794,
+   "text": "TerraGroup"
+  },
+  {
+   "x": 121,
+   "y": 795,
+   "text": "Skyside"
+  },
+  {
+   "x": 131,
+   "y": 948,
+   "text": "Fusion"
+  },
+  {
+   "x": 269,
+   "y": 1012,
+   "text": "Empire"
+  },
+  {
+   "x": 159,
+   "y": 1102,
+   "text": "Capital Insight"
+  },
+  {
+   "x": 282,
+   "y": 1145,
+   "text": "Nakatani"
+  },
+  {
+   "x": 197,
+   "y": 666,
+   "text": "Elemental Global"
+  },
+  {
+   "x": 159,
+   "y": 907,
+   "text": "Oasis"
+  },
+  {
+   "x": 159,
+   "y": 826,
+   "text": "ASAP Winery"
+  },
+  {
+   "x": 237,
+   "y": 956,
+   "text": "Tarbank"
+  },
+  {
+   "x": 221,
+   "y": 1047,
+   "text": "GAGRIN Hotel"
+  },
+  {
+   "x": 179,
+   "y": 1035,
+   "text": "M Showroom"
+  },
+  {
+   "x": 298,
+   "y": 846,
+   "text": "Science Office"
   }
  ],
  "bosses": [

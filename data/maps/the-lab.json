@@ -4,7 +4,7 @@
   "mapId": "5b0fc42d86f7744a585f9105",
   "key": "the-lab",
   "gameMode": "regular",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 30,
   "players": "8-10",
@@ -774,38 +774,195 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Main Elevator, southwest",
+   "name": "Near Vestibules #1",
    "x": 349,
    "y": 142,
    "count": 15
   },
   {
    "id": "spawn-2",
-   "name": "Near Main Elevator, southeast",
+   "name": "Near Gym",
    "x": 660,
    "y": 183,
    "count": 20
   },
   {
    "id": "spawn-3",
-   "name": "Near Medical Block Elevator",
+   "name": "Near Main Working Area",
    "x": 492,
    "y": 472,
    "count": 5
   },
   {
    "id": "spawn-4",
-   "name": "Near Ventilation Shaft",
+   "name": "Near Infirmary Lvl 2",
    "x": 208,
    "y": 594,
    "count": 11
   },
   {
    "id": "spawn-5",
-   "name": "Near Sewage Conduit",
+   "name": "Near Server Room",
    "x": 664,
    "y": 665,
    "count": 19
+  }
+ ],
+ "labels": [
+  {
+   "x": 257,
+   "y": 237,
+   "text": "Parking"
+  },
+  {
+   "x": 340,
+   "y": 174,
+   "text": "Vestibules #1"
+  },
+  {
+   "x": 340,
+   "y": 292,
+   "text": "Vestibules #2"
+  },
+  {
+   "x": 486,
+   "y": 466,
+   "text": "Main Working Area"
+  },
+  {
+   "x": 265,
+   "y": 560,
+   "text": "Negotiation Room"
+  },
+  {
+   "x": 265,
+   "y": 631,
+   "text": "Infirmary Lvl 1"
+  },
+  {
+   "x": 430,
+   "y": 631,
+   "text": "Test Room"
+  },
+  {
+   "x": 619,
+   "y": 650,
+   "text": "Server Room"
+  },
+  {
+   "x": 785,
+   "y": 686,
+   "text": "Warehouse Tunnels"
+  },
+  {
+   "x": 773,
+   "y": 501,
+   "text": "Warehouse"
+  },
+  {
+   "x": 855,
+   "y": 473,
+   "text": "Warehouse Gate"
+  },
+  {
+   "x": 631,
+   "y": 328,
+   "text": "Lecture Hall"
+  },
+  {
+   "x": 482,
+   "y": 273,
+   "text": "Recreation Area"
+  },
+  {
+   "x": 643,
+   "y": 214,
+   "text": "Gym"
+  },
+  {
+   "x": 729,
+   "y": 194,
+   "text": "Men's Locker Room"
+  },
+  {
+   "x": 729,
+   "y": 229,
+   "text": "Women's Locker Room"
+  },
+  {
+   "x": 391,
+   "y": 123,
+   "text": "Boiler Room"
+  },
+  {
+   "x": 576,
+   "y": 119,
+   "text": "Security Barracks"
+  },
+  {
+   "x": 486,
+   "y": 119,
+   "text": "Reception"
+  },
+  {
+   "x": 399,
+   "y": 119,
+   "text": "Administrative Office"
+  },
+  {
+   "x": 572,
+   "y": 143,
+   "text": "Security Office"
+  },
+  {
+   "x": 344,
+   "y": 182,
+   "text": "Security #1"
+  },
+  {
+   "x": 340,
+   "y": 296,
+   "text": "Security #2"
+  },
+  {
+   "x": 482,
+   "y": 241,
+   "text": "Conference Room"
+  },
+  {
+   "x": 643,
+   "y": 281,
+   "text": "Cafeteria"
+  },
+  {
+   "x": 253,
+   "y": 399,
+   "text": "Offices #1"
+  },
+  {
+   "x": 253,
+   "y": 556,
+   "text": "Offices #2"
+  },
+  {
+   "x": 253,
+   "y": 631,
+   "text": "Infirmary Lvl 2"
+  },
+  {
+   "x": 411,
+   "y": 631,
+   "text": "Sterile Laboratory"
+  },
+  {
+   "x": 698,
+   "y": 477,
+   "text": "Control Room"
+  },
+  {
+   "x": 726,
+   "y": 159,
+   "text": "Corridor To Building #2"
   }
  ],
  "bosses": [

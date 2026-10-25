@@ -4,7 +4,7 @@
   "mapId": "55f2d3fd4bdc2d5f408b4567",
   "key": "factory",
   "gameMode": "pve",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 20,
   "players": "7-8",
@@ -1105,38 +1105,175 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Gate 0",
+   "name": "Near Servers",
    "x": 323,
    "y": 862,
    "count": 20
   },
   {
    "id": "spawn-2",
-   "name": "Near Med Tent Gate",
+   "name": "Near Underground Stash",
    "x": 697,
    "y": 692,
    "count": 15
   },
   {
    "id": "spawn-3",
-   "name": "Near Courtyard Gate",
+   "name": "Near Hole",
    "x": 200,
    "y": 516,
    "count": 25
   },
   {
    "id": "spawn-4",
-   "name": "Near Smugglers' Passage",
+   "name": "Near Pumping Station",
    "x": 567,
    "y": 420,
    "count": 20
   },
   {
    "id": "spawn-5",
-   "name": "Near Gate 2",
+   "name": "Near Forklifts",
    "x": 962,
    "y": 205,
    "count": 5
+  }
+ ],
+ "labels": [
+  {
+   "x": 227,
+   "y": 533,
+   "text": "Office Building"
+  },
+  {
+   "x": 227,
+   "y": 569,
+   "text": "Main Office"
+  },
+  {
+   "x": 227,
+   "y": 510,
+   "text": "Breach Room"
+  },
+  {
+   "x": 227,
+   "y": 470,
+   "text": "Locked Office"
+  },
+  {
+   "x": 227,
+   "y": 440,
+   "text": "North Stairs"
+  },
+  {
+   "x": 227,
+   "y": 612,
+   "text": "South Stairs"
+  },
+  {
+   "x": 313,
+   "y": 447,
+   "text": "Sky Bridge"
+  },
+  {
+   "x": 372,
+   "y": 477,
+   "text": "Connector"
+  },
+  {
+   "x": 214,
+   "y": 480,
+   "text": "Locker Rooms"
+  },
+  {
+   "x": 214,
+   "y": 572,
+   "text": "Sinks"
+  },
+  {
+   "x": 207,
+   "y": 539,
+   "text": "Hole"
+  },
+  {
+   "x": 240,
+   "y": 691,
+   "text": "Platform"
+  },
+  {
+   "x": 306,
+   "y": 809,
+   "text": "Servers"
+  },
+  {
+   "x": 675,
+   "y": 789,
+   "text": "Med Tent"
+  },
+  {
+   "x": 415,
+   "y": 641,
+   "text": "Silos"
+  },
+  {
+   "x": 540,
+   "y": 473,
+   "text": "Heli Crash"
+  },
+  {
+   "x": 378,
+   "y": 677,
+   "text": "Pit"
+  },
+  {
+   "x": 645,
+   "y": 684,
+   "text": "Underground Stash"
+  },
+  {
+   "x": 332,
+   "y": 806,
+   "text": "Scav Bunker"
+  },
+  {
+   "x": 155,
+   "y": 789,
+   "text": "Blue Containers"
+  },
+  {
+   "x": 82,
+   "y": 970,
+   "text": "Wood Room"
+  },
+  {
+   "x": 615,
+   "y": 222,
+   "text": "Glass Hall"
+  },
+  {
+   "x": 451,
+   "y": 302,
+   "text": "Boilers"
+  },
+  {
+   "x": 556,
+   "y": 401,
+   "text": "Pumping Station"
+  },
+  {
+   "x": 721,
+   "y": 381,
+   "text": "East Halls"
+  },
+  {
+   "x": 760,
+   "y": 236,
+   "text": "Forklifts"
+  },
+  {
+   "x": 457,
+   "y": 552,
+   "text": "Rafters"
   }
  ],
  "bosses": [

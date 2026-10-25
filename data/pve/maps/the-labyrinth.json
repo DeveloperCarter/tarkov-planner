@@ -4,7 +4,7 @@
   "mapId": "6733700029c367a3d40b02af",
   "key": "the-labyrinth",
   "gameMode": "pve",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 30,
   "players": "5-5",
@@ -191,6 +191,7 @@
    "count": 1
   }
  ],
+ "labels": [],
  "bosses": [
   {
    "name": "Shadow of Tagilla",

@@ -4,7 +4,7 @@
   "mapId": "5704e4dad2720bb55b8b4567",
   "key": "lighthouse",
   "gameMode": "regular",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 40,
   "players": "10-12",
@@ -1011,35 +1011,35 @@
  "spawnAreas": [
   {
    "id": "spawn-1",
-   "name": "Near Path to Shoreline",
+   "name": "Near Cabins",
    "x": 612,
    "y": 734,
    "count": 5
   },
   {
    "id": "spawn-2",
-   "name": "Near Passage by the Lake, west",
+   "name": "Near Passage by the Lake",
    "x": 524,
    "y": 527,
    "count": 5
   },
   {
    "id": "spawn-3",
-   "name": "Near Mountain Pass, north",
+   "name": "Near Cottages",
    "x": 468,
    "y": 838,
    "count": 5
   },
   {
    "id": "spawn-4",
-   "name": "Near Passage by the Lake, southwest",
+   "name": "Near Island",
    "x": 445,
    "y": 660,
    "count": 5
   },
   {
    "id": "spawn-5",
-   "name": "Near Side Tunnel, east",
+   "name": "Near Crash Site",
    "x": 413,
    "y": 1166,
    "count": 5
@@ -1053,14 +1053,14 @@
   },
   {
    "id": "spawn-7",
-   "name": "Near Armored Train, southeast",
+   "name": "Near Drug Lab",
    "x": 400,
    "y": 425,
    "count": 5
   },
   {
    "id": "spawn-8",
-   "name": "Near Mountain Pass, northwest",
+   "name": "Near Construction",
    "x": 284,
    "y": 803,
    "count": 5
@@ -1081,24 +1081,136 @@
   },
   {
    "id": "spawn-11",
-   "name": "Near Mountain Pass, west",
+   "name": "Near Dead Tree",
    "x": 242,
    "y": 963,
    "count": 5
   },
   {
    "id": "spawn-12",
-   "name": "Near Armored Train, south",
+   "name": "Near Gunner Nest",
    "x": 229,
    "y": 617,
    "count": 5
   },
   {
    "id": "spawn-13",
-   "name": "Near Armored Train, southwest",
+   "name": "Near Plant 1",
    "x": 202,
    "y": 479,
    "count": 5
+  }
+ ],
+ "labels": [
+  {
+   "x": 336,
+   "y": 375,
+   "text": "Train Yard"
+  },
+  {
+   "x": 396,
+   "y": 402,
+   "text": "Drug Lab"
+  },
+  {
+   "x": 359,
+   "y": 562,
+   "text": "Water Treatment"
+  },
+  {
+   "x": 290,
+   "y": 550,
+   "text": "Plant 1"
+  },
+  {
+   "x": 381,
+   "y": 471,
+   "text": "Plant 2"
+  },
+  {
+   "x": 442,
+   "y": 519,
+   "text": "Plant 3"
+  },
+  {
+   "x": 437,
+   "y": 593,
+   "text": "Pipes"
+  },
+  {
+   "x": 305,
+   "y": 659,
+   "text": "Gunner Nest"
+  },
+  {
+   "x": 434,
+   "y": 723,
+   "text": "Island"
+  },
+  {
+   "x": 501,
+   "y": 745,
+   "text": "Cabins"
+  },
+  {
+   "x": 424,
+   "y": 810,
+   "text": "Cottages"
+  },
+  {
+   "x": 353,
+   "y": 768,
+   "text": "Convenience"
+  },
+  {
+   "x": 366,
+   "y": 771,
+   "text": "Red Brick"
+  },
+  {
+   "x": 416,
+   "y": 798,
+   "text": "Hillside"
+  },
+  {
+   "x": 234,
+   "y": 858,
+   "text": "Boathouses"
+  },
+  {
+   "x": 275,
+   "y": 919,
+   "text": "Dead Tree"
+  },
+  {
+   "x": 316,
+   "y": 834,
+   "text": "Construction"
+  },
+  {
+   "x": 387,
+   "y": 924,
+   "text": "Pikes Peak Resort"
+  },
+  {
+   "x": 404,
+   "y": 1025,
+   "text": "Grand Chalet"
+  },
+  {
+   "x": 363,
+   "y": 1044,
+   "text": "Tennis Court"
+  },
+  {
+   "x": 64,
+   "y": 1287,
+   "text": "Lightkeeper Island"
+  },
+  {
+   "x": 399,
+   "y": 1155,
+   "text": "Crash Site"
   }
  ],
  "bosses": [

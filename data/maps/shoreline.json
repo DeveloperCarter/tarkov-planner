@@ -4,7 +4,7 @@
   "mapId": "5704e554d2720bac5b8b456e",
   "key": "shoreline",
   "gameMode": "regular",
-  "generated": "2026-10-21",
+  "generated": "2026-10-24",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 45,
   "players": "10-14",
@@ -1659,14 +1659,14 @@
   },
   {
    "id": "spawn-2",
-   "name": "Near CCP Temporary",
+   "name": "Near Crane",
    "x": 769,
    "y": 550,
    "count": 20
   },
   {
    "id": "spawn-3",
-   "name": "Near Pier Boat",
+   "name": "Near Gas Station",
    "x": 531,
    "y": 499,
    "count": 15
@@ -1680,24 +1680,126 @@
   },
   {
    "id": "spawn-5",
-   "name": "Near Tunnel, east",
+   "name": "Near Construction",
    "x": 270,
    "y": 447,
    "count": 15
   },
   {
    "id": "spawn-6",
-   "name": "Near Path to Lighthouse",
+   "name": "Near Swamp",
    "x": 222,
    "y": 94,
    "count": 20
   },
   {
    "id": "spawn-7",
-   "name": "Near Tunnel, north",
+   "name": "Near Village",
    "x": 67,
    "y": 373,
    "count": 30
+  }
+ ],
+ "labels": [
+  {
+   "x": 490,
+   "y": 227,
+   "text": "Resort"
+  },
+  {
+   "x": 464,
+   "y": 383,
+   "text": "Power Station"
+  },
+  {
+   "x": 447,
+   "y": 534,
+   "text": "Gas Station"
+  },
+  {
+   "x": 639,
+   "y": 432,
+   "text": "Weather Station"
+  },
+  {
+   "x": 772,
+   "y": 330,
+   "text": "Radio Tower"
+  },
+  {
+   "x": 125,
+   "y": 197,
+   "text": "Swamp"
+  },
+  {
+   "x": 67,
+   "y": 345,
+   "text": "Village"
+  },
+  {
+   "x": 149,
+   "y": 361,
+   "text": "Cabins"
+  },
+  {
+   "x": 249,
+   "y": 329,
+   "text": "Cottages"
+  },
+  {
+   "x": 551,
+   "y": 389,
+   "text": "Tank Bridge"
+  },
+  {
+   "x": 541,
+   "y": 600,
+   "text": "Pier"
+  },
+  {
+   "x": 194,
+   "y": 536,
+   "text": "Scav Island"
+  },
+  {
+   "x": 389,
+   "y": 268,
+   "text": "Bus Stop"
+  },
+  {
+   "x": 296,
+   "y": 355,
+   "text": "Construction"
+  },
+  {
+   "x": 425,
+   "y": 90,
+   "text": "Bunker"
+  },
+  {
+   "x": 720,
+   "y": 574,
+   "text": "Crane"
+  },
+  {
+   "x": 718,
+   "y": 145,
+   "text": "Scav Farm"
+  },
+  {
+   "x": 436,
+   "y": 219,
+   "text": "West Wing"
+  },
+  {
+   "x": 535,
+   "y": 219,
+   "text": "East Wing"
+  },
+  {
+   "x": 486,
+   "y": 180,
+   "text": "Admin"
   }
  ],
  "bosses": [
