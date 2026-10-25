@@ -197,6 +197,20 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh
   build of dist/ and page reload: an older local dist caused the reported missing card interaction.
 
+**Quest navigation and optional global shortcuts (2026-10-25)**
+- `page/quest-navigation.js` is pure UMD: supplied selected-quest order, stable IDs, wraparound and
+  local key mapping. The template controller highlights a raid card and its pins, frames locations,
+  and scrolls that card into view. Focus never writes progress, selection or route completion.
+- The controller pauses outside PMC raid mode, with no selected quests, in inputs or with a dialog
+  open. Local keys ignore inputs. Ctrl+Shift+Left/Right works with page focus; buttons offer the same action.
+- `extension/quest-shortcuts/` is an optional unpacked MV3 Chrome/Edge extension, packaged by
+  `build_page.build_shortcuts` into `dist/downloads/quest-shortcuts.zip`. Commands are global,
+  default Ctrl+Shift+9/0 (Chrome restricts suggested global keys); users may remap to modified arrows.
+- Extension storage.session retains exactly one explicitly chosen map tab. It clears on browser
+  restart, tab close or map/mode URL change, and survives a same-page reload or worker suspension.
+  Its content script bridges only direction commands to the visual controller on allowlisted planner
+  map URLs. No game/log/progress reading, native host, network calls or tab activation is used.
+
 **Map art and spot photos**
 - SVG maps: the-hideout/tarkov-dev-svg-maps, CC BY-NC-SA 4.0 (non-commercial; credit and same
   licence for modified copies; no use in cheats). `fetch_art.py` keeps only the ground floor; the page

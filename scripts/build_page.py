@@ -16,6 +16,7 @@ import os
 import re
 import shutil
 import sys
+import zipfile
 from pathlib import Path
 from etl_tarkov_dev import latest_snapshot, load_snapshot
 from career_data import catalog
@@ -32,6 +33,18 @@ SESSION = ROOT / "page" / "raid-session.js"
 PRESETS = ROOT / "page" / "raid-presets.js"
 TASKS_INDEX = ROOT / "data" / "tasks-index.json"
 ART = ROOT / "cache" / "art"  # filled by scripts/fetch_art.py; never committed
+
+
+def build_shortcuts() -> Path:
+    """Ship only the reviewed extension sources, with instructions inside the download."""
+    source = ROOT / "extension" / "quest-shortcuts"
+    target = ROOT / "dist" / "downloads" / "quest-shortcuts.zip"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    files = ("manifest.json", "background.js", "content.js", "popup.html", "popup.css", "popup.js", "README.md")
+    with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name in files:
+            archive.write(source / name, "quest-shortcuts/" + name)
+    return target
 
 
 def relative_url(target: Path, page: Path) -> str:
@@ -135,8 +148,11 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__TRACKER__*/", TRACKER.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
-    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS)]:
+    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS),
+                         ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
+                         ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
         html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
+    html = html.replace("__QUEST_SHORTCUTS_URL__", relative_url(build_shortcuts(), out_path), 1)
     html = html.replace("/*__PROGRESS__*/", PROGRESS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__DATA__*/null", payload, 1)
     html = html.replace("<!--__SITE_NAV__-->", navigation(out_path, mode, data['meta'].get('key', 'customs')), 1)

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tarkov Planner Quest Shortcuts",
+  "version": "1.0.0",
+  "description": "Move between selected raid quests while Tarkov has focus. Choose one planner tab first.",
+  "permissions": ["storage"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html", "default_title": "Quest shortcuts"},
+  "commands": {
+    "previous-quest": {"suggested_key": {"default": "Ctrl+Shift+9"}, "description": "Focus previous selected quest", "global": true},
+    "next-quest": {"suggested_key": {"default": "Ctrl+Shift+0"}, "description": "Focus next selected quest", "global": true}
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://developercarter.github.io/tarkov-planner/maps/*.html",
+      "https://developercarter.github.io/tarkov-planner/pve/maps/*.html",
+      "http://localhost/maps/*.html", "http://localhost/pve/maps/*.html",
+      "http://127.0.0.1/maps/*.html", "http://127.0.0.1/pve/maps/*.html"
+    ],
+    "js": ["content.js"]
+  }]
+}
