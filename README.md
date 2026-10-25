@@ -201,8 +201,11 @@ Validation:
 
 ## Manual raid focus (M1B)
 
-Use **Include this raid** in the compact picker beside the map or on a current quest card.
-**Select all** and **Clear** set the whole list; the Quests tab's **Show → Selected only**
+A map starts with no quests selected. **Quick pick** replaces the selection in one tap: **All**,
+**Kappa**, each trader with current quests on the map (multi-map quests with objectives here
+count), or **More** (key raids, no required keys, pickups, mark & place, combat). The toast offers
+**Undo**, and a pick is highlighted only while the selection matches it exactly. **Include this
+raid** on a quest or its card adjusts one quest; **Clear** empties the list; the Quests tab's **Show → Selected only**
 compares a small set while browsing. The count shows selected versus current quests. Keys,
 items, locations, and extraction requirements are listed for comparison; an absent requirement
 means it is not listed in the dataset, rather than a guarantee about the game.

@@ -22,7 +22,7 @@ const data = {
 const current = ["task-a", "task-b", "c"];
 
 test("Select all, Clear and individual toggles only select current quests, with empty staying empty", () => {
-  assert.deepEqual(F.reconcile(null, current), current);
+  assert.deepEqual(F.reconcile(null, current), [], "a map with no saved selection starts empty");
   let chosen = F.choose(null, current, "clear");
   assert.deepEqual(chosen, []);
   assert.deepEqual(F.reconcile(chosen, [...current, "new-start"]), []);
@@ -74,7 +74,7 @@ test("selection persists per map, wipe, profile and mode without editing status/
     make("two", "regular", 100), make("one", "pve", 100)];
   for (const key of keys) {
     S.setManual(store, key, "task-a", "started", 101);
-    F.sync(store.scopes[key], "Customs", current, current);
+    F.sync(store.scopes[key], "Customs", current, current, "all");
   }
   const statuses = JSON.stringify(keys.map(k => S.derive(store, k)));
   F.sync(store.scopes[keys[0]], "Customs", current, current, "clear");
@@ -107,6 +107,8 @@ test("empty scope waits for first current list; a smaller hand-built page preser
   F.sync(scope, "Customs", [], current);
   assert.equal(scope.raidFocus, undefined);
   F.sync(scope, "Customs", current, current);
+  assert.deepEqual(scope.raidFocus.Customs, []);
+  F.sync(scope, "Customs", current, current, "all");
   F.sync(scope, "Customs", ["task-a"], ["task-a"], "clear");
   assert.deepEqual(F.read(scope, "Customs", current), ["task-b", "c"]);
   assert.deepEqual(F.read(null, "Customs", current), []);

@@ -6,10 +6,11 @@
   "use strict";
   const taskId = q => q.bsgId || q.id;
 
-  // null means not initialized yet. An explicit [] stays empty, including after new starts.
+  // null means not initialized yet: start empty, so the player picks a manageable raid (Quick
+  // pick or checkboxes) instead of every current quest. An explicit [] stays empty after new starts.
   function reconcile(saved, currentIds) {
     const current = new Set(currentIds);
-    return saved == null ? [...current] : [...new Set(saved)].filter(id => current.has(id));
+    return saved == null ? [] : [...new Set(saved)].filter(id => current.has(id));
   }
   function choose(saved, currentIds, action, id) {
     const selected = reconcile(saved, currentIds);

@@ -29,10 +29,30 @@
     return definitions.map(([key, name, description]) => ({ id: key, name, description,
       ids: [...new Set(currentQuests.filter(predicates[key]).map(id))].sort() }));
   }
+  // Quick picks: everything, Kappa, then each trader with current quests here (most quests first).
+  // The other presets sit under More. Every pick replaces the selection; none filters the list.
+  function quickPicks(currentQuests, done = {}) {
+    const presets = list(currentQuests, done), byId = Object.fromEntries(presets.map(p => [p.id, p]));
+    const traders = new Map();
+    for (const q of currentQuests) if (q.trader) {
+      if (!traders.has(q.trader)) traders.set(q.trader, new Set());
+      traders.get(q.trader).add(id(q));
+    }
+    const traderPicks = [...traders].map(([name, ids]) => ({ id: 'trader:' + name, name,
+      description: `${name}'s current quests on this map, including multi-map quests with objectives here.`, ids: [...ids].sort() }))
+      .sort((a, b) => b.ids.length - a.ids.length || a.name.localeCompare(b.name));
+    return { main: [byId.all, byId.kappa, ...traderPicks], more: presets.filter(p => p.id !== 'all' && p.id !== 'kappa') };
+  }
   function choose(currentQuests, preset, done) {
-    const result = list(currentQuests, done).find(p => p.id === preset);
+    const picks = quickPicks(currentQuests, done);
+    const result = [...picks.main, ...picks.more].find(p => p.id === preset);
     if (!result) throw new RangeError('Unknown raid focus preset');
     return result.ids;
   }
-  return { list, choose, candidates };
+  // A pick shows as pressed only when the selection is exactly its quests.
+  function same(ids, selected) {
+    const a = new Set(ids), b = new Set(selected);
+    return a.size > 0 && a.size === b.size && [...a].every(x => b.has(x));
+  }
+  return { list, choose, quickPicks, same, candidates };
 });

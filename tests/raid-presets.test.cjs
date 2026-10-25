@@ -33,6 +33,19 @@ test('preset candidates are only supplied current quests; membership, order and 
  assert.throws(()=>P.choose(current,'unknown'),/Unknown/);
  assert.equal(P.list(current).every(p=>p.description && p.name),true);
 });
+test('quick picks: All, Kappa, then traders by quest count; trader picks replace by exact IDs',()=>{
+ const quests=[{id:'p1',trader:'Prapor',objectives:[]},{id:'p2',bsgId:'p2-bsg',trader:'Prapor',onMap:false,objectives:[]},
+  {id:'j1',trader:'Jaeger',kappa:true,kappaSource:'wiki',objectives:[]},{id:'s1',trader:'Skier',objectives:[]}];
+ const picks=P.quickPicks(quests);
+ assert.deepEqual(picks.main.map(p=>p.id),['all','kappa','trader:Prapor','trader:Jaeger','trader:Skier']);
+ assert.deepEqual(picks.more.map(p=>p.id),['keys','no-keys','items','placements','combat']);
+ assert.deepEqual(P.choose(quests,'trader:Prapor'),['p1','p2-bsg'],'multi-map quests with objectives here count');
+ assert.deepEqual(P.choose(quests,'kappa'),['j1']);
+ assert.throws(()=>P.choose(quests,'trader:Ref'),/Unknown/);
+ assert.equal(P.same(['p1','p2-bsg'],['p2-bsg','p1']),true);
+ assert.equal(P.same(['p1'],['p1','j1']),false,'a superset is not an exact match');
+ assert.equal(P.same([],[]),false,'an empty pick is never pressed');
+});
 test('Kappa preset uses verified wiki flags and only supplied current quests',()=>{
  assert.deepEqual(P.choose([{id:'yes',kappa:true,kappaSource:'wiki'},
   {id:'unverified',kappa:true},{id:'no',kappa:false,kappaSource:'wiki'}],'kappa'),['yes']);

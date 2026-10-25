@@ -372,7 +372,8 @@ ticked off and survive a reload.
 shows the same, and map cards and the raid picker show "Kappa quests here". Only wiki-confirmed
 flags count, and quests without wiki coverage are listed for review. Accepted quests lead What's
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
-Raid mode has a Kappa quests preset; Kappa-only filtering lives on the Quests tab and in site search.
+Quick pick chips (All, Kappa, each trader, More) replace a map's raid selection with Undo; Kappa-only
+filtering lives on the Quests tab and in site search. Maps with no saved selection start empty.
 
 ## M7 · Scav mode  (implemented; auto-switch not done)
 
