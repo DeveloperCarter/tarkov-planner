@@ -37,7 +37,7 @@
   function keepHTML(result, ctx) {
     const group = (bucket, title, description) => {
       const rows = result.keep.filter(r => r[bucket] || r.unknown.includes(bucket));
-      return `<h3>${title}</h3><p class="map-note">${description}</p>${rows.length ? `<div class="keep-list">${rows.map(r => `<article class="career-row"><b>${r[bucket] || ''}${r.unknown.includes(bucket) ? (r[bucket] ? ' + quantity unknown' : 'Quantity unknown') : ''} × ${esc(r.items.slice(0, 3).map(i => i.name).join(' / '))}${r.items.length > 3 ? ` / ${r.items.length - 3} more choices` : ''}</b>${r.items.length > 1 ? '<p class="map-note">Any combination of these items; one shared quantity.</p>' : ''}${r.items.length > 3 ? `<details data-career-section="${esc(bucket + r.items.map(i => i.id).join('-'))}"><summary>All ${r.items.length} choices</summary><ul>${r.items.map(i => `<li>${esc(i.name)}</li>`).join('')}</ul></details>` : ''}<ul>${r.quests.filter(q => q.bucket === bucket).map(q => `<li>${esc(q.name)}${q.count == null ? ' · quantity unknown' : ' · ' + q.count}${q.note ? `<p class="map-note">${esc(q.note)}</p>` : ''}</li>`).join('')}</ul></article>`).join('')}</div>` : '<p class="map-note">No outstanding FIR items in this group.</p>'}`;
+      return `<h3>${title}</h3><p class="map-note">${description}</p>${rows.length ? `<div class="keep-list">${rows.map(r => `<article class="career-row"><b>${r.stash ? `<span class="map-note">${r.stash} in stash · </span>` : ''}${r[bucket] || ''}${r.unknown.includes(bucket) ? (r[bucket] ? ' + quantity unknown' : 'Quantity unknown') : ''} × ${esc(r.items.slice(0, 3).map(i => i.name).join(' / '))}${r.items.length > 3 ? ` / ${r.items.length - 3} more choices` : ''}</b>${r.items.length > 1 ? '<p class="map-note">Any combination of these items; one shared quantity.</p>' : ''}${r.items.length > 3 ? `<details data-career-section="${esc(bucket + r.items.map(i => i.id).join('-'))}"><summary>All ${r.items.length} choices</summary><ul>${r.items.map(i => `<li>${esc(i.name)}</li>`).join('')}</ul></details>` : ''}<ul>${r.quests.filter(q => q.bucket === bucket).map(q => `<li>${esc(q.name)}${q.count == null ? ' · quantity unknown' : ' · ' + q.count}${q.note ? `<p class="map-note">${esc(q.note)}</p>` : ''}</li>`).join('')}</ul></article>`).join('')}</div>` : '<p class="map-note">No outstanding FIR items in this group.</p>'}`;
     };
     return `<h2>Keep · found in raid</h2><p class="map-note">All quests in this mode, across every map. Quantities are outstanding quest requirements, not an inventory count. Find and hand-over pairs count once. Optional objectives are excluded.</p>
       ${group('current', 'Current quests', 'Save these for your accepted quests.')}
@@ -83,6 +83,8 @@
       }
       const result = QuestCareer.evaluate(data, ctx.store, ctx.key, { ...ctx, done });
       latest = { data, result, ctx };
+      window.careerLatest = latest; // raid mode's scav list reads it
+      window.dispatchEvent(new Event('eft-career-ready'));
       button.textContent = `Kappa: ${result.kappa.completed} / ${result.kappa.total}`;
       const banner = ctx.scope ? `<p class="map-note">${esc(ctx.scope.label)} · ${mode === 'pve' ? 'PvE' : 'PvP'} · level ${ctx.level}</p>` : '<p class="notice">Choose a profile and wipe in Settings on any map page to track progress. No current quests or completions are assumed.</p>';
       document.querySelectorAll('[data-career-view]').forEach(host => { renderHost(host, banner + (host.dataset.careerView === 'keep' ? keepHTML(result, ctx) : kappaHTML(result, ctx, data))); });

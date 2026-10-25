@@ -60,7 +60,8 @@
         if (count === 0) continue;
         const bucket = q?.current ? "current" : q?.possible ? "possible" : "later";
         const signature = req.items.map(i => i.id).sort().join("|");
-        if (!keep.has(signature)) keep.set(signature, { items: req.items, current: 0, possible: 0, later: 0, unknown: [], quests: [] });
+        if (!keep.has(signature)) keep.set(signature, { key: signature, items: req.items, current: 0, possible: 0, later: 0, unknown: [], quests: [],
+          stash: Number(scope?.stash?.[signature]) || 0 });
         const row = keep.get(signature);
         if (count == null) row.unknown.push(bucket); else row[bucket] += count;
         row.quests.push({ id: t.id, name: t.name, count, bucket, collector: !!t.collector, note: req.note });
@@ -78,5 +79,21 @@
         maps: Object.fromEntries([...new Set(tasks.flatMap(t => t.maps.map(m => m.key)))].map(map =>
           [map, next.filter(t => t.maps.some(m => m.key === map)).length])) } };
   }
-  return { evaluate };
+  // Scav runs: items for current quests, then possible unlocks, then The Collector. Stash counts
+  // (found but not handed in) reduce what's left to find; they never complete a quest.
+  function scavList(result) {
+    const rows = [];
+    for (const row of result.keep) {
+      const collector = row.quests.filter(q => q.collector && q.bucket === "later");
+      const need = row.current + row.possible + collector.reduce((n, q) => n + (q.count || 0), 0);
+      const unknown = row.unknown.some(b => b !== "later") || collector.some(q => q.count == null);
+      if (!need && !unknown) continue;
+      rows.push({ key: row.key, items: row.items, need, unknown, stash: row.stash, toFind: Math.max(0, need - row.stash),
+        tier: row.current || row.unknown.includes("current") ? 0 : row.possible || row.unknown.includes("possible") ? 1 : 2,
+        quests: row.quests.filter(q => q.bucket !== "later" || q.collector) });
+    }
+    return rows.sort((a, b) => Number(!a.toFind && !a.unknown) - Number(!b.toFind && !b.unknown) || a.tier - b.tier ||
+      b.toFind - a.toFind || a.items[0].name.localeCompare(b.items[0].name));
+  }
+  return { evaluate, scavList };
 });

@@ -125,6 +125,23 @@ test('level gates and ranking ties use minimum level; manual completion removes 
   assert.equal(r.kappa.completed,1);
   assert.equal(r.kappa.next[0].id,'b');
 });
+test('scav list: stash reduces what is left to find without completing quests; Collector items follow',()=>{
+ const {store,key,data,item}=fixture();
+ Store.setManual(store,key,'a','started');
+ let rows=Career.scavList(Career.evaluate(data,store,key,{level:24}));
+ const med=rows.find(r=>r.key==='med');
+ assert.equal(med.need,4,'3 for the current quest a, 1 for the locked Collector');
+ assert.equal(med.tier,0);assert.equal(med.toFind,4);
+ Store.setStash(store,key,'med',3);
+ let r=Career.evaluate(data,store,key,{level:24});
+ assert.equal(!!r.quests.a.completed,false);assert.equal(r.quests.a.current,true);
+ assert.equal(Career.scavList(r).find(x=>x.key==='med').toFind,1);
+ Store.setStash(store,key,'med',9);
+ rows=Career.scavList(Career.evaluate(data,store,key,{level:24}));
+ assert.equal(rows.at(-1).key,'med','enough in stash sinks to the end');assert.equal(rows.at(-1).toFind,0);
+ Store.setStash(store,key,'med',0);assert.equal(store.scopes[key].stash.med,undefined);
+ assert.throws(()=>Store.setStash(store,'missing','med',1));
+});
 test('accepted Kappa quests lead the next list ahead of possible unlocks with more downstream',()=>{
  const {store,key,data}=fixture();
  Store.setManual(store,key,'d','started');

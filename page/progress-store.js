@@ -66,6 +66,15 @@
     for (const membership of Object.values(scope.membership)) delete membership[id];
   }
 
+  // Found-in-raid items kept for quests but not handed in yet, per keep-list row (sorted item IDs).
+  function setStash(store, key, row, count) {
+    const scope = store.scopes[key];
+    if (!scope) throw new Error("Choose a progress scope first.");
+    scope.stash ||= {};
+    if (count > 0) scope.stash[row] = Math.floor(count);
+    else delete scope.stash[row];
+  }
+
   function setCollector(store, key, objective, handedIn) {
     const scope = store.scopes[key];
     if (!scope) throw new Error("Choose a progress scope first.");
@@ -154,6 +163,7 @@
     const target = store.scopes[next];
     // Confirming a boundary for the same character preserves manual Collector hand-ins.
     target.collector = { ...old.collector, ...target.collector };
+    target.stash = { ...old.stash, ...target.stash };
     for (const [id, m] of Object.entries(old.manual)) {
       if (!target.manual[id] || target.manual[id].at < m.at) target.manual[id] = m;
     }
@@ -194,6 +204,6 @@
     }
     return { ids: [...new Set(ids)], errors };
   }
-  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, confirmCurrent, isCurrent, evaluate,
+  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, setStash, confirmCurrent, isCurrent, evaluate,
     previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs };
 });

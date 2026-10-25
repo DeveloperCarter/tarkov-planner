@@ -369,7 +369,7 @@ flags count, and quests without wiki coverage are listed for review. Accepted qu
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
 The map and raid-mode quest pickers have a Kappa-only filter and a Kappa quests preset.
 
-## M7 · Scav mode  (S–M)
+## M7 · Scav mode  (implemented; auto-switch not done)
 
 A short, phone-friendly list of the found-in-raid items your quests still need, for scav runs.
 It reuses the M5 keep list (`QuestCareer.evaluate`); scav runs are about loot, not objectives.
@@ -391,6 +391,12 @@ It reuses the M5 keep list (`QuestCareer.evaluate`); scav runs are about loot, n
 
 **Done when:** raid mode can switch to Scav and show only items a scav can bring back for your
 quests, and counting them updates the Keep list on every page.
+
+**Status:** a Scav toggle in the raid mode header swaps the checklist and route for the item list
+(current quests open; possible unlocks and The Collector folded) and lists scav extracts. + and −
+change a stash count saved per scope (`ProgressStore.setStash`, `QuestCareer.scavList`); the Keep
+list shows it. Turning Scav off or leaving raid mode shows a short summary. Stash counts are not
+cleared when a quest is handed in; lower them with −. Not done: auto-switch from the logs, map hints.
 
 ## Later (after people are using it)
 
