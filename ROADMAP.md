@@ -374,6 +374,10 @@ flags count, and quests without wiki coverage are listed for review. Accepted qu
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
 Quick pick chips (All, Kappa, each trader, More) replace a map's raid selection with Undo; Kappa-only
 filtering lives on the Quests tab and in site search. Maps with no saved selection start empty.
+The site search (Ctrl K) is a quest browser: Trader and Map filters work without typing (a map
+matches every map with objectives; "No map objectives" lists the rest), results show "Showing x of y"
+with Show more, rows separate "Listed on" from "Also on" maps, a map filter decides where a result
+opens, and placeholder quests rank below real ones. It never changes raid selection.
 
 ## M7 · Scav mode  (implemented; auto-switch not done)
 

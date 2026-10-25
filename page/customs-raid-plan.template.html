@@ -446,6 +446,10 @@ dialog.ss::backdrop { background:rgb(10 12 10 / .5); }
 .ss-x { cursor:pointer; }
 .ss-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 14px; border-bottom:1px solid var(--line); }
 .ss-note { margin-left:auto; font-size:12.5px; color:var(--muted); }
+.ss-bar select { min-width:0; max-width:100%; font:13px var(--font-body); background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:5px 6px; }
+.ss-maplabel { align-self:center; font:11px var(--font-mono); color:var(--muted); }
+.ss-morebar { padding:0 14px; }
+.ss-morebar:has(#ssMore:not([hidden])) { padding:8px 14px; border-top:1px solid var(--line); }
 .ss-list { list-style:none; margin:0; padding:6px; overflow:auto; flex:1; overscroll-behavior:contain; }
 .ss-row { display:grid; gap:3px; padding:9px 10px; border-radius:6px; cursor:pointer; }
 .ss-row[aria-selected="true"] { background:var(--bg); box-shadow:inset 3px 0 0 var(--olive); }

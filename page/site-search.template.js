@@ -6,8 +6,9 @@
   if (!btn || !dlg || !window.SiteSearch) return;
   const input = document.getElementById("ssInput"), list = document.getElementById("ssList"), note = document.getElementById("ssNote");
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const indexes = {}, filters = { kappa: false, active: false };
-  let results = [], active = 0, entries = null, statuses = {}, ssEntry = null, enterEarly = false;
+  const indexes = {}, filters = { kappa: false, active: false, trader: "", map: "" }, PAGE = 40;
+  const traderSel = document.getElementById("ssTrader"), mapSel = document.getElementById("ssMap"), more = document.getElementById("ssMore");
+  let results = [], total = 0, shown = PAGE, active = 0, entries = null, statuses = {}, ssEntry = null, enterEarly = false;
   const mode = () => document.querySelector('.mode-toggle [aria-current="page"]')?.dataset.mode || "regular";
   const STATUS = { started: "Started", completed: "Completed", failed: "Failed" };
   const faction = typeof DATA !== "undefined" ? DATA?.meta?.player?.faction || DATA?.player?.faction || null : null;
@@ -40,24 +41,44 @@
   }
   const here = () => window.SITE_HERE || {};
   function target(e, m) {
-    m = m || SiteSearch.primaryMap(e, here().key);
+    m = m || SiteSearch.primaryMap(e, here().key, filters.map);
     return m && { m, local: m.key === here().key && here().mode === mode(), href: btn.dataset.root + m.href + "#quest=" + e.id };
+  }
+  // "Listed on" is the in-game map list; "Also on" maps only have objectives.
+  function mapLinks(e, t) {
+    const link = m => `<a href="${esc(btn.dataset.root + m.href + "#quest=" + e.id)}" data-map="${esc(m.key)}" class="${m === t?.m ? "primary" : ""}${m.onMap ? "" : " multi"}" title="${m.onMap ? `Listed on ${esc(m.name)} in game` : `Has objectives on ${esc(m.name)}`}">${hl(m.name)}</a>`;
+    const listed = (e.maps || []).filter(m => m.onMap), others = (e.maps || []).filter(m => !m.onMap);
+    return (listed.length ? `<span class="ss-maplabel">Listed on</span>${listed.map(link).join("")}` : "") +
+      (others.length ? `<span class="ss-maplabel">${listed.length ? "Also on" : "Objectives on"}</span>${others.map(link).join("")}` : "");
+  }
+  // Trader and map choices come from this mode's index; a choice that no longer exists is cleared.
+  function fillFilters() {
+    const { traders, maps } = SiteSearch.facets(entries);
+    if (filters.trader && !traders.includes(filters.trader)) filters.trader = "";
+    if (filters.map && filters.map !== "none" && !maps.some(m => m.key === filters.map)) filters.map = "";
+    traderSel.innerHTML = `<option value="">Any trader</option>` + traders.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
+    mapSel.innerHTML = `<option value="">Any map</option>` + maps.map(m => `<option value="${esc(m.key)}">${esc(m.name)}</option>`).join("") + `<option value="none">No map objectives</option>`;
+    traderSel.value = filters.trader; mapSel.value = filters.map;
   }
   function render() {
     if (!entries) return;
-    results = SiteSearch.search(entries, input.value, { statuses, filters, faction });
+    ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters, faction, limit: shown }));
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim();
-    note.textContent = !q && !results.length
-      ? (filters.kappa ? "No Kappa quests found." : "Type a quest, trader or map. Your started quests show here once the tracker has your profile.")
-      : !results.length ? `No quests match “${q}”.` : !q ? (filters.kappa ? "Kappa quests" : "Your started quests") : `${results.length === 40 ? "Top 40" : results.length} ${results.length === 1 ? "match" : "matches"}`;
+    const q = input.value.trim(), listing = filters.kappa || filters.trader || filters.map;
+    const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
+    note.textContent = !results.length
+      ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."
+        : "Type a quest, or choose a trader or map. Your started quests show here once the tracker has your profile.")
+      : !q && !listing ? `Your started quests · ${count}` : count;
+    more.hidden = total <= results.length;
+    more.textContent = `Show ${Math.min(PAGE, total - results.length)} more`;
     list.innerHTML = results.map((e, i) => {
       const t = target(e), st = statuses[e.id];
       const tags = [e.trader, e.minLevel > 1 && `Lvl ${e.minLevel}`, e.faction && e.faction !== "Any" && `${e.faction} only`].filter(Boolean).map(esc).join(" · ");
       return `<li role="option" id="ss-o${i}" class="ss-row${otherSide(e) ? " other-side" : ""}" data-i="${i}" aria-selected="${i === active}">
         <div class="ss-main"><span class="ss-name">${hl(e.name)}</span>${st ? `<span class="qst ${st}">${STATUS[st]}</span>` : ""}${e.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${e.placeholder ? `<span class="ss-new">New</span>` : ""}</div>
         <div class="ss-meta"><span>${tags}</span>${t ? "" : `<span>No map objectives</span>`}</div>
-        <div class="ss-maps">${(e.maps || []).map(m => `<a href="${esc(btn.dataset.root + m.href + "#quest=" + e.id)}" data-map="${esc(m.key)}" class="${m === t?.m ? "primary" : ""}${m.onMap ? "" : " multi"}" title="${m.onMap ? `Listed on ${esc(m.name)} in game` : `Has objectives on ${esc(m.name)}`}">${hl(m.name)}</a>`).join("")}${e.wiki ? `<a href="${esc(e.wiki)}" target="_blank" rel="noopener" class="wiki">Wiki ↗</a>` : ""}</div>
+        <div class="ss-maps">${mapLinks(e, t)}${e.wiki ? `<a href="${esc(e.wiki)}" target="_blank" rel="noopener" class="wiki">Wiki ↗</a>` : ""}</div>
       </li>`;
     }).join("");
     input.setAttribute("aria-activedescendant", results.length ? `ss-o${active}` : "");
@@ -84,14 +105,20 @@
     ssEntry = Date.now() + Math.random(); // Back closes the search, as on a phone
     try { history.pushState({ siteSearch: ssEntry }, ""); } catch (e) {}
     entries = null; enterEarly = false; note.textContent = "Loading every quest…"; list.innerHTML = "";
-    try { entries = await load(); render(); if (enterEarly && input.value.trim()) go(0); }
+    try { entries = await load(); fillFilters(); render(); if (enterEarly && input.value.trim()) go(0); }
     catch (e) { indexes[mode()] = null; note.textContent = "Couldn't load the quest list. Check your connection, then try again."; }
   }
   function close() { if (dlg.open) dlg.close(); }
   dlg.addEventListener("close", () => { if (ssEntry !== null && history.state?.siteSearch === ssEntry) history.back(); ssEntry = null; btn.focus({ preventScroll: true }); });
   window.addEventListener("popstate", () => { if (dlg.open && history.state?.siteSearch !== ssEntry) { ssEntry = null; close(); } });
   btn.addEventListener("click", open);
-  input.addEventListener("input", () => { active = 0; render(); });
+  input.addEventListener("input", () => { active = 0; shown = PAGE; render(); });
+  for (const [sel, key] of [[traderSel, "trader"], [mapSel, "map"]]) sel.addEventListener("change", () => { filters[key] = sel.value; active = 0; shown = PAGE; render(); });
+  more.addEventListener("click", () => {
+    const first = results.length; shown += PAGE; render();
+    // Keep keyboard users in place: the first newly shown result becomes the active one.
+    active = Math.min(first, results.length - 1); render(); (more.hidden ? input : more).focus();
+  });
   input.addEventListener("keydown", e => {
     if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); active = (active + (e.key === "ArrowDown" ? 1 : -1) + results.length) % Math.max(1, results.length); render(); }
     if (e.key === "Enter") { e.preventDefault(); if (entries) go(active); else enterEarly = true; } // typed fast: open once loaded
@@ -99,7 +126,7 @@
   dlg.addEventListener("click", e => {
     if (e.target === dlg || e.target.closest("[data-ss='close']")) return close();
     const f = e.target.closest("[data-ss-f]");
-    if (f) { filters[f.dataset.ssF] = !filters[f.dataset.ssF]; f.setAttribute("aria-pressed", String(filters[f.dataset.ssF])); active = 0; render(); input.focus(); return; }
+    if (f) { filters[f.dataset.ssF] = !filters[f.dataset.ssF]; f.setAttribute("aria-pressed", String(filters[f.dataset.ssF])); active = 0; shown = PAGE; render(); input.focus(); return; }
     const a = e.target.closest("a[data-map]"), row = e.target.closest(".ss-row");
     if (a && row && !(e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1)) { e.preventDefault(); go(+row.dataset.i, a.dataset.map); return; }
     if (row && !e.target.closest("a")) go(+row.dataset.i);

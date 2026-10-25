@@ -92,8 +92,9 @@ SEARCH_DIALOG = '''<dialog class="ss" id="siteSearch" aria-label="Search all que
 <div class="ss-field"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
 <input id="ssInput" type="search" placeholder="Quest, trader or map" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="ssList" aria-autocomplete="list" aria-label="Search all quests">
 <span class="ss-mode" id="ssMode"></span><button type="button" class="ss-x" data-ss="close" aria-label="Close search">Esc</button></div>
-<div class="ss-bar"><button type="button" class="toggle" data-ss-f="kappa" aria-pressed="false">Kappa</button><button type="button" class="toggle" data-ss-f="active" aria-pressed="false">Started</button><span class="ss-note" id="ssNote" role="status"></span></div>
+<div class="ss-bar"><select id="ssTrader" aria-label="Trader"><option value="">Any trader</option></select><select id="ssMap" aria-label="Map"><option value="">Any map</option></select><button type="button" class="toggle" data-ss-f="active" aria-pressed="false">Started</button><button type="button" class="toggle" data-ss-f="kappa" aria-pressed="false">Kappa</button><span class="ss-note" id="ssNote" role="status"></span></div>
 <ul class="ss-list" id="ssList" role="listbox" aria-label="Quests"></ul>
+<div class="ss-morebar"><button type="button" class="btn" id="ssMore" hidden>Show more</button></div>
 <p class="ss-foot"><span>↑ ↓ move</span><span>Enter opens it on its map</span><span>Esc closes</span></p>
 </dialog>'''
 
