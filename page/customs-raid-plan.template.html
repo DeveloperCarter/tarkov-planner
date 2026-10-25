@@ -342,7 +342,7 @@ mark { background:color-mix(in srgb, var(--signal) 28%, transparent); color:inhe
 .sp-area:focus-visible text { text-decoration:underline; }
 .sp-chosen { fill:none; stroke:var(--signal); pointer-events:none; }
 .spawn-dialog .actions { display:flex; gap:8px; flex-wrap:wrap; }
-.spawn-dialog .btn:disabled { opacity:.45; cursor:default; }
+.btn:disabled { opacity:.45; cursor:default; }
 .objective-route { pointer-events:none; }
 
 /* Raid mode */
@@ -399,17 +399,17 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .sc-row .counter { display:flex; align-items:center; gap:6px; flex:none; }
 .sc-row .counter button { width:40px; height:40px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); font:600 20px/1 var(--font-mono); cursor:pointer; }
 .sc-row output { min-width:28px; text-align:center; font:600 15px var(--font-mono); font-variant-numeric:tabular-nums; }
-.quick-pick { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-.quick-pick > .label { flex-basis:100%; }
-.chip-pick, .qp-more > summary { display:inline-flex; align-items:center; gap:5px; min-height:36px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink); font:600 13px/1 var(--font-body); cursor:pointer; list-style:none; }
-.qp-more > summary::-webkit-details-marker { display:none; }
-.chip-pick span { font:600 12px var(--font-mono); color:var(--muted); }
-.chip-pick[aria-pressed="true"] { background:var(--olive); border-color:var(--olive); color:var(--bg); }
-.chip-pick[aria-pressed="true"] span { color:inherit; }
-.chip-pick:disabled { opacity:.45; cursor:default; }
-.chip-pick:focus-visible, .qp-more > summary:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
-.qp-more[open] { flex-basis:100%; display:flex; flex-wrap:wrap; gap:6px; }
-.chip-pick.clear { border-style:dashed; }
+.qf { display:flex; flex-wrap:wrap; gap:6px; align-items:center; min-width:0; }
+.qf-label { font:600 11px var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-right:2px; }
+.qf-chip { display:inline-flex; align-items:center; gap:5px; min-height:32px; padding:4px 11px; border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink); font:600 13px/1 var(--font-body); cursor:pointer; }
+.qf-chip span { font:600 11.5px var(--font-mono); color:var(--muted); }
+.qf-chip[aria-pressed="true"] { background:var(--olive); border-color:var(--olive); color:var(--bg); }
+.qf-chip[aria-pressed="true"] span { color:inherit; }
+.qf-more { min-height:32px; padding:4px 6px; border:0; background:none; color:var(--muted); font:600 12.5px var(--font-body); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.qf-chip:focus-visible, .qf-more:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
+.focus-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.spawn-line { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; }
+.spawn-line b { flex:1 1 160px; min-width:0; }
 .rp-obj { list-style:none; margin:0; padding:0; display:grid; gap:4px; }
 .rp-obj label, .rp-obj .rp-c { min-height:44px; display:flex; align-items:center; gap:12px; border-radius:5px; background:var(--bg); padding:7px 10px; font:15px/1.3 var(--font-body); cursor:pointer; }
 .rp-obj input[type=checkbox] { width:22px; height:22px; flex:none; accent-color:var(--ok); margin:0; }
@@ -670,8 +670,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <div class="qfilters" role="search" aria-label="Filter quests">
       <label class="qsearch"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg><input id="questSearch" type="search" placeholder="Search quests, items, places" autocomplete="off" aria-label="Search quests on this map"><kbd aria-hidden="true">/</kbd></label>
       <label class="status-row" for="questView">Show <select id="questView"><option value="current">Current quests</option><option value="selected">Selected only</option><option value="possible">Possible unlocks (estimates)</option><option value="all">All</option></select></label>
-      <label class="status-row" for="questTrader">Trader <select id="questTrader"></select></label>
-      <button type="button" class="toggle kappa" id="questKappa" aria-pressed="false">Kappa only</button>
+      <div id="questFilterBar" class="qf-host"></div>
       <span id="questSort"></span>
     </div>
     <div class="toolbar">
@@ -850,6 +849,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__ROUTE__*/</script>
 <script>/*__SESSION__*/</script>
 <script>/*__PRESETS__*/</script>
+<script>/*__QFILTER__*/</script>
 <script>/*__QUEST_NAV__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
@@ -1267,7 +1267,7 @@ function ordered(list) {
 // True when the route order changed, so the lists need drawing again.
 function updateRouteRank() {
   const fresh = objectiveRoute && (routeSession.source !== "objective" || !routeRankKey); // a reload mid-raid sets it again
-  const key = fresh ? JSON.stringify([routeSession.start, selectedIds]) : routeSession.start ? routeRankKey : "";
+  const key = fresh ? JSON.stringify([routeSession.start, shownIds]) : routeSession.start ? routeRankKey : "";
   if (key === routeRankKey) return false;
   routeRankKey = key; routeRank = new Map();
   if (fresh) for (const stop of objectiveRoute.stops) for (const id of stop.quests) if (!routeRank.has(id)) routeRank.set(id, routeRank.size);
@@ -1292,43 +1292,31 @@ let progressResult;
 
 // Quests tab filters. Typing a search looks through every quest on this map, whatever Show says,
 // matching names, traders, objectives, items and places. Trader and Kappa are remembered.
-const filters = { text: "", trader: "", kappa: false };
-try { filters.kappa = localStorage.getItem("eft-quest-kappa") === "1"; filters.trader = localStorage.getItem("eft-quest-trader") || ""; } catch (e) {}
+// Text search is this tab's own; traders and Kappa come from the site-wide QuestFilter.
+const filters = { text: "" };
 const fold = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const HAY = new Map(DATA.quests.map(q => [q, fold([q.name, q.trader, ...q.objectives.map(o => o.text), ...q.needs.map(n => n.item),
   ...RaidFocus.facts(q).zones.map(z => DATA.zones[z]?.name || "")].join("\n"))]));
 const terms = () => fold(filters.text).split(/\s+/).filter(Boolean);
 const searching = () => terms().length > 0;
-const passes = q => (!filters.kappa || q.kappa) && (!filters.trader || q.trader === filters.trader) && terms().every(t => HAY.get(q).includes(t));
+const textPasses = q => terms().every(t => HAY.get(q).includes(t));
+const passes = q => QuestFilter.matches(q, QuestFilter.get()) && textPasses(q);
 // Text with the search terms marked.
 function hl(s) {
   const t = terms(); if (!t.length) return esc(s);
   const re = new RegExp(`(${t.map(x => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi");
   return String(s).split(re).map((p, i) => i % 2 ? `<mark>${esc(p)}</mark>` : esc(p)).join("");
 }
-const traders = [...new Set(DATA.quests.map(q => q.trader))].sort();
-if (!traders.includes(filters.trader)) filters.trader = "";
-document.getElementById("questTrader").innerHTML = `<option value="">All</option>` + traders.map(t => `<option ${t === filters.trader ? "selected" : ""}>${esc(t)}</option>`).join("");
-document.getElementById("questKappa").setAttribute("aria-pressed", String(filters.kappa));
-document.getElementById("questKappa").hidden = !DATA.quests.some(q => q.kappa);
 let filterFrame = 0;
 const refilter = () => { cancelAnimationFrame(filterFrame); filterFrame = requestAnimationFrame(renderQuests); };
 const questSearch = document.getElementById("questSearch");
 questSearch.addEventListener("input", () => { filters.text = questSearch.value; refilter(); });
 questSearch.addEventListener("keydown", e => { if (e.key === "Escape" && questSearch.value) { e.stopPropagation(); questSearch.value = filters.text = ""; refilter(); } });
-document.getElementById("questTrader").addEventListener("change", e => {
-  filters.trader = e.target.value; try { localStorage.setItem("eft-quest-trader", filters.trader); } catch (err) {} renderQuests();
-});
-document.getElementById("questKappa").addEventListener("click", e => {
-  filters.kappa = !filters.kappa; e.currentTarget.setAttribute("aria-pressed", String(filters.kappa));
-  try { localStorage.setItem("eft-quest-kappa", filters.kappa ? "1" : ""); } catch (err) {} renderQuests();
-});
 function clearFilters() {
-  questSearch.value = filters.text = filters.trader = ""; filters.kappa = false;
-  document.getElementById("questTrader").value = ""; document.getElementById("questKappa").setAttribute("aria-pressed", "false");
-  try { localStorage.removeItem("eft-quest-trader"); localStorage.removeItem("eft-quest-kappa"); } catch (e) {}
-  renderQuests();
+  questSearch.value = filters.text = "";
+  QuestFilter.set(QuestFilter.empty()); // redraws every list through eft-quest-filter
 }
+window.addEventListener("eft-quest-filter", () => renderQuests());
 // "/" searches from anywhere on the page, as on most sites.
 document.addEventListener("keydown", e => {
   if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey || e.target.closest?.("input, textarea, select, [contenteditable]") || document.querySelector("dialog[open]")) return;
@@ -1338,30 +1326,44 @@ document.addEventListener("keydown", e => {
 });
 
 // Quick pick: one tap replaces this raid's selection (Undo in the toast). No pick filters the list.
-let quickMoreOpen = false;
-function quickPickHTML() {
-  const picks = RaidPresets.quickPicks(currentQuests, state);
-  const short = { all: "All", kappa: "Kappa" };
-  const chip = p => `<button type="button" class="chip-pick" data-focus-preset="${esc(p.id)}" aria-pressed="${RaidPresets.same(p.ids, selectedIds)}" title="${esc(p.description)}" ${p.ids.length ? "" : "disabled"}>${esc(short[p.id] || p.name)}<span>${p.ids.length}</span></button>`;
-  return `<div class="quick-pick" role="group" aria-label="Quick pick: replaces this raid's selection"><span class="label">Quick pick · replaces the selection</span>` +
-    picks.main.filter(p => p.ids.length).map(chip).join("") +
-    `<details class="qp-more"${quickMoreOpen ? " open" : ""}><summary>More</summary>${picks.more.map(chip).join("")}</details>` +
-    `<button type="button" class="chip-pick clear" data-focus-action="clear" ${selectedIds.length ? "" : "disabled"}>Clear</button></div>`;
+// The site-wide filter limits what you see: the picker, the map pins, the route and raid mode
+// show selected quests that pass it. The selection underneath is kept; clearing the filter shows
+// it again. "Select these" / "Unselect these" act on the shown quests only, with Undo.
+const QUEST_BY_ID = new Map(DATA.quests.map(q => [bsgId(q), q]));
+const shownQuest = q => QuestFilter.matches(q, QuestFilter.get());
+let shownIds = [];
+function focusControls(bar, shown) {
+  const qf = QuestFilter.get(), counts = QuestFilter.counts(currentQuests, qf), filtered = QuestFilter.active(qf);
+  const ids = shown.map(bsgId), on = ids.filter(id => selectedIds.includes(id)).length;
+  return QuestFilter.html(bar, counts.traders, { kappaCount: counts.kappa, label: "Show" }) +
+    `<div class="focus-actions"><button type="button" class="btn" data-focus-action="shown" ${ids.length && on < ids.length ? "" : "disabled"}>${filtered ? (ids.length === 1 ? "Select this quest" : `Select these ${ids.length}`) : "Select all"}</button>` +
+    `<button type="button" class="btn" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? (on === 1 ? "Unselect it" : `Unselect these ${on}`) : "Clear"}</button></div>`;
 }
-document.addEventListener("toggle", e => { if (e.target.classList?.contains("qp-more")) quickMoreOpen = e.target.open; }, true);
+function selectShown(add) {
+  if (!activeScope()) return;
+  const before = [...selectedIds], shown = currentQuests.filter(shownQuest).map(bsgId);
+  const next = add ? [...new Set([...selectedIds, ...shown])] : selectedIds.filter(id => !shown.includes(id));
+  const n = Math.abs(next.length - before.length);
+  if (!n) return;
+  writeSelection(next);
+  toast({ label: "Raid selection", title: `${add ? "Selected" : "Unselected"} ${n} ${n === 1 ? "quest" : "quests"}`,
+    actions: [{ label: "Undo", run: () => writeSelection(before) }] });
+}
 
 function renderFocus() {
   const previous = JSON.stringify(activeScope()?.raidFocus?.[MAP]);
   selectedIds = RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId));
   if (JSON.stringify(activeScope()?.raidFocus?.[MAP]) !== previous) saveStatus();
-  focus = RaidFocus.project(DATA, selectedIds);
+  shownIds = selectedIds.filter(id => QUEST_BY_ID.has(id) && shownQuest(QUEST_BY_ID.get(id)));
+  focus = RaidFocus.project(DATA, shownIds);
   pinned = ordered(focus.quests);
   setText("mapLocations", focus.zones.length ? "Selected locations: " + focus.zones.map(id => DATA.zones[id].name).join(" · ") : focus.quests.length ? "No fixed locations listed for these quests; see the objectives below." : "");
   // Same split as the in-game list: quests located here first, multi-map quests under their own heading.
-  const sorted = ordered(currentQuests), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
-  document.getElementById("quickPick").innerHTML = currentQuests.length ? quickPickHTML() : "";
+  const visible = currentQuests.filter(shownQuest), hidden = selectedIds.length - shownIds.length;
+  const sorted = ordered(visible), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
+  document.getElementById("quickPick").innerHTML = currentQuests.length ? focusControls("plan", visible) : "";
   const totalHere = currentQuests.filter(onMap).length;
-  setText("focusCount", `${selectedIds.length} selected / ${totalHere} on ${MAP}${currentQuests.length - totalHere ? ` + ${currentQuests.length - totalHere} multi-map` : ""}${routeRank.size ? " · route order" : ""}`);
+  setText("focusCount", `${shownIds.length} selected${hidden ? ` · ${hidden} hidden by the filter` : ""} / ${totalHere} on ${MAP}${currentQuests.length - totalHere ? ` + ${currentQuests.length - totalHere} multi-map` : ""}${routeRank.size ? " · route order" : ""}`);
   const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
@@ -1371,10 +1373,10 @@ function renderFocus() {
   document.getElementById("focusList").innerHTML = sorted.length
     ? (multi.length && here.length ? `<p class="focus-group">On ${esc(MAP)} · ${here.length}</p>` : "") + here.map(choice).join("") +
       (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
-    : `<p class="map-note">No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list.</p>`;
+    : `<p class="map-note">${currentQuests.length ? `No current quests match the filter (${esc(QuestFilter.summary(QuestFilter.get()))}).` : "No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list."}</p>`;
   document.getElementById("raidGo").disabled = !currentQuests.length;
-  document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
-  setText("mapEmpty", currentQuests.length ? "Choose quests with Quick pick or the checkboxes to pin their spots on the map." : "No current quests yet. Choose your profile in Settings to see them here.");
+  document.getElementById("mapEmpty").hidden = shownIds.length > 0;
+  setText("mapEmpty", hidden && !shownIds.length ? "The filter hides your selected quests. Change or clear it to see them." : currentQuests.length ? "Select quests in the list to pin their spots on the map." : "No current quests yet. Choose your profile in Settings to see them here.");
 }
 function changeFocus(action, id) {
   if (!activeScope()) return;
@@ -1387,9 +1389,8 @@ document.getElementById("raidFocusPanel").addEventListener("change", e => {
 });
 document.getElementById("raidFocusPanel").addEventListener("click", e => {
   const action = e.target.closest("[data-focus-action]")?.dataset.focusAction;
-  if (action) changeFocus(action);
-  const preset = e.target.closest("[data-focus-preset]")?.dataset.focusPreset;
-  if (preset) applyFocusPreset(preset);
+  if (action === "shown" || action === "unshown") selectShown(action === "shown");
+  else if (action) changeFocus(action);
 });
 
 const ROUTE_KEY = "eft-raid-route:" + PAGE_MODE + ":" + (DATA.meta.key || "customs");
@@ -1574,10 +1575,12 @@ function renderQuests() {
   renderRoutePlanner();
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   visibleQuests = inView.filter(passes);
-  const filtered = searching() || filters.trader || filters.kappa;
+  const qf = QuestFilter.get(), qfCounts = QuestFilter.counts(inView.filter(textPasses), qf);
+  document.getElementById("questFilterBar").innerHTML = QuestFilter.html("quests", qfCounts.traders, { kappaCount: qfCounts.kappa });
+  const filtered = searching() || QuestFilter.active(qf);
   const note = document.getElementById("filterNote");
   note.hidden = !filtered;
-  note.innerHTML = filtered ? `<span>${visibleQuests.length} ${visibleQuests.length === 1 ? "quest" : "quests"} ${searching() ? `match “${esc(filters.text.trim())}” across all ${DATA.quests.length} on ${esc(MAP)}` : "shown"}${filters.trader ? ` · ${esc(filters.trader)}` : ""}${filters.kappa ? " · Kappa only" : ""}</span><button type="button" class="btn" id="clearFilters">Clear filters</button>` : "";
+  note.innerHTML = filtered ? `<span>${visibleQuests.length} ${visibleQuests.length === 1 ? "quest" : "quests"} ${searching() ? `match “${esc(filters.text.trim())}” across all ${DATA.quests.length} on ${esc(MAP)}` : "shown"}${QuestFilter.active(qf) ? ` · ${esc(QuestFilter.summary(qf))}` : ""}</span><button type="button" class="btn" id="clearFilters">Clear filters</button>` : "";
   let total = 0, done = 0, completedCount = 0, lockedCount = 0;
   const groups = visibleQuests.some(onMap) && visibleQuests.some(q => !onMap(q));
   let multiHeaded = false;
@@ -1939,9 +1942,8 @@ function renderRaidPanel() {
 }
 rpBody.addEventListener("change", questControlsChange);
 rpBody.addEventListener("click", e => {
-  const preset = e.target.closest('[data-focus-preset]')?.dataset.focusPreset;
-  if (preset) { applyFocusPreset(preset); return; }
   const action = e.target.closest('[data-focus-action]')?.dataset.focusAction;
+  if (action === 'shown' || action === 'unshown') { selectShown(action === 'shown'); return; }
   if (action) { changeFocus(action); return; }
   const scav = e.target.closest("[data-scav]");
   if (scav) { changeScavFound(scav.dataset.key, Number(scav.dataset.scav)); return; }
@@ -1956,11 +1958,11 @@ rpBody.addEventListener("click", e => {
 
 /* ---------- raid focus presets (selection only) ---------- */
 function raidSelection(open) {
-  const selected = new Set(selectedIds), picks = RaidPresets.quickPicks(currentQuests, state);
-  const chosen = [...picks.main, ...picks.more].find(p => RaidPresets.same(p.ids, selectedIds));
-  return `<details id="rpSelection" class="rp-selection" ${open ? 'open' : ''}><summary>Choose quests · ${selectedIds.length} selected${chosen ? ` · ${chosen.id === 'all' ? 'all current' : chosen.name}` : ''}</summary>
-    ${currentQuests.length ? quickPickHTML() : ""}
-    <div class="rp-choices">${ordered(currentQuests).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
+  const selected = new Set(selectedIds), visible = currentQuests.filter(shownQuest), qf = QuestFilter.get();
+  const hidden = selectedIds.length - shownIds.length;
+  return `<details id="rpSelection" class="rp-selection" ${open ? 'open' : ''}><summary>Choose quests · ${shownIds.length} selected${QuestFilter.active(qf) ? ` · ${esc(QuestFilter.summary(qf))}` : ''}${hidden ? ` · ${hidden} hidden` : ''}</summary>
+    ${currentQuests.length ? focusControls("raid", visible) : ""}
+    <div class="rp-choices">${ordered(visible).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
     <p class="map-note">Based on listed requirements. Key ownership and unlisted conditions aren't checked.</p>
   </details>`;
 }
@@ -1970,34 +1972,23 @@ function writeSelection(ids) {
   RaidFocus.write(activeScope(), MAP, [...other, ...ids]);
   saveStatus(); renderQuests();
 }
-function applyFocusPreset(id) {
-  if (!activeScope()) return;
-  const before = [...selectedIds], ids = RaidPresets.choose(currentQuests, id, state);
-  const picks = RaidPresets.quickPicks(currentQuests, state), pick = [...picks.main, ...picks.more].find(p => p.id === id);
-  focusPreset = id; writeSelection(ids);
-  if (RaidPresets.same(before, ids) || (!before.length && !ids.length)) return;
-  toast({ label: "Quick pick", title: `${id === "all" ? "All current" : pick.name}: ${ids.length} ${ids.length === 1 ? "quest" : "quests"} selected`,
-    body: before.length ? `<p>Replaced ${before.length} selected ${before.length === 1 ? "quest" : "quests"}.</p>` : "",
-    actions: [{ label: "Undo", run: () => { focusPreset = "custom"; writeSelection(before); } }] });
-}
 
 /* ---------- spawn and objective route integration ---------- */
 const canRoute = () => !!DATA.spawns?.length;
 function updateObjectiveRoute() {
-  if (!canRoute() || !routeSession.start || !selectedIds.length) { objectiveRoute = null; return; }
+  if (!canRoute() || !routeSession.start || !shownIds.length) { objectiveRoute = null; return; }
   const completed = new Set(DATA.quests.flatMap(q => q.objectives.filter(objDone).map(o => o.id)));
   routeSession = RaidSession.advance(routeSession, objectiveRoute?.stops || [], completed);
-  objectiveRoute = RaidRoute.route(DATA, selectedIds, routeSession.start, { done: state });
+  objectiveRoute = RaidRoute.route(DATA, shownIds, routeSession.start, { done: state });
 }
 function routeControls(prefix) {
   if (!canRoute()) return '<p class="map-note">Spawn routes are available on the generated map pages.</p>';
-  const area = routeSession.source === 'manual' ? routeSession.area : '';
   const status = routeSession.waiting ? 'Raid started. Waiting up to 10 seconds for a spawn position…'
     : !routeSession.start ? 'Choose a spawn area, or connect logs to detect it at raid start.'
     : routeSession.source === 'log' ? 'Spawn detected from the live log.' : routeSession.source === 'objective' ? 'Rerouted from your last completed stop.'
     : typeof routeSession.start === 'object' ? 'Starting from the spawn you picked on the map.' : 'Starting from your chosen area.';
-  return `<label for="${prefix}-spawn">Spawn area <select id="${prefix}-spawn" data-spawn-area><option value="">${routeSession.start && !area ? 'Detected / current position' : 'Choose an area'}</option>${DATA.spawnAreas.map(a => `<option value="${esc(a.id)}" ${a.id === area ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></label>
-    <button type="button" class="btn" data-spawn-map>Pick spawn on the map</button>
+  const spawnName = routeSession.area ? DATA.spawnAreas.find(a => a.id === routeSession.area)?.name : routeSession.start ? "Your last stop" : "";
+  return `<div class="spawn-line"><b>${spawnName ? `Spawn: ${esc(spawnName)}` : "No spawn yet"}</b><button type="button" class="btn" data-spawn-map>${routeSession.start ? "Change spawn" : "Pick spawn on the map"}</button></div>
     <p class="map-note" role="status">${status}</p>${objectiveRoute ? `<details ${prefix === "plan" ? "open" : ""}><summary>${objectiveRoute.stops.length} ${objectiveRoute.stops.length === 1 ? "stop" : "stops"} · ${Math.round(objectiveRoute.metres)} m${objectiveRoute.approximate ? ' · Approximate order' : ''}</summary><ol>${objectiveRoute.stops.map(st => `<li><button type="button" data-route-zone="${esc(st.zone)}">${esc(DATA.zones[st.zone].name)}</button></li>`).join('')}</ol><p class="map-note">Straight lines to objectives; check terrain. Only required, unfinished objectives are routed. One of each alternative location is shown. Random quest-item positions are search suggestions. Ends at the last objective.</p></details>` : ''}`;
 }
 function renderRoutePlanner() {

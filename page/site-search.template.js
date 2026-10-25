@@ -6,8 +6,10 @@
   if (!btn || !dlg || !window.SiteSearch) return;
   const input = document.getElementById("ssInput"), list = document.getElementById("ssList"), note = document.getElementById("ssNote");
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const indexes = {}, filters = { kappa: false, active: false, trader: "", map: "" }, PAGE = 40;
-  const traderSel = document.getElementById("ssTrader"), mapSel = document.getElementById("ssMap"), more = document.getElementById("ssMore");
+  // Traders and Kappa come from the site-wide QuestFilter; Started and Map are this dialog's own.
+  const indexes = {}, filters = { active: false, map: "" }, PAGE = 40;
+  const mapSel = document.getElementById("ssMap"), more = document.getElementById("ssMore"), chips = document.getElementById("ssFilter");
+  const allFilters = () => ({ ...filters, ...(window.QuestFilter ? QuestFilter.get() : {}) });
   let results = [], total = 0, shown = PAGE, active = 0, entries = null, statuses = {}, ssEntry = null, enterEarly = false;
   const mode = () => document.querySelector('.mode-toggle [aria-current="page"]')?.dataset.mode || "regular";
   const STATUS = { started: "Started", completed: "Completed", failed: "Failed" };
@@ -53,18 +55,18 @@
   }
   // Trader and map choices come from this mode's index; a choice that no longer exists is cleared.
   function fillFilters() {
-    const { traders, maps } = SiteSearch.facets(entries);
-    if (filters.trader && !traders.includes(filters.trader)) filters.trader = "";
+    const { maps } = SiteSearch.facets(entries);
     if (filters.map && filters.map !== "none" && !maps.some(m => m.key === filters.map)) filters.map = "";
-    traderSel.innerHTML = `<option value="">Any trader</option>` + traders.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
     mapSel.innerHTML = `<option value="">Any map</option>` + maps.map(m => `<option value="${esc(m.key)}">${esc(m.name)}</option>`).join("") + `<option value="none">No map objectives</option>`;
-    traderSel.value = filters.trader; mapSel.value = filters.map;
+    mapSel.value = filters.map;
   }
   function render() {
     if (!entries) return;
-    ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters, faction, limit: shown }));
+    const f = allFilters();
+    ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters: f, faction, limit: shown }));
+    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c.traders, { kappaCount: c.kappa }); }
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim(), listing = filters.kappa || filters.trader || filters.map;
+    const q = input.value.trim(), listing = f.kappa || f.traders?.length || f.map;
     const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
     note.textContent = !results.length
       ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."
@@ -113,7 +115,8 @@
   window.addEventListener("popstate", () => { if (dlg.open && history.state?.siteSearch !== ssEntry) { ssEntry = null; close(); } });
   btn.addEventListener("click", open);
   input.addEventListener("input", () => { active = 0; shown = PAGE; render(); });
-  for (const [sel, key] of [[traderSel, "trader"], [mapSel, "map"]]) sel.addEventListener("change", () => { filters[key] = sel.value; active = 0; shown = PAGE; render(); });
+  mapSel.addEventListener("change", () => { filters.map = mapSel.value; active = 0; shown = PAGE; render(); });
+  window.addEventListener("eft-quest-filter", () => { if (dlg.open) { active = 0; shown = PAGE; render(); } });
   more.addEventListener("click", () => {
     const first = results.length; shown += PAGE; render();
     // Keep keyboard users in place: the first newly shown result becomes the active one.

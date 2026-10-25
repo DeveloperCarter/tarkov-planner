@@ -43,10 +43,11 @@ test('trader and Kappa filters count only matching quests and list them per card
   assert.deepEqual(cards.map(m=>m.current),[2,1]);
   assert.deepEqual(cards[0].matches.map(q=>q.name),['Alpha','Bravo']);
   assert.deepEqual(H.traders(cards),[{name:'Jaeger',count:1},{name:'Prapor',count:1}]);
-  cards = H.summarize(named,store,'regular',key,{},{trader:'Prapor'});
+  cards = H.summarize(named,store,'regular',key,{},{traders:['Prapor']});
   assert.deepEqual(cards.map(m=>[m.current,m.multiMap]),[[1,0],[0,0]]);
+  assert.deepEqual(H.summarize(named,store,'regular',key,{},{traders:['Prapor','Jaeger']}).map(m=>m.current),[2,1],'traders widen');
   assert.deepEqual(H.summarize(named,store,'regular',key,{},{kappa:true}).map(m=>m.current),[1,0],'only wiki-confirmed Kappa');
-  assert.deepEqual(H.summarize(named,store,'regular',key,{},{trader:'Jaeger',kappa:true}).map(m=>m.current),[0,0]);
+  assert.deepEqual(H.summarize(named,store,'regular',key,{},{traders:['Jaeger'],kappa:true}).map(m=>m.current),[0,0]);
 });
 test('same IDs in PvP and PvE stay isolated, including wrongly assigned active keys', () => {
   const {store,create} = setup(), regular = create('regular'), pve = create('pve');

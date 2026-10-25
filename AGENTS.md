@@ -24,6 +24,7 @@ page/quest-career.js           all-quest keep list and Kappa progress for a scop
 page/quest-career.template.js  the site bar's Keep/Kappa dialog and home/map views; fetches career-data.json
 scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector, keep requirements
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
+page/quest-filter.js           the one site-wide quest filter (traders widen, Kappa narrows), its chips and storage (tested)
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
 scripts/refresh_site.py        both-mode refresh, cached wiki comparisons, release build and validation
 scripts/check_site.py          inline-script parsing and relative navigation validation

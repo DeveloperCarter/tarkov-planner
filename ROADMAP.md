@@ -372,9 +372,10 @@ ticked off and survive a reload.
 shows the same, and map cards and the raid picker show "Kappa quests here". Only wiki-confirmed
 flags count, and quests without wiki coverage are listed for review. Accepted quests lead What's
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
-Quick pick chips (All, Kappa, each trader, More) replace a map's raid selection with Undo; Kappa-only
-filtering lives on the Quests tab and in site search. Maps with no saved selection start empty.
-The site search (Ctrl K) is a quest browser: Trader and Map filters work without typing (a map
+One shared quest filter (page/quest-filter.js: Kappa and trader chips; traders widen, Kappa narrows)
+drives the home cards, Quests tab, raid picker, raid mode, map pins, route and search, remembered
+per browser. Maps with no saved selection start empty; Select/Unselect act on shown quests with Undo.
+The site search (Ctrl K) is a quest browser: the shared chips and a Map filter work without typing (a map
 matches every map with objectives; "No map objectives" lists the rest), results show "Showing x of y"
 with Show more, rows separate "Listed on" from "Also on" maps, a map filter decides where a result
 opens, and placeholder quests rank below real ones. It never changes raid selection.

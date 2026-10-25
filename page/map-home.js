@@ -5,13 +5,13 @@
   else root.MapHome = api;
 })(typeof self !== "undefined" ? self : this, function (Store) {
   "use strict";
-  // filter: { trader, kappa } counts only matching quests (data.modes[mode].quests holds each
+  // filter: { traders, kappa } counts only matching quests (data.modes[mode].quests holds each
   // quest's name, trader and wiki-confirmed Kappa flag). Each card lists its matching current quests.
   function summarize(data, store, mode, key = store.active[mode], levels = {}, filter = {}) {
     const group = data.modes[mode];
     if (!group) return [];
     const info = group.quests || {};
-    const wanted = id => (!filter.trader || info[id]?.trader === filter.trader) && (!filter.kappa || info[id]?.kappa === true);
+    const wanted = id => (!filter.traders?.length || filter.traders.includes(info[id]?.trader)) && (!filter.kappa || info[id]?.kappa === true);
     const scope = store.scopes[key];
     if (!scope || scope.mode !== mode) key = "";
     return group.maps.map(map => {
@@ -24,7 +24,7 @@
       const quests = map.ids.filter(id => result.quests[id] && wanted(id)).map(id => ({ id, ...result.quests[id] }));
       const here = quests.filter(q => q.current && listed.has(q.id)), multi = quests.filter(q => q.current && !listed.has(q.id));
       return { ...map, current: here.length, multiMap: multi.length, possible: quests.filter(q => q.possible).length,
-        matches: [...here, ...multi].map(q => ({ id: q.id, name: info[q.id]?.name || q.id, trader: info[q.id]?.trader || "" })) };
+        matches: [...here, ...multi].map(q => ({ id: q.id, name: info[q.id]?.name || q.id, trader: info[q.id]?.trader || "", kappa: info[q.id]?.kappa === true })) };
     });
   }
   function freshness(snapshot, now = Date.now()) {

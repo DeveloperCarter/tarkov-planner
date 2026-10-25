@@ -92,7 +92,7 @@ SEARCH_DIALOG = '''<dialog class="ss" id="siteSearch" aria-label="Search all que
 <div class="ss-field"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
 <input id="ssInput" type="search" placeholder="Quest, trader or map" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="ssList" aria-autocomplete="list" aria-label="Search all quests">
 <span class="ss-mode" id="ssMode"></span><button type="button" class="ss-x" data-ss="close" aria-label="Close search">Esc</button></div>
-<div class="ss-bar"><select id="ssTrader" aria-label="Trader"><option value="">Any trader</option></select><select id="ssMap" aria-label="Map"><option value="">Any map</option></select><button type="button" class="toggle" data-ss-f="active" aria-pressed="false">Started</button><button type="button" class="toggle" data-ss-f="kappa" aria-pressed="false">Kappa</button><span class="ss-note" id="ssNote" role="status"></span></div>
+<div class="ss-bar"><div id="ssFilter" class="qf-host"></div><select id="ssMap" aria-label="Map"><option value="">Any map</option></select><button type="button" class="toggle" data-ss-f="active" aria-pressed="false">Started</button><span class="ss-note" id="ssNote" role="status"></span></div>
 <ul class="ss-list" id="ssList" role="listbox" aria-label="Quests"></ul>
 <div class="ss-morebar"><button type="button" class="btn" id="ssMore" hidden>Show more</button></div>
 <p class="ss-foot"><span>↑ ↓ move</span><span>Enter opens it on its map</span><span>Esc closes</span></p>
@@ -149,7 +149,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__TRACKER__*/", TRACKER.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
-    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS),
+    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS), ("QFILTER", ROOT / "page/quest-filter.js"),
                          ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
                          ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
         html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
@@ -307,7 +307,8 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
     for mode in ('regular', 'pve'):
         build_career_data(mode)
     text = (ROOT / 'page' / 'home.template.html').read_text(encoding='utf-8')
-    for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js')]:
+    for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js'),
+                         ('QFILTER', ROOT / 'page' / 'quest-filter.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
     text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)

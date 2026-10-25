@@ -44,9 +44,9 @@ test("a result opens on this map when it can, else where the in-game list shows 
 });
 
 test("trader and map filters list every match without typing; map 'none' finds quests without map objectives", () => {
-  const all = S.browse(entries, "", { filters: { trader: "Prapor" } });
+  const all = S.browse(entries, "", { filters: { traders: ["Prapor"] } });
   assert.deepStrictEqual(all.items.map(e => e.name), ["Debut", "Delivery from the Past"]);
-  assert.deepStrictEqual(names(S.search(entries, "", { filters: { trader: "Prapor", map: "factory" } })), ["Delivery from the Past"],
+  assert.deepStrictEqual(names(S.search(entries, "", { filters: { traders: ["Prapor"], map: "factory" } })), ["Delivery from the Past"],
     "a multi-map quest matches every map where it has objectives");
   assert.deepStrictEqual(names(S.search(entries, "", { filters: { map: "woods" } })), ["The Survivalist Path - Unprotected but Dangerous"]);
   assert.deepStrictEqual(names(S.search(entries, "", { filters: { map: "none" } })), ["Shipping Delay - Part 2"]);
@@ -57,13 +57,13 @@ test("trader and map filters list every match without typing; map 'none' finds q
 
 test("results report the full count past the limit, and placeholders sink below real quests", () => {
   const many = Array.from({ length: 45 }, (_, i) => ({ id: "m" + i, name: `Task ${String(i).padStart(2, "0")}`, trader: "Prapor", maps: [] }));
-  const page = S.browse(many, "", { filters: { trader: "Prapor" } });
+  const page = S.browse(many, "", { filters: { traders: ["Prapor"] } });
   assert.strictEqual(page.items.length, 40); assert.strictEqual(page.total, 45);
-  assert.strictEqual(S.browse(many, "", { filters: { trader: "Prapor" }, limit: 80 }).items.length, 45);
+  assert.strictEqual(S.browse(many, "", { filters: { traders: ["Prapor"] }, limit: 80 }).items.length, 45);
   const withNew = [{ id: "p", name: "New Therapist quest (name pending)", trader: "Therapist", placeholder: true, maps: [] },
     { id: "r", name: "Sanitary Standards", trader: "Therapist", maps: [map("customs", true)] }];
   assert.deepStrictEqual(names(S.search(withNew, "therapist")), ["Sanitary Standards", "New Therapist quest (name pending)"]);
-  assert.deepStrictEqual(names(S.search(withNew, "", { filters: { trader: "Therapist" } })), ["Sanitary Standards", "New Therapist quest (name pending)"]);
+  assert.deepStrictEqual(names(S.search(withNew, "", { filters: { traders: ["Therapist"] } })), ["Sanitary Standards", "New Therapist quest (name pending)"]);
   assert.deepStrictEqual(S.facets(entries).traders, ["BTR Driver", "Jaeger", "Prapor", "Ref"]);
   assert.deepStrictEqual(S.facets(entries).maps.map(m => m.key), ["customs", "factory", "streets", "woods"]);
 });

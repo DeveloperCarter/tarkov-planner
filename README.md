@@ -201,11 +201,13 @@ Validation:
 
 ## Manual raid focus (M1B)
 
-A map starts with no quests selected. **Quick pick** replaces the selection in one tap: **All**,
-**Kappa**, each trader with current quests on the map (multi-map quests with objectives here
-count), or **More** (key raids, no required keys, pickups, mark & place, combat). The toast offers
-**Undo**, and a pick is highlighted only while the selection matches it exactly. **Include this
-raid** on a quest or its card adjusts one quest; **Clear** empties the list; the Quests tab's **Show → Selected only**
+One quest filter is shared by the whole site and remembered per browser: **Kappa** and trader
+chips on the home page, the Quests tab, the raid picker, raid mode and search. Traders widen and
+Kappa narrows, so Prapor + Kappa shows Prapor's Kappa quests. Past five traders the rest fold
+behind **+n more** / **Fewer**. The filter decides what you see: the list, map pins, route and raid
+mode show selected quests that pass it, and the count says how many selected quests it hides.
+A map starts with no quests selected. **Select all** / **Select these n** and **Clear** /
+**Unselect these** act on the shown quests, with **Undo**. **Include this raid** adjusts one quest; the Quests tab's **Show → Selected only**
 compares a small set while browsing. The count shows selected versus current quests. Keys,
 items, locations, and extraction requirements are listed for comparison; an absent requirement
 means it is not listed in the dataset, rather than a guarantee about the game.
