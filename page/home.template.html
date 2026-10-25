@@ -19,6 +19,13 @@
 .map-card .card-count {display:flex;align-items:baseline;gap:9px}
 .map-card .estimated {color:var(--muted);font-size:14px}
 .home-footer {margin-top:28px;color:var(--muted);font-size:13px}
+.home-filter {display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-top:22px}
+.home-filter label {display:grid;gap:5px;min-width:0;flex:0 1 240px}
+.home-filter select {font:inherit;padding:8px;background:var(--panel);color:var(--ink);border:1px solid var(--line);max-width:100%}
+.home-filter .map-note {flex:1 1 220px;margin:0}
+.map-card .matches {margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:14px}
+.map-card .matches li {overflow-wrap:anywhere}
+.map-card .matches small {color:var(--muted)}
 </style>
 <body><main class="wrap">
 <!--__SITE_NAV__-->
@@ -28,6 +35,11 @@
 <p class="map-note" id="homeEvidence"></p><p class="map-note" id="homeFreshness"></p>
 </section>
 <div class="notice" id="homeNotice"></div>
+<div class="home-filter" role="group" aria-label="Filter quests by trader or Kappa">
+<label>Trader<select id="homeTrader"><option value="">Any trader</option></select></label>
+<button type="button" class="toggle" id="homeKappa" aria-pressed="false">Kappa only</button>
+<p class="map-note" id="homeFilterNote" role="status"></p>
+</div>
 <section id="mapCards" class="map-cards" aria-label="Maps"></section>
 <section class="career-home"><h2>Your next goals</h2><details><summary>Keep · found-in-raid items</summary><div data-career-view="keep">Loading keep list…</div></details><div data-career-view="kappa">Loading Kappa progress…</div></section>
 <p class="home-footer">Current counts use accepted quests and your corrections for the chosen profile and wipe. Multi-map quests count on every map where they have objectives. Possible unlocks are estimates. Missing log history and opaque game conditions can affect them. Your quest progress stays in this browser; changing the site address starts a separate browser store.</p>
@@ -42,7 +54,10 @@ let store;
 try {store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY));} catch(e) {}
 if (!store || store.version !== 2) store = ProgressStore.empty();
 let mode = new URLSearchParams(location.search).get("mode") === "pve" ? "pve" : "regular";
-const scopeInput = document.getElementById("homeScope");
+const scopeInput = document.getElementById("homeScope"), traderInput = document.getElementById("homeTrader"), kappaInput = document.getElementById("homeKappa");
+const filter = { trader: "", kappa: false };
+try { Object.assign(filter, JSON.parse(localStorage.getItem("eft-home-filter")) || {}); } catch (e) {}
+function saveFilter() { try { localStorage.setItem("eft-home-filter", JSON.stringify(filter)); } catch (e) {} }
 // The site bar carries both modes' links; point it at the current mode.
 function syncNav() {
   document.querySelectorAll(".site-nav [data-pvp]").forEach(o => { o.value = mode === "pve" ? o.dataset.pve : o.dataset.pvp; });
@@ -66,15 +81,29 @@ function render() {
   const notice = document.getElementById("homeNotice");
   notice.hidden = !!scope;
   notice.textContent = "No current quest list selected. Open a map, open Settings and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
-  // Maps with work to do first; the rest keep alphabetical order.
-  const cards = MapHome.summarize(DATA,store,mode,key,{[key]:level}).sort((a,b) => (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current);
-  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span><span class="label">Open raid planner →</span></a>`).join("");
+  // Trader choices are the traders with current quests in this scope; a stale choice is dropped.
+  const all = MapHome.summarize(DATA,store,mode,key,{[key]:level}), traders = MapHome.traders(all);
+  if (filter.trader && !traders.some(t => t.name === filter.trader)) filter.trader = "";
+  traderInput.innerHTML = '<option value="">Any trader</option>' + traders.map(t => `<option value="${esc(t.name)}" ${t.name === filter.trader ? "selected" : ""}>${esc(t.name)} · ${t.count}</option>`).join("");
+  traderInput.disabled = !traders.length;
+  kappaInput.setAttribute("aria-pressed", String(filter.kappa));
+  const filtering = !!(filter.trader || filter.kappa);
+  // Maps with matching work first, most current quests first; the rest keep alphabetical order.
+  const cards = (filtering ? MapHome.summarize(DATA,store,mode,key,{[key]:level},filter) : all)
+    .sort((a,b) => (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
+  const best = cards[0], what = [filter.kappa && "Kappa", filter.trader].filter(Boolean).join(" ") || "current";
+  document.getElementById("homeFilterNote").textContent = !filtering ? (scope ? "Filter by trader or Kappa to see which map has the most of those quests." : "")
+    : best && best.current + best.multiMap ? `Most ${what} quests: ${best.name} (${best.current}${best.multiMap ? ` + ${best.multiMap} multi-map` : ""}).` : `No current ${what} quests.`;
+  const list = m => filtering && m.matches.length ? `<ul class="matches">${m.matches.slice(0, 4).map(q => `<li>${esc(q.name)}${filter.trader ? "" : ` <small>· ${esc(q.trader)}</small>`}</li>`).join("")}${m.matches.length > 4 ? `<li><small>+ ${m.matches.length - 4} more</small></li>` : ""}</ul>` : "";
+  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current ${filtering ? esc(what) + " " : ""}quests</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span>${list(m)}<span class="label">Open raid planner →</span></a>`).join("");
   window.dispatchEvent(new Event("eft-progress-change"));
 }
 document.querySelector(".mode-toggle").addEventListener("click", e => {
   const a = e.target.closest("a[data-mode]"); if (!a) return;
   e.preventDefault(); mode = a.dataset.mode; history.replaceState(null,"",`?mode=${mode}`); render();
 });
+traderInput.addEventListener("change", () => { filter.trader = traderInput.value; saveFilter(); render(); });
+kappaInput.addEventListener("click", () => { filter.kappa = !filter.kappa; saveFilter(); render(); });
 scopeInput.addEventListener("change", () => {store.active[mode] = scopeInput.value; try {localStorage.setItem(ProgressStore.STORAGE_KEY,JSON.stringify(store));} catch(e) {} render();});
 window.addEventListener("storage", e => {if(e.key === ProgressStore.STORAGE_KEY) {try {const next = JSON.parse(e.newValue); store = next?.version === 2 ? next : ProgressStore.empty(); render();} catch(e) {}}});
 window.addEventListener("storage", e => {if(e.key?.startsWith("eft-player-level:")) render();});

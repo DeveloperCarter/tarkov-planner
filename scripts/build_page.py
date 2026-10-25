@@ -290,15 +290,19 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
         at = dt.datetime.fromisoformat(index['snapshot'])
         if max_age_hours is not None and (dt.datetime.now(dt.timezone.utc) - at).total_seconds() > max_age_hours * 3600:
             raise ValueError(f'{mode}: cached snapshot is older than {max_age_hours:g} hours; refusing to publish stale data')
-        maps = []
+        maps, quests = [], {}
         for row in sorted(index['maps'], key=lambda r: r['name']):
             source = json.loads((base / 'maps' / row['file']).read_text(encoding='utf-8'))
+            # Name, trader and wiki-confirmed Kappa flag, for the home page's quest filters.
+            for q in source['quests']:
+                quests.setdefault(q.get('bsgId', q['id']), {"name": q['name'], "trader": q.get('trader', ''),
+                                                            "kappa": wiki_kappa(q.get('bsgId', q['id'])) is True})
             if source['meta']['gameMode'] != mode or source['meta']['snapshot'] != index['snapshot']:
                 raise ValueError(f'{mode}/{row["key"]}: snapshot or mode does not match the index')
             maps.append({"name": row['name'], "key": row['key'], "ids": [q.get('bsgId', q['id']) for q in source['quests']],
                          "onMap": [q.get('bsgId', q['id']) for q in source['quests'] if q.get('onMap', True)],
                          "href": ('' if mode == 'regular' else 'pve/') + 'maps/' + row['key'] + '.html'})
-        data['modes'][mode] = {"snapshot": index['snapshot'], "maps": maps,
+        data['modes'][mode] = {"snapshot": index['snapshot'], "maps": maps, "quests": quests,
                                "progression": json.loads((base / 'progression.json').read_text(encoding='utf-8'))}
     for mode in ('regular', 'pve'):
         build_career_data(mode)

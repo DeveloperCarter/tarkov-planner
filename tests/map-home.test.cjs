@@ -34,6 +34,20 @@ test('cards count located quests as current and multi-map quests separately, ign
   S.confirmCurrent(store,key,['a','b'],['a'],160,'Customs');
   assert.deepEqual(H.summarize(split,store,'regular').map(m=>[m.current,m.multiMap]),[[1,1]]);
 });
+test('trader and Kappa filters count only matching quests and list them per card', () => {
+  const {store,create} = setup(), key = create('regular');
+  const quests = {a:{name:'Alpha',trader:'Prapor',kappa:true}, b:{name:'Bravo',trader:'Jaeger',kappa:false}, c:{name:'Charlie',trader:'Prapor'}};
+  const named = {...data, modes:{regular:{progression:tree, quests, maps:[{name:'Customs',ids:['a','b','c'],onMap:['a','b','c']}, {name:'Woods',ids:['b']}]}}};
+  S.setManual(store,key,'a','started',150); S.setManual(store,key,'b','started',150);
+  let cards = H.summarize(named,store,'regular');
+  assert.deepEqual(cards.map(m=>m.current),[2,1]);
+  assert.deepEqual(cards[0].matches.map(q=>q.name),['Alpha','Bravo']);
+  assert.deepEqual(H.traders(cards),[{name:'Jaeger',count:1},{name:'Prapor',count:1}]);
+  cards = H.summarize(named,store,'regular',key,{},{trader:'Prapor'});
+  assert.deepEqual(cards.map(m=>[m.current,m.multiMap]),[[1,0],[0,0]]);
+  assert.deepEqual(H.summarize(named,store,'regular',key,{},{kappa:true}).map(m=>m.current),[1,0],'only wiki-confirmed Kappa');
+  assert.deepEqual(H.summarize(named,store,'regular',key,{},{trader:'Jaeger',kappa:true}).map(m=>m.current),[0,0]);
+});
 test('same IDs in PvP and PvE stay isolated, including wrongly assigned active keys', () => {
   const {store,create} = setup(), regular = create('regular'), pve = create('pve');
   S.ingest(store,[{questId:'a',status:'started',at:110,key:'pvp'}],{profileId:'a'.repeat(24),mode:'regular'});
