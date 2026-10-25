@@ -84,7 +84,7 @@
       const result = QuestCareer.evaluate(data, ctx.store, ctx.key, { ...ctx, done });
       latest = { data, result, ctx };
       button.textContent = `Kappa: ${result.kappa.completed} / ${result.kappa.total}`;
-      const banner = ctx.scope ? `<p class="map-note">${esc(ctx.scope.label)} · ${mode === 'pve' ? 'PvE' : 'PvP'} · level ${ctx.level}</p>` : '<p class="notice">Choose a profile and wipe under Quests to track progress. No current quests or completions are assumed.</p>';
+      const banner = ctx.scope ? `<p class="map-note">${esc(ctx.scope.label)} · ${mode === 'pve' ? 'PvE' : 'PvP'} · level ${ctx.level}</p>` : '<p class="notice">Choose a profile and wipe in Settings on any map page to track progress. No current quests or completions are assumed.</p>';
       document.querySelectorAll('[data-career-view]').forEach(host => { renderHost(host, banner + (host.dataset.careerView === 'keep' ? keepHTML(result, ctx) : kappaHTML(result, ctx, data))); });
       if (dialog.open) renderHost(body, banner + (view === 'keep' ? keepHTML(result, ctx) : kappaHTML(result, ctx, data)));
       document.querySelectorAll('[data-kappa-map]').forEach(host => { host.textContent = `${result.kappa.maps[host.dataset.kappaMap] || 0} Kappa quests here · current or possible unlocks`; });

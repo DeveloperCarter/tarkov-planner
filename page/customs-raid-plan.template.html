@@ -230,6 +230,14 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .trk-detail { font: 12.5px var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
 .trk-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.settings-dialog { width:min(640px,calc(100vw - 16px)); max-height:calc(100dvh - 16px); overflow:auto; padding:0; background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:8px; }
+.settings-dialog::backdrop { background:rgb(0 0 0 / .55); }
+.settings-head { display:flex; align-items:center; gap:12px; padding:14px 16px 0; }
+.settings-head h2 { margin:0; }
+.settings-dialog .tracker { border:0; }
+.settings-open { display:inline-flex; align-items:center; gap:8px; margin-top:12px; }
+.trk-summary { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 14px; background:var(--panel); border:1px solid var(--line); font-size:13.5px; }
+.trk-summary #trkSummary { flex:1 1 200px; min-width:0; overflow-wrap:anywhere; }
 .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); flex: none; }
 .dot[data-state="watching"] { background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent); }
 .dot[data-state="waiting"] { background: var(--steel); }
@@ -570,6 +578,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <h1 id="pageTitle"></h1>
     <p id="lede"></p>
     <div class="brief-meta"><span class="live-chip" id="liveChip" hidden>Live</span><span id="scopeSummary"></span><span class="meta mono" id="meta"></span><span id="dataAge"></span></div>
+    <button type="button" class="btn settings-open" data-open-settings><span class="dot" id="settingsDot" aria-hidden="true"></span><span id="settingsLabel">Settings</span></button>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
@@ -630,53 +639,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 
   <!-- QUESTS -->
   <section class="view" id="view-quests" role="tabpanel" aria-labelledby="tab-quests" hidden>
-    <section class="tracker" aria-labelledby="trkTitle">
-      <div class="trk-head">
-        <span class="dot" id="trkDot" aria-hidden="true"></span>
-        <div class="trk-text">
-          <span class="label" id="trkTitle">Quest tracking from game logs</span>
-          <b id="trkState">Not connected</b>
-          <span class="trk-detail" id="trkDetail"></span>
-        </div>
-        <div class="trk-actions" id="trkActions"></div>
-      </div>
-      <div class="trk-row">
-        <label for="progressScope">Profile and wipe <select id="progressScope"></select></label>
-        <label for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1"></label>
-      </div>
-      <div id="scopeFix"></div>
-      <!-- Setup and history: open until a profile is chosen, then out of the way. -->
-      <details id="trkMore"><summary>Scope details, recent events and corrections</summary>
-      <div class="trk-more">
-      <p class="map-note" id="scopeEvidence"></p>
-      <ol class="trk-events" id="trkEvents"></ol>
-      <details id="scopeDetails"><summary>Add a profile / wipe</summary>
-        <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
-          <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
-          <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
-          <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
-          <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
-          <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
-          <button class="btn" type="submit" id="scopeSubmit">Use this scope</button>
-          <span id="scopeError" role="status"></span>
-        </form>
-      </details>
-      <details><summary>Review log history and legacy progress</summary>
-        <p class="map-note" id="historyCounts"></p>
-        <div id="historyEvidence" style="overflow-wrap:anywhere"></div>
-        <button class="btn" type="button" id="legacyPreview">Preview legacy migration</button>
-        <div id="legacyReview"></div>
-      </details>
-      <details><summary>Confirm current quests on this map</summary>
-        <p class="map-note">Paste one quest name per line from your current in-game list for this map. This replaces current membership for quests located on this map only; multi-map quests keep their logged status. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
-        <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
-        <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
-        <span id="currentFeedback" role="status"></span>
-      </details>
-      <p class="map-note">Logs record starts, failures and completions, not kills or hand-ins. Current quests uses only the chosen profile and wipe, or quests you confirm by hand. Missing profile or mode stays in history. Completed prerequisites are implied within this scope. The site reads only your chosen Logs folder and never writes to it.</p>
-      </div></details>
-      <input type="file" id="trkImport" webkitdirectory multiple hidden>
-    </section>
+    <div class="trk-summary"><span class="dot" id="trkSummaryDot" aria-hidden="true"></span><span id="trkSummary">Not connected</span><button type="button" class="btn" data-open-settings>Settings</button></div>
     <div class="qfilters" role="search" aria-label="Filter quests">
       <label class="qsearch"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg><input id="questSearch" type="search" placeholder="Search quests, items, places" autocomplete="off" aria-label="Search quests on this map"><kbd aria-hidden="true">/</kbd></label>
       <label class="status-row" for="questView">Show <select id="questView"><option value="current">Current quests</option><option value="selected">Selected only</option><option value="possible">Possible unlocks (estimates)</option><option value="all">All</option></select></label>
@@ -778,6 +741,57 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <label for="spawnChoice">Or choose an area</label><select id="spawnChoice"></select>
       <div class="actions"><button class="btn primary" value="choose" id="spawnUse" disabled>Start route here</button><button class="btn" value="later" formnovalidate>Not now</button></div>
     </form>
+  </dialog>
+  <!-- Settings: log connection, profile and wipe, player level and corrections. -->
+  <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="settings-head"><h2 id="settingsTitle">Settings</h2><button type="button" class="qd-x" id="settingsClose" aria-label="Close settings">×</button></div>
+      <section class="tracker" aria-labelledby="trkTitle">
+        <div class="trk-head">
+          <span class="dot" id="trkDot" aria-hidden="true"></span>
+          <div class="trk-text">
+            <span class="label" id="trkTitle">Quest tracking from game logs</span>
+            <b id="trkState">Not connected</b>
+            <span class="trk-detail" id="trkDetail"></span>
+          </div>
+          <div class="trk-actions" id="trkActions"></div>
+        </div>
+        <div class="trk-row">
+          <label for="progressScope">Profile and wipe <select id="progressScope"></select></label>
+          <label for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1"></label>
+        </div>
+        <div id="scopeFix"></div>
+        <!-- Setup and history: open until a profile is chosen, then out of the way. -->
+        <details id="trkMore"><summary>Scope details, recent events and corrections</summary>
+        <div class="trk-more">
+        <p class="map-note" id="scopeEvidence"></p>
+        <ol class="trk-events" id="trkEvents"></ol>
+        <details id="scopeDetails"><summary>Add a profile / wipe</summary>
+          <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
+            <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
+            <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
+            <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
+            <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
+            <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
+            <button class="btn" type="submit" id="scopeSubmit">Use this scope</button>
+            <span id="scopeError" role="status"></span>
+          </form>
+        </details>
+        <details><summary>Review log history and legacy progress</summary>
+          <p class="map-note" id="historyCounts"></p>
+          <div id="historyEvidence" style="overflow-wrap:anywhere"></div>
+          <button class="btn" type="button" id="legacyPreview">Preview legacy migration</button>
+          <div id="legacyReview"></div>
+        </details>
+        <details><summary>Confirm current quests on this map</summary>
+          <p class="map-note">Paste one quest name per line from your current in-game list for this map. This replaces current membership for quests located on this map only; multi-map quests keep their logged status. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
+          <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
+          <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
+          <span id="currentFeedback" role="status"></span>
+        </details>
+        <p class="map-note">Logs record starts, failures and completions, not kills or hand-ins. Current quests uses only the chosen profile and wipe, or quests you confirm by hand. Missing profile or mode stays in history. Completed prerequisites are implied within this scope. The site reads only your chosen Logs folder and never writes to it.</p>
+        </div></details>
+        <input type="file" id="trkImport" webkitdirectory multiple hidden>
+      </section>
   </dialog>
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
   <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
@@ -1293,11 +1307,11 @@ function renderFocus() {
   document.getElementById("focusList").innerHTML = sorted.length
     ? (multi.length && here.length ? `<p class="focus-group">On ${esc(MAP)} · ${here.length}</p>` : "") + here.map(choice).join("") +
       (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
-    : `<p class="map-note">${focusKappaOnly && currentQuests.length ? "No wiki-confirmed Kappa quests in your current list." : "No current quests confirmed. Use Quests to choose a profile and wipe, then scan logs or confirm your list."}</p>`;
+    : `<p class="map-note">${focusKappaOnly && currentQuests.length ? "No wiki-confirmed Kappa quests in your current list." : "No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list."}</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
   document.getElementById("raidGo").disabled = !currentQuests.length;
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
-  setText("mapEmpty", currentQuests.length ? "Tick quests on the right to pin their spots on the map." : "No current quests yet. Choose your profile under Quests to see them here.");
+  setText("mapEmpty", currentQuests.length ? "Tick quests on the right to pin their spots on the map." : "No current quests yet. Choose your profile in Settings to see them here.");
 }
 function changeFocus(action, id) {
   if (!activeScope()) return;
@@ -1352,6 +1366,7 @@ function loadScopedPreferences() {
 function refreshScope() {
   questStatus = ProgressStore.derive(progressStore, scopeKey);
   renderScope(); renderQuests(); renderEvents();
+  try { renderTracker(); } catch (e) {} // the Settings button names the profile; the watcher may not exist yet
 }
 const fmtDay = ms => new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 function renderScope() {
@@ -1955,6 +1970,13 @@ function handleRaidEvent(event, meta) {
   if (RaidSession.needsArea(routeSession, Date.now())) promptSpawn();
 }
 
+/* ---------- settings dialog ---------- */
+const settingsDialog = document.getElementById("settingsDialog");
+function openSettings() { if (!settingsDialog.open) { closePop(); settingsDialog.showModal(); } }
+document.addEventListener("click", e => { if (e.target.closest("[data-open-settings]")) openSettings(); });
+document.getElementById("settingsClose").addEventListener("click", () => settingsDialog.close());
+settingsDialog.addEventListener("click", e => { if (e.target === settingsDialog) settingsDialog.close(); }); // backdrop
+
 /* ---------- log tracking UI ---------- */
 const trk = { skipped: 0, note: "", fallback: false };
 const STATE_TEXT = {
@@ -2053,6 +2075,10 @@ function renderTracker() {
   const s = watcher.status;
   const state = trk.fallback ? "unsupported" : s.state;
   document.getElementById("trkDot").dataset.state = state;
+  document.getElementById("settingsDot").dataset.state = document.getElementById("trkSummaryDot").dataset.state = state;
+  const scopeName = activeScope()?.label;
+  setText("settingsLabel", `Settings · ${state === "watching" ? "logs live" : (STATE_TEXT[state] || state).toLowerCase()}`);
+  setText("trkSummary", `${state === "watching" ? "Logs live" : STATE_TEXT[state] || state} · ${scopeName || "no profile chosen"}`);
   if (raidOn && !!rpBody.querySelector(".rp-warn") !== (state !== "watching" && state !== "waiting")) renderRaidPanel();
   document.getElementById("liveChip").hidden = state !== "watching";
   document.getElementById("liveChip").title = state === "watching" ? "Watching your game logs; quest changes show up here as they happen" : "";

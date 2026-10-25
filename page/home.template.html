@@ -60,12 +60,12 @@ function render() {
   const level = Number.isInteger(savedLevel) && savedLevel >= 1 && savedLevel <= 100 ? savedLevel : DATA.player.level;
   const found = ProgressStore.detectedProfiles(store, mode).profiles;
   document.getElementById("homeEvidence").textContent = scope ? `${scope.label} · ${scope.profile} · level ${level} · ${DATA.player.faction} · ${scope.evidence}`
-    : found.length ? `Your logs show ${found.length === 1 ? "a profile" : found.length + " profiles"} for this mode. Open any map, go to Quests, and choose it under Profile and wipe.`
+    : found.length ? `Your logs show ${found.length === 1 ? "a profile" : found.length + " profiles"} for this mode. Open any map, open Settings, and choose it under Profile and wipe.`
     : "Choose a saved scope, or open a map to create one. No progress is assumed.";
   document.getElementById("homeFreshness").textContent = `tarkov.dev data from ${DATA.modes[mode].snapshot.slice(0, 10)} · ${MapHome.freshness(DATA.modes[mode].snapshot).toLowerCase()}`;
   const notice = document.getElementById("homeNotice");
   notice.hidden = !!scope;
-  notice.textContent = "No current quest list selected. Open a map, go to Quests and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
+  notice.textContent = "No current quest list selected. Open a map, open Settings and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
   // Maps with work to do first; the rest keep alphabetical order.
   const cards = MapHome.summarize(DATA,store,mode,key,{[key]:level}).sort((a,b) => (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current);
   document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span><span class="label">Open raid planner →</span></a>`).join("");
