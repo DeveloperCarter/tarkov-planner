@@ -309,7 +309,7 @@ live raid, manual area selection when the log lacks a position, quest selection 
 completion-based rerouting. No extract recommendation is part of this milestone.
 
 **Quest focus shortcuts (2026-10-25):** PMC raid mode can browse the selected quests in route
-order with Previous/Next or Ctrl+Shift+Left/Right while focused. The optional unpacked Chrome/Edge
+order with ‹ / › or Ctrl+Shift+Left/Right while focused. The optional unpacked Chrome/Edge
 extension supplies global commands to one explicitly chosen map tab while Tarkov has focus. The
 controls highlight cards/pins and frame locations without checking objectives or changing selection.
 
@@ -372,7 +372,7 @@ ticked off and survive a reload.
 shows the same, and map cards and the raid picker show "Kappa quests here". Only wiki-confirmed
 flags count, and quests without wiki coverage are listed for review. Accepted quests lead What's
 next. Collector hand-ins are saved per scope and carried over when a wipe boundary is confirmed.
-The map and raid-mode quest pickers have a Kappa-only filter and a Kappa quests preset.
+Raid mode has a Kappa quests preset; Kappa-only filtering lives on the Quests tab and in site search.
 
 ## M7 · Scav mode  (implemented; auto-switch not done)
 

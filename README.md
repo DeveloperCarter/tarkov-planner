@@ -202,8 +202,8 @@ Validation:
 ## Manual raid focus (M1B)
 
 Use **Include this raid** in the compact picker beside the map or on a current quest card.
-**Select all**, **Clear**, and **Selected only** help compare a small set while browsing
-Raid plan, Quests, or Keys & items. The count shows selected versus current quests. Keys,
+**Select all** and **Clear** set the whole list; the Quests tab's **Show → Selected only**
+compares a small set while browsing. The count shows selected versus current quests. Keys,
 items, locations, and extraction requirements are listed for comparison; an absent requirement
 means it is not listed in the dataset, rather than a guarantee about the game.
 

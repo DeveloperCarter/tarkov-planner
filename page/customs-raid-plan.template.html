@@ -235,6 +235,7 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .settings-head { display:flex; align-items:center; gap:12px; padding:14px 16px 0; }
 .settings-head h2 { margin:0; }
 .settings-dialog .tracker { border:0; }
+.settings-dialog .settings-raid { border-top:1px solid var(--line); }
 .settings-open { display:inline-flex; align-items:center; gap:8px; margin-top:12px; }
 .trk-summary { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 14px; background:var(--panel); border:1px solid var(--line); font-size:13.5px; }
 .trk-summary #trkSummary { flex:1 1 200px; min-width:0; overflow-wrap:anywhere; }
@@ -260,14 +261,16 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .focus-grid > * { min-width:0; }
 .focus-grid .mapbox { position:static; }
 .focus-picker { background:var(--panel); border:1px solid var(--line); padding:12px; display:grid; gap:10px; }
-.focus-list { display:grid; gap:1px; max-height:360px; overflow-y:auto; }
+.focus-list { display:grid; gap:1px; }
 .focus-choice { padding:9px 0; border-top:1px solid var(--line); }
 .focus-choice label { display:flex; gap:9px; align-items:start; cursor:pointer; }
 .focus-choice input, .include-raid input { accent-color:var(--olive); width:18px; height:18px; flex:none; }
 .focus-facts { color:var(--muted); font-size:12.5px; margin-left:27px; overflow-wrap:anywhere; }
 .focus-choice:has(input:checked) b { color:var(--olive); }
 .include-raid { display:flex; gap:8px; align-items:center; font-size:14px; }
-@media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } .focus-list { max-height:280px; } }
+@media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } }
+/* The quest list is a normal page list now, so the map stays in view beside it. */
+@media (min-width:801px) { body:not(.raid-mode) .focus-grid > .mapbox { position:sticky; top:12px; align-self:start; } }
 /* Quests tab filters: search first, the rest as compact controls that wrap */
 .qfilters { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:18px 0 10px; scroll-margin-top:72px; }
 .qsearch { flex:1 1 260px; display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:0 10px; min-height:38px; }
@@ -354,6 +357,7 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .raid-panel[hidden] { display:none; }
 .rp-head { display:flex; align-items:center; gap:10px; padding:10px 12px 10px 16px; border-bottom:1px solid var(--line); background:var(--panel); }
 .rp-title { flex:1; min-width:0; }
+.rp-title .label { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .rp-title h2 { margin:0; font:700 22px/1.1 var(--font-display); text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .rp-clock { font:600 22px var(--font-mono); font-variant-numeric:tabular-nums; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); cursor:pointer; padding:4px 10px; }
 .rp-clock.late { color:var(--signal); border-color:var(--signal); }
@@ -374,15 +378,14 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .rp-next li { display:flex; gap:8px; align-items:flex-start; font:15px/1.3 var(--font-body); }
 .rp-next p { margin:0; }
 .rp-warn { border:1px solid var(--signal); border-radius:6px; padding:10px 12px; display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; }
-.rp-warn p { margin:0; flex:1 1 200px; }
+.rp-warn p { margin:0; flex:1 1 180px; font-size:14px; }
 .rp-warn .btn { white-space:normal; }
 .rp-where { display:block; margin-top:2px; font:12px/1.3 var(--font-mono); color:var(--muted); }
 .rp-where b { color:var(--ink); }
 .rp-needs { margin:0 0 6px; font:13px/1.35 var(--font-body); color:var(--muted); }
-.quest-focus-nav { flex:none; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--panel); }
-.quest-focus-nav p { margin:6px 0; font:14px/1.4 var(--font-body); overflow-wrap:anywhere; }
-.quest-focus-nav summary { font:12px/1.5 var(--font-body); cursor:pointer; }
-.quest-focus-nav details p { max-height:120px; overflow:auto; }
+.quest-focus-nav:not([hidden]) { flex:none; display:flex; align-items:center; gap:8px; padding:6px 12px; border-bottom:1px solid var(--line); background:var(--panel); }
+.quest-focus-nav p { flex:1; min-width:0; margin:0; font:14px/1.3 var(--font-body); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.quest-focus-nav .btn { flex:none; min-width:44px; min-height:36px; font-size:18px; }
 .rp-q.quest-focused { outline:2px solid var(--signal); outline-offset:-2px; }
 .pin.spot.quest-focused path { stroke:var(--signal); stroke-width:4; }
 .rp-shots { display:flex; gap:6px; overflow-x:auto; margin:0 0 6px; }
@@ -634,14 +637,9 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
       <p class="map-note" data-kappa-map=""></p>
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
-      <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid loads (follows you to that map)</label>
-      <p class="map-note">Include current quests to focus the map and gear. Quest status stays the same.</p>
-      <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button><button type="button" class="btn" id="showSelected">Selected only</button></div>
-      <div id="routePlanner" class="route-planner"></div>
-      <div id="focusSort"></div>
-      <label class="include-raid"><input type="checkbox" id="focusKappa" data-focus-kappa>Kappa only</label>
-      <p class="map-note" id="focusFilterNote"></p>
+      <div class="trk-actions"><button type="button" class="btn" data-focus-action="all">Select all</button><button type="button" class="btn" data-focus-action="clear">Clear</button></div>
       <div class="focus-list" id="focusList"></div>
+      <div id="routePlanner" class="route-planner"></div>
     </aside>
   </section>
     <div class="plan-grid">
@@ -746,9 +744,9 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <button type="button" class="btn" id="rpExit">Exit</button>
     </header>
     <section class="quest-focus-nav" id="questFocusNav" aria-label="Browse selected quests" hidden>
-      <div class="toolbar"><button type="button" class="btn" data-quest-step="-1" aria-label="Focus previous quest">← Previous</button><button type="button" class="btn" data-quest-step="1" aria-label="Focus next quest">Next →</button></div>
+      <button type="button" class="btn" data-quest-step="-1" aria-label="Focus previous quest">‹</button>
       <p id="questFocusLabel" role="status" aria-live="polite"></p>
-      <details><summary>Keyboard shortcuts</summary><p>Ctrl + Shift + ← / → while this page has focus. For controls while Tarkov has focus, install the optional <a href="__QUEST_SHORTCUTS_URL__" id="questShortcutsDownload">quest shortcuts extension</a> and choose this tab from its toolbar button. Browsing never checks off objectives.</p></details>
+      <button type="button" class="btn" data-quest-step="1" aria-label="Focus next quest">›</button>
     </section>
     <div class="rp-body" id="rpBody"></div>
   </aside>
@@ -812,6 +810,11 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
         </div></details>
         <input type="file" id="trkImport" webkitdirectory multiple hidden>
       </section>
+      <section class="tracker settings-raid" aria-labelledby="settingsRaidTitle">
+        <span class="label" id="settingsRaidTitle">Raid mode</span>
+        <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid loads (follows you to that map)</label>
+        <details><summary>Keyboard shortcuts</summary><p class="map-note">In raid mode, Ctrl + Shift + ← / → steps through your selected quests while this page has focus. For controls while Tarkov has focus, install the optional <a href="__QUEST_SHORTCUTS_URL__" id="questShortcutsDownload">quest shortcuts extension</a> and choose this tab from its toolbar button. Browsing never checks off objectives.</p></details>
+      </section>
   </dialog>
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
   <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
@@ -837,8 +840,6 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 const DATA = /*__DATA__*/null;
 let STORE_KEY = "", state = {};
 let routeSession = RaidSession.empty(), objectiveRoute = null, spawnWait = null, focusPreset = "custom";
-let focusKappaOnly = false;
-try { focusKappaOnly = localStorage.getItem("eft-focus-kappa") === "1"; } catch (e) {}
 const RAID_COLORS = { A: "var(--olive)", B: "var(--steel)", C: "var(--signal)" };
 
 function save() { if (STORE_KEY) try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
@@ -1327,14 +1328,11 @@ function renderFocus() {
   if (JSON.stringify(activeScope()?.raidFocus?.[MAP]) !== previous) saveStatus();
   focus = RaidFocus.project(DATA, selectedIds);
   pinned = ordered(focus.quests);
-  document.getElementById("focusSort").innerHTML = sortControl();
   setText("mapLocations", focus.zones.length ? "Selected locations: " + focus.zones.map(id => DATA.zones[id].name).join(" · ") : focus.quests.length ? "No fixed locations listed for these quests; see the objectives below." : "");
   // Same split as the in-game list: quests located here first, multi-map quests under their own heading.
-  const sorted = ordered(RaidPresets.candidates(currentQuests, focusKappaOnly)), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
-  document.getElementById("focusKappa").checked = focusKappaOnly;
-  setText("focusFilterNote", focusKappaOnly ? `${sorted.length} / ${currentQuests.length} current quests shown. Other selected quests stay in this raid.` : "");
+  const sorted = ordered(currentQuests), here = sorted.filter(onMap), multi = sorted.filter(q => !onMap(q));
   const totalHere = currentQuests.filter(onMap).length;
-  setText("focusCount", `${selectedIds.length} selected / ${totalHere} on ${MAP}${currentQuests.length - totalHere ? ` + ${currentQuests.length - totalHere} multi-map` : ""}`);
+  setText("focusCount", `${selectedIds.length} selected / ${totalHere} on ${MAP}${currentQuests.length - totalHere ? ` + ${currentQuests.length - totalHere} multi-map` : ""}${routeRank.size ? " · route order" : ""}`);
   const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
@@ -1344,7 +1342,7 @@ function renderFocus() {
   document.getElementById("focusList").innerHTML = sorted.length
     ? (multi.length && here.length ? `<p class="focus-group">On ${esc(MAP)} · ${here.length}</p>` : "") + here.map(choice).join("") +
       (multi.length ? `<p class="focus-group">Multi-map · ${multi.length}<span>Objectives here and on other maps; not in the in-game ${esc(MAP)} list</span></p>` + multi.map(choice).join("") : "")
-    : `<p class="map-note">${focusKappaOnly && currentQuests.length ? "No wiki-confirmed Kappa quests in your current list." : "No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list."}</p>`;
+    : `<p class="map-note">No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   document.querySelectorAll("[data-focus-action]").forEach(b => { b.disabled = !currentQuests.length; });
   document.getElementById("raidGo").disabled = !currentQuests.length;
   document.getElementById("mapEmpty").hidden = selectedIds.length > 0;
@@ -1356,22 +1354,12 @@ function changeFocus(action, id) {
   RaidFocus.sync(activeScope(), MAP, currentQuests.map(bsgId), DATA.quests.map(bsgId), action, id);
   saveStatus(); renderQuests();
 }
-document.addEventListener("change", e => {
-  if (!e.target.matches("[data-focus-kappa]")) return;
-  focusKappaOnly = e.target.checked;
-  try { localStorage.setItem("eft-focus-kappa", focusKappaOnly ? "1" : ""); } catch (err) {}
-  renderFocus(); renderRaidPanel();
-});
 document.getElementById("raidFocusPanel").addEventListener("change", e => {
   if (e.target.dataset.focus) changeFocus(e.target.checked ? "include" : "exclude", e.target.dataset.focus);
 });
 document.getElementById("raidFocusPanel").addEventListener("click", e => {
   const action = e.target.closest("[data-focus-action]")?.dataset.focusAction;
   if (action) changeFocus(action);
-});
-document.getElementById("showSelected").addEventListener("click", () => {
-  questView = "selected"; document.getElementById("questView").value = questView;
-  renderQuests(); show("quests"); document.getElementById("questView").scrollIntoView({ block:"center" });
 });
 
 const ROUTE_KEY = "eft-raid-route:" + PAGE_MODE + ":" + (DATA.meta.key || "customs");
@@ -1805,7 +1793,7 @@ function heading(from, to) {
 function nextStop() {
   if (!canRoute() || !pinned.length) return "";
   const box = body => `<section class="rp-next" aria-live="polite">${body}</section>`;
-  if (!objectiveRoute) return box(`<span class="label">Next stop</span><p>${routeSession.waiting ? "Raid started. Waiting a few seconds for your spawn…" : "Pick your spawn area under Spawn area to get a route."}</p>`);
+  if (!objectiveRoute) return box(`<span class="label">Next stop</span><p>${routeSession.waiting ? "Raid started. Waiting a few seconds for your spawn…" : "Pick your spawn to get a route."}</p>${routeSession.waiting ? "" : `<button type="button" class="btn" data-spawn-map>Pick spawn on the map</button>`}`);
   const [stop, ...rest] = objectiveRoute.stops;
   if (!stop) return box(`<span class="label">Next stop</span><p><b>All located objectives are done.</b> Finish the rest below, then pick an extract.</p>`);
   const from = RaidSession.marker(DATA, routeSession.start), h = from && heading(from, stop);
@@ -1821,7 +1809,7 @@ function trackingWarning() {
   const state = trk.fallback ? "unsupported" : watcher.status.state;
   if (state === "watching" || state === "waiting") return "";
   const primary = (ACTIONS[state] || []).find(a => a[2]);
-  return `<section class="rp-warn"><p><b>Live tracking is off.</b> ${esc(STATE_TEXT[state] || state)}. Raid start and your spawn won't be detected.</p>${primary && primary[0] !== "import" ? `<button type="button" class="btn primary" data-rp-track="${primary[0]}">${esc(primary[1])}</button>` : ""}</section>`;
+  return `<section class="rp-warn"><p><b>Live tracking is off</b> · ${esc(STATE_TEXT[state] || state)}. Raid start and spawn won't be detected.</p>${primary && primary[0] !== "import" ? `<button type="button" class="btn primary" data-rp-track="${primary[0]}">${esc(primary[1])}</button>` : ""}</section>`;
 }
 /* ---------- scav mode: found-in-raid items for your quests ---------- */
 let scavOn = false;
@@ -1884,7 +1872,7 @@ function renderRaidPanel() {
   const top = rpBody.scrollTop;
   const selectionOpen = rpBody.querySelector("#rpSelection")?.open ?? !pinned.length;
   const toFind = scavOn ? (scavRows() || []).filter(r => r.toFind && r.tier === 0).length : 0;
-  setText("rpLabel", scavOn ? `Scav run · ${toFind} ${toFind === 1 ? "item" : "items"} for current quests` : `Raid mode · ${pinned.length} ${pinned.length === 1 ? "quest" : "quests"}`);
+  setText("rpLabel", scavOn ? `Scav · ${toFind} ${toFind === 1 ? "item" : "items"} to find` : `${pinned.length} ${pinned.length === 1 ? "quest" : "quests"} this raid`);
   setText("rpMap", MAP);
   const keys = focus.bring.filter(n => n.kind === "key" && !n.optional);
   const items = focus.bring.filter(n => n.kind !== "key");
@@ -1911,9 +1899,11 @@ function renderRaidPanel() {
   const extractsHTML = exits.length ? `<section class="rp-sec"><span class="label">${scavOn ? "Scav extracts" : "Extracts"}</span><div class="rp-ex">${exits.map(e =>
       `<button type="button" data-rp-ex="${esc(e.id)}" class="${exReq(e) ? "req" : ""}"><span>${esc(e.name)}</span><small>${esc(exNeed(e) || EX_TYPE[e.type] || "")}</small></button>`).join("")}</div></section>` : "";
   if (scavOn) { rpBody.innerHTML = trackingWarning() + scavHTML() + extractsHTML; rpBody.scrollTop = top; paintQuestNavigation(); return; }
-  rpBody.innerHTML = trackingWarning() + nextStop() + raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + (pinned.length ? "" : `<p class="map-note">No quests selected. Choose a preset or check quests above.</p>`) +
+  // Quest cards come first; choosing quests and route settings follow them.
+  rpBody.innerHTML = trackingWarning() + nextStop() +
+    (pinned.length ? `<section class="rp-sec">${pinned.map(quest).join("")}</section>` : `<p class="map-note">No quests selected. Choose quests below.</p>`) +
     (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
-    `<section class="rp-sec">${pinned.map(quest).join("")}</section>` + extractsHTML;
+    raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + extractsHTML;
   rpBody.scrollTop = top;
   paintQuestNavigation();
 }
@@ -1942,9 +1932,7 @@ function raidSelection(open) {
     <p class="map-note">Choose a preset to replace this raid's selection, then adjust the checkboxes. Quest statuses stay the same.</p>
     <div class="preset-grid">${presets.map(p => `<button type="button" data-focus-preset="${p.id}" title="${esc(p.description)}" aria-pressed="${focusPreset === p.id}" ${p.ids.length ? '' : 'disabled'}><b>${p.name}</b><span>${p.ids.length} ${p.ids.length === 1 ? "quest" : "quests"}</span><small>${esc(p.description)}</small></button>`).join('')}</div>
     <button type="button" class="btn" data-raid-clear>Clear selection</button>
-    <label class="include-raid"><input type="checkbox" data-focus-kappa ${focusKappaOnly ? 'checked' : ''}>Kappa only</label>
-    <p class="map-note">${RaidPresets.candidates(currentQuests, focusKappaOnly).length} / ${currentQuests.length} current quests shown. Filtering leaves your raid selection unchanged.</p>
-    <div class="rp-choices">${ordered(RaidPresets.candidates(currentQuests, focusKappaOnly)).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
+    <div class="rp-choices">${ordered(currentQuests).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></div></div>`).join('')}</div>
     <p class="map-note">Based on listed requirements. Key ownership and unlisted conditions aren't checked.</p>
   </details>`;
 }
