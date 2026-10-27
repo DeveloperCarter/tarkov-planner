@@ -504,6 +504,9 @@ body.map-full { overflow:hidden; }
 .map-stage::after { content:"Hold Ctrl and scroll to zoom"; position:absolute; inset:auto 0 50%; text-align:center; font:600 14px var(--font-mono); color:#fff; pointer-events:none; opacity:0; transition:opacity .2s; text-shadow:0 1px 4px #000; }
 .map-stage.hint::after { opacity:1; }
 .map-stage.hint #map { filter:brightness(.7); }
+/* Area names (tarkov-dev map labels) sit under the pins at a fixed on-screen size. */
+.area-label text { font:600 11.5px var(--font-body); fill:var(--muted); stroke:var(--panel); stroke-width:3px; stroke-linejoin:round; paint-order:stroke; text-anchor:middle; dominant-baseline:middle; pointer-events:none; letter-spacing:.02em; }
+svg.zoomed .area-label text { font-size:13px; fill:var(--ink); }
 .pin.spot { cursor:pointer; }
 .pin.spot path { stroke:#fff; stroke-width:1.6; filter:drop-shadow(0 1px 2px rgb(0 0 0 / .45)); transition:stroke-width .15s; }
 .pin.spot text { fill:#fff; font:700 11px var(--font-mono); text-anchor:middle; pointer-events:none; }
@@ -967,7 +970,8 @@ let lastFitKey = null;
 function renderMap(active = currentRoute) {
   currentRoute = active;
   const z = DATA.zones;
-  let s = "";
+  // Area names first, so extracts, routes and pins draw over them.
+  let s = (DATA.labels || []).map(l => `<g class="area-label" transform="translate(${l.x} ${l.y})" aria-hidden="true"><g class="glyph"><text>${esc(l.text)}</text></g></g>`).join("");
   for (const e of DATA.extracts) {
     if (e.x == null || e.faction === "scav") continue;
     if (!mySide(e)) continue;
@@ -1026,7 +1030,24 @@ function applyView() {
   const zoomed = view.w < Math.max(BASE.w, BASE.h * svg.clientWidth / Math.max(1, svg.clientHeight)) * 0.85;
   svg.classList.toggle("zoomed", zoomed);
   svg.style.touchAction = zoomed || stage.classList.contains("full") ? "none" : "pan-y";
+  declutterLabels();
   positionPop();
+}
+// Area names that would overlap an extract, a pin or an earlier name (tarkov-dev lists major areas first) wait until
+// zooming in gives them room, so Interchange's mall doesn't become a pile of store names.
+let declutterFrame = 0;
+function declutterLabels() {
+  cancelAnimationFrame(declutterFrame);
+  declutterFrame = requestAnimationFrame(() => {
+    // Extract names and quest pins take priority over area names.
+    const kept = [...svg.querySelectorAll(".pin.ex, .pin.spot")].map(el => el.getBoundingClientRect());
+    for (const g of svg.querySelectorAll(".area-label")) {
+      g.style.display = "";
+      const r = g.getBoundingClientRect();
+      if (kept.some(k => r.left < k.right + 6 && r.right > k.left - 6 && r.top < k.bottom + 2 && r.bottom > k.top - 2)) g.style.display = "none";
+      else kept.push(r);
+    }
+  });
 }
 function setView(v, animate) {
   const to = shape(v);
