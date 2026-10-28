@@ -40,7 +40,7 @@
 <p class="home-footer">Data: <a href="https://tarkov.dev">tarkov.dev</a> · Prerequisite facts: <a href="https://escapefromtarkov.fandom.com/wiki/Quests">Escape from Tarkov Wiki (CC BY-SA)</a>. No affiliation with Battlestate Games.</p>
 <noscript>Enable JavaScript to read your saved quest progress and browse map counts.</noscript>
 </main>
-<script>/*__QFILTER__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__HOME__*/</script>
+<script>/*__QFILTER__*/</script><script>/*__QEFFORT__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__HOME__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -73,14 +73,15 @@ function render() {
   notice.hidden = !!scope;
   notice.textContent = "No current quest list selected. Open a map, open Settings and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
   // The site-wide filter: chips list the traders with current quests in this scope.
+  for (const q of Object.values(DATA.modes[mode].quests || {})) q.easy = QuestEffort.assess(q.effort, { level }).easy;
   const filter = QuestFilter.get(), all = MapHome.summarize(DATA,store,mode,key,{[key]:level});
   const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()], counts = QuestFilter.counts(current, filter);
-  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts.traders, { kappaCount: counts.kappa }) : "";
+  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts.traders, { kappaCount: counts.kappa, easyCount: counts.easy }) : "";
   const filtering = QuestFilter.active(filter);
   // Maps with matching work first, most current quests first; the rest keep alphabetical order.
   const cards = (filtering ? MapHome.summarize(DATA,store,mode,key,{[key]:level},filter) : all)
     .sort((a,b) => (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
-  const best = cards[0], what = filtering ? [filter.kappa && "Kappa", filter.traders.join(" or ")].filter(Boolean).join(" ") : "current";
+  const best = cards[0], what = filtering ? [filter.easy && "easy", filter.kappa && "Kappa", filter.traders.join(" or ")].filter(Boolean).join(" ") : "current";
   document.getElementById("homeFilterNote").textContent = !filtering ? (scope ? "Filter by trader or Kappa to see which map has the most of those quests." : "")
     : best && best.current + best.multiMap ? `Most ${what} quests: ${best.name} (${best.current}${best.multiMap ? ` + ${best.multiMap} multi-map` : ""}).` : `No current ${what} quests.`;
   const list = m => filtering && m.matches.length ? `<ul class="matches">${m.matches.slice(0, 4).map(q => `<li>${esc(q.name)}${filter.traders.length === 1 ? "" : ` <small>· ${esc(q.trader)}</small>`}</li>`).join("")}${m.matches.length > 4 ? `<li><small>+ ${m.matches.length - 4} more</small></li>` : ""}</ul>` : "";

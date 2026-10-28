@@ -2,8 +2,8 @@ const test = require('node:test'), assert = require('node:assert/strict');
 const F = require('../page/quest-filter.js');
 
 const quests = [
-  { id: 'pk', trader: 'Prapor', kappa: true }, { id: 'p', trader: 'Prapor', kappa: false },
-  { id: 'jk', trader: 'Jaeger', kappa: true }, { id: 's', trader: 'Skier' },
+  { id: 'pk', trader: 'Prapor', kappa: true, easy: true }, { id: 'p', trader: 'Prapor', kappa: false },
+  { id: 'jk', trader: 'Jaeger', kappa: true }, { id: 's', trader: 'Skier', easy: true },
 ];
 const pick = f => quests.filter(q => F.matches(q, f)).map(q => q.id);
 
@@ -18,19 +18,27 @@ test('traders widen and Kappa narrows', () => {
   assert.deepEqual(pick(f), ['pk', 'jk']);
   assert.equal(F.summary(f), 'Kappa · Jaeger or Prapor');
   f = F.toggleTrader(F.toggleTrader(f, 'Prapor'), 'Jaeger');
-  assert.deepEqual(f, { traders: [], kappa: true });
+  assert.deepEqual(f, { traders: [], kappa: true, easy: false });
   assert.equal(F.active(f), true); assert.equal(F.active(F.empty()), false);
 });
 
 test('counts follow the other half of the filter', () => {
-  assert.deepEqual(F.counts(quests, F.empty()), { traders: [{ name: 'Prapor', count: 2 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 1 }], kappa: 2 });
-  assert.deepEqual(F.counts(quests, { traders: ['Prapor'], kappa: true }),
-    { traders: [{ name: 'Prapor', count: 1 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 0 }], kappa: 1 }, 'order stays by list size');
+  assert.deepEqual(F.counts(quests, F.empty()), { traders: [{ name: 'Prapor', count: 2 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 1 }], kappa: 2, easy: 2 });
+  assert.deepEqual(F.counts(quests, { traders: ['Prapor'], kappa: true, easy: false }),
+    { traders: [{ name: 'Prapor', count: 1 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 0 }], kappa: 1, easy: 1 }, 'order stays by list size');
+});
+
+test('Easy narrows like Kappa', () => {
+  let f = F.toggleEasy(F.empty());
+  assert.deepEqual(pick(f), ['pk', 's']);
+  f = F.toggleKappa(f);
+  assert.deepEqual(pick(f), ['pk']);
+  assert.equal(F.summary(F.toggleTrader(f, 'Prapor')), 'Easy · Kappa · Prapor');
 });
 
 test('stored values are cleaned up', () => {
   assert.deepEqual(F.normalize(null), F.empty());
-  assert.deepEqual(F.normalize({ traders: ['Skier', 'Prapor', 'Prapor', 3, ''], kappa: 'yes' }), { traders: ['Prapor', 'Skier'], kappa: false });
+  assert.deepEqual(F.normalize({ traders: ['Skier', 'Prapor', 'Prapor', 3, ''], kappa: 'yes', easy: true }), { traders: ['Prapor', 'Skier'], kappa: false, easy: true });
 });
 
 test('chips fold past the limit, keep chosen traders visible, and expand to show all', () => {

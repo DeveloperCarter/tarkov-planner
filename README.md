@@ -202,7 +202,11 @@ Validation:
 ## Manual raid focus (M1B)
 
 One quest filter is shared by the whole site and remembered per browser: **Kappa** and trader
-chips on the home page, the Quests tab, the raid picker, raid mode and search. Traders widen and
+chips on the home page, the Quests tab, the raid picker, raid mode and search. Traders widen; Kappa
+and **Easy** narrow. Easy wins have at most two spots on one map, no PMC/boss/Rogue kills and at most
+five scav kills, no found-in-raid hand-in or extract streak, every spot on the map, and only keys you
+can buy now (trader cash, or the flea at your level: most keys 25, keycards 30, marked keys 35); the
+badge's tooltip says why, and **Easiest first** sorts by effort. Traders widen and
 Kappa narrows, so Prapor + Kappa shows Prapor's Kappa quests. Past five traders the rest fold
 behind **+n more** / **Fewer**. The filter decides what you see: the list, map pins, route and raid
 mode show selected quests that pass it, and the count says how many selected quests it hides.

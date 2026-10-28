@@ -375,6 +375,8 @@ next. Collector hand-ins are saved per scope and carried over when a wipe bounda
 One shared quest filter (page/quest-filter.js: Kappa and trader chips; traders widen, Kappa narrows)
 drives the home cards, Quests tab, raid picker, raid mode, map pins, route and search, remembered
 per browser. Maps with no saved selection start empty; Select/Unselect act on shown quests with Undo.
+Easy wins: build-time effort facts (scripts/effort.py) judged with the player's level (page/quest-effort.js)
+give an Easy chip, badges with reasons and an Easiest first sort.
 The site search (Ctrl K) is a quest browser: the shared chips and a Map filter work without typing (a map
 matches every map with objectives; "No map objectives" lists the rest), results show "Showing x of y"
 with Show more, rows separate "Listed on" from "Also on" maps, a map filter decides where a result

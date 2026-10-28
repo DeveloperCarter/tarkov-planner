@@ -68,6 +68,12 @@ test("results report the full count past the limit, and placeholders sink below 
   assert.deepStrictEqual(S.facets(entries).maps.map(m => m.key), ["customs", "factory", "streets", "woods"]);
 });
 
+test("the Easy filter keeps only quests the page marked easy, with or without text", () => {
+  const marked = entries.map(e => ({ ...e, easy: e.id === "b" }));
+  assert.deepStrictEqual(names(S.search(marked, "", { filters: { easy: true } })), ["Debut"]);
+  assert.deepStrictEqual(names(S.search(marked, "prapor", { filters: { easy: true } })), ["Debut"]);
+});
+
 test("the map filter decides where a result opens", () => {
   assert.strictEqual(S.primaryMap(entries[0], "customs", "factory").key, "factory");
   assert.strictEqual(S.primaryMap(entries[0], "customs", "woods").key, "customs", "a filter map without objectives is ignored");

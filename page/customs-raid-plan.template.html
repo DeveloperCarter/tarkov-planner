@@ -457,6 +457,9 @@ dialog.ss::backdrop { background:rgb(10 12 10 / .5); }
 .ss-main { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 8px; }
 .ss-name { font:600 16px/1.25 var(--font-body); }
 .ss-main .kmark { margin-left:0; }
+.pill.easy { color:var(--ok); border-color:var(--ok); }
+.emark { font:700 10px var(--font-mono); color:var(--ok); border:1px solid var(--ok); border-radius:3px; padding:0 4px; margin-left:6px; vertical-align:2px; cursor:help; }
+.ss-main .emark { margin-left:0; }
 .ss-new { font:700 10px var(--font-mono); color:var(--steel); border:1px solid var(--steel); border-radius:3px; padding:0 4px; }
 .ss-meta { display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12.5px; color:var(--muted); }
 .ss-maps { display:flex; flex-wrap:wrap; gap:5px; margin-top:3px; }
@@ -853,6 +856,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__SESSION__*/</script>
 <script>/*__PRESETS__*/</script>
 <script>/*__QFILTER__*/</script>
+<script>/*__QEFFORT__*/</script>
 <script>/*__QUEST_NAV__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
@@ -1268,9 +1272,9 @@ const LISTED = new Set(DATA.quests.filter(onMap).map(bsgId));
 const ORDERED = [...DATA.quests.filter(onMap), ...DATA.quests.filter(q => !onMap(q))];
 // Sorting: located quests stay ahead of multi-map ones; within each group the chosen metric
 // decides, then the data's own order. Numbers and pin colours follow this order.
-const SORTS = { list: "List order", xp: "Most XP", roubles: "Most roubles", value: "Most total value", spots: "Fewest spots", keys: "Fewest keys", level: "Lowest level" };
+const SORTS = { list: "List order", easy: "Easiest first", xp: "Most XP", roubles: "Most roubles", value: "Most total value", spots: "Fewest spots", keys: "Fewest keys", level: "Lowest level" };
 const rewardsOf = q => q.rewards || { xp: 0, roubles: 0, itemValue: 0, rep: [] };
-const SORT_KEY = { xp: q => -rewardsOf(q).xp, roubles: q => -rewardsOf(q).roubles, value: q => -(rewardsOf(q).roubles + rewardsOf(q).itemValue),
+const SORT_KEY = { easy: q => q.effortInfo?.score ?? 99, xp: q => -rewardsOf(q).xp, roubles: q => -rewardsOf(q).roubles, value: q => -(rewardsOf(q).roubles + rewardsOf(q).itemValue),
   spots: q => RaidFocus.facts(q).zones.length, keys: q => q.needs.filter(n => n.kind === "key" && !n.optional).length, level: q => q.minLevel || 0 };
 let sortBy = "list";
 try { if (SORTS[localStorage.getItem("eft-quest-sort")]) sortBy = localStorage.getItem("eft-quest-sort"); } catch (e) {}
@@ -1356,9 +1360,9 @@ let shownIds = [];
 function focusControls(bar, shown) {
   const qf = QuestFilter.get(), counts = QuestFilter.counts(currentQuests, qf), filtered = QuestFilter.active(qf);
   const ids = shown.map(bsgId), on = ids.filter(id => selectedIds.includes(id)).length;
-  return QuestFilter.html(bar, counts.traders, { kappaCount: counts.kappa, label: "Show" }) +
+  return QuestFilter.html(bar, counts.traders, { kappaCount: counts.kappa, easyCount: counts.easy, label: "Show" }) +
     `<div class="focus-actions"><button type="button" class="btn" data-focus-action="shown" ${ids.length && on < ids.length ? "" : "disabled"}>${filtered ? (ids.length === 1 ? "Select this quest" : `Select these ${ids.length}`) : "Select all"}</button>` +
-    `<button type="button" class="btn" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? (on === 1 ? "Unselect it" : `Unselect these ${on}`) : "Clear"}</button></div>`;
+    `<button type="button" class="btn" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? (on === 1 ? "Unselect it" : on ? `Unselect these ${on}` : "Unselect these") : "Clear"}</button></div>`;
 }
 function selectShown(add) {
   if (!activeScope()) return;
@@ -1388,7 +1392,7 @@ function renderFocus() {
   const choice = q => {
     const f = RaidFocus.facts(q);
     const col = colorOf(q);
-    return `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${esc(bsgId(q))}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</b></button></div>
+    return `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${esc(bsgId(q))}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</b></button></div>
       <p class="focus-facts">${rewardLine(q) ? `<span class="focus-reward">${esc(rewardLine(q))}</span><br>` : ""}${f.needs.length ? f.needs.map(n => esc(needText(n))).join(" · ") : "No keys/items listed"}<br>${f.zones.length ? f.zones.map(z => esc(DATA.zones[z].name)).join(" · ") : "No fixed location listed"}<br>${f.extraction ? "Extract required" : "No extraction requirement listed"}</p></div>`;
   };
   document.getElementById("focusList").innerHTML = sorted.length
@@ -1586,7 +1590,13 @@ function objList(q, pre) {
         <li class="${o.optional ? "opt" : ""} ${objDone(o) ? "checked" : ""}"><input type="checkbox" id="${pre}-${o.id}" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}>
           <label for="${pre}-${o.id}"><span>${hl(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
 }
+// Easy wins: QuestEffort judges each quest's effort facts with your level (keys you can buy count).
+function assessEffort() {
+  for (const q of DATA.quests) { q.effortInfo = QuestEffort.assess(q.effort, { level: LEVEL }); q.easy = q.effortInfo.easy; }
+}
+const easyMark = q => q.easy ? `<span class="emark" title="Easy win: ${esc(q.effortInfo.reasons.join(" · "))}">Easy</span>` : "";
 function renderQuests() {
+  assessEffort();
   progressResult = ProgressStore.evaluate(progressStore, scopeKey, DATA.progression, { level: LEVEL, faction: P.faction, map: MAP, listed: LISTED });
   currentQuests = ORDERED.filter(q => progressResult.quests[bsgId(q)].current);
   renderFocus();
@@ -1597,7 +1607,7 @@ function renderQuests() {
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   visibleQuests = inView.filter(passes);
   const qf = QuestFilter.get(), qfCounts = QuestFilter.counts(inView.filter(textPasses), qf);
-  document.getElementById("questFilterBar").innerHTML = QuestFilter.html("quests", qfCounts.traders, { kappaCount: qfCounts.kappa });
+  document.getElementById("questFilterBar").innerHTML = QuestFilter.html("quests", qfCounts.traders, { kappaCount: qfCounts.kappa, easyCount: qfCounts.easy });
   const filtered = searching() || QuestFilter.active(qf);
   const note = document.getElementById("filterNote");
   note.hidden = !filtered;
@@ -1619,7 +1629,7 @@ function renderQuests() {
     const head = !onMap(q) && !multiHeaded ? (multiHeaded = true, `<div style="grid-column:1/-1"><h3 style="margin:8px 0 4px">Multi-map quests</h3><p class="map-note">These have objectives on ${esc(MAP)} and other maps. The in-game ${esc(MAP)} filter doesn't list them.</p></div>`) : "";
     return head + `<article class="quest ${qDone ? "done" : ""}" data-quest-card="${esc(bsgId(q))}">
       <div class="top"><h3><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${hl(q.name)}</button></h3>${PLANNED ? `<span class="pill raid ${q.raid || "all"}">${!q.raid ? "unplanned" : q.raid === "all" ? "every raid" : "raid " + q.raid}</span>` : ""}${q.photos?.length ? `<button type="button" class="qthumb" data-detail="${esc(bsgId(q))}" aria-label="Photos and details for ${esc(q.name)}"><img src="${esc(q.photos[0].src)}" alt="" loading="lazy"></button>` : ""}</div>
-      <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
+      <div class="who"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.easy ? `<span class="pill easy" title="${esc(q.effortInfo.reasons.join(" · "))}">Easy</span>` : ""}${q.usecOnly ? `<span class="pill usec">USEC only</span>` : ""}${q.bearOnly ? `<span class="pill usec">BEAR only</span>` : ""}
         ${q.needs.filter(n => n.kind === "key" || (searching() && terms().some(t => fold(n.item).includes(t)))).map(n => `<span class="chip ${n.kind === "key" ? "key" : ""}">${hl(n.item)}</span>`).join("")}</div>
       ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
       ${st === "started" && !progress.current ? `<p class="map-note">Earlier start; excluded from your confirmed current list.</p>` : ""}
@@ -1743,7 +1753,7 @@ function renderQuestDetail() {
     : st === "failed" ? ["failed", "Failed"] : st === "started" ? ["started", "Started earlier"] : progress.locked ? ["locked", "Locked"]
     : progress.possible ? ["possible", "Possible unlock (estimate)"] : ["", "Not started"];
   qdBody.innerHTML = `<header class="qd-head">
-      <div class="qd-top"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.lightkeeper ? `<span class="pill">Lightkeeper</span>` : ""}
+      <div class="qd-top"><span class="pill">${esc(q.trader)}</span>${onMap(q) ? "" : `<span class="pill">Multi-map</span>`}${q.minLevel ? `<span class="pill">Lvl ${q.minLevel}</span>` : ""}${q.kappa ? `<span class="pill kappa">Kappa</span>` : ""}${q.easy ? `<span class="pill easy" title="${esc(q.effortInfo.reasons.join(" · "))}">Easy</span>` : ""}${q.lightkeeper ? `<span class="pill">Lightkeeper</span>` : ""}
         <button type="button" class="qd-x" data-qd="close" aria-label="Close">×</button></div>
       <h2 id="qdTitle">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<span>${esc(q.name)}</span></h2>
       <div class="qd-state"><span class="qd-status ${badge[0]}">${badge[1]}</span>${progress.current ? `<label class="include-raid"><input type="checkbox" data-focus="${esc(id)}" ${selectedIds.includes(id) ? "checked" : ""}>Include this raid</label>` : ""}</div>
@@ -1855,7 +1865,7 @@ function nextStop() {
   return box(`<span class="label">Next stop · 1 of ${objectiveRoute.stops.length}</span>
     <h3><button type="button" data-route-zone="${esc(stop.zone)}">${esc(DATA.zones[stop.zone].name)}</button></h3>
     ${h ? `<p class="rp-dir">${Math.round(h.metres)} m ${h.dir} of ${routeSession.source === "objective" ? "your last stop" : "your spawn"}</p>` : ""}
-    <ul>${tasks.map(({ q, o }) => `<li><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(o.text)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</span></li>`).join("")}</ul>
+    <ul>${tasks.map(({ q, o }) => `<li><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(o.text)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</span></li>`).join("")}</ul>
     ${rest.length ? `<p class="map-note">Then ${rest.slice(0, 3).map(st => esc(DATA.zones[st.zone].name)).join(" → ")}${rest.length > 3 ? ` and ${rest.length - 3} more` : ""}.</p>` : ""}`);
 }
 // Raid events need the logs folder; after a browser restart it has to be reconnected.
@@ -1940,7 +1950,7 @@ function renderRaidPanel() {
     const needs = q.needs.filter(n => !n.optional);
     const req = q.objectives.filter(o => !o.optional), ready = req.length > 0 && req.every(objDone);
     return `<article class="rp-q${ready ? " ready" : ""}" data-quest-card="${esc(bsgId(q))}" style="--qc:${colorOf(q)}">
-      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
+      <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
       ${needs.length ? `<p class="rp-needs">Bring: ${needs.map(n => esc(needText(n))).join(" · ")}</p>` : ""}
       ${q.photos?.length ? `<div class="rp-shots">${q.photos.slice(0, 4).map(ph => `<button type="button" data-detail="${esc(bsgId(q))}" aria-label="Spot photos for ${esc(q.name)}"><img src="${esc(ph.src)}" alt="${esc(ph.caption || q.name)}" loading="lazy"></button>`).join("")}</div>` : ""}
       <ul class="rp-obj">${q.objectives.map(o => o.count
@@ -1983,7 +1993,7 @@ function raidSelection(open) {
   const hidden = selectedIds.length - shownIds.length;
   return `<details id="rpSelection" class="rp-selection" ${open ? 'open' : ''}><summary>Choose quests · ${shownIds.length} selected${QuestFilter.active(qf) ? ` · ${esc(QuestFilter.summary(qf))}` : ''}${hidden ? ` · ${hidden} hidden` : ''}</summary>
     ${currentQuests.length ? focusControls("raid", visible) : ""}
-    <div class="rp-choices">${ordered(visible).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}</button></div></div>`).join('')}</div>
+    <div class="rp-choices">${ordered(visible).map(q => `<div class="focus-choice" data-quest-card="${esc(bsgId(q))}"><div class="focus-row"><input type="checkbox" data-focus="${esc(bsgId(q))}" aria-label="Include this raid: ${esc(q.name)}" ${selected.has(bsgId(q)) ? 'checked' : ''}><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</button></div></div>`).join('')}</div>
     <p class="map-note">Based on listed requirements. Key ownership and unlisted conditions aren't checked.</p>
   </details>`;
 }

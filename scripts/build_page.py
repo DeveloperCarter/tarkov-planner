@@ -20,6 +20,7 @@ import zipfile
 from pathlib import Path
 from etl_tarkov_dev import latest_snapshot, load_snapshot
 from career_data import catalog
+from effort import effort_facts
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "page" / "customs-raid-plan.template.html"
@@ -119,6 +120,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     attach_task_ids(data)
     validate(data)
     attach_wiki_flags(data)
+    attach_effort(data)
     attach_art(data, out_path)
     if not PROGRESSION.exists():
         sys.exit("data/progression.json missing; run python scripts/build_progression.py first")
@@ -150,6 +152,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS), ("QFILTER", ROOT / "page/quest-filter.js"),
+                         ("QEFFORT", ROOT / "page/quest-effort.js"),
                          ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
                          ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
         html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
@@ -219,6 +222,25 @@ def attach_wiki_flags(data: dict) -> None:
         if kappa is not None:
             q["kappa"] = kappa
             q["kappaSource"] = "wiki"
+
+
+_EFFORT = {}
+
+
+def mode_effort(mode: str) -> dict:
+    """Effort facts for every quest in one mode (scripts/effort.py), from all its map files."""
+    key = (ROOT, mode)
+    if key not in _EFFORT:
+        base = ROOT / 'data' / ('' if mode == 'regular' else 'pve') / 'maps'
+        _EFFORT[key] = effort_facts(sorted(p for p in base.glob('*.json') if p.name != 'index.json'))
+    return _EFFORT[key]
+
+
+def attach_effort(data: dict) -> None:
+    facts = mode_effort(data['meta'].get('gameMode', 'regular'))
+    for q in data['quests']:
+        if (f := facts.get(q.get('bsgId') or q['id'])):
+            q['effort'] = f
 
 
 def attach_art(data: dict, out_path: Path) -> None:
@@ -296,7 +318,8 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
             # Name, trader and wiki-confirmed Kappa flag, for the home page's quest filters.
             for q in source['quests']:
                 quests.setdefault(q.get('bsgId', q['id']), {"name": q['name'], "trader": q.get('trader', ''),
-                                                            "kappa": wiki_kappa(q.get('bsgId', q['id'])) is True})
+                                                            "kappa": wiki_kappa(q.get('bsgId', q['id'])) is True,
+                                                            "effort": mode_effort(mode).get(q.get('bsgId', q['id']))})
             if source['meta']['gameMode'] != mode or source['meta']['snapshot'] != index['snapshot']:
                 raise ValueError(f'{mode}/{row["key"]}: snapshot or mode does not match the index')
             maps.append({"name": row['name'], "key": row['key'], "ids": [q.get('bsgId', q['id']) for q in source['quests']],
@@ -308,7 +331,7 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
         build_career_data(mode)
     text = (ROOT / 'page' / 'home.template.html').read_text(encoding='utf-8')
     for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js'),
-                         ('QFILTER', ROOT / 'page' / 'quest-filter.js')]:
+                         ('QFILTER', ROOT / 'page' / 'quest-filter.js'), ('QEFFORT', ROOT / 'page' / 'quest-effort.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
     text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)
@@ -360,6 +383,7 @@ def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: 
                         'faction': raw.get('factionName') or task.get('faction') or mapped.get('faction') or 'Any',
                         'wiki': raw.get('wikiLink') or mapped.get('wiki') or task.get('wiki'),
                         'placeholder': bool(task.get('placeholder', False)),
+                        'effort': mode_effort(mode).get(tid),
                         'maps': sorted(locations.get(tid, {}).values(), key=lambda m: (m['name'].casefold(), m['key']))})
     results.sort(key=lambda task: (task['name'].casefold(), task['id']))
     if write:

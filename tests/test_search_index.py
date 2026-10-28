@@ -45,7 +45,7 @@ class SearchIndexTests(unittest.TestCase):
                 self.assertEqual(len(rows),4)
                 self.assertEqual([r['name'] for r in rows],['Alpha','New quest','No map quest','Shared quest'])
                 by_id={r['id']:r for r in rows}
-                self.assertEqual(set(rows[0]), {'id','name','trader','kappa','lightkeeper','minLevel','faction','wiki','placeholder','maps'})
+                self.assertEqual(set(rows[0]), {'id','name','trader','kappa','lightkeeper','minLevel','faction','wiki','placeholder','effort','maps'})
                 self.assertEqual(by_id['a']['minLevel'],42 if mode=='pve' else 5)
                 self.assertTrue(by_id['a']['kappa'])
                 self.assertEqual(by_id['a']['wiki'],'https://example.com/alpha')

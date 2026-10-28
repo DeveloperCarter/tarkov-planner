@@ -17,6 +17,17 @@
   const otherSide = e => faction && e.faction && e.faction !== "Any" && e.faction !== faction;
 
   // Your quest statuses for this mode's active profile, if the tracker is on this page.
+  // Easy wins use the active profile's saved level, else the page's default.
+  function assessEntries() {
+    if (!window.QuestEffort) return;
+    let level = typeof DATA !== "undefined" ? DATA?.meta?.player?.level ?? DATA?.player?.level ?? null : null;
+    try {
+      const key = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY))?.active?.[mode()];
+      const saved = Number(localStorage.getItem(`eft-player-level:${key}`));
+      if (key && Number.isInteger(saved) && saved >= 1 && saved <= 100) level = saved;
+    } catch (e) {}
+    for (const e of entries) { const a = QuestEffort.assess(e.effort, { level }); e.easy = a.easy; e.easyWhy = a.reasons.join(" · "); }
+  }
   function readStatuses() {
     try {
       const store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY));
@@ -64,9 +75,9 @@
     if (!entries) return;
     const f = allFilters();
     ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters: f, faction, limit: shown }));
-    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c.traders, { kappaCount: c.kappa }); }
+    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c.traders, { kappaCount: c.kappa, easyCount: c.easy }); }
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim(), listing = f.kappa || f.traders?.length || f.map;
+    const q = input.value.trim(), listing = f.kappa || f.easy || f.traders?.length || f.map;
     const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
     note.textContent = !results.length
       ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."
@@ -78,7 +89,7 @@
       const t = target(e), st = statuses[e.id];
       const tags = [e.trader, e.minLevel > 1 && `Lvl ${e.minLevel}`, e.faction && e.faction !== "Any" && `${e.faction} only`].filter(Boolean).map(esc).join(" · ");
       return `<li role="option" id="ss-o${i}" class="ss-row${otherSide(e) ? " other-side" : ""}" data-i="${i}" aria-selected="${i === active}">
-        <div class="ss-main"><span class="ss-name">${hl(e.name)}</span>${st ? `<span class="qst ${st}">${STATUS[st]}</span>` : ""}${e.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${e.placeholder ? `<span class="ss-new">New</span>` : ""}</div>
+        <div class="ss-main"><span class="ss-name">${hl(e.name)}</span>${st ? `<span class="qst ${st}">${STATUS[st]}</span>` : ""}${e.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${e.easy ? `<span class="emark" title="Easy win: ${esc(e.easyWhy)}">Easy</span>` : ""}${e.placeholder ? `<span class="ss-new">New</span>` : ""}</div>
         <div class="ss-meta"><span>${tags}</span>${t ? "" : `<span>No map objectives</span>`}</div>
         <div class="ss-maps">${mapLinks(e, t)}${e.wiki ? `<a href="${esc(e.wiki)}" target="_blank" rel="noopener" class="wiki">Wiki ↗</a>` : ""}</div>
       </li>`;
@@ -107,7 +118,7 @@
     ssEntry = Date.now() + Math.random(); // Back closes the search, as on a phone
     try { history.pushState({ siteSearch: ssEntry }, ""); } catch (e) {}
     entries = null; enterEarly = false; note.textContent = "Loading every quest…"; list.innerHTML = "";
-    try { entries = await load(); fillFilters(); render(); if (enterEarly && input.value.trim()) go(0); }
+    try { entries = await load(); assessEntries(); fillFilters(); render(); if (enterEarly && input.value.trim()) go(0); }
     catch (e) { indexes[mode()] = null; note.textContent = "Couldn't load the quest list. Check your connection, then try again."; }
   }
   function close() { if (dlg.open) dlg.close(); }

@@ -11,7 +11,8 @@
     const group = data.modes[mode];
     if (!group) return [];
     const info = group.quests || {};
-    const wanted = id => (!filter.traders?.length || filter.traders.includes(info[id]?.trader)) && (!filter.kappa || info[id]?.kappa === true);
+    const wanted = id => (!filter.traders?.length || filter.traders.includes(info[id]?.trader)) && (!filter.kappa || info[id]?.kappa === true) &&
+      (!filter.easy || info[id]?.easy === true);
     const scope = store.scopes[key];
     if (!scope || scope.mode !== mode) key = "";
     return group.maps.map(map => {
@@ -24,7 +25,7 @@
       const quests = map.ids.filter(id => result.quests[id] && wanted(id)).map(id => ({ id, ...result.quests[id] }));
       const here = quests.filter(q => q.current && listed.has(q.id)), multi = quests.filter(q => q.current && !listed.has(q.id));
       return { ...map, current: here.length, multiMap: multi.length, possible: quests.filter(q => q.possible).length,
-        matches: [...here, ...multi].map(q => ({ id: q.id, name: info[q.id]?.name || q.id, trader: info[q.id]?.trader || "", kappa: info[q.id]?.kappa === true })) };
+        matches: [...here, ...multi].map(q => ({ id: q.id, name: info[q.id]?.name || q.id, trader: info[q.id]?.trader || "", kappa: info[q.id]?.kappa === true, easy: info[q.id]?.easy === true })) };
     });
   }
   function freshness(snapshot, now = Date.now()) {
