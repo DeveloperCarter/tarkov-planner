@@ -867,6 +867,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__PRESETS__*/</script>
 <script>/*__QFILTER__*/</script>
 <script>/*__QEFFORT__*/</script>
+<script>/*__FLOORS__*/</script>
 <script>/*__QUEST_NAV__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
@@ -922,7 +923,7 @@ function renderSummary() {
   }
 }
 
-setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}${DATA.meta.art?.floors?.length > 1 ? "The floor buttons switch the plan; pins and extracts show every floor. " : ""}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Extracts: solid green to walk out, dashed orange when they need something; tap one for details.`);
+setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}${DATA.meta.art?.floors?.length > 1 ? "The floor buttons switch the plan and its area names; pins and extracts show every floor. " : ""}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Extracts: solid green to walk out, dashed orange when they need something; tap one for details.`);
 
 /* ---------- map: real art (or schematic), a numbered pin per selected quest, pan and zoom ---------- */
 const FR = DATA.meta.frame || { w: 1000, h: 520 };
@@ -964,19 +965,23 @@ function schematic() {
   return s;
 }
 // Our own floor plans (The Lab): one image per floor over the same rectangle, swapped in place.
+// The chosen floor also picks the area names (MapFloors); pins and extracts stay on every floor.
+let currentFloor = null;
 if (ART_RECT?.floors?.length) {
   const img = document.createElementNS(SVGNS, "image"), floors = document.getElementById("mapFloors");
   for (const [k, v] of Object.entries({ x: ART_RECT.x, y: ART_RECT.y, width: ART_RECT.w, height: ART_RECT.h, preserveAspectRatio: "none", class: "map-floor-art" })) img.setAttribute(k, v);
-  const showFloor = id => {
+  const showFloor = (id, redraw = true) => {
     const f = ART_RECT.floors.find(f => f.id === id) || ART_RECT.floors[0];
+    currentFloor = f;
     img.setAttribute("href", f.href);
     img.setAttribute("aria-label", `${f.name} plan`);
     floors.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.floor === f.id)));
+    if (redraw) renderMap();
   };
   floors.innerHTML = ART_RECT.floors.map(f => `<button type="button" data-floor="${esc(f.id)}" title="${esc(f.name)}" aria-label="${esc(f.name)}">${esc(f.label)}</button>`).join("");
   floors.hidden = ART_RECT.floors.length < 2;
   floors.addEventListener("click", e => { const b = e.target.closest("button[data-floor]"); if (b) showFloor(b.dataset.floor); });
-  showFloor(ART_RECT.floors[0].id);
+  showFloor(ART_RECT.floors[0].id, false);
   document.getElementById("mapBase").replaceChildren(img);
   stage.classList.add("has-art");
 }
@@ -1002,7 +1007,7 @@ function renderMap(active = currentRoute) {
   currentRoute = active;
   const z = DATA.zones;
   // Area names first, so extracts, routes and pins draw over them.
-  let s = (DATA.labels || []).map(l => `<g class="area-label" transform="translate(${l.x} ${l.y})" aria-hidden="true"><g class="glyph"><text>${esc(l.text)}</text></g></g>`).join("");
+  let s = MapFloors.labelsOn(DATA.labels, currentFloor).map(l => `<g class="area-label" transform="translate(${l.x} ${l.y})" aria-hidden="true"><g class="glyph"><text>${esc(l.text)}</text></g></g>`).join("");
   for (const e of DATA.extracts) {
     if (e.x == null || e.faction === "scav") continue;
     if (!mySide(e)) continue;

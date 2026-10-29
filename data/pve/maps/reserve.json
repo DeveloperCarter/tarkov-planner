@@ -1126,137 +1126,164 @@
   {
    "x": 601,
    "y": 456,
-   "text": "K Buildings"
+   "text": "K Buildings",
+   "bottom": -6
   },
   {
    "x": 667,
    "y": 808,
-   "text": "White Queen"
+   "text": "White Queen",
+   "bottom": -6
   },
   {
    "x": 765,
    "y": 699,
-   "text": "White Pawn"
+   "text": "White Pawn",
+   "bottom": -6
   },
   {
    "x": 810,
    "y": 565,
-   "text": "Black Bishop"
+   "text": "Black Bishop",
+   "bottom": -6
   },
   {
    "x": 719,
    "y": 546,
-   "text": "White Bishop"
+   "text": "White Bishop",
+   "bottom": -6
   },
   {
    "x": 697,
    "y": 603,
-   "text": "White King"
+   "text": "White King",
+   "bottom": -6
   },
   {
    "x": 618,
    "y": 570,
-   "text": "Black Knight"
+   "text": "Black Knight",
+   "bottom": -6
   },
   {
    "x": 533,
    "y": 546,
-   "text": "White Knight"
+   "text": "White Knight",
+   "bottom": -6
   },
   {
    "x": 450,
    "y": 429,
-   "text": "White Rook"
+   "text": "White Rook",
+   "bottom": -6
   },
   {
    "x": 435,
    "y": 398,
-   "text": "Train Station"
+   "text": "Train Station",
+   "bottom": -6
   },
   {
    "x": 841,
    "y": 654,
-   "text": "Black Pawn"
+   "text": "Black Pawn",
+   "bottom": -6
   },
   {
    "x": 428,
    "y": 307,
-   "text": "Barracks"
+   "text": "Barracks",
+   "bottom": -6
   },
   {
    "x": 910,
    "y": 567,
-   "text": "E1 Bunkers"
+   "text": "E1 Bunkers",
+   "bottom": -6
   },
   {
    "x": 420,
    "y": 580,
-   "text": "E2 Bunkers"
+   "text": "E2 Bunkers",
+   "bottom": -6
   },
   {
    "x": 536,
    "y": 375,
-   "text": "д - Warehouse Bunkers"
+   "text": "д - Warehouse Bunkers",
+   "bottom": -6
   },
   {
    "x": 516,
    "y": 621,
-   "text": "Garage"
+   "text": "Garage",
+   "bottom": -6
   },
   {
    "x": 566,
    "y": 659,
-   "text": "Mechanic"
+   "text": "Mechanic",
+   "bottom": -6
   },
   {
    "x": 599,
    "y": 620,
-   "text": "Gas Station"
+   "text": "Gas Station",
+   "bottom": -6
   },
   {
    "x": 674,
    "y": 397,
-   "text": "Shipping Yard"
+   "text": "Shipping Yard",
+   "bottom": -6
   },
   {
    "x": 637,
    "y": 495,
-   "text": "K1"
+   "text": "K1",
+   "bottom": -6
   },
   {
    "x": 553,
    "y": 471,
-   "text": "K2"
+   "text": "K2",
+   "bottom": -6
   },
   {
    "x": 642,
    "y": 466,
-   "text": "K3"
+   "text": "K3",
+   "bottom": -6
   },
   {
    "x": 561,
    "y": 444,
-   "text": "K4"
+   "text": "K4",
+   "bottom": -6
   },
   {
    "x": 649,
    "y": 440,
-   "text": "K5"
+   "text": "K5",
+   "bottom": -6
   },
   {
    "x": 568,
    "y": 419,
-   "text": "K6"
+   "text": "K6",
+   "bottom": -6
   },
   {
    "x": 646,
    "y": 801,
-   "text": "Dome"
+   "text": "Dome",
+   "bottom": -6
   },
   {
    "x": 785,
    "y": 629,
-   "text": "Tarmac"
+   "text": "Tarmac",
+   "bottom": -6
   }
  ],
  "bosses": [

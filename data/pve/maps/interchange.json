@@ -1471,387 +1471,541 @@
   {
    "x": 801,
    "y": 147,
-   "text": "Power Station"
+   "text": "Power Station",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 472,
    "y": 210,
-   "text": "Go Kart"
+   "text": "Go Kart",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 469,
    "y": 378,
-   "text": "Four Camp"
+   "text": "Four Camp",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 556,
    "y": 756,
-   "text": "Cargo Containers"
+   "text": "Cargo Containers",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 873,
    "y": 573,
-   "text": "Wall Break"
+   "text": "Wall Break",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 791,
    "y": 594,
-   "text": "Ramps"
+   "text": "Ramps",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 427,
    "y": 665,
-   "text": "Oli Tower"
+   "text": "Oli Tower",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 577,
    "y": 108,
-   "text": "Idea Tower"
+   "text": "Idea Tower",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 368,
    "y": 443,
-   "text": "Scav Camp"
+   "text": "Scav Camp",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 262,
    "y": 77,
-   "text": "Highway Construction"
+   "text": "Highway Construction",
+   "top": 10,
+   "bottom": -1
   },
   {
    "x": 590,
    "y": 240,
-   "text": "Garage A"
+   "text": "Garage A",
+   "top": 24,
+   "bottom": -1000
   },
   {
    "x": 576,
    "y": 346,
-   "text": "Garage B"
+   "text": "Garage B",
+   "top": 24,
+   "bottom": -1000
   },
   {
    "x": 622,
    "y": 499,
-   "text": "Garage C"
+   "text": "Garage C",
+   "top": 24,
+   "bottom": -1000
   },
   {
    "x": 602,
    "y": 587,
-   "text": "Garage D"
+   "text": "Garage D",
+   "top": 24,
+   "bottom": -1000
   },
   {
    "x": 654,
    "y": 227,
-   "text": "IDEA"
+   "text": "IDEA",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 733,
    "y": 411,
-   "text": "Goshan"
+   "text": "Goshan",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 649,
    "y": 589,
-   "text": "OLI"
+   "text": "OLI",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 538,
    "y": 295,
-   "text": "Nortex"
+   "text": "Nortex",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 564,
    "y": 307,
-   "text": "TRend"
+   "text": "TRend",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 555,
    "y": 325,
-   "text": "Mode7"
+   "text": "Mode7",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 603,
    "y": 330,
-   "text": "TTS"
+   "text": "TTS",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 658,
    "y": 330,
-   "text": "Book Store"
+   "text": "Book Store",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 534,
    "y": 339,
-   "text": "Dino Clothes"
+   "text": "Dino Clothes",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 604,
    "y": 355,
-   "text": "EMERCOM"
+   "text": "EMERCOM",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 649,
    "y": 355,
-   "text": "Kostin"
+   "text": "Kostin",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 684,
    "y": 355,
-   "text": "Bizarro"
+   "text": "Bizarro",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 533,
    "y": 370,
-   "text": "Spiel"
+   "text": "Spiel",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 639,
    "y": 370,
-   "text": "Voyage"
+   "text": "Voyage",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 567,
    "y": 390,
-   "text": "Viking"
+   "text": "Viking",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 609,
    "y": 390,
-   "text": "Mantis"
+   "text": "Mantis",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 639,
    "y": 385,
-   "text": "German"
+   "text": "German",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 567,
    "y": 423,
-   "text": "The National"
+   "text": "The National",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 609,
    "y": 423,
-   "text": "Brutal"
+   "text": "Brutal",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 639,
    "y": 430,
-   "text": "Kiba"
+   "text": "Kiba",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 654,
    "y": 435,
-   "text": "Pretty Lights"
+   "text": "Pretty Lights",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 533,
    "y": 437,
-   "text": "Telespot"
+   "text": "Telespot",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 562,
    "y": 442,
-   "text": "Revis"
+   "text": "Revis",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 603,
    "y": 448,
-   "text": "ADIK"
+   "text": "ADIK",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 649,
    "y": 454,
-   "text": "Generic"
+   "text": "Generic",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 533,
    "y": 468,
-   "text": "Top Brand"
+   "text": "Top Brand",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 563,
    "y": 468,
-   "text": "Sports"
+   "text": "Sports",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 554,
    "y": 485,
-   "text": "Yushka"
+   "text": "Yushka",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 603,
    "y": 479,
-   "text": "Rasmussen"
+   "text": "Rasmussen",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 657,
    "y": 479,
-   "text": "Avokado"
+   "text": "Avokado",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 534,
    "y": 507,
-   "text": "Boots 4 Life"
+   "text": "Boots 4 Life",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 563,
    "y": 502,
-   "text": "Texho"
+   "text": "Texho",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 616,
    "y": 501,
-   "text": "Dom"
+   "text": "Dom",
+   "top": 33,
+   "bottom": 25
   },
   {
    "x": 585,
    "y": 290,
-   "text": "Father & Sons"
+   "text": "Father & Sons",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 555,
    "y": 309,
-   "text": "Tarkovstar"
+   "text": "Tarkovstar",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 597,
    "y": 310,
-   "text": "Eastland"
+   "text": "Eastland",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 553,
    "y": 329,
-   "text": "Arena"
+   "text": "Arena",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 570,
    "y": 331,
-   "text": "ТАРЗДРАВ"
+   "text": "ТАРЗДРАВ",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 602,
    "y": 331,
-   "text": "МЕБЕЛЬ МК"
+   "text": "МЕБЕЛЬ МК",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 555,
    "y": 342,
-   "text": "Intourist"
+   "text": "Intourist",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 648,
    "y": 355,
-   "text": "Burger Spot"
+   "text": "Burger Spot",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 554,
    "y": 363,
-   "text": "FCK"
+   "text": "FCK",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 554,
    "y": 370,
-   "text": "McDaniels"
+   "text": "McDaniels",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 560,
    "y": 387,
-   "text": "Tarducks"
+   "text": "Tarducks",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 580,
    "y": 387,
-   "text": "Coffee Joy"
+   "text": "Coffee Joy",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 607,
    "y": 383,
-   "text": "Jacob & Jacob"
+   "text": "Jacob & Jacob",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 654,
    "y": 378,
-   "text": "ПУШКИН"
+   "text": "ПУШКИН",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 560,
    "y": 421,
-   "text": "Sushi Huyushi"
+   "text": "Sushi Huyushi",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 638,
    "y": 423,
-   "text": "Underway"
+   "text": "Underway",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 557,
    "y": 431,
-   "text": "Burger House"
+   "text": "Burger House",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 654,
    "y": 431,
-   "text": "Philly Cute"
+   "text": "Philly Cute",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 557,
    "y": 439,
-   "text": "Shiccos"
+   "text": "Shiccos",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 605,
    "y": 454,
-   "text": "МУЗЕЙ ИСТОРИИ"
+   "text": "МУЗЕЙ ИСТОРИИ",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 533,
    "y": 470,
-   "text": "Papillon"
+   "text": "Papillon",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 566,
    "y": 466,
-   "text": "ЗАКРЫТО НА РЕМОНТ"
+   "text": "ЗАКРЫТО НА РЕМОНТ",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 554,
    "y": 480,
-   "text": "НА-СВЯЗИ"
+   "text": "НА-СВЯЗИ",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 570,
    "y": 477,
-   "text": "СКОРО ОТКРЫТИЕ"
+   "text": "СКОРО ОТКРЫТИЕ",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 603,
    "y": 479,
-   "text": "Figaro"
+   "text": "Figaro",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 553,
    "y": 499,
-   "text": "АПТЕКА"
+   "text": "АПТЕКА",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 571,
    "y": 499,
-   "text": "SARA"
+   "text": "SARA",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 597,
    "y": 498,
-   "text": "Urban Clothes"
+   "text": "Urban Clothes",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 534,
    "y": 506,
-   "text": "TECHLIGHT"
+   "text": "TECHLIGHT",
+   "top": 999,
+   "bottom": 34
   },
   {
    "x": 584,
    "y": 519,
-   "text": "Fashion Store"
+   "text": "Fashion Store",
+   "top": 999,
+   "bottom": 34
   }
  ],
  "bosses": [

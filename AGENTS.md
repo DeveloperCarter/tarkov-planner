@@ -28,6 +28,7 @@ scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
 page/quest-filter.js           the one site-wide quest filter (traders widen, Kappa and Easy narrow), its chips and storage (tested)
 page/quest-effort.js           easy-win judgement of a quest's effort facts with the player's level (tested)
+page/map-floors.js             which area names show on the chosen floor, by height range (pure, tested)
 scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and how to buy them) for every page
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
 scripts/refresh_site.py        both-mode refresh, cached wiki comparisons, release build and validation
@@ -227,6 +228,9 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   by construction. The tiles store walls as thin transparent lines; the plans keep only walls, room
   tones, planters and large fixtures. Image models redrawing the reference drifted 50–200 px in three
   attempts; don't use them for map geometry. Floors aren't assigned to pins: zones carry no height.
+  Area names are: the ETL keeps tarkov.dev's label `top`/`bottom` (metres) where given (Lab, Factory,
+  Interchange, Reserve, Shoreline, some Ground Zero), each floor in `data/art/the-lab.json` has the
+  layer's `height` range, and `page/map-floors.js` shows labels whose open range overlaps the floor's.
   build_page.py prefers these plans over cached art and ships them as `meta.art.floors`
   (first = default); the page swaps the `<image>` with the floor buttons and darkens it in dark theme.
 - Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no

@@ -1143,137 +1143,191 @@
   {
    "x": 227,
    "y": 533,
-   "text": "Office Building"
+   "text": "Office Building",
+   "top": 10000,
+   "bottom": -1
   },
   {
    "x": 227,
    "y": 569,
-   "text": "Main Office"
+   "text": "Main Office",
+   "top": 10000,
+   "bottom": 6
   },
   {
    "x": 227,
    "y": 510,
-   "text": "Breach Room"
+   "text": "Breach Room",
+   "top": 10000,
+   "bottom": 6
   },
   {
    "x": 227,
    "y": 470,
-   "text": "Locked Office"
+   "text": "Locked Office",
+   "top": 10000,
+   "bottom": 6
   },
   {
    "x": 227,
    "y": 440,
-   "text": "North Stairs"
+   "text": "North Stairs",
+   "top": 10000,
+   "bottom": -1
   },
   {
    "x": 227,
    "y": 612,
-   "text": "South Stairs"
+   "text": "South Stairs",
+   "top": 10000,
+   "bottom": -1
   },
   {
    "x": 313,
    "y": 447,
-   "text": "Sky Bridge"
+   "text": "Sky Bridge",
+   "top": 10000,
+   "bottom": 6
   },
   {
    "x": 372,
    "y": 477,
-   "text": "Connector"
+   "text": "Connector",
+   "top": 10000,
+   "bottom": -1
   },
   {
    "x": 214,
    "y": 480,
-   "text": "Locker Rooms"
+   "text": "Locker Rooms",
+   "top": 5,
+   "bottom": 3
   },
   {
    "x": 214,
    "y": 572,
-   "text": "Sinks"
+   "text": "Sinks",
+   "top": 5,
+   "bottom": 3
   },
   {
    "x": 207,
    "y": 539,
-   "text": "Hole"
+   "text": "Hole",
+   "top": 5,
+   "bottom": 3
   },
   {
    "x": 240,
    "y": 691,
-   "text": "Platform"
+   "text": "Platform",
+   "top": 5,
+   "bottom": -1
   },
   {
    "x": 306,
    "y": 809,
-   "text": "Servers"
+   "text": "Servers",
+   "top": 5,
+   "bottom": 3
   },
   {
    "x": 675,
    "y": 789,
-   "text": "Med Tent"
+   "text": "Med Tent",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 415,
    "y": 641,
-   "text": "Silos"
+   "text": "Silos",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 540,
    "y": 473,
-   "text": "Heli Crash"
+   "text": "Heli Crash",
+   "top": 10000,
+   "bottom": -1
   },
   {
    "x": 378,
    "y": 677,
-   "text": "Pit"
+   "text": "Pit",
+   "top": -2,
+   "bottom": -10000
   },
   {
    "x": 645,
    "y": 684,
-   "text": "Underground Stash"
+   "text": "Underground Stash",
+   "top": -2,
+   "bottom": -10000
   },
   {
    "x": 332,
    "y": 806,
-   "text": "Scav Bunker"
+   "text": "Scav Bunker",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 155,
    "y": 789,
-   "text": "Blue Containers"
+   "text": "Blue Containers",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 82,
    "y": 970,
-   "text": "Wood Room"
+   "text": "Wood Room",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 615,
    "y": 222,
-   "text": "Glass Hall"
+   "text": "Glass Hall",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 451,
    "y": 302,
-   "text": "Boilers"
+   "text": "Boilers",
+   "top": 5,
+   "bottom": -1
   },
   {
    "x": 556,
    "y": 401,
-   "text": "Pumping Station"
+   "text": "Pumping Station",
+   "top": 5,
+   "bottom": -1
   },
   {
    "x": 721,
    "y": 381,
-   "text": "East Halls"
+   "text": "East Halls",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 760,
    "y": 236,
-   "text": "Forklifts"
+   "text": "Forklifts",
+   "top": 2,
+   "bottom": -1
   },
   {
    "x": 457,
    "y": 552,
-   "text": "Rafters"
+   "text": "Rafters",
+   "top": 10000,
+   "bottom": 6
   }
  ],
  "bosses": [

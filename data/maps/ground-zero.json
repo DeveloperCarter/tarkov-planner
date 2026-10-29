@@ -1117,12 +1117,16 @@
   {
    "x": 159,
    "y": 907,
-   "text": "Oasis"
+   "text": "Oasis",
+   "top": 30,
+   "bottom": 22
   },
   {
    "x": 159,
    "y": 826,
-   "text": "ASAP Winery"
+   "text": "ASAP Winery",
+   "top": 27,
+   "bottom": 22
   },
   {
    "x": 237,
@@ -1142,7 +1146,9 @@
   {
    "x": 298,
    "y": 846,
-   "text": "Science Office"
+   "text": "Science Office",
+   "top": 28,
+   "bottom": 28
   }
  ],
  "bosses": [],

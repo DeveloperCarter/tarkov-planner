@@ -484,7 +484,9 @@ class Normalizer:
 
         frame_pts = [en(s["position"]) for s in m["spawns"]] + [en(e["position"]) for e in m["extracts"]]
         frame_pts += [en(c["position"]) for c in m.get("lootContainers", [])]
-        labels = [{"text": l["text"], "en": en({"x": l["position"][0], "z": l["position"][1]})}
+        # top/bottom: the label's height range in metres, on maps with floors (The Lab, Factory, ...).
+        labels = [{"text": l["text"], "en": en({"x": l["position"][0], "z": l["position"][1]}),
+                   **{k: l[k] for k in ("top", "bottom") if l.get(k) is not None}}
                   for l in site.get("labels", []) if isinstance(l.get("position"), list) and l.get("text")]
         frame_pts += [l["en"] for l in labels]
         if not frame_pts:
@@ -544,7 +546,8 @@ class Normalizer:
             "spawns": spawns,
             "spawnAreas": spawn_areas,
             # Common area names (tarkov-dev map labels) for the spawn picker.
-            "labels": [dict(zip(("x", "y"), frame.xy(l["en"])), text=l["text"]) for l in labels],
+            "labels": [dict(zip(("x", "y"), frame.xy(l["en"])), text=l["text"], **{k: l[k] for k in ("top", "bottom") if k in l})
+                       for l in labels],
             "bosses": self.build_bosses(m),
             "quests": quests,
             "acquisition": self.build_acquisition(quests, m),

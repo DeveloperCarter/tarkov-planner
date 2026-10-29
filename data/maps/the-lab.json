@@ -817,157 +817,219 @@
   {
    "x": 257,
    "y": 237,
-   "text": "Parking"
+   "text": "Parking",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 340,
    "y": 174,
-   "text": "Vestibules #1"
+   "text": "Vestibules #1",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 340,
    "y": 292,
-   "text": "Vestibules #2"
+   "text": "Vestibules #2",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 486,
    "y": 466,
-   "text": "Main Working Area"
+   "text": "Main Working Area",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 265,
    "y": 560,
-   "text": "Negotiation Room"
+   "text": "Negotiation Room",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 265,
    "y": 631,
-   "text": "Infirmary Lvl 1"
+   "text": "Infirmary Lvl 1",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 430,
    "y": 631,
-   "text": "Test Room"
+   "text": "Test Room",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 619,
    "y": 650,
-   "text": "Server Room"
+   "text": "Server Room",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 785,
    "y": 686,
-   "text": "Warehouse Tunnels"
+   "text": "Warehouse Tunnels",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 773,
    "y": 501,
-   "text": "Warehouse"
+   "text": "Warehouse",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 855,
    "y": 473,
-   "text": "Warehouse Gate"
+   "text": "Warehouse Gate",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 631,
    "y": 328,
-   "text": "Lecture Hall"
+   "text": "Lecture Hall",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 482,
    "y": 273,
-   "text": "Recreation Area"
+   "text": "Recreation Area",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 643,
    "y": 214,
-   "text": "Gym"
+   "text": "Gym",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 729,
    "y": 194,
-   "text": "Men's Locker Room"
+   "text": "Men's Locker Room",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 729,
    "y": 229,
-   "text": "Women's Locker Room"
+   "text": "Women's Locker Room",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 391,
    "y": 123,
-   "text": "Boiler Room"
+   "text": "Boiler Room",
+   "top": 2,
+   "bottom": -1000
   },
   {
    "x": 576,
    "y": 119,
-   "text": "Security Barracks"
+   "text": "Security Barracks",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 486,
    "y": 119,
-   "text": "Reception"
+   "text": "Reception",
+   "top": 2,
+   "bottom": -0.8
   },
   {
    "x": 399,
    "y": 119,
-   "text": "Administrative Office"
+   "text": "Administrative Office",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 572,
    "y": 143,
-   "text": "Security Office"
+   "text": "Security Office",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 344,
    "y": 182,
-   "text": "Security #1"
+   "text": "Security #1",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 340,
    "y": 296,
-   "text": "Security #2"
+   "text": "Security #2",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 482,
    "y": 241,
-   "text": "Conference Room"
+   "text": "Conference Room",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 643,
    "y": 281,
-   "text": "Cafeteria"
+   "text": "Cafeteria",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 253,
    "y": 399,
-   "text": "Offices #1"
+   "text": "Offices #1",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 253,
    "y": 556,
-   "text": "Offices #2"
+   "text": "Offices #2",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 253,
    "y": 631,
-   "text": "Infirmary Lvl 2"
+   "text": "Infirmary Lvl 2",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 411,
    "y": 631,
-   "text": "Sterile Laboratory"
+   "text": "Sterile Laboratory",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 698,
    "y": 477,
-   "text": "Control Room"
+   "text": "Control Room",
+   "top": 1000,
+   "bottom": 3
   },
   {
    "x": 726,
    "y": 159,
-   "text": "Corridor To Building #2"
+   "text": "Corridor To Building #2",
+   "top": 1000,
+   "bottom": 3
   }
  ],
  "bosses": [

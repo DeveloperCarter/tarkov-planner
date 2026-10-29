@@ -65,7 +65,7 @@ class SitePipelineTests(unittest.TestCase):
             for f in ('1st', 'technical'):
                 (floors / 'the-lab' / f'{f}.png').write_bytes(b'png')
             (floors / 'the-lab.json').write_text(json.dumps({'floors': [
-                {'id': '1st', 'label': '1st', 'name': 'Ground floor', 'file': 'the-lab/1st.png'},
+                {'id': '1st', 'label': '1st', 'name': 'Ground floor', 'file': 'the-lab/1st.png', 'height': [-0.9, 3]},
                 {'id': '2nd', 'label': '2nd', 'name': 'Second level', 'file': 'the-lab/2nd.png'},
                 {'id': 'technical', 'label': 'Technical', 'name': 'Technical level', 'file': 'the-lab/technical.png'}]}))
             data = {'meta': {'key': 'the-lab', 'art': {'x': -45.7, 'y': 13, 'w': 1117.5, 'h': 814.5}, 'sources': []}, 'quests': []}
@@ -74,6 +74,8 @@ class SitePipelineTests(unittest.TestCase):
                 self.assertEqual(data['meta']['art']['href'], '../../art/the-lab/1st.png')
                 self.assertEqual([f['id'] for f in data['meta']['art']['floors']], ['1st', 'technical'], 'a missing file is left out')
                 self.assertEqual(data['meta']['art']['floors'][1]['label'], 'Technical')
+                self.assertEqual(data['meta']['art']['floors'][0]['height'], [-0.9, 3], 'the page picks area names by height')
+                self.assertNotIn('height', data['meta']['art']['floors'][1])
                 self.assertTrue((root / 'dist' / 'art' / 'the-lab' / 'technical.png').exists())
                 self.assertEqual(data['meta']['sources'], [], 'our own plans need no third-party credit')
                 bare = {'meta': {'key': 'the-lab', 'art': None, 'sources': []}, 'quests': []}

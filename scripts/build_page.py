@@ -153,7 +153,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS), ("QFILTER", ROOT / "page/quest-filter.js"),
-                         ("QEFFORT", ROOT / "page/quest-effort.js"),
+                         ("QEFFORT", ROOT / "page/quest-effort.js"), ("FLOORS", ROOT / "page/map-floors.js"),
                          ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
                          ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
         html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
@@ -263,7 +263,7 @@ def attach_art(data: dict, out_path: Path) -> None:
     # Our own floor plans (The Lab) cover the same rectangle as tarkov.dev's art; the first is the default.
     floors_path = FLOOR_ART / f"{meta.get('key')}.json"
     floors = json.loads(floors_path.read_text(encoding="utf-8"))["floors"] if meta.get("art") and floors_path.exists() else []
-    floors = [{**{k: f[k] for k in ("id", "label", "name")}, "href": h} for f in floors if (h := ship(f["file"], FLOOR_ART))]
+    floors = [{**{k: f[k] for k in ("id", "label", "name", "height") if k in f}, "href": h} for f in floors if (h := ship(f["file"], FLOOR_ART))]
     entry = manifest.get("maps", {}).get(meta.get("key"))
     href = meta.get("art") and entry and ship(entry["file"])
     if floors:

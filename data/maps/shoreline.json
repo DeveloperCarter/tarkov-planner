@@ -1704,102 +1704,142 @@
   {
    "x": 490,
    "y": 227,
-   "text": "Resort"
+   "text": "Resort",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 464,
    "y": 383,
-   "text": "Power Station"
+   "text": "Power Station",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 447,
    "y": 534,
-   "text": "Gas Station"
+   "text": "Gas Station",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 639,
    "y": 432,
-   "text": "Weather Station"
+   "text": "Weather Station",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 772,
    "y": 330,
-   "text": "Radio Tower"
+   "text": "Radio Tower",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 125,
    "y": 197,
-   "text": "Swamp"
+   "text": "Swamp",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 67,
    "y": 345,
-   "text": "Village"
+   "text": "Village",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 149,
    "y": 361,
-   "text": "Cabins"
+   "text": "Cabins",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 249,
    "y": 329,
-   "text": "Cottages"
+   "text": "Cottages",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 551,
    "y": 389,
-   "text": "Tank Bridge"
+   "text": "Tank Bridge",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 541,
    "y": 600,
-   "text": "Pier"
+   "text": "Pier",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 194,
    "y": 536,
-   "text": "Scav Island"
+   "text": "Scav Island",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 389,
    "y": 268,
-   "text": "Bus Stop"
+   "text": "Bus Stop",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 296,
    "y": 355,
-   "text": "Construction"
+   "text": "Construction",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 425,
    "y": 90,
-   "text": "Bunker"
+   "text": "Bunker",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 720,
    "y": 574,
-   "text": "Crane"
+   "text": "Crane",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 718,
    "y": 145,
-   "text": "Scav Farm"
+   "text": "Scav Farm",
+   "top": -2,
+   "bottom": -4
   },
   {
    "x": 436,
    "y": 219,
-   "text": "West Wing"
+   "text": "West Wing",
+   "top": 100,
+   "bottom": -100
   },
   {
    "x": 535,
    "y": 219,
-   "text": "East Wing"
+   "text": "East Wing",
+   "top": 100,
+   "bottom": -100
   },
   {
    "x": 486,
    "y": 180,
-   "text": "Admin"
+   "text": "Admin",
+   "top": 100,
+   "bottom": -100
   }
  ],
  "bosses": [
