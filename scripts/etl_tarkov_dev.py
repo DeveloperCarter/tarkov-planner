@@ -301,6 +301,12 @@ class Frame:
         return self.pad + (e - self.e0) * self.scale, self.pad + (self.n1 - n) * self.scale
 
 
+def game_position(pos: dict) -> dict:
+    """Raw game x/z (as zones and spawns keep them) and height y, to 0.1 m; the page picks a floor by them.
+    Without a height the page shows the extract on every floor."""
+    return {"gx": round(pos["x"], 1), "gz": round(pos["z"], 1), **({"gy": round(pos["y"], 1)} if pos.get("y") is not None else {})}
+
+
 def art_rect(site: dict, frame: Frame, en) -> dict | None:
     """Where a map's art sits in this frame. tarkov.dev stretches the SVG over the projected
     corners of svgBounds (or bounds), given as [x, z] game positions, after the same rotation we use.
@@ -769,7 +775,7 @@ class Normalizer:
                       '; '.join(details['unclassified']), file=sys.stderr)
             x, y = frame.xy(en(e["position"]))
             out.append({"id": slug(e["name"]), "name": name, "faction": faction,
-                        "x": x, "y": y, "rule": f"{(faction or 'any').upper()} extract", **details,
+                        "x": x, "y": y, **game_position(e["position"]), "rule": f"{(faction or 'any').upper()} extract", **details,
                         'detailsSource': m.get('wiki')})
         for t in m.get("transits", []):
             x, y = frame.xy(en(t["position"]))
@@ -785,7 +791,7 @@ class Normalizer:
                 details['unclassified'] = ['Transit timing or conditions not verified']
                 print(f"  UNCLASSIFIED {self.mode}/{m['normalizedName']}: {name}: Transit timing or conditions not verified", file=sys.stderr)
             out.append({"id": f"transit-{t['id']}", "name": self.tr(t["description"]), "faction": "shared",
-                        "x": x, "y": y, "rule": "Transit to another map", **details})
+                        "x": x, "y": y, **game_position(t["position"]), "rule": "Transit to another map", **details})
         return out
 
     def build_bosses(self, m: dict) -> list:

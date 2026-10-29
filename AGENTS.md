@@ -231,6 +231,12 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   Area names are: the ETL keeps tarkov.dev's label `top`/`bottom` (metres) where given (Lab, Factory,
   Interchange, Reserve, Shoreline, some Ground Zero), each floor in `data/art/the-lab.json` has the
   layer's `height` range, and `page/map-floors.js` shows labels whose open range overlaps the floor's.
+  Extracts are too: every extract and transit carries raw game `gx`/`gz` and height `gy` (0.1 m), and
+  `MapFloors.floorOf` assigns them like tarkov.dev's layers: the first floor whose `extents` (height
+  [low, high), optional `bounds` boxes in game x/z) hold the point, else the `base` floor. The Lab's
+  Second Level box covers only the north-west block, so Hangar and Parking Gate (above 3 m) stay on
+  the ground floor and only Cargo Elevator is on the second level. Opening an extract from the raid
+  panel turns the map to its floor.
   build_page.py prefers these plans over cached art and ships them as `meta.art.floors`
   (first = default); the page swaps the `<image>` with the floor buttons and darkens it in dark theme.
 - Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no

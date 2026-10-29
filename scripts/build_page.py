@@ -263,7 +263,7 @@ def attach_art(data: dict, out_path: Path) -> None:
     # Our own floor plans (The Lab) cover the same rectangle as tarkov.dev's art; the first is the default.
     floors_path = FLOOR_ART / f"{meta.get('key')}.json"
     floors = json.loads(floors_path.read_text(encoding="utf-8"))["floors"] if meta.get("art") and floors_path.exists() else []
-    floors = [{**{k: f[k] for k in ("id", "label", "name", "height") if k in f}, "href": h} for f in floors if (h := ship(f["file"], FLOOR_ART))]
+    floors = [{**{k: f[k] for k in ("id", "label", "name", "height", "extents", "base") if k in f}, "href": h} for f in floors if (h := ship(f["file"], FLOOR_ART))]
     entry = manifest.get("maps", {}).get(meta.get("key"))
     href = meta.get("art") and entry and ship(entry["file"])
     if floors:

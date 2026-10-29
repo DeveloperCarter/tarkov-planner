@@ -1,7 +1,9 @@
 {
  "floors": [
-  {"id": "1st", "label": "1st", "name": "Ground floor", "file": "the-lab/1st.png", "height": [-0.9, 3]},
-  {"id": "2nd", "label": "2nd", "name": "Second level", "file": "the-lab/2nd.png", "height": [3, 10000]},
-  {"id": "technical", "label": "Technical", "name": "Technical level", "file": "the-lab/technical.png", "height": [-10000, -0.9]}
+  {"id": "1st", "label": "1st", "name": "Ground floor", "file": "the-lab/1st.png", "height": [-0.9, 3], "base": true},
+  {"id": "2nd", "label": "2nd", "name": "Second level", "file": "the-lab/2nd.png", "height": [3, 10000],
+   "extents": [{"height": [3, 10000], "bounds": [[[-101, -422], [-271, -270]]]}]},
+  {"id": "technical", "label": "Technical", "name": "Technical level", "file": "the-lab/technical.png", "height": [-10000, -0.9],
+   "extents": [{"height": [-10000, -0.9]}]}
  ]
 }

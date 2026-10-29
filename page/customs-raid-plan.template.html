@@ -923,7 +923,7 @@ function renderSummary() {
   }
 }
 
-setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}${DATA.meta.art?.floors?.length > 1 ? "The floor buttons switch the plan and its area names; pins and extracts show every floor. " : ""}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Extracts: solid green to walk out, dashed orange when they need something; tap one for details.`);
+setText("mapNote", DATA.meta.mapNote || `${DATA.meta.art?.href ? "" : "Schematic from tarkov.dev positions; north is up. "}${DATA.meta.art?.floors?.length > 1 ? "The floor buttons switch the plan, its area names and extracts; quest pins show every floor. " : ""}Drag to move, pinch or Ctrl + scroll to zoom. Each selected quest has its own colour and number; tap a pin for the objective and photos. Extracts: solid green to walk out, dashed orange when they need something; tap one for details.`);
 
 /* ---------- map: real art (or schematic), a numbered pin per selected quest, pan and zoom ---------- */
 const FR = DATA.meta.frame || { w: 1000, h: 520 };
@@ -965,8 +965,8 @@ function schematic() {
   return s;
 }
 // Our own floor plans (The Lab): one image per floor over the same rectangle, swapped in place.
-// The chosen floor also picks the area names (MapFloors); pins and extracts stay on every floor.
-let currentFloor = null;
+// The chosen floor also picks the area names and extracts (MapFloors); quest pins stay on every floor.
+let currentFloor = null, showFloorOf = () => {};
 if (ART_RECT?.floors?.length) {
   const img = document.createElementNS(SVGNS, "image"), floors = document.getElementById("mapFloors");
   for (const [k, v] of Object.entries({ x: ART_RECT.x, y: ART_RECT.y, width: ART_RECT.w, height: ART_RECT.h, preserveAspectRatio: "none", class: "map-floor-art" })) img.setAttribute(k, v);
@@ -976,12 +976,16 @@ if (ART_RECT?.floors?.length) {
     img.setAttribute("href", f.href);
     img.setAttribute("aria-label", `${f.name} plan`);
     floors.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.floor === f.id)));
+    // An open extract that isn't on this floor closes with its pin.
+    if (redraw && popEx && !MapFloors.extractsOn([exById[popEx]], f, ART_RECT.floors).length) closePop();
     if (redraw) renderMap();
   };
   floors.innerHTML = ART_RECT.floors.map(f => `<button type="button" data-floor="${esc(f.id)}" title="${esc(f.name)}" aria-label="${esc(f.name)}">${esc(f.label)}</button>`).join("");
   floors.hidden = ART_RECT.floors.length < 2;
   floors.addEventListener("click", e => { const b = e.target.closest("button[data-floor]"); if (b) showFloor(b.dataset.floor); });
   showFloor(ART_RECT.floors[0].id, false);
+  // Opening an extract from the raid panel turns the map to its floor.
+  showFloorOf = point => { const f = MapFloors.floorOf(point, ART_RECT.floors); if (f && f !== currentFloor) showFloor(f.id); };
   document.getElementById("mapBase").replaceChildren(img);
   stage.classList.add("has-art");
 }
@@ -1008,7 +1012,7 @@ function renderMap(active = currentRoute) {
   const z = DATA.zones;
   // Area names first, so extracts, routes and pins draw over them.
   let s = MapFloors.labelsOn(DATA.labels, currentFloor).map(l => `<g class="area-label" transform="translate(${l.x} ${l.y})" aria-hidden="true"><g class="glyph"><text>${esc(l.text)}</text></g></g>`).join("");
-  for (const e of DATA.extracts) {
+  for (const e of MapFloors.extractsOn(DATA.extracts, currentFloor, ART_RECT?.floors)) {
     if (e.x == null || e.faction === "scav") continue;
     if (!mySide(e)) continue;
     s += `<g class="pin ex${exReq(e) ? " req" : ""}${popEx === e.id ? " active" : ""}" data-ex="${esc(e.id)}" transform="translate(${e.x} ${e.y})" tabindex="0" role="button" aria-label="${esc(e.name)}: ${esc(exNeed(e))}"><g class="glyph"><rect x="-6" y="-6" width="12" height="12" rx="2"/><text x="10" y="4">${esc(e.name)}</text></g></g>`;
@@ -2016,7 +2020,7 @@ rpBody.addEventListener("click", e => {
   const q = e.target.closest("[data-rp-fit]");
   if (q) { const zones = RaidFocus.facts(DATA.quests.find(x => bsgId(x) === q.dataset.rpFit)).zones; return fit(true, zones.length ? zones : undefined); }
   const ex = exById[e.target.closest("[data-rp-ex]")?.dataset.rpEx];
-  if (ex) { fit(true, null, ex.switch?.x != null ? [ex, ex.switch] : [ex]); openExPop(ex.id); }
+  if (ex) { showFloorOf(ex); fit(true, null, ex.switch?.x != null ? [ex, ex.switch] : [ex]); openExPop(ex.id); }
 });
 
 /* ---------- raid focus presets (selection only) ---------- */
