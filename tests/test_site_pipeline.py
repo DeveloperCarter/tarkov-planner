@@ -29,6 +29,9 @@ class SitePipelineTests(unittest.TestCase):
         self.assertEqual(etl.art_rect(site, frame, en), {'x': 0, 'y': 0, 'w': 1000.0, 'h': 500.0})
         self.assertIsNone(etl.art_rect({**site, 'transform': [2, 0, 3, 0]}, frame, en))
         self.assertIsNone(etl.art_rect({**site, 'svgPath': None}, frame, en))
+        tiled = {**site, 'svgPath': None, 'tilePath': 'https://example/{z}/{x}/{y}.png'}
+        self.assertEqual(etl.art_rect(tiled, frame, en), {'x': 0, 'y': 0, 'w': 1000.0, 'h': 500.0},
+                         'tiled maps (The Lab) place our own floor art over their bounds')
         narrow = etl.art_rect({**site, 'svgBounds': [[-50, 0], [-100, -50]]}, frame, en)
         self.assertEqual(narrow['x'], 500.0, 'svgBounds wins over bounds')
 
@@ -52,6 +55,30 @@ class SitePipelineTests(unittest.TestCase):
                 bare = {'meta': {'key': 'labs', 'art': None, 'sources': []}, 'quests': []}
                 pages.attach_art(bare, root / 'dist' / 'maps' / 'labs.html')
                 self.assertNotIn('art', bare['meta'])
+
+    def test_build_ships_our_floor_plans_first_floor_by_default(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            floors, art = root / 'data' / 'art', root / 'cache' / 'art'
+            (floors / 'the-lab').mkdir(parents=True)
+            art.mkdir(parents=True)
+            for f in ('1st', 'technical'):
+                (floors / 'the-lab' / f'{f}.png').write_bytes(b'png')
+            (floors / 'the-lab.json').write_text(json.dumps({'floors': [
+                {'id': '1st', 'label': '1st', 'name': 'Ground floor', 'file': 'the-lab/1st.png'},
+                {'id': '2nd', 'label': '2nd', 'name': 'Second level', 'file': 'the-lab/2nd.png'},
+                {'id': 'technical', 'label': 'Technical', 'name': 'Technical level', 'file': 'the-lab/technical.png'}]}))
+            data = {'meta': {'key': 'the-lab', 'art': {'x': -45.7, 'y': 13, 'w': 1117.5, 'h': 814.5}, 'sources': []}, 'quests': []}
+            with patch.object(pages, 'ROOT', root), patch.object(pages, 'ART', art), patch.object(pages, 'FLOOR_ART', floors):
+                pages.attach_art(data, root / 'dist' / 'pve' / 'maps' / 'the-lab.html')
+                self.assertEqual(data['meta']['art']['href'], '../../art/the-lab/1st.png')
+                self.assertEqual([f['id'] for f in data['meta']['art']['floors']], ['1st', 'technical'], 'a missing file is left out')
+                self.assertEqual(data['meta']['art']['floors'][1]['label'], 'Technical')
+                self.assertTrue((root / 'dist' / 'art' / 'the-lab' / 'technical.png').exists())
+                self.assertEqual(data['meta']['sources'], [], 'our own plans need no third-party credit')
+                bare = {'meta': {'key': 'the-lab', 'art': None, 'sources': []}, 'quests': []}
+                pages.attach_art(bare, root / 'dist' / 'maps' / 'the-lab.html')
+                self.assertNotIn('art', bare['meta'], 'no rectangle, no floor plans')
 
     def test_placeholders_name_unlisted_quests_and_never_override_tarkov_dev(self):
         with tempfile.TemporaryDirectory() as folder:

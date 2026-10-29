@@ -31,6 +31,8 @@ tests/                          node --test tests/*.test.cjs
 data/tasks-index.json           every task by BSG ID (the ID the game logs use)
 data/customs-quests.json        hand-built Customs plan (raids, routes, curated spot notes)
 data/maps/*.json                generated, one per map (raids empty until the planner exists)
+data/art/the-lab/*.png          our own Lab floor plans (1st, 2nd, Technical); the page switches between them
+tools/draw_floor_art.py         redraws those plans when the Lab changes (needs Pillow; never run by CI)
 snapshot/<mode>/<date>/         raw source files + manifest.json (sha256 per file); large, don't commit
 page/...template.html           the page; renders hand-built or generated data
 ```

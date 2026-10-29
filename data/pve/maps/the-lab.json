@@ -14,7 +14,12 @@
    "metres": 239,
    "scale": 3.9347007115948105
   },
-  "art": null,
+  "art": {
+   "x": -45.7,
+   "y": 13.0,
+   "w": 1117.5,
+   "h": 814.5
+  },
   "rotation": 270,
   "wiki": "https://escapefromtarkov.fandom.com/wiki/The_Lab",
   "sources": [

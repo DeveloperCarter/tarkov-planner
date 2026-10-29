@@ -302,11 +302,12 @@ class Frame:
 
 
 def art_rect(site: dict, frame: Frame, en) -> dict | None:
-    """Where tarkov.dev's SVG map sits in this frame. tarkov.dev stretches the SVG over the projected
+    """Where a map's art sits in this frame. tarkov.dev stretches the SVG over the projected
     corners of svgBounds (or bounds), given as [x, z] game positions, after the same rotation we use.
+    Tiled maps (The Lab) have no SVG; our own floor art (data/art/) covers their bounds the same way.
     That projection is a uniform scale of ours only when the transform's x and y scales match."""
     t, b = site.get("transform"), site.get("svgBounds") or site.get("bounds")
-    if not site.get("svgPath") or not b or not t or t[0] != t[2]:
+    if not (site.get("svgPath") or site.get("tilePath")) or not b or not t or t[0] != t[2]:
         return None
     (x0, y0), (x1, y1) = (frame.exact(en({"x": c[0], "z": c[1]})) for c in b)
     return {"x": round(min(x0, x1), 1), "y": round(min(y0, y1), 1),

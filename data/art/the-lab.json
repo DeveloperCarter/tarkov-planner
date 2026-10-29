@@ -1,0 +1,7 @@
+{
+ "floors": [
+  {"id": "1st", "label": "1st", "name": "Ground floor", "file": "the-lab/1st.png"},
+  {"id": "2nd", "label": "2nd", "name": "Second level", "file": "the-lab/2nd.png"},
+  {"id": "technical", "label": "Technical", "name": "Technical level", "file": "the-lab/technical.png"}
+ ]
+}

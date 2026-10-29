@@ -11,6 +11,8 @@ scripts/etl_tarkov_dev.py      json.tarkov.dev snapshot -> data/maps/<map>.json,
 scripts/build_page.py          data file -> dist/ page (--all, --level, --faction); validates references
 scripts/fetch_wiki_quests.py   Fandom wiki quest pages -> JSON (objectives, rewards, spot captions)
 scripts/fetch_art.py           tarkov.dev SVG maps + wiki spot photos -> cache/art/ (gitignored; CI caches it)
+data/art/<map>.json, <map>/    our own floor plans (The Lab: 1st, 2nd, Technical PNGs); committed, shipped by build_page.py
+tools/draw_floor_art.py        redraws the Lab plans from tarkov.dev's tiles (Pillow; run by hand, never by CI)
 scripts/compare_wiki.py        tarkov.dev vs wiki disagreements -> reports/
 page/customs-raid-plan.template.html   the one page template (vanilla JS, no framework, no bundler)
 page/eft-log-tracker.js        log parser + watcher; inlined by build_page.py; loaded by Node tests
@@ -113,7 +115,9 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - tarkov.dev stretches each SVG map over the projected corners of `svgBounds` (else `bounds`), both
   given as `[x, z]`. With a uniform `transform` (x and y scales equal) that's a scale of our frame, so
   the ETL stores the art's rectangle in frame units as `meta.art`. Icebreaker's transform isn't
-  uniform, and Labs/Labyrinth have no SVG: they keep the schematic.
+  uniform. The Lab and the Labyrinth have tiles (`tilePath`) instead of an SVG; `meta.art` is their
+  `bounds` rectangle. The Lab draws our own floor plans there; the Labyrinth has none, so the build
+  drops its rectangle and it keeps the schematic.
 
 **Extract details (verified 2026-10-21)**
 - Extracts retain their IDs, translated names, faction and frame coordinates. New fields are
@@ -218,6 +222,13 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - SVG maps: the-hideout/tarkov-dev-svg-maps, CC BY-NC-SA 4.0 (non-commercial; credit and same
   licence for modified copies; no use in cheats). `fetch_art.py` keeps only the ground floor; the page
   drops the SVG's own `<style>` and recolours its classes (land, trees, water, building, road_*, ...).
+- Lab floor plans (`data/art/the-lab/`, 2026-10-28): drawn by `tools/draw_floor_art.py` from
+  tarkov.dev's zoom-3 tiles (`labs_v4`, last modified 2025-01-20), cropped to `bounds` so they line up
+  by construction. The tiles store walls as thin transparent lines; the plans keep only walls, room
+  tones, planters and large fixtures. Image models redrawing the reference drifted 50–200 px in three
+  attempts; don't use them for map geometry. Floors aren't assigned to pins: zones carry no height.
+  build_page.py prefers these plans over cached art and ships them as `meta.art.floors`
+  (first = default); the page swaps the `<image>` with the floor buttons and darkens it in dark theme.
 - Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no
   licence). Thumbnails need a `Referer` header or the image server answers 403, and arrive as WebP
   whatever the file name says. Free, non-commercial use only; revisit before anything paid.

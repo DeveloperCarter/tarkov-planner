@@ -34,6 +34,7 @@ SESSION = ROOT / "page" / "raid-session.js"
 PRESETS = ROOT / "page" / "raid-presets.js"
 TASKS_INDEX = ROOT / "data" / "tasks-index.json"
 ART = ROOT / "cache" / "art"  # filled by scripts/fetch_art.py; never committed
+FLOOR_ART = ROOT / "data" / "art"  # our own floor plans (<map>.json lists the floors); committed
 
 
 def build_shortcuts() -> Path:
@@ -249,8 +250,8 @@ def attach_art(data: dict, out_path: Path) -> None:
     path = ART / "manifest.json"
     manifest = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
-    def ship(rel: str) -> str | None:
-        src, dst = ART / rel, ROOT / "dist" / "art" / rel
+    def ship(rel: str, base: Path = ART) -> str | None:
+        src, dst = base / rel, ROOT / "dist" / "art" / rel
         if not src.exists():
             return None
         if not dst.exists() or dst.stat().st_size != src.stat().st_size:
@@ -259,9 +260,15 @@ def attach_art(data: dict, out_path: Path) -> None:
         return relative_url(dst, out_path)
 
     meta = data["meta"]
+    # Our own floor plans (The Lab) cover the same rectangle as tarkov.dev's art; the first is the default.
+    floors_path = FLOOR_ART / f"{meta.get('key')}.json"
+    floors = json.loads(floors_path.read_text(encoding="utf-8"))["floors"] if meta.get("art") and floors_path.exists() else []
+    floors = [{**{k: f[k] for k in ("id", "label", "name")}, "href": h} for f in floors if (h := ship(f["file"], FLOOR_ART))]
     entry = manifest.get("maps", {}).get(meta.get("key"))
     href = meta.get("art") and entry and ship(entry["file"])
-    if href:
+    if floors:
+        meta["art"].update(href=floors[0]["href"], floors=floors)
+    elif href:
         meta["art"]["href"] = href
         meta["sources"].append({"name": f"Map art by {entry.get('author') or 'tarkov.dev contributors'} (CC BY-NC-SA 4.0)",
                                 "url": "https://github.com/the-hideout/tarkov-dev-svg-maps",
