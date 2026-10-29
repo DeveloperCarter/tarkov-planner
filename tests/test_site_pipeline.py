@@ -85,6 +85,31 @@ class SitePipelineTests(unittest.TestCase):
                 pages.attach_art(bare, root / 'dist' / 'maps' / 'the-lab.html')
                 self.assertNotIn('art', bare['meta'], 'no rectangle, no floor plans')
 
+    def test_keycard_doors_keep_keycards_only_and_add_reported_doors(self):
+        names = {'black': 'TerraGroup Labs keycard (Black)', 'key': "Admin's key"}
+        fake = type('N', (), {'item_name': lambda self, i: names.get(i, i)})()
+        frame = etl.Frame([(0, 0), (100, 100)], pad=0)
+        en = lambda p: (p['x'], p['z'])
+        m = {'normalizedName': 'the-lab', 'locks': [
+            {'id': 'a', 'key': 'black', 'position': {'x': 50, 'y': 5.47, 'z': 50}},
+            {'id': 'b', 'key': 'key', 'position': {'x': 10, 'y': 1, 'z': 10}},
+            {'id': 'c', 'key': None, 'position': {'x': 10, 'y': 1, 'z': 10}}]}
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'keycard-doors.json'
+            path.write_text(json.dumps({'doors': [
+                {'map': 'the-lab', 'key': 'black', 'position': {'x': 20, 'y': 5.2, 'z': 80}, 'note': 'Offices #2'},
+                {'map': 'woods', 'key': 'black', 'position': {'x': 0, 'y': 0, 'z': 0}}]}))
+            with patch.object(etl, 'KEYCARD_DOORS', path), patch('sys.stderr') as err:
+                out = etl.Normalizer.build_keycards(fake, m, frame, en)
+                self.assertEqual(err.write.call_count, 0, 'no listed door near the reported one')
+                path.write_text(json.dumps({'doors': [{'map': 'the-lab', 'key': 'black', 'position': {'x': 52, 'y': 5, 'z': 50}}]}))
+                etl.Normalizer.build_keycards(fake, m, frame, en)
+                self.assertIn('now in tarkov.dev', ''.join(c.args[0] for c in err.write.call_args_list))
+        self.assertEqual([d['id'] for d in out], ['a', 'reported-0'], 'keys and keyless locks are left out')
+        self.assertEqual(out[0], {'id': 'a', 'key': 'TerraGroup Labs keycard (Black)', 'keyId': 'black', 'x': 500, 'y': 500,
+                                  'gx': 50, 'gz': 50, 'gy': 5.5})
+        self.assertEqual((out[1]['reported'], out[1]['note'], out[1]['gy']), (True, 'Offices #2', 5.2))
+
     def test_placeholders_name_unlisted_quests_and_never_override_tarkov_dev(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'placeholder-quests.json'

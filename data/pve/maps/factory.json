@@ -544,6 +544,18 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory"
   }
  ],
+ "keycards": [
+  {
+   "id": "0b8dbbc9604c2f03ae8bff8a5e0a8e62d2e3d7c5",
+   "key": "TerraGroup storage room keycard",
+   "keyId": "66acd6702b17692df20144c0",
+   "x": 194,
+   "y": 805,
+   "gx": -20.4,
+   "gz": 44.1,
+   "gy": -1.5
+  }
+ ],
  "spawns": [
   {
    "x": 429,

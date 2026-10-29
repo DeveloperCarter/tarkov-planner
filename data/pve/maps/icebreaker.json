@@ -77,6 +77,118 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Icebreaker"
   }
  ],
+ "keycards": [
+  {
+   "id": "21800040e43fff654405f45102118daca363aa90",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 188,
+   "y": 1019,
+   "gx": -7.7,
+   "gz": 42.4,
+   "gy": 27.5
+  },
+  {
+   "id": "85d65ba335af0a32a3ce306341ee683ceb62a4a1",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 62,
+   "y": 865,
+   "gx": 7.7,
+   "gz": 23.6,
+   "gy": 27.5
+  },
+  {
+   "id": "191092e660e22cbf27b4d6cf5aac266d7297156f",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 62,
+   "y": 936,
+   "gx": 7.7,
+   "gz": 32.2,
+   "gy": 24.8
+  },
+  {
+   "id": "f680d37a9e9c4f7b4673a2cd1bedd4a8ed73e104",
+   "key": "Compartment C-1 keycard",
+   "keyId": "69bb3f278af9f360ee010a7a",
+   "x": 168,
+   "y": 904,
+   "gx": -5.2,
+   "gz": 28.4,
+   "gy": 35.6
+  },
+  {
+   "id": "a06200bd0e29f7b9044354593fbff72f633146e7",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 62,
+   "y": 981,
+   "gx": 7.7,
+   "gz": 37.8,
+   "gy": 30.2
+  },
+  {
+   "id": "53165935b2bf98e47b26208ffd00fc13208bf5db",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 188,
+   "y": 884,
+   "gx": -7.7,
+   "gz": 26.0,
+   "gy": 30.2
+  },
+  {
+   "id": "9097c8b3082302e5f1f2cfb96435892560c24913",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 62,
+   "y": 869,
+   "gx": 7.7,
+   "gz": 24.1,
+   "gy": 24.8
+  },
+  {
+   "id": "d60cab173f0df778af7bfffc834ace99df0a6564",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 188,
+   "y": 939,
+   "gx": -7.7,
+   "gz": 32.6,
+   "gy": 27.5
+  },
+  {
+   "id": "902da5fb76c49668cc06a4d763ba5a3e5a666458",
+   "key": "Boreas crew quarters keycard",
+   "keyId": "69bb3ec9f609db77390b0e1a",
+   "x": 188,
+   "y": 943,
+   "gx": -7.7,
+   "gz": 33.1,
+   "gy": 24.8
+  },
+  {
+   "id": "2cd14b4b7e2999be6deb6495becd815904c5327c",
+   "key": "Boreas engine room keycard",
+   "keyId": "69bb3e54d6c67f6265004ab9",
+   "x": 39,
+   "y": 881,
+   "gx": 10.5,
+   "gz": 25.6,
+   "gy": 16.8
+  },
+  {
+   "id": "370c6515d41853a7f5f7b6929978ecd66bee6997",
+   "key": "Compartment C-3 keycard",
+   "keyId": "69bb3f7df94327bc0f0230c9",
+   "x": 32,
+   "y": 1013,
+   "gx": 11.4,
+   "gz": 41.6,
+   "gy": 19.5
+  }
+ ],
  "spawns": [
   {
    "x": 136,

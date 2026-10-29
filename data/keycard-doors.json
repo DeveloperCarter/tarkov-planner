@@ -1,0 +1,12 @@
+{
+ "notes": [
+  "Keycard doors seen in game that tarkov.dev doesn't list yet (checked against the 2026-10-20 and 2026-10-29 data).",
+  "The ETL adds these to the map's keycard markers in both modes and says when tarkov.dev lists a door for the same keycard within 10 m, so the entry can be removed.",
+  "position is raw game x/y/z in metres (y is height, which picks the floor). Without the exact door, mark the room and say so in note.",
+  "key is the keycard's item id."
+ ],
+ "doors": [
+  {"map": "the-lab", "key": "5c1d0f4986f7744bb01837fa", "position": {"x": -153.5, "y": 5.2, "z": -401},
+   "note": "Offices #2 now takes the Black keycard (reported in game; tarkov.dev doesn't list this door yet, so the marker shows the room, not the exact door)."}
+ ]
+}

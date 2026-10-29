@@ -308,6 +308,130 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/The_Lab"
   }
  ],
+ "keycards": [
+  {
+   "id": "e36b7350a3badbd5c6723420914340c37dc250d8",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 366,
+   "y": 84,
+   "gx": -268.9,
+   "gz": -372.5,
+   "gy": 5.5
+  },
+  {
+   "id": "da8237013a32b58c270653afb9a43f3175816920",
+   "key": "Keycard with a blue marking",
+   "keyId": "5efde6b4f5448336730dbd61",
+   "x": 494,
+   "y": 630,
+   "gx": -130.3,
+   "gz": -339.9,
+   "gy": 5.2
+  },
+  {
+   "id": "faa074330943d9f367963db13f6ebaa4d08dff4f",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 364,
+   "y": 114,
+   "gx": -261.4,
+   "gz": -372.9,
+   "gy": 5.2
+  },
+  {
+   "id": "035905a190db56d233238cdd56c01cd8f79ed0c0",
+   "key": "TerraGroup Labs keycard (Red)",
+   "keyId": "5c1d0efb86f7744baf2e7b7b",
+   "x": 561,
+   "y": 130,
+   "gx": -257.2,
+   "gz": -322.9,
+   "gy": 5.2
+  },
+  {
+   "id": "05963f7358b42b260526df45e60b5755d09c0366",
+   "key": "TerraGroup Labs keycard (Green)",
+   "keyId": "5c1d0dc586f7744baf2e7b79",
+   "x": 466,
+   "y": 608,
+   "gx": -135.9,
+   "gz": -347.0,
+   "gy": 5.2
+  },
+  {
+   "id": "ecb5504f3bfbb161c114e263611c30bf89b8a0c2",
+   "key": "TerraGroup Labs keycard (Yellow)",
+   "keyId": "5c1d0d6d86f7744bb2683e1f",
+   "x": 350,
+   "y": 305,
+   "gx": -212.7,
+   "gz": -376.5,
+   "gy": 5.2
+  },
+  {
+   "id": "577b9b90d0f1d11d15817ab2114deefb6307f964",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 454,
+   "y": 636,
+   "gx": -128.8,
+   "gz": -349.9,
+   "gy": 1.4
+  },
+  {
+   "id": "2e653b6dd3ae2033cd93efc74c338f2a30ce9ebb",
+   "key": "TerraGroup Labs keycard (Blue)",
+   "keyId": "5c1d0c5f86f7744bb2683cf0",
+   "x": 232,
+   "y": 657,
+   "gx": -123.2,
+   "gz": -406.5,
+   "gy": 1.0
+  },
+  {
+   "id": "8b40ef064ab348da611f5f26e4bdf2d90a963cea",
+   "key": "TerraGroup Labs keycard (Violet)",
+   "keyId": "5c1e495a86f7743109743dfb",
+   "x": 583,
+   "y": 111,
+   "gx": -262.0,
+   "gz": -317.2,
+   "gy": 5.2
+  },
+  {
+   "id": "c52d804746ec12f539fb4a82896bb38e1d2e2659",
+   "key": "TerraGroup Labs residential unit keycard",
+   "keyId": "6711039f9e648049e50b3307",
+   "x": 102,
+   "y": 681,
+   "gx": -117.3,
+   "gz": -439.5,
+   "gy": 1.1
+  },
+  {
+   "id": "6b9c65d4d24e1df1f5df7cf787875741de5aa980",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 459,
+   "y": 619,
+   "gx": -132.9,
+   "gz": -348.7,
+   "gy": 1.4
+  },
+  {
+   "id": "reported-0",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 253,
+   "y": 538,
+   "gx": -153.5,
+   "gz": -401,
+   "gy": 5.2,
+   "reported": true,
+   "note": "Offices #2 now takes the Black keycard (reported in game; tarkov.dev doesn't list this door yet, so the marker shows the room, not the exact door)."
+  }
+ ],
  "spawns": [
   {
    "x": 458,

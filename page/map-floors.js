@@ -1,4 +1,4 @@
-/* Which map labels and extracts belong on a floor. Pure; the page passes its data and the chosen floor. */
+/* Which map labels, extracts and keycard doors belong on a floor. Pure; the page passes its data and the chosen floor. */
 (function (root, factory) {
   const api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
@@ -27,8 +27,8 @@
     return floors.find(f => (f.extents || []).some(e => inExtent(point, e)))
       || floors.find(f => f.base) || floors.find(f => !f.extents) || null;
   }
-  // Extracts without a height (older data) show on every floor.
-  const extractsOn = (extracts, floor, floors) =>
-    (extracts || []).filter(e => !floor || e.gy == null || floorOf(e, floors)?.id === floor.id);
-  return { onFloor, labelsOn, floorOf, extractsOn };
+  // Points with raw positions (extracts, keycard doors); ones without a height (older data) show on every floor.
+  const pointsOn = (points, floor, floors) =>
+    (points || []).filter(e => !floor || e.gy == null || floorOf(e, floors)?.id === floor.id);
+  return { onFloor, labelsOn, floorOf, pointsOn };
 });

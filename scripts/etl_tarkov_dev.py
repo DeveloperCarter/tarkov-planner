@@ -39,6 +39,8 @@ VARIANT_OF = {"night-factory": "factory", "ground-zero-21": "ground-zero", "grou
               "the-lab-dark": "the-lab"}
 # Quests seen in game logs that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
 PLACEHOLDERS = ROOT / "data" / "placeholder-quests.json"
+# Keycard doors seen in game that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
+KEYCARD_DOORS = ROOT / "data" / "keycard-doors.json"
 FRAME_W = 1000
 FRAME_MAX_H = 1400
 
@@ -549,6 +551,7 @@ class Normalizer:
             },
             "zones": zones,
             "extracts": extracts,
+            "keycards": self.build_keycards(m, frame, en),
             "spawns": spawns,
             "spawnAreas": spawn_areas,
             # Common area names (tarkov-dev map labels) for the spawn picker.
@@ -792,6 +795,24 @@ class Normalizer:
                 print(f"  UNCLASSIFIED {self.mode}/{m['normalizedName']}: {name}: Transit timing or conditions not verified", file=sys.stderr)
             out.append({"id": f"transit-{t['id']}", "name": self.tr(t["description"]), "faction": "shared",
                         "x": x, "y": y, **game_position(t["position"]), "rule": "Transit to another map", **details})
+        return out
+
+    def build_keycards(self, m: dict, frame: Frame, en) -> list:
+        """Doors that take a keycard, with the raw position the page picks a floor by; plus reported ones."""
+        key = m["normalizedName"]
+        reported = json.loads(KEYCARD_DOORS.read_text(encoding="utf-8"))["doors"] if KEYCARD_DOORS.exists() else []
+        reported = [{**d, "id": f"reported-{i}"} for i, d in enumerate(reported) if d["map"] == key]
+        listed = [l for l in m.get("locks", []) if l.get("key") and l.get("position")]
+        out = []
+        for lock in listed + reported:
+            name = self.item_name(lock["key"])
+            if "keycard" not in name.lower():
+                continue
+            if lock in reported and any(l["key"] == lock["key"] and math.dist(*(en(p["position"]) for p in (l, lock))) < 10 for l in listed):
+                print(f"  keycard door {lock['id']} on {key} is now in tarkov.dev; remove it from {KEYCARD_DOORS.name}", file=sys.stderr)
+            x, y = frame.xy(en(lock["position"]))
+            out.append({"id": lock["id"], "key": name, "keyId": lock["key"], "x": x, "y": y, **game_position(lock["position"]),
+                        **({"reported": True, "note": lock.get("note")} if lock in reported else {})})
         return out
 
     def build_bosses(self, m: dict) -> list:

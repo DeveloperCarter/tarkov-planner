@@ -28,7 +28,7 @@ scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
 page/quest-filter.js           the one site-wide quest filter (traders widen, Kappa and Easy narrow), its chips and storage (tested)
 page/quest-effort.js           easy-win judgement of a quest's effort facts with the player's level (tested)
-page/map-floors.js             which area names show on the chosen floor, by height range (pure, tested)
+page/map-floors.js             which area names, extracts and keycard doors show on the chosen floor (pure, tested)
 scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and how to buy them) for every page
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
 scripts/refresh_site.py        both-mode refresh, cached wiki comparisons, release build and validation
@@ -237,6 +237,12 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   Second Level box covers only the north-west block, so Hangar and Parking Gate (above 3 m) stay on
   the ground floor and only Cargo Elevator is on the second level. Opening an extract from the raid
   panel turns the map to its floor.
+  Keycard doors (`keycards`, every map) are tarkov.dev locks whose key's name contains "keycard",
+  with the same `gx`/`gz`/`gy`, so `MapFloors.pointsOn` puts them on floors like extracts. The page
+  draws a small card in the card's colour (Lab colours; others neutral). `data/keycard-doors.json`
+  adds doors seen in game that tarkov.dev lacks (Offices #2 took the Black keycard, reported
+  2026-10-29, room only); they're drawn dashed, and the ETL says when tarkov.dev lists a door for
+  the same keycard within 10 m so the entry can go.
   build_page.py prefers these plans over cached art and ships them as `meta.art.floors`
   (first = default); the page swaps the `<image>` with the floor buttons and darkens it in dark theme.
 - Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no

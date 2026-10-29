@@ -37,7 +37,7 @@ const extracts=[
  {name:'Sewage Conduit',gx:-122.9,gz:-258.3,gy:-3.7},
  {name:'Old data',x:1,y:2},
 ];
-const on=id=>F.extractsOn(extracts,floors.find(f=>f.id===id),floors).map(e=>e.name);
+const on=id=>F.pointsOn(extracts,floors.find(f=>f.id===id),floors).map(e=>e.name);
 test('extracts sit on the floor tarkov.dev assigns, honouring a layer\'s bounds',()=>{
  assert.deepEqual(on('1st'),['Hangar Gate','Parking Gate','Transit to Streets of Tarkov','Old data'],'high but outside the Second Level box');
  assert.deepEqual(on('2nd'),['Cargo Elevator','Old data']);
@@ -49,5 +49,13 @@ test('floorOf falls back to the base floor and needs a height',()=>{
  assert.equal(F.floorOf({gx:0,gz:0},floors),null);
  assert.equal(F.floorOf({gx:0,gz:0,gy:1},[]),null);
  assert.equal(F.floorOf({gx:0,gz:0,gy:1},[{id:'a',extents:[{height:[5,9]}]},{id:'b'}]).id,'b','without a base flag, the floor without extents');
- assert.equal(F.extractsOn(extracts,null,floors).length,extracts.length,'no floor chosen: every extract');
+ assert.equal(F.pointsOn(extracts,null,floors).length,extracts.length,'no floor chosen: every extract');
+});
+test('keycard doors use the same floor rule as extracts',()=>{
+ // Black keycard doors from the snapshot (Kruglov's office R22, experiment room G12) and the reported Offices #2.
+ const doors=[{id:'r22',gx:-268.9,gz:-372.5,gy:5.5},{id:'g12',gx:-128.8,gz:-349.9,gy:1.4},{id:'reported-0',gx:-153.5,gz:-401,gy:5.2}];
+ const ids=id=>F.pointsOn(doors,floors.find(f=>f.id===id),floors).map(d=>d.id);
+ assert.deepEqual(ids('1st'),['g12']);
+ assert.deepEqual(ids('2nd'),['r22','reported-0']);
+ assert.deepEqual(ids('technical'),[]);
 });

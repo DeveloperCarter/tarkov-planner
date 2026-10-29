@@ -942,6 +942,18 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov"
   }
  ],
+ "keycards": [
+  {
+   "id": "8c6844d419b9c9be556e907209e9fe10c91060cb",
+   "key": "Reprogrammed keycard for A.P.'s apartment lock (Green)",
+   "keyId": "68c14b734a7e0bada00f8fd4",
+   "x": 302,
+   "y": 429,
+   "gx": 145.2,
+   "gz": -36.1,
+   "gy": 4.1
+  }
+ ],
  "spawns": [
   {
    "x": 933,

@@ -523,6 +523,28 @@
    "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Interchange"
   }
  ],
+ "keycards": [
+  {
+   "id": "7429efb2dcb7016e715077fb0a686ffdb56fae2e",
+   "key": "Object #11SR keycard",
+   "keyId": "5e42c81886f7742a01529f57",
+   "x": 672,
+   "y": 498,
+   "gx": -51.9,
+   "gz": 45.8,
+   "gy": 22.3
+  },
+  {
+   "id": "23c9e301490cd8fa6d59c9bffc0142b3303b4674",
+   "key": "Object #21WS keycard",
+   "keyId": "5e42c83786f7742a021fdf3c",
+   "x": 487,
+   "y": 708,
+   "gx": 140.2,
+   "gz": 263.3,
+   "gy": 25.2
+  }
+ ],
  "spawns": [
   {
    "x": 948,
