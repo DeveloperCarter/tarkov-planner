@@ -5,7 +5,11 @@
   "minLevel": 1,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1
+  }
  },
  "657315df034d76585f032e01": {
   "requirements": [],
@@ -13,7 +17,11 @@
   "minLevel": 1,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1
+  }
  },
  "657315e270bb0b8dba00cc48": {
   "requirements": [],
@@ -21,7 +29,11 @@
   "minLevel": 1,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1
+  }
  },
  "657315e4a6af4ab4b50f3459": {
   "requirements": [],
@@ -29,7 +41,11 @@
   "minLevel": 1,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "59c9392986f7742f6923add2": {
   "requirements": [],
@@ -44,7 +60,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2
+  }
  },
  "5a68663e86f774501078f78a": {
   "requirements": [
@@ -67,7 +87,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2
+  }
  },
  "639135d89444fb141f4e6eea": {
   "requirements": [],
@@ -82,7 +106,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2
+  }
  },
  "669fa39ee749756c920d02c8": {
   "requirements": [],
@@ -97,7 +125,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2
+  }
  },
  "5a68665c86f774255929b4c7": {
   "requirements": [
@@ -128,7 +160,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "5c0d190cd09282029f5390d8": {
   "requirements": [],
@@ -143,7 +179,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "64f5aac4b63b74469b6c14c2": {
   "requirements": [],
@@ -158,7 +198,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "5b4795fb86f7745876267770": {
   "requirements": [],
@@ -173,7 +217,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "64f5e20652fc01298e2c61e3": {
   "requirements": [],
@@ -188,7 +236,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "669fa395c4c5c04798002497": {
   "requirements": [],
@@ -203,7 +255,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "596a204686f774576d4c95de": {
   "requirements": [
@@ -234,7 +290,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27b75b86f7742e97191958": {
   "requirements": [],
@@ -249,7 +309,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27b9de86f77464e5044585": {
   "requirements": [],
@@ -264,7 +328,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27bb8386f7741c770d2d0a": {
   "requirements": [],
@@ -279,7 +347,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27bbf886f774333a418eeb": {
   "requirements": [
@@ -357,18 +429,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "5d25b6be86f77444001e1b89": {
-  "requirements": [
-   {
-    "task": "5d25aed386f77442734d25d2",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 9,
   "traderRequirements": [
@@ -380,18 +448,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "639136e84ed9512be67647db": {
-  "requirements": [
-   {
-    "task": "63a88045abf76d719f42d715",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 9,
   "traderRequirements": [
@@ -403,18 +467,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "665eeacf5d86b6c8aa03c79b": {
-  "requirements": [
-   {
-    "task": "63a88045abf76d719f42d715",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 9,
   "traderRequirements": [
@@ -438,27 +498,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "669fa3a08b4a64b332041ff7": {
-  "requirements": [
-   {
-    "task": "669fa38fad7f1eac2607ed46",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki",
-    "anyOf": "wiki-previous"
-   },
-   {
-    "task": "669fa3910c828825de06d69f",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki",
-    "anyOf": "wiki-previous"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 9,
   "traderRequirements": [
@@ -470,7 +517,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "66b38e144f2ab7cc530c3fe7": {
   "requirements": [
@@ -576,7 +627,15 @@
   "restartable": false
  },
  "5d25aed386f77442734d25d2": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "5d25bfd086f77442734d3007",
+    "statuses": [
+     "complete"
+    ],
+    "source": "both"
+   }
+  ],
   "unresolved": [],
   "minLevel": 9,
   "traderRequirements": [],
@@ -606,14 +665,7 @@
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
-   },
-   {
-    "task": "5d25bfd086f77442734d3007",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -715,7 +767,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "6834158f2f0e2a7eb90b62c8": {
   "requirements": [
@@ -1110,7 +1166,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5ac3479086f7742880308199": {
   "requirements": [
@@ -1169,7 +1229,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "639136fa9444fb141f4e6eee": {
   "requirements": [],
@@ -1184,18 +1248,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "65734c186dc1e402c80dc19e": {
-  "requirements": [
-   {
-    "task": "639135a7e705511c8a4a1b78",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 12,
   "traderRequirements": [
@@ -1207,18 +1267,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "65802b627b44fa5e14638899": {
-  "requirements": [
-   {
-    "task": "5ae448e586f7744dcf0c2a67",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 12,
   "traderRequirements": [
@@ -1230,7 +1286,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "666314b4d7f171c4c20226c3": {
   "requirements": [],
@@ -1269,7 +1329,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "669fa39b91b0a8c9680fc467": {
   "requirements": [],
@@ -1284,7 +1348,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "675c085d59b0575973005f52": {
   "requirements": [],
@@ -1299,7 +1367,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "5a03173786f77451cb427172": {
   "requirements": [
@@ -1568,15 +1640,7 @@
   "restartable": false
  },
  "5d25e4b786f77408251c4bfc": {
-  "requirements": [
-   {
-    "task": "5d25e4ad86f77443e625e387",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 17,
   "traderRequirements": [
@@ -1588,18 +1652,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5d25e4d586f77443e625e388": {
-  "requirements": [
-   {
-    "task": "63a88045abf76d719f42d715",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 17,
   "traderRequirements": [
@@ -1611,7 +1671,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "639135b04ed9512be67647d7": {
   "requirements": [
@@ -1642,7 +1706,11 @@
    }
   ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "6a45208043b8d7604d00b8d5": {
   "requirements": [],
@@ -1657,7 +1725,11 @@
    }
   ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5bc480a686f7741af0342e29": {
   "requirements": [
@@ -1680,39 +1752,13 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5d25e2d886f77442734d335e": {
-  "requirements": [
-   {
-    "task": "5d25cf2686f77443e75488d4",
-    "statuses": [
-     "complete"
-    ],
-    "source": "tarkov.dev"
-   },
-   {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
-  "unresolved": [],
-  "minLevel": 17,
-  "traderRequirements": [
-   {
-    "trader": "Jaeger",
-    "type": "level",
-    "value": 3,
-    "compare": ">="
-   }
-  ],
-  "faction": "Any",
-  "restartable": false
- },
- "61904daa7d0d857927447b9c": {
   "requirements": [
    {
     "task": "5d25cf2686f77443e75488d4",
@@ -1733,7 +1779,38 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
+ },
+ "61904daa7d0d857927447b9c": {
+  "requirements": [
+   {
+    "task": "5d25cf2686f77443e75488d4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "tarkov.dev"
+   }
+  ],
+  "unresolved": [],
+  "minLevel": 17,
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "63a511ea30d85e10e375b045": {
   "requirements": [
@@ -1756,7 +1833,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5bc4826c86f774106d22d88b": {
   "requirements": [
@@ -1793,18 +1874,11 @@
  "5d25d2c186f77443e35162e5": {
   "requirements": [
    {
-    "task": "5d25c81b86f77443e625dd71",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
     "task": "5d25e2d886f77442734d335e",
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -1816,18 +1890,11 @@
  "5d25e29d86f7740a22516326": {
   "requirements": [
    {
-    "task": "5d25cf2686f77443e75488d4",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
     "task": "5d25d2c186f77443e35162e5",
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -1897,7 +1964,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2
+  }
  },
  "5edab736cc183c769d778bc2": {
   "requirements": [],
@@ -1912,7 +1983,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3
+  }
  },
  "6179afd0bca27a099552e040": {
   "requirements": [],
@@ -1927,7 +2002,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3
+  }
  },
  "5a68667486f7742607157d28": {
   "requirements": [
@@ -1950,7 +2029,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3
+  }
  },
  "5a68669a86f774255929b4d4": {
   "requirements": [
@@ -1998,7 +2081,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "6086c852c945025d41566124": {
   "requirements": [],
@@ -2013,7 +2100,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "6179b4d1bca27a099552e04e": {
   "requirements": [],
@@ -2028,7 +2119,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "6a5cd2178fd7c2b201032f3f": {
   "requirements": [],
@@ -2043,7 +2138,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "5a27bc1586f7741f6d40fa2f": {
   "requirements": [
@@ -2066,7 +2165,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "5a27bb5986f7741dfb660900": {
   "requirements": [
@@ -2144,7 +2247,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3
+  }
  },
  "5ede55112c95834b583f052a": {
   "requirements": [],
@@ -2159,7 +2266,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3
+  }
  },
  "60896bca6ee58f38c417d4f2": {
   "requirements": [],
@@ -2174,7 +2285,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3
+  }
  },
  "6179ac7511973d018217d0b9": {
   "requirements": [],
@@ -2189,7 +2304,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3
+  }
  },
  "5ede567cfa6dc072ce15d6e3": {
   "requirements": [
@@ -2236,7 +2355,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "6179b4f16e9dd54ac275e407": {
   "requirements": [],
@@ -2251,7 +2374,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "671a49f77d49aea42c029b5f": {
   "requirements": [],
@@ -2266,7 +2393,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "5b47876e86f7744d1c353205": {
   "requirements": [
@@ -2295,9 +2426,22 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 25,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 5
+  }
  },
  "66d9cbb67b491f9d5304f6e6": {
   "requirements": [],
@@ -2343,7 +2487,11 @@
    }
   ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5ae3270f86f77445ba41d4dd": {
   "requirements": [],
@@ -2358,7 +2506,11 @@
    }
   ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "6089732b59b92115597ad789": {
   "requirements": [],
@@ -2373,7 +2525,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "6089736efa70fc097863b8f6": {
   "requirements": [],
@@ -2388,7 +2544,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "67a0970744893b9f3f0d9b68": {
   "requirements": [
@@ -2411,7 +2571,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "67a0970f05d1611ed90be75d": {
   "requirements": [
@@ -2557,7 +2721,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "60e71dc67fcf9c556f325056": {
   "requirements": [],
@@ -2572,25 +2740,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "639135bbc115f907b14700a6": {
-  "requirements": [
-   {
-    "task": "5b478d0f86f7744d190d91b5",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "639135a7e705511c8a4a1b78",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 27,
   "traderRequirements": [
@@ -2602,19 +2759,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "6613f3007f6666d56807c929": {
-  "requirements": [
-   {
-    "task": "5b478d0f86f7744d190d91b5",
-    "statuses": [
-     "active",
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 27,
   "traderRequirements": [
@@ -2626,19 +2778,14 @@
    }
   ],
   "faction": "BEAR",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "66151401efb0539ae10875ae": {
-  "requirements": [
-   {
-    "task": "5b478d0f86f7744d190d91b5",
-    "statuses": [
-     "active",
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 27,
   "traderRequirements": [
@@ -2650,7 +2797,11 @@
    }
   ],
   "faction": "USEC",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "66aa61663aa37705c5024277": {
   "requirements": [],
@@ -2665,15 +2816,31 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "5ae3280386f7742a41359364": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 29,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5c0d0d5086f774363760aef2": {
   "requirements": [
@@ -2695,34 +2862,24 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 32,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": true
- },
- "626bdcc3a371ee3a7a3514c5": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5d25e2c386f77443e7549029",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "5d25e2e286f77444001e2e48",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "5d25e2ee86f77443e35162ea",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": true,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
+ },
+ "626bdcc3a371ee3a7a3514c5": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 33,
   "traderRequirements": [
@@ -2734,7 +2891,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "639135cd8ba6894d155e77cb": {
   "requirements": [
@@ -2753,31 +2914,7 @@
   "restartable": false
  },
  "63a9b36cc31b00242d28a99f": {
-  "requirements": [
-   {
-    "task": "639136df4b15ca31f76bc31f",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki",
-    "anyOf": "faction:the huntsman path - administrator"
-   },
-   {
-    "task": "6391372c8ba6894d155e77d7",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "6a45208043b8d7604d00b8d5",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki",
-    "anyOf": "faction:the huntsman path - administrator"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 33,
   "traderRequirements": [
@@ -2789,7 +2926,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "6a4532e48e82d8ffea0c3eae": {
   "requirements": [],
@@ -2804,7 +2945,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5bc4856986f77454c317bea7": {
   "requirements": [
@@ -2828,7 +2973,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5eaaaa7c93afa0558f3b5a1c": {
   "requirements": [
@@ -2837,7 +2986,7 @@
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -2851,7 +3000,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5bc4893c86f774626f5ebf3e": {
   "requirements": [
@@ -2889,9 +3042,22 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 35,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4,
+   "quests": 1
+  }
  },
  "5c0bdb5286f774166e38eed4": {
   "requirements": [
@@ -2977,7 +3143,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4
+  }
  },
  "6574e0dedc0d635f633a5805": {
   "requirements": [],
@@ -2992,7 +3162,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4
+  }
  },
  "67b45467814ab0ffa000c7e7": {
   "requirements": [],
@@ -3007,7 +3181,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4
+  }
  },
  "59ca264786f77445a80ed044": {
   "requirements": [
@@ -3030,7 +3208,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4
+  }
  },
  "59ca29fb86f77445ab465c87": {
   "requirements": [
@@ -3109,7 +3291,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 4
+  }
  },
  "5edac020218d181e29451446": {
   "requirements": [],
@@ -3124,7 +3310,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "63a9b229813bba58a50c9ee5": {
   "requirements": [],
@@ -3139,7 +3329,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "66aba85403e0ee3101042877": {
   "requirements": [],
@@ -3154,7 +3348,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 4
+  }
  },
  "669fa3a3ad7f1eac2607ed48": {
   "requirements": [
@@ -3177,7 +3375,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 4
+  }
  },
  "5a27bc6986f7741c7358402b": {
   "requirements": [
@@ -3200,7 +3402,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "5a27bc8586f7741b543d8ea4": {
   "requirements": [
@@ -3248,7 +3454,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4
+  }
  },
  "5c0bc91486f7746ab41857a2": {
   "requirements": [],
@@ -3263,15 +3473,32 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4
+  }
  },
  "60e71c48c1bfa3050473b8e5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 38,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 4,
+   "quests": 1
+  }
  },
  "671a59e43d73dac1360765cc": {
   "requirements": [
@@ -3294,7 +3521,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4
+  }
  },
  "5c0be13186f7746f016734aa": {
   "requirements": [],
@@ -3309,7 +3540,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "60e71d23c1bfa3050473b8e6": {
   "requirements": [],
@@ -3324,7 +3559,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "639872fe8871e1272b10ccf6": {
   "requirements": [],
@@ -3339,7 +3578,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "6942b44f891369fc790e385a": {
   "requirements": [],
@@ -3354,7 +3597,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "5ac242ab86f77412464f68b4": {
   "requirements": [
@@ -3561,18 +3808,14 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "5e381b0286f77420e3417a74": {
-  "requirements": [
-   {
-    "task": "5ae4496986f774459e77beb6",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 42,
   "traderRequirements": [
@@ -3584,18 +3827,14 @@
    }
   ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "5e383a6386f77465910ce1f3": {
-  "requirements": [
-   {
-    "task": "5ae4496986f774459e77beb6",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 42,
   "traderRequirements": [
@@ -3607,19 +3846,14 @@
    }
   ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "6613f307fca4f2f386029409": {
-  "requirements": [
-   {
-    "task": "65734c186dc1e402c80dc19e",
-    "statuses": [
-     "active",
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 42,
   "traderRequirements": [
@@ -3631,19 +3865,14 @@
    }
   ],
   "faction": "BEAR",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "6615141bfda04449120269a7": {
-  "requirements": [
-   {
-    "task": "65734c186dc1e402c80dc19e",
-    "statuses": [
-     "active",
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 42,
   "traderRequirements": [
@@ -3655,7 +3884,11 @@
    }
   ],
   "faction": "USEC",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "6663149cfd5ca9577902e037": {
   "requirements": [],
@@ -3670,7 +3903,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 4
+  }
  },
  "5c51aac186f77432ea65c552": {
   "requirements": [
@@ -3876,7 +4113,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "68400926706e0a55e90b0007": {
   "requirements": [
@@ -3915,9 +4156,22 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 46,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4,
+   "quests": 2
+  }
  },
  "67af4c1d8c9482eca103e477": {
   "requirements": [
@@ -3957,7 +4211,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4
+  }
  },
  "67af4c169d95ad16e004fd86": {
   "requirements": [],
@@ -3972,7 +4230,11 @@
    }
   ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4
+  }
  },
  "60effd818b669d08a35bfad5": {
   "requirements": [
@@ -4058,9 +4320,21 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 55,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": true
+  "restartable": true,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5936d90786f7742b1420ba5b": {
   "requirements": [],
@@ -4068,7 +4342,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1
+  }
  },
  "5936da9e86f7742d65037edf": {
   "requirements": [],
@@ -4076,7 +4354,12 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 3
+  }
  },
  "59674cd986f7744ab26e32f2": {
   "requirements": [],
@@ -4084,15 +4367,33 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 1
+  }
  },
  "59674eb386f774539f14813a": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 5
+  }
  },
  "5967530a86f77462ba22226b": {
   "requirements": [],
@@ -4100,15 +4401,33 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 1
+  }
  },
  "59675ea386f77414b32bded2": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 3
+  }
  },
  "596760e186f7741e11214d58": {
   "requirements": [
@@ -4132,23 +4451,71 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 5
+  }
  },
  "5967733e86f774602332fc84": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 1
+  }
  },
  "59689ee586f7740d1570bbd5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2,
+   "quests": 2
+  }
  },
  "59689fbd86f7740d137ebfc4": {
   "requirements": [],
@@ -4156,23 +4523,87 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1
+  }
  },
  "5968eb3186f7741dde183a4d": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 1
+  }
  },
  "5969f9e986f7741dde183a50": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 2
+  }
  },
  "596a0e1686f7741ddf17dbee": {
   "requirements": [],
@@ -4180,7 +4611,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1
+  }
  },
  "596a101f86f7741ddb481582": {
   "requirements": [
@@ -4202,17 +4637,43 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2,
+   "quests": 1
+  }
  },
  "596a218586f77420d232807c": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 1
+  }
  },
  "596b36c586f77450d6045ad2": {
   "requirements": [],
@@ -4220,55 +4681,182 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1
+  }
  },
  "596b43fb86f77457ca186186": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 2
+  }
  },
  "596b455186f77457cb50eccb": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2,
+   "quests": 1
+  }
  },
  "5979ed3886f77431307dc512": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 3
+  }
  },
  "5979eee086f774311955e614": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 3
+  }
  },
  "5979f8bb86f7743ec214c7a6": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 2
+  }
  },
  "5979f9ba86f7740f6c3fe9f2": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 3
+  }
  },
  "597a0b2986f77426d66c0633": {
   "requirements": [
@@ -4292,7 +4880,12 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 5
+  }
  },
  "59c50a9e86f7745fef66f4ff": {
   "requirements": [
@@ -4322,9 +4915,22 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 3
+  }
  },
  "5a0327ba86f77456b9154236": {
   "requirements": [],
@@ -4332,15 +4938,31 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "5a03296886f774569778596a": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a0449d586f77474e66227b7": {
   "requirements": [],
@@ -4348,7 +4970,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "5a27b7a786f774579c3eb376": {
   "requirements": [],
@@ -4356,39 +4982,91 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "5a27b7d686f77460d847e6a6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27b80086f774429a5d7e20": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27b87686f77460de0252a8": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27ba1c86f77461ea5a3c56": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "5a27bafb86f7741c73584017": {
   "requirements": [],
@@ -4396,23 +5074,52 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "5a27bb1e86f7741f27621b7e": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "5a27c99a86f7747d2c6bdd8e": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2,
+   "quests": 3
+  }
  },
  "5a68661a86f774500f48afb0": {
   "requirements": [],
@@ -4420,7 +5127,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1
+  }
  },
  "5ac23c6186f7741247042bad": {
   "requirements": [],
@@ -4428,7 +5139,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5ac2426c86f774138762edfe": {
   "requirements": [],
@@ -4436,7 +5151,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5ac2428686f77412450b42bf": {
   "requirements": [],
@@ -4444,15 +5163,31 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5ac345dc86f774288030817f": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5ac3462b86f7741d6118b983": {
   "requirements": [],
@@ -4460,23 +5195,51 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5ac3464c86f7741d651d6877": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5ac3467986f7741d6224abc2": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5ac3475486f7741d6224abd3": {
   "requirements": [],
@@ -4484,39 +5247,91 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5ac3477486f7741d651d6885": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5ae3267986f7742a413592fe": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5ae3277186f7745973054106": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5ae327c886f7745c7b3f2f3f": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5ae448bf86f7744d733e55ee": {
   "requirements": [],
@@ -4524,15 +5339,31 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae448e586f7744dcf0c2a67": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "5ae448f286f77448d73c0131": {
   "requirements": [],
@@ -4540,7 +5371,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae4490786f7744ca822adcc": {
   "requirements": [],
@@ -4548,7 +5383,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae4493486f7744efa289417": {
   "requirements": [],
@@ -4556,7 +5395,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae4493d86f7744b8e15aa8f": {
   "requirements": [],
@@ -4564,7 +5407,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae4495086f77443c122bc40": {
   "requirements": [],
@@ -4581,7 +5428,7 @@
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -4597,7 +5444,7 @@
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -4613,7 +5460,7 @@
     "statuses": [
      "complete"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -4623,20 +5470,24 @@
   "restartable": false
  },
  "5ae4498786f7744bde357695": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5ae4497b86f7744cf402ed00",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "5ae4499a86f77449783815db": {
   "requirements": [
@@ -4683,87 +5534,195 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5ae449c386f7744bde357697": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
+ },
+ "5ae449d986f774453a54a7e1": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
+ },
+ "5b47799d86f7746c5d6a5fd8": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "USEC",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
+ },
+ "5b47891f86f7744d1b23c571": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
+ },
+ "5b478b1886f7744d1b23c57d": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
+ },
+ "5b478d0f86f7744d190d91b5": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
+ },
+ "5b478eca86f7744642012254": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "BEAR",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2,
+   "quests": 3
+  }
+ },
+ "5b478ff486f7744d184ecbbf": {
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
+  "faction": "USEC",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2,
+   "quests": 3
+  }
+ },
+ "5b47926a86f7747ccc057c15": {
   "requirements": [
    {
-    "task": "5ae449b386f77446d8741719",
+    "task": "596b36c586f77450d6045ad2",
     "statuses": [
      "complete"
     ],
-    "source": "wiki"
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
    }
   ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
- },
- "5ae449d986f774453a54a7e1": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5b47799d86f7746c5d6a5fd8": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "USEC",
-  "restartable": false
- },
- "5b47891f86f7744d1b23c571": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5b478b1886f7744d1b23c57d": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5b478d0f86f7744d190d91b5": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5b478eca86f7744642012254": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "BEAR",
-  "restartable": false
- },
- "5b478ff486f7744d184ecbbf": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "USEC",
-  "restartable": false
- },
- "5b47926a86f7747ccc057c15": {
-  "requirements": [],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 1
+  }
  },
  "5b4794cb86f774598100d5d4": {
   "requirements": [],
@@ -4771,18 +5730,14 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "5bc4776586f774512d07cf05": {
-  "requirements": [
-   {
-    "task": "5d24b81486f77439c92d6ba8",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
@@ -4793,41 +5748,103 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "5c0bd94186f7747a727f09b2": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 3
+  }
  },
  "5c0bde0986f77479cf22c2f8": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4,
+   "quests": 1
+  }
  },
  "5c0d0f1886f77457b8210226": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "5c0d4c12d09282029f539173": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "5c10f94386f774227172c572": {
   "requirements": [],
@@ -4835,47 +5852,92 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "5c1128e386f7746565181106": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5c112d7e86f7740d6f647486": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5b478b1886f7744d1b23c57d",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
+ },
+ "5c112d7e86f7740d6f647486": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "5c1234c286f77406fa13baeb": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2,
+   "quests": 4
+  }
  },
  "5c139eb686f7747878361a6f": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "5d2495a886f77425cd51e403": {
   "requirements": [],
@@ -4883,63 +5945,95 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "5d24b81486f77439c92d6ba8": {
-  "requirements": [
-   {
-    "task": "5d2495a886f77425cd51e403",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e2b486f77409de05bba0": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "5d25e2c386f77443e7549029": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5d25e2b486f77409de05bba0",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
+ },
+ "5d25e2c386f77443e7549029": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e2cc86f77443e47ae019": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5d25e2e286f77444001e2e48": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "5d25e2ee86f77443e35162ea": {
   "requirements": [],
@@ -4947,143 +6041,230 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e43786f7740a212217fa": {
-  "requirements": [
-   {
-    "task": "5d25e2b486f77409de05bba0",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e44386f77409453bce7b": {
-  "requirements": [
-   {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e44f86f77443e625e385": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5d25e45e86f77408251c4bfa": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "5d25e46e86f77409453bce7c": {
-  "requirements": [
-   {
-    "task": "5d24b81486f77439c92d6ba8",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "5d25e48186f77443e625e386": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5d25cf2686f77443e75488d4",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "5d25e4ad86f77443e625e387": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5d25e48186f77443e625e386",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "5d25e4ca86f77409dd5cdf2c": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5eda19f0edce541157209cee": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 3
+  }
  },
  "5edab4b1218d181e29451435": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 4
+  }
  },
  "5edaba7c0c502106f869bc02": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 1
+  }
  },
  "5edabd13218d181e29451442": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3,
+   "quests": 1
+  }
  },
  "5edac34d0bb72a50635c2bfa": {
   "requirements": [
@@ -5105,17 +6286,41 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "5f04886a3937dc337a6b8238": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "5fd9fad9c1ce6b1a3b486d00": {
   "requirements": [],
@@ -5123,7 +6328,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1
+  }
  },
  "600302d73b897b11364cd161": {
   "requirements": [],
@@ -5131,118 +6340,258 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "60896b7bfa70fc097863b8f5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 1
+  }
  },
  "60896e28e4a85c72ef3fa301": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 3
+  }
  },
  "6089743983426423753cd58a": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3,
+   "quests": 1
+  }
  },
  "608974af4b05530f55550c21": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "608a768d82e40b3c727fd17d": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "60c0c018f7afb4354815096a": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5ac3477486f7741d651d6885",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
+ },
+ "60c0c018f7afb4354815096a": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "60e71b9bbd90872cb85440f3": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "60e71bb4e456d449cd47ca75": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4,
+   "quests": 1
+  }
  },
  "60e71c11d54b755a3b53eb65": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4,
+   "quests": 1
+  }
  },
  "60e71c9ad54b755a3b53eb66": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3,
+   "quests": 4
+  }
  },
  "60e71ccb5688f6424c7bfec4": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "60e71ce009d7c801eb0c0ec6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4,
+   "quests": 3
+  }
  },
  "60e71d6d7fcf9c556f325055": {
   "requirements": [],
@@ -5250,7 +6599,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "60e71dc0a94be721b065bbfc": {
   "requirements": [],
@@ -5258,7 +6611,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 1
+  }
  },
  "60e729cf5698ee7b05057439": {
   "requirements": [],
@@ -5266,87 +6623,193 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "6179ad0a6e9dd54ac275e3f2": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
  },
  "6179ad56c760af5ad2053587": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 1
+  }
  },
  "6179aff8f57fb279792c60a1": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "6179b3a12153c15e937d52bc": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "6179b3bdc7560e13d23eeb8d": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "6179b5b06e9dd54ac275e409": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 3
+  }
  },
  "6179b5eabca27a099552e052": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 4
+  }
  },
  "6193850f60b34236ee0483de": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "61958c366726521dd96828ec": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 3
+  }
  },
  "61e6e5e0f5b9633f6719ed95": {
   "requirements": [],
@@ -5412,113 +6875,265 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 3
+  }
  },
  "626bd75c71bd851e971b82a5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 3
+  }
  },
  "626bd75d5bef5d7d590bd415": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "639135534b15ca31f76bc317": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "6391359b9444fb141f4e6ee6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "639135a7e705511c8a4a1b78": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "638fcd23dc65553116701d33",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
+ },
+ "639135a7e705511c8a4a1b78": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 2
+  }
  },
  "639135c3744e452011470807": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "639135e0fa894f0a866afde6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2,
+   "quests": 1
+  }
  },
  "639135e8c115f907b14700aa": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "639135f286e646067c176a87": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "639136d68ba6894d155e77cf": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "639136f086e646067c176a8b": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 5
+  }
  },
  "639282134ed9512be67647ed": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "63966faeea19ac7ed845db2c": {
   "requirements": [],
@@ -5678,33 +7293,81 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "639872fa9b4fb827b200d8e5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "639872fc93ae507d5858c3a6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "639dbaf17c898a131e1cffff": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "63a5cf262964a7488f5243ce": {
   "requirements": [],
@@ -5712,102 +7375,195 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 5
+  }
  },
  "63a88045abf76d719f42d715": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5d25b6be86f77444001e1b89",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "63a9ae24009ffc6a551631a5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "64e7b971f9d6fa49d6769b44": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   },
-   {
-    "task": "639135e0fa894f0a866afde6",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4,
+   "quests": 1
+  }
+ },
+ "64e7b971f9d6fa49d6769b44": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "64e7b9bffd30422ed03dad38": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "64ee9df4496db64f9b7a4432": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 3
+  }
  },
  "64f3176921045e77405d63b5": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2,
+   "quests": 2
+  }
  },
  "64f6aafd67e11a7c6206e0d0": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "64f731ab83cfca080a361e42": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 2,
+   "quests": 4
+  }
  },
  "6572e876dc0d635f633a5714": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 3
+  }
  },
  "657315e1dccd301f1301416a": {
   "requirements": [],
@@ -5815,23 +7571,52 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 3
+  }
  },
  "65733403eefc2c312a759ddb": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "BEAR",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "6573382e557ff128bf3da536": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "USEC",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "6573387d0b26ed4fde798de3": {
   "requirements": [
@@ -5853,17 +7638,42 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2,
+   "quests": 3
+  }
  },
  "6578eb36e5020875d64645cd": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "6578ec473dbd035d04531a8d": {
   "requirements": [],
@@ -5871,15 +7681,41 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "658027799634223183395339": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 3
+  }
  },
  "66631489acf8442f8b05319f": {
   "requirements": [
@@ -5991,7 +7827,7 @@
     "statuses": [
      "active"
     ],
-    "source": "tarkov.dev"
+    "source": "both"
    }
   ],
   "unresolved": [],
@@ -6001,44 +7837,85 @@
   "restartable": false
  },
  "669fa3979b0ce3feae01a130": {
-  "requirements": [
+  "requirements": [],
+  "unresolved": [],
+  "minLevel": 0,
+  "traderRequirements": [
    {
-    "task": "5d25e2cc86f77443e47ae019",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
-  "unresolved": [],
-  "minLevel": 0,
-  "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 2
+  }
  },
  "669fa399033a3ce9870338a8": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 2
+  }
  },
  "669fa39c64ea11e84c0642a6": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 2
+  }
  },
  "669fa3a40c828825de06d6a1": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 1
+  }
  },
  "66aa58245ab22944110db6e9": {
   "requirements": [],
@@ -6046,23 +7923,52 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "66aa74571e5e199ecd094f18": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "66ab970848ddbe9d4a0c49a8": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 3,
+   "quests": 1
+  }
  },
  "66ab9da7eb102b9bcd08591c": {
   "requirements": [
@@ -6076,25 +7982,33 @@
   ],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
-  "faction": "Any",
-  "restartable": false
- },
- "66b38c7bf85b8bf7250f9cb6": {
-  "requirements": [
+  "traderRequirements": [
    {
-    "task": "5d24b81486f77439c92d6ba8",
-    "statuses": [
-     "complete"
-    ],
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
     "source": "wiki"
    }
   ],
+  "faction": "Any",
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 3
+  }
+ },
+ "66b38c7bf85b8bf7250f9cb6": {
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "673f2cd5d3346c2167020484": {
   "requirements": [
@@ -6637,25 +8551,97 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2
+  }
  },
  "675c03d1f7da9792a405549a": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 2
+  }
  },
  "675c047fa46173572a0bd878": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 4
+  }
  },
  "675c04f4db8807b75d0f38e8": {
   "requirements": [
@@ -6679,7 +8665,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 1
+  }
  },
  "675c15fbf7da9792a4059871": {
   "requirements": [
@@ -6699,20 +8689,16 @@
   "restartable": false
  },
  "675c1cf4a757ddd00404f0a3": {
-  "requirements": [
-   {
-    "task": "5d24b81486f77439c92d6ba8",
-    "statuses": [
-     "complete"
-    ],
-    "source": "wiki"
-   }
-  ],
+  "requirements": [],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Jaeger",
+   "level": 1
+  }
  },
  "675c1d6d59b0575973008fc7": {
   "requirements": [],
@@ -6720,7 +8706,11 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "675c1ec7a46173572a0bf20a": {
   "requirements": [
@@ -6744,31 +8734,84 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 1,
+   "quests": 3
+  }
  },
  "675c3582f6ddc329a90f9c6d": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "596b36c586f77450d6045ad2",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315e270bb0b8dba00cc48",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 1,
+   "quests": 1
+  }
  },
  "6764174c86addd02bc033d68": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Skier",
+   "level": 4,
+   "quests": 1
+  }
  },
  "67a09636b8725511260bc421": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 2,
+   "quests": 1
+  }
  },
  "67a0964e972c11a3f507731b": {
   "requirements": [
@@ -6846,9 +8889,22 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Prapor",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Prapor",
+   "level": 4,
+   "quests": 2
+  }
  },
  "69c27158e350f01390049e77": {
   "requirements": [
@@ -6878,9 +8934,21 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 4,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Mechanic",
+   "level": 4
+  }
  },
  "69ce204c8702b378f9091e4b": {
   "requirements": [],
@@ -6950,9 +9018,21 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 2,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 2
+  }
  },
  "6a5c1578f2689567c30eb0f3": {
   "requirements": [],
@@ -6960,31 +9040,90 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Peacekeeper",
+   "level": 1
+  }
  },
  "6a5424ae135497b9df0c68be": {
-  "requirements": [],
+  "requirements": [
+   {
+    "task": "59689fbd86f7740d137ebfc4",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "596a0e1686f7741ddf17dbee",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   },
+   {
+    "task": "657315ddab5a49b71f098853",
+    "statuses": [
+     "complete"
+    ],
+    "source": "wiki",
+    "anyOf": "wiki-previous"
+   }
+  ],
   "unresolved": [],
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 1,
+   "quests": 4
+  }
  },
  "6a7ae35b2dbf91eb050af95a": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Therapist",
+   "level": 3,
+   "quests": 3
+  }
  },
  "6a7af2e48fddc3979d0510b8": {
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "6a7aef2360157cb5e3029a5f": {
   "requirements": [],
@@ -6998,9 +9137,21 @@
   "requirements": [],
   "unresolved": [],
   "minLevel": 0,
-  "traderRequirements": [],
+  "traderRequirements": [
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">=",
+    "source": "wiki"
+   }
+  ],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "loyalty": {
+   "trader": "Ragman",
+   "level": 3
+  }
  },
  "61e6e60c5ca3b3783662be27": {
   "requirements": [],

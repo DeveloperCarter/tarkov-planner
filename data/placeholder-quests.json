@@ -13,8 +13,12 @@
   {"id": "6ac3bc49f3f4480654003d7a", "trader": "Therapist", "name": null, "kind": "quest"},
   {"id": "6ac3ca960cee4580a601b28c", "trader": "Therapist", "name": null, "kind": "quest"},
   {"id": "6ac3d88d14db1a2f3e0787bd", "trader": "Therapist", "name": null, "kind": "quest"},
+  {"id": "6ac4c1d676842fabb501d5aa", "trader": "Therapist", "name": null, "kind": "quest"},
+  {"id": "6a763df2161e4b45b1015663", "trader": "Skier", "name": null, "kind": "quest"},
+  {"id": "6aba40a15ef26da1360746b8", "trader": "Skier", "name": null, "kind": "quest"},
   {"id": "61604635c725987e815b1a46", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"},
   {"id": "616052ea3054fc0e2c24ce6e", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"},
-  {"id": "6180385770bf5a029372b9aa", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"}
+  {"id": "6180385770bf5a029372b9aa", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"},
+  {"id": "6180385770bf5a029372b9ab", "trader": "Various", "name": "Daily or weekly task", "kind": "repeatable"}
  ]
 }

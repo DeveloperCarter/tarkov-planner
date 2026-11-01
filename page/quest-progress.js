@@ -30,6 +30,12 @@
 
   function evaluate(progression, statuses = {}, { level = 1, faction = "Any" } = {}) {
     const effective = infer(progression, statuses);
+    // 1.x unlocks: "LLn quests completed" counts the giver's completed quests at that loyalty level.
+    const doneAt = {};
+    for (const [id, task] of Object.entries(progression)) if (task.loyalty && task.loyalty.counted !== false && effective[id]?.status === "completed") {
+      const at = task.loyalty.trader + "|" + task.loyalty.level;
+      doneAt[at] = (doneAt[at] || 0) + 1;
+    }
     const quests = {};
     for (const [id, task] of Object.entries(progression)) {
       const status = effective[id]?.status || "";
@@ -37,6 +43,9 @@
       if (status === "failed" && !task.restartable) reasons.push({ type: "failed" });
       if (level < (task.minLevel || 1)) reasons.push({ type: "level", level: task.minLevel });
       if (task.faction && task.faction !== "Any" && task.faction !== faction) reasons.push({ type: "faction", faction: task.faction });
+      const need = task.loyalty?.quests;
+      const have = need ? doneAt[task.loyalty.trader + "|" + task.loyalty.level] || 0 : 0;
+      if (need && have < need) reasons.push({ type: "loyaltyQuests", trader: task.loyalty.trader, level: task.loyalty.level, count: need, have });
       const groups = new Map();
       for (const req of task.requirements || []) {
         if (req.anyOf) {

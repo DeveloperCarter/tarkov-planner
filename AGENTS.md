@@ -109,6 +109,16 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   this way reproduced the player's 12 Customs quests exactly.
 - Wiki prerequisites are often outdated (progression was loosened in 1.x); real accept order
   contradicted about a dozen of them. Prefer tarkov.dev requirements and the logged order.
+- 1.x unlocks (checked 2026-10-31): many reworked quests have no `taskRequirements` in tarkov.dev and
+  a blank wiki `previous`. They unlock by the giver's loyalty level and a count of that trader's
+  completed quests at that level: the wiki infobox's `LL requirement` and `LL quests` ("LL2 quests
+  completed: 4"). `build_progression.py` stores them as `loyalty: {trader, level, quests?}` and fills a
+  missing trader level gate. QuestProgress locks a quest until enough quests with the same trader and
+  level are completed. On real logs this count matched 33 of 36 starts, most of them exactly. The
+  3 misses were Therapist LL3 quests, likely counting a quest tarkov.dev lacks. `[PVP ZONE]` variants
+  are marked `counted: false`: counting Easy Money - Part 1 [PVP ZONE] would open Supplements and
+  Friend From the West, which the game still hid. The game also groups some quests as "Essential
+  tasks"; that flag isn't in either source.
 
 **Coordinates**
 - Map position = game `(x, z)` rotated by `coordinateRotation`, the same formula as tarkov.dev's

@@ -85,3 +85,13 @@ test('unresolved wiki gates remain locked with a review reason', () => {
   assert.equal(result.quests.a.available, false);
   assert.equal(result.quests.a.reasons[0].type, 'unresolved');
 });
+test('"LLn quests completed" counts the giver\'s completed quests at that loyalty level', () => {
+  const ll = (level, quests) => ({ loyalty: { trader: 'Skier', level, ...(quests ? { quests } : {}) } });
+  const data = { a: task([], ll(2)), b: task([], ll(2)), c: task([], ll(1)), gated: task([], ll(2, 2)) };
+  const q = P.evaluate(data, { a: 'completed', c: 'completed' }).quests.gated;
+  assert.equal(q.possible, false);
+  assert.deepEqual(q.reasons, [{ type: 'loyaltyQuests', trader: 'Skier', level: 2, count: 2, have: 1 }]);
+  assert.equal(P.evaluate(data, { a: 'completed', b: 'completed' }).quests.gated.possible, true);
+  data.b.loyalty.counted = false; // PvP-zone variants don't count
+  assert.equal(P.evaluate(data, { a: 'completed', b: 'completed' }).quests.gated.possible, false);
+});

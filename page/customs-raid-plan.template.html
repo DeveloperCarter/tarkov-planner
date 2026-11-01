@@ -1614,6 +1614,7 @@ function lockReason(reason) {
   if (reason.type === "anyOf") return "needs either " + reason.requirements.map(r => `${questName(r.task)} ${r.statuses.join(" or ")}`).join(" / ");
   if (reason.type === "level") return `needs level ${reason.level}`;
   if (reason.type === "faction") return `${reason.faction} only`;
+  if (reason.type === "loyaltyQuests") return `needs ${reason.count} ${reason.trader} LL${reason.level} quests done (${reason.have} so far)`;
   if (reason.type === "failed") return "failed; cannot restart";
   return `needs ${questName(reason.task)} ${reason.statuses.join(" or ")}`;
 }

@@ -25,6 +25,7 @@
     if (r.type === "prerequisite") return `${r.statuses.includes('failed') ? 'Needs failed' : r.statuses.includes('active') ? 'Accept' : 'After'} ${name(r.task)}`;
     if (r.type === "anyOf") return 'Needs one of: ' + r.requirements.map(req => name(req.task)).join(" / ");
     if (r.type === "faction") return `${r.faction} only`;
+    if (r.type === "loyaltyQuests") return `Needs ${r.count} ${r.trader} LL${r.level} quests done (${r.have} so far)`;
     if (r.type === "failed") return "Failed · cannot restart";
     return r.name ? `Unresolved requirement: ${r.name}` : "No current acceptance recorded";
   }

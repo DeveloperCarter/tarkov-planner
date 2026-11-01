@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from build_progression import previous_field, previous_links, key, resolve_cycles
+from build_progression import previous_field, previous_links, key, resolve_cycles, loyalty_fields
 
 
 class WikiPreviousTests(unittest.TestCase):
@@ -41,6 +41,12 @@ class WikiPreviousTests(unittest.TestCase):
     def test_no_previous(self):
         self.assertEqual(previous_field('{{Infobox quest\n|previous =\n|next = [[B]]\n}}'), '')
         self.assertEqual(previous_links('None'), [])
+
+    def test_loyalty_fields(self):
+        text = '{{Infobox quest\n|LL requirement  =2\n|LL quests       =4\n|previous        =\n}}'
+        self.assertEqual(loyalty_fields(text), (2, 4))
+        self.assertEqual(loyalty_fields('{{Infobox quest\n|LL requirement =3\n|LL quests =\n}}'), (3, None))
+        self.assertEqual(loyalty_fields('no infobox'), (None, None))
 
 
 if __name__ == '__main__':

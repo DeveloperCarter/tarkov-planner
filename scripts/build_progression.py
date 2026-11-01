@@ -13,12 +13,22 @@ from pathlib import Path
 from etl_tarkov_dev import ROOT, UA, latest_snapshot, load_snapshot, Tr
 
 
-def previous_field(wikitext):
+def infobox_field(wikitext, name):
     box = re.search(r'\{\{Infobox quest\b(.*?)\n\}\}', wikitext, re.S | re.I)
     if not box:
         return ''
-    field = re.search(r'^\|\s*previous\s*=(.*?)(?=^\|\s*[^\n=]+\s*=|\Z)', box[1], re.S | re.M | re.I)
+    field = re.search(r'^\|\s*' + re.escape(name) + r'\s*=(.*?)(?=^\|\s*[^\n=]+\s*=|\Z)', box[1], re.S | re.M | re.I)
     return field[1].strip() if field else ''
+
+
+def previous_field(wikitext):
+    return infobox_field(wikitext, 'previous')
+
+
+def loyalty_fields(wikitext):
+    """(LL requirement, "LLn quests completed") from the infobox; None where blank or not a number."""
+    number = lambda text: int(m[1]) if (m := re.match(r'\s*(\d+)\s*$', text)) else None
+    return number(infobox_field(wikitext, 'LL requirement')), number(infobox_field(wikitext, 'LL quests'))
 
 
 def previous_links(field):
@@ -139,7 +149,8 @@ def main():
         page = pages[tid]
         if 'error' in page:
             conflicts.append((name, 'wiki fetch error', str(page['error'])))
-        field = previous_field(page.get('parse', {}).get('wikitext', {}).get('*', ''))
+        wikitext = page.get('parse', {}).get('wikitext', {}).get('*', '')
+        field = previous_field(wikitext)
         wiki, groups, unresolved = {}, {}, []
         dev = {r['task']: r['status'] for r in task.get('taskRequirements', [])}
         # A standalone "or" is an alternative group, not two mandatory completions.
@@ -190,14 +201,26 @@ def main():
         for r in task.get('traderRequirements', []):
             trader = r['trader']
             traders.append({'trader': tr(raw['traders'][trader]['name']), 'type': r['requirementType'], 'value': r['value'], 'compare': r['compareMethod']})
+        # 1.x unlocks: the giver's loyalty level, and how many of its quests at that level are done.
+        # tarkov.dev leaves both empty for reworked quests, so the wiki fills them.
+        giver = tr(raw['traders'][task['trader']]['name']) if task.get('trader') in raw['traders'] else None
+        ll, ll_quests = loyalty_fields(wikitext)
+        if giver and ll and ll > 1 and not any(t['trader'] == giver and t['type'] == 'level' for t in traders):
+            traders.append({'trader': giver, 'type': 'level', 'value': ll, 'compare': '>=', 'source': 'wiki'})
+            conflicts.append((name, 'wiki-only loyalty level', f'{giver} LL{ll}'))
         output[tid] = {'requirements': requirements, 'unresolved': unresolved, 'minLevel': task.get('minPlayerLevel', 1), 'traderRequirements': traders,
                        'faction': task.get('factionName', 'Any'), 'restartable': task.get('restartable', False)}
+        if giver and ll:
+            output[tid]['loyalty'] = {'trader': giver, 'level': ll, **({'quests': ll_quests} if ll_quests else {})}
+            # PvP-zone variants don't count toward another quest's "LLn quests completed" (checked on real logs).
+            if '[PVP ZONE]' in name:
+                output[tid]['loyalty']['counted'] = False
     conflicts += resolve_cycles(output, {tid: tr(t['name']) for tid, t in tasks.items()})
     output_path = args.out or ROOT / 'data' / ('' if args.mode == 'regular' else 'pve') / 'progression.json'
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=1), encoding='utf-8')
     lines = ['# Progression conflicts', '', f'Snapshot: {snapshot.name} ({args.mode}). {len(tasks)} tasks, {len(urls)} cached wiki responses.', '',
-             'Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty is annotation only. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.', '',
+             'Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.', '',
              '| Quest | Conflict | Detail |', '|---|---|---|']
     lines += ['| ' + ' | '.join(str(v).replace('|', '\\|').replace('\n', ' ') for v in row) + ' |' for row in conflicts]
     report_path = args.report or ROOT / 'reports' / ('progression-conflicts.md' if args.mode == 'regular' else 'progression-conflicts-pve.md')
