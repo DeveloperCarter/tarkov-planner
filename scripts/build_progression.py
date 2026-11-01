@@ -25,6 +25,19 @@ def previous_field(wikitext):
     return infobox_field(wikitext, 'previous')
 
 
+def page_facts(wikitext):
+    """Facts a quest page states outside the infobox: removed from the game, a story-chapter step,
+    a game edition, and a player level the structured data lacks. Facts only, never prose."""
+    section = re.search(r'==\s*Requirements\s*==(.*?)(?=\n==[^=]|\Z)', wikitext, re.S)
+    section = section[1] if section else ''
+    story = re.search(r'\[\[([^\]|]+)(?:\|[^\]]*)?\]\] story chapter', section)
+    edition = re.search(r'"([^"]+)" edition', section)
+    level = re.search(r'Must be level (\d+)', section)
+    return {'removed': bool(re.search(r"'''\{\{PAGENAME\}\}''' was an? \[\[Quests", wikitext)),
+            'story': story[1] if story else None, 'edition': edition[1] if edition else None,
+            'level': int(level[1]) if level else None}
+
+
 def loyalty_fields(wikitext):
     """(LL requirement, "LLn quests completed") from the infobox; None where blank or not a number."""
     number = lambda text: int(m[1]) if (m := re.match(r'\s*(\d+)\s*$', text)) else None
@@ -208,8 +221,23 @@ def main():
         if giver and ll and ll > 1 and not any(t['trader'] == giver and t['type'] == 'level' for t in traders):
             traders.append({'trader': giver, 'type': 'level', 'value': ll, 'compare': '>=', 'source': 'wiki'})
             conflicts.append((name, 'wiki-only loyalty level', f'{giver} LL{ll}'))
-        output[tid] = {'requirements': requirements, 'unresolved': unresolved, 'minLevel': task.get('minPlayerLevel', 1), 'traderRequirements': traders,
+        facts = page_facts(wikitext)
+        min_level = task.get('minPlayerLevel', 1)
+        if facts['level'] and facts['level'] > (min_level or 0):
+            conflicts.append((name, 'wiki-only player level', f'level {facts["level"]} (tarkov.dev {min_level})'))
+            min_level = facts['level']
+        output[tid] = {'requirements': requirements, 'unresolved': unresolved, 'minLevel': min_level, 'traderRequirements': traders,
                        'faction': task.get('factionName', 'Any'), 'restartable': task.get('restartable', False)}
+        if facts['removed']:
+            output[tid]['removed'] = True
+            conflicts.append((name, 'removed from the game', 'wiki says it "was a quest"; locked'))
+        for fact in ('story', 'edition'):
+            if facts[fact]:
+                output[tid][fact] = facts[fact]
+                conflicts.append((name, f'wiki {fact} requirement', facts[fact]))
+        # BTR Driver quests are accepted in raid and leave no start event.
+        if giver == 'BTR Driver':
+            output[tid]['startLogged'] = False
         if giver and ll:
             output[tid]['loyalty'] = {'trader': giver, 'level': ll, **({'quests': ll_quests} if ll_quests else {})}
             # PvP-zone variants don't count toward another quest's "LLn quests completed" (checked on real logs).
@@ -220,7 +248,7 @@ def main():
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=1), encoding='utf-8')
     lines = ['# Progression conflicts', '', f'Snapshot: {snapshot.name} ({args.mode}). {len(tasks)} tasks, {len(urls)} cached wiki responses.', '',
-             'Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.', '',
+             'Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Removed quests, story-chapter steps and game editions from the wiki page lock a quest; its "Must be level N" raises a lower level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.', '',
              '| Quest | Conflict | Detail |', '|---|---|---|']
     lines += ['| ' + ' | '.join(str(v).replace('|', '\\|').replace('\n', ' ') for v in row) + ' |' for row in conflicts]
     report_path = args.report or ROOT / 'reports' / ('progression-conflicts.md' if args.mode == 'regular' else 'progression-conflicts-pve.md')

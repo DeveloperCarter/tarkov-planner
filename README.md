@@ -135,7 +135,7 @@ game restart, and updates each quest's status (started / failed / completed).
 
 ## Known gaps
 
-- **Quest unlocks (1.x):** reworked quests unlock by trader loyalty and "LLn quests completed" counts from the wiki. The site can't see your loyalty level, so those quests are labelled "needs Skier LL3" rather than locked. A few quests, such as The Walls Have Eyes and Stimulating Demand, have no unlock data in either source and may show as available too early.
+- **Quest unlocks (1.x):** reworked quests unlock by trader loyalty and "LLn quests completed" counts from the wiki, but most have no complete unlock data in either source. When your logs reach back to your character's first quest, the logs decide instead: the game starts a quest as soon as it unlocks, so a quest with no start in your logs shows "not offered yet". Without logs from the start, the wiki rules apply. The site can't see your loyalty level, so those quests are labelled "needs Skier LL3" rather than locked, and some may show as available too early. Quests the wiki marks as removed, Boreas story-chapter steps and Edge of Darkness quests are locked; a logged start still counts. BTR Driver quests never log a start, so the rules decide for them.
 - **Kappa flags:** tarkov.dev marks only 13 of 503 tasks as Kappa, so the flag is incomplete. Use the wiki for Kappa.
 - **Rotation check:** the coordinate rotation was checked on Customs (180°) only. Factory, Labs and Labyrinth use 90°/270° and haven't been checked by eye.
 - **Terminal:** it has no tasks in the data, so no file is generated for it.

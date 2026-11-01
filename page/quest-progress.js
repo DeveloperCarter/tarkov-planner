@@ -43,6 +43,9 @@
       if (status === "failed" && !task.restartable) reasons.push({ type: "failed" });
       if (level < (task.minLevel || 1)) reasons.push({ type: "level", level: task.minLevel });
       if (task.faction && task.faction !== "Any" && task.faction !== faction) reasons.push({ type: "faction", faction: task.faction });
+      if (task.removed) reasons.push({ type: "removed" });
+      if (task.story) reasons.push({ type: "story", chapter: task.story });
+      if (task.edition) reasons.push({ type: "edition", edition: task.edition });
       const need = task.loyalty?.quests;
       const have = need ? doneAt[task.loyalty.trader + "|" + task.loyalty.level] || 0 : 0;
       if (need && have < need) reasons.push({ type: "loyaltyQuests", trader: task.loyalty.trader, level: task.loyalty.level, count: need, have });

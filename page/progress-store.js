@@ -103,10 +103,20 @@
     return !membership || status.at > membership.at || membership.current;
   }
 
+  // Logs that include the character's first quest hold every quest start since.
+  function logsFromStart(store, key) {
+    const scope = windowFor(store, key);
+    return !!scope && Object.values(store.journal).some(r => r.event.questId === FIRST_QUEST && accepts(scope, r.event, r.meta));
+  }
+
   function evaluate(store, key, progression, options) {
     const scope = store.scopes[key];
     const state = derive(store, key);
     const result = Progress.evaluate(progression, state.statuses, options);
+    // 1.x starts a quest as soon as it unlocks, and the start is logged. With logs back to the
+    // character's first quest, a quest the rules call open but that never started isn't offered yet:
+    // the wiki and tarkov.dev lack most 1.x unlock conditions. A manual status still wins.
+    const offered = logsFromStart(store, key);
     for (const [id, quest] of Object.entries(result.quests)) {
       quest.current = isCurrent(scope, id, state.statuses[id], options?.map, options?.listed);
       if (quest.current) {
@@ -114,6 +124,11 @@
         result.statuses[id] = { ...state.statuses[id] };
       }
       quest.possible = !!scope && quest.possible && !quest.current;
+      if (offered && quest.possible && !state.statuses[id] && progression[id].startLogged !== false) {
+        quest.possible = quest.available = false;
+        quest.locked = true;
+        quest.reasons.push({ type: "notOffered" });
+      }
     }
     return result;
   }
@@ -205,5 +220,5 @@
     return { ids: [...new Set(ids)], errors };
   }
   return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, setStash, confirmCurrent, isCurrent, evaluate,
-    previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs };
+    previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs, logsFromStart };
 });

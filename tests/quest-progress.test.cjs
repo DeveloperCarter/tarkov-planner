@@ -95,3 +95,14 @@ test('"LLn quests completed" counts the giver\'s completed quests at that loyalt
   data.b.loyalty.counted = false; // PvP-zone variants don't count
   assert.equal(P.evaluate(data, { a: 'completed', b: 'completed' }).quests.gated.possible, false);
 });
+test('removed quests, story-chapter steps and game editions lock; a logged start still counts', () => {
+  const data = { gone: task([], { removed: true }), story: task([], { story: 'Boreas' }), eod: task([], { edition: 'Edge of Darkness' }) };
+  const r = P.evaluate(data).quests;
+  assert.deepEqual(r.gone.reasons, [{ type: 'removed' }]);
+  assert.deepEqual(r.story.reasons, [{ type: 'story', chapter: 'Boreas' }]);
+  assert.deepEqual(r.eod.reasons, [{ type: 'edition', edition: 'Edge of Darkness' }]);
+  assert.equal(r.eod.possible, false);
+  const owner = P.evaluate(data, { eod: 'started' }).quests.eod;
+  assert.equal(owner.current, true);
+  assert.equal(owner.possible, false);
+});

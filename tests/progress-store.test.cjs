@@ -216,3 +216,29 @@ test("store exports in the browser with no CommonJS", () => {
   vm.runInNewContext(fs.readFileSync(require.resolve("../page/progress-store.js"), "utf8"), context);
   assert.equal(typeof context.ProgressStore.createScope, "function");
 });
+
+test("with logs from the character's first quest, unstarted quests the rules open are not offered yet", () => {
+  const first = "657315ddab5a49b71f098853";
+  const data = { [first]: {}, open: {}, btr: { startLogged: false }, manual: {}, started: {}, high: { minLevel: 99 } };
+  const s = S.empty(), k = scope(s, 0);
+  S.ingest(s, [event("started", "started", 20)], meta);
+  // Without the first quest the logs may begin mid-character, so the rules decide.
+  let r = S.evaluate(s, k, data, { level: 20 });
+  assert.equal(S.logsFromStart(s, k), false);
+  assert.equal(r.quests.open.possible, true);
+  S.ingest(s, [event(first, "completed", 10)], meta);
+  S.setManual(s, k, "manual", "not-started");
+  r = S.evaluate(s, k, data, { level: 20 });
+  assert.equal(S.logsFromStart(s, k), true);
+  assert.equal(r.quests.open.possible, false);
+  assert.equal(r.quests.open.available, false);
+  assert.deepEqual(r.quests.open.reasons, [{ type: "notOffered" }]);
+  assert.equal(r.quests.btr.possible, true, "BTR Driver quests leave no start event");
+  assert.equal(r.quests.manual.possible, true, "a manual status wins");
+  assert.equal(r.quests.started.current, true);
+  assert.deepEqual(r.quests.high.reasons, [{ type: "level", level: 99 }], "rule reasons come first and aren't doubled");
+  // Another profile's first quest says nothing about this one.
+  const s2 = S.empty(), k2 = scope(s2, 0);
+  S.ingest(s2, [event(first, "completed", 10)], { ...meta, profileId: other });
+  assert.equal(S.logsFromStart(s2, k2), false);
+});

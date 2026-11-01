@@ -119,6 +119,14 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   are marked `counted: false`: counting Easy Money - Part 1 [PVP ZONE] would open Supplements and
   Friend From the West, which the game still hid. The game also groups some quests as "Essential
   tasks"; that flag isn't in either source.
+- Logs decide availability (checked 2026-11-01 against in-game lists for Prapor, Jaeger, Ragman, Mechanic,
+  Peacekeeper and Ref): every quest the game listed had a logged start (64 of 64), and none of about 72
+  quests the rules called open but that never started were listed. So with logs back to First in Line,
+  `ProgressStore.evaluate` locks an unstarted quest with reason `notOffered`; a manual status wins and
+  `startLogged: false` (BTR Driver) opts out. Wiki page facts from `page_facts`: `removed` ("was a
+  Quest"; 33, dropped from Kappa and keep counts unless started), `story` ("[[Boreas]] story chapter"),
+  `edition` ("Edge of Darkness" edition), and "Must be level N" raising a lower `minLevel`. The wiki's
+  `{{Seasonal change}}` banner is unreliable (To Great Heights! - Part 4 is still offered); don't use it.
 
 **Coordinates**
 - Map position = game `(x, z)` rotated by `coordinateRotation`, the same formula as tarkov.dev's

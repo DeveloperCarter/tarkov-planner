@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from build_progression import previous_field, previous_links, key, resolve_cycles, loyalty_fields
+from build_progression import previous_field, previous_links, key, resolve_cycles, loyalty_fields, page_facts
 
 
 class WikiPreviousTests(unittest.TestCase):
@@ -47,6 +47,15 @@ class WikiPreviousTests(unittest.TestCase):
         self.assertEqual(loyalty_fields(text), (2, 4))
         self.assertEqual(loyalty_fields('{{Infobox quest\n|LL requirement =3\n|LL quests =\n}}'), (3, None))
         self.assertEqual(loyalty_fields('no infobox'), (None, None))
+
+    def test_page_facts(self):
+        gone = "{{Infobox quest\n|previous =\n}}\n'''{{PAGENAME}}''' was a [[Quests|Quest]] in it.\n==Dialogue==\n"
+        self.assertEqual(page_facts(gone), {'removed': True, 'story': None, 'edition': None, 'level': None})
+        text = ("'''{{PAGENAME}}''' is a [[Quests|Quest]].\n==Requirements==\n* Must be level 28 to start this quest.\n"
+                '* Hand over the drives to [[Mechanic]] in the [[Boreas]] story chapter.\n'
+                '* This quest is only available to buyers of the "Edge of Darkness" edition of the game.\n'
+                '==Objectives==\n* Must be level 99\n')
+        self.assertEqual(page_facts(text), {'removed': False, 'story': 'Boreas', 'edition': 'Edge of Darkness', 'level': 28})
 
 
 if __name__ == '__main__':

@@ -2,16 +2,19 @@
 
 Snapshot: 2026-10-20 (pve). 499 tasks, 491 cached wiki responses.
 
-Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.
+Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Removed quests, story-chapter steps and game editions from the wiki page lock a quest; its "Must be level N" raises a lower level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.
 
 | Quest | Conflict | Detail |
 |---|---|---|
 | Sanitary Standards - Part 2 | tarkov.dev-only prerequisite | Sanitary Standards: complete |
+| Sanitary Standards - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Friend From the West - Part 2 | tarkov.dev-only prerequisite | Friend From the West: complete |
+| Friend From the West - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Every Hunter Knows This | wiki-only prerequisite | Rough Tarkov: complete |
 | Out of Curiosity | status disagreement | Chemical - Part 4: tarkov.dev ['active'], wiki ['active', 'complete']; using tarkov.dev |
 | Big Customer | status disagreement | Chemical - Part 4: tarkov.dev ['active'], wiki ['active', 'complete']; using tarkov.dev |
 | Loyalty Buyout | tarkov.dev-only prerequisite | Chemical - Part 4: failed |
+| Loyalty Buyout | removed from the game | wiki says it "was a quest"; locked |
 | Decisions, Decisions [PVE ZONE] | wiki-only prerequisite | Against the Conscience - Part 2 [PVE ZONE]: complete |
 | Decisions, Decisions [PVE ZONE] | tarkov.dev-only prerequisite | Between Two Fires [PVE ZONE]: active |
 | Professional Fitness - Part 1 [PVE ZONE] | wiki-only prerequisite | Balancing - Part 1 [PVE ZONE]: complete |
@@ -19,42 +22,78 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Against the Conscience - Part 1 [PVE ZONE] | tarkov.dev-only prerequisite | Arena Business [PVE ZONE]: complete |
 | Against the Conscience - Part 1 [PVE ZONE] | wiki-only prerequisite | Hold the Lead [PVE ZONE]: complete |
 | Spa Tour - Part 6 | tarkov.dev-only prerequisite | Master Key: complete |
+| Spa Tour - Part 6 | removed from the game | wiki says it "was a quest"; locked |
 | Farming - Part 2 | tarkov.dev-only prerequisite | Playing the Market: complete |
+| Farming - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Insider | tarkov.dev-only prerequisite | Gunsmith - HK MP5: complete |
 | Insider | tarkov.dev-only prerequisite | Ill-Wisher: complete |
+| Insider | removed from the game | wiki says it "was a quest"; locked |
+| The Good Times - Part 1 | wiki edition requirement | Edge of Darkness |
 | Spa Tour - Part 2 | tarkov.dev-only prerequisite | One-Way Ticket: complete |
+| Spa Tour - Part 2 | removed from the game | wiki says it "was a quest"; locked |
+| Hell on Earth - Part 1 | wiki edition requirement | Edge of Darkness |
+| Hell on Earth - Part 2 | wiki edition requirement | Edge of Darkness |
+| Quality Standard | wiki edition requirement | Edge of Darkness |
+| Airmail | wiki edition requirement | Edge of Darkness |
+| The Good Times - Part 2 | wiki edition requirement | Edge of Darkness |
+| Minute of Fame | wiki edition requirement | Edge of Darkness |
+| Viewer | wiki edition requirement | Edge of Darkness |
+| Serious Allegations | wiki edition requirement | Edge of Darkness |
+| Camera, Action! | wiki edition requirement | Edge of Darkness |
+| Proper Comeback | wiki edition requirement | Edge of Darkness |
+| Key to the City | wiki edition requirement | Edge of Darkness |
+| Only Business | removed from the game | wiki says it "was a quest"; locked |
 | Dangerous Road | tarkov.dev-only prerequisite | Supply Plans: complete, failed |
+| Dangerous Road | removed from the game | wiki says it "was a quest"; locked |
 | Signal - Part 3 | tarkov.dev-only prerequisite | Rat Hunting: complete |
+| Signal - Part 3 | removed from the game | wiki says it "was a quest"; locked |
 | Signal - Part 4 | tarkov.dev-only prerequisite | Signal - Part 3: complete |
+| Signal - Part 4 | removed from the game | wiki says it "was a quest"; locked |
 | Glory to CPSU - Part 1 | tarkov.dev-only prerequisite | You've Got Mail: complete |
+| Glory to CPSU - Part 1 | removed from the game | wiki says it "was a quest"; locked |
 | The Hermit | tarkov.dev-only prerequisite | The Survivalist Path - Tough Guy: complete |
 | The Survivalist Path - Combat Medic | tarkov.dev-only prerequisite | The Survivalist Path - Eagle-Owl: complete |
+| The Survivalist Path - Combat Medic | removed from the game | wiki says it "was a quest"; locked |
 | An Apple a Day Keeps the Doctor Away | tarkov.dev-only prerequisite | Health Care Privacy - Part 4: active, complete |
+| An Apple a Day Keeps the Doctor Away | removed from the game | wiki says it "was a quest"; locked |
 | Cargo X - Part 3 | tarkov.dev-only prerequisite | Tracker: complete |
+| Cargo X - Part 3 | removed from the game | wiki says it "was a quest"; locked |
 | Shady Business | tarkov.dev-only prerequisite | What’s on the Flash Drive?: complete |
 | Shady Business | tarkov.dev-only prerequisite | Acquaintance: complete |
+| Shady Business | removed from the game | wiki says it "was a quest"; locked |
 | The Bunker - Part 2 | tarkov.dev-only prerequisite | The Bunker: complete |
+| The Bunker - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Easy Job - Part 2 | tarkov.dev-only prerequisite | Easy Job: complete |
+| Easy Job - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | The Blood of War - Part 2 | tarkov.dev-only prerequisite | Fuel Crisis: complete |
 | The Blood of War - Part 2 | tarkov.dev-only prerequisite | Sew it Good - Part 1: complete |
+| The Blood of War - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Job for a Patriot | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Job for a Patriot | wiki-only loyalty level | Prapor LL2 |
 | Gunsmith - AS VAL | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Gunsmith - AS VAL | wiki-only loyalty level | Mechanic LL3 |
 | Athlete | tarkov.dev-only prerequisite | Health Care Privacy - Part 4: complete |
+| Athlete | removed from the game | wiki says it "was a quest"; locked |
 | The Guide | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | The Guide | wiki-only loyalty level | Peacekeeper LL4 |
 | House Arrest - Part 2 | tarkov.dev-only prerequisite | House Arrest: complete |
+| House Arrest - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | The Tarkov Shooter - Part 6 | status disagreement | The Tarkov Shooter - Part 5: tarkov.dev ['active', 'complete'], wiki ['complete']; using tarkov.dev |
 | Perfect Mediator | tarkov.dev-only prerequisite | Shaking Up the Teller: complete |
+| Perfect Mediator | removed from the game | wiki says it "was a quest"; locked |
 | Unique Experience | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Unique Experience | wiki-only loyalty level | Prapor LL4 |
 | Flint | tarkov.dev-only prerequisite | Chumming: complete |
+| Flint | removed from the game | wiki says it "was a quest"; locked |
 | Surprise Gift [PVE ZONE] | wiki-only prerequisite | Against the Conscience - Part 2 [PVE ZONE]: complete |
 | Surprise Gift [PVE ZONE] | tarkov.dev-only prerequisite | Between Two Fires [PVE ZONE]: active |
 | Private Clinic | tarkov.dev-only prerequisite | Health Care Privacy - Part 4: complete |
+| Private Clinic | removed from the game | wiki says it "was a quest"; locked |
 | Gendarmerie - Mall Cop | tarkov.dev-only prerequisite | The Punisher - Part 6: complete |
+| Gendarmerie - Mall Cop | removed from the game | wiki says it "was a quest"; locked |
 | Gendarmerie - Tickets, Please | tarkov.dev-only prerequisite | Gendarmerie - Mall Cop: complete |
+| Gendarmerie - Tickets, Please | removed from the game | wiki says it "was a quest"; locked |
+| Mentor | removed from the game | wiki says it "was a quest"; locked |
 | Crisis | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Crisis | wiki-only loyalty level | Therapist LL4 |
 | Collector | wiki section requirement | Collector: self-link is a section pointer, not a prerequisite |
@@ -93,6 +132,7 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Pharmacist | wiki-only prerequisite | First in Line: complete |
 | Pharmacist | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Kind of Sabotage | tarkov.dev-only prerequisite | Supply Plans: active |
+| Kind of Sabotage | removed from the game | wiki says it "was a quest"; locked |
 | General Wares | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | General Wares | wiki-only loyalty level | Therapist LL2 |
 | Car Repair | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
@@ -161,7 +201,9 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | The Key to Success | wiki-only loyalty level | Ragman LL2 |
 | Charisma Brings Success | tarkov.dev-only prerequisite | Fuel Crisis: complete |
 | Charisma Brings Success | tarkov.dev-only prerequisite | Sew it Good - Part 2: complete |
+| Charisma Brings Success | removed from the game | wiki says it "was a quest"; locked |
 | No Fuss Needed | tarkov.dev-only prerequisite | The Key to Success: complete |
+| No Fuss Needed | removed from the game | wiki says it "was a quest"; locked |
 | Gratitude | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Supervisor | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Supervisor | wiki-only loyalty level | Ragman LL2 |
@@ -219,6 +261,7 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Courtesy Visit | wiki-only loyalty level | Jaeger LL2 |
 | Nostalgia | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Nostalgia | wiki-only loyalty level | Jaeger LL2 |
+| Nostalgia | wiki-only player level | level 28 (tarkov.dev 0) |
 | Hunting Trip | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Hunting Trip | wiki-only loyalty level | Jaeger LL4 |
 | Anesthesia | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
@@ -333,6 +376,7 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | The Secret to Productivity | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | The Secret to Productivity | wiki-only loyalty level | Mechanic LL2 |
 | Pets Won't Need It - Part 2 | tarkov.dev-only prerequisite | Pets Won't Need It: complete |
+| Pets Won't Need It - Part 2 | removed from the game | wiki says it "was a quest"; locked |
 | Properties All Around | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Properties All Around | wiki-only loyalty level | Prapor LL2 |
 | The Huntsman Path - Crooked Cop | wiki-only loyalty level | Jaeger LL2 |
@@ -375,6 +419,7 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | The Higher They Fly | wiki-only prerequisite | Swift Retribution: complete |
 | Simple Side Job | status disagreement | Swift Retribution: tarkov.dev ['complete'], wiki ['active', 'complete']; using tarkov.dev |
 | A Helping Hand | wiki-only loyalty level | Mechanic LL2 |
+| A Helping Hand | wiki-only player level | level 20 (tarkov.dev 0) |
 | Abandoned Cargo | wiki-only prerequisite | Operation Aquarius: complete |
 | Abandoned Cargo | wiki-only prerequisite | Supply Plans: complete |
 | Abandoned Cargo | wiki-only prerequisite | First in Line: complete |
@@ -384,9 +429,11 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Shipment Tracking | wiki-only prerequisite | First in Line: complete |
 | Shipment Tracking | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Closer to the People | tarkov.dev-only prerequisite | Shipment Tracking: complete |
+| Closer to the People | removed from the game | wiki says it "was a quest"; locked |
 | Provide Viewership | wiki-only prerequisite | Easy Money - Part 2 [PVE ZONE]: active, complete |
 | Work Smarter | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Rite of Passage | tarkov.dev-only prerequisite | Work Smarter: complete |
+| Rite of Passage | removed from the game | wiki says it "was a quest"; locked |
 | Belka and Strelka | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Private Club | wiki-only prerequisite | Supplier: complete |
 | Private Club | wiki-only prerequisite | Burning Rubber: complete |
@@ -401,6 +448,10 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Special Order | wiki-only loyalty level | Prapor LL4 |
 | Goals and Means | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Goals and Means | wiki-only loyalty level | Mechanic LL4 |
+| War Never Changes | wiki story requirement | Boreas |
+| Oil Change | wiki story requirement | Boreas |
+| Fresh Stock | wiki story requirement | Boreas |
+| A Wedge Between Us | wiki story requirement | Boreas |
 | Secret Message | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Secret Message | wiki-only loyalty level | Peacekeeper LL2 |
 | Hiking | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |

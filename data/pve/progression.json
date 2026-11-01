@@ -275,7 +275,8 @@
   "minLevel": 8,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5a03153686f77442d90e2171": {
   "requirements": [],
@@ -406,7 +407,8 @@
   "minLevel": 9,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5bc479e586f7747f376c7da3": {
   "requirements": [
@@ -608,7 +610,8 @@
   "minLevel": 9,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5bc47dbf86f7741ee74e93b9": {
   "requirements": [
@@ -1135,7 +1138,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ac3460c86f7742880308185": {
   "requirements": [
@@ -1151,7 +1155,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ac346a886f7744e1b083d67": {
   "requirements": [],
@@ -1193,7 +1198,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "626bd75e47ea7f506e5493c5": {
   "requirements": [],
@@ -1330,6 +1336,7 @@
   ],
   "faction": "Any",
   "restartable": false,
+  "edition": "Edge of Darkness",
   "loyalty": {
    "trader": "Prapor",
    "level": 2
@@ -1387,7 +1394,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "63913715f8e5dd32bf4e3aaa": {
   "requirements": [
@@ -1420,7 +1428,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314b2a9290f9e0806cca3": {
   "requirements": [
@@ -1436,7 +1445,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314b696a9349baa021bac": {
   "requirements": [
@@ -1452,7 +1462,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314b8312343839d032d24": {
   "requirements": [
@@ -1468,7 +1479,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314bafd5ca9577902e03a": {
   "requirements": [
@@ -1484,7 +1496,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314bc1d3ec95634095e77": {
   "requirements": [
@@ -1500,7 +1513,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314bd920800278d0f6748": {
   "requirements": [
@@ -1516,7 +1530,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314bf1cd52e3d040a2e78": {
   "requirements": [
@@ -1532,7 +1547,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314c10aa5c7436c00908c": {
   "requirements": [
@@ -1548,7 +1564,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314c3acf8442f8b0531a3": {
   "requirements": [
@@ -1564,7 +1581,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "666314c5a9290f9e0806cca5": {
   "requirements": [
@@ -1580,7 +1598,8 @@
   "minLevel": 12,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "edition": "Edge of Darkness"
  },
  "5ae448a386f7744d3730fff0": {
   "requirements": [],
@@ -1588,7 +1607,8 @@
   "minLevel": 15,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "63ab180c87413d64ae0ac20a": {
   "requirements": [
@@ -1605,7 +1625,8 @@
   "minLevel": 15,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ac346cf86f7741d63233a02": {
   "requirements": [
@@ -1621,7 +1642,8 @@
   "minLevel": 15,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ac346e886f7741d6118b99b": {
   "requirements": [
@@ -1637,7 +1659,8 @@
   "minLevel": 15,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5d25e4b786f77408251c4bfc": {
   "requirements": [],
@@ -1691,7 +1714,8 @@
   "minLevel": 17,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "639136df4b15ca31f76bc31f": {
   "requirements": [],
@@ -1917,7 +1941,8 @@
   "minLevel": 17,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "6391372c8ba6894d155e77d7": {
   "requirements": [
@@ -2066,7 +2091,8 @@
   "minLevel": 18,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5a27bb3d86f77411ea361a21": {
   "requirements": [],
@@ -2185,7 +2211,8 @@
   "minLevel": 19,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5a27bc3686f7741c73584026": {
   "requirements": [
@@ -2224,7 +2251,8 @@
   "minLevel": 20,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "59c50c8886f7745fed3193bf": {
   "requirements": [
@@ -2324,7 +2352,8 @@
   "minLevel": 21,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "6179acbdc760af5ad2053585": {
   "requirements": [
@@ -2340,7 +2369,8 @@
   "minLevel": 21,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "60896888e4a85c72ef3fa300": {
   "requirements": [],
@@ -2420,7 +2450,8 @@
   "minLevel": 23,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "64f5deac39e45b527a7c4232": {
   "requirements": [],
@@ -2856,7 +2887,8 @@
   "minLevel": 30,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5c0d4e61d09282029f53920e": {
   "requirements": [],
@@ -2911,7 +2943,8 @@
   "minLevel": 33,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "63a9b36cc31b00242d28a99f": {
   "requirements": [],
@@ -3036,7 +3069,8 @@
   "minLevel": 35,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "675c1ff1a757ddd00404f0aa": {
   "requirements": [],
@@ -3073,7 +3107,8 @@
   "minLevel": 35,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "683427418f5b18d29a05d9e3": {
   "requirements": [
@@ -3112,7 +3147,8 @@
   "minLevel": 35,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "6834287b7559f4e6d50bc0fa": {
   "requirements": [
@@ -3260,7 +3296,8 @@
   "minLevel": 36,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "64e7b9a4aac4cd0a726562cb": {
   "requirements": [
@@ -3276,7 +3313,8 @@
   "minLevel": 36,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5c0d1c4cd0928202a02a6f5c": {
   "requirements": [],
@@ -3439,7 +3477,8 @@
   "minLevel": 37,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5c0bbaa886f7746941031d82": {
   "requirements": [],
@@ -4631,7 +4670,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "596a1e6c86f7741ddc2d3206": {
   "requirements": [],
@@ -5510,7 +5550,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ae449a586f7744bde357696": {
   "requirements": [
@@ -5526,7 +5567,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "5ae449b386f77446d8741719": {
   "requirements": [],
@@ -6146,7 +6188,7 @@
  "5d25e4ad86f77443e625e387": {
   "requirements": [],
   "unresolved": [],
-  "minLevel": 0,
+  "minLevel": 28,
   "traderRequirements": [
    {
     "trader": "Jaeger",
@@ -7632,7 +7674,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "6573397ef3f8344c4575cd87": {
   "requirements": [],
@@ -8024,7 +8067,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "673f348dd3346c21670217e7": {
   "requirements": [
@@ -8056,7 +8100,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "673f5a4976553f78350bdac1": {
   "requirements": [
@@ -8072,7 +8117,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "673f6027352b4da8e00322d2": {
   "requirements": [
@@ -8088,7 +8134,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "673f61a066e6a521aa04b62b": {
   "requirements": [
@@ -8131,7 +8178,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6740a02a69a58fceba0ff399": {
   "requirements": [
@@ -8147,7 +8195,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6740a15566e6a521aa051b15": {
   "requirements": [
@@ -8248,7 +8297,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6744a4717e3818d5bb0680bb": {
   "requirements": [
@@ -8289,7 +8339,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6744a9dfef61d56e020b5c4a": {
   "requirements": [
@@ -8314,7 +8365,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6744ab1def61d56e020b5c56": {
   "requirements": [
@@ -8331,7 +8383,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6744aca8d3346c216702c583": {
   "requirements": [
@@ -8347,7 +8400,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6744af0969a58fceba101fed": {
   "requirements": [
@@ -8370,7 +8424,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6745cbee909d2013670a4a55": {
   "requirements": [
@@ -8393,7 +8448,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6745fae369a58fceba10343d": {
   "requirements": [
@@ -8442,7 +8498,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6745fdddd3346c216702e0bf": {
   "requirements": [
@@ -8550,7 +8607,7 @@
  "6752f6d83038f7df520c83e8": {
   "requirements": [],
   "unresolved": [],
-  "minLevel": 0,
+  "minLevel": 20,
   "traderRequirements": [
    {
     "trader": "Mechanic",
@@ -8657,7 +8714,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "675c1570526ff496850895d9": {
   "requirements": [],
@@ -8726,7 +8784,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "removed": true
  },
  "675c3507a06634b5110e3c18": {
   "requirements": [],
@@ -8883,7 +8942,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "68ee1c18b4e5bc9a68018cd7": {
   "requirements": [],
@@ -8920,7 +8980,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "69c26c07683c9831020018c7": {
   "requirements": [],
@@ -8928,7 +8989,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "68db9c7557bc51a8c804c14b": {
   "requirements": [],
@@ -8956,7 +9018,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "story": "Boreas"
  },
  "69ce1de03e15cd80bd06f6c9": {
   "requirements": [],
@@ -8964,7 +9027,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "story": "Boreas"
  },
  "69ce21e990144e437802b1e0": {
   "requirements": [],
@@ -8972,7 +9036,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "story": "Boreas"
  },
  "69ce1cfb298a6529b30d712b": {
   "requirements": [],
@@ -8980,7 +9045,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "story": "Boreas"
  },
  "69c2a2d004de49c8f0055a3d": {
   "requirements": [
@@ -8996,7 +9062,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "69c277f3ea6da9c23e07f8d2": {
   "requirements": [
@@ -9012,7 +9079,8 @@
   "minLevel": 0,
   "traderRequirements": [],
   "faction": "Any",
-  "restartable": false
+  "restartable": false,
+  "startLogged": false
  },
  "6a5ccda873f06065630d61b0": {
   "requirements": [],

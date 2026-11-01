@@ -9,7 +9,9 @@
     const scope = store.scopes[key]?.mode === data.mode ? store.scopes[key] : null;
     key = scope ? key : "";
     const result = Store.evaluate(store, key, data.progression, { level, faction });
-    const tasks = data.tasks.filter(t => !t.faction || t.faction === "Any" || t.faction === faction);
+    // Quests removed from the game drop out of Kappa and keep counts unless the logs show one in progress.
+    const tasks = data.tasks.filter(t => (!t.faction || t.faction === "Any" || t.faction === faction) &&
+      !(data.progression[t.id]?.removed && result.quests[t.id]?.status !== "started"));
     const byId = Object.fromEntries(tasks.map(t => [t.id, t]));
     const quests = Object.fromEntries(tasks.map(t => {
       const q = { ...result.quests[t.id] };

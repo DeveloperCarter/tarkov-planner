@@ -149,3 +149,14 @@ test('accepted Kappa quests lead the next list ahead of possible unlocks with mo
  const r=Career.evaluate(data,store,key,{level:24});
  assert.deepEqual(r.kappa.next.map(t=>[t.id,t.current,t.unlocks]),[['d',true,0],['a',false,2]]);
 });
+test('quests removed from the game leave Kappa and keep counts unless in progress', () => {
+  const {store,key,data}=fixture();
+  data.progression.c.removed=true;
+  let r=Career.evaluate(data,store,key,{level:24,faction:'USEC'});
+  assert.equal(r.kappa.total,2);
+  assert.equal(r.quests.c,undefined);
+  Store.setManual(store,key,'c','started');
+  r=Career.evaluate(data,store,key,{level:24,faction:'USEC'});
+  assert.equal(r.kappa.total,3);
+  assert.equal(r.quests.c.current,true);
+});

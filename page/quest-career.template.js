@@ -26,6 +26,10 @@
     if (r.type === "anyOf") return 'Needs one of: ' + r.requirements.map(req => name(req.task)).join(" / ");
     if (r.type === "faction") return `${r.faction} only`;
     if (r.type === "loyaltyQuests") return `Needs ${r.count} ${r.trader} LL${r.level} quests done (${r.have} so far)`;
+    if (r.type === "removed") return "Removed from the game";
+    if (r.type === "story") return `Needs a step in the ${r.chapter} story chapter`;
+    if (r.type === "edition") return `${r.edition} edition only`;
+    if (r.type === "notOffered") return "Not offered yet (no start in your logs)";
     if (r.type === "failed") return "Failed · cannot restart";
     return r.name ? `Unresolved requirement: ${r.name}` : "No current acceptance recorded";
   }
