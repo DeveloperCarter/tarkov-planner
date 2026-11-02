@@ -4,7 +4,7 @@
   "mapId": "56f40101d2720b2a4d8b45d6",
   "key": "customs",
   "gameMode": "pve",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 35,
   "players": "10-12",
@@ -41,14 +41,6 @@
   ]
  },
  "zones": {
-  "dorms-se": {
-   "name": "Dorms SE",
-   "x": 485,
-   "y": 484,
-   "hints": [],
-   "gx": 180.5,
-   "gz": 165.9
-  },
   "depot": {
    "name": "Depot",
    "x": 206,
@@ -73,23 +65,47 @@
    "gx": 200.2,
    "gz": -117.2
   },
-  "skeleton-w": {
-   "name": "Skeleton W",
-   "x": 415,
-   "y": 301,
+  "skeleton-nw": {
+   "name": "Skeleton NW",
+   "x": 414,
+   "y": 292,
    "hints": [
     "Inudstrial Plant"
    ],
-   "gx": 255.9,
-   "gz": -31.4
+   "gx": 257.1,
+   "gz": -40.9
+  },
+  "skeleton-w-1": {
+   "name": "Skeleton W (1)",
+   "x": 420,
+   "y": 311,
+   "hints": [],
+   "gx": 251.2,
+   "gz": -21.0
+  },
+  "skeleton-w-2": {
+   "name": "Skeleton W (2)",
+   "x": 415,
+   "y": 327,
+   "hints": [],
+   "gx": 255.7,
+   "gz": -3.7
   },
   "streamer-house": {
    "name": "Streamer House",
-   "x": 123,
-   "y": 259,
+   "x": 125,
+   "y": 276,
    "hints": [],
-   "gx": 570.0,
-   "gz": -76.3
+   "gx": 568.4,
+   "gz": -58.3
+  },
+  "streamer-house-n": {
+   "name": "Streamer House N",
+   "x": 122,
+   "y": 251,
+   "hints": [],
+   "gx": 570.8,
+   "gz": -85.3
   },
   "military-checkpoint": {
    "name": "Military Checkpoint",
@@ -130,6 +146,22 @@
    "hints": [],
    "gx": 204.1,
    "gz": 12.4
+  },
+  "dorms-se-1": {
+   "name": "Dorms SE (1)",
+   "x": 485,
+   "y": 483,
+   "hints": [],
+   "gx": 180.9,
+   "gz": 164.0
+  },
+  "dorms-se-2": {
+   "name": "Dorms SE (2)",
+   "x": 489,
+   "y": 501,
+   "hints": [],
+   "gx": 176.4,
+   "gz": 184.2
   },
   "dorms-w": {
    "name": "Dorms W",
@@ -295,14 +327,6 @@
    "gx": -254.8,
    "gz": -91.3
   },
-  "warehouse-4-e": {
-   "name": "Warehouse 4 E",
-   "x": 405,
-   "y": 262,
-   "hints": [],
-   "gx": 266.6,
-   "gz": -73.4
-  },
   "big-red-nw": {
    "name": "Big Red NW",
    "x": 825,
@@ -319,14 +343,6 @@
    "gx": 147.9,
    "gz": -67.7
   },
-  "warehouse-17": {
-   "name": "Warehouse 17",
-   "x": 600,
-   "y": 276,
-   "hints": [],
-   "gx": 57.2,
-   "gz": -58.0
-  },
   "old-construction-nw": {
    "name": "Old Construction NW",
    "x": 546,
@@ -334,6 +350,46 @@
    "hints": [],
    "gx": 115.6,
    "gz": -38.4
+  },
+  "warehouse-17-1": {
+   "name": "Warehouse 17 (1)",
+   "x": 601,
+   "y": 276,
+   "hints": [],
+   "gx": 55.8,
+   "gz": -58.2
+  },
+  "warehouse-17-2": {
+   "name": "Warehouse 17 (2)",
+   "x": 597,
+   "y": 269,
+   "hints": [],
+   "gx": 60.3,
+   "gz": -66.2
+  },
+  "warehouse-17-sw": {
+   "name": "Warehouse 17 SW",
+   "x": 593,
+   "y": 286,
+   "hints": [],
+   "gx": 65.1,
+   "gz": -47.7
+  },
+  "warehouse-4-e-1": {
+   "name": "Warehouse 4 E (1)",
+   "x": 406,
+   "y": 260,
+   "hints": [],
+   "gx": 265.6,
+   "gz": -75.2
+  },
+  "warehouse-4-e-2": {
+   "name": "Warehouse 4 E (2)",
+   "x": 394,
+   "y": 282,
+   "hints": [],
+   "gx": 278.2,
+   "gz": -51.6
   },
   "s-of-junk-bridge": {
    "name": "S of Junk Bridge",
@@ -2196,7 +2252,7 @@
       "old-gas-sw",
       "repair-shop-s",
       "storage",
-      "streamer-house",
+      "streamer-house-n",
       "trailer-park-s",
       "trailer-park-w",
       "warehouse-17-ne"
@@ -2295,7 +2351,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "warehouse-4-e"
+      "warehouse-4-e-1"
      ]
     },
     {
@@ -2360,7 +2416,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "warehouse-4-e"
+      "warehouse-4-e-1"
      ]
     },
     {
@@ -3920,7 +3976,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -3929,7 +3985,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-2"
      ]
     },
     {
@@ -4097,7 +4153,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "warehouse-4-e"
+      "warehouse-4-e-1"
      ]
     },
     {
@@ -4106,7 +4162,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "warehouse-4-e"
+      "warehouse-4-e-1"
      ]
     },
     {
@@ -4115,7 +4171,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "skeleton-w"
+      "skeleton-nw"
      ]
     },
     {
@@ -4124,7 +4180,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "warehouse-4-e"
+      "warehouse-4-e-2"
      ]
     },
     {
@@ -4137,7 +4193,7 @@
       "any target"
      ],
      "zone": [
-      "skeleton-w"
+      "skeleton-nw"
      ]
     }
    ],
@@ -4275,7 +4331,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -4285,7 +4341,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -4399,7 +4455,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -4415,7 +4471,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     }
    ],
@@ -4552,7 +4608,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "warehouse-17"
+      "warehouse-17-1"
      ]
     },
     {
@@ -4877,7 +4933,7 @@
       "old-construction-nw",
       "repair-shop-s",
       "repair-shop-sw",
-      "warehouse-17"
+      "warehouse-17-1"
      ],
      "zoneMode": "any"
     },
@@ -4905,7 +4961,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "warehouse-17"
+      "warehouse-17-2"
      ]
     },
     {
@@ -4932,7 +4988,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "warehouse-17"
+      "warehouse-17-1"
      ]
     },
     {
@@ -4941,7 +4997,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "warehouse-17"
+      "warehouse-17-sw"
      ]
     }
    ],
@@ -5291,7 +5347,7 @@
      "optional": false,
      "count": 3,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     }
    ],
@@ -5341,7 +5397,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     }
    ],
@@ -5694,7 +5750,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -5714,7 +5770,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -5769,7 +5825,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -5779,7 +5835,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -5903,7 +5959,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -6065,7 +6121,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "skeleton-w"
+      "skeleton-nw"
      ]
     },
     {
@@ -6074,7 +6130,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "skeleton-w"
+      "skeleton-w-1"
      ]
     },
     {
@@ -6083,7 +6139,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "skeleton-w"
+      "skeleton-nw"
      ]
     },
     {
@@ -6092,7 +6148,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "skeleton-w"
+      "skeleton-w-2"
      ]
     }
    ],
@@ -6341,7 +6397,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "streamer-house"
+      "streamer-house-n"
      ]
     },
     {
@@ -6350,7 +6406,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     }
    ],
@@ -6564,7 +6620,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     },
     {
@@ -6574,7 +6630,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "dorms-se"
+      "dorms-se-1"
      ]
     }
    ],

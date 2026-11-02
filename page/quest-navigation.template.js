@@ -19,7 +19,12 @@ function paintQuestNavigation() {
     card.classList.toggle('quest-focused', on);
     if (on) card.setAttribute('aria-current', 'true'); else card.removeAttribute('aria-current');
   });
-  svg.querySelectorAll('.pin.spot').forEach(pin => pin.classList.toggle('quest-focused', raidOn && !scavOn && zones.has(pin.dataset.zone)));
+  const focusIndex = q ? pinned.indexOf(q) : -1;
+  svg.querySelectorAll('.pin.spot').forEach(pin => {
+    pin.classList.toggle('quest-focused', raidOn && !scavOn && zones.has(pin.dataset.zone));
+    // A shared pin puts the focused quest's number on top.
+    if (pin.dataset.quests?.includes(',')) pin.querySelector('.glyph').innerHTML = pinGlyph(pin.dataset.quests.split(',').map(Number), focusIndex);
+  });
   document.documentElement.dataset.questNavigationReady = questNavigationReady() ? '1' : '0';
 }
 function stepQuestFocus(direction) {

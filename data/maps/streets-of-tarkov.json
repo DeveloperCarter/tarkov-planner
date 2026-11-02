@@ -4,7 +4,7 @@
   "mapId": "5714dc692459777137212e12",
   "key": "streets-of-tarkov",
   "gameMode": "regular",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 40,
   "players": "12-16",
@@ -67,11 +67,11 @@
   },
   "beluga": {
    "name": "Beluga",
-   "x": 599,
-   "y": 386,
+   "x": 594,
+   "y": 388,
    "hints": [],
-   "gx": -38.1,
-   "gz": -62.5
+   "gx": -35.0,
+   "gz": -61.1
   },
   "office": {
    "name": "Office",
@@ -123,13 +123,13 @@
   },
   "se-of-vet-clinic": {
    "name": "SE of Vet Clinic",
-   "x": 226,
-   "y": 857,
+   "x": 235,
+   "y": 856,
    "hints": [
     "Chek.13 marked room"
    ],
-   "gx": 191.9,
-   "gz": 228.1
+   "gx": 186.1,
+   "gz": 227.2
   },
   "ne-of-marked-hotel": {
    "name": "NE of Marked Hotel",
@@ -138,6 +138,14 @@
    "hints": [],
    "gx": -263.3,
    "gz": 206.4
+  },
+  "vet-clinic-s": {
+   "name": "Vet Clinic S",
+   "x": 198,
+   "y": 862,
+   "hints": [],
+   "gx": 209.4,
+   "gz": 231.0
   },
   "pharmacy-1": {
    "name": "Pharmacy 1",
@@ -377,21 +385,29 @@
    "gx": 89.3,
    "gz": -275.4
   },
-  "cardinal-bank": {
-   "name": "Cardinal Bank",
-   "x": 397,
-   "y": 441,
+  "cardinal-bank-1": {
+   "name": "Cardinal Bank (1)",
+   "x": 402,
+   "y": 438,
    "hints": [],
-   "gx": 86.6,
-   "gz": -28.4
+   "gx": 83.0,
+   "gz": -30.5
+  },
+  "cardinal-bank-2": {
+   "name": "Cardinal Bank (2)",
+   "x": 379,
+   "y": 451,
+   "hints": [],
+   "gx": 97.4,
+   "gz": -22.2
   },
   "kilmov-shopping-mall-ne": {
    "name": "Kilmov Shopping Mall NE",
-   "x": 787,
-   "y": 398,
+   "x": 778,
+   "y": 385,
    "hints": [],
-   "gx": -154.4,
-   "gz": -55.3
+   "gx": -148.6,
+   "gz": -62.8
   },
   "nw-of-pinewood-hotel": {
    "name": "NW of Pinewood Hotel",
@@ -409,6 +425,14 @@
    "gx": -166.5,
    "gz": -3.4
   },
+  "kilmov-shopping-mall-e": {
+   "name": "Kilmov Shopping Mall E",
+   "x": 797,
+   "y": 410,
+   "hints": [],
+   "gx": -160.2,
+   "gz": -47.8
+  },
   "beluga-sw": {
    "name": "Beluga SW",
    "x": 536,
@@ -417,13 +441,29 @@
    "gx": 0.5,
    "gz": -18.8
   },
+  "beluga-ne": {
+   "name": "Beluga NE",
+   "x": 624,
+   "y": 375,
+   "hints": [],
+   "gx": -53.6,
+   "gz": -69.3
+  },
   "zmejskij-alley-w": {
    "name": "Zmejskij Alley W",
    "x": 271,
-   "y": 743,
+   "y": 727,
    "hints": [],
-   "gx": 164.3,
-   "gz": 157.7
+   "gx": 164.4,
+   "gz": 148.1
+  },
+  "zmejskij-alley-sw": {
+   "name": "Zmejskij Alley SW",
+   "x": 271,
+   "y": 758,
+   "hints": [],
+   "gx": 164.2,
+   "gz": 167.3
   },
   "hive": {
    "name": "Hive",
@@ -433,13 +473,21 @@
    "gx": -211.8,
    "gz": 297.3
   },
-  "nizhnyaya-st-w": {
-   "name": "Nizhnyaya St. W",
-   "x": 632,
-   "y": 1227,
+  "nizhnyaya-st-sw": {
+   "name": "Nizhnyaya St. SW",
+   "x": 641,
+   "y": 1228,
    "hints": [],
-   "gx": -58.4,
-   "gz": 456.5
+   "gx": -64.0,
+   "gz": 456.9
+  },
+  "w-of-nizhnyaya-st": {
+   "name": "W of Nizhnyaya St.",
+   "x": 604,
+   "y": 1225,
+   "hints": [],
+   "gx": -41.5,
+   "gz": 455.1
   },
   "construction-ne": {
    "name": "Construction NE",
@@ -3496,7 +3544,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "zmejskij-alley-w"
+      "zmejskij-alley-sw"
      ]
     },
     {
@@ -4646,7 +4694,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "nizhnyaya-st-w"
+      "nizhnyaya-st-sw"
      ]
     },
     {
@@ -4656,8 +4704,10 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "nizhnyaya-st-w"
-     ]
+      "nizhnyaya-st-sw",
+      "w-of-nizhnyaya-st"
+     ],
+     "zoneMode": "any"
     },
     {
      "id": "658167a0e53c40116f8632fa",
@@ -5007,7 +5057,7 @@
      "type": "mark",
      "optional": false,
      "zone": [
-      "cardinal-bank"
+      "cardinal-bank-1"
      ]
     },
     {
@@ -5016,7 +5066,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "cardinal-bank"
+      "cardinal-bank-2"
      ]
     },
     {
@@ -5034,7 +5084,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "cardinal-bank"
+      "cardinal-bank-1"
      ]
     },
     {
@@ -5070,7 +5120,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "kilmov-shopping-mall-ne"
+      "kilmov-shopping-mall-e"
      ]
     },
     {
@@ -5097,7 +5147,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "beluga"
+      "beluga-ne"
      ]
     }
    ],
@@ -6733,7 +6783,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "se-of-vet-clinic"
+      "vet-clinic-s"
      ]
     },
     {

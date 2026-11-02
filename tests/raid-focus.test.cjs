@@ -135,3 +135,12 @@ test("browser UMD export works without CommonJS", () => {
   vm.runInNewContext(fs.readFileSync(`${root}/page/raid-focus.js`, "utf8"), context);
   assert.equal(typeof context.RaidFocus.project, "function");
 });
+
+test("a shared pin leads with the focused quest and lists the others", () => {
+  assert.deepEqual(F.pinNumbers([4]), { lead: 4, others: [], more: 0 });
+  assert.deepEqual(F.pinNumbers([0, 4]), { lead: 0, others: [4], more: 0 });
+  assert.deepEqual(F.pinNumbers([0, 4], 4), { lead: 4, others: [0], more: 0 });
+  assert.deepEqual(F.pinNumbers([0, 4], 2), { lead: 0, others: [4], more: 0 }, "focus on a quest not at this pin");
+  assert.deepEqual(F.pinNumbers([0, 1, 2, 3, 4, 5]), { lead: 0, others: [1, 2, 3, 4, 5], more: 0 });
+  assert.deepEqual(F.pinNumbers([0, 1, 2, 3, 4, 5, 6, 7]), { lead: 0, others: [1, 2, 3, 4, 5], more: 2 });
+});

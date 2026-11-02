@@ -441,6 +441,9 @@ def build_spawns(m: dict, frame: Frame, en, extracts: list, labels: list = ()) -
 
 # ---------------------------------------------------------------- normalize
 
+SAME_QUEST_SPOT = 15.0  # metres
+
+
 class Normalizer:
     def __init__(self, raw: dict, mode: str):
         self.raw, self.mode = raw, mode
@@ -581,13 +584,14 @@ class Normalizer:
             for z in o.get("zones") or []:
                 if z.get("map") == map_id and z.get("position"):
                     pid = f"{o['id']}:{len(points)}"
-                    points.append({"pid": pid, "en": en(z["position"]), "hint": self.tr(z.get("name")) if z.get("name") else None})
+                    points.append({"pid": pid, "en": en(z["position"]), "hint": self.tr(z.get("name")) if z.get("name") else None,
+                                   "quest": t["id"], "objective": o["id"]})
                     pids.append(pid)
             for loc in o.get("possibleLocations") or []:
                 if loc.get("map") == map_id:
                     for pos in loc.get("positions", []):
                         pid = f"{o['id']}:{len(points)}"
-                        points.append({"pid": pid, "en": en(pos), "hint": None})
+                        points.append({"pid": pid, "en": en(pos), "hint": None, "quest": t["id"], "objective": o["id"]})
                         pids.append(pid)
             for alts in o.get("requiredKeys") or []:
                 keys.setdefault(tuple(alts), []).append(o.get("optional", False))
@@ -683,9 +687,14 @@ class Normalizer:
         """Group objective positions that sit close together into named zones."""
         radius = max(8.0, frame.metres * 0.03)
         clusters = []
+        # Two objectives of one quest further apart than this are two places to go, so two spots
+        # (Health Care Privacy - Part 1's ambulances are 43 m apart); closer, they're one place.
+        def separate(c, p):
+            return any(m["quest"] == p["quest"] and m["objective"] != p["objective"]
+                       and math.dist(m["en"], p["en"]) > SAME_QUEST_SPOT for m in c["members"])
         for p in points:
             for c in clusters:
-                if math.dist(c["en"], p["en"]) <= radius:
+                if math.dist(c["en"], p["en"]) <= radius and not separate(c, p):
                     c["members"].append(p)
                     n = len(c["members"])
                     c["en"] = tuple((c["en"][i] * (n - 1) + p["en"][i]) / n for i in range(2))

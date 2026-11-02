@@ -195,6 +195,12 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - Objective zones retain raw centroid `gx/gz` (0.1 m) and frame x/y. `meta.frame.scale` is frame units
   per game metre. Distances use the x/z plane, ignore walls, paths, elevations, enemies and keys,
   and end at the last objective. These are geometric routes, not guaranteed walkable paths.
+- Spots and pins (2026-11-01): `cluster` merges objective positions within 3% of the map's size (45 m on
+  Shoreline), except two objectives of one quest more than `SAME_QUEST_SPOT` (15 m) apart: those are two
+  places (Health Care Privacy - Part 1's ambulances are 43 m apart). This added 1-6 spots on 6 of 12 maps.
+  A shared pin shows the lead quest's number (the focused one, else the first) and the others beside
+  it (`RaidFocus.pinNumbers`, five before a count). An area name under a quest pin moves to the nearest
+  free side within 40 px (`MapFloors.besidePin`), else it hides: further off, West Wing landed east of East Wing.
 - `RaidRoute.route(data,selectedIds,start,{done})` uses selected quest IDs/bsgIds, merges shared
   zones, drops completed/optional objectives and ignores objectives without zones. `done` is an objective-ID
   Set, or a Map/object with booleans, numeric counters or `{count}`; counters finish at objective.count.

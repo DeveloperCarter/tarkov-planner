@@ -4,7 +4,7 @@
   "mapId": "5704e5fad2720bc05b8b4567",
   "key": "reserve",
   "gameMode": "pve",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 40,
   "players": "9-11",
@@ -193,11 +193,19 @@
   },
   "k4": {
    "name": "K4",
-   "x": 572,
+   "x": 570,
+   "y": 438,
+   "hints": [],
+   "gx": 52.7,
+   "gz": -117.0
+  },
+  "k4-e": {
+   "name": "K4 E",
+   "x": 579,
    "y": 437,
    "hints": [],
-   "gx": 50.9,
-   "gz": -117.1
+   "gx": 45.5,
+   "gz": -117.5
   },
   "white-bishop": {
    "name": "White Bishop",
@@ -5183,7 +5191,7 @@
      "type": "visit",
      "optional": true,
      "zone": [
-      "k4"
+      "k4-e"
      ]
     },
     {

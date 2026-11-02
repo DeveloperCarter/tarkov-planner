@@ -4,7 +4,7 @@
   "mapId": "5704e3c2d2720bac5b8b4567",
   "key": "woods",
   "gameMode": "regular",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:13:44+00:00",
   "raidMinutes": 35,
   "players": "10-14",
@@ -246,10 +246,18 @@
   "e-of-jaeger-s-camp": {
    "name": "E of Jaeger's Camp",
    "x": 887,
-   "y": 743,
+   "y": 739,
    "hints": [],
-   "gx": -615.7,
-   "gz": 137.5
+   "gx": -615.6,
+   "gz": 131.2
+  },
+  "se-of-jaeger-s-camp": {
+   "name": "SE of Jaeger's Camp",
+   "x": 888,
+   "y": 757,
+   "hints": [],
+   "gx": -616.0,
+   "gz": 156.4
   },
   "se-of-old-sawmill": {
    "name": "SE of Old Sawmill",
@@ -2301,7 +2309,7 @@
      "type": "visit",
      "optional": false,
      "zone": [
-      "e-of-jaeger-s-camp"
+      "se-of-jaeger-s-camp"
      ]
     },
     {

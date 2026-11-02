@@ -15,7 +15,7 @@
    "name": "Customs",
    "file": "customs.json",
    "quests": 80,
-   "zones": 39,
+   "zones": 46,
    "keys": 13
   },
   {
@@ -23,7 +23,7 @@
    "name": "Woods",
    "file": "woods.json",
    "quests": 78,
-   "zones": 38,
+   "zones": 39,
    "keys": 0
   },
   {
@@ -31,7 +31,7 @@
    "name": "Lighthouse",
    "file": "lighthouse.json",
    "quests": 69,
-   "zones": 30,
+   "zones": 34,
    "keys": 2
   },
   {
@@ -39,7 +39,7 @@
    "name": "Shoreline",
    "file": "shoreline.json",
    "quests": 79,
-   "zones": 35,
+   "zones": 37,
    "keys": 9
   },
   {
@@ -47,7 +47,7 @@
    "name": "Reserve",
    "file": "reserve.json",
    "quests": 59,
-   "zones": 27,
+   "zones": 28,
    "keys": 7
   },
   {
@@ -63,7 +63,7 @@
    "name": "Streets of Tarkov",
    "file": "streets-of-tarkov.json",
    "quests": 76,
-   "zones": 55,
+   "zones": 61,
    "keys": 17
   },
   {

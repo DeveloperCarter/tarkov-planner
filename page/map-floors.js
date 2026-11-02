@@ -30,5 +30,25 @@
   // Points with raw positions (extracts, keycard doors); ones without a height (older data) show on every floor.
   const pointsOn = (points, floor, floors) =>
     (points || []).filter(e => !floor || e.gy == null || floorOf(e, floors)?.id === floor.id);
-  return { onFloor, labelsOn, floorOf, pointsOn };
+  // Screen rectangles {left,right,top,bottom}, with a little breathing room around what's taken.
+  const overlaps = (r, k) => r.left < k.right + 6 && r.right > k.left - 6 && r.top < k.bottom + 2 && r.bottom > k.top - 2;
+  // An area name covered by a quest pin moves beside it, so the place the quest card names stays on
+  // the map: the {dx, dy} of the nearest free side. Null when it isn't under a pin (another name or
+  // an extract has the room), or no side is free within maxMove: a name further off points at the
+  // wrong place (Shoreline's West Wing landed east of East Wing).
+  function besidePin(rect, pins, taken, maxMove = 40) {
+    const pin = pins.find(k => overlaps(rect, k));
+    if (!pin) return null;
+    const w = rect.right - rect.left, h = rect.bottom - rect.top;
+    const cx = (pin.left + pin.right) / 2 - w / 2, cy = (pin.top + pin.bottom) / 2 - h / 2;
+    const spots = [[cx, pin.bottom + 3], [pin.right + 7, cy], [pin.left - 7 - w, cy], [cx, pin.top - 3 - h]];
+    const moves = spots.map(([left, top]) => ({ dx: left - rect.left, dy: top - rect.top }))
+      .filter(m => Math.hypot(m.dx, m.dy) <= maxMove)
+      .sort((a, b) => Math.hypot(a.dx, a.dy) - Math.hypot(b.dx, b.dy));
+    return moves.find(m => {
+      const moved = { left: rect.left + m.dx, right: rect.right + m.dx, top: rect.top + m.dy, bottom: rect.bottom + m.dy };
+      return !pins.concat(taken).some(k => overlaps(moved, k));
+    }) || null;
+  }
+  return { onFloor, labelsOn, floorOf, pointsOn, overlaps, besidePin };
 });

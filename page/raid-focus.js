@@ -71,5 +71,12 @@
     }
     return { quests, zones, acquisition, raids, bring: [...bring.values()] };
   }
-  return { taskId, reconcile, choose, read, write, sync, facts, project };
+  // What a pin shared by several selected quests shows (positions in the selected list): the focused
+  // quest if it's one of them, else the first, on the pin; up to `limit` others beside it; then a count.
+  function pinNumbers(indexes, focus = -1, limit = 5) {
+    const lead = indexes.includes(focus) ? focus : indexes[0];
+    const others = indexes.filter(i => i !== lead);
+    return { lead, others: others.slice(0, limit), more: Math.max(0, others.length - limit) };
+  }
+  return { taskId, reconcile, choose, read, write, sync, facts, project, pinNumbers };
 });

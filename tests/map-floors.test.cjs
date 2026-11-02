@@ -59,3 +59,17 @@ test('keycard doors use the same floor rule as extracts',()=>{
  assert.deepEqual(ids('2nd'),['r22','reported-0']);
  assert.deepEqual(ids('technical'),[]);
 });
+
+test("an area name under a quest pin moves to the nearest free side; otherwise it waits", () => {
+  const box = (left, top, w, h) => ({ left, top, right: left + w, bottom: top + h });
+  const pin = box(100, 100, 22, 30), name = box(95, 110, 40, 12);
+  assert.deepEqual(F.besidePin(box(300, 300, 40, 12), [pin], []), null, "not under a pin");
+  assert.deepEqual(F.besidePin(name, [pin], []), { dx: 91 - 95, dy: 133 - 110 }, "below is nearest");
+  const below = box(90, 133, 50, 12);
+  assert.deepEqual(F.besidePin(name, [pin], [below]), { dx: 91 - 95, dy: 85 - 110 }, "then above");
+  const above = box(90, 80, 50, 15);
+  assert.deepEqual(F.besidePin(name, [pin], [below, above]), { dx: 129 - 95, dy: 109 - 110 }, "then right");
+  const right = box(129, 100, 50, 30), left = box(40, 100, 53, 30);
+  assert.equal(F.besidePin(name, [pin], [below, above, right, left]), null, "no side is free");
+  assert.equal(F.besidePin(name, [pin], [], 20), null, "no side is close enough");
+});

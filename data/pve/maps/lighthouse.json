@@ -4,7 +4,7 @@
   "mapId": "5704e4dad2720bb55b8b4567",
   "key": "lighthouse",
   "gameMode": "pve",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 40,
   "players": "10-12",
@@ -49,15 +49,23 @@
    "gx": 39.4,
    "gz": -639.8
   },
-  "train-yard": {
-   "name": "Train Yard",
-   "x": 333,
-   "y": 387,
+  "train-yard-1": {
+   "name": "Train Yard (1)",
+   "x": 322,
+   "y": 389,
    "hints": [
     "Train Station Warehouse"
    ],
-   "gx": -24.5,
-   "gz": -863.2
+   "gx": -8.5,
+   "gz": -860.2
+  },
+  "train-yard-2": {
+   "name": "Train Yard (2)",
+   "x": 354,
+   "y": 383,
+   "hints": [],
+   "gx": -56.6,
+   "gz": -869.3
   },
   "cabins": {
    "name": "Cabins",
@@ -117,21 +125,23 @@
   },
   "water-treatment-s": {
    "name": "Water Treatment S",
-   "x": 365,
-   "y": 586,
+   "x": 370,
+   "y": 588,
    "hints": [
     "Helicopter at Water Treatment Plant"
    ],
-   "gx": -73.7,
-   "gz": -563.1
+   "gx": -81.2,
+   "gz": -559.7
   },
-  "grand-chalet": {
-   "name": "Grand Chalet",
-   "x": 396,
-   "y": 1019,
-   "hints": [],
-   "gx": -120.4,
-   "gz": 90.2
+  "water-treatment": {
+   "name": "Water Treatment",
+   "x": 350,
+   "y": 579,
+   "hints": [
+    "Helicopter at Water Treatment Plant"
+   ],
+   "gx": -51.2,
+   "gz": -573.2
   },
   "crash-site": {
    "name": "Crash Site",
@@ -141,15 +151,23 @@
    "gx": -126.7,
    "gz": 301.5
   },
-  "boathouses": {
-   "name": "Boathouses",
-   "x": 230,
-   "y": 858,
+  "boathouses-1": {
+   "name": "Boathouses (1)",
+   "x": 225,
+   "y": 861,
    "hints": [
     "Yacht Club Pier"
    ],
-   "gx": 130.3,
-   "gz": -151.9
+   "gx": 138.5,
+   "gz": -148.4
+  },
+  "boathouses-2": {
+   "name": "Boathouses (2)",
+   "x": 252,
+   "y": 849,
+   "hints": [],
+   "gx": 97.6,
+   "gz": -165.6
   },
   "construction-nw": {
    "name": "Construction NW",
@@ -280,6 +298,22 @@
    "hints": [],
    "gx": 107.6,
    "gz": -957.6
+  },
+  "grand-chalet-1": {
+   "name": "Grand Chalet (1)",
+   "x": 396,
+   "y": 1017,
+   "hints": [],
+   "gx": -119.5,
+   "gz": 87.9
+  },
+  "grand-chalet-2": {
+   "name": "Grand Chalet (2)",
+   "x": 398,
+   "y": 1023,
+   "hints": [],
+   "gx": -123.4,
+   "gz": 97.3
   },
   "pikes-peak-resort-nw": {
    "name": "Pikes Peak Resort NW",
@@ -1577,7 +1611,7 @@
      "type": "useItem",
      "optional": false,
      "zone": [
-      "train-yard"
+      "train-yard-1"
      ]
     },
     {
@@ -1586,7 +1620,7 @@
      "type": "useItem",
      "optional": false,
      "zone": [
-      "boathouses"
+      "boathouses-1"
      ]
     },
     {
@@ -1650,7 +1684,7 @@
      "type": "useItem",
      "optional": false,
      "zone": [
-      "train-yard"
+      "train-yard-1"
      ]
     },
     {
@@ -1659,7 +1693,7 @@
      "type": "useItem",
      "optional": false,
      "zone": [
-      "boathouses"
+      "boathouses-1"
      ]
     },
     {
@@ -2297,7 +2331,7 @@
      "type": "mark",
      "optional": false,
      "zone": [
-      "train-yard"
+      "train-yard-2"
      ]
     },
     {
@@ -3222,7 +3256,7 @@
      "type": "plantQuestItem",
      "optional": false,
      "zone": [
-      "train-yard"
+      "train-yard-1"
      ]
     },
     {
@@ -3463,7 +3497,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "grand-chalet"
+      "grand-chalet-1"
      ]
     },
     {
@@ -3705,7 +3739,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "grand-chalet"
+      "grand-chalet-1"
      ]
     },
     {
@@ -3714,7 +3748,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "grand-chalet"
+      "grand-chalet-2"
      ]
     },
     {
@@ -3775,7 +3809,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "boathouses"
+      "boathouses-1"
      ]
     },
     {
@@ -4094,7 +4128,7 @@
      "type": "useItem",
      "optional": false,
      "zone": [
-      "train-yard"
+      "train-yard-1"
      ]
     },
     {
@@ -4107,7 +4141,7 @@
       "any target"
      ],
      "zone": [
-      "train-yard"
+      "train-yard-2"
      ]
     }
    ],
@@ -4325,7 +4359,7 @@
       "any target"
      ],
      "zone": [
-      "water-treatment-s"
+      "water-treatment"
      ]
     }
    ],
@@ -4423,7 +4457,7 @@
      "optional": false,
      "mustExtract": true,
      "zone": [
-      "grand-chalet"
+      "grand-chalet-1"
      ]
     },
     {
@@ -4480,7 +4514,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "boathouses"
+      "boathouses-1"
      ]
     },
     {
@@ -4489,7 +4523,7 @@
      "type": "plantItem",
      "optional": false,
      "zone": [
-      "boathouses"
+      "boathouses-2"
      ]
     },
     {

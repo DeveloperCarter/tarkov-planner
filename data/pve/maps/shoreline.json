@@ -4,7 +4,7 @@
   "mapId": "5704e554d2720bac5b8b456e",
   "key": "shoreline",
   "gameMode": "pve",
-  "generated": "2026-10-24",
+  "generated": "2026-11-01",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 45,
   "players": "10-14",
@@ -75,11 +75,19 @@
   },
   "resort": {
    "name": "Resort",
-   "x": 492,
-   "y": 229,
+   "x": 490,
+   "y": 225,
    "hints": [],
-   "gx": -261.6,
-   "gz": -67.8
+   "gx": -256.9,
+   "gz": -74.4
+  },
+  "resort-se": {
+   "name": "Resort SE",
+   "x": 504,
+   "y": 245,
+   "hints": [],
+   "gx": -280.6,
+   "gz": -41.3
   },
   "e-of-pier": {
    "name": "E of Pier",
@@ -251,11 +259,19 @@
   },
   "nw-of-scav-island": {
    "name": "NW of Scav Island",
-   "x": 120,
-   "y": 465,
+   "x": 133,
+   "y": 468,
    "hints": [],
-   "gx": 333.8,
-   "gz": 310.3
+   "gx": 312.7,
+   "gz": 314.5
+  },
+  "s-of-cabins": {
+   "name": "S of Cabins",
+   "x": 107,
+   "y": 463,
+   "hints": [],
+   "gx": 354.9,
+   "gz": 306.1
   },
   "swamp-sw-1": {
    "name": "Swamp SW (1)",
@@ -4414,7 +4430,7 @@
      "type": "mark",
      "optional": false,
      "zone": [
-      "nw-of-scav-island"
+      "s-of-cabins"
      ]
     },
     {
@@ -5105,7 +5121,7 @@
      "type": "mark",
      "optional": false,
      "zone": [
-      "resort"
+      "resort-se"
      ]
     }
    ],
