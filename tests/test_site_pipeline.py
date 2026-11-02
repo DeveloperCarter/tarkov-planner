@@ -110,6 +110,27 @@ class SitePipelineTests(unittest.TestCase):
                                   'gx': 50, 'gz': 50, 'gy': 5.5})
         self.assertEqual((out[1]['reported'], out[1]['note'], out[1]['gy']), (True, 'Offices #2', 5.2))
 
+    def test_places_are_positioned_per_map(self):
+        frame = etl.Frame([(0, 0), (100, 100)], pad=0)
+        en = lambda p: (p['x'], p['z'])
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'map-places.json'
+            path.write_text(json.dumps({'places': [
+                {'map': 'woods', 'id': 'a', 'name': 'A', 'position': {'x': 50, 'y': 5.47, 'z': 50}, 'note': 'Open'},
+                {'map': 'customs', 'id': 'b', 'name': 'B', 'position': {'x': 1, 'y': 1, 'z': 1}}]}))
+            with patch.object(etl, 'MAP_PLACES', path):
+                self.assertEqual(etl.build_places('woods', frame, en), [
+                    {'id': 'a', 'name': 'A', 'x': 500, 'y': 500, 'gx': 50, 'gz': 50, 'gy': 5.5, 'note': 'Open'}])
+                self.assertEqual(etl.build_places('shoreline', frame, en), [])
+
+    def test_woods_marks_the_marked_circle_bunker_at_hindsights_bunker_in_both_modes(self):
+        for folder in ('data/maps', 'data/pve/maps'):
+            data = json.loads((etl.ROOT / folder / 'woods.json').read_text(encoding='utf-8'))
+            place = next(p for p in data['places'] if p['id'] == 'marked-circle-bunker')
+            quest = next(q for q in data['quests'] if q['name'] == 'Hindsight 20/20')
+            zone = data['zones'][quest['objectives'][0]['zone'][0]]
+            self.assertLess(((place['gx'] - zone['gx']) ** 2 + (place['gz'] - zone['gz']) ** 2) ** 0.5, 15)
+
     def test_placeholders_name_unlisted_quests_and_never_override_tarkov_dev(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'placeholder-quests.json'

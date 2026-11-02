@@ -1,0 +1,11 @@
+{
+ "notes": [
+  "Fixed places worth marking on a map that tarkov.dev has no label for. The ETL adds them to the map in both modes.",
+  "position is raw game x/y/z in metres (y is height, which picks the floor).",
+  "marked-circle-bunker: the position is tarkov.dev's Bunker_enter zone from Hindsight 20/20 (objective 674602682cb1c1f5999f27aa). MapGenie's Marked Circle Bunker marker fell 2 m from that quest's first ammo stash inside the bunker when scaled onto our extracts (checked 2026-11-01)."
+ ],
+ "places": [
+  {"map": "woods", "id": "marked-circle-bunker", "name": "Marked Circle Bunker", "position": {"x": -284.02, "y": 14.48, "z": -414.27},
+   "note": "Entrance to the underground bunker with a marked circle inside, the same one as Hindsight 20/20. Door reported open with no key needed (January 2025)."}
+ ]
+}

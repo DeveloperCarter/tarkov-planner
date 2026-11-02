@@ -846,6 +846,18 @@
   }
  ],
  "keycards": [],
+ "places": [
+  {
+   "id": "marked-circle-bunker",
+   "name": "Marked Circle Bunker",
+   "x": 648,
+   "y": 345,
+   "gx": -284.0,
+   "gz": -414.3,
+   "gy": 14.5,
+   "note": "Entrance to the underground bunker with a marked circle inside, the same one as Hindsight 20/20. Door reported open with no key needed (January 2025)."
+  }
+ ],
  "spawns": [
   {
    "x": 891,

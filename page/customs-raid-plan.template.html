@@ -538,6 +538,9 @@ svg.zoomed .area-label text { font-size:13px; fill:var(--ink); }
 .pop-need.req { color:var(--signal); }
 .pin.ex text { display:none; fill:var(--ok); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
 svg.zoomed .pin.ex text, .map-stage.full .pin.ex text { display:inline; }
+.pin.place circle { fill:none; stroke:var(--signal); stroke-width:2.5; paint-order:stroke; }
+.pin.place circle.dot { fill:var(--signal); stroke:none; }
+.pin.place text { text-anchor:end; fill:var(--signal); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
 .pin.card rect { fill:var(--card, var(--steel)); stroke:var(--ink); stroke-width:1.5; }
 .pin.card.reported rect { stroke-dasharray:3 2; stroke-width:2; }
 .pin.card path { stroke:var(--panel); stroke-width:1.5; opacity:.75; }
@@ -1031,6 +1034,10 @@ function renderMap(active = currentRoute) {
     const name = cardName(k.key), col = CARD_COLORS[name];
     s += `<g class="pin card${k.reported ? " reported" : ""}" transform="translate(${k.x} ${k.y})" role="img" aria-label="${esc(k.key)} door${k.reported ? " (reported)" : ""}"><title>${esc(k.key)}${k.note ? `: ${esc(k.note)}` : ""}</title><g class="glyph"><rect x="-7" y="-5" width="14" height="10" rx="2"${col ? ` style="--card:${col}"` : ""}/><path d="M-4.5-1.5h9"/><text x="10" y="4">${esc(name)}</text></g></g>`;
   }
+  // Hand-listed places tarkov.dev has no label for. Woods' Marked Circle Bunker: the name runs west, as it hid Scav Town to the east.
+  for (const p of MapFloors.pointsOn(DATA.places, currentFloor, ART_RECT?.floors)) {
+    s += `<g class="pin place" transform="translate(${p.x} ${p.y})" role="img" aria-label="${esc(p.name)}"><title>${esc(p.name)}${p.note ? `: ${esc(p.note)}` : ""}</title><g class="glyph"><circle r="7"/><circle class="dot" r="2.5"/><text x="-11" y="4">${esc(p.name)}</text></g></g>`;
+  }
   for (const e of MapFloors.pointsOn(DATA.extracts, currentFloor, ART_RECT?.floors)) {
     if (e.x == null || e.faction === "scav") continue;
     if (!mySide(e)) continue;
@@ -1100,7 +1107,7 @@ function declutterLabels() {
   declutterFrame = requestAnimationFrame(() => {
     // Extract names and quest pins take priority over area names; a name under a pin moves beside it.
     const pins = [...svg.querySelectorAll(".pin.spot")].map(el => el.getBoundingClientRect());
-    const kept = [...svg.querySelectorAll(".pin.ex")].map(el => el.getBoundingClientRect()).concat(pins);
+    const kept = [...svg.querySelectorAll(".pin.ex, .pin.place")].map(el => el.getBoundingClientRect()).concat(pins);
     const moved = [];
     for (const g of svg.querySelectorAll(".area-label")) {
       g.style.display = "";

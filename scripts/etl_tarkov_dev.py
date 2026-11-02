@@ -41,6 +41,7 @@ VARIANT_OF = {"night-factory": "factory", "ground-zero-21": "ground-zero", "grou
 PLACEHOLDERS = ROOT / "data" / "placeholder-quests.json"
 # Keycard doors seen in game that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
 KEYCARD_DOORS = ROOT / "data" / "keycard-doors.json"
+MAP_PLACES = ROOT / "data" / "map-places.json"
 FRAME_W = 1000
 FRAME_MAX_H = 1400
 
@@ -303,6 +304,18 @@ class Frame:
         return self.pad + (e - self.e0) * self.scale, self.pad + (self.n1 - n) * self.scale
 
 
+def build_places(key: str, frame: "Frame", en) -> list:
+    """Hand-listed places on this map, positioned like keycard doors."""
+    places = json.loads(MAP_PLACES.read_text(encoding="utf-8"))["places"] if MAP_PLACES.exists() else []
+    out = []
+    for p in places:
+        if p["map"] != key:
+            continue
+        x, y = frame.xy(en(p["position"]))
+        out.append({"id": p["id"], "name": p["name"], "x": x, "y": y, **game_position(p["position"]), **({"note": p["note"]} if p.get("note") else {})})
+    return out
+
+
 def game_position(pos: dict) -> dict:
     """Raw game x/z (as zones and spawns keep them) and height y, to 0.1 m; the page picks a floor by them.
     Without a height the page shows the extract on every floor."""
@@ -555,6 +568,7 @@ class Normalizer:
             "zones": zones,
             "extracts": extracts,
             "keycards": self.build_keycards(m, frame, en),
+            "places": build_places(m["normalizedName"], frame, en),
             "spawns": spawns,
             "spawnAreas": spawn_areas,
             # Common area names (tarkov-dev map labels) for the spawn picker.
