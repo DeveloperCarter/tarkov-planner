@@ -4,7 +4,7 @@
   "mapId": "55f2d3fd4bdc2d5f408b4567",
   "key": "factory",
   "gameMode": "pve",
-  "generated": "2026-11-01",
+  "generated": "2026-11-02",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 20,
   "players": "7-8",
@@ -398,7 +398,27 @@
    ],
    "note": "No equipment or payment required.",
    "type": "pmc",
-   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory"
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory",
+   "ways": {
+    "routes": [
+     "Ground floor: offices' front-left door, first door on the right, vault the window behind the desk.",
+     "2nd floor: out the bathroom or locker room window."
+    ],
+    "spots": [
+     {
+      "x": 188,
+      "y": 579,
+      "gx": 13.9,
+      "gz": 44.9
+     },
+     {
+      "x": 174,
+      "y": 487,
+      "gx": 27.9,
+      "gz": 47.0
+     }
+    ]
+   }
   },
   {
    "id": "camera-bunker-door",
@@ -501,7 +521,27 @@
     "BEAR"
    ],
    "note": "Travel to another map; available after 1 minute(s).",
-   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory"
+   "detailsSource": "https://escapefromtarkov.fandom.com/wiki/Factory",
+   "ways": {
+    "routes": [
+     "Ground floor: offices' front-left door, first door on the right, vault the window behind the desk.",
+     "2nd floor: out the bathroom or locker room window."
+    ],
+    "spots": [
+     {
+      "x": 188,
+      "y": 579,
+      "gx": 13.9,
+      "gz": 44.9
+     },
+     {
+      "x": 174,
+      "y": 487,
+      "gx": 27.9,
+      "gz": 47.0
+     }
+    ]
+   }
   },
   {
    "id": "transit-13",

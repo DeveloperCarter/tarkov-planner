@@ -2,10 +2,18 @@
  "notes": [
   "Fixed places worth marking on a map that tarkov.dev has no label for. The ETL adds them to the map in both modes.",
   "position is raw game x/y/z in metres (y is height, which picks the floor).",
-  "marked-circle-bunker: the position is tarkov.dev's Bunker_enter zone from Hindsight 20/20 (objective 674602682cb1c1f5999f27aa). MapGenie's Marked Circle Bunker marker fell 2 m from that quest's first ammo stash inside the bunker when scaled onto our extracts (checked 2026-11-01)."
+  "marked-circle-bunker: the position is tarkov.dev's Bunker_enter zone from Hindsight 20/20 (objective 674602682cb1c1f5999f27aa). MapGenie's Marked Circle Bunker marker fell 2 m from that quest's first ammo stash inside the bunker when scaled onto our extracts (checked 2026-11-01).",
+  "waysIn: how to reach an extract when the way isn't obvious, from guides. extracts are extract ids from data/maps/<map>.json; routes show in its popup and spots draw as faint dots while it's open. Spots have no height because the sources don't give a floor.",
+  "Factory yard spots: MapGenie's two window markers fitted onto seven of our extracts and transits (2-6 m off, so they're approximate). Routes: guides from August 2024 and November 2025. Neither is confirmed in game (checked 2026-11-02)."
  ],
  "places": [
   {"map": "woods", "id": "marked-circle-bunker", "name": "Marked Circle Bunker", "position": {"x": -284.02, "y": 14.48, "z": -414.27},
    "note": "Entrance to the underground bunker with a marked circle inside, the same one as Hindsight 20/20. Door reported open with no key needed (January 2025)."}
+ ],
+ "waysIn": [
+  {"map": "factory", "extracts": ["gate-o", "transit-12"],
+   "routes": ["Ground floor: offices' front-left door, first door on the right, vault the window behind the desk.",
+              "2nd floor: out the bathroom or locker room window."],
+   "spots": [{"x": 13.9, "z": 44.9}, {"x": 27.9, "z": 47.0}]}
  ]
 }

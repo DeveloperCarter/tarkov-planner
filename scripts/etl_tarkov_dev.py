@@ -316,6 +316,21 @@ def build_places(key: str, frame: "Frame", en) -> list:
     return out
 
 
+def attach_ways_in(extracts: list, key: str, frame: "Frame", en) -> None:
+    """Hand-listed routes and spots for reaching an extract; the page shows them while it's open."""
+    entries = json.loads(MAP_PLACES.read_text(encoding="utf-8")).get("waysIn", []) if MAP_PLACES.exists() else []
+    for w in entries:
+        if w["map"] != key:
+            continue
+        spots = [dict(zip("xy", frame.xy(en(s))), **game_position(s)) for s in w["spots"]]
+        for extract_id in w["extracts"]:
+            found = [e for e in extracts if e["id"] == extract_id]
+            if not found:
+                print(f"  ways in: no extract {extract_id} on {key}; check {MAP_PLACES.name}", file=sys.stderr)
+            for e in found:
+                e["ways"] = {"routes": w["routes"], "spots": spots}
+
+
 def game_position(pos: dict) -> dict:
     """Raw game x/z (as zones and spawns keep them) and height y, to 0.1 m; the page picks a floor by them.
     Without a height the page shows the extract on every floor."""
@@ -537,6 +552,7 @@ class Normalizer:
         quests.sort(key=lambda q: (q["minLevel"], q["trader"], q["name"]))
 
         extracts = self.build_extracts(m, frame, en)
+        attach_ways_in(extracts, m["normalizedName"], frame, en)
         spawns, spawn_areas = build_spawns(m, frame, en, extracts, labels)
         print(f"SPAWNS {self.mode}/{key}: {len(spawns)} spawns, {len(spawn_areas)} areas: " +
               "; ".join(a["name"] for a in spawn_areas), file=sys.stderr)

@@ -123,6 +123,30 @@ class SitePipelineTests(unittest.TestCase):
                     {'id': 'a', 'name': 'A', 'x': 500, 'y': 500, 'gx': 50, 'gz': 50, 'gy': 5.5, 'note': 'Open'}])
                 self.assertEqual(etl.build_places('shoreline', frame, en), [])
 
+    def test_ways_in_attach_to_their_extracts_only(self):
+        frame = etl.Frame([(0, 0), (100, 100)], pad=0)
+        en = lambda p: (p['x'], p['z'])
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'map-places.json'
+            path.write_text(json.dumps({'waysIn': [
+                {'map': 'factory', 'extracts': ['a', 'gone'], 'routes': ['Window'], 'spots': [{'x': 50, 'z': 50}]},
+                {'map': 'woods', 'extracts': ['b'], 'routes': ['Other'], 'spots': [{'x': 1, 'z': 1}]}]}))
+            extracts = [{'id': 'a'}, {'id': 'b'}]
+            with patch.object(etl, 'MAP_PLACES', path), patch('sys.stderr') as err:
+                etl.attach_ways_in(extracts, 'factory', frame, en)
+            self.assertIn('no extract gone', ''.join(c.args[0] for c in err.write.call_args_list))
+        self.assertEqual(extracts[0]['ways'], {'routes': ['Window'], 'spots': [{'x': 500, 'y': 500, 'gx': 50, 'gz': 50}]})
+        self.assertNotIn('ways', extracts[1])
+
+    def test_factory_courtyard_ways_in_lead_to_the_yard_in_both_modes(self):
+        for folder in ('data/maps', 'data/pve/maps'):
+            data = json.loads((etl.ROOT / folder / 'factory.json').read_text(encoding='utf-8'))
+            for extract_id in ('gate-o', 'transit-12'):
+                e = next(x for x in data['extracts'] if x['id'] == extract_id)
+                self.assertEqual(len(e['ways']['spots']), 2)
+                for spot in e['ways']['spots']:
+                    self.assertLess(((spot['gx'] - e['gx']) ** 2 + (spot['gz'] - e['gz']) ** 2) ** 0.5, 30)
+
     def test_woods_marks_the_marked_circle_bunker_at_hindsights_bunker_in_both_modes(self):
         for folder in ('data/maps', 'data/pve/maps'):
             data = json.loads((etl.ROOT / folder / 'woods.json').read_text(encoding='utf-8'))

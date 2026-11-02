@@ -269,6 +269,8 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   the same keycard within 10 m so the entry can go.
   Places (`places`) are hand-listed spots tarkov.dev has no label for, from `data/map-places.json`, drawn as a
   named ring. Woods' Marked Circle Bunker uses Hindsight 20/20's `Bunker_enter` zone: same bunker (checked 2026-11-01).
+  Ways in (`waysIn` in the same file) become an extract's `ways: {routes, spots}`. No source lists unlocked doors or
+  windows, so they're hand-listed. Keep them subtle: faint unnamed dots only while that extract's popup is open, the words in the popup.
   build_page.py prefers these plans over cached art and ships them as `meta.art.floors`
   (first = default); the page swaps the `<image>` with the floor buttons and darkens it in dark theme.
 - Spot photos: each quest's wiki `<gallery>` (game screenshots; Battlestate Games' copyright, no

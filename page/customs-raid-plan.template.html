@@ -541,6 +541,9 @@ svg.zoomed .pin.ex text, .map-stage.full .pin.ex text { display:inline; }
 .pin.place circle { fill:none; stroke:var(--signal); stroke-width:2.5; paint-order:stroke; }
 .pin.place circle.dot { fill:var(--signal); stroke:none; }
 .pin.place text { text-anchor:end; fill:var(--signal); font:600 10.5px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
+.way circle { fill:var(--ok); stroke:var(--panel); stroke-width:1; opacity:.6; pointer-events:none; }
+.pop-ways { margin:6px 0 0; padding:0; list-style:none; color:var(--muted); font-size:12.5px; }
+.pop-ways li + li { margin-top:3px; }
 .pin.card rect { fill:var(--card, var(--steel)); stroke:var(--ink); stroke-width:1.5; }
 .pin.card.reported rect { stroke-dasharray:3 2; stroke-width:2; }
 .pin.card path { stroke:var(--panel); stroke-width:1.5; opacity:.75; }
@@ -1044,6 +1047,8 @@ function renderMap(active = currentRoute) {
     s += `<g class="pin ex${exReq(e) ? " req" : ""}${popEx === e.id ? " active" : ""}" data-ex="${esc(e.id)}" transform="translate(${e.x} ${e.y})" tabindex="0" role="button" aria-label="${esc(e.name)}: ${esc(exNeed(e))}"><g class="glyph"><rect x="-6" y="-6" width="12" height="12" rx="2"/><text x="10" y="4">${esc(e.name)}</text></g></g>`;
     // The switch that opens it, while its details are open.
     if (popEx === e.id && e.switch?.x != null) s += `<g class="pin sw" transform="translate(${e.switch.x} ${e.switch.y})"><g class="glyph"><path d="M0-8 8 0 0 8-8 0Z"/><text x="11" y="4">${esc(e.switch.name || "Switch")}</text></g></g>`;
+    // Ways in, while its details are open: faint dots with no names, so the map stays readable. The popup has the words.
+    if (popEx === e.id) for (const w of e.ways?.spots || []) s += `<g class="way" transform="translate(${w.x} ${w.y})" aria-hidden="true"><g class="glyph"><circle r="3.5"/></g></g>`;
   }
   // Hand-built plans: the planned routes, each stop numbered in the raid's colour.
   for (const r of (objectiveRoute ? [] : focus.raids)) {
@@ -1240,6 +1245,7 @@ function openExPop(id) {
   pop.innerHTML = `<button type="button" class="pop-x" data-pop="close" aria-label="Close">×</button><span class="label">${esc(EX_TYPE[e.type] || "Extract")}</span>
     <h4 class="pop-ex">${esc(e.name)}</h4>${exNeed(e) ? `<p class="pop-need${exReq(e) ? " req" : ""}">${esc(exNeed(e))}</p>` : ""}
     ${e.note && e.note !== exNeed(e) ? `<p class="map-note">${esc(e.note)}</p>` : ""}
+    ${e.ways ? `<ul class="pop-ways" aria-label="Ways in">${e.ways.routes.map(r => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}
     ${e.switch?.x != null ? `<button type="button" class="btn" data-pop="switch">Show the switch</button>` : ""}`;
   pop.hidden = false;
   renderMap();
@@ -2061,7 +2067,7 @@ rpBody.addEventListener("click", e => {
   const q = e.target.closest("[data-rp-fit]");
   if (q) { const zones = RaidFocus.facts(DATA.quests.find(x => bsgId(x) === q.dataset.rpFit)).zones; return fit(true, zones.length ? zones : undefined); }
   const ex = exById[e.target.closest("[data-rp-ex]")?.dataset.rpEx];
-  if (ex) { showFloorOf(ex); fit(true, null, ex.switch?.x != null ? [ex, ex.switch] : [ex]); openExPop(ex.id); }
+  if (ex) { showFloorOf(ex); fit(true, null, [ex, ...(ex.switch?.x != null ? [ex.switch] : []), ...(ex.ways?.spots || [])]); openExPop(ex.id); }
 });
 
 /* ---------- raid focus presets (selection only) ---------- */
