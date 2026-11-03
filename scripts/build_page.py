@@ -31,7 +31,7 @@ STORE = ROOT / "page" / "progress-store.js"
 FOCUS = ROOT / "page" / "raid-focus.js"
 ROUTE = ROOT / "page" / "raid-route.js"
 SESSION = ROOT / "page" / "raid-session.js"
-PRESETS = ROOT / "page" / "raid-presets.js"
+SUGGEST = ROOT / "page" / "raid-suggest.js"
 TASKS_INDEX = ROOT / "data" / "tasks-index.json"
 ART = ROOT / "cache" / "art"  # filled by scripts/fetch_art.py; never committed
 FLOOR_ART = ROOT / "data" / "art"  # our own floor plans (<map>.json lists the floors); committed
@@ -152,7 +152,7 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__TRACKER__*/", TRACKER.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
-    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("PRESETS", PRESETS), ("QFILTER", ROOT / "page/quest-filter.js"),
+    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("SUGGEST", SUGGEST), ("QFILTER", ROOT / "page/quest-filter.js"),
                          ("QEFFORT", ROOT / "page/quest-effort.js"), ("FLOORS", ROOT / "page/map-floors.js"),
                          ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
                          ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
@@ -336,9 +336,10 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
                                "progression": json.loads((base / 'progression.json').read_text(encoding='utf-8'))}
     for mode in ('regular', 'pve'):
         build_career_data(mode)
+        build_raid_areas(mode)
     text = (ROOT / 'page' / 'home.template.html').read_text(encoding='utf-8')
     for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js'),
-                         ('QFILTER', ROOT / 'page' / 'quest-filter.js'), ('QEFFORT', ROOT / 'page' / 'quest-effort.js')]:
+                         ('ROUTE', ROUTE), ('SUGGEST', SUGGEST), ('QFILTER', ROOT / 'page' / 'quest-filter.js'), ('QEFFORT', ROOT / 'page' / 'quest-effort.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
     text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)
@@ -402,6 +403,30 @@ def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: 
 
 
 _CAREER_BUILT = set()
+
+
+def build_raid_areas(mode: str) -> None:
+    """dist/raid-areas.json: where each map's quests are, for the home page's best-raid lines.
+    Only what RaidSuggest reads, so the home page gets the same raids as the map page."""
+    prefix = '' if mode == 'regular' else 'pve'
+    base = ROOT / 'data' / prefix / 'maps'
+    areas = {}
+    for path in sorted(base.glob('*.json')):
+        if path.name == 'index.json':
+            continue
+        source = json.loads(path.read_text(encoding='utf-8'))
+        quests, used = [], set()
+        for q in source['quests']:
+            objectives = [{k: o[k] for k in ('id', 'count', 'zone', 'zoneMode') if o.get(k)} for o in q['objectives'] if not o.get('optional') and o.get('zone')]
+            used.update(z for o in objectives for z in o['zone'])
+            quests.append({'id': q.get('bsgId') or q['id'], 'onMap': q.get('onMap', True), 'objectives': objectives,
+                           'rewards': {'xp': q.get('rewards', {}).get('xp', 0), 'rep': q.get('rewards', {}).get('rep', [])},
+                           'needs': [{'kind': 'key', 'item': n['item']} for n in q.get('needs', []) if n.get('kind') == 'key' and not n.get('optional')]})
+        zones = {z: {k: source['zones'][z][k] for k in ('name', 'gx', 'gz') if k in source['zones'][z]} for z in used if z in source['zones']}
+        areas[path.stem] = {'zones': zones, 'quests': quests}
+    target = ROOT / 'dist' / prefix / 'raid-areas.json'
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(areas, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 def build_career_data(mode: str) -> None:

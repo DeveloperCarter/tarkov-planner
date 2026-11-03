@@ -7,13 +7,15 @@ from pathlib import Path
 
 # Kill targets a quick raid can handle; anything else (PMCs, bosses, guards, Rogues, Raiders) is hard.
 EASY_TARGETS = {"scav", "scavs", "sniper", "any target"}
+# What the quest filter's kind chips ask about. A findItem without a zone is general looting, not a pickup.
+PLACING = {"mark", "plantItem", "plantQuestItem"}
 # Objectives done at a place: without a zone, the player has to find it themselves.
 PLACED = {"visit", "mark", "plantItem", "plantQuestItem", "findQuestItem"}
 TRADER_CASH = re.compile(r"^[A-Z][A-Za-z ]+ LL\d: [\d,]+")
 
 
 def effort_facts(map_files: list[Path]) -> dict:
-    """{task id: {spots, unlocated, extracts, maps, kills, hardKills, fir, streak, grind, keys: [{name, fleaLevel, trader}]}}"""
+    """{task id: {spots, unlocated, extracts, maps, kills, hardKills, fir, streak, grind, kinds, keys: [{name, fleaLevel, trader}]}}"""
     facts, seen, buy = {}, set(), {}
     sources = [json.loads(p.read_text(encoding="utf-8")) for p in map_files]
     for data in sources:
@@ -26,7 +28,7 @@ def effort_facts(map_files: list[Path]) -> dict:
         for q in data.get("quests", []):
             tid = q.get("bsgId") or q["id"]
             f = facts.setdefault(tid, {"spots": 0, "unlocated": 0, "extracts": 0, "maps": 0, "kills": 0, "hardKills": False, "fir": False,
-                                       "streak": False, "grind": False, "keys": []})
+                                       "streak": False, "grind": False, "kinds": [], "keys": []})
             located = False
             for o in q.get("objectives", []):
                 if o.get("optional"):
@@ -40,6 +42,9 @@ def effort_facts(map_files: list[Path]) -> dict:
                     continue
                 seen.add(o.get("id"))
                 t = o.get("type")
+                kind = "combat" if t == "shoot" else "place" if t in PLACING else "pickup" if t == "findQuestItem" or (t == "findItem" and zones) else None
+                if kind and kind not in f["kinds"]:
+                    f["kinds"].append(kind)
                 if t in PLACED and not zones:
                     f["unlocated"] += 1  # a place to go that the map data doesn't show
                 if t == "shoot":

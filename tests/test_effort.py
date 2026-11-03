@@ -38,6 +38,9 @@ class EffortTests(unittest.TestCase):
         self.assertTrue(hard['hardKills'] and hard['fir'] and hard['streak'])
         self.assertEqual(hard['unlocated'], 1)
         self.assertEqual(hard['keys'], [{'name': 'Keycard', 'fleaLevel': 30, 'trader': False}])
+        self.assertEqual(facts['easy']['kinds'], ['combat'], 'a visit is none of the chips')
+        self.assertEqual(hard['kinds'], ['combat', 'pickup'])
+        self.assertEqual(facts['shared']['kinds'], ['place'])
         self.assertEqual((facts['shared']['spots'], facts['shared']['maps']), (3, 2), 'zone a counts on both maps')
 
 

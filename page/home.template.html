@@ -24,6 +24,11 @@
 .map-card .matches {margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:14px}
 .map-card .matches li {overflow-wrap:anywhere}
 .map-card .matches small {color:var(--muted)}
+.map-card .best-raid {display:grid;gap:2px;padding:9px 0 0;border-top:1px solid var(--line);font-size:14px}
+.map-card .best-raid b {font:600 17px/1.2 var(--font-display);overflow-wrap:anywhere}
+.map-card .best-raid small {color:var(--muted);font-size:13px}
+.home-aim {display:flex;align-items:center;gap:8px;color:var(--muted);font:600 12.5px var(--font-body)}
+.home-aim select {min-height:32px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:4px 6px;max-width:100%}
 </style>
 <body><main class="wrap">
 <!--__SITE_NAV__-->
@@ -33,14 +38,14 @@
 <p class="map-note" id="homeEvidence"></p><p class="map-note" id="homeFreshness"></p>
 </section>
 <div class="notice" id="homeNotice"></div>
-<div class="home-filter"><div id="homeFilter" class="qf-host"></div><p class="map-note" id="homeFilterNote" role="status"></p></div>
+<div class="home-filter"><label class="home-aim" id="homeAimWrap" hidden>Aim for <select id="homeAim"></select></label><div id="homeFilter" class="qf-host"></div><p class="map-note" id="homeFilterNote" role="status"></p></div>
 <section id="mapCards" class="map-cards" aria-label="Maps"></section>
 <section class="career-home"><h2>Your next goals</h2><details><summary>Keep · found-in-raid items</summary><div data-career-view="keep">Loading keep list…</div></details><div data-career-view="kappa">Loading Kappa progress…</div></section>
 <p class="home-footer">Current counts use accepted quests and your corrections for the chosen profile and wipe. Multi-map quests count on every map where they have objectives. Possible unlocks are estimates. Missing log history and opaque game conditions can affect them. Your quest progress stays in this browser; changing the site address starts a separate browser store.</p>
 <p class="home-footer">Data: <a href="https://tarkov.dev">tarkov.dev</a> · Prerequisite facts: <a href="https://escapefromtarkov.fandom.com/wiki/Quests">Escape from Tarkov Wiki (CC BY-SA)</a>. No affiliation with Battlestate Games.</p>
 <noscript>Enable JavaScript to read your saved quest progress and browse map counts.</noscript>
 </main>
-<script>/*__QFILTER__*/</script><script>/*__QEFFORT__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__HOME__*/</script>
+<script>/*__QFILTER__*/</script><script>/*__QEFFORT__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__ROUTE__*/</script><script>/*__SUGGEST__*/</script><script>/*__HOME__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -48,6 +53,16 @@ let store;
 try {store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY));} catch(e) {}
 if (!store || store.version !== 2) store = ProgressStore.empty();
 let mode = new URLSearchParams(location.search).get("mode") === "pve" ? "pve" : "regular";
+let aim = RaidSuggest.loadAim();
+// Where each map's quests are, fetched once per mode for the best-raid lines. Without it the cards still count quests.
+const areas = {};
+function loadAreas() {
+  if (areas[mode] !== undefined) return;
+  const wanted = mode;
+  areas[wanted] = null;
+  fetch((wanted === "pve" ? "pve/" : "") + "raid-areas.json").then(r => r.ok ? r.json() : null).then(data => { areas[wanted] = data; if (data && mode === wanted) render(); }).catch(() => {});
+}
+function checklist(key, map) { try { return JSON.parse(localStorage.getItem(`eft-checklist:${key}:${map}`)) || {}; } catch (e) { return {}; } }
 const scopeInput = document.getElementById("homeScope");
 // The site bar carries both modes' links; point it at the current mode.
 function syncNav() {
@@ -76,16 +91,25 @@ function render() {
   for (const q of Object.values(DATA.modes[mode].quests || {})) q.easy = QuestEffort.assess(q.effort, { level }).easy;
   const filter = QuestFilter.get(), all = MapHome.summarize(DATA,store,mode,key,{[key]:level});
   const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()], counts = QuestFilter.counts(current, filter);
-  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts.traders, { kappaCount: counts.kappa, easyCount: counts.easy }) : "";
+  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts, { fold: true }) : "";
+  loadAreas();
+  const repTraders = [...new Set(Object.values(areas[mode] || {}).flatMap(m => m.quests.filter(q => current.some(c => c.id === q.id)).flatMap(q => (q.rewards?.rep || []).map(r => r.trader))))].sort();
+  if (aim.startsWith("rep:") && !repTraders.includes(aim.slice(4))) repTraders.push(aim.slice(4));
+  document.getElementById("homeAimWrap").hidden = !current.length || !areas[mode];
+  document.getElementById("homeAim").innerHTML = [...Object.entries(RaidSuggest.AIMS), ...repTraders.map(t => ["rep:" + t, t + " standing"])]
+    .map(([k, v]) => `<option value="${esc(k)}" ${k === aim ? "selected" : ""}>${esc(v)}</option>`).join("");
   const filtering = QuestFilter.active(filter);
-  // Maps with matching work first, most current quests first; the rest keep alphabetical order.
+  // Maps with the best suggested raid first, then matching work, most current quests first; the rest keep alphabetical order.
   const cards = (filtering ? MapHome.summarize(DATA,store,mode,key,{[key]:level},filter) : all)
-    .sort((a,b) => (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
-  const best = cards[0], what = filtering ? [filter.easy && "easy", filter.kappa && "Kappa", filter.traders.join(" or ")].filter(Boolean).join(" ") : "current";
-  document.getElementById("homeFilterNote").textContent = !filtering ? (scope ? "Filter by trader or Kappa to see which map has the most of those quests." : "")
-    : best && best.current + best.multiMap ? `Most ${what} quests: ${best.name} (${best.current}${best.multiMap ? ` + ${best.multiMap} multi-map` : ""}).` : `No current ${what} quests.`;
+    .map(m => ({ ...m, raid: MapHome.bestRaid(areas[mode]?.[m.key], m.matches, checklist(key, m.name), aim) }))
+    .sort((a,b) => (b.raid?.score || 0) - (a.raid?.score || 0) || (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
+  const best = cards[0], what = filtering ? QuestFilter.summary(filter) : "";
+  document.getElementById("homeFilterNote").textContent = best?.raid ? `Best raid${what ? ` for ${what}` : ""}: ${best.name}, ${best.raid.name} (${best.raid.ids.length} quests).`
+    : !filtering ? (scope ? "Filter by trader, Kappa or objective to see which map suits them." : "")
+    : best && best.current + best.multiMap ? `Most quests for ${what}: ${best.name} (${best.current}${best.multiMap ? ` + ${best.multiMap} multi-map` : ""}).` : `No current quests for ${what}.`;
+  const bestLine = r => r ? `<span class="best-raid"><span class="label">Best raid</span><b>${esc(r.name)}</b><small>${r.ids.length} quests · ${RaidSuggest.finishText(r)}${r.keys.length ? ` · ${r.keys.length} ${r.keys.length === 1 ? "key" : "keys"}` : ""}</small></span>` : "";
   const list = m => filtering && m.matches.length ? `<ul class="matches">${m.matches.slice(0, 4).map(q => `<li>${esc(q.name)}${filter.traders.length === 1 ? "" : ` <small>· ${esc(q.trader)}</small>`}</li>`).join("")}${m.matches.length > 4 ? `<li><small>+ ${m.matches.length - 4} more</small></li>` : ""}</ul>` : "";
-  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current ${filtering ? esc(what) + " " : ""}quests</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span>${list(m)}<span class="label">Open raid planner →</span></a>`).join("");
+  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests${filtering ? ` · ${esc(what)}` : ""}</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span>${bestLine(m.raid)}${list(m)}<span class="label">Open raid planner →</span></a>`).join("");
   window.dispatchEvent(new Event("eft-progress-change"));
 }
 document.querySelector(".mode-toggle").addEventListener("click", e => {
@@ -93,6 +117,7 @@ document.querySelector(".mode-toggle").addEventListener("click", e => {
   e.preventDefault(); mode = a.dataset.mode; history.replaceState(null,"",`?mode=${mode}`); render();
 });
 window.addEventListener("eft-quest-filter", () => render());
+document.getElementById("homeAim").addEventListener("change", e => { aim = RaidSuggest.normalizeAim(e.target.value); RaidSuggest.saveAim(aim); render(); });
 scopeInput.addEventListener("change", () => {store.active[mode] = scopeInput.value; try {localStorage.setItem(ProgressStore.STORAGE_KEY,JSON.stringify(store));} catch(e) {} render();});
 window.addEventListener("storage", e => {if(e.key === ProgressStore.STORAGE_KEY) {try {const next = JSON.parse(e.newValue); store = next?.version === 2 ? next : ProgressStore.empty(); render();} catch(e) {}}});
 window.addEventListener("storage", e => {if(e.key?.startsWith("eft-player-level:")) render();});

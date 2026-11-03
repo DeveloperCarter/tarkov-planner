@@ -90,3 +90,9 @@ test("a map name finds quests the in-game map list shows before ones that pass t
   assert.deepStrictEqual(names(S.search(entries, "customs")).slice(0, 2), ["Debut", "Delivery from the Past"]);
   assert.strictEqual(names(S.search(entries, "customs")).at(-1), "The Survivalist Path - Unprotected but Dangerous");
 });
+
+test("No keys and objective kinds filter on the entry's effort facts", () => {
+  const list = [{ id: "a", name: "A", effort: { keys: [], kinds: ["combat"] } }, { id: "b", name: "B", effort: { keys: [{ name: "K" }], kinds: ["place"] } }, { id: "c", name: "C" }];
+  assert.deepStrictEqual(names(S.search(list, "", { filters: { noKeys: true } })), ["A"]);
+  assert.deepStrictEqual(names(S.search(list, "", { filters: { kinds: ["place"] } })), ["B"]);
+});

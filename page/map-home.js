@@ -1,18 +1,19 @@
 /* Map cards use exactly the same scoped evaluation as the quest pages. */
 (function (root, factory) {
-  const api = factory(typeof module === "object" && module.exports ? require("./progress-store.js") : root.ProgressStore);
+  const api = typeof module === "object" && module.exports ? factory(require("./progress-store.js"), require("./raid-suggest.js")) : factory(root.ProgressStore, root.RaidSuggest);
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.MapHome = api;
-})(typeof self !== "undefined" ? self : this, function (Store) {
+})(typeof self !== "undefined" ? self : this, function (Store, Suggest) {
   "use strict";
-  // filter: { traders, kappa } counts only matching quests (data.modes[mode].quests holds each
-  // quest's name, trader and wiki-confirmed Kappa flag). Each card lists its matching current quests.
+  // filter: QuestFilter's fields count only matching quests (data.modes[mode].quests holds each
+  // quest's name, trader, wiki-confirmed Kappa flag and effort). Each card lists its matching current quests.
   function summarize(data, store, mode, key = store.active[mode], levels = {}, filter = {}) {
     const group = data.modes[mode];
     if (!group) return [];
     const info = group.quests || {};
     const wanted = id => (!filter.traders?.length || filter.traders.includes(info[id]?.trader)) && (!filter.kappa || info[id]?.kappa === true) &&
-      (!filter.easy || info[id]?.easy === true);
+      (!filter.easy || info[id]?.easy === true) && (!filter.noKeys || (info[id]?.effort && !info[id].effort.keys?.length)) &&
+      (!filter.kinds?.length || filter.kinds.some(k => info[id]?.effort?.kinds?.includes(k)));
     const scope = store.scopes[key];
     if (!scope || scope.mode !== mode) key = "";
     return group.maps.map(map => {
@@ -42,5 +43,12 @@
     }
     return [...counts].map(([name, ids]) => ({ name, count: ids.size })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
   }
-  return { summarize, traders, freshness };
+  // One map's suggested raids from raid-areas.json. Quests come from a card's matches, so the filter
+  // applies; done is that map's saved objective checklist.
+  function bestRaid(areas, matches, done, aim) {
+    if (!areas) return null;
+    const ids = new Set(matches.map(q => q.id));
+    return Suggest.plan(areas, areas.quests.filter(q => ids.has(q.id)), { done, aim }).raids[0] || null;
+  }
+  return { summarize, traders, freshness, bestRaid };
 });

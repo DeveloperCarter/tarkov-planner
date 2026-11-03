@@ -20,13 +20,13 @@ page/progress-store.js         profile/mode/wipe scopes, replay history and curr
 page/raid-focus.js             manual raid selection, shared locations/items and filtered plan projection
 page/raid-route.js             spawn matching and shortest open objective route (pure UMD; no extracts)
 page/raid-session.js           transient spawn/start/completion state (pure UMD)
-page/raid-presets.js           current-quest raid focus presets (pure UMD)
+page/raid-suggest.js           suggested raids: groups current quests by area, for an aim (pure UMD, tested)
 page/map-home.js               home-page counts using the same scoped quest evaluation
 page/quest-career.js           all-quest keep list and Kappa progress for a scope (pure UMD, tested)
 page/quest-career.template.js  the site bar's Keep/Kappa dialog and home/map views; fetches career-data.json
 scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector, keep requirements
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
-page/quest-filter.js           the one site-wide quest filter (traders widen, Kappa and Easy narrow), its chips and storage (tested)
+page/quest-filter.js           the one site-wide quest filter (lists and suggestions only, never the selection), its chips and session storage (tested)
 page/quest-effort.js           easy-win judgement of a quest's effort facts with the player's level (tested)
 page/map-floors.js             which area names, extracts and keycard doors show on the chosen floor (pure, tested)
 scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and how to buy them) for every page
@@ -167,7 +167,7 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   as on the map pages (`build_page.wiki_kappa`); tarkov.dev's flag marks only a handful of tasks.
 - `dist/career-data.json` (and `pve/`) holds every task in the mode for the Keep and Kappa views.
   Its `kappa` is the wiki's answer or null; null quests are listed for review, never counted.
-  Map pages mark wiki answers with `kappaSource: "wiki"`; the Kappa preset and filter need it.
+  Map pages mark wiki answers with `kappaSource: "wiki"`.
   Collector hand-ins aren't in the logs; they're ticked by hand into `scope.collector`.
 
 **Spawn areas and objective routes (2026-10-21)**
@@ -212,7 +212,7 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   Identical/subsumed requirements are reduced first. No extracts are added.
 
 **M3 UI integration and raid presets (2026-10-21)**
-- build_page.py inlines RaidRoute, RaidSession and RaidPresets. Manual spawn selection is available
+- build_page.py inlines RaidRoute, RaidSession and RaidSuggest. Manual spawn selection is available
   before and during raid mode. Matching live raid events use ProgressStore.accepts for the current
   profile/mode/wipe; they never change quest status. No spawn/raid positions are persisted.
 - A missing or unmatched spawn prompts for an area after ten seconds (immediately if unmatched).
@@ -220,12 +220,16 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   route and shows a notice; it does not navigate automatically. The route never includes an extract.
 - Marking a prefix of stops done reroutes from the last completed one. Checking a later stop out of
   order drops its objective without teleporting the route start. Counters need their full quantity.
-- Raid mode contains a collapsible quest picker and All current, Key raids, No required keys,
-  Quest-item pickups, Mark & place, and Combat presets. Presets replace only raid selection from
-  current quests on this page, including multi-map quests. Optional keys don't qualify as required.
-  Objective presets ignore done/optional objectives; general loot handovers aren't located pickups.
-  Key ownership is unknown. Counts and checkboxes show exactly which quests will be selected.
+- Suggested raids (2026-11-03) replaced the presets, in the plan panel and raid mode's picker alike.
+  `RaidSuggest.plan` puts each current quest in one place: a raid (2+ quests with a spot within 100 m of
+  one spot), any raid (no fixed spot left), or elsewhere. Choosing a raid replaces spot quests but keeps
+  chosen flexible ones. On real logs "finish here" was often a minority (2 of 8 on Shoreline's Resort),
+  so a card always says how many finish. Optional keys don't count. Key ownership is unknown.
   Clear stays empty; current scope/map persistence continues through RaidFocus.
+- The filter never hides selected quests, pins or route stops (it used to, with "hidden by the filter").
+  It lasts for the tab's session, in `sessionStorage`, and a folded bar names it while it's on. The chips
+  for No keys and objective kinds read `effort.keys` and `effort.kinds`, which the old presets had computed.
+  The home page reads `dist/raid-areas.json` (and `pve/`) to rank maps by best raid.
 - Clicking card titles or ordinary text opens details; checkboxes/buttons/links/selects retain
   their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh
   build of dist/ and page reload: an older local dist caused the reported missing card interaction.

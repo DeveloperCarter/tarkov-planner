@@ -87,3 +87,20 @@ test('freshness uses the source date, not the build date; UMD exports in the bro
   vm.runInContext(fs.readFileSync(require.resolve('../page/map-home.js'),'utf8'),context);
   assert.equal(typeof context.MapHome.summarize,'function');
 });
+
+test('home filters read effort facts and each map reports its best raid', () => {
+  const quests = { a: { name: 'A', trader: 'Prapor', effort: { keys: [], kinds: ['combat'] } }, b: { name: 'B', trader: 'Prapor', effort: { keys: [{ name: 'K' }], kinds: ['place'] } } };
+  const {store,create} = setup(), key = create('regular');
+  for (const id of ['a', 'b']) S.setManual(store, key, id, 'started');
+  const two = { player: { level: 1, faction: 'USEC' }, modes: { regular: { progression: { a: {}, b: {} }, quests, maps: [{ name: 'Customs', key: 'customs', ids: ['a', 'b'] }] } } };
+  const matches = filter => H.summarize(two, store, 'regular', key, {}, filter)[0].matches.map(q => q.id);
+  assert.deepEqual(matches({}), ['a', 'b']);
+  assert.deepEqual(matches({ noKeys: true }), ['a']);
+  assert.deepEqual(matches({ kinds: ['place'] }), ['b']);
+  const areas = { zones: { z: { name: 'Dorms', gx: 0, gz: 0 } }, quests: [{ id: 'a', objectives: [{ id: 'o1', zone: ['z'] }] }, { id: 'b', objectives: [{ id: 'o2', zone: ['z'] }] }, { id: 'c', objectives: [{ id: 'o3', zone: ['z'] }] }] };
+  const raid = H.bestRaid(areas, [{ id: 'a' }, { id: 'b' }], {}, 'quests');
+  assert.equal(raid.name, 'Dorms');
+  assert.deepEqual(raid.ids, ['a', 'b'], 'only the quests the card matched');
+  assert.equal(H.bestRaid(areas, [{ id: 'a' }, { id: 'b' }], { o1: true }, 'quests'), null, 'finished objectives leave no group');
+  assert.equal(H.bestRaid(undefined, [{ id: 'a' }], {}, 'quests'), null, 'still loading');
+});

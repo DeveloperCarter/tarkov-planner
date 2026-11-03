@@ -18,14 +18,15 @@ test('traders widen and Kappa narrows', () => {
   assert.deepEqual(pick(f), ['pk', 'jk']);
   assert.equal(F.summary(f), 'Kappa · Jaeger or Prapor');
   f = F.toggleTrader(F.toggleTrader(f, 'Prapor'), 'Jaeger');
-  assert.deepEqual(f, { traders: [], kappa: true, easy: false });
+  assert.deepEqual(f, { traders: [], kappa: true, easy: false, noKeys: false, kinds: [] });
   assert.equal(F.active(f), true); assert.equal(F.active(F.empty()), false);
 });
 
 test('counts follow the other half of the filter', () => {
-  assert.deepEqual(F.counts(quests, F.empty()), { traders: [{ name: 'Prapor', count: 2 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 1 }], kappa: 2, easy: 2 });
+  const noKinds = { combat: 0, pickup: 0, place: 0 };
+  assert.deepEqual(F.counts(quests, F.empty()), { traders: [{ name: 'Prapor', count: 2 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 1 }], kappa: 2, easy: 2, noKeys: 0, kinds: noKinds });
   assert.deepEqual(F.counts(quests, { traders: ['Prapor'], kappa: true, easy: false }),
-    { traders: [{ name: 'Prapor', count: 1 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 0 }], kappa: 1, easy: 1 }, 'order stays by list size');
+    { traders: [{ name: 'Prapor', count: 1 }, { name: 'Jaeger', count: 1 }, { name: 'Skier', count: 0 }], kappa: 1, easy: 1, noKeys: 0, kinds: noKinds }, 'order stays by list size');
 });
 
 test('Easy narrows like Kappa', () => {
@@ -36,9 +37,25 @@ test('Easy narrows like Kappa', () => {
   assert.equal(F.summary(F.toggleTrader(f, 'Prapor')), 'Easy · Kappa · Prapor');
 });
 
+test('No keys and objective kinds read effort facts, and unknown facts never match', () => {
+  const list = [{ id: 'free', effort: { keys: [], kinds: ['combat'] } }, { id: 'key', effort: { keys: [{ name: 'K' }], kinds: ['place'] } },
+    { id: 'both', effort: { keys: [], kinds: ['combat', 'pickup'] } }, { id: 'unknown' }];
+  const ids = f => list.filter(q => F.matches(q, F.normalize(f))).map(q => q.id);
+  assert.deepEqual(ids({ noKeys: true }), ['free', 'both']);
+  assert.deepEqual(ids({ kinds: ['place', 'pickup'] }), ['key', 'both'], 'any chosen kind');
+  assert.deepEqual(ids({ noKeys: true, kinds: ['pickup'] }), ['both'], 'kinds and No keys narrow each other');
+  assert.equal(F.active(F.toggleNoKeys(F.empty())), true);
+  assert.equal(F.active(F.toggleKind(F.empty(), 'combat')), true);
+  assert.equal(F.summary(F.toggleKind(F.toggleNoKeys(F.empty()), 'place')), 'No keys · Mark & place');
+  const c = F.counts(list, F.toggleKind(F.empty(), 'combat'));
+  assert.equal(c.noKeys, 2);
+  assert.deepEqual(c.kinds, { combat: 2, pickup: 1, place: 1 }, 'a kind chip ignores the other kinds, since they widen');
+});
+
 test('stored values are cleaned up', () => {
   assert.deepEqual(F.normalize(null), F.empty());
-  assert.deepEqual(F.normalize({ traders: ['Skier', 'Prapor', 'Prapor', 3, ''], kappa: 'yes', easy: true }), { traders: ['Prapor', 'Skier'], kappa: false, easy: true });
+  assert.deepEqual(F.normalize({ traders: ['Skier', 'Prapor', 'Prapor', 3, ''], kappa: 'yes', easy: true, noKeys: 1, kinds: ['place', 'combat', 'place', 'toString'] }),
+    { traders: ['Prapor', 'Skier'], kappa: false, easy: true, noKeys: false, kinds: ['combat', 'place'] });
 });
 
 test('chips fold past the limit, keep chosen traders visible, and expand to show all', () => {

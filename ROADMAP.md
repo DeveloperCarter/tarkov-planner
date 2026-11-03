@@ -292,7 +292,7 @@ splitting the selection into several raids are outside this design.
    raid-started begins the wait. Missing/unknown maps must never select an unrelated map silently.
    Show the route for the selected quests only, with its approximation/search-location caveats.
 
-5. **Raid focus presets** — choose quests inside raid mode using All current, Key raids, No required
+5. **Raid focus presets** (replaced by suggested raids and filter chips, 2026-11-03) — choose quests inside raid mode using All current, Key raids, No required
    keys, Quest-item pickups, Mark & place or Combat. Show counts, describe each preset, and allow
    checkbox adjustments and Clear. Apply only current quests; never alter statuses or assume key
    ownership. Preset selections use the existing scoped raid-focus persistence.

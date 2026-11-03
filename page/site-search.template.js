@@ -75,9 +75,9 @@
     if (!entries) return;
     const f = allFilters();
     ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters: f, faction, limit: shown }));
-    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c.traders, { kappaCount: c.kappa, easyCount: c.easy }); }
+    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c); }
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim(), listing = f.kappa || f.easy || f.traders?.length || f.map;
+    const q = input.value.trim(), listing = f.kappa || f.easy || f.noKeys || f.kinds?.length || f.traders?.length || f.map;
     const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
     note.textContent = !results.length
       ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."

@@ -1,5 +1,6 @@
 import datetime as dt
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -122,6 +123,23 @@ class SitePipelineTests(unittest.TestCase):
                 self.assertEqual(etl.build_places('woods', frame, en), [
                     {'id': 'a', 'name': 'A', 'x': 500, 'y': 500, 'gx': 50, 'gz': 50, 'gy': 5.5, 'note': 'Open'}])
                 self.assertEqual(etl.build_places('shoreline', frame, en), [])
+
+    def test_raid_areas_give_the_home_page_the_same_raids_as_the_map_page(self):
+        script = '''
+          const fs = require("fs"), S = require("./page/raid-suggest.js");
+          const areas = JSON.parse(fs.readFileSync("dist/raid-areas.json", "utf8"));
+          const raids = (data, quests) => S.plan(data, quests, { aim: "xp" }).raids.map(r => [r.id, r.ids.slice().sort(), r.finish.slice().sort(), r.xp, r.rep, r.keys]);
+          let compared = 0;
+          for (const [key, home] of Object.entries(areas)) {
+            const page = JSON.parse(fs.readFileSync(`data/maps/${key}.json`, "utf8"));
+            const a = JSON.stringify(raids(page, page.quests)), b = JSON.stringify(raids(home, home.quests));
+            if (a !== b) throw new Error(key + " differs: " + a + " vs " + b);
+            compared += a !== "[]";
+          }
+          if (compared < 5) throw new Error("only " + compared + " maps had raids");
+        '''
+        pages.build_raid_areas('regular')
+        subprocess.run(['node', '-e', script], cwd=etl.ROOT, check=True, capture_output=True, text=True)
 
     def test_hand_quests_join_the_snapshot_until_tarkov_dev_lists_them(self):
         hand = {'quests': [{'id': 'new', 'map': 'lab', 'name': 'New'}, {'id': 'listed', 'map': 'lab', 'name': 'Hand copy'},
