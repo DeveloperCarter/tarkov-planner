@@ -123,6 +123,34 @@ class SitePipelineTests(unittest.TestCase):
                     {'id': 'a', 'name': 'A', 'x': 500, 'y': 500, 'gx': 50, 'gz': 50, 'gy': 5.5, 'note': 'Open'}])
                 self.assertEqual(etl.build_places('shoreline', frame, en), [])
 
+    def test_hand_quests_join_the_snapshot_until_tarkov_dev_lists_them(self):
+        hand = {'quests': [{'id': 'new', 'map': 'lab', 'name': 'New'}, {'id': 'listed', 'map': 'lab', 'name': 'Hand copy'},
+                           {'id': 'elsewhere', 'map': 'gone', 'name': 'Other'}]}
+        raw = {'tasks': {'tasks': {'listed': {'name': 'tarkov.dev copy'}}}, 'maps': {'maps': {'lab': {}}}}
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'hand-quests.json'
+            path.write_text(json.dumps(hand))
+            with patch.object(etl, 'HAND_QUESTS', path), patch('sys.stderr') as err:
+                etl.add_hand_quests(raw)
+            self.assertIn('listed is now in tarkov.dev', ''.join(c.args[0] for c in err.write.call_args_list))
+        self.assertEqual(set(raw['tasks']['tasks']), {'new', 'listed'})
+        self.assertEqual(raw['tasks']['tasks']['listed']['name'], 'tarkov.dev copy')
+
+    def test_trust_but_verify_is_on_the_lab_with_its_stash_in_both_modes(self):
+        quest_id = '6a880acc9216d0f5aa078305'
+        for base in ('data', 'data/pve'):
+            data = json.loads((etl.ROOT / base / 'maps' / 'the-lab.json').read_text(encoding='utf-8'))
+            quest = next(q for q in data['quests'] if q['id'] == quest_id)
+            self.assertTrue(quest['onMap'])
+            self.assertEqual(quest['trader'], 'Mechanic')
+            stash, leave = quest['objectives']
+            self.assertEqual(len(stash['zone']), 1)
+            self.assertLess(data['zones'][stash['zone'][0]]['x'], data['zones']['s-of-lecture-hall']['x'])
+            self.assertEqual(leave['exit'], 'Ventilation Shaft')
+            self.assertTrue(any(e['name'] == leave['exit'] for e in data['extracts']))
+            progression = json.loads((etl.ROOT / base / 'progression.json').read_text(encoding='utf-8'))
+            self.assertEqual(len(progression[quest_id]['traderRequirements']), 6)
+
     def test_ways_in_attach_to_their_extracts_only(self):
         frame = etl.Frame([(0, 0), (100, 100)], pad=0)
         en = lambda p: (p['x'], p['z'])

@@ -42,6 +42,8 @@ PLACEHOLDERS = ROOT / "data" / "placeholder-quests.json"
 # Keycard doors seen in game that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
 KEYCARD_DOORS = ROOT / "data" / "keycard-doors.json"
 MAP_PLACES = ROOT / "data" / "map-places.json"
+# Quests the game offers that tarkov.dev doesn't list yet, with objectives. Edited by hand; see the file's notes.
+HAND_QUESTS = ROOT / "data" / "hand-quests.json"
 FRAME_W = 1000
 FRAME_MAX_H = 1400
 
@@ -97,7 +99,20 @@ def load_snapshot(path: Path) -> dict:
         raw["lang"].update(read(f"{n}_en.json")["data"])
     raw["siteMaps"] = read("site-maps.json")
     raw["manifest"] = read("manifest.json")
+    add_hand_quests(raw)
     return raw
+
+
+def add_hand_quests(raw: dict) -> None:
+    """Add hand-listed quests to the snapshot's tasks, so the maps, progression and search all see them."""
+    if not HAND_QUESTS.exists():
+        return
+    tasks = raw["tasks"]["tasks"]
+    for t in json.loads(HAND_QUESTS.read_text(encoding="utf-8"))["quests"]:
+        if t["id"] in tasks:
+            print(f"  hand-listed quest {t['id']} is now in tarkov.dev; remove it", file=sys.stderr)
+        elif t["map"] in raw["maps"]["maps"]:
+            tasks[t["id"]] = t
 
 
 # ---------------------------------------------------------------- helpers

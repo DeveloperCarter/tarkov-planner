@@ -37,6 +37,7 @@ data/pve/                     PvE maps, task index and progression (never reuse 
 .github/workflows/pages.yml    daily refresh and GitHub Pages deployment
 data/customs-quests.json       hand-built Customs plan; the reference result for the raid bundler
 data/placeholder-quests.json   hand-kept quests seen in logs that tarkov.dev doesn't list yet (no player data)
+data/hand-quests.json          hand-written quests with objectives, in tarkov.dev's task shape, for when a placeholder isn't enough
 tests/                         node:test files (*.test.cjs) + fixtures
 snapshot/ dist/                generated; never commit (.gitignore)
 ```
@@ -309,6 +310,9 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   so replaying them gives the full quest history. Completions were reliable in 47 real sessions.
 - BTR Driver quests are accepted in raid and leave no start event. Repeatable (daily/weekly)
   templates reuse one ID and complete repeatedly; new 1.2.5 quests may be missing from tarkov.dev.
+- tarkov.dev has lagged the game: on 2026-11-03 it still listed 503 tasks, without 1.3's To the Light chain past Getting
+  Acquainted. `load_snapshot` adds `data/hand-quests.json` to the raw tasks, so the maps, progression and search treat them
+  alike. A hand quest needs its real ID from a logged start, or tracking can't match it and `notOffered` locks it.
 
 ## Writing style for UI text
 

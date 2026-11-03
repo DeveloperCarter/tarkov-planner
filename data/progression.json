@@ -9318,5 +9318,53 @@
   "traderRequirements": [],
   "faction": "Any",
   "restartable": false
+ },
+ "6a880acc9216d0f5aa078305": {
+  "requirements": [],
+  "unresolved": [
+   "To the Light - Trust but Verify (see wiki requirements)"
+  ],
+  "minLevel": 1,
+  "traderRequirements": [
+   {
+    "trader": "Therapist",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   },
+   {
+    "trader": "Skier",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   },
+   {
+    "trader": "Peacekeeper",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   },
+   {
+    "trader": "Mechanic",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   },
+   {
+    "trader": "Ragman",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   },
+   {
+    "trader": "Jaeger",
+    "type": "level",
+    "value": 3,
+    "compare": ">="
+   }
+  ],
+  "faction": "Any",
+  "restartable": false,
+  "story": "Tour"
  }
 }

@@ -4,7 +4,7 @@
   "mapId": "5b0fc42d86f7744a585f9105",
   "key": "the-lab",
   "gameMode": "pve",
-  "generated": "2026-11-02",
+  "generated": "2026-11-03",
   "snapshot": "2026-10-21T02:11:34+00:00",
   "raidMinutes": 30,
   "players": "8-10",
@@ -120,6 +120,14 @@
    "hints": [],
    "gx": -169.1,
    "gz": -342.1
+  },
+  "main-working-area-ne": {
+   "name": "Main Working Area NE",
+   "x": 547,
+   "y": 436,
+   "hints": [],
+   "gx": -179.6,
+   "gz": -326.4
   }
  },
  "extracts": [
@@ -1519,6 +1527,50 @@
       "standing": 0.75
      }
     ]
+   }
+  },
+  {
+   "id": "6a880acc9216d0f5aa078305",
+   "name": "To the Light - Trust but Verify",
+   "trader": "Mechanic",
+   "kappa": false,
+   "lightkeeper": false,
+   "faction": "Any",
+   "usecOnly": false,
+   "bearOnly": false,
+   "minLevel": 1,
+   "onMap": true,
+   "requires": [],
+   "wiki": "https://escapefromtarkov.fandom.com/wiki/To_the_Light_-_Trust_but_Verify",
+   "type": "extract,plantQuestItem",
+   "raid": null,
+   "objectives": [
+    {
+     "id": "6a880acc9216d0f5aa078305-stash",
+     "text": "Stash the Hard drive with false data in the server room near the weapon testing area (in one raid)",
+     "type": "plantQuestItem",
+     "optional": false,
+     "zone": [
+      "main-working-area-ne"
+     ]
+    },
+    {
+     "id": "6a880acc9216d0f5aa078305-extract",
+     "text": "After stashing the drive, extract through the Ventilation Shaft (in one raid)",
+     "type": "extract",
+     "optional": false,
+     "exit": "Ventilation Shaft",
+     "zone": []
+    }
+   ],
+   "needs": [],
+   "tips": [],
+   "reward": "35,000 XP, 300,000 RUB, 2x TerraGroup Labs access keycard",
+   "rewards": {
+    "xp": 35000,
+    "roubles": 300000,
+    "itemValue": 241332,
+    "rep": []
    }
   },
   {

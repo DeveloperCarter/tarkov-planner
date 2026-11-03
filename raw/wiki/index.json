@@ -2102,5 +2102,9 @@
  "6834287b7559f4e6d50bc0fa": {
   "url": "https://escapefromtarkov.fandom.com/wiki/Postponed_Reward",
   "response": "67e993f5ed537409f009da75.json"
+ },
+ "6a880acc9216d0f5aa078305": {
+  "url": "https://escapefromtarkov.fandom.com/wiki/To_the_Light_-_Trust_but_Verify",
+  "response": "6a880acc9216d0f5aa078305.json"
  }
 }

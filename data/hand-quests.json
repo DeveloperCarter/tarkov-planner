@@ -1,0 +1,33 @@
+{
+ "notes": [
+  "Quests the game offers that tarkov.dev doesn't list yet, written in its own task shape so every build step treats them alike. Edited by hand; the build says when tarkov.dev has caught up, so the entry can go.",
+  "The id must be the real one from a logged start, or log tracking can't match the quest. Never record player-specific details here (profile IDs, dates, progress).",
+  "To the Light - Trust but Verify: id from a logged Mechanic start (checked 2026-11-03). Objectives from the in-game screen, rewards and trader levels from the wiki. The stash position is the wiki's marked map fitted onto our Lab labels, so it's approximate; tarkov.dev's weapon testing zone landed where that map draws the room. The game labels the extract optional but its text says it's needed to complete the quest, so it's required here."
+ ],
+ "quests": [
+  {"id": "6a880acc9216d0f5aa078305", "name": "To the Light - Trust but Verify", "trader": "5a7c2eca46aef81a7ca2145d",
+   "map": "5b0fc42d86f7744a585f9105", "wikiLink": "https://escapefromtarkov.fandom.com/wiki/To_the_Light_-_Trust_but_Verify",
+   "minPlayerLevel": 1, "experience": 35000, "factionName": "Any", "restartable": false,
+   "taskRequirements": [],
+   "traderRequirements": [
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "54cb57776803fa99248b456e"},
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "58330581ace78e27b8b10cee"},
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "5935c25fb3acc3127c3d8cd9"},
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "5a7c2eca46aef81a7ca2145d"},
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "5ac3b934156ae10c4430e83c"},
+    {"requirementType": "level", "compareMethod": ">=", "value": 3, "trader": "5c0647fdd443bc2504c2d371"}
+   ],
+   "objectives": [
+    {"id": "6a880acc9216d0f5aa078305-stash", "type": "plantQuestItem", "count": 1, "optional": false,
+     "description": "Stash the Hard drive with false data in the server room near the weapon testing area (in one raid)",
+     "zones": [{"map": "5b0fc42d86f7744a585f9105", "position": {"x": -179.6, "y": 0, "z": -326.4}}]},
+    {"id": "6a880acc9216d0f5aa078305-extract", "type": "extract", "count": 1, "optional": false,
+     "description": "After stashing the drive, extract through the Ventilation Shaft (in one raid)",
+     "exitName": "Ventilation Shaft", "maps": ["5b0fc42d86f7744a585f9105"]}
+   ],
+   "finishRewards": {"traderStanding": [], "items": [
+    {"item": "5449016a4bdc2d6f028b456f", "count": 300000, "attributes": {}},
+    {"item": "5c94bbff86f7747ee735c08f", "count": 2, "attributes": {}}
+   ]}}
+ ]
+}

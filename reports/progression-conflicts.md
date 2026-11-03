@@ -1,6 +1,6 @@
 # Progression conflicts
 
-Snapshot: 2026-10-20T021344065321 (regular). 503 tasks, 495 cached wiki responses.
+Snapshot: 2026-10-20T021344065321 (regular). 504 tasks, 496 cached wiki responses.
 
 Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (active/failed branches). A dev-only completion edge is excluded if it creates a cycle with the wiki chain. Other completion cycles fail the build for review. Trader loyalty levels are annotation only (the wiki fills a missing one); "LLn quests completed" gates count completed quests of that trader and level. Removed quests, story-chapter steps and game editions from the wiki page lock a quest; its "Must be level N" raises a lower level. Opaque globalVariable gates are reported, not guessed. Unresolved wiki prerequisites stay locked for review; self-links to requirement sections are not completion edges.
 
@@ -465,3 +465,5 @@ Policy: add missing wiki edges; keep tarkov.dev statuses on overlapping edges (a
 | Stimulating Demand | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Sisyphus | opaque globalVariable | 1 condition(s); no unlock meaning supplied, not used as a gate |
 | Sisyphus | wiki-only loyalty level | Ragman LL3 |
+| To the Light - Trust but Verify | wiki section requirement | To the Light - Trust but Verify: self-link is a section pointer, not a prerequisite |
+| To the Light - Trust but Verify | wiki story requirement | Tour |
