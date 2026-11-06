@@ -12,23 +12,29 @@ PLACING = {"mark", "plantItem", "plantQuestItem"}
 # Objectives done at a place: without a zone, the player has to find it themselves.
 PLACED = {"visit", "mark", "plantItem", "plantQuestItem", "findQuestItem"}
 TRADER_CASH = re.compile(r"^[A-Z][A-Za-z ]+ LL\d: [\d,]+")
+TRADER_TRADE = re.compile(r"^[A-Z][A-Za-z ]+ LL\d barter:")
 
 
 def effort_facts(map_files: list[Path]) -> dict:
-    """{task id: {spots, unlocated, extracts, maps, kills, hardKills, fir, streak, grind, kinds, keys: [{name, fleaLevel, trader}]}}"""
+    """{task id: {spots, unlocated, extracts, maps, kills, hardKills, fir, streak, grind, kinds, keys, items}}
+
+    keys and items: [{id, name, qty, fleaLevel, trader, barter}], the required keys and items to bring.
+    trader: a trader sells it for cash; barter: a trader barter or a craft makes it. Weapons are left out:
+    their needs list any of many guns, which the data can't price."""
     facts, seen, buy = {}, set(), {}
     sources = [json.loads(p.read_text(encoding="utf-8")) for p in map_files]
     for data in sources:
         for a in data.get("acquisition", []):
-            if a.get("kind") == "key":
+            if a.get("kind") in ("key", "item"):
                 buy[a["itemId"]] = {"fleaLevel": a.get("fleaLevel"),
-                                    "trader": any(TRADER_CASH.match(s) for s in a.get("sources", []))}
+                                    "trader": any(TRADER_CASH.match(s) for s in a.get("sources", [])),
+                                    "barter": any(TRADER_TRADE.match(s) for s in a.get("sources", []))}
     for data in sources:
         key = data.get("meta", {}).get("key")
         for q in data.get("quests", []):
             tid = q.get("bsgId") or q["id"]
             f = facts.setdefault(tid, {"spots": 0, "unlocated": 0, "extracts": 0, "maps": 0, "kills": 0, "hardKills": False, "fir": False,
-                                       "streak": False, "grind": False, "kinds": [], "keys": []})
+                                       "streak": False, "grind": False, "kinds": [], "keys": [], "items": []})
             located = False
             for o in q.get("objectives", []):
                 if o.get("optional"):
@@ -63,7 +69,9 @@ def effort_facts(map_files: list[Path]) -> dict:
             if located:
                 f["maps"] += 1
             for n in q.get("needs", []):
-                if n.get("kind") == "key" and not n.get("optional") and not any(k["name"] == n["item"] for k in f["keys"]):
-                    info = next((buy[i] for i in n.get("itemIds", []) if i in buy), {"fleaLevel": None, "trader": False})
-                    f["keys"].append({"name": n["item"], **info})
+                group = {"key": "keys", "item": "items"}.get(n.get("kind"))
+                if group and not n.get("optional") and not any(k["name"] == n["item"] for k in f[group]):
+                    ids = n.get("itemIds") or [None]
+                    info = next((buy[i] for i in ids if i in buy), {"fleaLevel": None, "trader": False, "barter": False})
+                    f[group].append({"id": ids[0], "name": n["item"], "qty": n.get("qty") or 1, **info})
     return facts

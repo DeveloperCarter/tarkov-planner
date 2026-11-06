@@ -68,12 +68,15 @@ test("a player-confirmed boundary turns a manual scope into a log scope and keep
   S.ingest(s, [event("b", "started", 110), event("c", "started", 50)], meta);
   S.setManual(s, k, "a", "started", 120);
   S.confirmCurrent(s, k, ["a", "b"], ["a"], 130, "Customs");
+  S.setGear(s, k, "key1", true); S.setGear(s, k, "key2", true); S.setGear(s, k, "key2", false);
   const next = S.setBoundary(s, k, 100, "First logged quest event; confirmed by player");
   assert.notEqual(next, k);
   assert.equal(s.scopes[k], undefined, "the manual-only scope is replaced, not duplicated");
   assert.equal(s.active.regular, next);
   assert.deepEqual(Object.keys(S.derive(s, next).statuses).sort(), ["a", "b"], "events before the boundary stay out");
   assert.equal(s.scopes[next].membership.Customs.a.current, true);
+  assert.deepEqual(s.scopes[next].gear, { key1: true }, "gear you have carries over; unticked gear is gone");
+  assert.throws(() => S.setGear(s, "missing", "key1", true), /scope/);
   assert.throws(() => S.setBoundary(s, next, NaN), /valid start/);
 });
 

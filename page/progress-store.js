@@ -83,6 +83,16 @@
     else delete scope.collector[objective];
   }
 
+  // Keys and items the player says they have, by item ID, so quests needing them count as ready.
+  // Not tracked by the logs; shared by every map of the scope.
+  function setGear(store, key, item, have) {
+    const scope = store.scopes[key];
+    if (!scope) throw new Error("Choose a progress scope first.");
+    scope.gear ||= {};
+    if (have) scope.gear[item] = true;
+    else delete scope.gear[item];
+  }
+
   // A confirmed map list corrects membership without fabricating completion/failure of extras.
   function confirmCurrent(store, key, mapIds, currentIds, at = Date.now(), map = "all") {
     const scope = store.scopes[key];
@@ -179,6 +189,7 @@
     // Confirming a boundary for the same character preserves manual Collector hand-ins.
     target.collector = { ...old.collector, ...target.collector };
     target.stash = { ...old.stash, ...target.stash };
+    target.gear = { ...old.gear, ...target.gear };
     for (const [id, m] of Object.entries(old.manual)) {
       if (!target.manual[id] || target.manual[id].at < m.at) target.manual[id] = m;
     }
@@ -219,6 +230,6 @@
     }
     return { ids: [...new Set(ids)], errors };
   }
-  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, setStash, confirmCurrent, isCurrent, evaluate,
+  return { STORAGE_KEY, empty, createScope, accepts, windowFor, ingest, derive, setManual, setCollector, setStash, setGear, confirmCurrent, isCurrent, evaluate,
     previewLegacy, migrateLegacy, historyCounts, resolveNames, detectedProfiles, setBoundary, scopeFromLogs, logsFromStart };
 });

@@ -27,9 +27,9 @@ page/quest-career.template.js  the site bar's Keep/Kappa dialog and home/map vie
 scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector, keep requirements
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
 page/quest-filter.js           the one site-wide quest filter (lists and suggestions only, never the selection), its chips and session storage (tested)
-page/quest-effort.js           easy-win judgement of a quest's effort facts with the player's level (tested)
+page/quest-effort.js           easy wins, gear status (have/flea/trader/barter/find), gear ready and the per-quest todo line (tested)
 page/map-floors.js             which area names, extracts and keycard doors show on the chosen floor (pure, tested)
-scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and how to buy them) for every page
+scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and items and how to get them) for every page
 page/site-search.template.js   the site bar's search box (Ctrl K); inlined into every page with the site bar
 scripts/refresh_site.py        both-mode refresh, cached wiki comparisons, release build and validation
 scripts/check_site.py          inline-script parsing and relative navigation validation
@@ -227,8 +227,15 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   so a card always says how many finish. Optional keys don't count. Key ownership is unknown.
   Clear stays empty; current scope/map persistence continues through RaidFocus.
 - The filter never hides selected quests, pins or route stops (it used to, with "hidden by the filter").
-  It lasts for the tab's session, in `sessionStorage`, and a folded bar names it while it's on. The chips
-  for No keys and objective kinds read `effort.keys` and `effort.kinds`, which the old presets had computed.
+  It lasts for the tab's session, in `sessionStorage`. The bar is a Filter button, the active filters as
+  removable chips, and a panel grouped as Show only (Gear ready, Easy, Kappa, No keys), Objective and Trader.
+- Gear (2026-11-06): `effort.keys`/`effort.items` list required keys and items with `fleaLevel`, `trader`
+  (sold for cash) and `barter`; weapons are left out (any of many guns). `QuestEffort.gear` ranks have >
+  flea at your level > trader > barter > find; `readiness` sets each page's `q.ready`. "Have" ticks are
+  `scope.gear[itemId]`, for every map, carried over by `setBoundary`. Trader loyalty isn't known, so a
+  trader source counts as buyable and names its LL. At level 28 almost every key is on the flea; the
+  blockers are flea-banned items and ones whose flea level is above yours. The Keys & items tab lists gear
+  for all current quests on the map or only this raid, can't-buy first, each naming its quests.
   The home page reads `dist/raid-areas.json` (and `pve/`) to rank maps by best raid.
 - Clicking card titles or ordinary text opens details; checkboxes/buttons/links/selects retain
   their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh

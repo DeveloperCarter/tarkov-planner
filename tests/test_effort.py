@@ -17,14 +17,16 @@ class EffortTests(unittest.TestCase):
         key = lambda name, iid: {'item': name, 'itemIds': [iid], 'kind': 'key', 'qty': 1, 'optional': False}
         customs = {'meta': {'key': 'customs'}, 'acquisition': [
             {'itemId': 'k1', 'kind': 'key', 'fleaLevel': 25, 'sources': ['Mechanic LL1: 14,594']},
-            {'itemId': 'k2', 'kind': 'key', 'fleaLevel': 30, 'sources': ['No trader, barter or craft source. Find it in raid.']}],
+            {'itemId': 'k2', 'kind': 'key', 'fleaLevel': 30, 'sources': ['No trader, barter or craft source. Find it in raid.']},
+            {'itemId': 'm1', 'kind': 'item', 'fleaLevel': None, 'sources': ['Therapist LL2 barter: 2x Bandage']}],
             'quests': [
                 quest('easy', [{'id': 'v', 'type': 'visit', 'zone': ['a']}, {'id': 's', 'type': 'shoot', 'count': 3, 'targets': ['Scav']}], [key('Shop key', 'k1')]),
                 quest('hard', [{'id': 'p', 'type': 'shoot', 'count': 1, 'targets': ['any PMC operatives']},
                                {'id': 'f', 'type': 'giveItem', 'foundInRaid': True},
                                {'id': 'x', 'type': 'findQuestItem', 'zone': []},
                                {'id': 'e', 'type': 'extract', 'count': 3}], [key('Keycard', 'k2')]),
-                quest('shared', [{'id': 'm1', 'type': 'mark', 'zone': ['a', 'b']}])]}
+                quest('shared', [{'id': 'm1', 'type': 'mark', 'zone': ['a', 'b']}],
+                      [{'item': 'MS2000 Marker', 'itemIds': ['m1'], 'kind': 'item', 'qty': 2}, {'item': 'Any of: M4A1', 'itemIds': ['w1'], 'kind': 'weapon', 'qty': 1}])]}
         woods = {'meta': {'key': 'woods'}, 'quests': [quest('shared', [{'id': 'm2', 'type': 'mark', 'zone': ['a']}])]}
         with tempfile.TemporaryDirectory() as tmp:
             paths = []
@@ -33,14 +35,17 @@ class EffortTests(unittest.TestCase):
             facts = effort_facts(paths)
         self.assertEqual(facts['easy']['spots'], 1)
         self.assertEqual(facts['easy']['kills'], 3)
-        self.assertEqual(facts['easy']['keys'], [{'name': 'Shop key', 'fleaLevel': 25, 'trader': True}])
+        self.assertEqual(facts['easy']['keys'], [{'id': 'k1', 'name': 'Shop key', 'qty': 1, 'fleaLevel': 25, 'trader': True, 'barter': False}])
         hard = facts['hard']
         self.assertTrue(hard['hardKills'] and hard['fir'] and hard['streak'])
         self.assertEqual(hard['unlocated'], 1)
-        self.assertEqual(hard['keys'], [{'name': 'Keycard', 'fleaLevel': 30, 'trader': False}])
+        self.assertEqual(hard['keys'], [{'id': 'k2', 'name': 'Keycard', 'qty': 1, 'fleaLevel': 30, 'trader': False, 'barter': False}])
         self.assertEqual(facts['easy']['kinds'], ['combat'], 'a visit is none of the chips')
         self.assertEqual(hard['kinds'], ['combat', 'pickup'])
         self.assertEqual(facts['shared']['kinds'], ['place'])
+        self.assertEqual(facts['shared']['items'], [{'id': 'm1', 'name': 'MS2000 Marker', 'qty': 2, 'fleaLevel': None, 'trader': False, 'barter': True}],
+                         'items to bring; weapons are left out')
+        self.assertEqual(facts['easy']['items'], [])
         self.assertEqual((facts['shared']['spots'], facts['shared']['maps']), (3, 2), 'zone a counts on both maps')
 
 

@@ -88,10 +88,11 @@ function render() {
   notice.hidden = !!scope;
   notice.textContent = "No current quest list selected. Open a map, open Settings and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
   // The site-wide filter: chips list the traders with current quests in this scope.
-  for (const q of Object.values(DATA.modes[mode].quests || {})) q.easy = QuestEffort.assess(q.effort, { level }).easy;
+  const have = scope?.gear || {};
+  for (const q of Object.values(DATA.modes[mode].quests || {})) { q.easy = QuestEffort.assess(q.effort, { level, have }).easy; q.ready = QuestEffort.readiness(q.effort, { level, have }).ready; }
   const filter = QuestFilter.get(), all = MapHome.summarize(DATA,store,mode,key,{[key]:level});
   const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()], counts = QuestFilter.counts(current, filter);
-  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts, { fold: true }) : "";
+  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts) : "";
   loadAreas();
   const repTraders = [...new Set(Object.values(areas[mode] || {}).flatMap(m => m.quests.filter(q => current.some(c => c.id === q.id)).flatMap(q => (q.rewards?.rep || []).map(r => r.trader))))].sort();
   if (aim.startsWith("rep:") && !repTraders.includes(aim.slice(4))) repTraders.push(aim.slice(4));

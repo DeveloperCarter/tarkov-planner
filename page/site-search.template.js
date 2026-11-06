@@ -26,7 +26,9 @@
       const saved = Number(localStorage.getItem(`eft-player-level:${key}`));
       if (key && Number.isInteger(saved) && saved >= 1 && saved <= 100) level = saved;
     } catch (e) {}
-    for (const e of entries) { const a = QuestEffort.assess(e.effort, { level }); e.easy = a.easy; e.easyWhy = a.reasons.join(" · "); }
+    let have = {};
+    try { const store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY)); have = store?.scopes?.[store?.active?.[mode()]]?.gear || {}; } catch (e) {}
+    for (const e of entries) { const a = QuestEffort.assess(e.effort, { level, have }); e.easy = a.easy; e.easyWhy = a.reasons.join(" · "); e.ready = QuestEffort.readiness(e.effort, { level, have }).ready; }
   }
   function readStatuses() {
     try {
@@ -77,7 +79,7 @@
     ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters: f, faction, limit: shown }));
     if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c); }
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim(), listing = f.kappa || f.easy || f.noKeys || f.kinds?.length || f.traders?.length || f.map;
+    const q = input.value.trim(), listing = f.kappa || f.easy || f.ready || f.noKeys || f.kinds?.length || f.traders?.length || f.map;
     const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
     note.textContent = !results.length
       ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."

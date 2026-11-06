@@ -39,7 +39,7 @@
   // quest has objectives, or "none" for quests without map objectives).
   function passes(e, filters, statuses) {
     const maps = e.maps || [];
-    return (!filters.kappa || e.kappa) && (!filters.easy || e.easy === true) && (!filters.noKeys || (e.effort && !e.effort.keys?.length)) &&
+    return (!filters.kappa || e.kappa) && (!filters.easy || e.easy === true) && (!filters.ready || e.ready === true) && (!filters.noKeys || (e.effort && !e.effort.keys?.length)) &&
       (!filters.kinds?.length || filters.kinds.some(k => e.effort?.kinds?.includes(k))) && (!filters.active || statuses[e.id] === "started") &&
       (!filters.traders?.length || filters.traders.includes(e.trader)) &&
       (!filters.map || (filters.map === "none" ? !maps.length : maps.some(m => m.key === filters.map)));
@@ -55,7 +55,7 @@
     const words = terms(query), keep = e => passes(e, filters, statuses);
     let ranked;
     if (!words.length) {
-      const listing = filters.kappa || filters.easy || filters.noKeys || filters.kinds?.length || filters.traders?.length || filters.map;
+      const listing = filters.kappa || filters.easy || filters.ready || filters.noKeys || filters.kinds?.length || filters.traders?.length || filters.map;
       const listedHere = e => filters.map && (e.maps || []).some(m => m.key === filters.map && m.onMap) ? 0 : 1;
       const otherSide = e => faction && e.faction && e.faction !== "Any" && e.faction !== faction ? 1 : 0;
       ranked = entries.filter(e => keep(e) && (listing || statuses[e.id] === "started")).sort((a, b) =>

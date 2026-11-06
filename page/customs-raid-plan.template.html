@@ -200,10 +200,6 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .st { font: 600 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; padding: 1px 6px; border-radius: 2px; }
 .st.open { color: var(--ok); border: 1px solid var(--ok); }
 .st.locked { color: var(--signal); border: 1px solid var(--signal); }
-.acq { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
-.acq .card { background: var(--panel); border: 1px solid var(--line); padding: 14px; display: grid; gap: 8px; align-content: start; }
-.acq .card.req { border-top: 3px solid var(--signal); }
-.acq .card ul { margin: 0; padding-left: 16px; display: grid; gap: 4px; font-size: 14px; }
 
 .ideas { display: grid; gap: 26px; }
 .ideas .lede { font-size: 17px; max-width: 72ch; }
@@ -402,15 +398,65 @@ body.raid-mode .map-ctrl [data-map="full"] { display:none; }
 .qf-chip[aria-pressed="true"] span { color:inherit; }
 .qf-more { min-height:32px; padding:4px 6px; border:0; background:none; color:var(--muted); font:600 12.5px var(--font-body); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 .qf-chip:focus-visible, .qf-more:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
-.focus-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-.qf-row { display:flex; flex-wrap:wrap; align-items:center; gap:4px 10px; min-width:0; }
-.qf-fold { flex:1 1 100%; min-width:0; }
-.qf-fold > summary { cursor:pointer; min-height:32px; display:flex; align-items:center; gap:8px; font:600 12.5px var(--font-body); color:var(--muted); }
-.qf-fold > summary b { color:var(--olive); font-weight:600; overflow-wrap:anywhere; }
-.qf-fold > .qf { margin:4px 0 6px; }
-.qf-fold > summary::before, .raid-fold > summary::before { content:"▸"; }
-.qf-fold[open] > summary::before, .raid-fold[open] > summary::before { content:"▾"; }
-.qf-fold > summary::-webkit-details-marker, .raid-fold > summary::-webkit-details-marker { display:none; }
+.focus-actions { display:flex; flex-wrap:wrap; gap:0 6px; margin:2px 0 6px; }
+.focus-actions .qf-more:disabled { opacity:.45; cursor:default; text-decoration:none; }
+.qf { display:grid; gap:6px; }
+.qf-bar { display:flex; flex-wrap:wrap; align-items:center; gap:6px; min-width:0; }
+.qf-btn { display:inline-flex; align-items:center; gap:7px; min-height:32px; padding:4px 11px; border:1px solid var(--line); border-radius:4px; background:var(--panel); color:var(--ink); font:600 13px/1 var(--font-body); cursor:pointer; }
+.qf-btn span { min-width:18px; padding:2px 5px; border-radius:999px; background:var(--olive); color:var(--bg); font:600 11px/1.2 var(--font-mono); text-align:center; }
+.qf-btn svg { color:var(--muted); transition:transform .15s; }
+.qf-btn[aria-expanded="true"] svg { transform:rotate(180deg); }
+.qf-btn[aria-expanded="true"] { border-color:var(--olive); }
+.qf-token { display:inline-flex; align-items:center; gap:6px; min-height:28px; padding:3px 8px 3px 10px; border:1px solid var(--olive); border-radius:999px; background:none; color:var(--olive); font:600 12.5px/1 var(--font-body); cursor:pointer; }
+.qf-token span { font-size:14px; line-height:1; }
+.qf-panel { display:grid; gap:10px; padding:10px; border:1px solid var(--line); background:var(--bg); justify-items:start; }
+.qf-panel[hidden] { display:none; }
+.qf-group { display:grid; gap:5px; width:100%; }
+.qf-glabel { font:600 11px var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+.qf-glabel small { font:400 11px var(--font-body); letter-spacing:0; text-transform:none; }
+.qf-chips { display:flex; flex-wrap:wrap; gap:6px; }
+.qf-chip:disabled { opacity:.4; cursor:default; }
+.qf-btn:focus-visible, .qf-token:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
+.raid-fold > summary::before { content:"▸"; }
+.raid-fold[open] > summary::before { content:"▾"; }
+.raid-fold > summary::-webkit-details-marker { display:none; }
+.focus-choice.blocked .qlink b { color:var(--muted); }
+.focus-facts.note { font-style:italic; }
+.gear-line { display:flex; flex-wrap:wrap; gap:4px; margin:3px 0 0 27px; }
+.gear { display:inline-block; max-width:100%; padding:1px 7px; border:1px solid var(--line); border-radius:3px; font-size:12px; color:var(--ink); overflow-wrap:anywhere; }
+.gear small { font:500 10.5px var(--font-mono); color:var(--muted); }
+.gear.ok small, .gear.have small { color:var(--ok); }
+.gear.no { border-color:var(--signal); }
+.gear.no small { color:var(--signal); }
+.raid-stats.warn { color:var(--signal); }
+.gear-head { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; }
+.gear-head h2 { margin:0; }
+.seg { display:inline-flex; border:1px solid var(--line); border-radius:4px; overflow:hidden; max-width:100%; }
+.seg button { min-height:34px; padding:4px 12px; border:0; background:var(--panel); color:var(--muted); font:600 13px var(--font-body); cursor:pointer; }
+.seg button + button { border-left:1px solid var(--line); }
+.seg button[aria-pressed="true"] { background:var(--olive); color:var(--bg); }
+.gear-list { display:grid; gap:14px; margin:10px 0 26px; }
+.gear-sec { background:var(--panel); border:1px solid var(--line); padding:4px 14px 8px; }
+.gear-sec > summary { cursor:pointer; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; padding:8px 0; }
+.gear-sec > summary h3 { margin:0; font:600 18px/1.2 var(--font-display); }
+.gear-sec > summary span { color:var(--muted); font-size:13px; }
+.gear-row { display:flex; gap:12px; align-items:start; padding:10px 0; border-top:1px solid var(--line); }
+.gear-row.no .gear-st { color:var(--signal); }
+.gear-main { display:grid; gap:3px; min-width:0; }
+.gear-main p { margin:0; }
+.gear-name { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; }
+.gear-name b { overflow-wrap:anywhere; }
+.gear-qty { font:600 13px var(--font-mono); }
+.gear-st { font:600 12px var(--font-mono); color:var(--ok); }
+.gear-name small, .gear-src { color:var(--muted); font-size:13px; }
+.gear-for { font-size:14px; }
+.gear-for .qlink { color:var(--olive); text-decoration:underline; text-underline-offset:3px; }
+.gear-have { display:inline-flex; align-items:center; gap:6px; min-height:32px; font:600 12.5px var(--font-body); color:var(--muted); cursor:pointer; flex:none; }
+.gear-have input { width:18px; height:18px; accent-color:var(--olive); }
+.qd-gear { list-style:none; margin:0 0 8px; padding:0; display:grid; gap:4px; }
+.qd-gear li { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:4px 0; border-bottom:1px solid var(--line); }
+.qd-gear li small { display:block; font:500 11.5px var(--font-mono); color:var(--ok); }
+.qd-gear li.no small { color:var(--signal); }
 .raid-aim { display:flex; align-items:center; gap:8px; margin:0 0 4px; font:600 12.5px var(--font-body); color:var(--muted); }
 .raid-aim select { flex:1; min-width:0; min-height:32px; font:inherit; color:var(--ink); background:var(--bg); border:1px solid var(--line); padding:4px 6px; }
 .raid-card { padding:10px 11px; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); border-left:3px solid var(--line); min-width:0; }
@@ -732,8 +778,9 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 
   <!-- GEAR -->
   <section class="view" id="view-gear" role="tabpanel" aria-labelledby="tab-gear" hidden>
-    <h2>What you need and where to get it</h2>
-    <div class="acq" id="acq"></div>
+    <div class="gear-head"><h2 id="gearTitle">Needed on this map</h2><div class="seg" role="group" aria-label="Show gear for" id="gearScope"></div></div>
+    <p class="map-note" id="gearNote"></p>
+    <div id="gearList" class="gear-list"></div>
     <h2 id="fleaTitle"></h2>
     <div class="tablewrap"><table id="flea"><thead><tr><th id="fleaCol">Category</th><th>Unlocks</th><th>You</th><th>What it means here</th></tr></thead><tbody></tbody></table></div>
     <p class="map-note" id="fleaNote"></p>
@@ -1460,9 +1507,11 @@ function aimControl() {
 function focusControls(bar, shown) {
   const qf = QuestFilter.get(), counts = QuestFilter.counts(currentQuests, qf), filtered = QuestFilter.active(qf);
   const ids = shown.map(bsgId), on = ids.filter(id => selectedIds.includes(id)).length;
-  return aimControl() + QuestFilter.html(bar, counts, { fold: true }) +
-    `<div class="focus-actions"><button type="button" class="btn" data-focus-action="shown" ${ids.length && on < ids.length ? "" : "disabled"}>${filtered ? (ids.length === 1 ? "Select this quest" : `Select these ${ids.length}`) : "Select all"}</button>` +
-    `<button type="button" class="btn" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? (on === 1 ? "Unselect it" : on ? `Unselect these ${on}` : "Unselect these") : "Clear"}</button></div>`;
+  const blocked = currentQuests.filter(q => q.gearInfo?.known && !q.ready).length;
+  return aimControl() + QuestFilter.html(bar, counts) +
+    `<div class="focus-actions"><button type="button" class="qf-more" data-focus-action="shown" ${ids.length && on < ids.length ? "" : "disabled"}>${filtered ? `Select the ${ids.length} listed` : `Select all ${ids.length}`}</button>` +
+    `<button type="button" class="qf-more" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? "Unselect listed" : "Clear selection"}</button>` +
+    (bar === "plan" ? `<button type="button" class="qf-more" data-show-gear>Gear for ${esc(MAP)}${blocked ? ` · ${blocked} blocked` : ""}</button>` : "") + `</div>`;
 }
 function selectShown(add) {
   if (!activeScope()) return;
@@ -1476,12 +1525,21 @@ function selectShown(add) {
 }
 const suggestedRaids = () => RaidSuggest.plan(DATA, ordered(currentQuests.filter(shownQuest)), { done: state, aim: raidAim });
 const flexibleIds = () => RaidSuggest.flexible(DATA, currentQuests, state);
-// One line per quest: what's in the detail panel stays there. The note says only what changes the raid.
-function raidRow(q, note) {
-  const col = colorOf(q), id = esc(bsgId(q));
-  return `<div class="focus-choice" data-quest-card="${id}"><div class="focus-row"><input type="checkbox" data-focus="${id}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${id}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</b></button></div>${note ? `<p class="focus-facts">${esc(note)}</p>` : ""}</div>`;
+const RAIDS_SHOWN = 3; // more cards than this fold away, so the panel opens on a short choice
+const shortXp = n => n >= 1000 ? `${Math.round(n / 1000)}k` : String(n);
+function rewardShort(q) {
+  const r = rewardsOf(q);
+  return [r.xp && `${shortXp(r.xp)} XP`, ...(r.rep || []).filter(x => x.standing > 0).map(x => `+${x.standing.toFixed(2)} ${x.trader}`)].filter(Boolean).join(" · ");
 }
-const keyNote = q => { const keys = RaidSuggest.keysOf(q); return keys.length ? `Key: ${keys.join(", ")}` : ""; };
+// A key or item and how you'd get it: green when it's yours or buyable now, amber when it isn't.
+const gearChip = g => `<span class="gear ${g.how === "have" ? "have" : g.ok ? "ok" : "no"}" title="${esc(g.name)}: ${esc(g.label)}">${esc(QuestEffort.shortName(g.name))}${g.qty > 1 ? ` ×${g.qty}` : ""} <small>${esc(g.how === "have" ? "have" : g.label)}</small></span>`;
+// Each quest: what's left to do and what it pays, then the gear it needs, then why it's in this group.
+function raidRow(q, note) {
+  const col = colorOf(q), id = esc(bsgId(q)), gear = q.gearInfo?.gear || [];
+  return `<div class="focus-choice${q.gearInfo?.known && !q.ready ? " blocked" : ""}" data-quest-card="${id}"><div class="focus-row"><input type="checkbox" data-focus="${id}" ${selectedIds.includes(bsgId(q)) ? "checked" : ""} aria-label="Include this raid: ${esc(q.name)}">${col ? `<i class="qnum" style="background:${col}">${questNo(q)}</i>` : ""}<button type="button" class="qlink" data-detail="${id}"><b>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</b></button></div>` +
+    `<p class="focus-facts">${esc(joinNotes(QuestEffort.todo(q, objDone), rewardShort(q)))}</p>` +
+    (gear.length ? `<p class="gear-line">${gear.map(gearChip).join("")}</p>` : "") + (note ? `<p class="focus-facts note">${esc(note)}</p>` : "") + `</div>`;
+}
 const joinNotes = (...notes) => notes.filter(Boolean).join(" · ");
 function raidFold(key, open, head, body) {
   return `<details class="raid-fold" data-raid-fold="${esc(key)}" ${raidFolds.get(key) ?? open ? "open" : ""}><summary>${head}</summary>${body}</details>`;
@@ -1490,20 +1548,23 @@ function raidCard(bar, r, first, flexible) {
   const chosen = RaidSuggest.chosen(r, selectedIds, flexible), n = r.ids.length, trader = raidAim.startsWith("rep:") ? raidAim.slice(4) : "";
   const standing = r.rep > 0 ? `+${r.rep.toFixed(2)} ${trader || "standing"}` : "";
   const open = first || r.ids.some(id => selectedIds.includes(id));
-  const rows = ordered(r.quests).map(q => raidRow(q, joinNotes(!r.finish.includes(bsgId(q)) && (q.onMap === false ? "Also on other maps" : "Also has spots elsewhere"), keyNote(q)))).join("");
-  return `<section class="raid-card${chosen ? " on" : ""}"><div class="raid-card-head"><div><h3>${esc(r.name)}</h3><p class="raid-stats"><b>${n} quests</b> · ${RaidSuggest.finishText(r)}${r.xp ? ` · up to ${r.xp.toLocaleString()} XP` : ""}${standing ? ` · ${esc(standing)}` : ""}</p>${r.keys.length ? `<p class="raid-stats">Bring ${r.keys.length === 1 ? "a key" : `${r.keys.length} keys`}: check you own ${r.keys.length === 1 ? "it" : "them"}</p>` : ""}</div>` +
+  const blocked = r.quests.filter(q => q.gearInfo?.known && !q.ready).length, gear = r.quests.some(q => q.gearInfo?.gear.length);
+  const rows = ordered(r.quests).map(q => raidRow(q, !r.finish.includes(bsgId(q)) && (q.onMap === false ? "Also on other maps" : "Also has spots elsewhere"))).join("");
+  return `<section class="raid-card${chosen ? " on" : ""}"><div class="raid-card-head"><div><h3>${esc(r.name)}</h3><p class="raid-stats"><b>${n} quests</b> · ${RaidSuggest.finishText(r)}${r.xp ? ` · up to ${r.xp.toLocaleString()} XP` : ""}${standing ? ` · ${esc(standing)}` : ""}</p>` +
+    (blocked ? `<p class="raid-stats warn">${blocked} ${blocked === 1 ? "needs" : "need"} gear you can't buy now</p>` : gear ? `<p class="raid-stats">Gear: all yours or buyable now</p>` : "") + `</div>` +
     `<button type="button" class="btn${chosen ? "" : " primary"}" data-raid-pick="${esc(r.id)}" aria-pressed="${chosen}">${chosen ? "Selected" : `Select these ${n}`}</button></div>` + raidFold(`${bar}:${r.id}`, open, "Quests", rows) + `</section>`;
 }
 function raidPlanHTML(bar) {
   if (!currentQuests.length) return `<p class="map-note">No current quests confirmed. Open Settings to choose a profile and wipe, then scan logs or confirm your list.</p>`;
   const plan = suggestedRaids(), flexible = flexibleIds(), raids = plan.raids;
-  const anyNote = q => joinNotes(q.objectives.find(o => !o.optional && !objDone(o))?.text, keyNote(q));
-  const placeNote = q => joinNotes([...new Set(q.objectives.filter(o => !o.optional && !objDone(o)).flatMap(o => o.zone || []).map(z => DATA.zones[z]?.name).filter(Boolean))].slice(0, 3).join(", "), keyNote(q));
+  const placeNote = q => [...new Set(q.objectives.filter(o => !o.optional && !objDone(o)).flatMap(o => o.zone || []).map(z => DATA.zones[z]?.name).filter(Boolean))].slice(0, 3).join(", ");
   const group = (key, head, list, note) => !list.length ? "" : raidFold(`${bar}:${key}`, !raids.length || list.some(q => selectedIds.includes(bsgId(q))), `${head} · ${list.length}`, list.map(q => raidRow(q, note(q))).join(""));
   const outside = selectedIds.map(id => QUEST_BY_ID.get(id)).filter(q => q && !shownQuest(q));
   const nothing = !raids.length && !plan.anyRaid.length && !plan.elsewhere.length;
-  return (raids.length ? raids.map((r, i) => raidCard(bar, r, i === 0, flexible)).join("") : nothing ? `<p class="map-note">No current quests match the filter (${esc(QuestFilter.summary(QuestFilter.get()))}).</p>` : `<p class="map-note">No two quests share an area here. Add what fits below.</p>`) +
-    group("any", "Add to any raid here", plan.anyRaid, anyNote) + group("elsewhere", "Elsewhere on the map", plan.elsewhere, placeNote) +
+  const shown = raids.slice(0, RAIDS_SHOWN), more = raids.slice(RAIDS_SHOWN);
+  return (raids.length ? shown.map((r, i) => raidCard(bar, r, i === 0, flexible)).join("") : nothing ? `<p class="map-note">No current quests match the filter (${esc(QuestFilter.summary(QuestFilter.get()))}).</p>` : `<p class="map-note">No two quests share an area here. Add what fits below.</p>`) +
+    (more.length ? raidFold(`${bar}:more`, more.some(r => r.ids.some(id => selectedIds.includes(id))), `More raids · ${more.length}`, more.map(r => raidCard(bar, r, false, flexible)).join("")) : "") +
+    group("any", "Add to any raid here", plan.anyRaid, () => "") + group("elsewhere", "Elsewhere on the map", plan.elsewhere, placeNote) +
     (outside.length ? `<p class="focus-group">Selected, outside the filter · ${outside.length}</p>` + outside.map(q => raidRow(q, "")).join("") : "");
 }
 function pickRaid(id) {
@@ -1732,8 +1793,13 @@ function objList(q, pre) {
           <label for="${pre}-${o.id}"><span>${hl(o.text)}</span>${!PLANNED && o.zone && o.zone.length ? `<br><span class="mono" style="color:var(--muted)">${o.zone.map(z => esc(DATA.zones[z].name)).join(" · ")}</span>` : ""}</label></li>`).join("")}</ul>`;
 }
 // Easy wins: QuestEffort judges each quest's effort facts with your level (keys you can buy count).
+// Gear ready: every key and item is ticked as yours, on the flea at your level, or sold by a trader.
 function assessEffort() {
-  for (const q of DATA.quests) { q.effortInfo = QuestEffort.assess(q.effort, { level: LEVEL }); q.easy = q.effortInfo.easy; }
+  const have = activeScope()?.gear || {};
+  for (const q of DATA.quests) {
+    q.effortInfo = QuestEffort.assess(q.effort, { level: LEVEL, have }); q.easy = q.effortInfo.easy;
+    q.gearInfo = QuestEffort.readiness(q.effort, { level: LEVEL, have }); q.ready = q.gearInfo.ready;
+  }
 }
 const easyMark = q => q.easy ? `<span class="emark" title="Easy win: ${esc(q.effortInfo.reasons.join(" · "))}">Easy</span>` : "";
 function renderQuests() {
@@ -1884,6 +1950,12 @@ qd.addEventListener("click", e => {
   if (lb === "close" || e.target === lightbox) closeLightbox();
   else if (lb) stepLightbox(lb === "next" ? 1 : -1);
 });
+// The quest's keys and items with how you'd get each, and a Have tick; weapons and optional keys as chips.
+function detailGear(q) {
+  const gear = q.gearInfo?.gear || [], rest = q.needs.filter(n => !gear.some(g => g.name === n.item));
+  return (gear.length ? `<ul class="qd-gear">${gear.map(g => `<li class="${g.ok ? "" : "no"}"><span><b>${esc(QuestEffort.shortName(g.name))}</b>${g.qty > 1 ? ` ×${g.qty}` : ""}<small>${esc(g.how === "have" ? "in your stash" : g.label)}</small></span>${g.id ? `<label class="gear-have"><input type="checkbox" data-have="${esc(g.id)}" ${g.how === "have" ? "checked" : ""} ${activeScope() ? "" : "disabled"}>Have</label>` : ""}</li>`).join("")}</ul>` : "") +
+    (rest.length ? `<div class="chips">${rest.map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div>` : "");
+}
 function renderQuestDetail() {
   const q = qdQuest(); if (!q) return;
   const id = bsgId(q), progress = progressResult.quests[id], st = progress.status, prog = DATA.progression[id] || {};
@@ -1904,7 +1976,7 @@ function renderQuestDetail() {
     <section class="qd-sec"><h3>Where</h3>${zones.length ? `<ul class="qd-where">${zones.map(z => `<li><span>${esc(DATA.zones[z].name)}</span>${canShow ? `<button type="button" class="btn" data-show="${esc(z)}">Show on map</button>` : ""}</li>`).join("")}</ul>`
       : `<p class="map-note">No fixed location listed for ${esc(MAP)}.</p>`}${q.photos?.length ? "" : `<p class="map-note">The wiki has no spot photos for this quest.</p>`}</section>
     <section class="qd-sec"><h3>Objectives</h3>${objList(q, "qd")}</section>
-    ${q.needs.length ? `<section class="qd-sec"><h3>Bring</h3><div class="chips">${q.needs.map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : ""}
+    ${q.needs.length ? `<section class="qd-sec"><h3>Bring</h3>${detailGear(q)}</section>` : ""}
     ${q.tips.length ? `<section class="qd-sec"><h3>Tips</h3><ul class="tips">${q.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
     <section class="qd-sec"><h3>Progress</h3>${statusControl(q, progress, src, "qd-st")}
       ${progress.locked ? `<p class="map-note">${progress.current ? "Progression data differs from accepted quest" : "Locked"}: ${progress.reasons.map(r => esc(lockReason(r))).join(" · ")}</p>` : ""}
@@ -2426,34 +2498,76 @@ renderTracker();
 watcher.restore().catch(err => { trk.note = err.message; renderTracker(); });
 
 /* ---------- gear ---------- */
+// Gear for every current quest on this map, or only this raid's: what you can't buy now comes first, so a
+// quest that needs it can be left out before it's selected. Have ticks live in the scope, for every map.
+let gearScope = "map";
+try { if (localStorage.getItem("eft-gear-scope") === "raid") gearScope = "raid"; } catch (e) {}
+function gearRows(quests) {
+  const ids = new Set(quests.map(q => q.id)), have = activeScope()?.gear || {};
+  return DATA.acquisition.filter(a => a.for.some(id => ids.has(id))).map(a => {
+    const forQ = quests.filter(q => a.for.includes(q.id));
+    const qty = a.kind === "key" ? 1 : forQ.reduce((sum, q) => sum + (q.needs.find(n => n.itemIds?.includes(a.itemId))?.qty || 1), 0);
+    const status = QuestEffort.gear(QuestEffort.fromAcquisition(a), { level: LEVEL, have });
+    // Name the trader that sells it, which also says the loyalty level it takes.
+    const cash = status.how === "trader" ? a.sources.find(s => /^[A-Z][A-Za-z ]+ LL\d: /.test(s))?.split(":")[0] : "";
+    return { a, quests: forQ, qty, ...status, label: cash || status.label };
+  }).sort((x, y) => y.quests.length - x.quests.length || x.a.item.localeCompare(y.a.item));
+}
 function renderGear() {
-const visibleIds = new Set(focus.quests.map(q => q.id));
-const acquisition = focus.acquisition;
-document.getElementById("acq").innerHTML = acquisition.map(a => `
-  <div class="card ${a.required && a.kind === "key" ? "req" : ""}">
-    <div class="top" style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">
-      <h3>${esc(a.item)}</h3><span class="pill">${a.required ? "required" : "optional"}</span></div>
-    <span class="label">For ${a.for.filter(id => visibleIds.has(id)).map(id => esc(qById[id].name)).join(", ")} · flea: ${esc(a.flea)}</span>
-    <ul>${a.sources.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
-  </div>`).join("") || `<p class="map-note">No keys or items needed for the selected quests.</p>`;
-document.getElementById("flea").parentElement.hidden = acquisition.length === 0;
-setText("fleaTitle", LEVEL == null ? "Flea market" : `Flea market at level ${LEVEL}`);
-if (DATA.fleaGating) {
-  document.querySelector("#flea tbody").innerHTML = DATA.fleaGating.map(f => ({ ...f, status: LEVEL >= f.level ? "open" : "locked", impact: LEVEL >= f.level ? "Open at your level." : `Needs level ${f.level}.` })).map(f => `
-    <tr><td>${esc(f.category)}</td><td class="lvl">${f.level}${f.level === 35 ? "–40" : ""}</td>
-    <td><span class="st ${f.status}">${f.status}</span></td><td>${esc(f.impact)}</td></tr>`).join("");
-} else {
-  setText("fleaCol", "Item");
-  document.querySelector("#flea tbody").innerHTML = acquisition.map(a => {
-    const st = a.fleaLevel == null ? ["locked", "no flea", "Trader, barter, craft or find in raid"]
-      : LEVEL == null ? ["open", "?", `Flea from level ${a.fleaLevel}`]
-      : fleaOpen(a) ? ["open", "open", "Buy it on the flea"] : ["locked", "locked", `Locked until level ${a.fleaLevel}`];
-    return `<tr><td>${esc(a.item)}</td><td class="lvl">${a.fleaLevel ?? "–"}</td>
-      <td><span class="st ${st[0]}">${st[1]}</span></td><td>${esc(st[2])}</td></tr>`;
-  }).join("");
+  const quests = gearScope === "raid" ? focus.quests : currentQuests, rows = gearRows(quests);
+  document.getElementById("gearScope").innerHTML = [["map", `All current quests · ${currentQuests.length}`], ["raid", `This raid · ${focus.quests.length}`]]
+    .map(([k, v]) => `<button type="button" data-gear-scope="${k}" aria-pressed="${gearScope === k}">${esc(v)}</button>`).join("");
+  setText("gearTitle", gearScope === "raid" ? "Needed for this raid" : `Needed on ${MAP}`);
+  setText("gearNote", `Listed quest requirements at level ${LEVEL}. Tick Have for anything already in your stash: quests that need it then count as gear ready, on every map.`);
+  const row = r => `<div class="gear-row${r.ok ? "" : " no"}"><label class="gear-have"><input type="checkbox" data-have="${esc(r.a.itemId)}" ${r.how === "have" ? "checked" : ""} ${activeScope() ? "" : "disabled"}>Have</label>` +
+    `<div class="gear-main"><p class="gear-name"><b>${esc(r.a.item)}</b>${r.qty > 1 ? ` <span class="gear-qty">×${r.qty}</span>` : ""}<span class="gear-st">${esc(r.how === "have" ? "in your stash" : r.label)}</span>${r.a.price ? `<small>~₽${short(r.a.price)}</small>` : ""}</p>` +
+    `<p class="gear-for">For ${r.quests.map(q => `<button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button>${selectedIds.includes(bsgId(q)) ? ` <span class="pill">this raid</span>` : ""}`).join(", ")}</p>` +
+    `<p class="gear-src">${esc(r.a.sources.slice(0, 2).join(" · "))}${r.a.sources.length > 2 ? ` · +${r.a.sources.length - 2} more` : ""}</p></div></div>`;
+  const need = rows.filter(r => r.a.required), optional = rows.filter(r => !r.a.required);
+  const section = (title, note, list, open = true) => !list.length ? "" : `<details class="gear-sec" ${open ? "open" : ""}><summary><h3>${esc(title)} · ${list.length}</h3>${note ? `<span>${esc(note)}</span>` : ""}</summary>${list.map(row).join("")}</details>`;
+  const weapons = quests.flatMap(q => q.needs.filter(n => n.kind === "weapon").map(n => ({ q, n })));
+  document.getElementById("gearList").innerHTML = !quests.length
+    ? `<p class="map-note">${gearScope === "raid" ? "No quests selected for this raid." : "No current quests on this map."}</p>`
+    : (section(`Can't buy at level ${LEVEL}`, "Find it in raid or trade for it, or leave its quests for later.", need.filter(r => !r.ok)) +
+      section("Buy before you go", "On the flea at your level, or sold by a trader.", need.filter(r => r.ok && r.how !== "have")) +
+      section("In your stash", "", need.filter(r => r.how === "have")) + section("Optional", "Keys that help but aren't required.", optional, false) +
+      (weapons.length ? `<details class="gear-sec"><summary><h3>Weapons · ${weapons.length}</h3><span>Any one of the listed guns works.</span></summary>${weapons.map(({ q, n }) => `<div class="gear-row"><div class="gear-main"><p class="gear-for"><button type="button" class="qlink" data-detail="${esc(bsgId(q))}">${esc(q.name)}</button></p><p class="gear-src">${esc(n.item)}</p></div></div>`).join("")}</details>` : "")) ||
+      `<p class="map-note">No keys or items needed for these quests.</p>`;
+  const acquisition = rows.map(r => r.a);
+  document.getElementById("flea").parentElement.hidden = acquisition.length === 0;
+  setText("fleaTitle", LEVEL == null ? "Flea market" : `Flea market at level ${LEVEL}`);
+  if (DATA.fleaGating) {
+    document.querySelector("#flea tbody").innerHTML = DATA.fleaGating.map(f => ({ ...f, status: LEVEL >= f.level ? "open" : "locked", impact: LEVEL >= f.level ? "Open at your level." : `Needs level ${f.level}.` })).map(f => `
+      <tr><td>${esc(f.category)}</td><td class="lvl">${f.level}${f.level === 35 ? "–40" : ""}</td>
+      <td><span class="st ${f.status}">${f.status}</span></td><td>${esc(f.impact)}</td></tr>`).join("");
+  } else {
+    setText("fleaCol", "Item");
+    document.querySelector("#flea tbody").innerHTML = acquisition.map(a => {
+      const st = a.fleaLevel == null ? ["locked", "no flea", "Trader, barter, craft or find in raid"]
+        : LEVEL == null ? ["open", "?", `Flea from level ${a.fleaLevel}`]
+        : fleaOpen(a) ? ["open", "open", "Buy it on the flea"] : ["locked", "locked", `Locked until level ${a.fleaLevel}`];
+      return `<tr><td>${esc(a.item)}</td><td class="lvl">${a.fleaLevel ?? "–"}</td>
+        <td><span class="st ${st[0]}">${st[1]}</span></td><td>${esc(st[2])}</td></tr>`;
+    }).join("");
+  }
+  setText("fleaNote", DATA.meta.fleaNote || "Flea levels are each item's own minimum level from tarkov.dev (minLevelForFlea).");
 }
-setText("fleaNote", DATA.meta.fleaNote || "Flea levels are each item's own minimum level from tarkov.dev (minLevelForFlea).");
-}
+document.addEventListener("change", e => {
+  const item = e.target.dataset?.have;
+  if (item == null || !activeScope()) return;
+  ProgressStore.setGear(progressStore, scopeKey, item, e.target.checked);
+  saveStatus(); renderQuests();
+});
+document.addEventListener("click", e => {
+  const scope = e.target.closest("[data-gear-scope]")?.dataset.gearScope;
+  if (scope) {
+    gearScope = scope;
+    try { localStorage.setItem("eft-gear-scope", scope); } catch (err) {}
+    renderGear(); document.querySelector(`[data-gear-scope="${scope}"]`)?.focus();
+  } else if (e.target.closest("[data-show-gear]")) {
+    show("gear"); document.getElementById("view-gear").scrollIntoView({ block: "start" });
+  }
+});
 renderQuests();
 
 /* ---------- pipeline diagram ---------- */
