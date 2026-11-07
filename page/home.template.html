@@ -91,9 +91,14 @@ function render() {
   const have = scope?.gear || {};
   for (const q of Object.values(DATA.modes[mode].quests || {})) { q.easy = QuestEffort.assess(q.effort, { level, have }).easy; q.ready = QuestEffort.readiness(q.effort, { level, have }).ready; }
   const filter = QuestFilter.get(), all = MapHome.summarize(DATA,store,mode,key,{[key]:level});
-  const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()], counts = QuestFilter.counts(current, filter);
-  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts) : "";
   loadAreas();
+  // Finishes here belongs to a map: a quest counts for the chip when one raid on any of its maps can finish it.
+  const finishingOn = m => areas[mode]?.[m.key] ? MapHome.finishing(areas[mode][m.key], m.matches, checklist(key, m.name)) : null;
+  const finishIds = new Set(all.flatMap(m => (finishingOn(m) || []).map(q => q.id)));
+  const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()];
+  for (const q of current) q.finishes = finishIds.has(q.id);
+  const counts = QuestFilter.counts(current, filter);
+  document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts, { map: true }) : "";
   const repTraders = [...new Set(Object.values(areas[mode] || {}).flatMap(m => m.quests.filter(q => current.some(c => c.id === q.id)).flatMap(q => (q.rewards?.rep || []).map(r => r.trader))))].sort();
   if (aim.startsWith("rep:") && !repTraders.includes(aim.slice(4))) repTraders.push(aim.slice(4));
   document.getElementById("homeAimWrap").hidden = !current.length || !areas[mode];
@@ -102,7 +107,8 @@ function render() {
   const filtering = QuestFilter.active(filter);
   // Maps with the best suggested raid first, then matching work, most current quests first; the rest keep alphabetical order.
   const cards = (filtering ? MapHome.summarize(DATA,store,mode,key,{[key]:level},filter) : all)
-    .map(m => ({ ...m, raid: MapHome.bestRaid(areas[mode]?.[m.key], m.matches, checklist(key, m.name), aim) }))
+    .map(m => { const matches = filter.finishes && finishingOn(m); return matches ? { ...m, matches, current: matches.length, multiMap: 0 } : m; })
+    .map(m => ({ ...m, raid: MapHome.bestRaid(areas[mode]?.[m.key], m.matches, checklist(key, m.name), aim, filter.finishes) }))
     .sort((a,b) => (b.raid?.score || 0) - (a.raid?.score || 0) || (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
   const best = cards[0], what = filtering ? QuestFilter.summary(filter) : "";
   document.getElementById("homeFilterNote").textContent = best?.raid ? `Best raid${what ? ` for ${what}` : ""}: ${best.name}, ${best.raid.name} (${best.raid.ids.length} quests).`

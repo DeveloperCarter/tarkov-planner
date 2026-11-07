@@ -30,19 +30,38 @@
    *  elsewhere: spots of its own, away from every group.
    *  An objective with alternative spots counts when one is in the area. A quest finishes there when all
    *  of its unfinished located objectives can be done there; a multi-map quest also needs other maps. */
-  function plan(data, quests, { done = {}, aim = "quests", radius = RADIUS, limit = MAX_RAIDS } = {}) {
-    aim = normalizeAim(aim);
-    const zones = data.zones || {};
+  // Distances between a map's zones, and which of an objective's spots lie in a seed's area.
+  function geometry(zones, radius) {
     const distance = (a, b) => a === b ? 0 : zones[a]?.gx == null || zones[b]?.gx == null ? Infinity : Math.hypot(zones[a].gx - zones[b].gx, zones[a].gz - zones[b].gz);
     const here = (seed, o) => o.zone.filter(z => zones[z] && distance(seed, z) <= radius);
+    // Objectives this seed can serve: one spot of an any-of list, or the whole of an explicit "all".
     const serves = (seed, o) => o.zoneMode === "all" ? here(seed, o).length === o.zone.length : here(seed, o).length > 0;
+    return { distance, here, serves };
+  }
+
+  /** Can one raid here finish the quest? Not a multi-map quest, and every unfinished located objective has
+   *  a spot within one area. A quest with nothing located left (kills, hand-ins) fits any raid, so it can. */
+  function finishable(data, q, { done = {}, radius = RADIUS } = {}) {
+    if (q.onMap === false) return false;
+    const zones = data.zones || {}, { serves } = geometry(zones, radius), spots = located(q, zones, done);
+    return !spots.length || spots.some(o => o.zone.some(seed => zones[seed] && spots.every(x => serves(seed, x))));
+  }
+
+  function plan(data, quests, { done = {}, aim = "quests", radius = RADIUS, limit = MAX_RAIDS, whole = false } = {}) {
+    aim = normalizeAim(aim);
+    const zones = data.zones || {};
+    const { distance, here, serves } = geometry(zones, radius);
     const work = quests.map(q => ({ q, spots: located(q, zones, done) }));
     let left = work.filter(w => w.spots.length);
     const raids = [], trader = aim.startsWith("rep:") ? aim.slice(4) : null;
+    // An area can centre on any quest spot on the map, not just the chosen quests' own: two quests at either
+    // end of the Resort share it only from a spot between them. Without the map's quests, any zone can.
+    const seeds = [...new Set(data.quests ? data.quests.flatMap(q => (q.objectives || []).filter(o => !o.optional).flatMap(o => o.zone || [])) : Object.keys(zones))].filter(z => zones[z]).sort();
     while (raids.length < limit) {
       let best = null;
-      for (const seed of [...new Set(left.flatMap(w => w.spots.flatMap(o => o.zone.filter(z => zones[z]))))].sort()) {
-        const members = left.map(w => ({ ...w, served: w.spots.filter(o => serves(seed, o)) })).filter(w => w.served.length);
+      for (const seed of seeds) {
+        // whole: only quests this area finishes, for the Finishes here filter.
+        const members = left.map(w => ({ ...w, served: w.spots.filter(o => serves(seed, o)) })).filter(w => whole ? w.served.length === w.spots.length && w.q.onMap !== false : w.served.length);
         if (members.length < MIN_QUESTS) continue;
         // A quest counts by the share of its located work that's here: one of four ambulances is a quarter of a quest.
         const score = members.reduce((sum, w) => sum + worth(w.q, aim) * w.served.length / w.spots.length, 0);
@@ -79,5 +98,5 @@
   function loadAim() { try { return normalizeAim(localStorage.getItem(AIM_KEY)); } catch (e) { return "quests"; } }
   function saveAim(aim) { try { localStorage.setItem(AIM_KEY, normalizeAim(aim)); } catch (e) {} }
 
-  return { RADIUS, AIMS, normalizeAim, plan, flexible, choose, chosen, finishText, standing, keysOf, loadAim, saveAim };
+  return { RADIUS, AIMS, normalizeAim, plan, finishable, flexible, choose, chosen, finishText, standing, keysOf, loadAim, saveAim };
 });

@@ -104,3 +104,14 @@ test('home filters read effort facts and each map reports its best raid', () => 
   assert.equal(H.bestRaid(areas, [{ id: 'a' }, { id: 'b' }], { o1: true }, 'quests'), null, 'finished objectives leave no group');
   assert.equal(H.bestRaid(undefined, [{ id: 'a' }], {}, 'quests'), null, 'still loading');
 });
+
+test('a card keeps the matches one raid on that map can finish, and the best raid can hold only those', () => {
+  const areas = { zones: { a: { name: 'Dorms', gx: 0, gz: 0 }, far: { name: 'Far', gx: 900, gz: 0 } }, quests: [
+    { id: 'near', objectives: [{ id: 'o1', zone: ['a'] }] }, { id: 'near2', objectives: [{ id: 'o2', zone: ['a'] }] },
+    { id: 'split', objectives: [{ id: 'o3', zone: ['a'] }, { id: 'o4', zone: ['far'] }] }, { id: 'multi', onMap: false, objectives: [{ id: 'o5', zone: ['a'] }] }] };
+  const matches = ['near', 'near2', 'split', 'multi', 'gone'].map(id => ({ id }));
+  assert.deepEqual(H.finishing(areas, matches, {}).map(q => q.id), ['near', 'near2']);
+  assert.deepEqual(H.finishing(areas, matches, { o4: true }).map(q => q.id), ['near', 'near2', 'split'], 'finished work stops splitting a quest');
+  assert.equal(H.bestRaid(areas, matches, {}, 'quests').ids.length, 4);
+  assert.deepEqual(H.bestRaid(areas, matches, {}, 'quests', true).ids, ['near', 'near2']);
+});

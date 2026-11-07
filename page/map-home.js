@@ -45,10 +45,16 @@
   }
   // One map's suggested raids from raid-areas.json. Quests come from a card's matches, so the filter
   // applies; done is that map's saved objective checklist.
-  function bestRaid(areas, matches, done, aim) {
+  // whole: only quests the raid's area finishes (the Finishes here filter).
+  function bestRaid(areas, matches, done, aim, whole = false) {
     if (!areas) return null;
     const ids = new Set(matches.map(q => q.id));
-    return Suggest.plan(areas, areas.quests.filter(q => ids.has(q.id)), { done, aim }).raids[0] || null;
+    return Suggest.plan(areas, areas.quests.filter(q => ids.has(q.id)), { done, aim, whole }).raids[0] || null;
   }
-  return { summarize, traders, freshness, bestRaid };
+  // A card's matches that one raid on that map can finish.
+  function finishing(areas, matches, done) {
+    const byId = new Map(areas.quests.map(q => [q.id, q]));
+    return matches.filter(m => byId.has(m.id) && Suggest.finishable(areas, byId.get(m.id), { done }));
+  }
+  return { summarize, traders, freshness, bestRaid, finishing };
 });

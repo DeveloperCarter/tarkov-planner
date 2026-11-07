@@ -1508,7 +1508,7 @@ function focusControls(bar, shown) {
   const qf = QuestFilter.get(), counts = QuestFilter.counts(currentQuests, qf), filtered = QuestFilter.active(qf);
   const ids = shown.map(bsgId), on = ids.filter(id => selectedIds.includes(id)).length;
   const blocked = currentQuests.filter(q => q.gearInfo?.known && !q.ready).length;
-  return aimControl() + QuestFilter.html(bar, counts) +
+  return aimControl() + QuestFilter.html(bar, counts, { map: true }) +
     `<div class="focus-actions"><button type="button" class="qf-more" data-focus-action="shown" ${ids.length && on < ids.length ? "" : "disabled"}>${filtered ? `Select the ${ids.length} listed` : `Select all ${ids.length}`}</button>` +
     `<button type="button" class="qf-more" data-focus-action="unshown" ${on ? "" : "disabled"}>${filtered ? "Unselect listed" : "Clear selection"}</button>` +
     (bar === "plan" ? `<button type="button" class="qf-more" data-show-gear>Gear for ${esc(MAP)}${blocked ? ` · ${blocked} blocked` : ""}</button>` : "") + `</div>`;
@@ -1523,7 +1523,7 @@ function selectShown(add) {
   toast({ label: "Raid selection", title: `${add ? "Selected" : "Unselected"} ${n} ${n === 1 ? "quest" : "quests"}`,
     actions: [{ label: "Undo", run: () => writeSelection(before) }] });
 }
-const suggestedRaids = () => RaidSuggest.plan(DATA, ordered(currentQuests.filter(shownQuest)), { done: state, aim: raidAim });
+const suggestedRaids = () => RaidSuggest.plan(DATA, ordered(currentQuests.filter(shownQuest)), { done: state, aim: raidAim, whole: QuestFilter.get().finishes });
 const flexibleIds = () => RaidSuggest.flexible(DATA, currentQuests, state);
 const RAIDS_SHOWN = 3; // more cards than this fold away, so the panel opens on a short choice
 const shortXp = n => n >= 1000 ? `${Math.round(n / 1000)}k` : String(n);
@@ -1799,6 +1799,7 @@ function assessEffort() {
   for (const q of DATA.quests) {
     q.effortInfo = QuestEffort.assess(q.effort, { level: LEVEL, have }); q.easy = q.effortInfo.easy;
     q.gearInfo = QuestEffort.readiness(q.effort, { level: LEVEL, have }); q.ready = q.gearInfo.ready;
+    q.finishes = RaidSuggest.finishable(DATA, q, { done: state });
   }
 }
 const easyMark = q => q.easy ? `<span class="emark" title="Easy win: ${esc(q.effortInfo.reasons.join(" · "))}">Easy</span>` : "";
@@ -1814,7 +1815,7 @@ function renderQuests() {
   const inView = searching() ? DATA.quests : questView === "selected" ? focus.quests : DATA.quests.filter(q => QuestProgress.visible(progressResult.quests[bsgId(q)], questView));
   visibleQuests = inView.filter(passes);
   const qf = QuestFilter.get(), qfCounts = QuestFilter.counts(inView.filter(textPasses), qf);
-  document.getElementById("questFilterBar").innerHTML = QuestFilter.html("quests", qfCounts);
+  document.getElementById("questFilterBar").innerHTML = QuestFilter.html("quests", qfCounts, { map: true });
   const filtered = searching() || QuestFilter.active(qf);
   const note = document.getElementById("filterNote");
   note.hidden = !filtered;

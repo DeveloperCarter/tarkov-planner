@@ -228,7 +228,10 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   Clear stays empty; current scope/map persistence continues through RaidFocus.
 - The filter never hides selected quests, pins or route stops (it used to, with "hidden by the filter").
   It lasts for the tab's session, in `sessionStorage`. The bar is a Filter button, the active filters as
-  removable chips, and a panel grouped as Show only (Gear ready, Easy, Kappa, No keys), Objective and Trader.
+  removable chips, and a panel grouped as Show only (Gear ready, Finishes here, Easy, Kappa, No keys), Objective and Trader.
+  Finishes here (`RaidSuggest.finishable`): not multi-map, and all unfinished located work has a spot within one
+  100 m area. It only means something on a map, so site search neither shows nor applies it (`MAP_FLAGS`); with
+  it on, raid cards hold only quests their area finishes (`plan({whole})`), and home counts per map card.
 - Gear (2026-11-06): `effort.keys`/`effort.items` list required keys and items with `fleaLevel`, `trader`
   (sold for cash) and `barter`; weapons are left out (any of many guns). `QuestEffort.gear` ranks have >
   flea at your level > trader > barter > find; `readiness` sets each page's `q.ready`. "Have" ticks are

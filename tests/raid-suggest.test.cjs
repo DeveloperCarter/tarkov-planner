@@ -108,3 +108,31 @@ test('a card says how many quests finish', () => {
   assert.equal(S.finishText({ finish: ['a'] }), '1 finishes here');
   assert.equal(S.finishText({ finish: ['a', 'b'] }), '2 finish here');
 });
+
+test('finishable: one area holds all the work left, and multi-map quests never do', () => {
+  const data = { zones };
+  assert.equal(S.finishable(data, quest('near', [spot('o1', 'a'), spot('o2', 'a2')])), true);
+  assert.equal(S.finishable(data, quest('split', [spot('o1', 'a'), spot('o2', 'far')])), false);
+  assert.equal(S.finishable(data, quest('split', [spot('o1', 'a'), spot('o2', 'far')]), { done: { o2: true } }), true, 'finished work no longer counts');
+  assert.equal(S.finishable(data, quest('alt', [spot('o1', 'a'), spot('o2', ['far', 'a2'])])), true, 'one spot of an any-of list is enough');
+  assert.equal(S.finishable(data, quest('kill', [{ id: 'o1', type: 'shoot', zone: [] }])), true, 'nothing located left fits any raid');
+  assert.equal(S.finishable(data, quest('multi', [spot('o1', 'a')], { onMap: false })), false);
+});
+
+test('whole raids hold only the quests their area finishes', () => {
+  const quests = [quest('d1', [spot('o1', 'a')]), quest('d2', [spot('o2', 'a2')]), quest('split', [spot('o3', 'a'), spot('o4', 'far')]), quest('multi', [spot('o5', 'a')], { onMap: false })];
+  const [part] = S.plan({ zones }, quests).raids, [whole] = S.plan({ zones }, quests, { whole: true }).raids;
+  assert.equal(part.ids.length, 4);
+  assert.deepEqual(whole.ids.slice().sort(), ['d1', 'd2']);
+  assert.deepEqual(whole.finish.slice().sort(), ['d1', 'd2']);
+});
+
+test('an area can centre on another quest spot, so quests at either end of a building still group', () => {
+  const line = { w: { name: 'West wing', gx: 0, gz: 0 }, mid: { name: 'Resort', gx: 90, gz: 0 }, e: { name: 'East wing', gx: 180, gz: 0 } };
+  const pair = [quest('west', [spot('o1', 'w')]), quest('east', [spot('o2', 'e')])];
+  assert.deepEqual(S.plan({ zones: line, quests: pair }, pair).raids, [], 'their own spots are 180 m apart');
+  const map = { zones: line, quests: [...pair, quest('other', [spot('o3', 'mid')])] };
+  const [raid] = S.plan(map, pair, { whole: true }).raids;
+  assert.equal(raid.name, 'Resort');
+  assert.deepEqual(raid.finish.slice().sort(), ['east', 'west']);
+});

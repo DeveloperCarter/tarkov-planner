@@ -14,8 +14,11 @@
   const KINDS = { combat: "Combat", pickup: "Pickups", place: "Mark & place" };
   // Narrowing flags, in the order the panel shows them. ready and easy come from QuestEffort, set by each page.
   const FLAGS = { ready: ["Gear ready", "Every key and item it needs is yours, on the flea at your level, or sold by a trader"],
+    finishes: ["Finishes here", "One raid on this map can finish it: what's left fits in one area"],
     easy: ["Easy", "Few spots, easy kills, keys you can buy"], kappa: ["Kappa", "Needed for the Kappa container"],
     noKeys: ["No keys", "Needs no key"] };
+  // Flags that only mean something on a map: site search has no map, so it neither shows nor applies them.
+  const MAP_FLAGS = ["finishes"];
   const empty = () => ({ traders: [], kinds: [], ...Object.fromEntries(Object.keys(FLAGS).map(k => [k, false])) });
   function normalize(value) {
     const traders = Array.isArray(value?.traders) ? [...new Set(value.traders.filter(t => typeof t === "string" && t))].sort() : [];
@@ -25,7 +28,7 @@
   const active = f => f.traders.length > 0 || f.kinds.length > 0 || Object.keys(FLAGS).some(k => f[k]);
   // A quest with no effort facts has unknown keys and kinds, so it doesn't match those chips.
   const keyFree = q => q.effort ? !q.effort.keys?.length : false;
-  const flagged = { ready: q => q.ready === true, easy: q => q.easy === true, kappa: q => q.kappa === true, noKeys: keyFree };
+  const flagged = { ready: q => q.ready === true, finishes: q => q.finishes === true, easy: q => q.easy === true, kappa: q => q.kappa === true, noKeys: keyFree };
   // Prapor + Jaeger + Kappa = Kappa quests from either trader.
   const matches = (quest, f) => (!f.traders?.length || f.traders.includes(quest.trader)) && Object.keys(FLAGS).every(k => !f[k] || flagged[k](quest)) &&
     (!f.kinds?.length || f.kinds.some(k => quest.effort?.kinds?.includes(k)));
@@ -74,21 +77,22 @@
   }
   const get = () => current;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  /** The bar's HTML, from counts(): a Filter button, the active filters as chips that remove themselves,
+  /** The bar's HTML, from counts(): pass map on a page about one map. A Filter button, the active filters as chips that remove themselves,
    *  and a panel grouped by what each chip does. id keeps each bar's panel open across redraws. */
-  function html(id, c, { label = "Filter" } = {}) {
-    const open = opened.has(id), n = Object.keys(FLAGS).filter(k => current[k]).length + current.kinds.length + current.traders.length;
+  function html(id, c, { label = "Filter", map = false } = {}) {
+    const flags = Object.keys(FLAGS).filter(k => map || !MAP_FLAGS.includes(k));
+    const open = opened.has(id), n = flags.filter(k => current[k]).length + current.kinds.length + current.traders.length;
     const chip = (attrs, on, text, count, title = "") => `<button type="button" class="qf-chip" ${attrs} aria-pressed="${on}"${title ? ` title="${esc(title)}"` : ""}${!on && count === 0 ? " disabled" : ""}>${esc(text)}${count == null ? "" : `<span>${count}</span>`}</button>`;
     const token = (attrs, text) => `<button type="button" class="qf-token" ${attrs} aria-label="Remove filter: ${esc(text)}">${esc(text)}<span aria-hidden="true">×</span></button>`;
     const group = (title, hint, chips) => `<div class="qf-group"><span class="qf-glabel">${esc(title)}${hint ? ` <small>${esc(hint)}</small>` : ""}</span><div class="qf-chips">${chips}</div></div>`;
     const traders = chipItems(current, c.traders, { expanded: true }).traders;
-    const tokens = [...Object.keys(FLAGS).filter(k => current[k]).map(k => token(`data-qf="${k}"`, FLAGS[k][0])),
+    const tokens = [...flags.filter(k => current[k]).map(k => token(`data-qf="${k}"`, FLAGS[k][0])),
       ...current.kinds.map(k => token(`data-qf-kind="${k}"`, KINDS[k])), ...current.traders.map(t => token(`data-qf-trader="${esc(t)}"`, t))].join("");
     return `<div class="qf" role="group" aria-label="${esc(label)}" data-qf-bar="${esc(id)}"><div class="qf-bar">` +
       `<button type="button" class="qf-btn" data-qf="menu" aria-expanded="${open}">${esc(label)}${n ? `<span>${n}</span>` : ""}<svg aria-hidden="true" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>` +
       tokens + (n > 1 ? `<button type="button" class="qf-more" data-qf="clear">Clear all</button>` : "") + `</div>` +
       `<div class="qf-panel"${open ? "" : " hidden"}>` +
-      group("Show only", "", Object.entries(FLAGS).map(([k, [text, title]]) => chip(`data-qf="${k}"`, current[k], text, c[k], title)).join("")) +
+      group("Show only", "", flags.map(k => chip(`data-qf="${k}"`, current[k], FLAGS[k][0], c[k], FLAGS[k][1])).join("")) +
       group("Objective", "any of", Object.entries(KINDS).map(([k, v]) => chip(`data-qf-kind="${k}"`, current.kinds.includes(k), v, c.kinds?.[k])).join("")) +
       (traders.length ? group("Trader", "any of", traders.map(t => chip(`data-qf-trader="${esc(t.name)}"`, t.on, t.name, t.count)).join("")) : "") +
       `<button type="button" class="qf-more" data-qf="menu">Done</button></div></div>`;
@@ -121,5 +125,5 @@
       refocus(bar, ".qf-btn");
     });
   }
-  return { KEY, KINDS, FLAGS, empty, normalize, active, matches, toggle, toggleTrader, toggleKind, toggleKappa, toggleEasy, toggleNoKeys, summary, chipItems, counts, load, set, get, html };
+  return { KEY, KINDS, FLAGS, MAP_FLAGS, empty, normalize, active, matches, toggle, toggleTrader, toggleKind, toggleKappa, toggleEasy, toggleNoKeys, summary, chipItems, counts, load, set, get, html };
 });
