@@ -97,9 +97,27 @@
     return after[0] ?? null;
   }
 
+  /** The objective the progress key acts on: this quest's, in walking order, then those with no spot. Optional
+   *  ones wait unless the quest has nothing else, the same rule isOpen uses. */
+  function nextObjective(now, done = {}) {
+    if (!now) return null;
+    const all = now.quest.objectives || [], required = all.filter(o => !o.optional);
+    const stopOf = new Map(now.stops.flatMap((s, i) => s.objectives.map(o => [o, i])));
+    const rank = o => stopOf.has(o.id) ? stopOf.get(o.id) : Infinity;
+    return (required.length ? required : all).filter(o => !Route.isDone(done, o)).map((o, i) => [o, i])
+      .sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1])[0]?.[0] ?? null;
+  }
+  // One press: a tick, or one more on a counter.
+  const objectiveValue = (o, done = {}) => o.count ? Math.min(o.count, (Number(done[o.id]) || 0) + 1) : true;
+
+  // What the page's plain keys do in focus mode. A held key doesn't repeat, so one press is one objective.
+  const ACTIONS = ["photo-previous", "photo-next", "objective-undo", "objective-next"];
+  const KEYS = { ArrowLeft: "photo-previous", ArrowRight: "photo-next", PageUp: "objective-undo", PageDown: "objective-next" };
+  const keyAction = e => e.repeat || e.ctrlKey || e.altKey || e.metaKey || e.shiftKey ? null : KEYS[e.key] || null;
+
   // The toggle is remembered for this browser. Storage may be blocked, so a failed read means off.
   function load() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
   function save(on) { try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {} }
 
-  return { KEY, isOpen, sequence, doors, plan, advance, load, save };
+  return { KEY, ACTIONS, isOpen, sequence, doors, plan, advance, nextObjective, objectiveValue, keyAction, load, save };
 });

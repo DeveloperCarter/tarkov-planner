@@ -1,17 +1,18 @@
 /* One explicitly armed tab, remembered for this browser session only. */
 chrome.runtime.onInstalled.addListener(() => chrome.storage.session.clear());
+const ACTIONS = { "next-photo": "photo-next", "previous-photo": "photo-previous", "next-objective": "objective-next", "undo-objective": "objective-undo" };
 async function disarm(target) {
   const saved = (await chrome.storage.session.get("target")).target;
   if (saved?.id === target?.id && saved?.url === target?.url) await chrome.storage.session.remove("target");
 }
 chrome.commands.onCommand.addListener(async command => {
-  const direction = command === "next-quest" ? 1 : command === "previous-quest" ? -1 : 0;
-  if (!direction) return;
+  const direction = command === "next-quest" ? 1 : command === "previous-quest" ? -1 : 0, action = ACTIONS[command];
+  if (!direction && !action) return;
   let target;
   try {
     ({ target } = await chrome.storage.session.get("target"));
     if (!target) return;
-    const reply = await chrome.tabs.sendMessage(target.id, { type: "planner-step", direction, url: target.url });
+    const reply = await chrome.tabs.sendMessage(target.id, direction ? { type: "planner-step", direction, url: target.url } : { type: "planner-action", action, url: target.url });
     if (!reply?.supported || reply.wrongPage) await disarm(target);
   } catch (_) { try { if (target) await disarm(target); } catch (_) {} }
 });

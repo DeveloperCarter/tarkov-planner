@@ -6,9 +6,11 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'u
 test('extension permissions and global defaults are limited; all packaged scripts parse', () => {
   assert.deepEqual(manifest.permissions, ['storage']);
   assert.equal(manifest.host_permissions, undefined);
-  for (const cmd of Object.values(manifest.commands)) {
-    assert.equal(cmd.global, true); assert.match(cmd.suggested_key.default, /^Ctrl\+Shift\+[09]$/);
-  }
+  const commands = Object.values(manifest.commands), suggested = commands.filter(cmd => cmd.suggested_key);
+  assert.equal(suggested.length <= 4, true, 'Chrome rejects more than four suggested shortcuts');
+  for (const cmd of commands) assert.equal(cmd.global, true);
+  for (const cmd of suggested) assert.match(cmd.suggested_key.default, /^Ctrl\+Shift\+[0-9]$/, 'all Chrome accepts for a global default');
+  assert.equal(new Set(suggested.map(cmd => cmd.suggested_key.default)).size, suggested.length);
   assert.equal(manifest.content_scripts[0].matches.some(s => s.includes('<all_urls>') || s.startsWith('*://')), false);
   for (const file of ['background.js', 'content.js', 'popup.js']) new vm.Script(fs.readFileSync(path.join(root, file), 'utf8'));
 });
@@ -26,6 +28,10 @@ test('background routes only to explicitly chosen tab across worker restarts; cl
   await listeners.command('next-quest'); assert.equal(sent[0].id, 7); assert.equal(sent[0].message.direction, 1);
   boot(); await listeners.command('previous-quest'); assert.equal(sent[1].message.direction, -1);
   await listeners.command('complete-quest'); assert.equal(sent.length, 2);
+  for (const [command, action] of [['next-photo', 'photo-next'], ['previous-photo', 'photo-previous'], ['next-objective', 'objective-next'], ['undo-objective', 'objective-undo']]) {
+    await listeners.command(command); assert.equal(sent.at(-1).message.action, action); assert.equal(sent.at(-1).message.type, 'planner-action'); assert.equal(sent.at(-1).message.url, target.url);
+  }
+  sent.length = 2;
   await listeners.updated(8, { url: 'https://elsewhere.example' }); assert.equal(target.id, 7);
   await listeners.updated(7, { url: target.url + '#raid' }); assert.equal(target.id, 7);
   await listeners.updated(7, { url: 'https://developercarter.github.io/tarkov-planner/pve/maps/customs.html' }); assert.equal(target, null);
@@ -48,4 +54,10 @@ test('content bridge only dispatches allowed visual directions on a ready planne
   send({ type: 'planner-step', direction: 1, url: 'http://localhost:8765/maps/woods.html' });
   assert.equal(replies.at(-1).wrongPage, true); assert.equal(events.length, 1, 'a map change pauses the old binding even if the worker missed navigation');
   send({ type: 'planner-step', direction: 2 }); send({ type: 'complete-quest' }); assert.equal(events.length, 1);
+  send({ type: 'planner-action', action: 'objective-next' });
+  assert.equal(events.length, 2); assert.equal(events[1].type, 'eft-quest-action'); assert.equal(events[1].detail, 'objective-next');
+  send({ type: 'planner-action', action: 'set-status' }); assert.equal(events.length, 2, 'only the four named actions pass');
+  send({ type: 'planner-action', action: 'objective-next', url: 'http://localhost:8765/maps/woods.html' });
+  assert.equal(replies.at(-1).wrongPage, true); assert.equal(events.length, 2);
+  dataset.questNavigationReady = '0'; send({ type: 'planner-action', action: 'photo-next' }); assert.equal(events.length, 2);
 });

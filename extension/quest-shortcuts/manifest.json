@@ -1,14 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Tarkov Planner Quest Shortcuts",
-  "version": "1.0.0",
-  "description": "Move between selected raid quests while Tarkov has focus. Choose one planner tab first.",
+  "version": "1.1.0",
+  "description": "Swap quest photos and progress objectives while Tarkov has focus. Choose one planner tab first.",
   "permissions": ["storage"],
   "background": {"service_worker": "background.js"},
   "action": {"default_popup": "popup.html", "default_title": "Quest shortcuts"},
   "commands": {
     "previous-quest": {"suggested_key": {"default": "Ctrl+Shift+9"}, "description": "Focus previous selected quest", "global": true},
-    "next-quest": {"suggested_key": {"default": "Ctrl+Shift+0"}, "description": "Focus next selected quest", "global": true}
+    "next-quest": {"suggested_key": {"default": "Ctrl+Shift+0"}, "description": "Focus next selected quest", "global": true},
+    "next-objective": {"suggested_key": {"default": "Ctrl+Shift+8"}, "description": "Focus mode: tick the outlined objective, or add one to its counter", "global": true},
+    "next-photo": {"suggested_key": {"default": "Ctrl+Shift+7"}, "description": "Focus mode: next quest photo", "global": true},
+    "undo-objective": {"description": "Focus mode: undo the last tick", "global": true},
+    "previous-photo": {"description": "Focus mode: previous quest photo", "global": true}
   },
   "content_scripts": [{
     "matches": [

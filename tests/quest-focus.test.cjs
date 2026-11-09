@@ -82,6 +82,37 @@ test('finishing the focused quest moves to whichever was next', () => {
   assert.equal(F.advance(['a'], [], 'a'), null);
 });
 
+test('the progress key takes objectives in walking order, then those with no spot, and skips optional ones', () => {
+  const q = quest('q', [{ id: 'kill', zone: [], count: 3 }, spot('far', 'b'), spot('near', 'a'), spot('opt', 'a', { optional: true })]);
+  const now = done => F.plan(data(), [q], { from: { x: 0, y: 0 }, done }).now;
+  assert.equal(F.nextObjective(now({}), {}).id, 'near');
+  assert.equal(F.nextObjective(now({ near: true }), { near: true }).id, 'far');
+  const left = { near: true, far: true };
+  assert.equal(F.nextObjective(now(left), left).id, 'kill', 'no spot comes last');
+  const finished = { ...left, kill: 3 };
+  assert.equal(F.nextObjective(now(finished), finished), null);
+  assert.equal(F.nextObjective(null, {}), null);
+  const onlyOptional = quest('o', [spot('a1', 'a', { optional: true })]);
+  assert.equal(F.nextObjective(F.plan(data(), [onlyOptional], {}).now, {}).id, 'a1');
+});
+
+test('one press is a tick, or one more on a counter that stops at its total', () => {
+  assert.equal(F.objectiveValue({ id: 'a' }, {}), true);
+  assert.equal(F.objectiveValue({ id: 'c', count: 3 }, {}), 1);
+  assert.equal(F.objectiveValue({ id: 'c', count: 3 }, { c: 2 }), 3);
+  assert.equal(F.objectiveValue({ id: 'c', count: 3 }, { c: 3 }), 3);
+});
+
+test('plain keys map to focus actions; held keys and modifier combinations do not', () => {
+  assert.equal(F.keyAction({ key: 'ArrowRight' }), 'photo-next');
+  assert.equal(F.keyAction({ key: 'ArrowLeft' }), 'photo-previous');
+  assert.equal(F.keyAction({ key: 'PageDown' }), 'objective-next');
+  assert.equal(F.keyAction({ key: 'PageUp' }), 'objective-undo');
+  for (const extra of [{ repeat: true }, { ctrlKey: true }, { shiftKey: true }, { altKey: true }, { metaKey: true }]) assert.equal(F.keyAction({ key: 'PageDown', ...extra }), null);
+  assert.equal(F.keyAction({ key: 'ArrowUp' }), null, 'up and down still scroll');
+  assert.equal(F.keyAction({ key: 'Enter' }), null);
+});
+
 test('focus never touches the quest objects', () => {
   const before = JSON.stringify(route);
   F.plan(data(), route, { from: { x: 0, y: 0 }, done: { o1: true } });

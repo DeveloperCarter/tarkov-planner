@@ -255,6 +255,9 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   last required objective moves to whichever quest was next. It steps aside for a scav run. Never edits selection or progress.
 - `doors` (each map) are tarkov.dev locks for keys that map's quests need; all 67 required quest keys on PvP had one (2026-11-09). A key can have several
   doors; `QuestFocus.doors` picks the closest to the quest's spots. Nothing says which objective a key is for, so a quest shows its doors until it's done.
+- Focus keys (2026-11-09): plain Left/Right swap photos; Page Down ticks the outlined objective or adds one to its counter, Page Up undoes. Held keys don't repeat.
+  The extension sends the same four actions. Chrome requires Ctrl or Alt in a command and allows four suggested keys (global ones only Ctrl+Shift+digit), so undo and previous photo are
+  unbound by default. A tick writes the map's checklist only, never a quest's status.
 - All settings live in one dialog opened from the site bar, home included: logs, profile and wipe, level, focus, raid mode, theme. Home also tails the
   logs through the same controller. Manual scopes, history and quest list corrections need a map's quests, so only map pages show them.
 
@@ -269,7 +272,7 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   default Ctrl+Shift+9/0 (Chrome restricts suggested global keys); users may remap to modified arrows.
 - Extension storage.session retains exactly one explicitly chosen map tab. It clears on browser
   restart, tab close or map/mode URL change, and survives a same-page reload or worker suspension.
-  Its content script bridges only direction commands to the visual controller on allowlisted planner
+  Its content script bridges only direction commands and four named focus actions (`QuestFocus.ACTIONS`) to the page on allowlisted planner
   map URLs. No game/log/progress reading, native host, network calls or tab activation is used.
 
 **Map art and spot photos**

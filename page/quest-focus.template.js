@@ -52,10 +52,10 @@ function focusPoints() {
   return [from, ...now.stops, ...now.alts.map(z => DATA.zones[z]), next?.stops[0], ...now.doors].filter(Boolean);
 }
 // One quest's objectives as ticks and counters, shared by raid-mode cards and the focus card.
-function objectiveRows(q, where) {
+function objectiveRows(q, where, nextId) {
   return `<ul class="rp-obj">${q.objectives.map(o => o.count
-    ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}${where(o)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
-    : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}${where(o)}</span></div></li>`).join("")}</ul>`;
+    ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""} ${o.id === nextId ? "next-up" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}${where(o)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
+    : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""} ${o.id === nextId ? "next-up" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}${where(o)}</span></div></li>`).join("")}</ul>`;
 }
 function doorButton(g, doors) {
   const d = g.kind === "key" && doors.find(d => d.keyId === g.id || d.need === g.name);
@@ -90,12 +90,13 @@ function focusCardHTML() {
       <div><span class="label">Now · ${index + 1} of ${order.length} · ${esc(q.trader)}</span><h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</span></h3></div>
       <button type="button" class="fc-step" data-quest-step="1" aria-label="Next quest" ${order.length < 2 ? "disabled" : ""}>›</button></header>
     ${go}${gallery}
-    <section class="fc-sec"><span class="label">Objectives</span>${objectiveRows(q, where)}</section>
+    <section class="fc-sec"><span class="label">Objectives</span>${objectiveRows(q, where, QuestFocus.nextObjective(now, state)?.id)}</section>
     ${q.needs.length ? `<section class="fc-sec"><span class="label">Keys and items</span>${detailGear(q, now.doors)}</section>` : ""}
     ${q.tips.length ? `<section class="fc-sec"><span class="label">Tips</span><ul class="tips">${q.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></section>` : ""}
     ${now.also.length ? `<p class="fc-also"><span class="label">Also at these stops</span>${now.also.map(a => `<button type="button" class="qlink" data-focus-quest="${esc(a.id)}">${esc(a.quest.name)}</button>`).join(", ")}</p>` : ""}
     ${next || after ? `<section class="fc-sec fc-legs">${next ? legRow("Next", next) : ""}${after ? legRow("After", after) : ""}</section>` : ""}
     ${rest.length ? `<details class="fc-others" data-fc-others ${focusOthersOpen ? "open" : ""}><summary>Other quests · ${rest.length}</summary>${rest.map(x => legRow("", { id: bsgId(x), quest: x, stops: [], from: null, todo: QuestEffort.todo(x, objDone) })).join("")}</details>` : ""}
+    <p class="map-note fc-keys">← → photos · Page Down ticks the outlined objective · Page Up undoes</p>
     <footer class="fc-foot"><button type="button" class="qlink" data-detail="${esc(now.id)}">Full details</button><a href="${esc(q.wiki)}" target="_blank" rel="noopener">Wiki ↗</a></footer>
   </article>`;
 }
@@ -112,13 +113,60 @@ function renderFocusCard() {
 }
 function showFocused() { renderMap(); renderRaidPanel(); }
 // Another quest starts at the top of its card, not wherever the last one was scrolled to.
-function showFocusedTop() {
-  showFocused();
+function focusScrollTop() {
   rpBody.scrollTop = 0;
   const card = document.getElementById('focusCard');
   card.scrollTop = 0;
   if (!card.hidden && getComputedStyle(card).position !== 'fixed' && card.getBoundingClientRect().top < 70) window.scrollBy(0, card.getBoundingClientRect().top - 70);
 }
+function showFocusedTop() { showFocused(); focusScrollTop(); }
+function showFocusPhoto(i) {
+  const now = focusPlan?.now, photos = now?.quest.photos || [], p = photos[i], card = document.querySelector('.fc-photo')?.closest('.fc');
+  if (!p || !card) return;
+  focusPhoto = { id: now.id, i };
+  const img = card.querySelector('.fc-photo img');
+  img.src = p.src; img.alt = p.caption || now.quest.name;
+  card.querySelector('.fc-photo figcaption').textContent = `${p.caption || 'Spot photo'}${photos.length > 1 ? ` · ${i + 1} of ${photos.length}` : ''}`;
+  card.querySelectorAll('[data-fc-photo]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fcPhoto === String(i))));
+}
+// Page Down and Page Up, on the page or through the extension. Undo also returns to the quest it came from.
+const focusUndo = [];
+function tickNextObjective() {
+  const was = focusPlan?.now?.id, o = QuestFocus.nextObjective(focusPlan?.now, state);
+  if (!o) return;
+  focusUndo.push({ scope: scopeKey, quest: was, id: o.id, before: state[o.id] });
+  if (focusUndo.length > 50) focusUndo.shift();
+  state[o.id] = QuestFocus.objectiveValue(o, state);
+  save(); renderQuests();
+  if (focusPlan?.now?.id !== was) focusScrollTop();
+}
+function undoObjective() {
+  const last = focusUndo.pop();
+  if (!last) return;
+  if (last.scope !== scopeKey) { focusUndo.length = 0; return; } // another profile's checklist is loaded now
+  if (last.before === undefined) delete state[last.id]; else state[last.id] = last.before;
+  const moved = focusPlan?.now?.id !== last.quest;
+  focusedQuest = last.quest;
+  save(); renderQuests();
+  if (moved) focusScrollTop();
+}
+function runFocusAction(action) {
+  if (!focusActive() || document.querySelector('dialog[open]')) return;
+  if (action === 'objective-next') return tickNextObjective();
+  if (action === 'objective-undo') return undoObjective();
+  const step = action === 'photo-next' ? 1 : action === 'photo-previous' ? -1 : 0, count = focusPlan?.now?.quest.photos?.length || 0;
+  if (!step) return;
+  if (!lightbox.hidden) return stepLightbox(step);
+  if (count > 1) showFocusPhoto((focusPhoto.i + step + count) % count);
+}
+document.addEventListener('keydown', e => {
+  const action = QuestFocus.keyAction(e);
+  // Ticks stay usable straight after clicking a checkbox; anything you type or choose in keeps its keys.
+  if (!action || !focusActive() || e.target.closest?.('input:not([type="checkbox"]),textarea,select,[contenteditable]:not([contenteditable="false"])') || document.querySelector('dialog[open]')) return;
+  e.preventDefault(); runFocusAction(action);
+});
+// The extension sends one of these names, so it can do this while Tarkov has focus.
+document.addEventListener('eft-quest-action', e => { if (QuestFocus.ACTIONS.includes(e.detail)) runFocusAction(e.detail); });
 function setFocusMode(on) {
   focusMode = on; QuestFocus.save(on);
   document.getElementById('focusSetting').checked = on;
@@ -139,16 +187,7 @@ document.addEventListener('click', e => {
     if (d) { showFloorOf(d); fit(true, null, [d]); requestAnimationFrame(() => svg.querySelector(`.pin.door[data-door="${CSS.escape(d.id)}"]`)?.classList.add("flash")); }
     return;
   }
-  const card = e.target.closest('.fc'), thumb = e.target.closest('[data-fc-photo]');
-  if (thumb && card) {
-    const photos = now?.quest.photos || [], i = Number(thumb.dataset.fcPhoto), p = photos[i];
-    if (!p) return;
-    focusPhoto = { id: now.id, i };
-    const img = card.querySelector('.fc-photo img');
-    img.src = p.src; img.alt = p.caption || now.quest.name;
-    card.querySelector('.fc-photo figcaption').textContent = `${p.caption || 'Spot photo'} · ${i + 1} of ${photos.length}`;
-    card.querySelectorAll('[data-fc-photo]').forEach(b => b.setAttribute('aria-pressed', String(b === thumb)));
-    return;
-  }
+  const thumb = e.target.closest('[data-fc-photo]');
+  if (thumb) return showFocusPhoto(Number(thumb.dataset.fcPhoto));
   if (e.target.closest('[data-fc-zoom]') && now) openLightbox(focusPhoto.i, now.quest.photos);
 });
