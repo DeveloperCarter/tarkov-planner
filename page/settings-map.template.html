@@ -1,0 +1,31 @@
+      <div id="scopeFix"></div>
+      <!-- Setup and history: open until a profile is chosen, then out of the way. -->
+      <details id="trkMore"><summary>Scope details, recent events and corrections</summary>
+      <div class="trk-more">
+      <p class="map-note" id="scopeEvidence"></p>
+      <ol class="trk-events" id="trkEvents"></ol>
+      <details id="scopeDetails"><summary>Add a profile / wipe</summary>
+        <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
+          <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
+          <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
+          <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
+          <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
+          <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
+          <button class="btn" type="submit" id="scopeSubmit">Use this scope</button>
+          <span id="scopeError" role="status"></span>
+        </form>
+      </details>
+      <details><summary>Review log history and legacy progress</summary>
+        <p class="map-note" id="historyCounts"></p>
+        <div id="historyEvidence" style="overflow-wrap:anywhere"></div>
+        <button class="btn" type="button" id="legacyPreview">Preview legacy migration</button>
+        <div id="legacyReview"></div>
+      </details>
+      <details><summary>Confirm current quests on this map</summary>
+        <p class="map-note">Paste one quest name per line from your current in-game list for this map. This replaces current membership for quests located on this map only; multi-map quests keep their logged status. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
+        <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
+        <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
+        <span id="currentFeedback" role="status"></span>
+      </details>
+      <p class="map-note">Logs record starts, failures and completions, not kills or hand-ins. Current quests uses only the chosen profile and wipe, or quests you confirm by hand. Missing profile or mode stays in history. Completed prerequisites are implied within this scope. The site reads only your chosen Logs folder and never writes to it.</p>
+      </div></details>

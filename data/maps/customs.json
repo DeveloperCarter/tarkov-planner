@@ -1111,6 +1111,138 @@
   }
  ],
  "keycards": [],
+ "doors": [
+  {
+   "id": "5b8a75bed7602777004c5516c7b8da6d47803e65",
+   "key": "Dorm room 206 key",
+   "keyId": "5938603e86f77435642354f4",
+   "x": 439,
+   "y": 459,
+   "gx": 230.6,
+   "gz": 138.7,
+   "gy": 3.9
+  },
+  {
+   "id": "8704276c597deea822ffc2a2335d23dab552c0d3",
+   "key": "Dorm room 114 key",
+   "keyId": "59387a4986f77401cc236e62",
+   "x": 436,
+   "y": 479,
+   "gx": 233.6,
+   "gz": 159.7,
+   "gy": 0.9
+  },
+  {
+   "id": "3626d99b54b8b75927b654ca5ca2655d096d02a6",
+   "key": "Dorm room 220 key",
+   "keyId": "5780cfa52459777dfb276eb1",
+   "x": 473,
+   "y": 493,
+   "gx": 194.0,
+   "gz": 174.8,
+   "gy": 3.8
+  },
+  {
+   "id": "9ef40db141234055ce637e5031aee1d536044ae1",
+   "key": "Dorm room 203 key",
+   "keyId": "5938504186f7740991483f30",
+   "x": 489,
+   "y": 470,
+   "gx": 176.0,
+   "gz": 150.3,
+   "gy": 3.8
+  },
+  {
+   "id": "315b55cd343d40c8f99d702cee2927bcf13f6220",
+   "key": "Dorm room 303 key",
+   "keyId": "593aa4be86f77457f56379f8",
+   "x": 489,
+   "y": 470,
+   "gx": 176.0,
+   "gz": 150.3,
+   "gy": 6.8
+  },
+  {
+   "id": "123d3867c7b9125c01cd2c17e0c1cec6497f04d2",
+   "key": "Dorm overseer key",
+   "keyId": "664d4b0103ef2c61246afb56",
+   "x": 488,
+   "y": 484,
+   "gx": 178.0,
+   "gz": 165.4,
+   "gy": 3.9
+  },
+  {
+   "id": "bb75bd5001a7bbd96ef45fbd5ee384184d4015c3",
+   "key": "Dorm room 214 key",
+   "keyId": "5780cf942459777df90dcb72",
+   "x": 488,
+   "y": 501,
+   "gx": 178.1,
+   "gz": 183.8,
+   "gy": 3.8
+  },
+  {
+   "id": "8b68bf6e01d68b1fce6639f63adca597c2cbfecd",
+   "key": "Machinery key",
+   "keyId": "5937ee6486f77408994ba448",
+   "x": 559,
+   "y": 325,
+   "gx": 101.8,
+   "gz": -5.5,
+   "gy": 3.5
+  },
+  {
+   "id": "eae4822b72a0e3a8dfd7e54df368d7dc20094566",
+   "key": "Tarcone Director's office key",
+   "keyId": "5780d0532459777a5108b9a2",
+   "x": 844,
+   "y": 228,
+   "gx": -205.5,
+   "gz": -110,
+   "gy": 8.1
+  },
+  {
+   "id": "bf7a4dd307c451cd057814e1d37bc9ab708b4cde",
+   "key": "Trailer park portable cabin key",
+   "keyId": "5913611c86f77479e0084092",
+   "x": 834,
+   "y": 137,
+   "gx": -194.6,
+   "gz": -207.4,
+   "gy": 2.4
+  },
+  {
+   "id": "9ded2c16cd1a1062754b45ce67eb4b586129d581",
+   "key": "Unknown key",
+   "keyId": "593962ca86f774068014d9af",
+   "x": 309,
+   "y": 284,
+   "gx": 370.0,
+   "gz": -50.1,
+   "gy": 2.2
+  },
+  {
+   "id": "63a0d7c77b707b0fa785ea627a8fb05d467f1342",
+   "key": "Company director's room key",
+   "keyId": "6761a6f90575f25e020816a4",
+   "x": 564,
+   "y": 276,
+   "gx": 96.0,
+   "gz": -58.4,
+   "gy": 8.2
+  },
+  {
+   "id": "c123a899df8bcef79ba613a268c801122eb43c35",
+   "key": "Portable bunkhouse key",
+   "keyId": "5938144586f77473c2087145",
+   "x": 465,
+   "y": 341,
+   "gx": 202.7,
+   "gz": 11.7,
+   "gy": 4.7
+  }
+ ],
  "lootKeys": [
   {
    "key": "Dorm room 314 marked key",

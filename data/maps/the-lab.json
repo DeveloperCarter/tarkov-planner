@@ -455,6 +455,78 @@
    "note": "Offices #2 now takes the Black keycard (reported in game; tarkov.dev doesn't list this door yet, so the marker shows the room, not the exact door)."
   }
  ],
+ "doors": [
+  {
+   "id": "ec956305ecff4a40051d641ec96eecfcf30c930e",
+   "key": "TerraGroup Labs weapon testing area key",
+   "keyId": "5c1e2d1f86f77431e9280bee",
+   "x": 610,
+   "y": 435,
+   "gx": -179.9,
+   "gz": -310.3,
+   "gy": 1.4
+  },
+  {
+   "id": "96da8622c621cb42229d48719286ce1d746033f9",
+   "key": "TerraGroup Labs weapon testing area key",
+   "keyId": "5c1e2d1f86f77431e9280bee",
+   "x": 579,
+   "y": 426,
+   "gx": -182.0,
+   "gz": -318.2,
+   "gy": 1.4
+  },
+  {
+   "id": "e36b7350a3badbd5c6723420914340c37dc250d8",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 366,
+   "y": 84,
+   "gx": -268.9,
+   "gz": -372.5,
+   "gy": 5.5
+  },
+  {
+   "id": "da8237013a32b58c270653afb9a43f3175816920",
+   "key": "Keycard with a blue marking",
+   "keyId": "5efde6b4f5448336730dbd61",
+   "x": 494,
+   "y": 630,
+   "gx": -130.3,
+   "gz": -339.9,
+   "gy": 5.2
+  },
+  {
+   "id": "faa074330943d9f367963db13f6ebaa4d08dff4f",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 364,
+   "y": 114,
+   "gx": -261.4,
+   "gz": -372.9,
+   "gy": 5.2
+  },
+  {
+   "id": "577b9b90d0f1d11d15817ab2114deefb6307f964",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 454,
+   "y": 636,
+   "gx": -128.8,
+   "gz": -349.9,
+   "gy": 1.4
+  },
+  {
+   "id": "6b9c65d4d24e1df1f5df7cf787875741de5aa980",
+   "key": "TerraGroup Labs keycard (Black)",
+   "keyId": "5c1d0f4986f7744bb01837fa",
+   "x": 459,
+   "y": 619,
+   "gx": -132.9,
+   "gz": -348.7,
+   "gy": 1.4
+  }
+ ],
  "lootKeys": [
   {
    "key": "TerraGroup Labs keycard (Black)",

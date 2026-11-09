@@ -82,7 +82,7 @@ def navigation(out_path: Path, mode: str, key: str | None = "customs") -> str:
             f'{search}<select class="map-jump" aria-label="Map" onchange="location.href=this.value">{"".join(options)}</select>'
             f'<button type="button" class="btn" id="careerButton" data-root="{attr(root)}">Kappa: loading</button>'
             f'<div class="mode-toggle" role="group" aria-label="Game mode">{modes}</div>'
-            '<button class="btn" id="themeToggle" type="button">Theme: system</button></nav>' + SEARCH_DIALOG +
+            '<button class="btn site-settings" type="button" data-open-settings><span class="dot" id="settingsDot" aria-hidden="true"></span>Settings</button></nav>' + SEARCH_DIALOG +
             '<dialog id="careerDialog" class="career-dialog" aria-label="Keep list and Kappa progress">'
             '<div class="toolbar"><button type="button" class="btn" data-career-tab="keep">Keep</button>'
             '<button type="button" class="btn" data-career-tab="kappa">Kappa</button>'
@@ -105,6 +105,18 @@ def search_scripts() -> str:
     """The ranking module and the site bar's search UI, for every page with the site bar."""
     return "".join(f"<script>{(ROOT / 'page' / name).read_text(encoding='utf-8').replace('</', '<' + chr(92) + '/')}</script>"
                    for name in ("site-search.js", "site-search.template.js", "quest-career.js", "quest-career.template.js"))
+
+
+def settings_dialog(out_path: Path, map_page: bool) -> str:
+    """Every preference in one dialog. Map pages add the corrections that need a map's quest list."""
+    extra = ((ROOT / 'page' / 'settings-map.template.html').read_text(encoding='utf-8') if map_page else
+             '<p class="map-note">Adding a profile by hand, log history and quest list corrections are in Settings on any map page.</p>')
+    return ((ROOT / 'page' / 'settings-dialog.template.html').read_text(encoding='utf-8')
+            .replace('<!--__SETTINGS_MAP__-->', extra, 1).replace('__QUEST_SHORTCUTS_URL__', relative_url(build_shortcuts(), out_path), 1))
+
+
+def settings_script() -> str:
+    return (ROOT / 'page' / 'settings.template.js').read_text(encoding='utf-8')
 
 
 def styles() -> str:
@@ -152,12 +164,13 @@ def build(data_path: Path, out_path: Path, level: int | None = None, faction: st
     html = html.replace("/*__TRACKER__*/", TRACKER.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__STORE__*/", STORE.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__FOCUS__*/", FOCUS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
-    for marker, path in [("ROUTE", ROUTE), ("SESSION", SESSION), ("SUGGEST", SUGGEST), ("QFILTER", ROOT / "page/quest-filter.js"),
+    for marker, path in [("ROUTE", ROUTE), ("QUEST_FOCUS", ROOT / "page/quest-focus.js"), ("SESSION", SESSION), ("SUGGEST", SUGGEST), ("QFILTER", ROOT / "page/quest-filter.js"),
                          ("QEFFORT", ROOT / "page/quest-effort.js"), ("FLOORS", ROOT / "page/map-floors.js"),
                          ("QUEST_NAV", ROOT / "page/quest-navigation.js"),
+                         ("QUEST_FOCUS_UI", ROOT / "page/quest-focus.template.js"),
                          ("QUEST_NAV_UI", ROOT / "page/quest-navigation.template.js")]:
         html = html.replace("/*__" + marker + "__*/", path.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
-    html = html.replace("__QUEST_SHORTCUTS_URL__", relative_url(build_shortcuts(), out_path), 1)
+    html = html.replace("<!--__SETTINGS__-->", settings_dialog(out_path, True), 1).replace("/*__SETTINGS_UI__*/", settings_script(), 1)
     html = html.replace("/*__PROGRESS__*/", PROGRESS.read_text(encoding="utf-8").replace("</", "<\\/"), 1)
     html = html.replace("/*__DATA__*/null", payload, 1)
     html = html.replace("<!--__SITE_NAV__-->", navigation(out_path, mode, data['meta'].get('key', 'customs')), 1)
@@ -339,9 +352,10 @@ def build_home(level: int, faction: str, max_age_hours: float | None = None) -> 
         build_raid_areas(mode)
     text = (ROOT / 'page' / 'home.template.html').read_text(encoding='utf-8')
     for marker, path in [('TRACKER', TRACKER), ('PROGRESS', PROGRESS), ('STORE', STORE), ('HOME', ROOT / 'page' / 'map-home.js'),
-                         ('ROUTE', ROUTE), ('SUGGEST', SUGGEST), ('QFILTER', ROOT / 'page' / 'quest-filter.js'), ('QEFFORT', ROOT / 'page' / 'quest-effort.js')]:
+                         ('ROUTE', ROUTE), ('QUEST_FOCUS', ROOT / 'page' / 'quest-focus.js'), ('SUGGEST', SUGGEST), ('QFILTER', ROOT / 'page' / 'quest-filter.js'), ('QEFFORT', ROOT / 'page' / 'quest-effort.js')]:
         text = text.replace('/*__' + marker + '__*/', path.read_text(encoding='utf-8').replace('</', '<\\/'), 1)
     text = text.replace('/*__STYLES__*/', styles(), 1).replace('/*__THEME__*/', theme_script(), 1)
+    text = text.replace('<!--__SETTINGS__-->', settings_dialog(ROOT / 'dist' / 'index.html', False), 1).replace('/*__SETTINGS_UI__*/', settings_script(), 1)
     text = text.replace('<!--__SITE_NAV__-->', navigation(ROOT / 'dist' / 'index.html', 'regular', None), 1)
     text = text.replace('<!--__SITE_SEARCH__-->', search_scripts(), 1)
     text = text.replace('/*__DATA__*/null', json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'), 1)

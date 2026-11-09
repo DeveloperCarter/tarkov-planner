@@ -649,6 +649,28 @@
   }
  ],
  "keycards": [],
+ "doors": [
+  {
+   "id": "73b9cec319f6ac741be0fcced529006548cb4b6c",
+   "key": "Radar station commandant room key",
+   "keyId": "62987c658081af308d7558c6",
+   "x": 81,
+   "y": 1323,
+   "gx": 355.2,
+   "gz": 549.4,
+   "gy": 16.6
+  },
+  {
+   "id": "cd479659f16eeffaa6d2a6594a02fa2469fcb11f",
+   "key": "Operating room key",
+   "keyId": "62987da96188c076bc0d8c51",
+   "x": 295,
+   "y": 538,
+   "gx": 32.9,
+   "gz": -636.2,
+   "gy": 5.9
+  }
+ ],
  "lootKeys": [
   {
    "key": "Lighthouse island stash key",

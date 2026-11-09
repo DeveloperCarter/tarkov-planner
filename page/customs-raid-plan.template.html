@@ -87,9 +87,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .mode-toggle a {font:600 13px var(--font-mono);padding:6px 12px;text-decoration:none;color:var(--muted);background:var(--panel)}
 .mode-toggle a + a {border-left:1px solid var(--line)}
 .mode-toggle a[aria-current="page"] {background:var(--ink);color:var(--bg)}
-/* Phones: name and theme on the first row, search on the second; map and mode share the third. */
+/* Phones: name and settings on the first row, search on the second; map and mode share the third. */
 @media (max-width:560px) {
-  .site-nav .brand {order:1} .site-nav #themeToggle {order:2}
+  .site-nav .brand {order:1} .site-nav .site-settings {order:2}
   .site-search {order:3} .map-jump {order:4;flex:1 1 0} .mode-toggle {order:5}
   .site-nav #careerButton {order:6;width:100%}
 }
@@ -231,8 +231,9 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .settings-head { display:flex; align-items:center; gap:12px; padding:14px 16px 0; }
 .settings-head h2 { margin:0; }
 .settings-dialog .tracker { border:0; }
-.settings-dialog .settings-raid { border-top:1px solid var(--line); }
-.settings-open { display:inline-flex; align-items:center; gap:8px; margin-top:12px; }
+.settings-dialog .settings-sec { border-top:1px solid var(--line); }
+.site-settings { display:inline-flex; align-items:center; gap:8px; }
+.site-settings .dot { width:9px; height:9px; }
 .trk-summary { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 14px; background:var(--panel); border:1px solid var(--line); font-size:13.5px; }
 .trk-summary #trkSummary { flex:1 1 200px; min-width:0; overflow-wrap:anywhere; }
 .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); flex: none; }
@@ -266,7 +267,8 @@ td.lvl { font: 600 15px var(--font-mono); font-variant-numeric: tabular-nums; wh
 .include-raid { display:flex; gap:8px; align-items:center; font-size:14px; }
 @media (max-width:800px) { .focus-grid { grid-template-columns:minmax(0,1fr); } }
 /* The quest list is a normal page list now, so the map stays in view beside it. */
-@media (min-width:801px) { body:not(.raid-mode) .focus-grid > .mapbox { position:sticky; top:12px; align-self:start; } }
+@media (min-width:801px) { body:not(.raid-mode) .focus-grid > .mapbox { position:sticky; top:70px; align-self:start; } } /* below the sticky tabs */
+body.map-full .focus-grid > .mapbox { z-index:40; } /* sticky makes a stacking context: without this the tabs draw over the full-screen map */
 /* Quests tab filters: search first, the rest as compact controls that wrap */
 .qfilters { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:18px 0 10px; scroll-margin-top:72px; }
 .qsearch { flex:1 1 260px; display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:0 10px; min-height:38px; }
@@ -687,7 +689,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 .qd-where { margin:0; padding:0; list-style:none; display:grid; gap:8px; }
 .qd-where li { display:flex; justify-content:space-between; align-items:center; gap:10px; }
 .qd-foot { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:var(--muted); padding-bottom:28px; }
-.lightbox { position:fixed; inset:0; z-index:10; background:rgb(4 6 5 / .95); display:grid; grid-template-columns:64px minmax(0,1fr) 64px; align-items:center; }
+.lightbox { position:fixed; inset:0; z-index:60; background:rgb(4 6 5 / .95); display:grid; grid-template-columns:64px minmax(0,1fr) 64px; align-items:center; }
 .lightbox figure { grid-column:2; grid-row:1; min-width:0; margin:0; display:grid; gap:12px; justify-items:center; }
 .lb-nav.prev { grid-column:1; grid-row:1; } .lb-nav.next { grid-column:3; grid-row:1; }
 .lightbox img { max-width:100%; max-height:80dvh; object-fit:contain; border-radius:4px; }
@@ -696,6 +698,77 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 .lb-nav { height:100%; font-size:44px; opacity:.8; } .lb-nav:hover { opacity:1; }
 .lb-close { position:absolute; top:10px; right:14px; font-size:36px; z-index:1; }
 @media (max-width:640px) { .lightbox { grid-template-columns:0 minmax(0,1fr) 0; } .lb-nav { display:none; } }
+/* Focus mode: one quest at full strength, its path on to the next two, every other quest a faint dot. */
+.map-focus { position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid var(--line); border-radius:6px; background:var(--panel); color:var(--ink); font:600 12.5px var(--font-mono); cursor:pointer; box-shadow:0 2px 10px rgb(0 0 0 / .18); }
+.map-focus span { position:relative; width:24px; height:14px; border-radius:7px; background:var(--line); }
+.map-focus span::after { content:""; position:absolute; top:2px; left:2px; width:10px; height:10px; border-radius:50%; background:var(--muted); transition:transform .15s; }
+.map-focus[aria-checked="true"] span { background:var(--signal); }
+.map-focus[aria-checked="true"] span::after { background:#fff; transform:translateX(10px); }
+.map-focus:disabled { opacity:.55; cursor:default; }
+.map-floors:not([hidden]) ~ .map-focus { top:52px; }
+.focus-path { fill:none; stroke:var(--qc); stroke-linecap:round; stroke-linejoin:round; pointer-events:none; }
+.focus-path.now { stroke-width:4; }
+.focus-path.next { stroke-width:3; stroke-dasharray:9 7; opacity:.75; }
+.focus-path.after { stroke-width:2; stroke-dasharray:2 7; opacity:.5; }
+.pin.spot.out circle { fill:var(--ink); stroke:none; opacity:.32; }
+.pin.spot.alt circle { fill:color-mix(in srgb, var(--qc) 22%, transparent); stroke:var(--qc); stroke-width:2; }
+.pin.spot.leg circle { fill:var(--qc); stroke:#fff; stroke-width:1.5; }
+.pin.spot.leg.after { opacity:.72; }
+.pin.spot.leg text { font-size:10px; }
+.pin.spot.leg text.tag, .pin.door text { fill:var(--ink); text-anchor:start; font:600 11px var(--font-mono); paint-order:stroke; stroke:var(--panel); stroke-width:3px; }
+.pin.door .bg { fill:var(--panel); stroke:var(--signal); stroke-width:1.6; }
+.pin.door .bow, .pin.door path { fill:none; stroke:var(--signal); stroke-width:1.6; stroke-linecap:round; }
+.pin.door { cursor:pointer; }
+@media (prefers-reduced-motion: no-preference) { .pin.door.flash .bg { animation:door-flash .7s ease-out 3; } }
+.pin.door.flash .bg { fill:var(--signal); }
+@keyframes door-flash { 50% { stroke-width:6; } }
+.fc-host:not([hidden]) { display:grid; gap:10px; }
+.fc { display:grid; gap:10px; background:var(--panel); border:1px solid var(--line); border-left:5px solid var(--qc, var(--line)); border-radius:6px; padding:10px 12px; min-width:0; }
+.fc h3 { margin:0; }
+.fc-head { display:flex; align-items:center; gap:8px; }
+.fc-head > div { flex:1; min-width:0; }
+.fc-head h3 { display:flex; gap:8px; align-items:center; margin-top:2px; font:600 18px/1.25 var(--font-body); }
+.fc-step { flex:none; width:36px; height:36px; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); font:600 20px/1 var(--font-mono); cursor:pointer; }
+.fc-step:disabled { opacity:.45; cursor:default; }
+.fc-go { display:grid; gap:1px; width:100%; margin:0; padding:8px 10px; text-align:left; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); font:inherit; }
+button.fc-go { cursor:pointer; }
+button.fc-go:hover { border-color:var(--qc); }
+.fc-go b { font-size:15.5px; }
+.fc-go small { color:var(--muted); }
+.fc-photo { margin:0; display:grid; gap:4px; }
+.fc-photo button { display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:5px; background:var(--bg); cursor:zoom-in; overflow:hidden; }
+.fc-photo img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; }
+.fc-photo figcaption { color:var(--muted); font-size:13px; }
+.fc-thumbs { display:flex; gap:6px; overflow-x:auto; }
+.fc-thumbs button { flex:none; padding:0; border:2px solid transparent; border-radius:4px; background:none; cursor:pointer; }
+.fc-thumbs button[aria-pressed="true"] { border-color:var(--qc); }
+.fc-thumbs img { display:block; width:76px; height:50px; object-fit:cover; border-radius:2px; }
+.fc-sec { display:grid; gap:5px; min-width:0; }
+.fc .rp-obj { margin:0; }
+.fc .qd-gear { margin:0; }
+.fc-door { padding:4px 8px; font-size:12.5px; white-space:nowrap; }
+.fc-also { margin:0; font-size:14px; display:flex; flex-wrap:wrap; gap:4px 6px; align-items:baseline; }
+.fc-legs { gap:4px; }
+.fc-leg { display:flex; align-items:center; gap:8px; width:100%; padding:7px 8px; text-align:left; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--ink); font:inherit; cursor:pointer; }
+.fc-leg:hover { border-color:var(--olive); }
+.fc-leg .label { width:40px; flex:none; }
+.fc-leg-text { display:grid; min-width:0; }
+.fc-leg-text small { color:var(--muted); }
+.fc-others { display:grid; gap:4px; }
+.fc-others summary { cursor:pointer; font-weight:600; padding:4px 0; }
+.fc-others .fc-leg { margin-top:4px; }
+.fc-foot { display:flex; justify-content:space-between; gap:10px; font-size:13.5px; }
+body.quest-focus .focus-grid { grid-template-columns:minmax(0,1.2fr) minmax(360px,1fr); }
+body.quest-focus:not(.picker-open) #quickPick, body.quest-focus:not(.picker-open) #focusList, body.quest-focus #raidSwitch { display:none; }
+body.map-full.quest-focus:not(.raid-mode) .map-stage.full, body.raid-mode.quest-focus .map-stage.full { right:min(520px, 44vw); }
+body.raid-mode.quest-focus .raid-panel { width:min(520px, 44vw); }
+body.map-full.quest-focus:not(.raid-mode) #focusCard { position:fixed; z-index:41; top:0; right:0; bottom:0; width:min(520px, 44vw); overflow:auto; align-content:start; padding:10px; background:var(--bg); border-left:1px solid var(--line); }
+@media (max-width:800px) { body.quest-focus .focus-grid { grid-template-columns:minmax(0,1fr); } }
+@media (max-width:760px) {
+  body.map-full.quest-focus:not(.raid-mode) .map-stage.full, body.raid-mode.quest-focus .map-stage.full { right:0; bottom:50vh; }
+  body.raid-mode.quest-focus .raid-panel { width:auto; }
+  body.map-full.quest-focus:not(.raid-mode) #focusCard { top:auto; left:0; width:auto; height:50vh; border-left:0; border-top:1px solid var(--line); }
+}
 </style>
 
 <div class="wrap">
@@ -705,7 +778,6 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <h1 id="pageTitle"></h1>
     <p id="lede"></p>
     <div class="brief-meta"><span class="live-chip" id="liveChip" hidden>Live</span><span id="scopeSummary"></span><span class="meta mono" id="meta"></span><span id="dataAge"></span></div>
-    <button type="button" class="btn settings-open" data-open-settings><span class="dot" id="settingsDot" aria-hidden="true"></span><span id="settingsLabel">Settings</span></button>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
@@ -731,6 +803,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
         <div class="map-stage" id="mapStage">
           <div id="map"></div>
           <div class="map-floors" id="mapFloors" role="group" aria-label="Floor" hidden></div>
+          <button type="button" class="map-focus" id="focusToggle" role="switch" aria-checked="false" title="One quest at a time: its path, the next quest, photos and doors"><span aria-hidden="true"></span>Focus</button>
           <div class="map-ctrl" role="group" aria-label="Map view">
             <button type="button" data-map="in" aria-label="Zoom in">+</button>
             <button type="button" data-map="out" aria-label="Zoom out">−</button>
@@ -748,6 +821,8 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <div class="toolbar"><h2 id="focusTitle">Quests this raid</h2><b id="focusCount" role="status"></b></div>
       <p class="map-note" data-kappa-map=""></p>
       <button type="button" class="btn primary raid-go" id="raidGo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Raid mode<span>map, checklist and clock on one screen</span></button>
+      <section class="fc-host" id="focusCard" aria-label="Quest in focus" hidden></section>
+      <button type="button" class="btn" id="focusPicker" aria-expanded="false" hidden>Change quests</button>
       <div id="quickPick"></div>
       <div class="focus-list" id="focusList"></div>
       <div id="routePlanner" class="route-planner"></div>
@@ -778,7 +853,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <div class="filter-note" id="filterNote" role="status" hidden></div>
     <div class="qgrid" id="qgrid"></div>
     <div id="otherQuests"></div>
-    <p class="map-note" id="questEmpty" hidden>No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list. All lets you review and correct individual statuses.</p>
+    <p class="map-note" id="questEmpty" hidden>No current quests confirmed. Choose a profile and wipe in Settings, then scan logs or confirm your current list. All lets you review and correct individual statuses.</p>
     <p class="map-note" id="unlockNote" hidden>Possible unlocks are estimates from incomplete progression data. They do not prove a quest is offered in game.</p>
     <p class="map-note">Your checkmarks are saved in this browser only.</p>
   </section>
@@ -876,62 +951,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
       <div class="actions"><button class="btn primary" value="choose" id="spawnUse" disabled>Start route here</button><button class="btn" value="later" formnovalidate>Not now</button></div>
     </form>
   </dialog>
-  <!-- Settings: log connection, profile and wipe, player level and corrections. -->
-  <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
-    <div class="settings-head"><h2 id="settingsTitle">Settings</h2><button type="button" class="qd-x" id="settingsClose" aria-label="Close settings">×</button></div>
-      <section class="tracker" aria-labelledby="trkTitle">
-        <div class="trk-head">
-          <span class="dot" id="trkDot" aria-hidden="true"></span>
-          <div class="trk-text">
-            <span class="label" id="trkTitle">Quest tracking from game logs</span>
-            <b id="trkState">Not connected</b>
-            <span class="trk-detail" id="trkDetail"></span>
-          </div>
-          <div class="trk-actions" id="trkActions"></div>
-        </div>
-        <div class="trk-row">
-          <label for="progressScope">Profile and wipe <select id="progressScope"></select></label>
-          <label for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1"></label>
-        </div>
-        <div id="scopeFix"></div>
-        <!-- Setup and history: open until a profile is chosen, then out of the way. -->
-        <details id="trkMore"><summary>Scope details, recent events and corrections</summary>
-        <div class="trk-more">
-        <p class="map-note" id="scopeEvidence"></p>
-        <ol class="trk-events" id="trkEvents"></ol>
-        <details id="scopeDetails"><summary>Add a profile / wipe</summary>
-          <form id="scopeForm" style="display:grid;gap:10px;margin-top:12px">
-            <label>Profile ID or manual profile name <input id="scopeProfile" required style="width:100%;box-sizing:border-box"></label>
-            <label>Wipe name <input id="scopeLabel" required style="width:100%;box-sizing:border-box" placeholder="Current character"></label>
-            <label>Confirmed wipe start (your local time) <input id="scopeStart" type="datetime-local" step="1" style="max-width:100%"></label>
-            <label>Boundary evidence (optional) <input id="scopeSource" style="width:100%;box-sizing:border-box" placeholder="Public wipe date or your character reset"></label>
-            <p class="map-note">Leave the start empty to use a manually confirmed quest list. Logs stay in history until you confirm a boundary. For log tracking, use the profile ID shown by Scan past sessions or Import logs folder. A version change alone does not prove a wipe.</p>
-            <button class="btn" type="submit" id="scopeSubmit">Use this scope</button>
-            <span id="scopeError" role="status"></span>
-          </form>
-        </details>
-        <details><summary>Review log history and legacy progress</summary>
-          <p class="map-note" id="historyCounts"></p>
-          <div id="historyEvidence" style="overflow-wrap:anywhere"></div>
-          <button class="btn" type="button" id="legacyPreview">Preview legacy migration</button>
-          <div id="legacyReview"></div>
-        </details>
-        <details><summary>Confirm current quests on this map</summary>
-          <p class="map-note">Paste one quest name per line from your current in-game list for this map. This replaces current membership for quests located on this map only; multi-map quests keep their logged status. Other quests are removed from Current quests without marking them completed or failed. Later starts and completions still update the list.</p>
-          <textarea id="currentNames" rows="6" aria-label="Current quest names" style="width:100%;box-sizing:border-box"></textarea>
-          <button class="btn" type="button" id="confirmCurrent">Confirm this map’s current list</button>
-          <span id="currentFeedback" role="status"></span>
-        </details>
-        <p class="map-note">Logs record starts, failures and completions, not kills or hand-ins. Current quests uses only the chosen profile and wipe, or quests you confirm by hand. Missing profile or mode stays in history. Completed prerequisites are implied within this scope. The site reads only your chosen Logs folder and never writes to it.</p>
-        </div></details>
-        <input type="file" id="trkImport" webkitdirectory multiple hidden>
-      </section>
-      <section class="tracker settings-raid" aria-labelledby="settingsRaidTitle">
-        <span class="label" id="settingsRaidTitle">Raid mode</span>
-        <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid loads (follows you to that map)</label>
-        <details><summary>Keyboard shortcuts</summary><p class="map-note">In raid mode, Ctrl + Shift + ← / → steps through your selected quests while this page has focus. For controls while Tarkov has focus, install the optional <a href="__QUEST_SHORTCUTS_URL__" id="questShortcutsDownload">quest shortcuts extension</a> and choose this tab from its toolbar button. Browsing never checks off objectives.</p></details>
-      </section>
-  </dialog>
+<!--__SETTINGS__-->
   <!-- One quest in full: photos, where, objectives, gear. Slides in from the right; a sheet on phones. -->
   <dialog class="drawer" id="questDialog" aria-labelledby="qdTitle">
     <div class="qd" id="qdBody"></div>
@@ -949,6 +969,7 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
 <script>/*__STORE__*/</script>
 <script>/*__FOCUS__*/</script>
 <script>/*__ROUTE__*/</script>
+<script>/*__QUEST_FOCUS__*/</script>
 <script>/*__SESSION__*/</script>
 <script>/*__SUGGEST__*/</script>
 <script>/*__QFILTER__*/</script>
@@ -1000,7 +1021,7 @@ function renderSummary() {
 
   const notice = document.getElementById("notice");
   if (LEVEL == null) {
-    notice.innerHTML = `<span class="label">Flea locks</span><p>Enter your player level in the tracker panel to check flea locks.</p>`;
+    notice.innerHTML = `<span class="label">Flea locks</span><p>Enter your player level in Settings to check flea locks.</p>`;
   } else {
     const locked = reqKeys.filter(a => !fleaOpen(a));
     notice.innerHTML = locked.length
@@ -1106,6 +1127,7 @@ function renderMap(active = currentRoute) {
   currentRoute = active;
   const z = DATA.zones;
   // Area names first, so extracts, routes and pins draw over them.
+  const fp = computeFocusPlan();
   let s = MapFloors.labelsOn(DATA.labels, currentFloor).map(l => `<g class="area-label" transform="translate(${l.x} ${l.y})" aria-hidden="true"><g class="glyph"><text>${esc(l.text)}</text></g></g>`).join("");
   // Keycard doors on this floor, in the card's colour; dashed when reported in game but not in tarkov.dev yet.
   for (const k of MapFloors.pointsOn(DATA.keycards, currentFloor, ART_RECT?.floors)) {
@@ -1126,14 +1148,14 @@ function renderMap(active = currentRoute) {
     if (popEx === e.id) for (const w of e.ways?.spots || []) s += `<g class="way" transform="translate(${w.x} ${w.y})" aria-hidden="true"><g class="glyph"><circle r="3.5"/></g></g>`;
   }
   // Hand-built plans: the planned routes, each stop numbered in the raid's colour.
-  for (const r of (objectiveRoute ? [] : focus.raids)) {
+  for (const r of (objectiveRoute || fp ? [] : focus.raids)) {
     if (!r.stops.length) continue;
     const pts = r.stops.map(st => z[st.zone]).concat([exById[r.extract[0]]]).filter(Boolean);
     const col = RAID_COLORS[r.id], off = r.id === "B" ? -16 : r.id === "C" ? 16 : 0;
     s += `<g class="route" opacity="${active === "all" || active === r.id ? 1 : 0.1}"><polyline points="${pts.map(p => p.x + "," + p.y).join(" ")}" fill="none" stroke="${col}" stroke-width="3" vector-effect="non-scaling-stroke" stroke-dasharray="${r.id === "B" ? "8 5" : r.id === "C" ? "2 5" : "0"}" stroke-linecap="round" stroke-linejoin="round"/>` +
       r.stops.map((st, i) => `<g transform="translate(${z[st.zone].x} ${z[st.zone].y})"><g class="glyph"><circle cx="${off}" cy="16" r="9" fill="${col}"/><text class="stop" x="${off}" y="20">${i + 1}</text></g></g>`).join("") + `</g>`;
   }
-  if (objectiveRoute && routeSession.start) {
+  if (objectiveRoute && routeSession.start && !fp) {
     const start = RaidSession.marker(DATA, routeSession.start), points = [start, ...objectiveRoute.stops].filter(Boolean);
     s += `<g class="objective-route" aria-label="Objective route"><polyline points="${points.map(p => `${p.x},${p.y}`).join(" ")}" fill="none" stroke="var(--steel)" stroke-width="4" stroke-dasharray="8 4" vector-effect="non-scaling-stroke"/>`;
     if (start) s += `<g data-route-start transform="translate(${start.x} ${start.y})"><g class="glyph"><circle r="8" fill="var(--steel)"/><text x="12" y="4" fill="var(--ink)">Start</text></g></g>`;
@@ -1142,8 +1164,9 @@ function renderMap(active = currentRoute) {
   // One pin per spot, in the colour and number of the first selected quest that needs it (or the
   // focused one), with the numbers of the others that share it beside the pin.
   const at = new Map();
-  pinned.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid] && (!objectiveRoute || objectiveRoute.stops.some(st => st.zone === zid))) at.set(zid, [...(at.get(zid) || []), i]); }));
-  for (const [zid, idx] of at) {
+  if (fp) s += focusOverlay(fp, at);
+  else pinned.forEach((q, i) => RaidFocus.facts(q).zones.forEach(zid => { if (z[zid] && (!objectiveRoute || objectiveRoute.stops.some(st => st.zone === zid))) at.set(zid, [...(at.get(zid) || []), i]); }));
+  if (!fp) for (const [zid, idx] of at) {
     const p = z[zid];
     s += `<g class="pin spot" data-zone="${esc(zid)}" data-quests="${idx.join(",")}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${esc(p.name)}: ${idx.map(i => esc(pinned[i].name)).join(", ")}"><g class="glyph">${pinGlyph(idx, -1)}</g></g>`;
   }
@@ -1151,8 +1174,9 @@ function renderMap(active = currentRoute) {
   document.querySelectorAll("#raidSwitch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === active)));
   applyView();
   paintQuestNavigation();
+  renderFocusCard();
   if (popZone && !at.has(popZone)) closePop(); else positionPop();
-  const key = [...at.keys()].sort().join() + JSON.stringify(routeSession.start);
+  const key = fp ? focusFitKey(fp) : [...at.keys()].sort().join() + JSON.stringify(routeSession.start);
   if (key !== lastFitKey) { lastFitKey = key; fit(lastFitKey !== null && svg.dataset.ready === "1"); svg.dataset.ready = "1"; }
 }
 document.getElementById("raidSwitch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) renderMap(b.dataset.r); });
@@ -1186,7 +1210,7 @@ function declutterLabels() {
   cancelAnimationFrame(declutterFrame);
   declutterFrame = requestAnimationFrame(() => {
     // Extract names and quest pins take priority over area names; a name under a pin moves beside it.
-    const pins = [...svg.querySelectorAll(".pin.spot")].map(el => el.getBoundingClientRect());
+    const pins = [...svg.querySelectorAll(".pin.spot:not(.out)")].map(el => el.getBoundingClientRect());
     const kept = [...svg.querySelectorAll(".pin.ex, .pin.place")].map(el => el.getBoundingClientRect()).concat(pins);
     const moved = [];
     for (const g of svg.querySelectorAll(".area-label")) {
@@ -1220,6 +1244,7 @@ function setView(v, animate) {
 }
 // Frame the selected spots (pins point up, so leave room above them); the whole map when none.
 function fit(animate, zones, points) {
+  if (!points && !zones && focusPlan?.now) points = focusPoints();
   const pts = points || (zones || [...svg.querySelectorAll(".pin.spot")].map(g => g.dataset.zone)).map(id => DATA.zones[id]).filter(Boolean);
   if (!points && !zones && objectiveRoute) { const start = RaidSession.marker(DATA, routeSession.start); if (start) pts.push(start); }
   if (!pts.length) return setView(BASE, animate);
@@ -1330,10 +1355,10 @@ function openPop(zid) {
   popZone = zid; if (popEx) { popEx = null; renderMap(); }
   const quests = pinned.filter(q => RaidFocus.facts(q).zones.includes(zid));
   pop.innerHTML = `<button type="button" class="pop-x" data-pop="close" aria-label="Close">×</button><span class="label">${esc(DATA.zones[zid].name)}</span>` + quests.map(q => {
-    const objs = q.objectives.filter(o => (o.zone || []).includes(zid)), photo = q.photos?.[0];
-    return `<div class="pop-q"><button type="button" class="pop-title" data-detail="${esc(bsgId(q))}"><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(q.name)}</span><b aria-hidden="true">›</b></button>
+    const objs = q.objectives.filter(o => (o.zone || []).includes(zid)), photo = q.photos?.[0], open = `${focusPlan ? "data-focus-quest" : "data-detail"}="${esc(bsgId(q))}"`;
+    return `<div class="pop-q"><button type="button" class="pop-title" ${open}><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><span>${esc(q.name)}</span><b aria-hidden="true">›</b></button>
       <ul>${objs.map(o => `<li>${esc(o.text)}</li>`).join("")}</ul>
-      ${photo ? `<button type="button" class="pop-photo" data-detail="${esc(bsgId(q))}" aria-label="Photos for ${esc(q.name)}"><img src="${esc(photo.src)}" alt="" loading="lazy">${q.photos.length > 1 ? `<span>${q.photos.length} photos</span>` : ""}</button>` : ""}</div>`;
+      ${photo ? `<button type="button" class="pop-photo" ${open} aria-label="Photos for ${esc(q.name)}"><img src="${esc(photo.src)}" alt="" loading="lazy">${q.photos.length > 1 ? `<span>${q.photos.length} photos</span>` : ""}</button>` : ""}</div>`;
   }).join("");
   pop.hidden = false;
   svg.querySelectorAll(".pin.spot").forEach(g => g.classList.toggle("active", g.dataset.zone === zid));
@@ -1633,7 +1658,6 @@ function saveRoute() {
     if (routeSession.start || routeSession.startedAt) sessionStorage.setItem(ROUTE_KEY, JSON.stringify({ scope: scopeKey, at: Date.now(), session: routeSession }));
   } catch (e) {}
 }
-function autoRaidOn() { try { return localStorage.getItem("eft-auto-raid") !== "0"; } catch (e) { return true; } }
 function loadScopedPreferences() {
   clearTimeout(spawnWait); routeSession = RaidSession.empty(); objectiveRoute = null;
   document.getElementById("spawnDialog").close();
@@ -1658,19 +1682,9 @@ function refreshScope() {
   renderScope(); renderQuests(); renderEvents();
   try { renderTracker(); } catch (e) {} // the Settings button names the profile; the watcher may not exist yet
 }
-const fmtDay = ms => new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 function renderScope() {
-  // Saved scopes first, then profiles found in the logs that have no log-backed scope yet.
-  const saved = Object.entries(progressStore.scopes).filter(([, s]) => s.mode === PAGE_MODE);
   const found = ProgressStore.detectedProfiles(progressStore, PAGE_MODE);
-  const tracked = new Set(saved.filter(([, s]) => s.start !== null).map(([, s]) => s.profile));
-  const offers = found.profiles.filter(p => !tracked.has(p.profileId));
-  const placeholder = saved.length ? "Choose a profile and wipe" : offers.length ? "Choose your profile from your logs" : "Scan or import logs to find your profile";
-  document.getElementById("progressScope").innerHTML = `<option value="">${placeholder}</option>` +
-    (saved.length ? `<optgroup label="Saved">${saved.map(([key, s]) =>
-      `<option value="${esc(key)}" ${key === scopeKey ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)} · ${s.mode === "pve" ? "PvE" : "PvP"}</option>`).join("")}</optgroup>` : "") +
-    (offers.length ? `<optgroup label="Found in your logs">${offers.map(p =>
-      `<option value="detect:${esc(p.profileId)}">Profile …${esc(p.profileId.slice(-6))} · ${p.events} quest events · ${p.fromStart ? "from character start" : "from " + fmtDay(p.first)} – ${fmtDay(p.last)}</option>`).join("")}</optgroup>` : "");
+  document.getElementById("progressScope").innerHTML = scopeOptions(progressStore, PAGE_MODE, scopeKey);
   const scope = ProgressStore.windowFor(progressStore, scopeKey);
   // A scope without a start date ignores the logs. Offer the logged range for its profile.
   const logged = scope && scope.start === null && found.profiles.find(p => p.profileId === scope.profile);
@@ -1872,7 +1886,7 @@ function renderQuests() {
   setText("historyCounts", document.getElementById("historyCounts").textContent.split(" · Shown here")[0] +
     ` · Shown here: ${visibleQuests.length} · ${history.excluded} historical events / ${history.unscoped} unscoped statuses`);
   document.getElementById("questEmpty").hidden = visibleQuests.length > 0;
-  setText("questEmpty", filtered && inView.length ? "Nothing matches these filters. Try fewer words, or clear the filters." : questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in the tracker panel, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
+  setText("questEmpty", filtered && inView.length ? "Nothing matches these filters. Try fewer words, or clear the filters." : questView === "selected" ? "No quests selected. Include current quests in This raid above." : questView === "current" ? "No current quests confirmed. Choose a profile and wipe in Settings, then scan logs or confirm your current list." : "No quests match this view. Choose All to review statuses and locked reasons.");
   document.getElementById("unlockNote").hidden = questView !== "possible";
   renderOtherQuests();
   renderRaids();
@@ -1928,7 +1942,7 @@ resetWrap.addEventListener("click", e => {
 });
 /* ---------- quest detail panel ---------- */
 const qd = document.getElementById("questDialog"), qdBody = document.getElementById("qdBody"), lightbox = document.getElementById("lightbox");
-let qdId = null, lbIndex = 0, panelEntry = null;
+let qdId = null, lbIndex = 0, lbPhotos = [], panelEntry = null;
 const qdQuest = () => DATA.quests.find(q => bsgId(q) === qdId);
 const reqLink = tid => DATA.quests.some(q => bsgId(q) === tid)
   ? `<button type="button" class="qlink" data-detail="${esc(tid)}">${esc(questName(tid))}</button>` : esc(questName(tid));
@@ -1959,14 +1973,16 @@ qd.addEventListener("click", e => {
   if (shot) return openLightbox(+shot.dataset.photo);
   const where = e.target.closest("[data-show]");
   if (where) return showOnMap(qdId, where.dataset.show);
+});
+lightbox.addEventListener("click", e => {
   const lb = e.target.closest("[data-lb]")?.dataset.lb;
   if (lb === "close" || e.target === lightbox) closeLightbox();
   else if (lb) stepLightbox(lb === "next" ? 1 : -1);
 });
 // The quest's keys and items with how you'd get each, and a Have tick; weapons and optional keys as chips.
-function detailGear(q) {
+function detailGear(q, doors = []) {
   const gear = q.gearInfo?.gear || [], rest = q.needs.filter(n => !gear.some(g => g.name === n.item));
-  return (gear.length ? `<ul class="qd-gear">${gear.map(g => `<li class="${g.ok ? "" : "no"}"><span><b>${esc(QuestEffort.shortName(g.name))}</b>${g.qty > 1 ? ` ×${g.qty}` : ""}<small>${esc(g.how === "have" ? "in your stash" : g.label)}</small></span>${g.id ? `<label class="gear-have"><input type="checkbox" data-have="${esc(g.id)}" ${g.how === "have" ? "checked" : ""} ${activeScope() ? "" : "disabled"}>Have</label>` : ""}</li>`).join("")}</ul>` : "") +
+  return (gear.length ? `<ul class="qd-gear">${gear.map(g => `<li class="${g.ok ? "" : "no"}"><span><b>${esc(QuestEffort.shortName(g.name))}</b>${g.qty > 1 ? ` ×${g.qty}` : ""}<small>${esc(g.how === "have" ? "in your stash" : g.label)}</small></span>${doorButton(g, doors)}${g.id ? `<label class="gear-have"><input type="checkbox" data-have="${esc(g.id)}" ${g.how === "have" ? "checked" : ""} ${activeScope() ? "" : "disabled"}>Have</label>` : ""}</li>`).join("")}</ul>` : "") +
     (rest.length ? `<div class="chips">${rest.map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div>` : "");
 }
 function renderQuestDetail() {
@@ -2006,10 +2022,10 @@ function showOnMap(id, zid) {
   stage.scrollIntoView({ block: "center", behavior: reduceMotion() ? "auto" : "smooth" });
   setTimeout(() => { fit(true, [zid]); if (svg.querySelector(`.pin.spot[data-zone="${CSS.escape(zid)}"]`)) openPop(zid); }, 60);
 }
-function openLightbox(i) { lbIndex = i; lightbox.hidden = false; stepLightbox(0); lightbox.querySelector(".lb-close").focus(); }
+function openLightbox(i, photos = qdQuest()?.photos || []) { lbPhotos = photos; (qd.open ? qd : document.body).append(lightbox); lbIndex = i; lightbox.hidden = false; stepLightbox(0); lightbox.querySelector(".lb-close").focus(); }
 function closeLightbox() { lightbox.hidden = true; }
 function stepLightbox(d) {
-  const photos = qdQuest()?.photos || [];
+  const photos = lbPhotos;
   if (!photos.length) return;
   lbIndex = (lbIndex + d + photos.length) % photos.length;
   const p = photos[lbIndex], img = document.getElementById("lbImg");
@@ -2024,6 +2040,12 @@ qd.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") stepLightbox(-1);
   if (e.key === "ArrowRight") stepLightbox(1);
 });
+// Opened from the focus card there's no drawer to catch keys, so this comes first.
+document.addEventListener("keydown", e => {
+  if (lightbox.hidden || qd.open || !["Escape", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  if (e.key === "Escape") closeLightbox(); else stepLightbox(e.key === "ArrowLeft" ? -1 : 1);
+}, true);
 let swipeX = null; // swipe between photos on touch screens
 lightbox.addEventListener("pointerdown", e => { swipeX = e.clientX; });
 lightbox.addEventListener("pointerup", e => { if (swipeX != null && Math.abs(e.clientX - swipeX) > 50) stepLightbox(e.clientX < swipeX ? 1 : -1); swipeX = null; });
@@ -2049,6 +2071,7 @@ function enterRaid() {
   if (!raidStart || Date.now() - raidStart > 2 * 3600e3) restartClock(); // a reload mid-raid keeps the clock
   clock(); raidTick = setInterval(clock, 1000);
   keepAwake();
+  renderFocusCard();
   renderRaidPanel();
   raidEntry = Date.now() + Math.random(); // Back leaves raid mode
   try { history.pushState({ raid: raidEntry }, ""); } catch (e) {}
@@ -2059,6 +2082,7 @@ function exitRaid() {
   if (scavOn) scavSummary();
   raidOn = false;
   paintQuestNavigation();
+  renderFocusCard();
   clearInterval(raidTick);
   wake?.release().catch(() => {}); wake = null;
   document.body.classList.remove("raid-mode");
@@ -2150,6 +2174,7 @@ function setScav(on) {
   if (scavOn && !on) scavSummary();
   scavOn = on;
   try { sessionStorage.setItem("eft-scav-mode", on ? "1" : ""); } catch (e) {}
+  renderMap(); // focus mode steps aside for a scav run
   renderRaidPanel();
 }
 document.getElementById("rpScav").addEventListener("click", () => setScav(!scavOn));
@@ -2179,9 +2204,7 @@ function renderRaidPanel() {
       <h3><i class="qnum" style="background:${colorOf(q)}">${questNo(q)}</i><button type="button" class="rp-name" data-detail="${esc(bsgId(q))}">${esc(q.name)}${q.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${easyMark(q)}</button>${ready ? `<span class="rp-ready">Hand in</span>` : ""}<button type="button" class="rp-more" data-rp-fit="${esc(bsgId(q))}" aria-label="Show ${esc(q.name)} on map">Map</button></h3>
       ${needs.length ? `<p class="rp-needs">Bring: ${needs.map(n => esc(needText(n))).join(" · ")}</p>` : ""}
       ${q.photos?.length ? `<div class="rp-shots">${q.photos.slice(0, 4).map(ph => `<button type="button" data-detail="${esc(bsgId(q))}" aria-label="Spot photos for ${esc(q.name)}"><img src="${esc(ph.src)}" alt="${esc(ph.caption || q.name)}" loading="lazy"></button>`).join("")}</div>` : ""}
-      <ul class="rp-obj">${q.objectives.map(o => o.count
-        ? `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><span class="rp-t">${esc(o.text)}${where(o)}</span><span class="counter"><button type="button" data-dec="${o.id}" aria-label="Minus one">−</button><output>${state[o.id] || 0} / ${o.count}</output><button type="button" data-inc="${o.id}" aria-label="Plus one">+</button></span></div></li>`
-        : `<li class="${objDone(o) ? "done" : ""} ${o.optional ? "opt" : ""}"><div class="rp-c"><input type="checkbox" data-obj="${o.id}" aria-label="${esc(o.text)}" ${objDone(o) ? "checked" : ""}><span>${esc(o.text)}${o.optional ? " (optional)" : ""}${where(o)}</span></div></li>`).join("")}</ul>
+      ${objectiveRows(q, where)}
     </article>`;
   };
   const exits = DATA.extracts.filter(e => e.x != null && (scavOn ? e.faction !== "pmc" : e.faction !== "scav" && mySide(e)))
@@ -2190,9 +2213,9 @@ function renderRaidPanel() {
       `<button type="button" data-rp-ex="${esc(e.id)}" class="${exReq(e) ? "req" : ""}"><span>${esc(e.name)}</span><small>${esc(exNeed(e) || EX_TYPE[e.type] || "")}</small></button>`).join("")}</div></section>` : "";
   if (scavOn) { rpBody.innerHTML = trackingWarning() + scavHTML() + extractsHTML; rpBody.scrollTop = top; paintQuestNavigation(); return; }
   // Quest cards come first; choosing quests and route settings follow them.
-  rpBody.innerHTML = trackingWarning() + nextStop() +
-    (pinned.length ? `<section class="rp-sec">${pinned.map(quest).join("")}</section>` : `<p class="map-note">No quests selected. Choose quests below.</p>`) +
-    (keys.length || items.length ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
+  rpBody.innerHTML = trackingWarning() + (focusActive() ? `<section class="rp-sec">${focusCardHTML()}</section>` : nextStop() +
+    (pinned.length ? `<section class="rp-sec">${pinned.map(quest).join("")}</section>` : `<p class="map-note">No quests selected. Choose quests below.</p>`)) +
+    (!focusActive() && (keys.length || items.length) ? `<section class="rp-sec"><span class="label">Bring</span><div class="rp-chips">${[...keys, ...items].map(n => `<span class="chip${n.kind === "key" ? " key" : ""}">${esc(needText(n))}</span>`).join("")}</div></section>` : "") +
     raidSelection(selectionOpen) + `<section class="route-planner">${routeControls("rp")}</section>` + extractsHTML;
   rpBody.scrollTop = top;
   paintQuestNavigation();
@@ -2344,30 +2367,11 @@ function handleRaidEvent(event, meta) {
   if (RaidSession.needsArea(routeSession, Date.now())) promptSpawn();
 }
 
+/*__QUEST_FOCUS_UI__*/
 /*__QUEST_NAV_UI__*/
 
-/* ---------- settings dialog ---------- */
-const settingsDialog = document.getElementById("settingsDialog");
-function openSettings() { if (!settingsDialog.open) { closePop(); settingsDialog.showModal(); } }
-document.addEventListener("click", e => { if (e.target.closest("[data-open-settings]")) openSettings(); });
-document.getElementById("settingsClose").addEventListener("click", () => settingsDialog.close());
-settingsDialog.addEventListener("click", e => { if (e.target === settingsDialog) settingsDialog.close(); }); // backdrop
-
-/* ---------- log tracking UI ---------- */
-const trk = { skipped: 0, note: "", fallback: false };
-const STATE_TEXT = {
-  unsupported: "Live tracking isn't available here", "not-connected": "Not connected",
-  "needs-permission": "Logs folder needs permission again", waiting: "Waiting for game", watching: "Watching", error: "Stopped",
-};
-const ACTIONS = {
-  unsupported: [["import", "Import logs folder", true]],
-  "not-connected": [["connect", "Connect logs folder", true]],
-  "needs-permission": [["reconnect", "Reconnect logs folder", true]],
-  waiting: [["scan", "Scan past sessions"], ["connect", "Change folder"]],
-  watching: [["scan", "Scan past sessions"], ["connect", "Change folder"]],
-  error: [["reconnect", "Reconnect logs folder", true], ["connect", "Choose folder"]],
-};
-const watcher = new EftLogs.LogWatcher({ onRaid: handleRaidEvent, onEvents: handleEvents, onStatus: () => renderTracker() });
+/* ---------- settings dialog and log connection ---------- */
+/*__SETTINGS_UI__*/
 
 function handleEvents(events, meta) {
   // Only events new to this browser and from around now are news; scans and the session replay
@@ -2447,64 +2451,14 @@ function renderEvents() {
   document.getElementById("trkEvents").innerHTML = questStatus.recent.slice(0, 6).map(r =>
     `<li><time>${fmtWhen(r.at)}</time><span class="qst ${r.status}">${STATUS_LABEL[r.status]}</span><span>${esc(questName(r.questId))}</span></li>`).join("");
 }
-function renderTracker() {
-  const s = watcher.status;
-  const state = trk.fallback ? "unsupported" : s.state;
-  document.getElementById("trkDot").dataset.state = state;
-  document.getElementById("settingsDot").dataset.state = document.getElementById("trkSummaryDot").dataset.state = state;
-  const scopeName = activeScope()?.label;
-  setText("settingsLabel", `Settings · ${state === "watching" ? "logs live" : (STATE_TEXT[state] || state).toLowerCase()}`);
-  setText("trkSummary", `${state === "watching" ? "Logs live" : STATE_TEXT[state] || state} · ${scopeName || "no profile chosen"}`);
+// The shared tracker has drawn; these parts only exist on map pages.
+function afterTracker(state, summary) {
+  document.getElementById("trkSummaryDot").dataset.state = state;
+  setText("trkSummary", `${summary} · ${activeScope()?.label || "no profile chosen"}`);
   if (raidOn && !!rpBody.querySelector(".rp-warn") !== (state !== "watching" && state !== "waiting")) renderRaidPanel();
   document.getElementById("liveChip").hidden = state !== "watching";
   document.getElementById("liveChip").title = state === "watching" ? "Watching your game logs; quest changes show up here as they happen" : "";
-  setText("trkState", state === "watching" ? `Watching ${s.folder}` : STATE_TEXT[state] || state);
-  const bits = [];
-  if (state === "unsupported") bits.push("Live tracking needs Chrome or Edge, opened over https or localhost. Import reads the folder once.");
-  if (s.detail && !trk.fallback) bits.push(s.detail);
-  if (state === "needs-permission" && s.folder) bits.push(`Folder: ${s.folder}`);
-  if (s.mode && !trk.fallback) bits.push(`${s.mode === "pve" ? "PvE" : "PvP"} session`);
-  if (s.lastRead && state === "watching") bits.push(`last update ${new Date(s.lastRead).toLocaleTimeString()}`);
-  if (trk.skipped) bits.push(`${trk.skipped} events from ${PAGE_MODE === "pve" ? "PvP" : "PvE"} sessions skipped`);
-  if (trk.note) bits.push(trk.note);
-  setText("trkDetail", bits.join(" · "));
-  const actions = [...(ACTIONS[state] || [])];
-  if (!actions.some(([act]) => act === "import")) actions.push(["import", "Import logs folder"]);
-  document.getElementById("trkActions").innerHTML = actions.map(([act, label, primary]) =>
-    `<button class="btn${primary ? " primary" : ""}" type="button" id="trk-${act}" data-act="${act}">${label}</button>`).join("");
 }
-document.getElementById("trkActions").addEventListener("click", async e => {
-  const act = e.target.closest("button")?.dataset.act;
-  if (!act) return;
-  trk.note = "";
-  try {
-    if (act === "import") return document.getElementById("trkImport").click();
-    if (act === "connect") await watcher.connect();          // the picker opens inside this click
-    if (act === "reconnect") await watcher.reconnect();      // so does the permission prompt
-    if (act === "scan") {
-      trk.note = "Scanning past sessions…"; renderTracker();
-      const r = await watcher.scanPast();
-      trk.note = `Scanned ${r.sessions} sessions, ${r.events} quest events` + (activeScope() ? "" : ". Choose your profile under Profile and wipe to see them");
-    }
-  } catch (err) {
-    if (err.name === "AbortError") return; // closed the picker
-    if (err.name === "SecurityError") {
-      trk.fallback = true; // e.g. inside an embedded frame that may not open folders
-      trk.note = "This page can't open folders where it's running. Import the folder instead, or open the page from localhost.";
-    } else trk.note = err.message;
-  }
-  renderTracker();
-});
-document.getElementById("trkImport").addEventListener("change", async e => {
-  if (!e.target.files.length) return;
-  trk.note = "Reading logs…"; renderTracker();
-  try {
-    const r = await EftLogs.importFileList(e.target.files, handleEvents);
-    trk.note = r.sessions ? `Imported ${r.events} quest events from ${r.sessions} sessions` + (activeScope() ? "" : ". Choose your profile under Profile and wipe to see them") : "No log_… session folders found. Pick the Logs folder inside your EFT install.";
-  } catch (err) { trk.note = err.message; }
-  e.target.value = "";
-  renderTracker();
-});
 renderScope();
 renderEvents();
 renderTracker();
@@ -2650,8 +2604,6 @@ if (!VIEWS.includes(start)) { try { start = localStorage.getItem(STORE_KEY + ":t
 show(start);
 if (location.hash === "#raid") requestAnimationFrame(enterRaid); // a bookmark for the second screen
 // Site search opens quests here: in place on this page, or by link as #quest=<task ID>.
-document.getElementById("autoRaid").checked = autoRaidOn();
-document.getElementById("autoRaid").addEventListener("change", e => { try { localStorage.setItem("eft-auto-raid", e.target.checked ? "1" : "0"); } catch (_) {} });
 window.SITE_HERE = { key: DATA.meta.key || "customs", mode: PAGE_MODE, open: openQuest };
 document.querySelector('[data-kappa-map]').dataset.kappaMap = DATA.meta.key || "customs";
 window.addEventListener("eft-progress-change", () => {

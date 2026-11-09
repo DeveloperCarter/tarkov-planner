@@ -611,6 +611,48 @@
    "gy": -1.5
   }
  ],
+ "doors": [
+  {
+   "id": "2170d1b52aa6d61ee5d3a8f65183be4e0750e873",
+   "key": "Factory emergency exit key",
+   "keyId": "5448ba0b4bdc2d02308b456c",
+   "x": 804,
+   "y": 796,
+   "gx": -19.1,
+   "gz": -48.6,
+   "gy": 1.4
+  },
+  {
+   "id": "d6cacb05b05ce59b1c3a9026fc890eea3be7a63a",
+   "key": "Factory emergency exit key",
+   "keyId": "5448ba0b4bdc2d02308b456c",
+   "x": 677,
+   "y": 231,
+   "gx": 66.8,
+   "gz": -29.3,
+   "gy": -1.6
+  },
+  {
+   "id": "aa4ebab35c8835370066d0956af284162fa29ea3",
+   "key": "Factory emergency exit key",
+   "keyId": "5448ba0b4bdc2d02308b456c",
+   "x": 243,
+   "y": 479,
+   "gx": 29.1,
+   "gz": 36.5,
+   "gy": 9.1
+  },
+  {
+   "id": "0b8dbbc9604c2f03ae8bff8a5e0a8e62d2e3d7c5",
+   "key": "TerraGroup storage room keycard",
+   "keyId": "66acd6702b17692df20144c0",
+   "x": 194,
+   "y": 805,
+   "gx": -20.4,
+   "gz": 44.1,
+   "gy": -1.5
+  }
+ ],
  "lootKeys": [
   {
    "key": "TerraGroup storage room keycard",

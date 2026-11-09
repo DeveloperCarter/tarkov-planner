@@ -27,6 +27,10 @@ page/quest-career.template.js  the site bar's Keep/Kappa dialog and home/map vie
 scripts/career_data.py         dist/career-data.json rows: Kappa flag, Collector, keep requirements
 page/site-search.js            quest browser ranking, trader/map filters and paging over dist/search-index.json (pure, tested)
 page/quest-filter.js           the one site-wide quest filter (lists and suggestions only, never the selection), its chips and session storage (tested)
+page/quest-focus.js            focus mode: quest order, the path through what's left, next two quests, doors (pure UMD, tested)
+page/quest-focus.template.js   focus mode's map overlay, expanded card, toggle and clicks; inlined into each map page
+page/settings-dialog.template.html, settings-map.template.html   the one Settings dialog; the second part is map-only corrections
+page/settings.template.js      Settings controller and the log connection, shared by the home and map pages
 page/quest-effort.js           easy wins, gear status (have/flea/trader/barter/find), gear ready and the per-quest todo line (tested)
 page/map-floors.js             which area names, extracts and keycard doors show on the chosen floor (pure, tested)
 scripts/effort.py              per-quest effort facts (spots, kills, hand-ins, keys and items and how to get them) for every page
@@ -243,6 +247,16 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
 - Clicking card titles or ordinary text opens details; checkboxes/buttons/links/selects retain
   their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh
   build of dist/ and page reload: an older local dist caused the reported missing card interaction.
+
+**Focus mode and Settings (2026-11-09)**
+- Focus mode is a toggle on the map, remembered in `eft-quest-focus`. `QuestFocus.plan` picks the open quest at hand and walks what it has left
+  with `RaidRoute.route` over frame coordinates (uniform scale; works without spawns, so the hand-built plan focuses too). The path runs on to the
+  next two quests; other selected quests are faint unnumbered dots. Any-of spots the route doesn't walk (random item locations) are rings. Ticking the
+  last required objective moves to whichever quest was next. It steps aside for a scav run. Never edits selection or progress.
+- `doors` (each map) are tarkov.dev locks for keys that map's quests need; all 67 required quest keys on PvP had one (2026-11-09). A key can have several
+  doors; `QuestFocus.doors` picks the closest to the quest's spots. Nothing says which objective a key is for, so a quest shows its doors until it's done.
+- All settings live in one dialog opened from the site bar, home included: logs, profile and wipe, level, focus, raid mode, theme. Home also tails the
+  logs through the same controller. Manual scopes, history and quest list corrections need a map's quests, so only map pages show them.
 
 **Quest navigation and optional global shortcuts (2026-10-25)**
 - `page/quest-navigation.js` is pure UMD: supplied selected-quest order, stable IDs, wraparound and

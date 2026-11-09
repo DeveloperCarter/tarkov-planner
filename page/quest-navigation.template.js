@@ -1,15 +1,15 @@
 /* Visual focus within the selected, route-ordered quests. No progress writes. */
 let focusedQuest = null;
 function questNavigationReady() {
-  return raidOn && !scavOn && pinned.length > 0 && !document.querySelector('dialog[open]');
+  return (raidOn && !scavOn || focusActive()) && pinned.length > 0 && !document.querySelector('dialog[open]');
 }
 function paintQuestNavigation() {
-  const ids = pinned.map(bsgId);
-  focusedQuest = raidOn ? QuestNavigation.current(ids, focusedQuest) : null;
-  const q = pinned.find(q => bsgId(q) === focusedQuest);
+  const ids = pinned.map(bsgId), inFocus = focusActive();
+  if (!inFocus) focusedQuest = raidOn ? QuestNavigation.current(ids, focusedQuest) : null;
+  const q = inFocus ? null : pinned.find(q => bsgId(q) === focusedQuest);
   const zones = new Set(q ? RaidFocus.facts(q).zones : []);
   const nav = document.getElementById('questFocusNav');
-  nav.hidden = !raidOn || scavOn;
+  nav.hidden = !raidOn || scavOn || inFocus;
   document.getElementById('questFocusLabel').textContent = q
     ? `Quest ${ids.indexOf(focusedQuest) + 1} of ${ids.length} · ${q.name}${q.kappa ? ' · Kappa' : ''}${zones.size ? '' : ' · No fixed map locations'}`
     : 'Select quests to browse this raid.';
@@ -29,6 +29,12 @@ function paintQuestNavigation() {
 }
 function stepQuestFocus(direction) {
   if (!questNavigationReady() || ![-1, 1].includes(direction)) return;
+  if (focusActive()) {
+    if (focusOrder.length < 2) return;
+    focusedQuest = QuestNavigation.step(focusOrder, focusedQuest, direction);
+    closePop(); showFocusedTop();
+    return;
+  }
   focusedQuest = QuestNavigation.step(pinned.map(bsgId), focusedQuest, direction);
   closePop();
   paintQuestNavigation();
@@ -37,7 +43,7 @@ function stepQuestFocus(direction) {
   const card = [...rpBody.querySelectorAll('.rp-q')].find(card => card.dataset.questCard === focusedQuest);
   card?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
 }
-document.getElementById('questFocusNav').addEventListener('click', e => {
+document.addEventListener('click', e => {
   const button = e.target.closest('[data-quest-step]');
   if (button) stepQuestFocus(Number(button.dataset.questStep));
 });

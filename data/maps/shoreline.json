@@ -838,6 +838,98 @@
   }
  ],
  "keycards": [],
+ "doors": [
+  {
+   "id": "86a7523038a88008d8bcd21b1931e823a3f71261",
+   "key": "Cottage back door key",
+   "keyId": "5a0eb6ac86f7743124037a28",
+   "x": 265,
+   "y": 336,
+   "gx": 102.5,
+   "gz": 102.7,
+   "gy": -47.3
+  },
+  {
+   "id": "69523d3b5027ae3727a851e061b34141f378672f",
+   "key": "Health Resort office key with a blue tape",
+   "keyId": "5eff09cd30a7dc22fd1ddfed",
+   "x": 531,
+   "y": 221,
+   "gx": -323.6,
+   "gz": -80.0,
+   "gy": -2.7
+  },
+  {
+   "id": "0fe0d4bcf9f7a4a4a9d039fad2b88b3af47d6069",
+   "key": "Health Resort west wing office room 112 key",
+   "keyId": "5a0dc95c86f77452440fc675",
+   "x": 447,
+   "y": 218,
+   "gx": -189.2,
+   "gz": -85.5,
+   "gy": -2.7
+  },
+  {
+   "id": "f562c7f41e530e977df17b355ba1c47bec153188",
+   "key": "Health Resort east wing room 306 key",
+   "keyId": "5a145d4786f7744cbb6f4a12",
+   "x": 508,
+   "y": 213,
+   "gx": -285.8,
+   "gz": -92.9,
+   "gy": 3.0
+  },
+  {
+   "id": "130737d918ff6be929736f477f3f8ba6d9c29d67",
+   "key": "Health Resort west wing room 220 key",
+   "keyId": "5a0ee34586f774023b6ee092",
+   "x": 433,
+   "y": 221,
+   "gx": -166.7,
+   "gz": -80.9,
+   "gy": 0.1
+  },
+  {
+   "id": "6793804aa1896cb2d9c73c87e0e93956f4a83cf7",
+   "key": "Health Resort east wing room 328 key",
+   "keyId": "5a0eee1486f77402aa773226",
+   "x": 552,
+   "y": 221,
+   "gx": -357.3,
+   "gz": -79.9,
+   "gy": 3.0
+  },
+  {
+   "id": "491508e50e31c2b5fbdab27a27863760f20a4024",
+   "key": "Health Resort east wing room 308 key",
+   "keyId": "5a145d7b86f7744cbb6f4a13",
+   "x": 513,
+   "y": 213,
+   "gx": -294.4,
+   "gz": -92.9,
+   "gy": 3.0
+  },
+  {
+   "id": "9092fdb9f06090559b39296e259863752a48dbf1",
+   "key": "Health Resort west wing room 306 key",
+   "keyId": "5a13f46386f7741dd7384b04",
+   "x": 465,
+   "y": 213,
+   "gx": -216.9,
+   "gz": -92.9,
+   "gy": 3.0
+  },
+  {
+   "id": "e8332268571324d5849682b99018b4d25c879f6d",
+   "key": "Health Resort west wing room 219 key",
+   "keyId": "5a13ef0686f7746e5a411744",
+   "x": 436,
+   "y": 221,
+   "gx": -170.8,
+   "gz": -80.9,
+   "gy": 0.1
+  }
+ ],
  "lootKeys": [
   {
    "key": "Health Resort east wing room 222 key",

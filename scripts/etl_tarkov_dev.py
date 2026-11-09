@@ -606,6 +606,7 @@ class Normalizer:
             "zones": zones,
             "extracts": extracts,
             "keycards": self.build_keycards(m, frame, en),
+            "doors": self.build_doors(m, frame, en, quests),
             "lootKeys": loot_keys,
             "places": build_places(m["normalizedName"], frame, en),
             "spawns": spawns,
@@ -875,6 +876,16 @@ class Normalizer:
             x, y = frame.xy(en(lock["position"]))
             out.append({"id": lock["id"], "key": name, "keyId": lock["key"], "x": x, "y": y, **game_position(lock["position"]),
                         **({"reported": True, "note": lock.get("note")} if lock in reported else {})})
+        return out
+
+    def build_doors(self, m: dict, frame: Frame, en, quests: list) -> list:
+        """Where the keys this map's quests need are used, for focus mode. A key can open several doors."""
+        wanted = {i for q in quests for n in q["needs"] if n["kind"] == "key" for i in n["itemIds"]}
+        out = []
+        for lock in m.get("locks", []):
+            if lock.get("key") in wanted and lock.get("position"):
+                x, y = frame.xy(en(lock["position"]))
+                out.append({"id": lock["id"], "key": self.item_name(lock["key"]), "keyId": lock["key"], "x": x, "y": y, **game_position(lock["position"])})
         return out
 
     def loot_tag(self, iid: str) -> str | None:

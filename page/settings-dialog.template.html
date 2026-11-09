@@ -1,0 +1,34 @@
+  <!-- Settings: every preference in one dialog, opened from the site bar on every page. -->
+  <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="settings-head"><h2 id="settingsTitle">Settings</h2><button type="button" class="qd-x" id="settingsClose" aria-label="Close settings">×</button></div>
+    <section class="tracker" aria-labelledby="trkTitle">
+      <div class="trk-head">
+        <span class="dot" id="trkDot" aria-hidden="true"></span>
+        <div class="trk-text">
+          <span class="label" id="trkTitle">Quest tracking from game logs</span>
+          <b id="trkState">Not connected</b>
+          <span class="trk-detail" id="trkDetail"></span>
+        </div>
+        <div class="trk-actions" id="trkActions"></div>
+      </div>
+      <input type="file" id="trkImport" webkitdirectory multiple hidden>
+    </section>
+    <section class="tracker settings-sec" aria-labelledby="settingsProfileTitle">
+      <span class="label" id="settingsProfileTitle">Profile</span>
+      <div class="trk-row">
+        <label for="progressScope">Profile and wipe <select id="progressScope"></select></label>
+        <label for="playerLevel">Player level <input id="playerLevel" type="number" min="1" max="100" step="1"></label>
+      </div>
+      <!--__SETTINGS_MAP__-->
+    </section>
+    <section class="tracker settings-sec" aria-labelledby="settingsRaidTitle">
+      <span class="label" id="settingsRaidTitle">Raids</span>
+      <label class="include-raid"><input type="checkbox" id="focusSetting">Focus mode: show one quest at a time on the map, with its photos, path and doors</label>
+      <label class="include-raid"><input type="checkbox" id="autoRaid">Open raid mode when a raid loads (follows you to that map)</label>
+      <details><summary>Keyboard shortcuts</summary><p class="map-note">In raid mode or Focus mode, Ctrl + Shift + ← / → steps through your selected quests while this page has focus. For controls while Tarkov has focus, install the optional <a href="__QUEST_SHORTCUTS_URL__" id="questShortcutsDownload">quest shortcuts extension</a> and choose this tab from its toolbar button. Browsing never checks off objectives.</p></details>
+    </section>
+    <section class="tracker settings-sec" aria-labelledby="settingsLookTitle">
+      <span class="label" id="settingsLookTitle">Appearance</span>
+      <div class="trk-row"><label for="themeSelect">Theme <select id="themeSelect"><option value="system">Match this device</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div>
+    </section>
+  </dialog>

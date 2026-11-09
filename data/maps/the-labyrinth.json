@@ -158,6 +158,18 @@
   }
  ],
  "keycards": [],
+ "doors": [
+  {
+   "id": "d9452431e4aa4cf172ab609882a6e05b33fb219c",
+   "key": "Corpse room key",
+   "keyId": "679bab714e9ca6b3d80586b4",
+   "x": 245,
+   "y": 544,
+   "gx": 9.7,
+   "gz": -11.1,
+   "gy": 1.2
+  }
+ ],
  "lootKeys": [
   {
    "key": "Corpse room key",

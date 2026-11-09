@@ -1017,6 +1017,208 @@
    "gy": 4.1
   }
  ],
+ "doors": [
+  {
+   "id": "d1c1583216d356302da9e4a281a2504b93f7bc12",
+   "key": "Pinewood hotel room 215 key",
+   "keyId": "63a39f08cd6db0635c197600",
+   "x": 646,
+   "y": 583,
+   "gx": -67.0,
+   "gz": 59.3,
+   "gy": 6.0
+  },
+  {
+   "id": "9a7d146dcfe32be02cdfb0102687603d440fea8e",
+   "key": "Relaxation room key",
+   "keyId": "6582dbf0b8d7830efc45016f",
+   "x": 875,
+   "y": 966,
+   "gx": -208.2,
+   "gz": 295.5,
+   "gy": 4.3
+  },
+  {
+   "id": "cbb500958873cf4ad1d138c8fe050c12e0311b46",
+   "key": "Abandoned factory marked key",
+   "keyId": "63a3a93f8a56922e82001f5d",
+   "x": 753,
+   "y": 930,
+   "gx": -133.5,
+   "gz": 272.9,
+   "gy": 9.7
+  },
+  {
+   "id": "dec160358f1dafa38af2a970ca1f8b7c3f60f657",
+   "key": "Backup hideout key",
+   "keyId": "6398fd8ad3de3849057f5128",
+   "x": 749,
+   "y": 1122,
+   "gx": -130.7,
+   "gz": 391.6,
+   "gy": 3.4
+  },
+  {
+   "id": "b3c29f327032dff0f3580f010e02add57fca117f",
+   "key": "Iron gate key",
+   "keyId": "63a39f6e64283b5e9c56b289",
+   "x": 324,
+   "y": 856,
+   "gx": 131.2,
+   "gz": 227.6,
+   "gy": 10.6
+  },
+  {
+   "id": "f36654e90bc45c9eaa48f647b8942595fd476211",
+   "key": "Iron gate key",
+   "keyId": "63a39f6e64283b5e9c56b289",
+   "x": 322,
+   "y": 852,
+   "gx": 132.5,
+   "gz": 225.1,
+   "gy": 10.6
+  },
+  {
+   "id": "03dd82fe448bd9861b35365215be1e33f58a5733",
+   "key": "Iron gate key",
+   "keyId": "63a39f6e64283b5e9c56b289",
+   "x": 332,
+   "y": 856,
+   "gx": 126.4,
+   "gz": 227.6,
+   "gy": 10.6
+  },
+  {
+   "id": "d4885a07463c74daa87899748225a92c254a4ef3",
+   "key": "Chekannaya 15 apartment key",
+   "keyId": "63a39fc0af870e651d58e6ae",
+   "x": 363,
+   "y": 856,
+   "gx": 107.0,
+   "gz": 227.6,
+   "gy": 7.5
+  },
+  {
+   "id": "defcc4cd3ace38745521a506b01abc026a3dd096",
+   "key": "Primorsky 46-48 skybridge key",
+   "keyId": "63a39e1d234195315d4020bd",
+   "x": 457,
+   "y": 727,
+   "gx": 49.5,
+   "gz": 147.8,
+   "gy": 12.8
+  },
+  {
+   "id": "f2fa9c4b951242928fd094802a4d21b1a37d52b1",
+   "key": "Car dealership director's office room key",
+   "keyId": "63a399193901f439517cafb6",
+   "x": 429,
+   "y": 991,
+   "gx": 66.9,
+   "gz": 310.7,
+   "gy": 7.9
+  },
+  {
+   "id": "5edf8233ce9a788f772af62931f93bd64d35d2b3",
+   "key": "Car dealership closed section key",
+   "keyId": "63a397d3af870e651d58e65b",
+   "x": 434,
+   "y": 975,
+   "gx": 63.5,
+   "gz": 301.1,
+   "gy": 7.9
+  },
+  {
+   "id": "cb4af2a8e21bea8c420e93e02ebe2825b76714b7",
+   "key": "Concordia security room key",
+   "keyId": "63a39c7964283b5e9c56b280",
+   "x": 195,
+   "y": 1147,
+   "gx": 211.0,
+   "gz": 406.7,
+   "gy": -0.2
+  },
+  {
+   "id": "0767aa937ed6bfc0b566facaeb252600111334da",
+   "key": "Beluga restaurant director key",
+   "keyId": "64ccc1fe088064307e14a6f7",
+   "x": 582,
+   "y": 389,
+   "gx": -27.8,
+   "gz": -60.7,
+   "gy": 10.6
+  },
+  {
+   "id": "aec062c41e2bea50ea605c0165f43e15783566f6",
+   "key": "Beluga restaurant director key",
+   "keyId": "64ccc1fe088064307e14a6f7",
+   "x": 569,
+   "y": 383,
+   "gx": -19.6,
+   "gz": -64.2,
+   "gy": 10.6
+  },
+  {
+   "id": "b28c598284b73048ccf03e2a5dbb9912f100a5fb",
+   "key": "TerraGroup meeting room key",
+   "keyId": "64ccc206793ca11c8f450a38",
+   "x": 461,
+   "y": 391,
+   "gx": 46.7,
+   "gz": -59.4,
+   "gy": 1.3
+  },
+  {
+   "id": "e9cb1e20edfe3608c9bd1da394827e95e4f33cfb",
+   "key": "Mysterious room marked key",
+   "keyId": "64ccc25f95763a1ae376e447",
+   "x": 235,
+   "y": 856,
+   "gx": 186.2,
+   "gz": 227.4,
+   "gy": 0.8
+  },
+  {
+   "id": "5fb1639ffd273bbe72c44b661f7e6eff94380ed1",
+   "key": "Rusted bloody key",
+   "keyId": "64d4b23dc1b37504b41ac2b6",
+   "x": 249,
+   "y": 615,
+   "gx": 177.7,
+   "gz": 78.8,
+   "gy": 6.9
+  },
+  {
+   "id": "401b2a6d865b1c45a450eb908f64a42385afe2bd",
+   "key": "X-ray room key",
+   "keyId": "64ccc246ff54fb38131acf29",
+   "x": 237,
+   "y": 650,
+   "gx": 185,
+   "gz": 100.7,
+   "gy": 2.8
+  },
+  {
+   "id": "38741a58306b8059e9e5e3e8b421b0b3a909e29b",
+   "key": "Real estate agency office room key",
+   "keyId": "6582dc5740562727a654ebb1",
+   "x": 638,
+   "y": 1234,
+   "gx": -62.4,
+   "gz": 460.3,
+   "gy": 7.9
+  },
+  {
+   "id": "edd73dbf83dd01a5bf004f4508aa595bd34d6cf2",
+   "key": "\"Negotiation\" room key",
+   "keyId": "6582dbe43a2e5248357dbe9a",
+   "x": 269,
+   "y": 755,
+   "gx": 165.2,
+   "gz": 165.1,
+   "gy": 1.8
+  }
+ ],
  "lootKeys": [
   {
    "key": "Abandoned factory marked key",

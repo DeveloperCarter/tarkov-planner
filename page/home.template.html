@@ -32,9 +32,8 @@
 </style>
 <body><main class="wrap">
 <!--__SITE_NAV__-->
-<header class="brief"><span class="label">Field brief · Escape from Tarkov</span><h1>Choose your next raid</h1><p>Current quests by map. Open a map to connect your Logs folder, confirm your quest list and choose what to tackle this raid.</p></header>
+<header class="brief"><span class="label">Field brief · Escape from Tarkov</span><h1>Choose your next raid</h1><p>Current quests by map. Open Settings to connect your Logs folder, then open a map to choose what to tackle this raid.</p></header>
 <section class="home-controls" aria-label="Progress scope">
-<label>Profile and wipe<select id="homeScope"></select></label>
 <p class="map-note" id="homeEvidence"></p><p class="map-note" id="homeFreshness"></p>
 </section>
 <div class="notice" id="homeNotice"></div>
@@ -44,8 +43,9 @@
 <p class="home-footer">Current counts use accepted quests and your corrections for the chosen profile and wipe. Multi-map quests count on every map where they have objectives. Possible unlocks are estimates. Missing log history and opaque game conditions can affect them. Your quest progress stays in this browser; changing the site address starts a separate browser store.</p>
 <p class="home-footer">Data: <a href="https://tarkov.dev">tarkov.dev</a> · Prerequisite facts: <a href="https://escapefromtarkov.fandom.com/wiki/Quests">Escape from Tarkov Wiki (CC BY-SA)</a>. No affiliation with Battlestate Games.</p>
 <noscript>Enable JavaScript to read your saved quest progress and browse map counts.</noscript>
+<!--__SETTINGS__-->
 </main>
-<script>/*__QFILTER__*/</script><script>/*__QEFFORT__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__ROUTE__*/</script><script>/*__SUGGEST__*/</script><script>/*__HOME__*/</script>
+<script>/*__QFILTER__*/</script><script>/*__QEFFORT__*/</script><script>/*__TRACKER__*/</script><script>/*__PROGRESS__*/</script><script>/*__STORE__*/</script><script>/*__ROUTE__*/</script><script>/*__QUEST_FOCUS__*/</script><script>/*__SUGGEST__*/</script><script>/*__HOME__*/</script>
 <script>
 const DATA = /*__DATA__*/null;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -63,7 +63,14 @@ function loadAreas() {
   fetch((wanted === "pve" ? "pve/" : "") + "raid-areas.json").then(r => r.ok ? r.json() : null).then(data => { areas[wanted] = data; if (data && mode === wanted) render(); }).catch(() => {});
 }
 function checklist(key, map) { try { return JSON.parse(localStorage.getItem(`eft-checklist:${key}:${map}`)) || {}; } catch (e) { return {}; } }
-const scopeInput = document.getElementById("homeScope");
+const scopeInput = document.getElementById("progressScope"), levelInput = document.getElementById("playerLevel");
+const setText = (id, text) => { document.getElementById(id).textContent = text; };
+const activeScope = () => { const s = store.scopes[store.active[mode]]; return s?.mode === mode ? s : null; };
+function saveStore() { try { localStorage.setItem(ProgressStore.STORAGE_KEY, JSON.stringify(store)); } catch (e) {} }
+// A log event lands in the same store the map pages use, so the counts here stay current too.
+function handleEvents(events, meta) { ProgressStore.ingest(store, events, meta); saveStore(); render(); }
+function handleRaidEvent() {} // raid start and spawn only matter on a map page
+function afterTracker() {}
 // The site bar carries both modes' links; point it at the current mode.
 function syncNav() {
   document.querySelectorAll(".site-nav [data-pvp]").forEach(o => { o.value = mode === "pve" ? o.dataset.pve : o.dataset.pvp; });
@@ -74,19 +81,20 @@ function syncNav() {
 function render() {
   syncNav();
   const key = store.active[mode], scope = store.scopes[key]?.mode === mode ? store.scopes[key] : null;
-  scopeInput.innerHTML = '<option value="">Choose a profile and wipe</option>' + Object.entries(store.scopes)
-    .filter(([,s]) => s.mode === mode).map(([k,s]) => `<option value="${esc(k)}" ${scope && k === key ? "selected" : ""}>${esc(s.label)} · ${esc(s.profile)}</option>`).join("");
+  scopeInput.innerHTML = scopeOptions(store, mode, scope ? key : "");
   let savedLevel;
   try {savedLevel = Number(localStorage.getItem(`eft-player-level:${key}`));} catch(e) {}
   const level = Number.isInteger(savedLevel) && savedLevel >= 1 && savedLevel <= 100 ? savedLevel : DATA.player.level;
+  if (document.activeElement !== levelInput) levelInput.value = level;
+  levelInput.disabled = !scope;
   const found = ProgressStore.detectedProfiles(store, mode).profiles;
   document.getElementById("homeEvidence").textContent = scope ? `${scope.label} · ${scope.profile} · level ${level} · ${DATA.player.faction} · ${scope.evidence}`
-    : found.length ? `Your logs show ${found.length === 1 ? "a profile" : found.length + " profiles"} for this mode. Open any map, open Settings, and choose it under Profile and wipe.`
-    : "Choose a saved scope, or open a map to create one. No progress is assumed.";
+    : found.length ? `Your logs show ${found.length === 1 ? "a profile" : found.length + " profiles"} for this mode. Open Settings and choose it under Profile and wipe.`
+    : "Open Settings to connect your logs and choose a profile. No progress is assumed.";
   document.getElementById("homeFreshness").textContent = `tarkov.dev data from ${DATA.modes[mode].snapshot.slice(0, 10)} · ${MapHome.freshness(DATA.modes[mode].snapshot).toLowerCase()}`;
   const notice = document.getElementById("homeNotice");
   notice.hidden = !!scope;
-  notice.textContent = "No current quest list selected. Open a map, open Settings and choose your profile, then connect or import logs. Possible unlocks are estimated only after that.";
+  notice.innerHTML = `<p>No current quest list selected. Connect or import your logs, then choose your profile. Possible unlocks are estimated only after that.</p><button type="button" class="btn primary" data-open-settings>Open Settings</button>`;
   // The site-wide filter: chips list the traders with current quests in this scope.
   const have = scope?.gear || {};
   for (const q of Object.values(DATA.modes[mode].quests || {})) { q.easy = QuestEffort.assess(q.effort, { level, have }).easy; q.ready = QuestEffort.readiness(q.effort, { level, have }).ready; }
@@ -125,12 +133,24 @@ document.querySelector(".mode-toggle").addEventListener("click", e => {
 });
 window.addEventListener("eft-quest-filter", () => render());
 document.getElementById("homeAim").addEventListener("change", e => { aim = RaidSuggest.normalizeAim(e.target.value); RaidSuggest.saveAim(aim); render(); });
-scopeInput.addEventListener("change", () => {store.active[mode] = scopeInput.value; try {localStorage.setItem(ProgressStore.STORAGE_KEY,JSON.stringify(store));} catch(e) {} render();});
+scopeInput.addEventListener("change", () => {
+  if (scopeInput.value.startsWith("detect:")) try { ProgressStore.scopeFromLogs(store, mode, scopeInput.value.slice(7)); } catch (err) { setText("trkDetail", err.message); return; }
+  else store.active[mode] = scopeInput.value;
+  saveStore(); render();
+});
+levelInput.addEventListener("change", () => {
+  const value = Number(levelInput.value), key = store.active[mode];
+  if (Number.isInteger(value) && value >= 1 && value <= 100 && key) try { localStorage.setItem(`eft-player-level:${key}`, String(value)); } catch (e) {}
+  render();
+});
+/*__SETTINGS_UI__*/
 window.addEventListener("storage", e => {if(e.key === ProgressStore.STORAGE_KEY) {try {const next = JSON.parse(e.newValue); store = next?.version === 2 ? next : ProgressStore.empty(); render();} catch(e) {}}});
 window.addEventListener("storage", e => {if(e.key?.startsWith("eft-player-level:")) render();});
 window.addEventListener("eft-progress-change", () => {try {const saved = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY)); if (saved?.version === 2) store = saved;} catch(e) {}});
 render();
 /*__THEME__*/
+renderTracker();
+watcher.restore().catch(err => { trk.note = err.message; renderTracker(); });
 </script>
 <!--__SITE_SEARCH__-->
 </body></html>

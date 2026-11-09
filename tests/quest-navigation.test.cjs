@@ -37,7 +37,7 @@ test('actual page controller highlights and frames only; dialogs, inputs, scav a
   for (const id of ['questFocusNav', 'questFocusLabel']) nodes[id] = node(id);
   nodes.questFocusNav.addEventListener = (type, fn) => { listeners.nav = fn; };
   let dialog = false, observer;
-  const sandbox = { QuestNavigation: Nav, raidOn: true, scavOn: false,
+  const sandbox = { QuestNavigation: Nav, raidOn: true, scavOn: false, focusActive: () => false,
     pinned: Object.freeze([{ id: 'b', name: 'B', zones: ['zb'] }, { id: 'a', name: 'A', zones: ['za'] }, { id: 'no-map', name: 'No map', zones: [] }]),
     bsgId: q => q.id, RaidFocus: { facts: q => ({ zones: q.zones }) },
     document: { documentElement: { dataset: attrs }, body: {}, getElementById: id => nodes[id],

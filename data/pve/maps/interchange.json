@@ -560,6 +560,58 @@
    "gy": 25.2
   }
  ],
+ "doors": [
+  {
+   "id": "3fd6c84ec195c4424a56a9b6eedfbcd4e0a9a0c2",
+   "key": "OLI logistics department office key",
+   "keyId": "5ad5cfbd86f7742c825d6104",
+   "x": 542,
+   "y": 565,
+   "gx": 83.2,
+   "gz": 115.7,
+   "gy": 28.1
+  },
+  {
+   "id": "3683e172ccd438d79f298ef4883ac3018643794e",
+   "key": "Kiba Arms outer door key",
+   "keyId": "5ad5d7d286f77450166e0a89",
+   "x": 631,
+   "y": 421,
+   "gx": -9.4,
+   "gz": -33.7,
+   "gy": 28.2
+  },
+  {
+   "id": "7429efb2dcb7016e715077fb0a686ffdb56fae2e",
+   "key": "Object #11SR keycard",
+   "keyId": "5e42c81886f7742a01529f57",
+   "x": 672,
+   "y": 498,
+   "gx": -51.9,
+   "gz": 45.8,
+   "gy": 22.3
+  },
+  {
+   "id": "23c9e301490cd8fa6d59c9bffc0142b3303b4674",
+   "key": "Object #21WS keycard",
+   "keyId": "5e42c83786f7742a021fdf3c",
+   "x": 487,
+   "y": 708,
+   "gx": 140.2,
+   "gz": 263.3,
+   "gy": 25.2
+  },
+  {
+   "id": "33ea56de573ba731d223e9378c6f267f589d847d",
+   "key": "Kiba Arms inner grate door key",
+   "keyId": "5addaffe86f77470b455f900",
+   "x": 631,
+   "y": 421,
+   "gx": -9.9,
+   "gz": -33.8,
+   "gy": 28.2
+  }
+ ],
  "lootKeys": [
   {
    "key": "Kiba Arms inner grate door key",

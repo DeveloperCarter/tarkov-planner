@@ -86,6 +86,16 @@ class SitePipelineTests(unittest.TestCase):
                 pages.attach_art(bare, root / 'dist' / 'maps' / 'the-lab.html')
                 self.assertNotIn('art', bare['meta'], 'no rectangle, no floor plans')
 
+    def test_doors_list_only_keys_this_maps_quests_need(self):
+        fake = type('N', (), {'item_name': lambda self, i: {'k1': 'Dorm 314 key'}.get(i, i)})()
+        frame = etl.Frame([(0, 0), (100, 100)], pad=0)
+        en = lambda p: (p['x'], p['z'])
+        m = {'locks': [{'id': 'a', 'key': 'k1', 'position': {'x': 50, 'y': 5.5, 'z': 50}}, {'id': 'b', 'key': 'k2', 'position': {'x': 1, 'y': 1, 'z': 1}},
+                       {'id': 'c', 'key': 'k1'}, {'id': 'd', 'position': {'x': 2, 'y': 2, 'z': 2}}]}
+        quests = [{'needs': [{'kind': 'key', 'itemIds': ['k1']}, {'kind': 'item', 'itemIds': ['k2']}]}]
+        self.assertEqual(etl.Normalizer.build_doors(fake, m, frame, en, quests),
+                         [{'id': 'a', 'key': 'Dorm 314 key', 'keyId': 'k1', 'x': 500, 'y': 500, 'gx': 50, 'gz': 50, 'gy': 5.5}])
+
     def test_keycard_doors_keep_keycards_only_and_add_reported_doors(self):
         names = {'black': 'TerraGroup Labs keycard (Black)', 'key': "Admin's key"}
         fake = type('N', (), {'item_name': lambda self, i: names.get(i, i)})()

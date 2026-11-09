@@ -589,6 +589,78 @@
   }
  ],
  "keycards": [],
+ "doors": [
+  {
+   "id": "96a8c3cb83b0a3e4e0f5b92b920924996174d71b",
+   "key": "RB-ORB1 key",
+   "keyId": "5d80ccac86f77470841ff452",
+   "x": 789,
+   "y": 705,
+   "gx": -122.9,
+   "gz": 97.5,
+   "gy": 3.4
+  },
+  {
+   "id": "c75408068570192f22c554e2d0932fcaecc83bc5",
+   "key": "RB-ORB2 key",
+   "keyId": "5d80ccdd86f77474f7575e02",
+   "x": 789,
+   "y": 706,
+   "gx": -123.0,
+   "gz": 98.5,
+   "gy": -2.4
+  },
+  {
+   "id": "28665322e7e7ca614502848f05c01bb130e73e91",
+   "key": "RB-ORB3 key",
+   "keyId": "5d80cd1a86f77402aa362f42",
+   "x": 848,
+   "y": 626,
+   "gx": -170.2,
+   "gz": 34.0,
+   "gy": -2.4
+  },
+  {
+   "id": "0537dfac4f01e935c8149e3286cac28b4fb07117",
+   "key": "RB-OB key",
+   "keyId": "5d80c6c586f77440351beef1",
+   "x": 845,
+   "y": 626,
+   "gx": -167.8,
+   "gz": 34.5,
+   "gy": 0.5
+  },
+  {
+   "id": "26b0dcdde455525b6ae4aeb439c8818d81f6be2e",
+   "key": "RB-KSM key",
+   "keyId": "5d947d4e86f774447b415895",
+   "x": 710,
+   "y": 540,
+   "gx": -60.0,
+   "gz": -34.5,
+   "gy": -2.7
+  },
+  {
+   "id": "93071e1bf5f50b84f73c1ccee726a9bdc2b1d5cf",
+   "key": "RB-SMP key",
+   "keyId": "5d947d3886f774447b415893",
+   "x": 734,
+   "y": 547,
+   "gx": -78.7,
+   "gz": -29.5,
+   "gy": -2.7
+  },
+  {
+   "id": "e224e83d22b23ba98e11f364c48fc98e072fb0aa",
+   "key": "RB-ST key",
+   "keyId": "5d9f1fa686f774726974a992",
+   "x": 510,
+   "y": 638,
+   "gx": 100.8,
+   "gz": 43.7,
+   "gy": -5.6
+  }
+ ],
  "lootKeys": [
   {
    "key": "RB-BK marked key",
