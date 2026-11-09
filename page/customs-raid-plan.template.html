@@ -520,6 +520,13 @@ dialog.ss::backdrop { background:rgb(10 12 10 / .5); }
 .ss-name { font:600 16px/1.25 var(--font-body); }
 .ss-main .kmark { margin-left:0; }
 .pill.easy { color:var(--ok); border-color:var(--ok); }
+.loot-keys { list-style:none; margin:10px 0 0; padding:0; display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
+.loot-key { border:1px solid var(--line); border-radius:4px; background:var(--panel); padding:10px 12px; min-width:0; }
+.loot-key h3 { margin:0 0 6px; font-size:15px; overflow-wrap:anywhere; }
+.loot-key h3 span { color:var(--muted); font:600 12px var(--font-mono); margin-right:6px; }
+.loot-tags { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
+.loot-key p { margin:0; }
+.loot-key .map-note { margin-top:6px; }
 .emark { font:700 10px var(--font-mono); color:var(--ok); border:1px solid var(--ok); border-radius:3px; padding:0 4px; margin-left:6px; vertical-align:2px; cursor:help; }
 .ss-main .emark { margin-left:0; }
 .ss-new { font:700 10px var(--font-mono); color:var(--steel); border:1px solid var(--steel); border-radius:3px; padding:0 4px; }
@@ -781,6 +788,11 @@ dialog.drawer::backdrop { background:rgb(8 11 9 / .5); }
     <div class="gear-head"><h2 id="gearTitle">Needed on this map</h2><div class="seg" role="group" aria-label="Show gear for" id="gearScope"></div></div>
     <p class="map-note" id="gearNote"></p>
     <div id="gearList" class="gear-list"></div>
+    <div id="lootKeysBlock" hidden>
+      <h2>Best keys for loot</h2>
+      <p class="map-note">Ranked for rare loot, then ammo. Game odds aren't published: "by the door" means tarkov.dev has recorded that item at a spot within about 7 m of the door, which can include the hallway outside. Its spawn lists leave out ammo, so ammo picks come from the wiki, player ratings and the containers by the door. Picks checked 2026-11-08; prices update with each data refresh.</p>
+      <ol class="loot-keys" id="lootKeys"></ol>
+    </div>
     <h2 id="fleaTitle"></h2>
     <div class="tablewrap"><table id="flea"><thead><tr><th id="fleaCol">Category</th><th>Unlocks</th><th>You</th><th>What it means here</th></tr></thead><tbody></tbody></table></div>
     <p class="map-note" id="fleaNote"></p>
@@ -2514,6 +2526,19 @@ function gearRows(quests) {
     return { a, quests: forQ, qty, ...status, label: cash || status.label };
   }).sort((x, y) => y.quests.length - x.quests.length || x.a.item.localeCompare(y.a.item));
 }
+const LOOT_LABELS = { "marked-keys": "Marked keys", keycards: "Keycards", bitcoin: "Bitcoin", ledx: "LEDX", gpu: "Graphics cards", ammo: "Ammo", weapons: "Weapons", valuables: "Valuables", tech: "Tech", cash: "Cash" };
+function renderLootKeys() {
+  const picks = DATA.lootKeys || [];
+  document.getElementById("lootKeysBlock").hidden = !picks.length;
+  const spots = n => `${n} spot${n === 1 ? "" : "s"}`;
+  document.getElementById("lootKeys").innerHTML = picks.map((k, i) => {
+    const seen = Object.entries(k.seen).map(([t, n]) => `${LOOT_LABELS[t]} (${spots(n)})`), boxes = Object.entries(k.containers).map(([c, n]) => `${n}× ${c}`);
+    const facts = [k.price ? `Flea about ${k.price.toLocaleString("en-US")} ₽` : "Not on the flea", k.uses ? `${k.uses} use${k.uses === 1 ? "" : "s"}` : "", k.doors > 1 ? `${k.doors} doors` : ""].filter(Boolean);
+    return `<li class="loot-key"><h3><span>${i + 1}</span>${esc(k.key)}</h3><div class="loot-tags">${k.loot.map(t => `<span class="pill">${esc(LOOT_LABELS[t])}</span>`).join("")}</div><p>${esc(k.why)}</p>
+      <p class="map-note">${esc(facts.join(" · "))}</p>${seen.length ? `<p class="map-note">Seen by the door: ${esc(seen.join(", "))}</p>` : ""}${boxes.length ? `<p class="map-note">Containers by the door: ${esc(boxes.join(", "))}</p>` : ""}</li>`;
+  }).join("");
+}
+renderLootKeys();
 function renderGear() {
   const quests = gearScope === "raid" ? focus.quests : currentQuests, rows = gearRows(quests);
   document.getElementById("gearScope").innerHTML = [["map", `All current quests · ${currentQuests.length}`], ["raid", `This raid · ${focus.quests.length}`]]

@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -1000,6 +1015,189 @@
    "gx": 145.2,
    "gz": -36.1,
    "gy": 4.1
+  }
+ ],
+ "lootKeys": [
+  {
+   "key": "Abandoned factory marked key",
+   "itemId": "63a3a93f8a56922e82001f5d",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "ledx",
+    "weapons"
+   ],
+   "why": "Best marked room on Streets: very rare valuables, weapons, containers and keycards.",
+   "price": 20003548,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2,
+    "keycards": 3,
+    "gpu": 1,
+    "ledx": 2
+   },
+   "containers": {
+    "Weapon box": 2
+   }
+  },
+  {
+   "key": "Rusted bloody key",
+   "itemId": "64d4b23dc1b37504b41ac2b6",
+   "loot": [
+    "marked-keys",
+    "ammo",
+    "valuables"
+   ],
+   "why": "Very rare. Spawn data records marked keys for other maps about 20 m from this door, and a 2026 player guide agrees. The wiki also lists ammo packs.",
+   "price": null,
+   "uses": 1,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "Mysterious room marked key",
+   "itemId": "64ccc25f95763a1ae376e447",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "ledx"
+   ],
+   "why": "Same very rare table as the other marked rooms. Players rate it behind the Abandoned Factory.",
+   "price": 24232385,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2,
+    "keycards": 2,
+    "ledx": 2
+   },
+   "containers": {}
+  },
+  {
+   "key": "MVD academy entrance hall guard room key",
+   "itemId": "6582dc4b6ba9e979af6b79f4",
+   "loot": [
+    "ammo",
+    "valuables",
+    "weapons"
+   ],
+   "why": "Cheap, and rated the top ammo farm on the map: loose ammo packs and valuables, with an ORSIS T-5000M spawn.",
+   "price": 18272,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3
+   },
+   "containers": {
+    "Grenade box": 1
+   }
+  },
+  {
+   "key": "TerraGroup security armory key",
+   "itemId": "64ccc24de61ea448b507d34d",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Rated level with MVD for ammo: ammo packs, two weapon boxes, a grenade box, a weapon locker and rifle racks.",
+   "price": 380131,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Grenade box": 1,
+    "Weapon box": 2,
+    "PC block": 1
+   }
+  },
+  {
+   "key": "Concordia security room key",
+   "itemId": "63a39c7964283b5e9c56b280",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheap ammo farm: ammo packs, weapons and mods, two PC blocks and a safe.",
+   "price": 38693,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Safe": 1,
+    "PC block": 2
+   }
+  },
+  {
+   "key": "Cargo container mesh door key",
+   "itemId": "63a39fdf1e21260da44a0256",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheap: two wooden ammo boxes, two weapon boxes and a grenade box by the door.",
+   "price": 46104,
+   "uses": 20,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Wooden ammo box": 2,
+    "Weapon box": 2,
+    "Grenade box": 1
+   }
+  },
+  {
+   "key": "Iron gate key",
+   "itemId": "63a39f6e64283b5e9c56b289",
+   "loot": [
+    "bitcoin",
+    "ammo",
+    "valuables"
+   ],
+   "why": "Prison cells: Bitcoin seen at several spots, plus valuables and ammo packs.",
+   "price": 626191,
+   "uses": 40,
+   "doors": 3,
+   "seen": {
+    "bitcoin": 5
+   },
+   "containers": {}
+  },
+  {
+   "key": "Tarbank cash register department key",
+   "itemId": "64ccc2111779ad6ba200a139",
+   "loot": [
+    "cash"
+   ],
+   "why": "A cash register and bank safe in each booth, for roubles, dollars and euros.",
+   "price": 288779,
+   "uses": 40,
+   "doors": 2,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Bank safe": 2
+   }
+  },
+  {
+   "key": "Concordia apartment 8 room key",
+   "itemId": "63a71e781031ac76fe773c7d",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "valuables"
+   ],
+   "why": "Cheap valuables room with Bitcoin and graphics cards seen at its spots.",
+   "price": 36263,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3,
+    "gpu": 2
+   },
+   "containers": {}
   }
  ],
  "places": [],

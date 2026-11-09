@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -1096,6 +1111,133 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Dorm room 314 marked key",
+   "itemId": "5780cf7f2459777de4559322",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "valuables",
+    "weapons"
+   ],
+   "why": "The map's marked room: very rare valuables, weapons, containers and any Labs keycard. The most contested door on Customs.",
+   "price": 7072271,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3,
+    "keycards": 2,
+    "ledx": 1
+   },
+   "containers": {}
+  },
+  {
+   "key": "Dorm guard desk key",
+   "itemId": "59136a4486f774447a1ed172",
+   "loot": [
+    "marked-keys",
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheap. The wiki lists the 314 marked key among its many key spawns (spawn data does not confirm that one), with two wooden ammo boxes, a weapon box and a weapon rack.",
+   "price": 22088,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Safe": 1,
+    "Weapon box": 2,
+    "Wooden ammo box": 2
+   }
+  },
+  {
+   "key": "Dorm overseer key",
+   "itemId": "664d4b0103ef2c61246afb56",
+   "loot": [
+    "valuables",
+    "weapons",
+    "bitcoin"
+   ],
+   "why": "GP coins, valuables, a PMC body and rare modded rifles and SMGs.",
+   "price": 104910,
+   "uses": 2,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "Military checkpoint key",
+   "itemId": "5913915886f774123603c392",
+   "loot": [
+    "ammo"
+   ],
+   "why": "The best ammo door on the map: two wooden ammo boxes, two grenade boxes and a weapon locker.",
+   "price": 731756,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Grenade box": 2,
+    "Wooden ammo box": 2
+   }
+  },
+  {
+   "key": "Company director's room key",
+   "itemId": "6761a6f90575f25e020816a4",
+   "loot": [
+    "weapons",
+    "valuables"
+   ],
+   "why": "Two large weapon boxes, two safes and an intel folder spawn.",
+   "price": 41551,
+   "uses": 10,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "Portable bunkhouse key",
+   "itemId": "5938144586f77473c2087145",
+   "loot": [
+    "ammo"
+   ],
+   "why": "Very cheap ammo stop: loose ammo packs and one or two weapon boxes.",
+   "price": 10068,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 2
+   }
+  },
+  {
+   "key": "Gas station office key",
+   "itemId": "5780d0652459777df90dcb74",
+   "loot": [
+    "ammo",
+    "cash",
+    "bitcoin"
+   ],
+   "why": "Safe, loose ammo packs and cash, a pistol spawn, and the gas station storage key.",
+   "price": 54426,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Weapon box": 2,
+    "Safe": 1
+   }
+  }
+ ],
  "places": [],
  "spawns": [
   {

@@ -282,6 +282,10 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   adds doors seen in game that tarkov.dev lacks (Offices #2 took the Black keycard, reported
   2026-10-29, room only); they're drawn dashed, and the ETL says when tarkov.dev lists a door for
   the same keycard within 10 m so the entry can go.
+- Best keys for loot (`data/loot-keys.json`, ranked by hand 2026-11-08): the ETL joins each pick to today's price and uses, and counts
+  Bitcoin, LEDX, graphics cards, Labs keycards and marked keys at loose spots within 7 m and 2.2 m of height of its doors, plus containers.
+  No room outlines exist, so hallways can count. tarkov.dev's `lootLoose` holds no ammo at all: ammo picks need the wiki's Behind the Lock,
+  a dated player source or the containers. Many rooms changed at 1.0, so check a wiki page's last edit before trusting it.
   Places (`places`) are hand-listed spots tarkov.dev has no label for, from `data/map-places.json`, drawn as a
   named ring. Woods' Marked Circle Bunker uses Hindsight 20/20's `Bunker_enter` zone: same bunker (checked 2026-11-01).
   Ways in (`waysIn` in the same file) become an extract's `ways: {routes, spots}`. No source lists unlocked doors or

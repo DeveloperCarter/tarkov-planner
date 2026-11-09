@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -594,6 +609,27 @@
    "gx": -20.4,
    "gz": 44.1,
    "gy": -1.5
+  }
+ ],
+ "lootKeys": [
+  {
+   "key": "TerraGroup storage room keycard",
+   "itemId": "66acd6702b17692df20144c0",
+   "loot": [
+    "ledx",
+    "bitcoin",
+    "valuables"
+   ],
+   "why": "The only real loot door here, and expensive: two TerraGroup safes, a possible LEDX and possible Bitcoin.",
+   "price": 3351234,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Bank safe": 2
+   }
   }
  ],
  "places": [],

@@ -201,6 +201,25 @@ class SitePipelineTests(unittest.TestCase):
             zone = data['zones'][quest['objectives'][0]['zone'][0]]
             self.assertLess(((place['gx'] - zone['gx']) ** 2 + (place['gz'] - zone['gz']) ** 2) ** 0.5, 15)
 
+    def test_loot_keys_add_live_facts_and_skip_keys_without_a_door(self):
+        names = {'k': 'Good key', 'old': 'Gone key', 'btc': 'Physical Bitcoin', 'ledx': 'LEDX Skin Transilluminator', 'junk': 'Bolts'}
+        items = {'k': {'avg24hPrice': 5000, 'types': ['keys'], 'properties': {'uses': 40}}, 'old': {'types': ['keys'], 'avg24hPrice': 1}}
+        fake = type('N', (), {'items': items, 'item_name': lambda self, i: names.get(i, i), 'tr': lambda self, s: {'box Name': 'Wooden ammo box', 'jk Name': 'Jacket'}.get(s, s)})()
+        fake.loot_tag = lambda i: etl.Normalizer.loot_tag(fake, i)
+        door = {'x': 0, 'y': 5, 'z': 0}
+        m = {'normalizedName': 'streets', 'locks': [{'key': 'k', 'position': door}],
+             'lootLoose': [{'position': {'x': 3, 'y': 5, 'z': 0}, 'items': ['btc', 'junk']}, {'position': {'x': 0, 'y': 5, 'z': 6}, 'items': ['btc', 'ledx']},
+                           {'position': {'x': 20, 'y': 5, 'z': 0}, 'items': ['btc']}, {'position': {'x': 1, 'y': 9, 'z': 0}, 'items': ['btc']}],
+             'lootContainers': [{'lootContainer': 'box', 'position': {'x': 1, 'y': 5, 'z': 1}}, {'lootContainer': 'jk', 'position': door}]}
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'loot-keys.json'
+            path.write_text(json.dumps({'maps': {'streets': [{'key': 'Good key', 'loot': ['ammo'], 'why': 'Ammo'}, {'key': 'Gone key', 'loot': [], 'why': 'x'}]}}))
+            with patch.object(etl, 'LOOT_KEYS', path), patch('sys.stderr') as err:
+                out = etl.Normalizer.build_loot_keys(fake, m)
+                self.assertIn('Gone key', ''.join(c.args[0] for c in err.write.call_args_list), 'a pick with no door here is reported')
+        self.assertEqual(out, [{'key': 'Good key', 'itemId': 'k', 'loot': ['ammo'], 'why': 'Ammo', 'price': 5000, 'uses': 40, 'doors': 1,
+                                'seen': {'bitcoin': 2, 'ledx': 1}, 'containers': {'Wooden ammo box': 1}}], 'spots too far away or on another floor do not count')
+
     def test_placeholders_name_unlisted_quests_and_never_override_tarkov_dev(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'placeholder-quests.json'

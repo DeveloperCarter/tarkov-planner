@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -377,6 +392,54 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Underground parking utility room key",
+   "itemId": "658199972dc4e60f6d556a2f",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Best value at low level: a wooden ammo box, two weapon boxes and a grenade box.",
+   "price": 4617,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 3,
+    "Grenade box": 2,
+    "Wooden ammo box": 2
+   }
+  },
+  {
+   "key": "TerraGroup science office key",
+   "itemId": "658199aa38c79576a2569e13",
+   "loot": [
+    "tech"
+   ],
+   "why": "Three PC blocks and four drawers.",
+   "price": 164962,
+   "uses": 1,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "PC block": 1
+   }
+  },
+  {
+   "key": "Unity Credit Bank cash register key",
+   "itemId": "6581998038c79576a2569e11",
+   "loot": [
+    "cash"
+   ],
+   "why": "Very cheap. Loose currency, a locked safe and a drawer.",
+   "price": 6106,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  }
+ ],
  "places": [],
  "spawns": [
   {

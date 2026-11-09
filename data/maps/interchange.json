@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -543,6 +558,105 @@
    "gx": 140.2,
    "gz": 263.3,
    "gy": 25.2
+  }
+ ],
+ "lootKeys": [
+  {
+   "key": "Kiba Arms inner grate door key",
+   "itemId": "5addaffe86f77470b455f900",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Needs the expensive outer door key too, and power on. Ammo packs, armor plates, three weapon boxes and rare rifles on the racks.",
+   "price": 213204,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "ULTRA medical storage key",
+   "itemId": "5e42c71586f7747f245e1343",
+   "loot": [
+    "ledx",
+    "valuables"
+   ],
+   "why": "Needs power. Valuables and stims, with four LEDX-listed spots by the door.",
+   "price": 338756,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "ledx": 4
+   },
+   "containers": {}
+  },
+  {
+   "key": "Object #11SR keycard",
+   "itemId": "5e42c81886f7742a01529f57",
+   "loot": [
+    "weapons",
+    "valuables",
+    "bitcoin"
+   ],
+   "why": "Needs power. Modded M4A1s, three weapon boxes and rare item spawns, and it opens the Saferoom extract.",
+   "price": 54101,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Weapon box": 3
+   }
+  },
+  {
+   "key": "Grumpy's hideout key",
+   "itemId": "664d3dd590294949fe2d81b7",
+   "loot": [
+    "keycards",
+    "ammo",
+    "weapons"
+   ],
+   "why": "Sold by Ref. Green keycard spawn, ammo packs, armor plates and rare modded rifles.",
+   "price": null,
+   "uses": 5,
+   "doors": 1,
+   "seen": {
+    "keycards": 1
+   },
+   "containers": {}
+  },
+  {
+   "key": "Object #21WS keycard",
+   "itemId": "5e42c83786f7742a021fdf3c",
+   "loot": [
+    "weapons",
+    "valuables"
+   ],
+   "why": "Three weapon boxes, weapon mods and valuables.",
+   "price": 29191,
+   "uses": 10,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "EMERCOM medical unit key",
+   "itemId": "5ad5db3786f7743568421cce",
+   "loot": [
+    "ledx"
+   ],
+   "why": "Cheap LEDX chance, plus two medbags and a defibrillator spawn.",
+   "price": 40097,
+   "uses": 40,
+   "doors": 3,
+   "seen": {
+    "ledx": 2
+   },
+   "containers": {}
   }
  ],
  "places": [],

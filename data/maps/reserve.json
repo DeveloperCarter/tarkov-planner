@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -574,6 +589,157 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "RB-BK marked key",
+   "itemId": "5d80c60f86f77440373c4ece",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "valuables",
+    "weapons"
+   ],
+   "why": "Top marked room on the map, with the most rare spawns seen. Heavily camped.",
+   "price": 1234116,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 5,
+    "keycards": 3
+   },
+   "containers": {}
+  },
+  {
+   "key": "RB-VO marked key",
+   "itemId": "5d80c62a86f7744036212b3f",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "valuables",
+    "weapons"
+   ],
+   "why": "Same very rare loot table as RB-BK.",
+   "price": 1030695,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1,
+    "gpu": 1,
+    "keycards": 1
+   },
+   "containers": {
+    "Grenade box": 1
+   }
+  },
+  {
+   "key": "RB-PKPM marked key",
+   "itemId": "5ede7a8229445733cb4c18e2",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "valuables",
+    "weapons"
+   ],
+   "why": "Same rare table, plus three drawers. Players rate it the weakest of the three.",
+   "price": 1071134,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3,
+    "keycards": 2
+   },
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "RB-PKPTS key",
+   "itemId": "68e9654d72488961110dbf69",
+   "loot": [
+    "bitcoin",
+    "valuables",
+    "tech"
+   ],
+   "why": "Non-marked but rich: loose valuables and electronics, an intel folder, and Bitcoin seen in the room.",
+   "price": 661345,
+   "uses": 20,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2
+   },
+   "containers": {}
+  },
+  {
+   "key": "RB-ST key",
+   "itemId": "5d9f1fa686f774726974a992",
+   "loot": [
+    "ammo",
+    "weapons",
+    "tech"
+   ],
+   "why": "Best ammo and military room: loose ammunition, three weapon boxes, two grenade boxes, tank batteries and shells.",
+   "price": 88774,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 2,
+    "Grenade box": 1
+   }
+  },
+  {
+   "key": "RB-AK key",
+   "itemId": "5d80c78786f774403a401e3e",
+   "loot": [
+    "gpu",
+    "valuables",
+    "ammo"
+   ],
+   "why": "Cheap tech room: two PC blocks, graphics cards, Virtex and Tetriz spawns, and several ammo boxes.",
+   "price": 31528,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "gpu": 2
+   },
+   "containers": {
+    "Grenade box": 2
+   }
+  },
+  {
+   "key": "RB-ORB2 key",
+   "itemId": "5d80ccdd86f77474f7575e02",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Loose ammunition and weapon mods with two weapon boxes.",
+   "price": 177332,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 4
+   }
+  },
+  {
+   "key": "RB-MP22 key",
+   "itemId": "5d80cab086f77440535be201",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheap: one to three wooden ammo boxes and two weapon racks.",
+   "price": 32129,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Grenade box": 3,
+    "Wooden ammo box": 3
+   }
+  }
+ ],
  "places": [],
  "spawns": [
   {

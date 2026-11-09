@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -438,6 +453,150 @@
    "gy": 5.2,
    "reported": true,
    "note": "Offices #2 now takes the Black keycard (reported in game; tarkov.dev doesn't list this door yet, so the marker shows the room, not the exact door)."
+  }
+ ],
+ "lootKeys": [
+  {
+   "key": "TerraGroup Labs keycard (Black)",
+   "itemId": "5c1d0f4986f7744bb01837fa",
+   "loot": [
+    "bitcoin",
+    "keycards",
+    "ledx",
+    "valuables"
+   ],
+   "why": "Best overall: Kruglov's office and the experiment room, with the most Bitcoin spawns seen in the Lab.",
+   "price": 553739,
+   "uses": 10,
+   "doors": 4,
+   "seen": {
+    "ledx": 2,
+    "bitcoin": 9,
+    "keycards": 3
+   },
+   "containers": {}
+  },
+  {
+   "key": "TerraGroup Labs keycard (Yellow)",
+   "itemId": "5c1d0d6d86f7744bb2683e1f",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "ledx",
+    "keycards"
+   ],
+   "why": "Red keycard spawn, a weapon safe, valuables and electronics. Rated level with Black.",
+   "price": 180218,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "ledx": 6,
+    "bitcoin": 6,
+    "gpu": 6
+   },
+   "containers": {}
+  },
+  {
+   "key": "TerraGroup Labs keycard (Violet)",
+   "itemId": "5c1e495a86f7743109743dfb",
+   "loot": [
+    "weapons",
+    "tech",
+    "bitcoin"
+   ],
+   "why": "Three weapon boxes, weapon mods, cash, and an RFID reader spawn on the server rack.",
+   "price": 319781,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "ledx": 1,
+    "bitcoin": 3,
+    "gpu": 1
+   },
+   "containers": {
+    "Weapon box": 5
+   }
+  },
+  {
+   "key": "TerraGroup Labs keycard (Red)",
+   "itemId": "5c1d0efb86f7744baf2e7b7b",
+   "loot": [
+    "ammo",
+    "weapons",
+    "ledx"
+   ],
+   "why": "The best ammo door in the Lab: multiple ammunition spawns, weapon mods and racks of modded rifles.",
+   "price": 871593,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "ledx": 2,
+    "bitcoin": 2,
+    "gpu": 2
+   },
+   "containers": {
+    "Weapon box": 4,
+    "PC block": 1
+   }
+  },
+  {
+   "key": "TerraGroup Labs weapon testing area key",
+   "itemId": "5c1e2d1f86f77431e9280bee",
+   "loot": [
+    "ammo",
+    "weapons",
+    "bitcoin"
+   ],
+   "why": "Cheap for the Lab: loose ammunition and mods, plus two weapon boxes.",
+   "price": 80364,
+   "uses": 40,
+   "doors": 2,
+   "seen": {
+    "ledx": 1,
+    "bitcoin": 2,
+    "gpu": 1
+   },
+   "containers": {
+    "Weapon box": 4
+   }
+  },
+  {
+   "key": "TerraGroup Labs residential unit keycard",
+   "itemId": "6711039f9e648049e50b3307",
+   "loot": [
+    "bitcoin",
+    "valuables"
+   ],
+   "why": "Valuables, intel and blue folders, with Bitcoin seen at several spots.",
+   "price": 98283,
+   "uses": 2,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 6
+   },
+   "containers": {}
+  },
+  {
+   "key": "TerraGroup Labs manager's office room key",
+   "itemId": "5c1e2a1e86f77431ea0ea84c",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "valuables"
+   ],
+   "why": "Blue keycard spawn, two PC blocks, a safe and valuables.",
+   "price": 61655,
+   "uses": 40,
+   "doors": 2,
+   "seen": {
+    "keycards": 1,
+    "bitcoin": 4
+   },
+   "containers": {
+    "Weapon box": 2,
+    "PC block": 2,
+    "Safe": 1
+   }
   }
  ],
  "places": [],

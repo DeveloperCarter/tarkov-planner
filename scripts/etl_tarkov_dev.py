@@ -41,6 +41,11 @@ VARIANT_OF = {"night-factory": "factory", "ground-zero-21": "ground-zero", "grou
 PLACEHOLDERS = ROOT / "data" / "placeholder-quests.json"
 # Keycard doors seen in game that tarkov.dev doesn't list yet. Edited by hand; see the file's notes.
 KEYCARD_DOORS = ROOT / "data" / "keycard-doors.json"
+# Keys ranked by hand for their loot, per map; the ETL adds prices and what spawn data shows. See the file's notes.
+LOOT_KEYS = ROOT / "data" / "loot-keys.json"
+# How close to a locked door a spawn counts as "by the door": no room outlines exist, so hallways can slip in.
+DOOR_REACH_M, DOOR_REACH_HEIGHT_M = 7, 2.2
+LOOT_CONTAINERS = ("Wooden ammo box", "Weapon box", "Grenade box", "Safe", "Bank safe", "PC block", "Technical supply crate")
 MAP_PLACES = ROOT / "data" / "map-places.json"
 # Quests the game offers that tarkov.dev doesn't list yet, with objectives. Edited by hand; see the file's notes.
 HAND_QUESTS = ROOT / "data" / "hand-quests.json"
@@ -569,6 +574,7 @@ class Normalizer:
         extracts = self.build_extracts(m, frame, en)
         attach_ways_in(extracts, m["normalizedName"], frame, en)
         spawns, spawn_areas = build_spawns(m, frame, en, extracts, labels)
+        loot_keys = self.build_loot_keys(m)
         print(f"SPAWNS {self.mode}/{key}: {len(spawns)} spawns, {len(spawn_areas)} areas: " +
               "; ".join(a["name"] for a in spawn_areas), file=sys.stderr)
         return {
@@ -589,6 +595,7 @@ class Normalizer:
                 "sources": [
                     {"name": "tarkov.dev data (json.tarkov.dev)", "url": "https://tarkov.dev", "use": "Tasks, objectives, positions, keys, items, traders, barters, crafts, flea levels"},
                     {"name": "tarkov-dev map labels (MIT)", "url": "https://github.com/the-hideout/tarkov-dev", "use": "Area names and coordinate rotation"},
+                    *(json.loads(LOOT_KEYS.read_text(encoding="utf-8"))["sources"] if loot_keys else []),
                 ],
                 "caveats": [
                     "Routes use straight-line distances between selected objectives; check terrain and access requirements.",
@@ -599,6 +606,7 @@ class Normalizer:
             "zones": zones,
             "extracts": extracts,
             "keycards": self.build_keycards(m, frame, en),
+            "lootKeys": loot_keys,
             "places": build_places(m["normalizedName"], frame, en),
             "spawns": spawns,
             "spawnAreas": spawn_areas,
@@ -867,6 +875,47 @@ class Normalizer:
             x, y = frame.xy(en(lock["position"]))
             out.append({"id": lock["id"], "key": name, "keyId": lock["key"], "x": x, "y": y, **game_position(lock["position"]),
                         **({"reported": True, "note": lock.get("note")} if lock in reported else {})})
+        return out
+
+    def loot_tag(self, iid: str) -> str | None:
+        """The rare-loot group an item counts towards when listing what has been seen by a locked door."""
+        name = self.item_name(iid)
+        if name == "Physical Bitcoin":
+            return "bitcoin"
+        if name.startswith("LEDX"):
+            return "ledx"
+        if name.startswith("Graphics card"):
+            return "gpu"
+        if name.startswith("TerraGroup Labs keycard"):
+            return "keycards"
+        return "marked-keys" if "marked key" in name else None
+
+    def build_loot_keys(self, m: dict) -> list:
+        """Keys ranked by hand for loot, with today's price and what tarkov.dev has recorded by the door."""
+        key = m["normalizedName"]
+        picks = json.loads(LOOT_KEYS.read_text(encoding="utf-8"))["maps"].get(key, []) if LOOT_KEYS.exists() else []
+        ids = {self.item_name(iid): iid for iid in self.items} if picks else {}
+        out = []
+        for pick in picks:
+            iid = ids.get(pick["key"])
+            doors = [l["position"] for l in m.get("locks", []) if iid and l.get("key") == iid and l.get("position")]
+            if not doors:
+                print(f"  loot key {pick['key']!r} has no door on {key} in tarkov.dev; check {LOOT_KEYS.name}", file=sys.stderr)
+                continue
+            by_door = lambda p: any(math.hypot(p["x"] - d["x"], p["z"] - d["z"]) <= DOOR_REACH_M and abs(p["y"] - d["y"]) <= DOOR_REACH_HEIGHT_M for d in doors)
+            seen, containers = {}, {}
+            for spot in m.get("lootLoose", []):
+                if by_door(spot["position"]):
+                    for tag in {self.loot_tag(i) for i in spot.get("items", [])} - {None}:
+                        seen[tag] = seen.get(tag, 0) + 1
+            for c in m.get("lootContainers", []):
+                name = self.tr(f"{c['lootContainer']} Name")
+                if name in LOOT_CONTAINERS and by_door(c["position"]):
+                    containers[name] = containers.get(name, 0) + 1
+            item = self.items[iid]
+            no_flea = "noFlea" in item.get("types", []) or not item.get("avg24hPrice")
+            out.append({"key": pick["key"], "itemId": iid, "loot": pick["loot"], "why": pick["why"], "price": None if no_flea else item["avg24hPrice"],
+                        "uses": (item.get("properties") or {}).get("uses"), "doors": len(doors), "seen": seen, "containers": containers})
         return out
 
     def build_bosses(self, m: dict) -> list:

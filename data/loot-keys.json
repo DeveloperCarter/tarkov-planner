@@ -1,0 +1,107 @@
+{
+ "notes": [
+  "Hand-ranked keys for loot on each map, best first. Checked 2026-11-08 against tarkov.dev's current spawn lists, each key's EFT Wiki 'Behind the Lock' section and its last edit date, and guides dated 2026.",
+  "Picks resting only on a pre-1.0 source (before 2025-11-15) were dropped, because many rooms changed at 1.0.",
+  "tarkov.dev's loose-loot lists contain no ammo at all, so ammo picks rest on the wiki, guides and the containers by the door. Say 'ammo packs' unless a source names the tier.",
+  "key is the item's English name; the ETL adds price, uses and what has been seen by the door, and warns when a name or door no longer matches.",
+  "loot is any of: marked-keys, keycards, bitcoin, ledx, gpu, ammo, weapons, valuables, tech, cash."
+ ],
+ "sources": [
+  {"name": "Escape from Tarkov Wiki key pages (CC BY-SA)", "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel", "use": "What is behind each locked door (best keys for loot)"},
+  {"name": "tigz.tv key lists", "url": "https://tigz.tv/keys/streets-of-tarkov", "use": "Player ratings of keys, August 2026 (best keys for loot)"},
+  {"name": "Timesaver map guides", "url": "https://timesaver.gg/blog/keys-guide", "use": "Room contents by map, 2026 guides (best keys for loot)"}
+ ],
+ "maps": {
+  "customs": [
+   {"key": "Dorm room 314 marked key", "loot": ["keycards", "bitcoin", "valuables", "weapons"], "why": "The map's marked room: very rare valuables, weapons, containers and any Labs keycard. The most contested door on Customs."},
+   {"key": "Dorm guard desk key", "loot": ["marked-keys", "ammo", "weapons"], "why": "Cheap. The wiki lists the 314 marked key among its many key spawns (spawn data does not confirm that one), with two wooden ammo boxes, a weapon box and a weapon rack."},
+   {"key": "Dorm overseer key", "loot": ["valuables", "weapons", "bitcoin"], "why": "GP coins, valuables, a PMC body and rare modded rifles and SMGs."},
+   {"key": "Military checkpoint key", "loot": ["ammo"], "why": "The best ammo door on the map: two wooden ammo boxes, two grenade boxes and a weapon locker."},
+   {"key": "Company director's room key", "loot": ["weapons", "valuables"], "why": "Two large weapon boxes, two safes and an intel folder spawn."},
+   {"key": "Portable bunkhouse key", "loot": ["ammo"], "why": "Very cheap ammo stop: loose ammo packs and one or two weapon boxes."},
+   {"key": "Gas station office key", "loot": ["ammo", "cash", "bitcoin"], "why": "Safe, loose ammo packs and cash, a pistol spawn, and the gas station storage key."}
+  ],
+  "factory": [
+   {"key": "TerraGroup storage room keycard", "loot": ["ledx", "bitcoin", "valuables"], "why": "The only real loot door here, and expensive: two TerraGroup safes, a possible LEDX and possible Bitcoin."}
+  ],
+  "woods": [
+   {"key": "Old house room key", "loot": ["bitcoin", "valuables", "tech"], "why": "Best key on the map: loose valuables, two weapon boxes, and military battery and power filter spawns."},
+   {"key": "Shatun's hideout key", "loot": ["keycards", "bitcoin", "weapons"], "why": "Sold by Ref. Yellow keycard spawn, valuables and rare modded marksman rifles."},
+   {"key": "Old house toilet key", "loot": ["tech", "valuables"], "why": "Guaranteed military battery, plus TarCoin and blue folders in the sink."},
+   {"key": "ZB-014 key", "loot": ["ammo", "weapons"], "why": "A large weapon box and several 60-round AK magazines. Also opens the bunker extract."}
+  ],
+  "lighthouse": [
+   {"key": "Lighthouse island stash key", "loot": ["bitcoin", "gpu", "valuables", "ammo"], "why": "Valuables, containers, weapon mods and ammo packs, with Bitcoin and graphics cards seen in the room."},
+   {"key": "Substation marked key", "loot": ["weapons", "ammo"], "why": "Marked room with a weapon case, modded weapons and ammo packs."},
+   {"key": "Leon's hideout key", "loot": ["keycards", "bitcoin", "gpu"], "why": "Sold by Ref. Red keycard spawn, a graphics card, valuables and rare melee weapons."},
+   {"key": "Rogue USEC barrack key", "loot": ["bitcoin", "ammo", "weapons"], "why": "Cheap. A Bitcoin spawn on the chair, a wooden ammo box and two weapon boxes, inside Rogue territory."},
+   {"key": "Water treatment plant storage room key", "loot": ["tech", "bitcoin", "valuables"], "why": "Technical supply crate, loose military tech and valuables."},
+   {"key": "Conference room key", "loot": ["ammo", "bitcoin", "valuables"], "why": "Cheap. Ammo packs, a weapon box, PC block, and valuables and cash on the desk."},
+   {"key": "Hillside house key", "loot": ["bitcoin", "valuables", "tech"], "why": "Cheap. Military electronics in the sink and frequent valuables. Its wiki page is old, but current spawn data backs it."}
+  ],
+  "shoreline": [
+   {"key": "Health Resort east wing room 222 key", "loot": ["bitcoin", "ledx", "weapons"], "why": "Opens through to 226. A Bitcoin spawn in the cardboard box, several LEDX spawns in 226 and three good weapon spawns. Cheaper than the 226 key."},
+   {"key": "Health Resort west wing room 301 key", "loot": ["ledx", "gpu", "bitcoin"], "why": "Reaches 304 too: several LEDX and up to three graphics card spawns, plus a large weapon box."},
+   {"key": "Health Resort office key with a blue tape", "loot": ["ledx", "gpu", "bitcoin"], "why": "East wing 110. Multiple LEDX spawns in the bathroom and a possible graphics card. Heavily contested."},
+   {"key": "Health Resort west wing room 222 key", "loot": ["keycards", "ammo", "weapons"], "why": "Cheapest way through 222, 221 and 218: Red keycard spawn and ammo packs in 218, plus RSASS and SV-98 spawns."},
+   {"key": "Health Resort east wing room 205 key", "loot": ["keycards", "weapons"], "why": "Opens through to 206: Red keycard spawn, four weapon boxes and rare loose loot. Cheaper than the 206 key."},
+   {"key": "Health Resort west wing room 205 key", "loot": ["keycards", "ledx", "gpu"], "why": "Opens through to 203: Red keycard spawn, two LEDX spawns and a graphics card. Cheaper than the 203 key."},
+   {"key": "Cottage back door key", "loot": ["keycards", "valuables", "weapons"], "why": "Away from the resort: Yellow keycard spawn, safes, gun cabinets and a PC block."}
+  ],
+  "reserve": [
+   {"key": "RB-BK marked key", "loot": ["keycards", "bitcoin", "valuables", "weapons"], "why": "Top marked room on the map, with the most rare spawns seen. Heavily camped."},
+   {"key": "RB-VO marked key", "loot": ["keycards", "bitcoin", "valuables", "weapons"], "why": "Same very rare loot table as RB-BK."},
+   {"key": "RB-PKPM marked key", "loot": ["keycards", "bitcoin", "valuables", "weapons"], "why": "Same rare table, plus three drawers. Players rate it the weakest of the three."},
+   {"key": "RB-PKPTS key", "loot": ["bitcoin", "valuables", "tech"], "why": "Non-marked but rich: loose valuables and electronics, an intel folder, and Bitcoin seen in the room."},
+   {"key": "RB-ST key", "loot": ["ammo", "weapons", "tech"], "why": "Best ammo and military room: loose ammunition, three weapon boxes, two grenade boxes, tank batteries and shells."},
+   {"key": "RB-AK key", "loot": ["gpu", "valuables", "ammo"], "why": "Cheap tech room: two PC blocks, graphics cards, Virtex and Tetriz spawns, and several ammo boxes."},
+   {"key": "RB-ORB2 key", "loot": ["ammo", "weapons"], "why": "Loose ammunition and weapon mods with two weapon boxes."},
+   {"key": "RB-MP22 key", "loot": ["ammo", "weapons"], "why": "Cheap: one to three wooden ammo boxes and two weapon racks."}
+  ],
+  "interchange": [
+   {"key": "Kiba Arms inner grate door key", "loot": ["ammo", "weapons"], "why": "Needs the expensive outer door key too, and power on. Ammo packs, armor plates, three weapon boxes and rare rifles on the racks."},
+   {"key": "ULTRA medical storage key", "loot": ["ledx", "valuables"], "why": "Needs power. Valuables and stims, with four LEDX-listed spots by the door."},
+   {"key": "Object #11SR keycard", "loot": ["weapons", "valuables", "bitcoin"], "why": "Needs power. Modded M4A1s, three weapon boxes and rare item spawns, and it opens the Saferoom extract."},
+   {"key": "Grumpy's hideout key", "loot": ["keycards", "ammo", "weapons"], "why": "Sold by Ref. Green keycard spawn, ammo packs, armor plates and rare modded rifles."},
+   {"key": "Object #21WS keycard", "loot": ["weapons", "valuables"], "why": "Three weapon boxes, weapon mods and valuables."},
+   {"key": "EMERCOM medical unit key", "loot": ["ledx"], "why": "Cheap LEDX chance, plus two medbags and a defibrillator spawn."}
+  ],
+  "streets-of-tarkov": [
+   {"key": "Abandoned factory marked key", "loot": ["keycards", "bitcoin", "ledx", "weapons"], "why": "Best marked room on Streets: very rare valuables, weapons, containers and keycards."},
+   {"key": "Rusted bloody key", "loot": ["marked-keys", "ammo", "valuables"], "why": "Very rare. Spawn data records marked keys for other maps about 20 m from this door, and a 2026 player guide agrees. The wiki also lists ammo packs."},
+   {"key": "Mysterious room marked key", "loot": ["keycards", "bitcoin", "ledx"], "why": "Same very rare table as the other marked rooms. Players rate it behind the Abandoned Factory."},
+   {"key": "MVD academy entrance hall guard room key", "loot": ["ammo", "valuables", "weapons"], "why": "Cheap, and rated the top ammo farm on the map: loose ammo packs and valuables, with an ORSIS T-5000M spawn."},
+   {"key": "TerraGroup security armory key", "loot": ["ammo", "weapons"], "why": "Rated level with MVD for ammo: ammo packs, two weapon boxes, a grenade box, a weapon locker and rifle racks."},
+   {"key": "Concordia security room key", "loot": ["ammo", "weapons"], "why": "Cheap ammo farm: ammo packs, weapons and mods, two PC blocks and a safe."},
+   {"key": "Cargo container mesh door key", "loot": ["ammo", "weapons"], "why": "Cheap: two wooden ammo boxes, two weapon boxes and a grenade box by the door."},
+   {"key": "Iron gate key", "loot": ["bitcoin", "ammo", "valuables"], "why": "Prison cells: Bitcoin seen at several spots, plus valuables and ammo packs."},
+   {"key": "Tarbank cash register department key", "loot": ["cash"], "why": "A cash register and bank safe in each booth, for roubles, dollars and euros."},
+   {"key": "Concordia apartment 8 room key", "loot": ["bitcoin", "gpu", "valuables"], "why": "Cheap valuables room with Bitcoin and graphics cards seen at its spots."}
+  ],
+  "the-lab": [
+   {"key": "TerraGroup Labs keycard (Black)", "loot": ["bitcoin", "keycards", "ledx", "valuables"], "why": "Best overall: Kruglov's office and the experiment room, with the most Bitcoin spawns seen in the Lab."},
+   {"key": "TerraGroup Labs keycard (Yellow)", "loot": ["bitcoin", "gpu", "ledx", "keycards"], "why": "Red keycard spawn, a weapon safe, valuables and electronics. Rated level with Black."},
+   {"key": "TerraGroup Labs keycard (Violet)", "loot": ["weapons", "tech", "bitcoin"], "why": "Three weapon boxes, weapon mods, cash, and an RFID reader spawn on the server rack."},
+   {"key": "TerraGroup Labs keycard (Red)", "loot": ["ammo", "weapons", "ledx"], "why": "The best ammo door in the Lab: multiple ammunition spawns, weapon mods and racks of modded rifles."},
+   {"key": "TerraGroup Labs weapon testing area key", "loot": ["ammo", "weapons", "bitcoin"], "why": "Cheap for the Lab: loose ammunition and mods, plus two weapon boxes."},
+   {"key": "TerraGroup Labs residential unit keycard", "loot": ["bitcoin", "valuables"], "why": "Valuables, intel and blue folders, with Bitcoin seen at several spots."},
+   {"key": "TerraGroup Labs manager's office room key", "loot": ["keycards", "bitcoin", "valuables"], "why": "Blue keycard spawn, two PC blocks, a safe and valuables."}
+  ],
+  "ground-zero": [
+   {"key": "Underground parking utility room key", "loot": ["ammo", "weapons"], "why": "Best value at low level: a wooden ammo box, two weapon boxes and a grenade box."},
+   {"key": "TerraGroup science office key", "loot": ["tech"], "why": "Three PC blocks and four drawers."},
+   {"key": "Unity Credit Bank cash register key", "loot": ["cash"], "why": "Very cheap. Loose currency, a locked safe and a drawer."}
+  ],
+  "the-labyrinth": [
+   {"key": "Corpse room key", "loot": ["bitcoin", "gpu", "valuables"], "why": "Very rare valuables and containers, and the richest spawn list in the Labyrinth."},
+   {"key": "Observation room key", "loot": ["bitcoin", "gpu", "valuables"], "why": "Valuables, electronics and stims, with Labrys research notes."},
+   {"key": "Torture room key", "loot": ["bitcoin", "gpu", "valuables"], "why": "No wiki entry yet, but Bitcoin and graphics cards are seen by the door."}
+  ],
+  "icebreaker": [
+   {"key": "Compartment C-3 keycard", "loot": ["ledx"], "why": "Four LEDX in the overseeing cabin. Rarely listed, so its flea price is unreliable. No insurance on this map."},
+   {"key": "Boreas crew quarters keycard", "loot": ["valuables", "tech"], "why": "Opens eight cabins of electronics, meds and provisions, the most doors per card."},
+   {"key": "Boreas engine room keycard", "loot": ["valuables"], "why": "Sports bag and loose valuables and stims."},
+   {"key": "Compartment C-1 keycard", "loot": ["tech"], "why": "Two PC blocks and electronics."}
+  ]
+ }
+}

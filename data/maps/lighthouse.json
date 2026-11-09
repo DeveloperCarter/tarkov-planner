@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -634,6 +649,134 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Lighthouse island stash key",
+   "itemId": "6a8d581fe74010bf70069d83",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "valuables",
+    "ammo"
+   ],
+   "why": "Valuables, containers, weapon mods and ammo packs, with Bitcoin and graphics cards seen in the room.",
+   "price": null,
+   "uses": 1,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 5,
+    "gpu": 3
+   },
+   "containers": {}
+  },
+  {
+   "key": "Substation marked key",
+   "itemId": "62987dfc402c7f69bf010923",
+   "loot": [
+    "weapons",
+    "ammo"
+   ],
+   "why": "Marked room with a weapon case, modded weapons and ammo packs.",
+   "price": 544367,
+   "uses": 10,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "Leon's hideout key",
+   "itemId": "664d3de85f2355673b09aed5",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "gpu"
+   ],
+   "why": "Sold by Ref. Red keycard spawn, a graphics card, valuables and rare melee weapons.",
+   "price": null,
+   "uses": 5,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 4,
+    "gpu": 2,
+    "keycards": 1
+   },
+   "containers": {}
+  },
+  {
+   "key": "Rogue USEC barrack key",
+   "itemId": "62a9cb937377a65d7b070cef",
+   "loot": [
+    "bitcoin",
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheap. A Bitcoin spawn on the chair, a wooden ammo box and two weapon boxes, inside Rogue territory.",
+   "price": 39226,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Weapon box": 1,
+    "Wooden ammo box": 1
+   }
+  },
+  {
+   "key": "Water treatment plant storage room key",
+   "itemId": "62987e26a77ec735f90a2995",
+   "loot": [
+    "tech",
+    "bitcoin",
+    "valuables"
+   ],
+   "why": "Technical supply crate, loose military tech and valuables.",
+   "price": 41468,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3
+   },
+   "containers": {}
+  },
+  {
+   "key": "Conference room key",
+   "itemId": "62987cb98081af308d7558c8",
+   "loot": [
+    "ammo",
+    "bitcoin",
+    "valuables"
+   ],
+   "why": "Cheap. Ammo packs, a weapon box, PC block, and valuables and cash on the desk.",
+   "price": 32290,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 3
+   },
+   "containers": {
+    "PC block": 1,
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "Hillside house key",
+   "itemId": "61a6444b8c141d68246e2d2f",
+   "loot": [
+    "bitcoin",
+    "valuables",
+    "tech"
+   ],
+   "why": "Cheap. Military electronics in the sink and frequent valuables. Its wiki page is old, but current spawn data backs it.",
+   "price": 31911,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 4
+   },
+   "containers": {}
+  }
+ ],
  "places": [],
  "spawns": [
   {

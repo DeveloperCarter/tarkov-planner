@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -846,6 +861,79 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Old house room key",
+   "itemId": "6761a6ccd9bbb27ad703c48a",
+   "loot": [
+    "bitcoin",
+    "valuables",
+    "tech"
+   ],
+   "why": "Best key on the map: loose valuables, two weapon boxes, and military battery and power filter spawns.",
+   "price": 187379,
+   "uses": 10,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2
+   },
+   "containers": {
+    "Weapon box": 2
+   }
+  },
+  {
+   "key": "Shatun's hideout key",
+   "itemId": "664d3db6db5dea2bad286955",
+   "loot": [
+    "keycards",
+    "bitcoin",
+    "weapons"
+   ],
+   "why": "Sold by Ref. Yellow keycard spawn, valuables and rare modded marksman rifles.",
+   "price": null,
+   "uses": 5,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2,
+    "keycards": 1
+   },
+   "containers": {}
+  },
+  {
+   "key": "Old house toilet key",
+   "itemId": "6939948dc2ceb9acd7082eb2",
+   "loot": [
+    "tech",
+    "valuables"
+   ],
+   "why": "Guaranteed military battery, plus TarCoin and blue folders in the sink.",
+   "price": null,
+   "uses": 1,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1
+   },
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "ZB-014 key",
+   "itemId": "591afe0186f77431bd616a11",
+   "loot": [
+    "ammo",
+    "weapons"
+   ],
+   "why": "A large weapon box and several 60-round AK magazines. Also opens the bunker extract.",
+   "price": 168901,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "Weapon box": 1
+   }
+  }
+ ],
  "places": [
   {
    "id": "marked-circle-bunker",

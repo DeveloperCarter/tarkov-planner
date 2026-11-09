@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -823,6 +838,141 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Health Resort east wing room 222 key",
+   "itemId": "5a13f24186f77410e57c5626",
+   "loot": [
+    "bitcoin",
+    "ledx",
+    "weapons"
+   ],
+   "why": "Opens through to 226. A Bitcoin spawn in the cardboard box, several LEDX spawns in 226 and three good weapon spawns. Cheaper than the 226 key.",
+   "price": 85465,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 1,
+    "gpu": 2,
+    "ledx": 1
+   },
+   "containers": {
+    "Weapon box": 1,
+    "Grenade box": 2
+   }
+  },
+  {
+   "key": "Health Resort west wing room 301 key",
+   "itemId": "5a13ef7e86f7741290491063",
+   "loot": [
+    "ledx",
+    "gpu",
+    "bitcoin"
+   ],
+   "why": "Reaches 304 too: several LEDX and up to three graphics card spawns, plus a large weapon box.",
+   "price": 67368,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "gpu": 4,
+    "bitcoin": 2,
+    "ledx": 4
+   },
+   "containers": {
+    "PC block": 2,
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "Health Resort office key with a blue tape",
+   "itemId": "5eff09cd30a7dc22fd1ddfed",
+   "loot": [
+    "ledx",
+    "gpu",
+    "bitcoin"
+   ],
+   "why": "East wing 110. Multiple LEDX spawns in the bathroom and a possible graphics card. Heavily contested.",
+   "price": 83061,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 2,
+    "ledx": 4,
+    "gpu": 1
+   },
+   "containers": {
+    "PC block": 1
+   }
+  },
+  {
+   "key": "Health Resort west wing room 222 key",
+   "itemId": "5a1452ee86f7746f33111763",
+   "loot": [
+    "keycards",
+    "ammo",
+    "weapons"
+   ],
+   "why": "Cheapest way through 222, 221 and 218: Red keycard spawn and ammo packs in 218, plus RSASS and SV-98 spawns.",
+   "price": 62969,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "Health Resort east wing room 205 key",
+   "itemId": "5a144bdb86f7741d374bbde0",
+   "loot": [
+    "keycards",
+    "weapons"
+   ],
+   "why": "Opens through to 206: Red keycard spawn, four weapon boxes and rare loose loot. Cheaper than the 206 key.",
+   "price": 51734,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "PC block": 2,
+    "Weapon box": 3
+   }
+  },
+  {
+   "key": "Health Resort west wing room 205 key",
+   "itemId": "5a0ec6d286f7742c0b518fb5",
+   "loot": [
+    "keycards",
+    "ledx",
+    "gpu"
+   ],
+   "why": "Opens through to 203: Red keycard spawn, two LEDX spawns and a graphics card. Cheaper than the 203 key.",
+   "price": 65869,
+   "uses": 40,
+   "doors": 1,
+   "seen": {
+    "ledx": 1
+   },
+   "containers": {
+    "Weapon box": 1
+   }
+  },
+  {
+   "key": "Cottage back door key",
+   "itemId": "5a0eb6ac86f7743124037a28",
+   "loot": [
+    "keycards",
+    "valuables",
+    "weapons"
+   ],
+   "why": "Away from the resort: Yellow keycard spawn, safes, gun cabinets and a PC block.",
+   "price": 202292,
+   "uses": 40,
+   "doors": 1,
+   "seen": {},
+   "containers": {
+    "PC block": 1
+   }
+  }
+ ],
  "places": [],
  "spawns": [
   {

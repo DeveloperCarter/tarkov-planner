@@ -27,6 +27,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -187,6 +202,63 @@
    "gx": 11.4,
    "gz": 41.6,
    "gy": 19.5
+  }
+ ],
+ "lootKeys": [
+  {
+   "key": "Compartment C-3 keycard",
+   "itemId": "69bb3f7df94327bc0f0230c9",
+   "loot": [
+    "ledx"
+   ],
+   "why": "Four LEDX in the overseeing cabin. Rarely listed, so its flea price is unreliable. No insurance on this map.",
+   "price": 74930923,
+   "uses": 1,
+   "doors": 1,
+   "seen": {
+    "ledx": 1
+   },
+   "containers": {}
+  },
+  {
+   "key": "Boreas crew quarters keycard",
+   "itemId": "69bb3ec9f609db77390b0e1a",
+   "loot": [
+    "valuables",
+    "tech"
+   ],
+   "why": "Opens eight cabins of electronics, meds and provisions, the most doors per card.",
+   "price": 250203,
+   "uses": 10,
+   "doors": 8,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "Boreas engine room keycard",
+   "itemId": "69bb3e54d6c67f6265004ab9",
+   "loot": [
+    "valuables"
+   ],
+   "why": "Sports bag and loose valuables and stims.",
+   "price": 347890,
+   "uses": 10,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
+  },
+  {
+   "key": "Compartment C-1 keycard",
+   "itemId": "69bb3f278af9f360ee010a7a",
+   "loot": [
+    "tech"
+   ],
+   "why": "Two PC blocks and electronics.",
+   "price": 721876,
+   "uses": 10,
+   "doors": 1,
+   "seen": {},
+   "containers": {}
   }
  ],
  "places": [],

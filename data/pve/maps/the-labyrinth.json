@@ -32,6 +32,21 @@
     "name": "tarkov-dev map labels (MIT)",
     "url": "https://github.com/the-hideout/tarkov-dev",
     "use": "Area names and coordinate rotation"
+   },
+   {
+    "name": "Escape from Tarkov Wiki key pages (CC BY-SA)",
+    "url": "https://escapefromtarkov.fandom.com/wiki/Keys_%26_Intel",
+    "use": "What is behind each locked door (best keys for loot)"
+   },
+   {
+    "name": "tigz.tv key lists",
+    "url": "https://tigz.tv/keys/streets-of-tarkov",
+    "use": "Player ratings of keys, August 2026 (best keys for loot)"
+   },
+   {
+    "name": "Timesaver map guides",
+    "url": "https://timesaver.gg/blog/keys-guide",
+    "use": "Room contents by map, 2026 guides (best keys for loot)"
    }
   ],
   "caveats": [
@@ -143,6 +158,62 @@
   }
  ],
  "keycards": [],
+ "lootKeys": [
+  {
+   "key": "Corpse room key",
+   "itemId": "679bab714e9ca6b3d80586b4",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "valuables"
+   ],
+   "why": "Very rare valuables and containers, and the richest spawn list in the Labyrinth.",
+   "price": null,
+   "uses": 1,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 7,
+    "gpu": 8
+   },
+   "containers": {}
+  },
+  {
+   "key": "Observation room key",
+   "itemId": "679baace4e9ca6b3d80586b2",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "valuables"
+   ],
+   "why": "Valuables, electronics and stims, with Labrys research notes.",
+   "price": null,
+   "uses": 5,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 8,
+    "gpu": 9
+   },
+   "containers": {}
+  },
+  {
+   "key": "Torture room key",
+   "itemId": "679baae891966fe40408f14c",
+   "loot": [
+    "bitcoin",
+    "gpu",
+    "valuables"
+   ],
+   "why": "No wiki entry yet, but Bitcoin and graphics cards are seen by the door.",
+   "price": null,
+   "uses": 5,
+   "doors": 1,
+   "seen": {
+    "bitcoin": 5,
+    "gpu": 4
+   },
+   "containers": {}
+  }
+ ],
  "places": [],
  "spawns": [
   {
