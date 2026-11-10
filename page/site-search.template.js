@@ -9,7 +9,6 @@
   // Traders and Kappa come from the site-wide QuestFilter; Started and Map are this dialog's own.
   const indexes = {}, filters = { active: false, map: "" }, PAGE = 40;
   const mapSel = document.getElementById("ssMap"), more = document.getElementById("ssMore"), chips = document.getElementById("ssFilter");
-  const allFilters = () => ({ ...filters, ...(window.QuestFilter ? QuestFilter.get() : {}) });
   let results = [], total = 0, shown = PAGE, active = 0, entries = null, statuses = {}, ssEntry = null, enterEarly = false;
   const mode = () => document.querySelector('.mode-toggle [aria-current="page"]')?.dataset.mode || "regular";
   const STATUS = { started: "Started", completed: "Completed", failed: "Failed" };
@@ -75,11 +74,12 @@
   }
   function render() {
     if (!entries) return;
-    const f = allFilters();
+    const shared = QuestFilter.withoutMapFlags(QuestFilter.get()), f = { ...filters, ...shared };
     ({ items: results, total } = SiteSearch.browse(entries, input.value, { statuses, filters: f, faction, limit: shown }));
-    if (window.QuestFilter) { const c = QuestFilter.counts(entries, QuestFilter.get()); chips.innerHTML = QuestFilter.html("search", c); }
+    const pool = SiteSearch.candidates(entries, input.value, { statuses, filters });
+    chips.innerHTML = QuestFilter.html("search", QuestFilter.counts(pool, shared));
     active = Math.min(active, Math.max(0, results.length - 1));
-    const q = input.value.trim(), listing = f.kappa || f.easy || f.ready || f.noKeys || f.kinds?.length || f.traders?.length || f.map;
+    const q = input.value.trim(), listing = QuestFilter.active(shared) || f.map;
     const count = total > results.length ? `Showing ${results.length} of ${total}` : `${total} ${total === 1 ? "quest" : "quests"}`;
     note.textContent = !results.length
       ? (q ? `No quests match “${q}”${listing ? " with these filters" : ""}.` : listing ? "No quests match these filters."

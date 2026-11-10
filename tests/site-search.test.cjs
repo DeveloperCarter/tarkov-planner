@@ -1,6 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert");
 const S = require("../page/site-search.js");
+const F = require("../page/quest-filter.js");
 
 const map = (key, onMap) => ({ key, name: key[0].toUpperCase() + key.slice(1), onMap, href: `maps/${key}.html` });
 const entries = [
@@ -95,4 +96,14 @@ test("No keys and objective kinds filter on the entry's effort facts", () => {
   const list = [{ id: "a", name: "A", effort: { keys: [], kinds: ["combat"] } }, { id: "b", name: "B", effort: { keys: [{ name: "K" }], kinds: ["place"] } }, { id: "c", name: "C" }];
   assert.deepStrictEqual(names(S.search(list, "", { filters: { noKeys: true } })), ["A"]);
   assert.deepStrictEqual(names(S.search(list, "", { filters: { kinds: ["place"] } })), ["B"]);
+});
+
+test("search chip counts follow the text, map and Started filter, ignoring map-only chips", () => {
+  const statuses = { a: "started", b: "completed", c: "started" };
+  const local = { map: "customs", active: true }, shared = { finishes: true };
+  const pool = S.candidates(entries, "delivery", { statuses, filters: local });
+  assert.deepStrictEqual(pool.map(q => q.id), ["a"]);
+  assert.strictEqual(F.counts(pool, F.withoutMapFlags(shared)).kappa, 1);
+  assert.deepStrictEqual(S.search(entries, "delivery", { statuses, filters: { ...local, ...shared, kappa: true } }).map(q => q.id), ["a"]);
+  assert.deepStrictEqual(S.search(entries, "", { statuses, filters: shared }).map(q => q.id).sort(), ["a", "c"], "a hidden filter doesn't change the default started list");
 });
