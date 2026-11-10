@@ -37,7 +37,7 @@
 <p class="map-note" id="homeEvidence"></p><p class="map-note" id="homeFreshness"></p>
 </section>
 <div class="notice" id="homeNotice"></div>
-<div class="home-filter"><label class="home-aim" id="homeAimWrap" hidden>Aim for <select id="homeAim"></select></label><div id="homeFilter" class="qf-host"></div><p class="map-note" id="homeFilterNote" role="status"></p></div>
+<div class="home-filter"><label class="home-aim" id="homeAimWrap" hidden>Sort maps by <select id="homeAim"></select></label><div id="homeFilter" class="qf-host"></div><p class="map-note" id="homeFilterNote" role="status"></p></div>
 <section id="mapCards" class="map-cards" aria-label="Maps"></section>
 <section class="career-home"><h2>Your next goals</h2><details><summary>Keep · found-in-raid items</summary><div data-career-view="keep">Loading keep list…</div></details><div data-career-view="kappa">Loading Kappa progress…</div></section>
 <p class="home-footer">Current counts use accepted quests and your corrections for the chosen profile and wipe. Multi-map quests count on every map where they have objectives. Possible unlocks are estimates. Missing log history and opaque game conditions can affect them. Your quest progress stays in this browser; changing the site address starts a separate browser store.</p>
@@ -53,14 +53,17 @@ let store;
 try {store = JSON.parse(localStorage.getItem(ProgressStore.STORAGE_KEY));} catch(e) {}
 if (!store || store.version !== 2) store = ProgressStore.empty();
 let mode = new URLSearchParams(location.search).get("mode") === "pve" ? "pve" : "regular";
-let aim = RaidSuggest.loadAim();
-// Where each map's quests are, fetched once per mode for the best-raid lines. Without it the cards still count quests.
+const mapSortKey = "eft-map-sort";
+let aim = "quests";
+try { aim = RaidSuggest.normalizeAim(localStorage.getItem(mapSortKey)); } catch (e) {}
+// Map rewards and nearby suggestions, fetched once per mode. Quest counts don't depend on this file.
 const areas = {};
 function loadAreas() {
   if (areas[mode] !== undefined) return;
   const wanted = mode;
   areas[wanted] = null;
-  fetch((wanted === "pve" ? "pve/" : "") + "raid-areas.json").then(r => r.ok ? r.json() : null).then(data => { areas[wanted] = data; if (data && mode === wanted) render(); }).catch(() => {});
+  fetch((wanted === "pve" ? "pve/" : "") + "raid-areas.json").then(r => r.ok ? r.json() : false).catch(() => false)
+    .then(data => { areas[wanted] = data; if (mode === wanted) render(); });
 }
 function checklist(key, map) { try { return JSON.parse(localStorage.getItem(`eft-checklist:${key}:${map}`)) || {}; } catch (e) { return {}; } }
 const scopeInput = document.getElementById("progressScope"), levelInput = document.getElementById("playerLevel");
@@ -98,33 +101,47 @@ function render() {
   // The site-wide filter: chips list the traders with current quests in this scope.
   const have = scope?.gear || {};
   for (const q of Object.values(DATA.modes[mode].quests || {})) { q.easy = QuestEffort.assess(q.effort, { level, have }).easy; q.ready = QuestEffort.readiness(q.effort, { level, have }).ready; }
-  const filter = QuestFilter.get(), all = MapHome.summarize(DATA,store,mode,key,{[key]:level});
+  const filter = QuestFilter.get(), filtering = QuestFilter.active(filter);
   loadAreas();
-  // Finishes here belongs to a map: a quest counts for the chip when one raid on any of its maps can finish it.
-  const finishingOn = m => areas[mode]?.[m.key] ? MapHome.finishing(areas[mode][m.key], m.matches, checklist(key, m.name)) : null;
-  const finishIds = new Set(all.flatMap(m => (finishingOn(m) || []).map(q => q.id)));
-  const current = [...new Map(all.flatMap(c => c.matches).map(q => [q.id, q])).values()];
-  for (const q of current) q.finishes = finishIds.has(q.id);
-  const counts = QuestFilter.counts(current, filter);
+  const mapAreas = areas[mode];
+  const all = MapHome.summarize(DATA, store, mode, key, { [key]: level });
+  const byId = new Map();
+  for (const m of all) {
+    const finishes = new Set(mapAreas?.[m.key] ? MapHome.finishing(mapAreas[m.key], m.matches, checklist(key, m.name)).map(q => q.id) : []);
+    for (const q of m.matches) {
+      q.finishes = finishes.has(q.id);
+      // The chip counts each quest once, if any of its maps matches.
+      if (!byId.has(q.id) || q.finishes) byId.set(q.id, q);
+    }
+  }
+  const current = [...byId.values()], counts = QuestFilter.counts(current, filter);
   document.getElementById("homeFilter").innerHTML = current.length || QuestFilter.active(filter) ? QuestFilter.html("home", counts, { map: true }) : "";
-  const repTraders = [...new Set(Object.values(areas[mode] || {}).flatMap(m => m.quests.filter(q => current.some(c => c.id === q.id)).flatMap(q => (q.rewards?.rep || []).map(r => r.trader))))].sort();
+  const repTraders = [...new Set(Object.values(mapAreas || {}).flatMap(m => m.quests.filter(q => q.onMap !== false && byId.has(q.id)).flatMap(q => (q.rewards?.rep || []).map(r => r.trader))))].sort();
   if (aim.startsWith("rep:") && !repTraders.includes(aim.slice(4))) repTraders.push(aim.slice(4));
-  document.getElementById("homeAimWrap").hidden = !current.length || !areas[mode];
+  document.getElementById("homeAimWrap").hidden = !current.length;
   document.getElementById("homeAim").innerHTML = [...Object.entries(RaidSuggest.AIMS), ...repTraders.map(t => ["rep:" + t, t + " standing"])]
     .map(([k, v]) => `<option value="${esc(k)}" ${k === aim ? "selected" : ""}>${esc(v)}</option>`).join("");
-  const filtering = QuestFilter.active(filter);
-  // Maps with the best suggested raid first, then matching work, most current quests first; the rest keep alphabetical order.
-  const cards = (filtering ? MapHome.summarize(DATA,store,mode,key,{[key]:level},filter) : all)
-    .map(m => { const matches = filter.finishes && finishingOn(m); return matches ? { ...m, matches, current: matches.length, multiMap: 0 } : m; })
-    .map(m => ({ ...m, raid: MapHome.bestRaid(areas[mode]?.[m.key], m.matches, checklist(key, m.name), aim, filter.finishes) }))
-    .sort((a,b) => (b.raid?.score || 0) - (a.raid?.score || 0) || (b.current + b.multiMap > 0) - (a.current + a.multiMap > 0) || b.current - a.current || b.multiMap - a.multiMap);
-  const best = cards[0], what = filtering ? QuestFilter.summary(filter) : "";
-  document.getElementById("homeFilterNote").textContent = best?.raid ? `Best raid${what ? ` for ${what}` : ""}: ${best.name}, ${best.raid.name} (${best.raid.ids.length} quests).`
-    : !filtering ? (scope ? "Filter by trader, Kappa or objective to see which map suits them." : "")
-    : best && best.current + best.multiMap ? `Most quests for ${what}: ${best.name} (${best.current}${best.multiMap ? ` + ${best.multiMap} multi-map` : ""}).` : `No current quests for ${what}.`;
-  const bestLine = r => r ? `<span class="best-raid"><span class="label">Best raid</span><b>${esc(r.name)}</b><small>${r.ids.length} quests · ${RaidSuggest.finishText(r)}${r.keys.length ? ` · ${r.keys.length} ${r.keys.length === 1 ? "key" : "keys"}` : ""}</small></span>` : "";
+  const matching = filtering ? MapHome.filterCards(all, filter) : all;
+  const cards = MapHome.rankCards(matching, mapAreas || {}, { aim, whole: filter.finishes, checklist: m => checklist(key, m.name) });
+  const what = filtering ? QuestFilter.summary(filter) : "";
+  const repLabel = aim.startsWith("rep:") ? `${aim.slice(4)} standing` : "standing";
+  const rewardLabel = aim === "xp" ? "XP" : aim === "quests" ? "" : repLabel;
+  document.getElementById("homeFilterNote").textContent = filter.finishes && !mapAreas
+    ? mapAreas === null ? "Checking which quests finish in one area…" : "Couldn't load quest locations. Reload or remove the Finishes here filter."
+    : filtering && !cards.length ? `No current quests match ${what}. Remove a filter to see more maps.`
+    : !current.length ? ""
+    : rewardLabel && mapAreas ? `Ranked by total ${rewardLabel} from matching current quests listed on each map. Some may take separate raids.`
+    : rewardLabel ? `${mapAreas === null ? "Loading rewards" : "Rewards unavailable"}. Showing maps by current quest count.`
+    : "Ranked by the current quest count on each map card. Multi-map quests break ties.";
+  const bestLine = r => r ? `<span class="best-raid"><span class="label">Nearby raid suggestion</span><b>${esc(r.name)}</b><small>${r.ids.length} quests · ${RaidSuggest.finishText(r)}${r.keys.length ? ` · ${r.keys.length} ${r.keys.length === 1 ? "key" : "keys"}` : ""}</small></span>` : "";
+  const signedStanding = new Intl.NumberFormat(undefined, { signDisplay: "exceptZero", minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  const rewardLine = m => {
+    const label = m.xp != null ? `${m.xp.toLocaleString()} XP` : m.standing != null ? `${signedStanding.format(m.standing)} ${repLabel}` : "";
+    return m.current && label ? `<span class="estimated"><b>${esc(label)}</b> from listed quests</span>` : "";
+  };
   const list = m => filtering && m.matches.length ? `<ul class="matches">${m.matches.slice(0, 4).map(q => `<li>${esc(q.name)}${filter.traders.length === 1 ? "" : ` <small>· ${esc(q.trader)}</small>`}</li>`).join("")}${m.matches.length > 4 ? `<li><small>+ ${m.matches.length - 4} more</small></li>` : ""}</ul>` : "";
-  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.current + m.multiMap ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests${filtering ? ` · ${esc(what)}` : ""}</span></div>${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span>${bestLine(m.raid)}${list(m)}<span class="label">Open raid planner →</span></a>`).join("");
+  const estimates = m => filtering ? "" : `<span class="estimated">${m.possible} possible unlocks · estimates</span><span class="estimated" data-kappa-map="${esc(m.key)}"></span>`;
+  document.getElementById("mapCards").innerHTML = cards.map(m => `<a class="map-card${m.matches.length ? "" : " idle"}" href="${esc(m.href)}"><h2>${esc(m.name)}</h2><div class="card-count"><strong class="total">${m.current}</strong><span>current quests${filtering ? ` · ${esc(what)}` : ""}</span></div>${rewardLine(m)}${m.multiMap ? `<span class="estimated">+ ${m.multiMap} multi-map ${m.multiMap === 1 ? "quest" : "quests"} with objectives here</span>` : ""}${estimates(m)}${bestLine(m.raid)}${list(m)}<span class="label">Open raid planner →</span></a>`).join("");
   window.dispatchEvent(new Event("eft-progress-change"));
 }
 document.querySelector(".mode-toggle").addEventListener("click", e => {
@@ -132,7 +149,11 @@ document.querySelector(".mode-toggle").addEventListener("click", e => {
   e.preventDefault(); mode = a.dataset.mode; history.replaceState(null,"",`?mode=${mode}`); render();
 });
 window.addEventListener("eft-quest-filter", () => render());
-document.getElementById("homeAim").addEventListener("change", e => { aim = RaidSuggest.normalizeAim(e.target.value); RaidSuggest.saveAim(aim); render(); });
+document.getElementById("homeAim").addEventListener("change", e => {
+  aim = RaidSuggest.normalizeAim(e.target.value);
+  try { localStorage.setItem(mapSortKey, aim); } catch (err) {}
+  render();
+});
 scopeInput.addEventListener("change", () => {
   if (scopeInput.value.startsWith("detect:")) try { ProgressStore.scopeFromLogs(store, mode, scopeInput.value.slice(7)); } catch (err) { setText("trkDetail", err.message); return; }
   else store.active[mode] = scopeInput.value;

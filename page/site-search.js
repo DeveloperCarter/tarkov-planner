@@ -1,8 +1,8 @@
 /* Site-wide quest search over dist/search-index.json. Pure UMD; the site bar owns the DOM. */
 (function (root, factory) {
-  if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.SiteSearch = factory();
-})(typeof self !== "undefined" ? self : this, function () {
+  if (typeof module === "object" && module.exports) module.exports = factory(require("./quest-filter.js"));
+  else root.SiteSearch = factory(root.QuestFilter);
+})(typeof self !== "undefined" ? self : this, function (Filter) {
   "use strict";
   const fold = s => String(s ?? "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
   const terms = query => fold(query).split(/\s+/).filter(Boolean);
@@ -35,14 +35,13 @@
     return s + (STATUS_BOOST[status] || 0) - (otherSide ? 150 : 0) - (entry.placeholder ? 400 : 0) - name.length * 0.1;
   }
 
-  // Filters: kappa, easy (entry.easy, set by the page from QuestEffort), noKeys and kinds (from entry.effort), active (started), traders (any of these names) and map (a map key where the
-  // quest has objectives, or "none" for quests without map objectives).
-  function passes(e, filters, statuses) {
-    const maps = e.maps || [];
-    return (!filters.kappa || e.kappa) && (!filters.easy || e.easy === true) && (!filters.ready || e.ready === true) && (!filters.noKeys || (e.effort && !e.effort.keys?.length)) &&
-      (!filters.kinds?.length || filters.kinds.some(k => e.effort?.kinds?.includes(k))) && (!filters.active || statuses[e.id] === "started") &&
-      (!filters.traders?.length || filters.traders.includes(e.trader)) &&
-      (!filters.map || (filters.map === "none" ? !maps.length : maps.some(m => m.key === filters.map)));
+  // The pool for chip counts: apply the search text, Map and Started before counting shared chips.
+  // Do not restrict to started by default here: choosing a chip can also show unstarted quests.
+  function candidates(entries, query, { statuses = {}, filters = {} } = {}) {
+    const words = terms(query), { active, map } = filters;
+    return entries.filter(e => (!active || statuses[e.id] === "started") &&
+      (!map || (map === "none" ? !e.maps?.length : e.maps?.some(m => m.key === map))) &&
+      (!words.length || words.every(w => haystack(e).includes(w))));
   }
   const STATUS_ORDER = { started: 0, completed: 2, failed: 3 };
 
@@ -52,17 +51,18 @@
    *  name, with placeholders and finished quests last. statuses maps task ID -> status; faction
    *  (USEC/BEAR) sinks the other side's quests. */
   function browse(entries, query, { statuses = {}, filters = {}, faction = null, limit = 40 } = {}) {
-    const words = terms(query), keep = e => passes(e, filters, statuses);
+    const words = terms(query), shared = Filter.withoutMapFlags(filters);
+    const pool = candidates(entries, "", { statuses, filters }).filter(e => Filter.matches(e, shared));
     let ranked;
     if (!words.length) {
-      const listing = filters.kappa || filters.easy || filters.ready || filters.noKeys || filters.kinds?.length || filters.traders?.length || filters.map;
+      const listing = Filter.active(Filter.normalize(shared)) || filters.map;
       const listedHere = e => filters.map && (e.maps || []).some(m => m.key === filters.map && m.onMap) ? 0 : 1;
       const otherSide = e => faction && e.faction && e.faction !== "Any" && e.faction !== faction ? 1 : 0;
-      ranked = entries.filter(e => keep(e) && (listing || statuses[e.id] === "started")).sort((a, b) =>
+      ranked = pool.filter(e => listing || statuses[e.id] === "started").sort((a, b) =>
         (STATUS_ORDER[statuses[a.id]] ?? 1) - (STATUS_ORDER[statuses[b.id]] ?? 1) || otherSide(a) - otherSide(b) ||
         Number(!!a.placeholder) - Number(!!b.placeholder) || listedHere(a) - listedHere(b) || a.name.localeCompare(b.name));
     } else {
-      ranked = entries.filter(keep).map(e => [e, score(e, words, statuses[e.id], faction)]).filter(([, s]) => s !== null)
+      ranked = pool.map(e => [e, score(e, words, statuses[e.id], faction)]).filter(([, s]) => s !== null)
         .sort((a, b) => b[1] - a[1] || a[0].name.localeCompare(b[0].name)).map(([e]) => e);
     }
     return { items: ranked.slice(0, limit), total: ranked.length };
@@ -85,5 +85,5 @@
     return maps.find(m => m.key === preferKey) || maps.find(m => m.key === hereKey) || maps.find(m => m.onMap) || maps[0] || null;
   }
 
-  return { fold, terms, search, browse, facets, primaryMap };
+  return { fold, terms, search, browse, candidates, facets, primaryMap };
 });

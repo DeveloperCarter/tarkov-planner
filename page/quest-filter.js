@@ -19,6 +19,7 @@
     noKeys: ["No keys", "Needs no key"] };
   // Flags that only mean something on a map: site search has no map, so it neither shows nor applies them.
   const MAP_FLAGS = ["finishes"];
+  const withoutMapFlags = f => ({ ...f, ...Object.fromEntries(MAP_FLAGS.map(k => [k, false])) });
   const empty = () => ({ traders: [], kinds: [], ...Object.fromEntries(Object.keys(FLAGS).map(k => [k, false])) });
   function normalize(value) {
     const traders = Array.isArray(value?.traders) ? [...new Set(value.traders.filter(t => typeof t === "string" && t))].sort() : [];
@@ -125,5 +126,5 @@
       refocus(bar, ".qf-btn");
     });
   }
-  return { KEY, KINDS, FLAGS, MAP_FLAGS, empty, normalize, active, matches, toggle, toggleTrader, toggleKind, toggleKappa, toggleEasy, toggleNoKeys, summary, chipItems, counts, load, set, get, html };
+  return { KEY, KINDS, FLAGS, MAP_FLAGS, withoutMapFlags, empty, normalize, active, matches, toggle, toggleTrader, toggleKind, toggleKappa, toggleEasy, toggleNoKeys, summary, chipItems, counts, load, set, get, html };
 });

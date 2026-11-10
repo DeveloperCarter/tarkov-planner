@@ -43,11 +43,11 @@ test('trader and Kappa filters count only matching quests and list them per card
   assert.deepEqual(cards.map(m=>m.current),[2,1]);
   assert.deepEqual(cards[0].matches.map(q=>q.name),['Alpha','Bravo']);
   assert.deepEqual(H.traders(cards),[{name:'Jaeger',count:1},{name:'Prapor',count:1}]);
-  cards = H.summarize(named,store,'regular',key,{},{traders:['Prapor']});
-  assert.deepEqual(cards.map(m=>[m.current,m.multiMap]),[[1,0],[0,0]]);
-  assert.deepEqual(H.summarize(named,store,'regular',key,{},{traders:['Prapor','Jaeger']}).map(m=>m.current),[2,1],'traders widen');
-  assert.deepEqual(H.summarize(named,store,'regular',key,{},{kappa:true}).map(m=>m.current),[1,0],'only wiki-confirmed Kappa');
-  assert.deepEqual(H.summarize(named,store,'regular',key,{},{traders:['Jaeger'],kappa:true}).map(m=>m.current),[0,0]);
+  const filtered = filter => H.filterCards(cards, filter).map(m => [m.current, m.multiMap]);
+  assert.deepEqual(filtered({traders:['Prapor']}),[[1,0]],'maps with no matches are hidden');
+  assert.deepEqual(filtered({traders:['Prapor','Jaeger']}),[[2,0],[1,0]],'traders widen');
+  assert.deepEqual(filtered({kappa:true}),[[1,0]],'only wiki-confirmed Kappa');
+  assert.deepEqual(filtered({traders:['Jaeger'],kappa:true}),[]);
 });
 test('same IDs in PvP and PvE stay isolated, including wrongly assigned active keys', () => {
   const {store,create} = setup(), regular = create('regular'), pve = create('pve');
@@ -93,7 +93,7 @@ test('home filters read effort facts and each map reports its best raid', () => 
   const {store,create} = setup(), key = create('regular');
   for (const id of ['a', 'b']) S.setManual(store, key, id, 'started');
   const two = { player: { level: 1, faction: 'USEC' }, modes: { regular: { progression: { a: {}, b: {} }, quests, maps: [{ name: 'Customs', key: 'customs', ids: ['a', 'b'] }] } } };
-  const matches = filter => H.summarize(two, store, 'regular', key, {}, filter)[0].matches.map(q => q.id);
+  const matches = filter => H.filterCards(H.summarize(two, store, 'regular', key), filter)[0].matches.map(q => q.id);
   assert.deepEqual(matches({}), ['a', 'b']);
   assert.deepEqual(matches({ noKeys: true }), ['a']);
   assert.deepEqual(matches({ kinds: ['place'] }), ['b']);
@@ -114,4 +114,55 @@ test('a card keeps the matches one raid on that map can finish, and the best rai
   assert.deepEqual(H.finishing(areas, matches, { o4: true }).map(q => q.id), ['near', 'near2', 'split'], 'finished work stops splitting a quest');
   assert.equal(H.bestRaid(areas, matches, {}, 'quests').ids.length, 4);
   assert.deepEqual(H.bestRaid(areas, matches, {}, 'quests', true).ids, ['near', 'near2']);
+});
+
+test('Most quests sorts by the displayed current count, even when another map has a bigger nearby raid', () => {
+  const map = (key, current, multiMap, nearby) => {
+    const zones = {}, quests = Array.from({ length: current + multiMap }, (_, i) => {
+      const zone = i < nearby ? 'near' : `far${i}`;
+      zones[zone] = { gx: i < nearby ? 0 : 300 * i, gz: 0 };
+      return { id: `${key}-${i}`, onMap: i < current, objectives: [{ id: `o${i}`, zone: [zone] }] };
+    });
+    return { card: { key, current, multiMap, matches: quests }, areas: { zones, quests } };
+  };
+  const factory = map('factory', 6, 4, 7), shoreline = map('shoreline', 15, 4, 6), woods = map('woods', 6, 5, 2);
+  const cards = [factory.card, shoreline.card, woods.card];
+  const [first, second, third] = H.rankCards(cards, { factory: factory.areas, shoreline: shoreline.areas, woods: woods.areas });
+  assert.deepEqual([first.key, second.key, third.key], ['shoreline', 'woods', 'factory']);
+  assert.equal(first.raid.ids.length, 6);
+  assert.equal(third.raid.ids.length, 7);
+  assert.equal(H.rankCards(cards)[0].key, 'shoreline', 'count sorting does not require location data');
+});
+
+test('XP and standing rank all matching listed quests even when they cannot form one nearby raid', () => {
+  const quest = (id, zone, standing, trader = 'Jaeger', onMap = true) => ({
+    id, onMap, objectives: [{ id: id + '-objective', zone: [zone] }],
+    rewards: { xp: 10000 * standing, rep: [{ trader, standing }] },
+  });
+  const zones = { cabins: { gx: 0, gz: 0 }, train: { gx: 580, gz: 0 } };
+  const areas = {
+    lighthouse: { zones, quests: [
+      quest('hermit', 'cabins', 0.75), quest('administrator', 'train', 0.75),
+      quest('not-current', 'cabins', 10),
+    ] },
+    factory: { zones, quests: [
+      quest('claustrophobia', 'cabins', 0.25), quest('dragnet', 'cabins', 0.25),
+      quest('multi-map', 'cabins', 2, 'Jaeger', false), quest('other-reward', 'cabins', 0.1, 'Prapor'),
+    ] },
+  };
+  const card = (key, ids, multiMap = 0) => ({ key, current: ids.length - multiMap, multiMap, matches: ids.map(id => ({ id })) });
+  const cards = [
+    card('factory', ['claustrophobia', 'dragnet', 'multi-map', 'other-reward'], 1),
+    card('lighthouse', ['hermit', 'administrator']),
+  ];
+  const ranked = aim => H.rankCards(cards, areas, { aim });
+  assert.deepEqual(ranked('xp').map(m => [m.key, m.xp]), [['lighthouse', 15000], ['factory', 6000]]);
+  const [lighthouse, factory] = ranked('rep:Jaeger');
+  assert.equal(lighthouse.key, 'lighthouse');
+  assert.equal(lighthouse.raid, null);
+  assert.equal(lighthouse.standing, 1.5);
+  assert.equal(factory.standing, 0.5, 'excludes multi-map quests and other reward recipients');
+  assert.equal(ranked('rep:Prapor')[0].key, 'factory');
+  assert.equal(ranked('rep')[1].standing, 0.6);
+  assert.equal(H.rankCards([card('lighthouse', ['hermit'])], areas, { aim: 'rep:Jaeger' })[0].standing, 0.75);
 });

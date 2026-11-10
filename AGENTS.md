@@ -243,7 +243,9 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   trader source counts as buyable and names its LL. At level 28 almost every key is on the flea; the
   blockers are flea-banned items and ones whose flea level is above yours. The Keys & items tab lists gear
   for all current quests on the map or only this raid, can't-buy first, each naming its quests.
-  The home page reads `dist/raid-areas.json` (and `pve/`) to rank maps by best raid.
+  The home page sorts by the displayed count of current quests listed on each map (multi-map count
+  breaks ties), or by total XP/net standing from matching listed quests. `dist/raid-areas.json`
+  (and `pve/`) supplies the rewards and nearby raid suggestions; the suggested group never ranks a map.
 - Clicking card titles or ordinary text opens details; checkboxes/buttons/links/selects retain
   their actions. Raid-mode Map is a separate control. On localhost, source merges require a fresh
   build of dist/ and page reload: an older local dist caused the reported missing card interaction.
