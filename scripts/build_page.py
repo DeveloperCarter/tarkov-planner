@@ -372,17 +372,32 @@ def build_maps(mode: str, level: int | None, faction: str | None) -> None:
             build(path, ROOT / 'dist' / base / 'maps' / f'{path.stem}.html', level, faction)
 
 
-def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: bool = True) -> list:
+def objective_lines(task: dict, lang: dict | None) -> list:
+    """The English wording of a task's objectives, one line each, for the search box to match.
+    tarkov.dev gives translation keys; a hand-listed quest carries its text instead."""
+    lines = []
+    for o in task.get('objectives') or []:
+        key = o.get('description') or ''
+        text = ((lang or {}).get(key) or (key if ' ' in key else '')).strip()
+        if text and text not in lines:
+            lines.append(text)
+    return lines
+
+
+def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: bool = True, lang: dict | None = None) -> list:
     """One result per task ID, including unmapped tasks and named placeholders.
 
     Snapshot metadata supplies flags/wiki for quests with no map objectives. No fetches.
     Kappa comes from the cached wiki page when there is one, as on the map pages.
+    text: the quest's objective wording, so "without armor" finds the quest. Only given a lang (the
+    snapshot's English text) or hand-listed quests; the career catalog doesn't ask for it.
     """
     prefix = '' if mode == 'regular' else 'pve'
     base = ROOT / 'data' / prefix
     tasks = json.loads((base / 'tasks-index.json').read_text(encoding='utf-8'))
     if snapshot_tasks is None:
-        snapshot_tasks = load_snapshot(latest_snapshot(mode))['tasks']['tasks']
+        snapshot = load_snapshot(latest_snapshot(mode))
+        snapshot_tasks, lang = snapshot['tasks']['tasks'], snapshot['lang']
     locations, map_tasks = {}, {}
     for row in map_rows(mode):
         source = json.loads((base / 'maps' / row['file']).read_text(encoding='utf-8'))
@@ -407,6 +422,8 @@ def build_search_index(mode: str, snapshot_tasks: dict | None = None, *, write: 
                         'placeholder': bool(task.get('placeholder', False)),
                         'effort': mode_effort(mode).get(tid),
                         'maps': sorted(locations.get(tid, {}).values(), key=lambda m: (m['name'].casefold(), m['key']))})
+        if text := objective_lines(raw, lang):
+            results[-1]['text'] = text
     results.sort(key=lambda task: (task['name'].casefold(), task['id']))
     if write:
         out = ROOT / 'dist' / prefix / 'search-index.json'

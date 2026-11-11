@@ -69,6 +69,20 @@ class SearchIndexTests(unittest.TestCase):
             self.assertEqual(json.loads((root/'dist/search-index.json').read_text())[0]['minLevel'],5)
             check_site.check_search_indexes(root/'dist')
 
+    def test_objective_wording_reaches_the_index_for_search(self):
+        lang = {'key-1': 'Eliminate PMC operatives without wearing any armor', 'key-2': 'Hand over the item: Bolts'}
+        task = {'objectives': [{'description': 'key-1'}, {'description': 'key-1'}, {'description': 'key-2'}, {'description': 'a1b2c3d4e5f6a7b8c9d0e1f2'},
+                               {'description': 'Hand-listed text with spaces'}, {}]}
+        self.assertEqual(pages.objective_lines(task, lang), ['Eliminate PMC operatives without wearing any armor', 'Hand over the item: Bolts', 'Hand-listed text with spaces'],
+                         'translated, once each, with ids dropped and hand-listed text kept')
+        self.assertEqual(pages.objective_lines({}, lang), [])
+        with tempfile.TemporaryDirectory() as folder, patch.object(pages, 'ROOT', Path(folder)):
+            raw = self.fixture(Path(folder), 'regular')
+            raw['a']['objectives'] = [{'description': 'key-1'}]
+            rows = {r['id']: r for r in pages.build_search_index('regular', raw, lang=lang)}
+            self.assertEqual(rows['a']['text'], ['Eliminate PMC operatives without wearing any armor'])
+            self.assertNotIn('text', rows['multi'], 'quests without objective wording carry no text')
+
     def test_search_checker_requires_both_indexes_and_rejects_invalid_json_and_bad_links(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)

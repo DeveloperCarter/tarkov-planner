@@ -107,3 +107,26 @@ test("search chip counts follow the text, map and Started filter, ignoring map-o
   assert.deepStrictEqual(S.search(entries, "delivery", { statuses, filters: { ...local, ...shared, kappa: true } }).map(q => q.id), ["a"]);
   assert.deepStrictEqual(S.search(entries, "", { statuses, filters: shared }).map(q => q.id).sort(), ["a", "c"], "a hidden filter doesn't change the default started list");
 });
+
+test("objective wording finds quests: the words share one objective, and no/without, kill/eliminate and armor/armour stand in for each other", () => {
+  const list = [
+    { id: "swift", name: "Swift", trader: "Jaeger", text: ["Eliminate any target without wearing any armor and helmets on Woods"] },
+    { id: "loot", name: "Collector", trader: "Fence", text: ["Hand over the found in raid item: DRD body armor", "Hand over any item without a scratch"] },
+    { id: "norse", name: "North Star", trader: "Skier", text: ["Eliminate Scavs", "Wear a helmet"] },
+  ];
+  for (const q of ["without armor", "no armor", "kills with no armour", "eliminate without wearing armor"]) assert.deepStrictEqual(names(S.search(list, q)), ["Swift"], q);
+  assert.deepStrictEqual(names(S.search(list, "armor")).sort(), ["Collector", "Swift"]);
+  assert.deepStrictEqual(S.search(list, "scavs helmet"), [], "words from two different objectives don't make a match");
+  assert.deepStrictEqual(names(S.search(list, "no scavs")), [], "no is a word of its own: North Star and its Scavs objective don't count");
+  assert.deepStrictEqual(names(S.search(list, "no helmet")), ["Swift"], "helmets in a without-wearing objective do");
+  assert.strictEqual(S.snippet(list[0], "no armor"), list[0].text[0]);
+  assert.strictEqual(S.snippet(list[0], "swift"), null, "a name match needs no snippet");
+  assert.deepStrictEqual(S.marks("kills with no armour").sort(), ["armor", "armour", "eliminate", "kill", "killing", "kills", "no", "not", "without"].sort());
+});
+
+test("a name match beats objective text, and entries without text still search by name", () => {
+  const list = [{ id: "a", name: "Armor Up", text: ["Do something else"] }, { id: "b", name: "Zed", text: ["Wear body armor"] }, { id: "c", name: "Plain" }];
+  assert.deepStrictEqual(names(S.search(list, "armor")), ["Armor Up", "Zed"]);
+  assert.deepStrictEqual(names(S.search(list, "plain")), ["Plain"]);
+  assert.deepStrictEqual(S.search(list, "the"), [], "filler alone still has to match somewhere");
+});

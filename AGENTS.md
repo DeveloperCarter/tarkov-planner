@@ -169,6 +169,11 @@ Python 3.10+ (standard library only). Node 18+ (tests only; nothing to install).
   placeholder level/wiki can be null when unknown. All map hrefs are relative to the site root,
   including hrefs inside the PvE index. Kappa comes from the cached wiki quest page when there is one,
   as on the map pages (`build_page.wiki_kappa`); tarkov.dev's flag marks only a handful of tasks.
+- Each index entry carries `text`: the English wording of its objectives (`build_page.objective_lines`; the career
+  catalog doesn't ask for it). Site search matches words the name, trader and maps don't hold against one objective
+  line at a time, so "no armor" finds "...without wearing any armor" (`SAME` groups in `site-search.js` make
+  no/without/not, armor/armour, kill/eliminate and a few more interchangeable; `FILLER` words may be missing).
+  Name matches outrank text matches, and the result shows the matching line (`SiteSearch.snippet`).
 - `dist/career-data.json` (and `pve/`) holds every task in the mode for the Keep and Kappa views.
   Its `kappa` is the wiki's answer or null; null quests are listed for review, never counted.
   Map pages mark wiki answers with `kappaSource: "wiki"`.

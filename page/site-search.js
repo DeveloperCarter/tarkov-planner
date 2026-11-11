@@ -9,19 +9,65 @@
   const escapeRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const STATUS_BOOST = { started: 60, completed: -40, failed: -60 };
 
+  // Objective wording is matched a line at a time, so every leftover word has to sit in the same objective.
+  // Players type "kills with no armor" where the game says "Eliminate ... without wearing any armor": the
+  // words in a group stand in for each other, and filler words don't have to appear.
+  const SAME = [["no", "without", "not"], ["armor", "armour"], ["kill", "kills", "killing", "eliminate"], ["pmc", "pmcs", "player", "players"], ["scav", "scavs"]];
+  const FILLER = new Set(["a", "an", "the", "of", "in", "on", "at", "to", "for", "with", "and", "or", "any", "get", "you", "your", "i"]);
+  const alts = w => SAME.find(g => g.includes(w)) || [w];
+  // Longer words may sit inside a word. A short one has to start a word ("de" finds Debut) in a name, and be
+  // a word of its own in objective text; no/without/not always are, so "no" never finds "North".
+  const NEGATION = SAME[0];
+  const wordAt = (text, w, inText) => {
+    const whole = NEGATION.includes(w) || (inText && w.length <= 2);
+    if (w.length > 2 && !whole) return text.includes(w);
+    return new RegExp(`(^|[^a-z0-9])${escapeRe(w)}${whole ? "($|[^a-z0-9])" : ""}`).test(text);
+  };
+  const hasWord = (text, w, inText) => alts(w).some(a => wordAt(text, a, inText));
+
   // Everything a player might type to find a quest: its name, trader, maps and a few tags.
   function haystack(entry) {
     return fold([entry.name, entry.trader, ...(entry.maps || []).map(m => m.name),
       entry.kappa && "kappa", entry.lightkeeper && "lightkeeper", entry.placeholder && "new"].filter(Boolean).join("\n"));
   }
 
-  /** Score one entry, or null when a term matches nothing. Name matches beat trader/map matches;
-   *  a whole-name or prefix match wins outright; your started quests rise, finished ones sink. */
+  /** Where the words match. Words the name, trader and maps don't hold (left) must all sit in one objective
+   *  line, which is returned for display; filler words among them may be missing. null when something
+   *  matches nowhere. bonus favours lines with the words in the order typed, and shorter lines. */
+  function locate(entry, words, hay = haystack(entry)) {
+    const left = words.filter(w => !hasWord(hay, w)), need = left.filter(w => !FILLER.has(w));
+    if (!left.length) return { left, line: null, bonus: 0 };
+    if (!need.length) return null;
+    let best = null;
+    for (const original of entry.text || []) {
+      const line = fold(original);
+      if (!need.every(w => hasWord(line, w, true))) continue;
+      let at = -1, ordered = true;
+      for (const w of need) {
+        const hits = alts(w).map(a => line.indexOf(a, at + 1)).filter(i => i >= 0);
+        if (!hits.length) { ordered = false; break; }
+        at = Math.min(...hits);
+      }
+      const bonus = need.length * 6 + (ordered ? 15 : 0) - original.length * 0.02;
+      if (!best || bonus > best.bonus) best = { left, line: original, bonus };
+    }
+    return best;
+  }
+  /** The objective that matched the words typed, for showing under a result; null when the name, trader or
+   *  map did all the matching. */
+  function snippet(entry, query) { return locate(entry, terms(query))?.line || null; }
+  /** What to mark in that line: the words typed and the ones they stand in for. */
+  const marks = query => [...new Set(terms(query).filter(w => !FILLER.has(w)).flatMap(alts))];
+
+  /** Score one entry, or null when a term matches nowhere. Name matches beat trader/map matches and those
+   *  beat objective text; a whole-name or prefix match wins outright; your started quests rise, finished
+   *  ones sink. */
   function score(entry, words, status, faction) {
-    const name = fold(entry.name), hay = haystack(entry), phrase = words.join(" ");
-    let s = 0;
+    const name = fold(entry.name), hay = haystack(entry), phrase = words.join(" "), hit = locate(entry, words, hay);
+    if (!hit) return null;
+    let s = hit.bonus;
     for (const w of words) {
-      if (!hay.includes(w)) return null;
+      if (hit.left.includes(w)) continue;
       // Outside the name: the trader, then a map whose in-game list shows the quest, then any map.
       s += new RegExp(`(^|[^a-z0-9])${escapeRe(w)}`).test(name) ? 40 : name.includes(w) ? 20
         : fold(entry.trader).includes(w) ? 8 : (entry.maps || []).some(m => m.onMap && fold(m.name).includes(w)) ? 10 : 3;
@@ -85,5 +131,5 @@
     return maps.find(m => m.key === preferKey) || maps.find(m => m.key === hereKey) || maps.find(m => m.onMap) || maps[0] || null;
   }
 
-  return { fold, terms, search, browse, candidates, facets, primaryMap };
+  return { fold, terms, search, browse, candidates, facets, primaryMap, snippet, marks };
 });

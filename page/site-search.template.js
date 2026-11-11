@@ -42,8 +42,7 @@
     indexes[m] ??= fetch(btn.dataset["index" + (m === "pve" ? "Pve" : "Pvp")]).then(r => r.ok ? r.json() : Promise.reject(new Error(r.status)));
     return indexes[m];
   }
-  function hl(text) {
-    const t = SiteSearch.terms(input.value);
+  function hl(text, t = SiteSearch.terms(input.value)) {
     if (!t.length) return esc(text);
     // Match on folded text but mark the original letters (folding keeps one character per letter).
     const folded = SiteSearch.fold(text), marks = new Array(text.length).fill(false);
@@ -90,9 +89,11 @@
     list.innerHTML = results.map((e, i) => {
       const t = target(e), st = statuses[e.id];
       const tags = [e.trader, e.minLevel > 1 && `Lvl ${e.minLevel}`, e.faction && e.faction !== "Any" && `${e.faction} only`].filter(Boolean).map(esc).join(" · ");
+      const hit = SiteSearch.snippet(e, input.value);
       return `<li role="option" id="ss-o${i}" class="ss-row${otherSide(e) ? " other-side" : ""}" data-i="${i}" aria-selected="${i === active}">
         <div class="ss-main"><span class="ss-name">${hl(e.name)}</span>${st ? `<span class="qst ${st}">${STATUS[st]}</span>` : ""}${e.kappa ? `<span class="kmark" title="Needed for Kappa">K</span>` : ""}${e.easy ? `<span class="emark" title="Easy win: ${esc(e.easyWhy)}">Easy</span>` : ""}${e.placeholder ? `<span class="ss-new">New</span>` : ""}</div>
         <div class="ss-meta"><span>${tags}</span>${t ? "" : `<span>No map objectives</span>`}</div>
+        ${hit ? `<div class="ss-hit">${hl(hit, SiteSearch.marks(input.value))}</div>` : ""}
         <div class="ss-maps">${mapLinks(e, t)}${e.wiki ? `<a href="${esc(e.wiki)}" target="_blank" rel="noopener" class="wiki">Wiki ↗</a>` : ""}</div>
       </li>`;
     }).join("");
